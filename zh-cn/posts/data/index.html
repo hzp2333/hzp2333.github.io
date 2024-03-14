@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>一份经济微观数据库的数据清洗快速指南 - 滑翔闪&#39;S BLOG</title><meta name="Description" content=""><meta property="og:title" content="一份经济微观数据库的数据清洗快速指南" />
+<meta property="og:description" content="前人之述备矣，我只是浅踩了几个坑。 主要软件： stata、EXCEL、stata。 一、流行的国内数据库： 大部分微观数据库文件似乎以stata、" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/data/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-06T18:09:26+08:00" />
+<meta property="article:modified_time" content="2024-03-06T18:09:26+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="一份经济微观数据库的数据清洗快速指南"/>
+<meta name="twitter:description" content="前人之述备矣，我只是浅踩了几个坑。 主要软件： stata、EXCEL、stata。 一、流行的国内数据库： 大部分微观数据库文件似乎以stata、"/>
+<meta name="application-name" content="滑翔闪&#39;S BLOG">
+<meta name="apple-mobile-web-app-title" content="滑翔闪&#39;S BLOG"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/data/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "一份经济微观数据库的数据清洗快速指南",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/"
+        },"genre": "posts","keywords": "stata","wordcount":  5677 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/","datePublished": "2024-03-06T18:09:26+08:00","dateModified": "2024-03-06T18:09:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "滑翔闪"},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="" data-header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+<a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+    <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+</a>
+
+
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/meme.js"></script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/anime.min.js"></script>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/fireworks.js"></script> 
+
+<script defer src="https://cdn.jsdelivr.net/npm/akilar-live2d-widget/autoload.min.js"></script>
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script>
+
+
+<script src="/js/yh.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/data/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/data/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一份经济微观数据库的数据清洗快速指南</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5677 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 12 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/11a%20%281%29.png"
+        data-srcset="/img/11a%20%281%29.png, /img/11a%20%281%29.png 1.5x, /img/11a%20%281%29.png 2x"
+        data-sizes="auto"
+        alt="/img/11a (1).png"
+        title="/img/11a (1).png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一流行的国内数据库">一、流行的国内数据库：</a>
+      <ul>
+        <li><a href="#大型综合数据库">大型、综合数据库</a></li>
+      </ul>
+    </li>
+    <li><a href="#二-清洗思路和意义">二、 清洗思路和意义</a></li>
+    <li><a href="#三stata操作">三、STATA操作</a>
+      <ul>
+        <li><a href="#推荐教程">推荐教程</a></li>
+        <li><a href="#我个人遇到过的一些情况">我个人遇到过的一些情况</a></li>
+        <li><a href="#1中文数据库导入的转码问题">1、中文数据库导入的转码问题</a></li>
+        <li><a href="#2数据库的匹配">2、数据库的匹配</a></li>
+        <li><a href="#3变量的快速选择">3、变量的快速选择</a></li>
+        <li><a href="#4插值法">4、插值法</a></li>
+        <li><a href="#5字符转数字">5、<strong>字符转数字：</strong></a></li>
+        <li><a href="#6日期转码5"><strong>6、日期转码</strong></a></li>
+        <li><a href="#7删除和条件语句">7、删除和条件语句</a></li>
+        <li><a href="#8去尾处理">8、去尾处理</a></li>
+        <li><a href="#9分组处理">9、分组处理</a></li>
+        <li><a href="#10排序处理">10、排序处理</a></li>
+        <li><a href="#11删去重复行">11、删去重复行</a></li>
+        <li><a href="#更多">更多：</a></li>
+      </ul>
+    </li>
+    <li><a href="#四stata转excel"><strong>四、STATA转EXCEL</strong></a></li>
+    <li><a href="#五excel">五、EXCEL</a>
+      <ul>
+        <li><a href="#0常见乱码">0、常见乱码</a></li>
+        <li><a href="#1vlookup函数">1、VLOOKUP函数</a></li>
+        <li><a href="#2数据透视表">2、数据透视表</a></li>
+        <li><a href="#3字符拆卸">3、字符拆卸</a></li>
+        <li><a href="#4删改字符">4、删改字符</a></li>
+        <li><a href="#5数据库合并"><strong>5、数据库合并</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#六结束">六、结束</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/spacewalk.mp3" name="SpaceWalk" artist="hoyo-mix" cover="/images/xingqiong.jpg" theme="#448aff"></meting-js>
+<p><strong>前人之述备矣，我只是浅踩了几个坑。</strong><br>
+主要软件： <code>stata</code>、<code>EXCEL</code>、<code>stata</code>。</p>
+<h2 id="一流行的国内数据库">一、流行的国内数据库：</h2>
+<blockquote>
+<p>大部分微观数据库文件似乎以<code>stata</code>、<code>EXCEL</code>、<code>stata</code>文件为主。<br>
+按主体（社区问卷、家庭问卷、社会文件）和主题（背景信息、健康、经济&hellip;）分开。<br>
+每一年的截面数据也是分开的,<br>
+所以需要自己处理成面板数据。</p>
+</blockquote>
+<p>用<strong>学生邮箱</strong>在官网申请即可。</p>
+<h3 id="大型综合数据库">大型、综合数据库</h3>
+<p>1、CFPS：<a href="http://www.isss.pku.edu.cn/cfps/" target="_blank" rel="noopener noreffer">www.isss.pku.edu.cn/cfps/</a>
+</p>
+<p><strong>中国教育追踪调查：</strong> CFPS由北京大学中国社会科学调查中心（ISSS）实施。跟踪收集个体、家庭、社区三个层次的数据，反映中国社会、经济、人口、教育和健康的变迁，为学术研究和公共政策分析提供数据基础。</p>
+<p>2、CMDS：<a href="https://www.chinaldrk.org.cn/wjw/#/application/index" target="_blank" rel="noopener noreffer">数据申请 (chinaldrk.org.cn)</a>
+</p>
+<p><strong>中国流动人口动态监测数据：</strong> 国家卫生健康委自2009年起一年一度大规模全国性流动人口抽样调查数据，内容涉及流动人口及家庭成员基本信息、流动范围和趋向、就业和社会保障、收支和居住、基本公共卫生服务、婚育和计划生育服务管理、子女流动和教育、心理文化等。</p>
+<p>3、CHARLS:<a href="http://charls.pku.edu.cn/" target="_blank" rel="noopener noreffer">中国健康与养老追踪调查 (pku.edu.cn)</a>
+</p>
+<p><strong>中国健康与养老追踪调查:</strong> 中国健康与养老追踪调查。北京大学国家发展研究院主持、中国社会科学调查中心执行的一项大型跨学科调查项目代表中国45岁及以上中老年人家庭和个人的高质量微观数据。</p>
+<p>4、<strong>中国统计年鉴：</strong> 城市数据、区域数据&hellip;</p>
+<p>这个网上整理好的面板数据满天飞。</p>
+<p>其他：例如还有中国家庭金融调查，但没有面向社会开放。</p>
+<p><strong>我们还可以用一些小的专题数据库来辅助主要数据库进行分析。</strong></p>
+<p>例如北大普惠金融数据库：<a href="https://idf.pku.edu.cn/yjcg/zsbg/513800.htm" target="_blank" rel="noopener noreffer">北京大学数字普惠金融指数</a>
+</p>
+<blockquote>
+<p>例如现在关于城市数字经济的测量，<br>
+大部分人采用的是赵涛（2020）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>的方法，<br>
+将城市统计年鉴+普惠金融的数据作为指标。<br>
+随着“数字经济”的火热，不知多少人第一篇计量是从数字经济、城市韧性开始的，，，，，</p>
+</blockquote>
+<p>还有一些付费网站（学校可能会有买的<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>）</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png" title="经济学还有以上付费数据库，可以看自己学校有没有购买" data-thumbnail="/img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png" data-sub-html="<h2> </h2><p>经济学还有以上付费数据库，可以看自己学校有没有购买</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png"
+            data-srcset="/img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png, /img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png 1.5x, /img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-f9bf4ad7840bccb9874356615b875004_720w-17097200427432.png" />
+    </a><figcaption class="image-caption">经济学还有以上付费数据库，可以看自己学校有没有购买</figcaption>
+    </figure></p>
+<p>经济学还有以上付费数据库，可以看自己学校有没有购买</p>
+<p>金融数据库不太了解，锐思看起来挺好用</p>
+<p><strong>经济方面：中经网、EPS网页直接整理面板，非常好用。</strong></p>
+<blockquote>
+<p>互联网上的数据库<strong>灰色产业</strong>：<br>
+网络上大量数据库有免费账号售卖，<br>
+其实就是学生把自己的学校账号权限集合成了数据库访问网站。</p>
+</blockquote>
+<h2 id="二-清洗思路和意义">二、 清洗思路和意义</h2>
+<p>清洗数据具体做什么？基本上就是完成以下工作。</p>
+<ul>
+<li><strong>进行表格匹配</strong>：匹配合并不同的数据库表格，目的是整合筛选指标，分为横向和纵向匹配。</li>
+<li><strong>去除不良数据：</strong> 去除不良数据。例如空白数据、极端数据、不需要的数据&hellip;&hellip;&hellip;</li>
+<li><strong>填补空白数据：</strong> 填充数据。处理面板数据和时间序列，我们往往通过线性插值的方法补充中间或边缘的缺失值。</li>
+<li><strong>数据聚合：</strong> 通过特定方法数据建立指标，例如主成分、熵权法、层次分析&hellip;&hellip;</li>
+</ul>
+<p>最重要的是掌握<strong>工！作！流！程！</strong></p>
+<blockquote>
+<p>一般在跑回归时都会发生“变量不够”、“遗失变量”等惨剧， 我们随时可能需要返工更新变量，检查失误环节，因此保留完整的流程文件夹是很有必要的。</p>
+</blockquote>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240306181840674.png" title="流程" data-thumbnail="/img/image-20240306181840674.png" data-sub-html="<h2> </h2><p>流程</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240306181840674.png"
+            data-srcset="/img/image-20240306181840674.png, /img/image-20240306181840674.png 1.5x, /img/image-20240306181840674.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240306181840674.png" />
+    </a><figcaption class="image-caption">流程</figcaption>
+    </figure></p>
+<p><strong>经验之谈!!!!!</strong> 原始数据保留一个文件夹、表格匹配完成后保留一个文件夹、清洗过程再保留一个文件夹！</p>
+<p>一是能展现我们各个工作步骤，便于检查工作，二是方便随时从中间步骤“返工”。</p>
+<h2 id="三stata操作">三、STATA操作</h2>
+<h3 id="推荐教程">推荐教程</h3>
+<p>教程视频，看一个足矣（两小时）：</p>
+<blockquote>
+<p>简介里提到了这位up个人 githubgithub 主页（录屏和do文件）</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1fK411o7qV&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h3 id="我个人遇到过的一些情况">我个人遇到过的一些情况</h3>
+<h3 id="1中文数据库导入的转码问题">1、中文数据库导入的转码问题</h3>
+<p>中文乱码，要么更新 statastata 版本、要么使用代码</p>
+<blockquote>
+<p>两个方法其实是一个作用。</p>
+</blockquote>
+<p><strong>方法一：处理</strong> cmdscmds <strong>时遇到了</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cd</span><span class="w"> </span><span class="s2">&#34;C:\Users\Desktop\转码&#34;</span><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">新建一个转码文件夹，然后修改自己的路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">encoding</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">gb18030</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">analyze</span><span class="w"> </span><span class="err">流动人口数据个人问卷</span><span class="mi">2018</span><span class="p">.</span><span class="n">dta</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="err">文件名根据自己的数据进行调整</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">translate</span><span class="w"> </span><span class="err">流动人口数据个人问卷</span><span class="mi">2018</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">invalid</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="err">文件名根据自己的数据进行调整</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>方法二：处理</strong> charlscharls <strong>的</strong>PSU.dta<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup><strong>时遇到省份、城市乱码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">cd</span><span class="w"> </span><span class="s2">&#34;D:\household_and_community_questionnaire_data&#34;</span><span class="w">  </span><span class="o">//</span><span class="err">设置文件储存地点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">analyze</span><span class="w"> </span><span class="n">PSU</span><span class="p">.</span><span class="n">dta</span><span class="w"> </span><span class="o">//</span><span class="n">PSU</span><span class="p">.</span><span class="n">dta换成要编译的文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">encoding</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="s2">&#34;GB18030&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="n">retranslate</span><span class="w"> </span><span class="n">psu</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">transutf8</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2数据库的匹配">2、数据库的匹配</h3>
+<p>无非就是围绕样本的 ID、yearID、year 进行整合</p>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240306182215377.png" title="img" data-thumbnail="/img/image-20240306182215377.png" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240306182215377.png"
+            data-srcset="/img/image-20240306182215377.png, /img/image-20240306182215377.png 1.5x, /img/image-20240306182215377.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240306182215377.png" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<p>stata 的匹配代码——<strong>以下只写简洁解释</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">//</span><span class="n">master_data</span><span class="p">.</span><span class="n">dta就是基底数据库</span><span class="err">，</span><span class="n">using_data</span><span class="p">.</span><span class="n">dta就是我们要匹配上去的数据库</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">m</span><span class="p">:</span><span class="n">n</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="err">意思就是第一个数据的</span><span class="n">m个id可以对应n个第二个数据库的样本id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">简而言之，</span><span class="n">m</span><span class="p">:</span><span class="n">n就是多对一</span><span class="err">，</span><span class="n">n</span><span class="p">:</span><span class="n">n就是1对1</span><span class="err">，</span><span class="n">m</span><span class="p">:</span><span class="n">m就是多对多</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">所以我们也可以添加多个匹配条件，例如</span><span class="n">merge</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="k">treat</span><span class="w"> </span><span class="p">......</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">横向匹配</span><span class="o">**************************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="s2">&#34;master_data.dta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">merge</span><span class="w"> </span><span class="n">m</span><span class="p">:</span><span class="n">n</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;using_data.dta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">drop</span><span class="w"> </span><span class="n">_merge</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;new_data.dta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">纵向匹配</span><span class="o">**************************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="s2">&#34;data1.dta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">append</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;data2.dta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;new_data.dta&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3变量的快速选择">3、变量的快速选择</h3>
+<p>stata右上角有个变量窗口。右键可以得到全选和其他选择，也可以充当检索框。</p>
+<p>同时选择就是ctrl+多次点击。如果我们需要一口气同时选择断断续续的十几个变量，请积极使用。</p>
+<p>截取中间一段，就是点击一个变量，然后同时shift+单击一个变量，就是截取中间一段</p>
+<blockquote>
+<p>例如，可以先右键，全选，然后ctrl+点击去掉不要的变量；<br>
+例如，我们要查看特定数据完整度，就在处理时先命名为“x_i”，然后筛选命名为x的进行全选。</p>
+</blockquote>
+<p>
+<figure><a class="lightgallery" href="/img/v2-cfbacf78f190a572c15f810aa438635b_720w.png" title="在python拥有这种窗口前我不会认为跑回归这事它优于stata" data-thumbnail="/img/v2-cfbacf78f190a572c15f810aa438635b_720w.png" data-sub-html="<h2> </h2><p>在python拥有这种窗口前我不会认为跑回归这事它优于stata</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-cfbacf78f190a572c15f810aa438635b_720w.png"
+            data-srcset="/img/v2-cfbacf78f190a572c15f810aa438635b_720w.png, /img/v2-cfbacf78f190a572c15f810aa438635b_720w.png 1.5x, /img/v2-cfbacf78f190a572c15f810aa438635b_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-cfbacf78f190a572c15f810aa438635b_720w.png" />
+    </a><figcaption class="image-caption">在python拥有这种窗口前我不会认为跑回归这事它优于stata</figcaption>
+    </figure></p>
+<h3 id="4插值法">4、插值法</h3>
+<p>线性插值，面板数据，</p>
+<p>老规矩，面板先<strong>标记个体编号和年份编号</strong>，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">xtset</span><span class="w"> </span><span class="n">id</span><span class="w">  </span><span class="k">year</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">ipolate</span><span class="w"> </span><span class="n">YY</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="n">gen</span><span class="p">(</span><span class="n">YYY</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="err">内插，中间空缺值，填完后命名为新变量</span><span class="n">YYY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">ipolate</span><span class="w"> </span><span class="n">XX</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="n">gen</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="w"> </span><span class="n">epolate</span><span class="w"> </span><span class="o">//</span><span class="err">外插，边缘空缺值，填完后命名为新变量</span><span class="n">XXX</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>我的建议是，能用 forvalues就用forvalues<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>，还要活用变量宏。</p>
+<blockquote>
+<p>当知道了基础的循环命令+变量嵌套+判断筛选命令，编写代码就可以天马行空了。</p>
+</blockquote>
+<p>例如下面这个批量插值循环如下：</p>
+<p>$var_i  \stackrel{内插}{\longrightarrow}varx_i\stackrel{外插}{\longrightarrow}varn_i\stackrel{替换}{\longrightarrow}var_i\stackrel{删除}{\longrightarrow}varx_i \&amp; varn_i$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">global</span><span class="w"> </span><span class="n">var0</span><span class="w">  </span><span class="n">admarea</span><span class="w"> </span><span class="n">var1</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="n">var3</span><span class="w"> </span><span class="n">genshin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">打包所有需要插值的变量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">foreach</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="err">$</span><span class="n">var</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">ipolate</span><span class="w"> </span><span class="o">`</span><span class="n">i</span><span class="s1">&#39; year,gen(varx`i&#39;</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">ipolate</span><span class="w"> </span><span class="n">varx</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39; year,gen(varn`i&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">epolate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="o">`</span><span class="n">i</span><span class="s1">&#39; =  varn`i&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">drop</span><span class="w">  </span><span class="n">varx</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39;   varn`i&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>互联网还流传着一个“一键显著”的清洗。思想就是暴力排列组合控制变量，后面甚至开始筛选样本了。我的看法是，可以看看选控制变量的代码，但别随意动样本，经济学计量发展的一个核心灵魂就是“随机实验”，干预样本选择容易破坏数据随机性，基本上就是造假了。</p>
+<p>（不过仅就代码思维来说，这确实体现了当你掌握了筛选，判断，循环的命令后，你可以干的事已经非常多了，同样是清洗，如何进行算法组合就是考验人的地方。）</p>
+<h3 id="5字符转数字">5、<strong>字符转数字：</strong></h3>
+<p>例如 charls 数据库的communityID 就是以字符形式存在的。</p>
+<blockquote>
+<p>虽然中文作为变量名也可以匹配，但当长度太长时stata似乎不能处理，<br>
+使用命令<strong>强制</strong>转化成数字：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">destring</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="n">householdID</span><span class="w"> </span><span class="n">communityID</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">force</span><span class="w"> </span><span class="o">*</span><span class="err">加上</span><span class="k">force</span><span class="err">，正义执行！</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6日期转码5"><strong>6、日期转码</strong><sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></h3>
+<p>有些时候我们下载的日期代码不能被 stata 识别，此时要用到date函数。</p>
+<blockquote>
+<p>例如一次课堂作业，我想展现中国的自信！<br>
+给老师一点小小的中国震撼。（这就是中国.jpg）<br>
+用的是<a href="https://data.iimedia.cn/page-category.jsp?type=basic" target="_blank" rel="noopener noreffer">艾媒咨询</a>
+的华为、苹果笔记本淘宝数据。<br>
+ps:当时顺便找了中日俄美的出口贸易数据，数据来源<a href="https://data.worldbank.org.cn/indicator/NY.GDP.MKTP.CD?view=map" target="_blank" rel="noopener noreffer">世界银行</a>
+。</p>
+</blockquote>
+<p>但尴尬的是，里面 Excel加载的日期格式为Y-M-D， stata不能直接识别</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png" title="2是华为，1是苹果，销量是nurmber，日期是year那列" data-thumbnail="/img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png" data-sub-html="<h2> </h2><p>2是华为，1是苹果，销量是nurmber，日期是year那列</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png"
+            data-srcset="/img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png, /img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png 1.5x, /img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-a93982c1f3793ba5f8817f09e1b92ca3_720w.png" />
+    </a><figcaption class="image-caption">2是华为，1是苹果，销量是nurmber，日期是year那列</figcaption>
+    </figure></p>
+<p>使用代码：(我在经管之家找的代码）</p>
+<p>画图命令我还是觉得 scatterscatter 比 xtlinextline 好看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">import</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="s2">&#34;E:\桌面\笔记本.xlsx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">sheet</span><span class="p">(</span><span class="s2">&#34;Sheet1&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">firstrow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">generate</span><span class="w"> </span><span class="nb">date</span><span class="o">=</span><span class="nb">date</span><span class="p">(</span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;YMD&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="err">识别日期</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">format</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">%</span><span class="n">td</span><span class="w"> </span><span class="o">//</span><span class="err">进一步转化</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure><a class="lightgallery" href="/img/v2-1f890533d2de947bad60404c1e8b2067_720w.png" title="绿色是苹果，金色是华为。可以看到date被处理后变成特殊的日期形式，而且可以直接用stata画散点图。原始图不见了，就简单重画了，请勿在意这鬼畜的配色" data-thumbnail="/img/v2-1f890533d2de947bad60404c1e8b2067_720w.png" data-sub-html="<h2> </h2><p>绿色是苹果，金色是华为。可以看到date被处理后变成特殊的日期形式，而且可以直接用stata画散点图。原始图不见了，就简单重画了，请勿在意这鬼畜的配色</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-1f890533d2de947bad60404c1e8b2067_720w.png"
+            data-srcset="/img/v2-1f890533d2de947bad60404c1e8b2067_720w.png, /img/v2-1f890533d2de947bad60404c1e8b2067_720w.png 1.5x, /img/v2-1f890533d2de947bad60404c1e8b2067_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-1f890533d2de947bad60404c1e8b2067_720w.png" />
+    </a><figcaption class="image-caption">绿色是苹果，金色是华为。可以看到date被处理后变成特殊的日期形式，而且可以直接用stata画散点图。原始图不见了，就简单重画了，请勿在意这鬼畜的配色</figcaption>
+    </figure></p>
+<p>绿色是苹果，金色是华为。可以看到date被处理后变成特殊的日期形式，而且可以直接用stata画散点图。原始图不见了，就简单重画了，请勿在意这鬼畜的配色</p>
+<p>再举例一份关于空气污染的数据。excel中date一栏为“<strong>短格式日期</strong>”</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png" title="img" data-thumbnail="/img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png"
+            data-srcset="/img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png, /img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png 1.5x, /img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-a6bdfe3d0ce909263b33455b2e0f521d_720w.png" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<p>导入stata使用date函数，进行画图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">generate</span> <span class="n">year</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s">&#34;YMD&#34;</span><span class="p">)</span> <span class="o">//</span><span class="n">识别日期</span>
+</span></span><span class="line"><span class="cl"><span class="n">format</span> <span class="n">year</span> <span class="err">%</span><span class="n">td</span> <span class="o">//</span><span class="n">进一步转化</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure><a class="lightgallery" href="/img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg" title="根据这个图很容易发现季节上的周期性" data-thumbnail="/img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg" data-sub-html="<h2> </h2><p>根据这个图很容易发现季节上的周期性</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg"
+            data-srcset="/img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg, /img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg 1.5x, /img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg 2x"
+            data-sizes="auto"
+            alt="/img/v2-90896c399e6859532ce9a9de819b07f1_720w.jpeg" />
+    </a><figcaption class="image-caption">根据这个图很容易发现季节上的周期性</figcaption>
+    </figure></p>
+<p>通过描述统计画图可以看出空气污染在季节上有周期性。于是我们想把月份单独切片出来进行季节编号。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-abap" data-lang="abap"><span class="line"><span class="cl"><span class="nv">generate</span> <span class="nv">month</span> <span class="o">=</span> <span class="nv">month</span><span class="p">(</span><span class="nv">year</span><span class="p">)</span> <span class="p">//</span><span class="nv">对已经处理后的year日期进行月份切片</span>
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="nv">更详细解释可以参考</span><span class="err">：</span><span class="nv">https</span><span class="p">://</span><span class="nv">stata</span><span class="o">-</span><span class="nv">club</span><span class="p">.</span><span class="nv">github</span><span class="p">.</span><span class="nv">io</span><span class="p">/</span><span class="nv">stata_article</span><span class="p">/</span><span class="mi">2017</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">29</span><span class="p">.</span><span class="nv">html</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">spring</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">|</span><span class="s1">month == 4 </span><span class="p">|</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="k">replace </span><span class="nv">spring</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">spring</span> <span class="err">!</span><span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">summer</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">6</span> <span class="p">|</span><span class="s1">month == 7 </span><span class="p">|</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="k">replace </span><span class="nv">summer</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">summer</span> <span class="err">!</span><span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">fall</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">9</span> <span class="p">|</span><span class="s1">month == 10 </span><span class="p">|</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl"><span class="k">replace </span><span class="nv">fall</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">fall</span> <span class="err">!</span><span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">winter</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">12</span> <span class="p">|</span><span class="s1">month == 1 </span><span class="p">|</span> <span class="nv">month</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">replace </span><span class="nv">winter</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">winter</span> <span class="err">!</span><span class="o">=</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure><a class="lightgallery" href="/img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png" title="根据季节分类进行拟合会发现线性趋势更加明显。我们发现温度和污染具有相关性所以前一个图呈现周期性，我们也可以提出假设温度越低，暖气、热炕、煤炭的使用导致空气污染增多" data-thumbnail="/img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png" data-sub-html="<h2> </h2><p>根据季节分类进行拟合会发现线性趋势更加明显。我们发现温度和污染具有相关性所以前一个图呈现周期性，我们也可以提出假设温度越低，暖气、热炕、煤炭的使用导致空气污染增多</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png"
+            data-srcset="/img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png, /img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png 1.5x, /img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-cd0a1c9251b4ad49b97bd1e3e73cd24a_720w.png" />
+    </a><figcaption class="image-caption">根据季节分类进行拟合会发现线性趋势更加明显。我们发现温度和污染具有相关性所以前一个图呈现周期性，我们也可以提出假设温度越低，暖气、热炕、煤炭的使用导致空气污染增多</figcaption>
+    </figure></p>
+<h3 id="7删除和条件语句">7、删除和条件语句</h3>
+<p>stata删除特定列的命令是drop命令。</p>
+<p>建议直接&quot;h drop&quot;查看说明。</p>
+<p><strong>活用if条件、forvalues循环命令就是考验算法素养的时候！</strong></p>
+<ul>
+<li>你要处理怎样的数据，你的目的是什么？</li>
+<li>目的可以怎样分解，可以分解成怎样的流程，怎样的if条件筛选更快，怎样的forvalues循环可以尽快地简化你的清洗步骤？</li>
+<li>活用stata的do文件，考虑代码的复用性，这样写代码后，之后能不能循环重复利用，例如只换变量名词。</li>
+</ul>
+<h3 id="8去尾处理">8、去尾处理</h3>
+<p>去除不良的极端数据。个人经验，先destring一下转数字，然后sum一下，加scatter x x看看分布。</p>
+<h3 id="9分组处理">9、分组处理</h3>
+<p>按照变量“国界”分组，计算每组对应变量的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">乡村振兴边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">乡村振兴</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">产业兴旺边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">产业兴旺</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">生态宜居边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">生态宜居</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">治理有效边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">治理有效</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">乡风文明边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">乡风文明</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bysort</span> <span class="n">国界</span><span class="p">:</span> <span class="n">egen</span> <span class="n">生活富裕边境</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">生活富裕</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="10排序处理">10、排序处理</h3>
+<p>想让数据根据一些标准从小到大排列，使用sort命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">sort</span> <span class="n">year</span> <span class="n">age</span> <span class="n">income</span> <span class="o">//</span><span class="n">首先按照年份排序</span><span class="err">，</span><span class="n">相同年份的一列中按照年龄排序</span><span class="err">，</span><span class="n">同年同年龄就按收入排序</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="11删去重复行">11、删去重复行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">duplicates</span> <span class="n">drop</span> <span class="k">var</span><span class="err">，</span><span class="n">force</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="更多">更多：</h3>
+<p><a href="https://mp.weixin.qq.com/s/czoXZ-GhQGpWmCkd8kiAnA" target="_blank" rel="noopener noreffer">stata数据清洗管理的常用技能知识, 资源错配的代码</a>
+</p>
+<h2 id="四stata转excel"><strong>四、STATA转EXCEL</strong></h2>
+<p><strong>dta文件如何转excel?</strong></p>
+<p><strong>代码为：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">export</span> <span class="n">excel</span> <span class="n">using</span> <span class="s">&#34;data.xlsx&#34;</span><span class="p">,</span> <span class="n">firstrow</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>其中firstrow(variables)指excel行保留为变量名<br>
+&ldquo;data.xlsx&quot;是自己保存文件的命令<br>
+对应的如果要指定文件保存位置，可以改成 &ldquo;E:\桌面\新建文件夹 (2)\stata\merge.dta&rdquo;</p>
+</blockquote>
+<h2 id="五excel">五、EXCEL</h2>
+<h3 id="0常见乱码">0、常见乱码</h3>
+<p>一些下面这些样的excel/csv乱码是因为格式不对，例如下图，把文本框格式调整为日期即可。</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png" title="img" data-thumbnail="/img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png"
+            data-srcset="/img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png, /img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png 1.5x, /img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-7f93e6c025e29d6124b847aa967418eb_720w.png" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<h3 id="1vlookup函数">1、VLOOKUP函数</h3>
+<p>用多了就觉得 stata 比 Excel快多了。例如我做个一个任务是关描述统计乡村振兴水平，其中要展示各项指标平均值以上的村数，如果是excel还是比较麻烦的，涉及判断的（如果没有掌握VBA语言的话），stata处理会更加快速。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">global</span> <span class="err">$</span><span class="n">xlist</span> <span class="n">x1</span> <span class="n">x2</span> <span class="n">x3</span> <span class="n">x4</span> <span class="n">x5</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">foreach</span> <span class="n">i</span> <span class="ow">in</span> <span class="err">$</span><span class="n">xlist</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">egen</span> <span class="n">b</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="err">`</span><span class="n">i</span><span class="p">&#39;)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">gen</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="err">`</span><span class="n">i</span><span class="p">&#39;)</span><span class="o">+</span><span class="mi">0</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">&gt;=</span> <span class="err">`</span><span class="n">i</span><span class="p">&#39;)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">egen</span> <span class="n">sum_</span><span class="err">`</span><span class="n">i</span><span class="p">&#39;</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">drop</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">	<span class="n">drop</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">  <span class="err">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>经济最好找数据和分析的肯定是城市面板数据了，<br>
+少不了城市代码匹配</p>
+</blockquote>
+<p>请参考：<a href="https://zhuanlan.zhihu.com/p/463789763" target="_blank" rel="noopener noreffer">链接</a>
+里还贴心地附上了城市代码，强烈感谢！</p>
+<p>使用vlookup函数时，还可能遇见的一种<a href="https://zhidao.baidu.com/question/1242779765711800899.html#:~:text=%E4%BD%BF%E7%94%A8vlookup%E5%85%AC%E5%BC%8F%E5%90%8E%EF%BC%8C%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%8F%AA%E6%98%BE%E7%A4%BA%E6%88%91%E7%9A%84%E5%85%AC%E5%BC%8F%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%88%91%E4%BB%AC%E5%B0%86%E6%9C%AC%E8%AF%A5%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E8%AE%BE%E7%BD%AE%E6%88%90%E9%9D%9E%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E4%BA%86%EF%BC%8C%E6%88%96%E8%80%85%E6%98%AF%E6%88%91%E4%BB%AC%E5%B0%86%E5%85%AC%E5%BC%8F%E9%80%89%E9%A1%B9%E5%8B%BE%E9%80%89%E4%B8%8A%E4%BA%86%E6%98%BE%E7%A4%BA%E5%85%AC%E5%BC%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E8%AF%A5%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%EF%BC%9A,1%E3%80%81%E5%A6%82%E5%9B%BE%E6%88%91%E4%BB%AC%E6%89%93%E5%BC%80%E7%94%B5%E8%84%91%E9%87%8C%E7%9A%84excel%E8%A1%A8%E6%A0%BC%E6%8F%92%E5%85%A5vlookup%E5%87%BD%E6%95%B0%E5%8F%91%E7%8E%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C%E5%8F%AA%E6%98%BE%E7%A4%BA%E5%85%AC%E5%BC%8F%E3%80%82" target="_blank" rel="noopener noreffer">情况</a>
+，excel的格式设置真是千奇百怪！</p>
+<h3 id="2数据透视表">2、数据透视表</h3>
+<p>简单清洗<strong>计数</strong>和相对复杂的<strong>分组求和</strong>时用。</p>
+<p>插入-数据透视，Excel现在这个功能还挺智能的，主要是清洗一些需要累计的面板数据时非常好用。</p>
+<blockquote>
+<p>注意：数据透视表的“累加函数”需要excel格式为“数值”，“计数函数”则不限定格式。<br>
+也有时候导入excel的数</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png" title="img" data-thumbnail="/img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png"
+            data-srcset="/img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png, /img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png 1.5x, /img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-ea1221fa8dd926e2bfcdfed3373514b4_720w.png" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure>据格式默认为“文本”，需要调整（至少先弄成“常规”格式)。</p>
+</blockquote>
+<h3 id="3字符拆卸">3、字符拆卸</h3>
+<blockquote>
+<p>就经济学的计量而言，目前顶流方案当属 DID。<br>
+目前如果学校有学生计量论文比赛，大概率是“双重差分法”的纯肉搏（狗头）<br>
+做 did时我们就需要手动记录政策变量。比如智慧城市、创新城市分三批分别在几年内试点。<br>
+这时候我们可不能傻乎乎地挨个复制粘贴，请使用 Excel 的字符拆分。</p>
+</blockquote>
+<p>比如拆试点城市的集合“北京，重庆，天津，上海”,</p>
+<p>可以选中该空格，$数据\Rightarrow分列$，</p>
+<p><strong>“文本分列向导”对话框选择“分隔符号”，点击“下一步”，勾选“分隔符号”中的“，”。</strong></p>
+<p>此时就可以完成分行。再结合VLOOKUP函数匹配即可。</p>
+<h3 id="4删改字符">4、删改字符</h3>
+<p>巧妙运用 vlookup已经能应对大多数情况，但依旧不够！数据清洗之坑防不胜防</p>
+<blockquote>
+<p>有些 Excel 文件 cityid 是1100，有些是110000<br>
+有些是成都，有些则是成都<strong>市</strong>！</p>
+</blockquote>
+<ul>
+<li>Excel去字符操作：A2=LEFT(A1,LEN(A1)-1)</li>
+<li>Excel加字符操作：A2=A1&amp;&ldquo;市&rdquo;</li>
+</ul>
+<h3 id="5数据库合并"><strong>5、数据库合并</strong></h3>
+<blockquote>
+<p><strong><a href="https://zhuanlan.zhihu.com/p/510963665" target="_blank" rel="noopener noreffer">请看大屏幕</a>
+！</strong><br>
+最开始觉得Excel这样用起来挺小白的，但会用stata后才会发现data文件合并的效率远比Excel高。</p>
+</blockquote>
+<h2 id="六结束">六、结束</h2>
+<p>这几天经管之家关闭了,</p>
+<p>发觉好多 stata 的基础问题都找不到问的地方，，，，，</p>
+<p>90%的问题都是从知乎、经管之家、B站找到的解决方法。</p>
+<p><strong>可谓前人之述备矣，我只浅踩了几个坑。</strong></p>
+<h2 id="参考">参考</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>赵涛, 张智, &amp; 梁上坤. (2020). 数字经济、创业活跃度与高质量发展——来自中国城市的经验证据. 管理世界, 36(10), 65–76. <a href="https://doi.org/10.19744/j.cnki.11-1235/f.2020.0154[]%28https://www.sci-hub.ee/10.19744/j.cnki.11-1235/f.2020.0154%29" target="_blank" rel="noopener noreffer">https://doi.org/10.19744/j.cnki.11-1235/f.2020.0154[](https://www.sci-hub.ee/10.19744/j.cnki.11-1235/f.2020.0154)</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>可以关注自己学校的图书馆资源&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>数据库样本id匹配的省份和城市，在其网站2013年的数据中有，此后继续沿用但不再额外在其他年份里更新&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>stata循环语句&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://stata-club.github.io/stata_article/2017-10-29.html" target="_blank" rel="noopener noreffer">https://stata-club.github.io/stata_article/2017-10-29.html</a>
+&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/data/" data-title="一份经济微观数据库的数据清洗快速指南" data-hashtags="stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/data/" data-hashtag="stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/data/" data-title="一份经济微观数据库的数据清洗快速指南"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/data/" data-title="一份经济微观数据库的数据清洗快速指南"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/data/" data-title="一份经济微观数据库的数据清洗快速指南" data-image="/img/11a (1).png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/flapxq/" class="prev" rel="prev" title="微观经济：罗伊、霍太林、谢泼德 "><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>微观经济：罗伊、霍太林、谢泼德 </a>
+            <a href="/zh-cn/posts/genshin/" class="next" rel="next" title="原神概率论：材料合成天赋选10%双倍还是25%返还？">原神概率论：材料合成天赋选10%双倍还是25%返还？<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div><script src="https://giscus.app/client.js"
+        data-repo="hzp2333/Giscus"
+        data-repo-id="R_kgDOLbBjxA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOLbBjxM4Cdr0n"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang=""
+        crossorigin="anonymous"
+        async>
+</script></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+<div class="footer-line">
+	<span id="run-time"></span>
+</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+
+    <a href="https://www.travellings.cn/go.html" target="_blank"><img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt=""  title="开往-友链接力 v1.5"></a>
+    <a href="https://www.foreverblog.cn/" target="_blank"><img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="" > </a>
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_4_tp.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+</div>
+
+
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-cn","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
