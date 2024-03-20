@@ -73,17 +73,7 @@ $(function () {
 	], { duration: 60000, fade: 1500 });
 });
 
-/* 拉姆蕾姆回到顶部或底部按钮 */
-$(function() {
-	$("#lamu img").eq(0).click(function() {
-		$("html,body").animate({scrollTop:$(document).height()},800);
-		return false;
-	});
-	$("#leimu img").eq(0).click(function() {
-		$("html,body").animate({scrollTop:0},800);
-		return false;
-	});
-});
+
 
 /* 后置加载页面组件的背景图片 */
 $(function() {

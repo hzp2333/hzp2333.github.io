@@ -122,7 +122,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">stata:爬虫学习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+</span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4519 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
         </div><div class="featured-image"><img
@@ -158,8 +158,8 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="引入">引入</h2>
-<meting-js url="/music/spacewalk.mp3" name="SpaceWalk" artist="hoyo-mix" cover="/images/xingqiong.jpg" theme="#448aff"></meting-js>
+            </div><div class="content" id="content"><h2 id="引入" class="headerLink">
+    <a href="#%e5%bc%95%e5%85%a5" class="header-mark"></a>引入</h2><meting-js url="/music/spacewalk.mp3" name="SpaceWalk" artist="hoyo-mix" cover="/images/xingqiong.jpg" theme="#448aff"></meting-js>
 <p>何谓爬虫？即“可见即可得”的抓取。每一个网站都有源代码，源代码中自然就包含了网站显示的信息。抓取源代码时，数据和代码混杂在一起，我们再进行清洗就可以得到干净的数据。 <strong>stata代码附件放在结尾。爬虫代码复用性并不高，本文主要是记录爬虫学习过程。</strong></p>
 <p>
 <figure><a class="lightgallery" href="/img/v2-433c37f15d9dbe32ed49d9f8d0d587b9_r.jpg" title="爬虫流程" data-thumbnail="/img/v2-433c37f15d9dbe32ed49d9f8d0d587b9_r.jpg" data-sub-html="<h2> </h2><p>爬虫流程</p>">
@@ -173,8 +173,8 @@
     </a><figcaption class="image-caption">爬虫流程</figcaption>
     </figure></p>
 <p>从整个爬虫过程来说，<strong>获取网站源代码是最关键的一步</strong>。对于严格加密的网站（例如&quot;中国裁判文书网&quot;），还要伪装ip，进行多账号切换，突破文字加密等，遗憾的是这些stata都做不到。stata擅长的是对没有防备的网站爬取然后快速清洗，处理数据。虽然stata擅长的这部分——&ldquo;切分代码和数据&quot;只是熟练度的问题，不过对于个人来说，使用stata进行爬虫的初步学习还是挺友好的。</p>
-<h2 id="一抓取网页源代码">一、抓取网页源代码</h2>
-<p>数据网站：国信房地产信息网-土地市场库 网站页面如下：</p>
+<h2 id="一抓取网页源代码" class="headerLink">
+    <a href="#%e4%b8%80%e6%8a%93%e5%8f%96%e7%bd%91%e9%a1%b5%e6%ba%90%e4%bb%a3%e7%a0%81" class="header-mark"></a>一、抓取网页源代码</h2><p>数据网站：国信房地产信息网-土地市场库 网站页面如下：</p>
 <blockquote>
 <p>部分学校购买了该数据库，可以看看能否ip登陆。</p>
 <p>使用python能伪装ip登陆，stata目前似乎不行，本文只做学习分享。</p>
@@ -220,9 +220,9 @@
 <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://www.crei.cn/tudi/tudibr1.aspx?p=2<span class="err">&amp;</span>x=a0f010000<span class="err">&amp;</span>k=<span class="err">&amp;</span>k1=<span class="err">&amp;</span>k2=<span class="err">&amp;</span>k3=<span class="err">&amp;</span>k4=<span class="err">&amp;</span>c=<span class="err">&amp;</span>j1=0<span class="err">&amp;</span>j2=0<span class="err">&amp;</span>m1=0<span class="err">&amp;</span>m2=0
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="二stata爬虫">二、stata爬虫</h2>
-<h3 id="1网站导入">1、网站导入</h3>
-<p>先设定工作路径：</p>
+</div><h2 id="二stata爬虫" class="headerLink">
+    <a href="#%e4%ba%8cstata%e7%88%ac%e8%99%ab" class="header-mark"></a>二、stata爬虫</h2><h3 id="1网站导入" class="headerLink">
+    <a href="#1%e7%bd%91%e7%ab%99%e5%af%bc%e5%85%a5" class="header-mark"></a>1、网站导入</h3><p>先设定工作路径：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -291,8 +291,8 @@
             alt="/img/v2-8839870e5dbbded5de5a64eb79e0421f_r.jpg" />
     </a><figcaption class="image-caption">stata</figcaption>
     </figure></p>
-<h3 id="2初步切割">2、初步切割</h3>
-<ul>
+<h3 id="2初步切割" class="headerLink">
+    <a href="#2%e5%88%9d%e6%ad%a5%e5%88%87%e5%89%b2" class="header-mark"></a>2、初步切割</h3><ul>
 <li><strong>keep命令：</strong> 保留stata数据的哪些行</li>
 <li><strong>split命令:</strong> 将表格的内容按照某个符号进行切割，分为多个单元格。</li>
 <li><strong>sxpose命令：</strong> 数据转置重排</li>
@@ -342,8 +342,8 @@
             alt="/img/v2-8306563431f45ff1887857912d587c3d_r.jpg" />
     </a><figcaption class="image-caption">切割</figcaption>
     </figure></p>
-<h3 id="3进一步切割">3、进一步切割</h3>
-<ul>
+<h3 id="3进一步切割" class="headerLink">
+    <a href="#3%e8%bf%9b%e4%b8%80%e6%ad%a5%e5%88%87%e5%89%b2" class="header-mark"></a>3、进一步切割</h3><ul>
 <li><strong>replace:</strong> 将要切割的代码换成“滑翔闪”或者&quot;&ldquo;表示删除，然后一次性切割。</li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -392,8 +392,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">	drop _var1
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="4整理保存">4、整理保存</h3>
-<div class="highlight"><div class="chroma">
+</div><h3 id="4整理保存" class="headerLink">
+    <a href="#4%e6%95%b4%e7%90%86%e4%bf%9d%e5%ad%98" class="header-mark"></a>4、整理保存</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -446,8 +446,8 @@
     </a><figcaption class="image-caption">起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</figcaption>
     </figure></p>
 <p>stata无法使用ip和账号登入，所以无法爬取价格</p>
-<h3 id="5多页爬取">5、多页爬取</h3>
-<p>forvalues：stata循环函数，我们将源代码的<strong>p=1</strong>换成 <strong>p=`i&rsquo;</strong> 即可实现循环爬取。</p>
+<h3 id="5多页爬取" class="headerLink">
+    <a href="#5%e5%a4%9a%e9%a1%b5%e7%88%ac%e5%8f%96" class="header-mark"></a>5、多页爬取</h3><p>forvalues：stata循环函数，我们将源代码的<strong>p=1</strong>换成 <strong>p=`i&rsquo;</strong> 即可实现循环爬取。</p>
 <blockquote>
 <p>注意很多时候第一页和第二页以后爬取情况不同，例如本网站中结尾页码代码不同。 由于土地市场网实行了加密，所以stata只能爬取第一页和第二页。</p>
 </blockquote>
@@ -591,9 +591,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">   }
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="三附件和参考资料">三、附件和参考资料：</h2>
-<h3 id="1参考资料">1、参考资料</h3>
-<p><a href="https://pan.baidu.com/link/zhihu/7QhzzcuOh5iVbwgV5mUZdRF1TFRxcjRQU39W==" target="_blank" rel="noopener noreffer">百度网盘</a>
+</div><h2 id="三附件和参考资料" class="headerLink">
+    <a href="#%e4%b8%89%e9%99%84%e4%bb%b6%e5%92%8c%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="header-mark"></a>三、附件和参考资料：</h2><h3 id="1参考资料" class="headerLink">
+    <a href="#1%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="header-mark"></a>1、参考资料</h3><p><a href="https://pan.baidu.com/link/zhihu/7QhzzcuOh5iVbwgV5mUZdRF1TFRxcjRQU39W==" target="_blank" rel="noopener noreffer">百度网盘</a>
 </p>
 <p>进阶就是了解R、python、CURL的爬虫命令，流程和原理都类似。python好处是多线并进，同时有灵活的轮子可以使用。</p>
 <p>本文爬取的土地交易网由于使用了js加密无法爬取，但是他们没有关掉旧版源码入口，于是<strong>旧版依旧毫无防备</strong>——可以参考下面这篇文章的代码爬取旧源码的数据。</p>
@@ -613,8 +613,8 @@
 </p>
 <p><a href="https://www.stata.com/meeting/china17/slides/china17_Yuan2.pdf" target="_blank" rel="noopener noreffer">正则表达式</a>
 </p>
-<h3 id="2一些论文">2、一些论文</h3>
-<blockquote>
+<h3 id="2一些论文" class="headerLink">
+    <a href="#2%e4%b8%80%e4%ba%9b%e8%ae%ba%e6%96%87" class="header-mark"></a>2、一些论文</h3><blockquote>
 <p><strong>工业用地价格与企业产能利用率：</strong> 爬取土地数据，发现工业土地交易聚集和产能过剩的关系 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>;</p>
 <p><strong>最低工资与异质性人力资本需求：基于招聘网站数据的研究：</strong> 爬取招聘信息，研究劳动力需求侧特征 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>；</p>
 <p><strong>工业机器人应用与劳动关系：基于司法诉讼的实证研究</strong> ——爬取法律文书，研究机器人应用与劳工纠纷 <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
@@ -678,31 +678,29 @@
         <div class="footer-container">
 <div class="footer-line">
 	<span id="run-time"></span>
-</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><style>
+</div><style>
     .footerImg {
         height: 20px;  
     }
 </style>
 <div class="footer-line custom">
-
     <a href="https://www.travellings.cn/go.html" target="_blank"><img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt=""  title="开往-友链接力 v1.5"></a>
     <a href="https://www.foreverblog.cn/" target="_blank"><img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="" > </a>
-    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_4_tp.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
-</div>
-
-
-
-            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+</div><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank" rel="noopener noreferrer">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-cn","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+        </div><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-cn","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
