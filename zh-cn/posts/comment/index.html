@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/comment\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  1218 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  2063 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/comment\/","datePublished": "2024-03-05T15:45:18+08:00","dateModified": "2024-03-05T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "滑翔闪"},"author": {
@@ -123,8 +123,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo搭建Giscus评论区</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/hugo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo搭建记录</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-05">2024-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1218 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-05">2024-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2063 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -148,6 +148,8 @@
       </ul>
     </li>
     <li><a href="#hugo渲染">hugo渲染</a></li>
+    <li><a href="#bug代价">bug代价</a></li>
+    <li><a href="#换为主题doit">换为主题doit</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><meting-js url="/music/tell.mp3" name="you never can tell" artist="Chuck Berry" cover="/images/dance.png" theme="#448aff"></meting-js>
@@ -155,7 +157,7 @@
 ）。综上，我选择Giscus——搭建简单且安全。</p>
 <blockquote>
 <p>虽然loveit<a href="https://hugoloveit.com/zh-cn/" target="_blank" rel="noopener noreffer">主题</a>
-支持Giscus，但个人在查看其<code>comment.html</code>文件时好像没有看到相关方面的代码。按照网上已有的loveit主题教程也没有成功安装评论区，所以在这里记录。</p>
+支持Giscus，但个人在查看其<code>comment.html</code>文件时好像已经不再适配最新的giscus。按照网上已有的loveit主题教程也没有成功安装评论区，所以在这里记录。</p>
 </blockquote>
 <p>环境：<a href="https://github.com/gohugoio/hugo/releases/tag/v0.123.7" target="_blank" rel="noopener noreffer">hugo增强版(V0.123.7)</a>
 +win64amd+<a href="https://hugoloveit.com/zh-cn/" target="_blank" rel="noopener noreffer">loveit主题</a>
@@ -347,6 +349,170 @@
             alt="/img/image-20240305164652485.png" />
     </a><figcaption class="image-caption">个人认为样式也比gitalk好看</figcaption>
     </figure></p>
+<h2 id="bug代价" class="headerLink">
+    <a href="#bug%e4%bb%a3%e4%bb%b7" class="header-mark"></a>bug代价</h2><p>由于<code>loveit</code>的变量调用已经失效，我们是直接把调用代码原文插入<code>comments.html</code>,</p>
+<p>这样就无法实现文本框提示语中英文、白天黑夜模式自动切换了。</p>
+<p>如下图所示：</p>
+<p>（主要是我也不会写定义全局弘变量的代码&hellip;）</p>
+<p>如果能接受就不用折腾了。</p>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240322004507731.png" title="代价" data-thumbnail="/img/image-20240322004507731.png" data-sub-html="<h2> </h2><p>代价</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240322004507731.png"
+            data-srcset="/img/image-20240322004507731.png, /img/image-20240322004507731.png 1.5x, /img/image-20240322004507731.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240322004507731.png" />
+    </a><figcaption class="image-caption">代价</figcaption>
+    </figure></p>
+<h2 id="换为主题doit" class="headerLink">
+    <a href="#%e6%8d%a2%e4%b8%ba%e4%b8%bb%e9%a2%98doit" class="header-mark"></a>换为主题doit</h2><p>个人解决方案是使用了<a href="https://github.com/HEIGE-PCloud/DoIt/tree/main" target="_blank" rel="noopener noreffer">doit</a>
+主题,但是似乎也有些变化，操作如下：</p>
+<p>1、下载<code>doit</code>到<code>theme</code>文件夹中</p>
+<p>2、修改<code>config.toml</code>中的<code> theme = [&quot;LoveIt&quot;]</code>成<code> theme = [&quot;DoIt&quot;] .</code></p>
+<p>3、将以下代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        {{- /* giscus Comment System */ -}}
+</span></span><span class="line"><span class="cl">        {{- $giscus := $comment.giscus | default dict -}}
+</span></span><span class="line"><span class="cl">        {{- if $giscus.enable -}}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;giscus&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = dict &#34;dataRepo&#34; $giscus.dataRepo | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = dict &#34;dataRepoId&#34; $giscus.dataRepoId | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = dict &#34;dataCategory&#34; $giscus.dataCategory | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = dict &#34;dataCategoryId&#34; $giscus.dataCategoryId | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataMapping | default &#34;pathname&#34; | dict &#34;dataMapping&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataStrict | default &#34;0&#34; | dict &#34;dataStrict&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataReactionsEnabled | default &#34;1&#34; | dict &#34;dataReactionsEnabled&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataEmitMetadata | default &#34;0&#34; | dict &#34;dataEmitMetadata&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataInputPosition | default &#34;bottom&#34; | dict &#34;dataInputPosition&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.dataLang | default &#34;en&#34; | dict &#34;dataLang&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $options := dict &#34;targetPath&#34; &#34;js/giscus.min.js&#34; &#34;minify&#34; true -}}
+</span></span><span class="line"><span class="cl">            {{- $js := resources.Get &#34;js/lib/giscus.js&#34; | js.Build $options -}}
+</span></span><span class="line"><span class="cl">            {{- $_ := $js.RelPermalink -}}
+</span></span><span class="line"><span class="cl">            {{- dict &#34;Link&#34; $js.RelPermalink &#34;Fingerprint&#34; $fingerprint &#34;Defer&#34; true | dict &#34;Scratch&#34; .Scratch &#34;Data&#34; | partial &#34;scratch/script.html&#34; -}}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                Please enable JavaScript to view the comments powered by <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://giscus.app/&#34;</span><span class="p">&gt;</span>giscus<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        {{- end -}}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{- end -}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制到<code>个人网站/layouts/_default/comment.html</code>中，替换掉之前的Giscus调用代码，使其覆盖掉loveit原来对应的<code>{{- /* giscus Comment System */ -}}</code>部分。</p>
+<blockquote>
+<p>这部分替换代码删去了原代码中的以下部分</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">            {{- $commentConfig = $giscus.lightTheme | default &#34;light&#34; | dict &#34;lightTheme&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span><span class="line"><span class="cl">            {{- $commentConfig = $giscus.darkTheme | default &#34;dark&#34; | dict &#34;darkTheme&#34; | dict &#34;giscus&#34; | merge $commentConfig -}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因为我发现我使用完整的，评论区颜色会被定死成“light”,删去后是透明的，就可以实现背景颜色变化了。</p>
+</blockquote>
+<p>4、修改<code>config.toml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">[params.page.comment]
+</span></span><span class="line"><span class="cl">      enable = true       
+</span></span><span class="line"><span class="cl">[params.page.comment.giscus]   
+</span></span><span class="line"><span class="cl">  # 你可以参考官方文档来使用下列配置   
+</span></span><span class="line"><span class="cl">  enable = true   
+</span></span><span class="line"><span class="cl">  dataRepo  = &#34;**************&#34;
+</span></span><span class="line"><span class="cl">  dataRepoId  = &#34;**************&#34;   
+</span></span><span class="line"><span class="cl">  dataCategory  = &#34;Announcements&#34;   
+</span></span><span class="line"><span class="cl">  dataCategoryId  = &#34;**************&#34;   
+</span></span><span class="line"><span class="cl">  # <span class="p">&lt;</span><span class="nt">your_repo</span><span class="p">&gt;</span> 对应官网的 data-repo   
+</span></span><span class="line"><span class="cl">  # <span class="p">&lt;</span><span class="nt">your_repoId</span><span class="p">&gt;</span> 对应官网的 data-repo-id   
+</span></span><span class="line"><span class="cl">  # <span class="p">&lt;</span><span class="nt">your_category</span><span class="p">&gt;</span> 对应官网的 data-category   
+</span></span><span class="line"><span class="cl">  # <span class="p">&lt;</span><span class="nt">your_categoryId</span><span class="p">&gt;</span> 对应官网的 data-category-id
+</span></span><span class="line"><span class="cl"># 为空时自动适配当前主题 i18n 配置   
+</span></span><span class="line"><span class="cl">  Lang = &#34;&#34;   
+</span></span><span class="line"><span class="cl">  mapping = &#34;pathname&#34;   
+</span></span><span class="line"><span class="cl">  # <span class="p">&lt;</span><span class="nt">your_mapping</span><span class="p">&gt;</span> 对应官网的 data-mapping   
+</span></span><span class="line"><span class="cl">  reactionsEnabled = &#34;1&#34;   
+</span></span><span class="line"><span class="cl">  emitMetadata = &#34;0&#34;   
+</span></span><span class="line"><span class="cl">  inputPosition = &#34;bottom&#34;   
+</span></span><span class="line"><span class="cl">  lazyLoading = true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240322011116484.png" title="dark" data-thumbnail="/img/image-20240322011116484.png" data-sub-html="<h2> </h2><p>dark</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240322011116484.png"
+            data-srcset="/img/image-20240322011116484.png, /img/image-20240322011116484.png 1.5x, /img/image-20240322011116484.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240322011116484.png" />
+    </a><figcaption class="image-caption">dark</figcaption>
+    </figure></p>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240322011147609.png" title="light" data-thumbnail="/img/image-20240322011147609.png" data-sub-html="<h2> </h2><p>light</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240322011147609.png"
+            data-srcset="/img/image-20240322011147609.png, /img/image-20240322011147609.png 1.5x, /img/image-20240322011147609.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240322011147609.png" />
+    </a><figcaption class="image-caption">light</figcaption>
+    </figure></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -413,7 +579,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOLbBjxM4Cdr0n","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"en","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"hzp2333/Giscus","dataRepoId":"R_kgDOLbBjxA","dataStrict":"0","lightTheme":"light"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+        </div><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"dataCategory":"Announcements","dataCategoryId":"DIC_kwDOLbBjxM4Cdr0n","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"en","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"hzp2333/Giscus","dataRepoId":"R_kgDOLbBjxA","dataStrict":"0"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });

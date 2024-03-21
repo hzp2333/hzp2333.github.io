@@ -9,7 +9,7 @@
 
 如今hugo评论区已经有了很多成熟的方案。Waline强大且好用，但对我这种小白来说太不友好了；gitalk利用github仓库的Issue区域作为评论区，搭建简单但权限授予有点问题（可见这里的[讨论](https://www.v2ex.com/t/535608)）。综上，我选择Giscus——搭建简单且安全。
 
-> 虽然loveit[主题](https://hugoloveit.com/zh-cn/)支持Giscus，但个人在查看其`comment.html`文件时好像没有看到相关方面的代码。按照网上已有的loveit主题教程也没有成功安装评论区，所以在这里记录。
+> 虽然loveit[主题](https://hugoloveit.com/zh-cn/)支持Giscus，但个人在查看其`comment.html`文件时好像已经不再适配最新的giscus。按照网上已有的loveit主题教程也没有成功安装评论区，所以在这里记录。
 
 环境：[hugo增强版(V0.123.7)](https://github.com/gohugoio/hugo/releases/tag/v0.123.7)+win64amd+[loveit主题](https://hugoloveit.com/zh-cn/)
 
@@ -115,4 +115,98 @@
 
 ![个人认为样式也比gitalk好看](/img/image-20240305164652485.png)
 
+## bug代价
+
+由于`loveit`的变量调用已经失效，我们是直接把调用代码原文插入`comments.html`,
+
+这样就无法实现文本框提示语中英文、白天黑夜模式自动切换了。
+
+如下图所示：
+
+（主要是我也不会写定义全局弘变量的代码...）
+
+如果能接受就不用折腾了。
+
+![代价](/img/image-20240322004507731.png)
+
+## 换为主题doit
+
+个人解决方案是使用了[doit](https://github.com/HEIGE-PCloud/DoIt/tree/main)主题,但是似乎也有些变化，操作如下：
+
+1、下载`doit`到`theme`文件夹中
+
+2、修改`config.toml`中的` theme = ["LoveIt"]`成` theme = ["DoIt"] .` 
+
+3、将以下代码
+
+```html
+        {{- /* giscus Comment System */ -}}
+        {{- $giscus := $comment.giscus | default dict -}}
+        {{- if $giscus.enable -}}
+            <div id="giscus"></div>
+            {{- $commentConfig = dict "dataRepo" $giscus.dataRepo | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataRepoId" $giscus.dataRepoId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategory" $giscus.dataCategory | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategoryId" $giscus.dataCategoryId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataMapping | default "pathname" | dict "dataMapping" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataStrict | default "0" | dict "dataStrict" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataReactionsEnabled | default "1" | dict "dataReactionsEnabled" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataEmitMetadata | default "0" | dict "dataEmitMetadata" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataInputPosition | default "bottom" | dict "dataInputPosition" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataLang | default "en" | dict "dataLang" | dict "giscus" | merge $commentConfig -}}
+            {{- $options := dict "targetPath" "js/giscus.min.js" "minify" true -}}
+            {{- $js := resources.Get "js/lib/giscus.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript>
+        {{- end -}}
+    </div>
+{{- end -}}
+```
+
+复制到`个人网站/layouts/_default/comment.html`中，替换掉之前的Giscus调用代码，使其覆盖掉loveit原来对应的`{{- /* giscus Comment System */ -}}`部分。
+
+> 这部分替换代码删去了原代码中的以下部分
+>
+> ```
+>             {{- $commentConfig = $giscus.lightTheme | default "light" | dict "lightTheme" | dict "giscus" | merge $commentConfig -}}
+>             {{- $commentConfig = $giscus.darkTheme | default "dark" | dict "darkTheme" | dict "giscus" | merge $commentConfig -}}
+> ```
+>
+> 因为我发现我使用完整的，评论区颜色会被定死成“light”,删去后是透明的，就可以实现背景颜色变化了。
+
+4、修改`config.toml`
+
+```html
+[params.page.comment]
+      enable = true       
+[params.page.comment.giscus]   
+  # 你可以参考官方文档来使用下列配置   
+  enable = true   
+  dataRepo  = "**************"
+  dataRepoId  = "**************"   
+  dataCategory  = "Announcements"   
+  dataCategoryId  = "**************"   
+  # <your_repo> 对应官网的 data-repo   
+  # <your_repoId> 对应官网的 data-repo-id   
+  # <your_category> 对应官网的 data-category   
+  # <your_categoryId> 对应官网的 data-category-id
+# 为空时自动适配当前主题 i18n 配置   
+  Lang = ""   
+  mapping = "pathname"   
+  # <your_mapping> 对应官网的 data-mapping   
+  reactionsEnabled = "1"   
+  emitMetadata = "0"   
+  inputPosition = "bottom"   
+  lazyLoading = true
+
+```
+
+效果如下：
+
+![dark](/img/image-20240322011116484.png)
+
+![light](/img/image-20240322011147609.png)
 
