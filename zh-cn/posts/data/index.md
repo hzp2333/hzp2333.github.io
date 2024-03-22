@@ -104,7 +104,7 @@
 
 ### 我个人遇到过的一些情况
 
-### 1、中文数据库导入的转码问题
+### 1、中文数据库导入转码
 
 中文乱码，要么更新 statastata 版本、要么使用代码
 
@@ -331,7 +331,213 @@ sort year age income //首先按照年份排序，相同年份的一列中按照
 duplicates drop var，force
 ```
 
+### 12、一些描述统计图
 
+#### 气泡图
+
+在[Stata绘制高级气泡图](https://zhuanlan.zhihu.com/p/581227252)看到的，很有意思
+
+```sql
+sysuse auto,clear
+set scheme white_tableau //设置主题，小伙伴可以根据自己的喜好自行设置
+twoway ///
+(scatter mpg weight [w= price] if foreign == 0 & price <= 4220, msymbol(Oh) mcolor("220 235 136") msize(small)) ///
+(scatter mpg weight [w= price] if foreign == 1 & price <= 4220, msymbol(o) mcolor("220 235 136") msize(small)) ///
+(scatter mpg weight [w= price] if foreign == 0 & (price > 4220 & price <= 6332), msymbol(Oh) mcolor("180 232 172") msize(medium)) ///
+(scatter mpg weight [w= price] if foreign == 1 & (price > 4220 & price <= 6332), msymbol(o) mcolor("180 232 172") msize(medium)) ///
+(scatter mpg weight [w= price] if foreign == 0 & price > 6332, msymbol(Oh) mcolor("152 210 196") msize(large)) ///
+(scatter mpg weight [w= price] if foreign == 1 & price > 6332, msymbol(o) mcolor("152 210 196") msize(large)), ///
+xlabel(2000(1000) 5000) ylabel(10(10)50) legend(label(1 " ") label(2 " ") label(3 " ") label(4 " ") label(5 " ") label(6 " ") order(2 4 6 1 3 5) row(2) ring(0) size(10) position(2) bmargin(medlarge)) text(45.3 3800 "Foreign", size(*0.7)) text(39.5 3800 "Domestic", size(*0.7)) text(49.5 4100 "Low Price", size(*0.7)) text(49.5 4450 "Med Price", size(*0.7)) text(49.5 4800 "High Price", size(*0.7)) 
+//mycolor中为RGB颜色编码，可以自己根据喜好定义；
+//xlabel和ylabel分别设置横纵轴的标签；legend设置图例；text设置文字的具体位置，具体格式text（y坐标 x坐标 "标签文本"）
+```
+
+![气泡散点图](/img/image-20240322232051520.png)
+
+#### 折线图
+
+```sql
+twoway ///
+	(line var2 date if group==1) ///
+	(line var2 date if group==2) ///
+	(line var2 date if group==3) ///
+	(line var2 date if group==4) ///
+	(line var2 date if group==5) ///
+	(line var2 date if group==6) ///
+	(line var2 date if group==7) ///
+	(line var2 date if group==8) ///
+	(line var2 date if group==9) ///
+	(line var2 date if group==10) ///
+	(line var2 date if group==11) ///
+	(line var2 date if group==12) ///
+	, ///
+		legend(order(1 "group1" 2 "group2" 3 "group3"  4 "group4"  5 "group5" 6 "group6" 7 "group7" 8 "group8" 9 "group9" 10 "group10" 11 "group11" 12 "group12")) ///
+		title("Line plot") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 饼图
+
+```sql
+graph pie var2 if group <= 10, ///
+	over(group) plabel(_all percent, format(%9.2f)) ///
+	line(lcolor(black) lwidth(vvthin)) 	///                  
+	// outline colors have to be manually added
+	title("Pie plot") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 箱线图
+
+```
+graph box ///
+	var* ///
+		, ///
+		title("Box plot") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 柱状图
+
+```
+histogram var4, percent ///
+	title("Histogram") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 竖向条形图
+
+```
+graph bar ///
+	var* ///
+		, ///
+		blabel(bar, format(%9.2f)) ///
+		title("Bar graph") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 横向条形图
+
+```
+graph hbar (mean) ///
+	var* ///
+	if group <= 6, ///
+		over(group) ///
+		percentages stack	///
+		legend(order(1 "Var 1" 2 "Var 2" 3 "Var 3"  4 "Var 4"  5 "Var 5" 6 "Var 6")) ///
+		title("Bar graph") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 置信区间
+
+```
+twoway ///
+	(lpolyci var1 var9, fcolor(%80)) ///
+	(lpolyci var2 var9, fcolor(%80)) ///
+	(lpolyci var3 var9, fcolor(%80)) ///
+		, ///
+		title("Confidence Interval") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 范围区间
+
+```
+twoway ///
+	(rcapsym var2 var3 date if group==1, sort) ///
+	(rcapsym var2 var3 date if group==2, sort) ///
+		, ///
+		title("Range plots") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 面积图
+
+```
+twoway ///
+	(area den1d den1x, fcolor(%50)) ///
+	(area gen2d gen2x, fcolor(%50)) ///
+	(area gen3d gen3x, fcolor(%50)), ///
+			title("Density plots") ///
+			note("The Stata Guide", size(vsmall))
+```
+
+#### 标签散点
+
+```
+twoway ///
+	(scatter var2 var1, mlabel(group)) ///
+		if date==22320 ///
+		, ///
+		title("Confidence Interval") ///
+		note("The Stata Guide", size(vsmall))
+```
+
+#### 分组散点图
+
+```
+twoway ///
+	(scatter var2 var1) ///
+		if group <= 12, ///
+		by(group, yrescale xrescale)	///
+		by(, title("By graphs") note("The Stata Guide", size(vsmall)))
+```
+
+#### 雷达图
+
+`radar`和`spyder`都可以，个人觉得蛛网好看很多。
+
+雷达图可以[参考](https://bbs.pinggu.org/thread-4128289-1-1.html)。
+
+```sql
+ssc install palettes, replace
+ssc install colrspace, replace
+ssc install schemepack, replace
+* 更新
+ado update, update
+clear
+input strL 属性 A B C D E F
+力量 2 2 6 4 5 6
+敏捷 1 1 3 4 3 6
+智力 3 2 2 4 5 6
+感知 2 5 1 6 2 5
+魅力 4 6 4 5 6 5
+幸运 5 3 3 5 4 4
+end
+compress
+spider A-F, over(属性)
+
+
+sysuse auto,clear   
+radar make weight if foreign
+```
+
+![蛛网图](/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image)
+
+### 13、绘图风格
+
+参见[最强绘画包](https://www.lianxh.cn/news/e76a8a7e3c6c4.html)
+
+```sql
+ssc install schemepack, replace  
+* set scheme white_tableau 
+* set scheme black_tableau 
+* set scheme gg_tableau //我最 推荐这个，比较像R语言的默认
+* set scheme white_tableau
+s1mono
+s2mono
+swift_red 棕红
+neon 黑色背景彩色方块
+rainbow 彩虹
+virdis 偏绿
+white_cividis
+black_cividis
+hue
+brbg 棕色
+piyg 粉色
+w3d 蓝粉交融
+```
 
 ### 更多：
 

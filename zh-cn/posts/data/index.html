@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  6530 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  7612 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/","datePublished": "2024-03-06T18:09:26+08:00","dateModified": "2024-03-06T18:09:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "滑翔闪"},"author": {
@@ -144,8 +144,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一份经济微观数据库的数据清洗快速指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6530 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7612 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 16 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -170,7 +170,7 @@
       <ul>
         <li><a href="#推荐教程">推荐教程</a></li>
         <li><a href="#我个人遇到过的一些情况">我个人遇到过的一些情况</a></li>
-        <li><a href="#1中文数据库导入的转码问题">1、中文数据库导入的转码问题</a></li>
+        <li><a href="#1中文数据库导入转码">1、中文数据库导入转码</a></li>
         <li><a href="#2数据库的匹配">2、数据库的匹配</a></li>
         <li><a href="#3变量的快速选择">3、变量的快速选择</a></li>
         <li><a href="#4插值法">4、插值法</a></li>
@@ -181,6 +181,24 @@
         <li><a href="#9分组处理">9、分组处理</a></li>
         <li><a href="#10排序处理">10、排序处理</a></li>
         <li><a href="#11删去重复行">11、删去重复行</a></li>
+        <li><a href="#12一些描述统计图">12、一些描述统计图</a>
+          <ul>
+            <li><a href="#气泡图">气泡图</a></li>
+            <li><a href="#折线图">折线图</a></li>
+            <li><a href="#饼图">饼图</a></li>
+            <li><a href="#箱线图">箱线图</a></li>
+            <li><a href="#柱状图">柱状图</a></li>
+            <li><a href="#竖向条形图">竖向条形图</a></li>
+            <li><a href="#横向条形图">横向条形图</a></li>
+            <li><a href="#置信区间">置信区间</a></li>
+            <li><a href="#范围区间">范围区间</a></li>
+            <li><a href="#面积图">面积图</a></li>
+            <li><a href="#标签散点">标签散点</a></li>
+            <li><a href="#分组散点图">分组散点图</a></li>
+            <li><a href="#雷达图">雷达图</a></li>
+          </ul>
+        </li>
+        <li><a href="#13绘图风格">13、绘图风格</a></li>
         <li><a href="#更多">更多：</a></li>
       </ul>
     </li>
@@ -305,8 +323,8 @@
 <div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1fK411o7qV&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
 <h3 id="我个人遇到过的一些情况" class="headerLink">
-    <a href="#%e6%88%91%e4%b8%aa%e4%ba%ba%e9%81%87%e5%88%b0%e8%bf%87%e7%9a%84%e4%b8%80%e4%ba%9b%e6%83%85%e5%86%b5" class="header-mark"></a>我个人遇到过的一些情况</h3><h3 id="1中文数据库导入的转码问题" class="headerLink">
-    <a href="#1%e4%b8%ad%e6%96%87%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%bc%e5%85%a5%e7%9a%84%e8%bd%ac%e7%a0%81%e9%97%ae%e9%a2%98" class="header-mark"></a>1、中文数据库导入的转码问题</h3><p>中文乱码，要么更新 statastata 版本、要么使用代码</p>
+    <a href="#%e6%88%91%e4%b8%aa%e4%ba%ba%e9%81%87%e5%88%b0%e8%bf%87%e7%9a%84%e4%b8%80%e4%ba%9b%e6%83%85%e5%86%b5" class="header-mark"></a>我个人遇到过的一些情况</h3><h3 id="1中文数据库导入转码" class="headerLink">
+    <a href="#1%e4%b8%ad%e6%96%87%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%bc%e5%85%a5%e8%bd%ac%e7%a0%81" class="header-mark"></a>1、中文数据库导入转码</h3><p>中文乱码，要么更新 statastata 版本、要么使用代码</p>
 <blockquote>
 <p>两个方法其实是一个作用。</p>
 </blockquote>
@@ -673,6 +691,382 @@ ps:当时顺便找了中日俄美的出口贸易数据，数据来源<a href="ht
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">duplicates</span> <span class="n">drop</span> <span class="k">var</span><span class="err">，</span><span class="n">force</span>
 </span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="12一些描述统计图" class="headerLink">
+    <a href="#12%e4%b8%80%e4%ba%9b%e6%8f%8f%e8%bf%b0%e7%bb%9f%e8%ae%a1%e5%9b%be" class="header-mark"></a>12、一些描述统计图</h3><h4 id="气泡图" class="headerLink">
+    <a href="#%e6%b0%94%e6%b3%a1%e5%9b%be" class="header-mark"></a>气泡图</h4><p>在<a href="https://zhuanlan.zhihu.com/p/581227252" target="_blank" rel="noopener noreffer">Stata绘制高级气泡图</a>
+看到的，很有意思</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">sysuse</span><span class="w"> </span><span class="n">auto</span><span class="p">,</span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">white_tableau</span><span class="w"> </span><span class="o">//</span><span class="err">设置主题，小伙伴可以根据自己的喜好自行设置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">twoway</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4220</span><span class="p">,</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">Oh</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;220 235 136&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="n">small</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4220</span><span class="p">,</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;220 235 136&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="n">small</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4220</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">6332</span><span class="p">),</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">Oh</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;180 232 172&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="n">medium</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4220</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">6332</span><span class="p">),</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;180 232 172&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="n">medium</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6332</span><span class="p">,</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">Oh</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;152 210 196&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="k">large</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6332</span><span class="p">,</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="s2">&#34;152 210 196&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="k">large</span><span class="p">)),</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xlabel</span><span class="p">(</span><span class="mi">2000</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="mi">5000</span><span class="p">)</span><span class="w"> </span><span class="n">ylabel</span><span class="p">(</span><span class="mi">10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="n">legend</span><span class="p">(</span><span class="n">label</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="n">label</span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="p">)</span><span class="w"> </span><span class="k">order</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">ring</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">position</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">bmargin</span><span class="p">(</span><span class="n">medlarge</span><span class="p">))</span><span class="w"> </span><span class="nb">text</span><span class="p">(</span><span class="mi">45</span><span class="p">.</span><span class="mi">3</span><span class="w"> </span><span class="mi">3800</span><span class="w"> </span><span class="s2">&#34;Foreign&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="nb">text</span><span class="p">(</span><span class="mi">39</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="mi">3800</span><span class="w"> </span><span class="s2">&#34;Domestic&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="nb">text</span><span class="p">(</span><span class="mi">49</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="mi">4100</span><span class="w"> </span><span class="s2">&#34;Low Price&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="nb">text</span><span class="p">(</span><span class="mi">49</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="mi">4450</span><span class="w"> </span><span class="s2">&#34;Med Price&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="nb">text</span><span class="p">(</span><span class="mi">49</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="mi">4800</span><span class="w"> </span><span class="s2">&#34;High Price&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">mycolor中为RGB颜色编码</span><span class="err">，可以自己根据喜好定义；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">xlabel和ylabel分别设置横纵轴的标签</span><span class="err">；</span><span class="n">legend设置图例</span><span class="err">；</span><span class="n">text设置文字的具体位置</span><span class="err">，具体格式</span><span class="nb">text</span><span class="err">（</span><span class="n">y坐标</span><span class="w"> </span><span class="n">x坐标</span><span class="w"> </span><span class="s2">&#34;标签文本&#34;</span><span class="err">）</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure><a class="lightgallery" href="/img/image-20240322232051520.png" title="气泡散点图" data-thumbnail="/img/image-20240322232051520.png" data-sub-html="<h2> </h2><p>气泡散点图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240322232051520.png"
+            data-srcset="/img/image-20240322232051520.png, /img/image-20240322232051520.png 1.5x, /img/image-20240322232051520.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240322232051520.png" />
+    </a><figcaption class="image-caption">气泡散点图</figcaption>
+    </figure></p>
+<h4 id="折线图" class="headerLink">
+    <a href="#%e6%8a%98%e7%ba%bf%e5%9b%be" class="header-mark"></a>折线图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">twoway</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="o">==</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">legend</span><span class="p">(</span><span class="k">order</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s2">&#34;group1&#34;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="s2">&#34;group2&#34;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="s2">&#34;group3&#34;</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="s2">&#34;group4&#34;</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="s2">&#34;group5&#34;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="s2">&#34;group6&#34;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="s2">&#34;group7&#34;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="s2">&#34;group8&#34;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="s2">&#34;group9&#34;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="s2">&#34;group10&#34;</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="s2">&#34;group11&#34;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="s2">&#34;group12&#34;</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Line plot&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="饼图" class="headerLink">
+    <a href="#%e9%a5%bc%e5%9b%be" class="header-mark"></a>饼图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">graph</span><span class="w"> </span><span class="n">pie</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">over</span><span class="p">(</span><span class="k">group</span><span class="p">)</span><span class="w"> </span><span class="n">plabel</span><span class="p">(</span><span class="n">_all</span><span class="w"> </span><span class="n">percent</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">line</span><span class="p">(</span><span class="n">lcolor</span><span class="p">(</span><span class="n">black</span><span class="p">)</span><span class="w"> </span><span class="n">lwidth</span><span class="p">(</span><span class="n">vvthin</span><span class="p">))</span><span class="w"> 	</span><span class="o">///</span><span class="w">                  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">//</span><span class="w"> </span><span class="n">outline</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="n">added</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Pie plot&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="箱线图" class="headerLink">
+    <a href="#%e7%ae%b1%e7%ba%bf%e5%9b%be" class="header-mark"></a>箱线图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">graph</span> <span class="n">box</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span><span class="o">*</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Box plot&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="柱状图" class="headerLink">
+    <a href="#%e6%9f%b1%e7%8a%b6%e5%9b%be" class="header-mark"></a>柱状图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">histogram</span> <span class="n">var4</span><span class="p">,</span> <span class="n">percent</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Histogram&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="竖向条形图" class="headerLink">
+    <a href="#%e7%ab%96%e5%90%91%e6%9d%a1%e5%bd%a2%e5%9b%be" class="header-mark"></a>竖向条形图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">graph</span> <span class="n">bar</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span><span class="o">*</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">blabel</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">format</span><span class="p">(</span><span class="o">%</span><span class="mf">9.2</span><span class="n">f</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Bar graph&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="横向条形图" class="headerLink">
+    <a href="#%e6%a8%aa%e5%90%91%e6%9d%a1%e5%bd%a2%e5%9b%be" class="header-mark"></a>横向条形图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">graph</span> <span class="n">hbar</span> <span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span><span class="o">*</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">group</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">over</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">percentages</span> <span class="n">stack</span>	<span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">legend</span><span class="p">(</span><span class="n">order</span><span class="p">(</span><span class="mi">1</span> <span class="s2">&#34;Var 1&#34;</span> <span class="mi">2</span> <span class="s2">&#34;Var 2&#34;</span> <span class="mi">3</span> <span class="s2">&#34;Var 3&#34;</span>  <span class="mi">4</span> <span class="s2">&#34;Var 4&#34;</span>  <span class="mi">5</span> <span class="s2">&#34;Var 5&#34;</span> <span class="mi">6</span> <span class="s2">&#34;Var 6&#34;</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Bar graph&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="置信区间" class="headerLink">
+    <a href="#%e7%bd%ae%e4%bf%a1%e5%8c%ba%e9%97%b4" class="header-mark"></a>置信区间</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">twoway</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">lpolyci</span> <span class="n">var1</span> <span class="n">var9</span><span class="p">,</span> <span class="n">fcolor</span><span class="p">(</span><span class="o">%</span><span class="mi">80</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">lpolyci</span> <span class="n">var2</span> <span class="n">var9</span><span class="p">,</span> <span class="n">fcolor</span><span class="p">(</span><span class="o">%</span><span class="mi">80</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">lpolyci</span> <span class="n">var3</span> <span class="n">var9</span><span class="p">,</span> <span class="n">fcolor</span><span class="p">(</span><span class="o">%</span><span class="mi">80</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Confidence Interval&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="范围区间" class="headerLink">
+    <a href="#%e8%8c%83%e5%9b%b4%e5%8c%ba%e9%97%b4" class="header-mark"></a>范围区间</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">twoway</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">rcapsym</span> <span class="n">var2</span> <span class="n">var3</span> <span class="n">date</span> <span class="k">if</span> <span class="n">group</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">rcapsym</span> <span class="n">var2</span> <span class="n">var3</span> <span class="n">date</span> <span class="k">if</span> <span class="n">group</span><span class="o">==</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Range plots&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="面积图" class="headerLink">
+    <a href="#%e9%9d%a2%e7%a7%af%e5%9b%be" class="header-mark"></a>面积图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">twoway ///
+</span></span><span class="line"><span class="cl">	(area den1d den1x, fcolor(%50)) ///
+</span></span><span class="line"><span class="cl">	(area gen2d gen2x, fcolor(%50)) ///
+</span></span><span class="line"><span class="cl">	(area gen3d gen3x, fcolor(%50)), ///
+</span></span><span class="line"><span class="cl">			title(&#34;Density plots&#34;) ///
+</span></span><span class="line"><span class="cl">			note(&#34;The Stata Guide&#34;, size(vsmall))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="标签散点" class="headerLink">
+    <a href="#%e6%a0%87%e7%ad%be%e6%95%a3%e7%82%b9" class="header-mark"></a>标签散点</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">twoway</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">scatter</span> <span class="n">var2</span> <span class="n">var1</span><span class="p">,</span> <span class="n">mlabel</span><span class="p">(</span><span class="n">group</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="n">date</span><span class="o">==</span><span class="mi">22320</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">title</span><span class="p">(</span><span class="s2">&#34;Confidence Interval&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="分组散点图" class="headerLink">
+    <a href="#%e5%88%86%e7%bb%84%e6%95%a3%e7%82%b9%e5%9b%be" class="header-mark"></a>分组散点图</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">twoway</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="n">scatter</span> <span class="n">var2</span> <span class="n">var1</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="n">group</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">,</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">by</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">yrescale</span> <span class="n">xrescale</span><span class="p">)</span>	<span class="o">///</span>
+</span></span><span class="line"><span class="cl">		<span class="n">by</span><span class="p">(,</span> <span class="n">title</span><span class="p">(</span><span class="s2">&#34;By graphs&#34;</span><span class="p">)</span> <span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="雷达图" class="headerLink">
+    <a href="#%e9%9b%b7%e8%be%be%e5%9b%be" class="header-mark"></a>雷达图</h4><p><code>radar</code>和<code>spyder</code>都可以，个人觉得蛛网好看很多。</p>
+<p>雷达图可以<a href="https://bbs.pinggu.org/thread-4128289-1-1.html" target="_blank" rel="noopener noreffer">参考</a>
+。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">palettes</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">colrspace</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">schemepack</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="err">更新</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ado</span><span class="w"> </span><span class="k">update</span><span class="p">,</span><span class="w"> </span><span class="k">update</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">input</span><span class="w"> </span><span class="n">strL</span><span class="w"> </span><span class="err">属性</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">F</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">力量</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">敏捷</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">智力</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">感知</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">魅力</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">幸运</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">compress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">spider</span><span class="w"> </span><span class="n">A</span><span class="o">-</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="err">属性</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sysuse</span><span class="w"> </span><span class="n">auto</span><span class="p">,</span><span class="n">clear</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">radar</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">foreign</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure><a class="lightgallery" href="/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image" title="蛛网图" data-thumbnail="/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image" data-sub-html="<h2> </h2><p>蛛网图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image"
+            data-srcset="/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image, /img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image 1.5x, /img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image 2x"
+            data-sizes="auto"
+            alt="/img/v2-61f0321338aa67bbe60eaac3bcee4455_1440w.image" />
+    </a><figcaption class="image-caption">蛛网图</figcaption>
+    </figure></p>
+<h3 id="13绘图风格" class="headerLink">
+    <a href="#13%e7%bb%98%e5%9b%be%e9%a3%8e%e6%a0%bc" class="header-mark"></a>13、绘图风格</h3><p>参见<a href="https://www.lianxh.cn/news/e76a8a7e3c6c4.html" target="_blank" rel="noopener noreffer">最强绘画包</a>
+</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">schemepack</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">white_tableau</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">black_tableau</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">gg_tableau</span><span class="w"> </span><span class="o">//</span><span class="err">我最</span><span class="w"> </span><span class="err">推荐这个，比较像</span><span class="n">R语言的默认</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">white_tableau</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">s1mono</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">s2mono</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">swift_red</span><span class="w"> </span><span class="err">棕红</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">neon</span><span class="w"> </span><span class="err">黑色背景彩色方块</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rainbow</span><span class="w"> </span><span class="err">彩虹</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">virdis</span><span class="w"> </span><span class="err">偏绿</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">white_cividis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">black_cividis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">hue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">brbg</span><span class="w"> </span><span class="err">棕色</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">piyg</span><span class="w"> </span><span class="err">粉色</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">w3d</span><span class="w"> </span><span class="err">蓝粉交融</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="更多" class="headerLink">
     <a href="#%e6%9b%b4%e5%a4%9a" class="header-mark"></a>更多：</h3><p><a href="https://mp.weixin.qq.com/s/czoXZ-GhQGpWmCkd8kiAnA" target="_blank" rel="noopener noreffer">stata数据清洗管理的常用技能知识, 资源错配的代码</a>
