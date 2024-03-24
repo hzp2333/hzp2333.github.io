@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  7612 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  7636 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/","datePublished": "2024-03-06T18:09:26+08:00","dateModified": "2024-03-06T18:09:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "滑翔闪"},"author": {
@@ -144,7 +144,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一份经济微观数据库的数据清洗快速指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7612 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7636 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 16 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -181,6 +181,7 @@
         <li><a href="#9分组处理">9、分组处理</a></li>
         <li><a href="#10排序处理">10、排序处理</a></li>
         <li><a href="#11删去重复行">11、删去重复行</a></li>
+        <li><a href="#12截取字符">12、截取字符</a></li>
         <li><a href="#12一些描述统计图">12、一些描述统计图</a>
           <ul>
             <li><a href="#气泡图">气泡图</a></li>
@@ -690,6 +691,16 @@ ps:当时顺便找了中日俄美的出口贸易数据，数据来源<a href="ht
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">duplicates</span> <span class="n">drop</span> <span class="k">var</span><span class="err">，</span><span class="n">force</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="12截取字符" class="headerLink">
+    <a href="#12%e6%88%aa%e5%8f%96%e5%ad%97%e7%ac%a6" class="header-mark"></a>12、截取字符</h3><p>中文字符一个字符就是三个位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">x</span><span class="o">=</span><span class="n">substr</span><span class="p">(</span><span class="k">var</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="12一些描述统计图" class="headerLink">

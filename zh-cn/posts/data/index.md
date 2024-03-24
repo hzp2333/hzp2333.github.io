@@ -331,6 +331,14 @@ sort year age income //首先按照年份排序，相同年份的一列中按照
 duplicates drop var，force
 ```
 
+### 12、截取字符
+
+中文字符一个字符就是三个位置
+
+```
+gen x=substr(var,1,4)
+```
+
 ### 12、一些描述统计图
 
 #### 气泡图
