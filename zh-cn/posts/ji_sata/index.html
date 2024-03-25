@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10326 ,
+        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10459 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/","datePublished": "2024-03-06T13:35:20+08:00","dateModified": "2024-03-06T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "滑翔闪"},"author": {
@@ -144,7 +144,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量数据的分组与测度（STATA版）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
 </span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 10326 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 10459 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -709,7 +709,7 @@ $$
     </figure></p>
 <p>于是我们的机制检验就只剩两条路可选</p>
 <blockquote>
-<p>**1.再进一步证明没有内生性。**此时再做一个对照试验（感觉又是一个微缩的经济实证对比）；或者讨论分组回归后残差的与被解释变量的相关性。基于相关关系+理论解释去靠近因果关系。</p>
+<p><strong>1.再进一步证明没有内生性。</strong> 此时再做一个对照试验（感觉又是一个微缩的经济实证对比）；或者讨论分组回归后残差的与被解释变量的相关性。基于相关关系+理论解释去靠近因果关系。</p>
 </blockquote>
 <p>
 <figure><a class="lightgallery" href="/img/v2-84640435866937fdefa665f93c97abfe_720w.png" title="《因果推断经验研究中的中介效应与调节效应》江艇（2022）" data-thumbnail="/img/v2-84640435866937fdefa665f93c97abfe_720w.png" data-sub-html="<h2> </h2><p>《因果推断经验研究中的中介效应与调节效应》江艇（2022）</p>">
@@ -723,7 +723,7 @@ $$
     </a><figcaption class="image-caption">《因果推断经验研究中的中介效应与调节效应》江艇（2022）</figcaption>
     </figure></p>
 <blockquote>
-<p>**2.无需证明，我的变量是天然外生的。**变量从现实意义上来看没有内生性，也就是多扩展理论和经济意义的解释即可。国内最常见的灌水就是四大区域、胡焕庸线，因为从现实意义上来看这些分类就是天然的外生变量。</p>
+<p><strong>2.无需证明，我的变量是天然外生的。</strong> 变量从现实意义上来看没有内生性，也就是多扩展理论和经济意义的解释即可。国内最常见的灌水就是四大区域、胡焕庸线，因为从现实意义上来看这些分类就是天然的外生变量。</p>
 </blockquote>
 <p>似乎机制检验似乎就是不完整的小实证，通过残缺的实证步骤大概扩展下结论。个人感觉所有的计量教材中都没有强调过所谓的“机制分析”，只是在国内成为了特定的要求。可见经济学的定量最后还是现实理论+定量各一半的分析。</p>
 <h3 id="2中介效应和心理统计的区别" class="headerLink">
@@ -757,7 +757,9 @@ $$
 <p>如果我们只将“居住州”作为控制变量，此时展现的就是性别-录取的直接效应和性别-院系-录取率的间接效应，此时显示女性没有遭到歧视。截然不同的结果就是“辛普森悖论”。在咖啡中，我们犯错了是<strong>遗漏了变量</strong>；这里犯错是因为<strong>控制了“中介变量”</strong>。最终结论是，因为女生们敢于申请难度最大的院系所以看起来录取率低，所以院系是重要的中介变量并且不应该随便加以控制。</p>
 <p>所以中介变量不应该作为控制变量，同时如果我们要区分直接效应和中介效应，是需要进一步区分的。</p>
 <h3 id="3调节效应分组回归还是交互项" class="headerLink">
-    <a href="#3%e8%b0%83%e8%8a%82%e6%95%88%e5%ba%94%e5%88%86%e7%bb%84%e5%9b%9e%e5%bd%92%e8%bf%98%e6%98%af%e4%ba%a4%e4%ba%92%e9%a1%b9" class="header-mark"></a>3、调节效应：分组回归还是交互项</h3><blockquote>
+    <a href="#3%e8%b0%83%e8%8a%82%e6%95%88%e5%ba%94%e5%88%86%e7%bb%84%e5%9b%9e%e5%bd%92%e8%bf%98%e6%98%af%e4%ba%a4%e4%ba%92%e9%a1%b9" class="header-mark"></a>3、调节效应：分组回归还是交互项</h3><p>发现了个超全<a href="https://zhuanlan.zhihu.com/p/120310111" target="_blank" rel="noopener noreffer">总结</a>
+</p>
+<blockquote>
 <p>这一部分主要参考了《回归分析》（谢宇）</p>
 </blockquote>
 <p>对于变量 $Y$ 、$X_1$ 、$ X_2$ 、$D$ 来说，我们产生了不同的估计策略。</p>
@@ -781,12 +783,35 @@ $$
 <li>统计检验交互项更好，因为有显著性检验（但是现在分组回归似乎也可以<a href="https://zhuanlan.zhihu.com/p/629123531" target="_blank" rel="noopener noreffer">检查系数差异的显著性</a>
 了），且敏感度更高，而且用的是全体样本，分组回归会减少样本量；</li>
 <li>数据假设不同，<strong>交互项假设只有交互相关的分组存在组间差异</strong>，要求更加严格。<strong>交互项要求组与组之间控制变量系数要一致</strong>，分组回归则不要求。由此有个引申的结论——当一个变量和所有控制变量交互，交互变量估计和分组回归是完全一致的。</li>
-<li>不同变量不同讨论，交互项可以分为虚拟变量虚拟变量、虚拟变量连续变量、连续变量连续变量，需要具体分析。（《计量经济学基础》（古扎拉蒂）在虚拟变量部分支持虚拟变量虚拟变量——双重差分法盛行下这点没有争议。)</li>
+<li>不同变量不同讨论，交互项可以分为虚拟变量虚拟变量（<a href="https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG" target="_blank" rel="noopener noreffer">建议参考</a>
+）、虚拟变量连续变量、连续变量连续变量，需要具体分析。（《计量经济学基础》（古扎拉蒂）在虚拟变量部分支持虚拟变量虚拟变量——双重差分法盛行下这点没有争议。)</li>
 </ul>
 <p>交互项假设总体上机制检验这里依旧属于灰色地带。只要你的变量逻辑讲得通，分组和交互哪个用显著用哪个就行，都显著更好，就都用上。</p>
 </div>
         </div>
     </div></p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>什么样的项目适合作为交互<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>从数学意义来考虑，加法管截距，乘法管斜率。</p>
+<p>
+<figure><a class="lightgallery" href="/img/image-20240326015842760.png" title="image-20240326015842760" data-thumbnail="/img/image-20240326015842760.png" data-sub-html="<h2> </h2><p>image-20240326015842760</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/image-20240326015842760.png"
+            data-srcset="/img/image-20240326015842760.png, /img/image-20240326015842760.png 1.5x, /img/image-20240326015842760.png 2x"
+            data-sizes="auto"
+            alt="/img/image-20240326015842760.png" />
+    </a><figcaption class="image-caption">image-20240326015842760</figcaption>
+    </figure></p>
+<p>从图中可以看出，调节效应强调交互，因为和X一起影响斜率。</p>
+<p>分组回归则强调X的斜率是一样的，只是截距不同，不存在调节效应，更适合作为控制变量。</p>
+</div>
+        </div>
+    </div>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>我们能删除低次变量吗？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
@@ -797,9 +822,10 @@ $$
 \begin{cases} Y=\beta_1 X_1+\beta_2 X_2+\beta_3 D+\beta_4 DX_1+u\newline
 Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX_2 +u\end{cases}
 $$
-答案是需要带上$\beta_3 D$，在第一个式子中，$\beta_4$确实是控制了$X_1$和$D$后的净效用[^11]。此时容易产生“共线性”，可以进行去中心化处理减去均值。因此如果是双重差分法，如果did和预定的时间和空间设定一致，就变成了要求双向固定效应。</div>
+答案是需要带上$\beta_3 D$，在第一个式子中，$\beta_4$确实是控制了$X_1$和$D$后的净效用。此时容易产生“共线性”，可以进行去中心化处理减去均值。因此如果是双重差分法，如果did和预定的时间和空间设定一致，就变成了要求双向固定效应。</div>
         </div>
     </div>
+<p>以上参考来自<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>交互项最多能几个相乘?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
@@ -849,6 +875,9 @@ $$
 </li>
 <li id="fn:10">
 <p>P. J. Bickel et al. ,Sex Bias in Graduate Admissions: Data from Berkeley.Science187,398-404(1975).DOI:10.1126/science.187.4175.398&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Cleary P D, Kessler R C. The estimation and interpretation of modifier effects[J]. Journal of Health and Social Behavior, 1982: 159-169.12:&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>

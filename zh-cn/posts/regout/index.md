@@ -43,6 +43,7 @@
 ```sql
 ssc install logout //下载命令
 ************描述性统计*****************
+ sysuse "auto.dta", clear //使用stata自带的样本数据
  *输出至word(rtf格式)
 logout ,save(文件名) word replace:  ///
 		tabstat  price wei len mpg rep78, ///
@@ -81,7 +82,7 @@ outreg2 using 文件名.doc, replace sum(log) keep(company year invest mvalue ks
 ************回归结果输出*****************
 //分别使用随机效应、固定效应、混合效应回归然后合并
 //开始新表格还是合并上去对应的是replace和append
-
+xtreg invest mvalue kstock ,re
 outreg2 using 文件名.doc,replace tstat bdec(4) tdec(4) rdec(4) ctitle(RE) keep( mvalue kstock )   e(r2_a,F) addstat(F test,e(p)) addtext(Company FE, NO,Year FE, NO)
 xtreg invest mvalue kstock i.year ,fe 
 outreg2 using 文件名.doc,append tstat bdec(4) tdec(4) rdec(4) ctitle(FE) keep(  mvalue kstock)  e(r2_a,F) addstat(F test,e(p)) addtext(Company FE, YES,Year FE, YES)
@@ -90,6 +91,7 @@ outreg2 using 文件名.doc,append tstat bdec(4) tdec(4) rdec(4) ctitle(OLS) kee
 
 //bdec(4) tdec(4) rdec(4)分别代表着系数、t检验、r^2的小数位
 //addstat和addtext对应的添加统计量和表格内容
+//keep(var1 var2 var3)选择自己要保留的输出系数
 ```
 
 ![outreg2回归输出](/img/image-20240313202012613.png)
