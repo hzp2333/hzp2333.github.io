@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>用一根针测量π？概率论（茆诗松版)笔记 - 滑翔闪&#39;S BLOG</title><meta name="Description" content=""><meta property="og:title" content="用一根针测量π？概率论（茆诗松版)笔记" />
+<meta property="og:description" content="GPT总结:这篇内容主要介绍了《概率论与数理统计》中一些有趣而深刻的例子和概念。首先，通过古典概型和几何概型，解释了概率计算的基本原理。接着，以投针问题为例，演示了如何利用几何概型估算圆周率π。然后，讨论了问卷设计中的敏感问题，以及如何通过条件概率修正调查结果。最后，通过寓言故事“狼来了”，阐述了贝叶斯公式在信任度变化中的应用，展示了贝叶斯估计的重要性。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/probability/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-14T20:27:53+08:00" />
+<meta property="article:modified_time" content="2024-03-14T20:27:53+08:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="用一根针测量π？概率论（茆诗松版)笔记"/>
+<meta name="twitter:description" content="GPT总结:这篇内容主要介绍了《概率论与数理统计》中一些有趣而深刻的例子和概念。首先，通过古典概型和几何概型，解释了概率计算的基本原理。接着，以投针问题为例，演示了如何利用几何概型估算圆周率π。然后，讨论了问卷设计中的敏感问题，以及如何通过条件概率修正调查结果。最后，通过寓言故事“狼来了”，阐述了贝叶斯公式在信任度变化中的应用，展示了贝叶斯估计的重要性。"/>
+<meta name="application-name" content="滑翔闪&#39;S BLOG">
+<meta name="apple-mobile-web-app-title" content="滑翔闪&#39;S BLOG"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/probability/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/regout/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/toc/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "用一根针测量π？概率论（茆诗松版)笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/probability\/"
+        },"genre": "posts","keywords": "概率论","wordcount":  3033 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/probability\/","datePublished": "2024-03-14T20:27:53+08:00","dateModified": "2024-03-14T20:27:53+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "滑翔闪"},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="" data-header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+<a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+    <img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+</a>
+
+
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/meme.js"></script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/anime.min.js"></script>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/fireworks.js"></script> 
+
+<script defer src="https://cdn.jsdelivr.net/npm/akilar-live2d-widget/autoload.min.js"></script>
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script>
+
+
+<script src="/js/yh.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/probability/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/probability/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">用一根针测量π？概率论（茆诗松版)笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a>
+</span>&nbsp;<span class="post-category">类别 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-14">2024-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3033 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg"
+        data-srcset="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg, /img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg 1.5x, /img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg 2x"
+        data-sizes="auto"
+        alt="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg"
+        title="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一用一根掉在地上的针估测π"><strong>一、用一根掉在地上的针估测π？</strong></a>
+      <ul>
+        <li><a href="#1引入几何概型"><strong>1、引入：几何概型</strong></a></li>
+        <li><a href="#2用一根针估计-pi">2、用一根针估计 $\pi$</a></li>
+        <li><a href="#3补充如何确定概率">3、补充：如何确定概率</a></li>
+      </ul>
+    </li>
+    <li><a href="#二问卷敏感问题的真实情况估计">二、问卷敏感问题的真实情况估计</a>
+      <ul>
+        <li><a href="#1引入条件概率">1、引入：条件概率</a></li>
+        <li><a href="#2如何操作">2、如何操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#三狼来了的寓言与贝叶斯公式"><strong>三、“狼来了”的寓言与贝叶斯公式</strong></a>
+      <ul>
+        <li><a href="#1引入贝叶斯公式"><strong>1、引入：贝叶斯公式</strong></a></li>
+        <li><a href="#2狼来了的寓言">2、狼来了的寓言</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="1983466734" theme="#448aff"></meting-js>
+<p>这几天一直在看茆诗松版《概率论与数理统计》，本来看得是电子版，但看完后大呼过瘾，越看越觉得妙，于是连夜购入实体书。这本书确实如其在第一版前言中所讲的那样：例子生动有趣，同时把每个考点的狡猾变形娓娓道来，让人印象深刻。</p>
+<p>特别感谢 <strong><a href="https://github.com/re-book/ptmst" target="_blank" rel="noopener noreffer">github的re-book项目组</a>
+</strong> （2019）对书籍的$\LaTeX$重排。</p>
+<blockquote>
+<p>作为概率论与数理统计的入门书,我们不想一进门就把学生引入数学天堂,而是在“野外”先浏览概率统计的各种风景之后,再进入数学天堂,使各种概念和定理成为有源之水、有本之木。这样可使学生感到读此书的趣味,感到与读数学教科书有不同的味道。当然我们也十分注意从偶然性中提炼出来的一些规律性的证明和论述，因为只有理解了的东西才能更深刻地感受它。</p>
+<p><strong>(第一版前言)</strong></p>
+</blockquote>
+<p><strong>因为实在是太有趣，所以忍不住在知乎上重新记录下里面几个绝佳的例子。</strong></p>
+<h2 id="一用一根掉在地上的针估测π" class="headerLink">
+    <a href="#%e4%b8%80%e7%94%a8%e4%b8%80%e6%a0%b9%e6%8e%89%e5%9c%a8%e5%9c%b0%e4%b8%8a%e7%9a%84%e9%92%88%e4%bc%b0%e6%b5%8b%cf%80" class="header-mark"></a><strong>一、用一根掉在地上的针估测π？</strong></h2><h3 id="1引入几何概型" class="headerLink">
+    <a href="#1%e5%bc%95%e5%85%a5%e5%87%a0%e4%bd%95%e6%a6%82%e5%9e%8b" class="header-mark"></a><strong>1、引入：几何概型</strong></h3><p>古典概型的基础笔记可以看我的<a href="https://zhuanlan.zhihu.com/p/645540951" target="_blank" rel="noopener noreffer">另一篇回答</a>
+：</p>
+<p>古典概型的计算公式如下：
+$$
+P(A)=\frac{事件A 所含样本点的个数}{\Omega中所有样本点的个数}=\frac{k}{n}
+$$
+几何概型则是把代数公式转化为面积（转换思想参见高中线性规划）：
+$$
+P=\frac{S_{面积k}}{S_{面积n}}
+$$
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>几何概型举例<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><blockquote>
+<p>在长度为 a 的线段内任取两点将其分为三段, 求它们可以构成一个三角形的概率？</p>
+</blockquote>
+<p>首线把线段分成三段,长度分别为$x,y,a-x-y$</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png" title="把线段分成三段" data-thumbnail="/img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png" data-sub-html="<h2> </h2><p>把线段分成三段</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png"
+            data-srcset="/img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png, /img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png 1.5x, /img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-6e62c78112f2ebfbab02bb56135f97a0_720w.png" />
+    </a><figcaption class="image-caption">把线段分成三段</figcaption>
+    </figure></p>
+<p>围成三角形的充要条件为：任意两边之和大于第三边；任意两边之差小于第三边。</p>
+<p>于是得到不等式限制：
+$$
+\begin{cases} 0&lt;a-x-y&lt;x+y\\ 0&lt;x&lt;a-x-y\\ 0&lt;y&lt;x+(a-x-y) \end{cases} \stackrel{简化}{\longrightarrow}  \begin{cases} \frac{a}{2}&lt;x+y&lt;a\\ 0&lt;x&lt;\frac{a}{2}\\ 0&lt;y&lt;\frac{a}{2} \end{cases}
+$$
+此时用$x,y$建立坐标系看面积（线性规划那味儿）</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png" title="线性规划那味儿" data-thumbnail="/img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png" data-sub-html="<h2> </h2><p>线性规划那味儿</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png"
+            data-srcset="/img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png, /img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png 1.5x, /img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-77fc11bb9bd0491f53dc5eb58d12f2c8_720w.png" />
+    </a><figcaption class="image-caption">线性规划那味儿</figcaption>
+    </figure></p>
+<p>$$
+P=\frac{\frac{a^2}{8}}{\frac{a}{2}^2}=\frac{1}{4}
+$$</p>
+</div>
+        </div>
+    </div></p>
+<h3 id="2用一根针估计-pi" class="headerLink">
+    <a href="#2%e7%94%a8%e4%b8%80%e6%a0%b9%e9%92%88%e4%bc%b0%e8%ae%a1-pi" class="header-mark"></a>2、用一根针估计 $\pi$</h3><blockquote>
+<p><strong>比丰投针问题（很著名，因为答案与</strong> $\pi$<strong>有关）：</strong> 平面上画有间隔为$d(d&gt;0)$的等距平行线, 向平面任意投掷一枚长为$l(l&lt;d)$的针, 求针与任一平行线相交的概率？</p>
+</blockquote>
+<p>如图，红色的就是那根针其与水平线夹角为$\alpha$ 。</p>
+<p>当针与平行线相交时，取针的中点向垂直方向投影，投影的垂线线段就被分成了两个部分。</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-5fb20b75318cde493092b6a50448d257_720w.png" title="当针与平行线相交时，取针的中点向垂直方向投影，投影的垂线线段就被分成了两个部分" data-thumbnail="/img/v2-5fb20b75318cde493092b6a50448d257_720w.png" data-sub-html="<h2> </h2><p>当针与平行线相交时，取针的中点向垂直方向投影，投影的垂线线段就被分成了两个部分</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-5fb20b75318cde493092b6a50448d257_720w.png"
+            data-srcset="/img/v2-5fb20b75318cde493092b6a50448d257_720w.png, /img/v2-5fb20b75318cde493092b6a50448d257_720w.png 1.5x, /img/v2-5fb20b75318cde493092b6a50448d257_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-5fb20b75318cde493092b6a50448d257_720w.png" />
+    </a><figcaption class="image-caption">当针与平行线相交时，取针的中点向垂直方向投影，投影的垂线线段就被分成了两个部分</figcaption>
+    </figure></p>
+<p><strong>相交的充要条件</strong>变为：$x\leq\frac{1}{2}l \!sin\alpha$，此时未知参数就是 $x$ 和 $\alpha$ 。</p>
+<p>同时得到参数的限制条件</p>
+<p>$$
+\begin{cases}  0 \le x \le d/2\\ 0 \le \alpha \le \pi \end{cases}
+$$
+通过两个参数建立坐标系。</p>
+<p>
+<figure><a class="lightgallery" href="/img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png" title="通过两个参数建立坐标系" data-thumbnail="/img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png" data-sub-html="<h2> </h2><p>通过两个参数建立坐标系</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png"
+            data-srcset="/img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png, /img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png 1.5x, /img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-efbc8ce6087346f042cb9337e6d277ec_720w.png" />
+    </a><figcaption class="image-caption">通过两个参数建立坐标系</figcaption>
+    </figure></p>
+<p>然后通过微积分求得阴影部分的面积，除以矩形面积就是对对应概率。</p>
+<p>$$
+P (A) = \frac{S_A}{S_\Omega}     = \frac{\int_0^\pi \frac{l}{2} \!sin \alpha , \mathrm{d} \alpha}{\frac{d}{2} \pi}     = \frac{2l}{d\pi}\\
+$$
+当 $2l=d$时，$P (A) =\frac{1}{\pi}$。</p>
+<p>因此就可以通过越来越多次实验，然后相除，从而估测 $\pi$。</p>
+<h3 id="3补充如何确定概率" class="headerLink">
+    <a href="#3%e8%a1%a5%e5%85%85%e5%a6%82%e4%bd%95%e7%a1%ae%e5%ae%9a%e6%a6%82%e7%8e%87" class="header-mark"></a>3、补充：如何确定概率</h3><blockquote>
+<p>所谓的 <strong>“蒙洛卡特模拟”</strong> 就是在计算机中设计抽样模型，输入输出许多个随机值，通过最后的频率去逼近概率。</p>
+</blockquote>
+<p>在茆诗松版教材中，专门花了一个小节讨论确定概率的方法</p>
+<ul>
+<li>频率统计逼近概率</li>
+<li>古典方法（排列组合、加法乘法原理&hellip;.）</li>
+<li>几何方法</li>
+<li>主观方法（例如看起来明天下雨和不下雨的概率按理说是50%平分，但是天气预报会说有85%的概率下雨；还比如自己说有六成把握做成某件事&hellip;.如此种种就是主观概率）</li>
+</ul>
+<h2 id="二问卷敏感问题的真实情况估计" class="headerLink">
+    <a href="#%e4%ba%8c%e9%97%ae%e5%8d%b7%e6%95%8f%e6%84%9f%e9%97%ae%e9%a2%98%e7%9a%84%e7%9c%9f%e5%ae%9e%e6%83%85%e5%86%b5%e4%bc%b0%e8%ae%a1" class="header-mark"></a>二、问卷敏感问题的真实情况估计</h2><p>设计问卷的难点之一就是有些问题别人不愿意回答，或者不给出正确答案。</p>
+<p>例如“夫妻间吵架频率”、“你是否浏览过不良网站”、“你家的收入是多少”&hellip;由于“回答有损尊严”或者&quot;不真实的回答&quot;有利于搭便车（认为降低收入回答会让自己收到更多政府的帮助），我们很难得到正确的答案。</p>
+<p>茆诗松版概率论在讲解条件概率时给出一个例子，或许可以让答卷人的答案更有效。</p>
+<p>（虽然受困于效率，估计是实行不了的，但在问卷设计中就使用条件概率，这个切入点让人印象深刻）</p>
+<h3 id="1引入条件概率" class="headerLink">
+    <a href="#1%e5%bc%95%e5%85%a5%e6%9d%a1%e4%bb%b6%e6%a6%82%e7%8e%87" class="header-mark"></a>1、引入：条件概率</h3><p>$$
+P(A|B)=\frac{P(AB)}{P(B)}\stackrel{乘法公式}{\longrightarrow}  P(AB) = P(B) P(A|B)\\
+$$</p>
+<p>$$
+全概率公式： P(A) = \sum_{i=1}^n P(B_i) P(A | B_i)\\
+$$</p>
+<p>$$
+贝叶斯公式：    P (B_i | A) = \frac{P(B_i) P(A|B_i)}{\sum_{j=1}^n P(B_j) P(A|B_j)} \newline
+$$</p>
+<p>$$
+i = 12,\dotsc,n
+$$</p>
+<p>条件概率的三公式中：</p>
+<ul>
+<li><strong>乘法公式</strong>是求事件交的概率。</li>
+<li><strong>全概率公式</strong>是求一个复杂事件的概率。</li>
+<li><strong>贝叶斯公式</strong>是求一个条件概率。</li>
+</ul>
+<p>
+<figure><a class="lightgallery" href="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg" title="veen图，左边普通条件概率，右边全概率公式（绘图：latex的tikz）" data-thumbnail="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg" data-sub-html="<h2> </h2><p>veen图，左边普通条件概率，右边全概率公式（绘图：latex的tikz）</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg"
+            data-srcset="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg, /img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg 1.5x, /img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg 2x"
+            data-sizes="auto"
+            alt="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg" />
+    </a><figcaption class="image-caption">veen图，左边普通条件概率，右边全概率公式（绘图：latex的tikz）</figcaption>
+    </figure></p>
+<h3 id="2如何操作" class="headerLink">
+    <a href="#2%e5%a6%82%e4%bd%95%e6%93%8d%e4%bd%9c" class="header-mark"></a>2、如何操作</h3><p>调查者只需要回答以下两个问题中的一个就行，且选项只有“是”和“否”</p>
+<ul>
+<li>问题A:你的生日是否在7月1日以前？</li>
+<li>问题B：你是否浏览过不良网站？</li>
+</ul>
+<p>
+<figure><a class="lightgallery" href="/img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png" title="调查者只需要回答以下两个问题中的一个就行" data-thumbnail="/img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png" data-sub-html="<h2> </h2><p>调查者只需要回答以下两个问题中的一个就行</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png"
+            data-srcset="/img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png, /img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png 1.5x, /img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png 2x"
+            data-sizes="auto"
+            alt="/img/v2-0c9f1ecbb1103e5653b8cf5bd3ca29d2_720w.png" />
+    </a><figcaption class="image-caption">调查者只需要回答以下两个问题中的一个就行</figcaption>
+    </figure></p>
+<p>（1）被调查者在封闭屋子中没有其他观测者，独自一人操作和回答问题。</p>
+<p>（2）调查者抽取盲盒，抽到红球回答A,抽到白球回答B。</p>
+<p>首先，我们能大致估测“任选一人，生日是否在7月1日以前”的概率，我们假定为0.5。</p>
+<p>此时，有 $n$ 个问卷，我们得到了 $k$ 份问卷选“是”，盲盒中抽到红球的概率为$ \pi$ 。</p>
+<p>也就是说，我们有<strong>四个数据</strong>（$n，k，\pi，0,5$ ）。</p>
+<p>此时，利用全概率公式：</p>
+<p>$$
+P(是)P(白球）P(是|白球)+P(红球）P(是|红球) \stackrel{带入数值}{\longrightarrow}
+$$</p>
+<p>$$
+\frac{k}{n}=0.5(1-\pi)+{p_{是|红球}}\pi \stackrel{解得}{\longrightarrow}
+$$</p>
+<p>$$
+{p_{是|红球}}=\frac{\frac{n}{k}-0.5(1-\pi)}{\pi}
+$$</p>
+<p><strong>心理学、统计学的交叉设计！一场精美的骗局到此结束！</strong></p>
+<h2 id="三狼来了的寓言与贝叶斯公式" class="headerLink">
+    <a href="#%e4%b8%89%e7%8b%bc%e6%9d%a5%e4%ba%86%e7%9a%84%e5%af%93%e8%a8%80%e4%b8%8e%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f" class="header-mark"></a><strong>三、“狼来了”的寓言与贝叶斯公式</strong></h2><h3 id="1引入贝叶斯公式" class="headerLink">
+    <a href="#1%e5%bc%95%e5%85%a5%e8%b4%9d%e5%8f%b6%e6%96%af%e5%85%ac%e5%bc%8f" class="header-mark"></a><strong>1、引入：贝叶斯公式</strong></h3><p>贝叶斯公式：
+$$
+贝叶斯公式：    P (B_i | A) = \frac{P(B_i) P(A|B_i)}{\sum_{j=1}^n P(B_j) P(A|B_j)} <br>
+$$</p>
+<p>$$
+i = 1,2,\dotsc,n
+$$</p>
+<p>在贝叶斯公式中,如果称 $ P(B_i)$ 为 $B_i$的 <strong>先验概率</strong> ,称 为$P(B_i |A) $ 为$B_i$的 <strong>后验概率</strong> , 则贝叶斯公式是专门用于计算后验概率的, 也就是通过 $A$ 的发生这个新信息, 来对 $B_i$ 的概率作出的修正。</p>
+<blockquote>
+<p>例如在“狼来了”的故事中，村民对小男孩的有个初始信任度，但在小男孩反复的欺骗下，信任度不断降低，导致后面说真话也不相信小男孩了。</p>
+</blockquote>
+<h3 id="2狼来了的寓言" class="headerLink">
+    <a href="#2%e7%8b%bc%e6%9d%a5%e4%ba%86%e7%9a%84%e5%af%93%e8%a8%80" class="header-mark"></a>2、狼来了的寓言</h3><p>记事件$A$为“<strong>小孩说谎</strong>”，记事件 $B$ 为“<strong>小孩可信</strong>”。</p>
+<p>假设村民最开始对小孩的印象是 $P(B)=0.8$ , $P(\overline{B})=0.2$。</p>
+<p>先带入村民视角的条件概率，同时假设初始值</p>
+<p>$$
+\begin{cases} 小孩可信的同时说谎：P(A|B)=0.1\\ 小孩不可信的同时说谎：P(A|\overline{B})=0.5 \end{cases}\
+$$
+当小孩说谎后，村民会重新评估对小孩的信任度，所以此时前提是小孩撒过谎，信任表示为 $P(B|A)$。</p>
+<p>在<strong>第一次说谎</strong>后，带入贝叶斯方程：</p>
+<p>$$
+\begin{align*}<br>
+P(B|A) &amp; = \frac{P(B)P(A|B)}{P(B)P(A|B) + P(\bar B)P(A|\bar B) } \\<br>
+&amp; = \frac{0.8\times0.1}{0.8\times0.1 + 0.2\times0.5} = 0.444
+\end{align*}
+$$
+也就是说村民对小孩信任变化如下：</p>
+<p>$$
+先验概率
+\begin{cases} P(B)=0.8\\
+P(\overline{B})=0.2
+\end{cases}
+\stackrel{欺骗一次}{\longrightarrow}后验概率
+\begin{cases} P(B|A)=0.444\\
+P(\overline{B}|A)=0.556
+\end{cases}
+$$
+也就是说，<strong>欺骗一次后，村民对小孩的信任概率</strong>变为$P({B})=0.444$和 $P({B})=0.556$。</p>
+<p>同理反复带入，当欺骗第二次后，信任变为</p>
+<p>$$
+P(B|A) = \frac{0.444\times0.1}{0.444\times0.1 + 0.556\times0.5} = 0.138
+$$
+综上，在<strong>两次欺骗后</strong>，村民对小孩的信任从$P(B)=0.8$ 变为了 $P(B)=0.138$ 。</p>
+<p>这就是多次欺骗导致了丢失信任。</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>贝叶斯估计为何伟大<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>贝叶斯估计都含义就是随时根据参数调整概率值。就像福尔摩斯推理一样，先排列出所有可能，每当证据增加，就更改每个可能的信念值。</p>
+<p>还有种流派是频率学派，现实参数是固定的，直接用大数据估计出一个现实的参数。</p>
+<p>从这个角度看，贝叶斯估计甚至是一种世界观。</p>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/probability/" data-title="用一根针测量π？概率论（茆诗松版)笔记" data-hashtags="概率论"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/probability/" data-hashtag="概率论"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/probability/" data-title="用一根针测量π？概率论（茆诗松版)笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/probability/" data-title="用一根针测量π？概率论（茆诗松版)笔记"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/probability/" data-title="用一根针测量π？概率论（茆诗松版)笔记" data-image="/img/v2-2b22f6c96e38f3adae75e54a7d5739d6_720w.jpeg"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/regout/" class="prev" rel="prev" title="stata输出Word表格"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>stata输出Word表格</a>
+            <a href="/zh-cn/posts/toc/" class="next" rel="next" title="中文博客目录跳转失败">中文博客目录跳转失败<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+<div class="footer-line">
+	<span id="run-time"></span>
+</div><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank" rel="noopener noreferrer">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line">
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+<a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+<a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px">异次元之旅</a>
+</div>
+
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+    <a href="https://www.travellings.cn/go.html" target="_blank"><img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt=""  title="开往-友链接力 v1.5"></a>
+    <a href="https://www.foreverblog.cn/" target="_blank"><img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="" > </a>
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+</div></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"giscus":{"dataCategory":"Announcements","dataCategoryId":"DIC_kwDOLbBjxM4Cdr0n","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"en","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"hzp2333/Giscus","dataRepoId":"R_kgDOLbBjxA","dataStrict":"0"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
