@@ -4,7 +4,7 @@
 {{< music netease song 2045806409>}}
 
 **前人之述备矣，我只是浅踩了几个坑。**  
-主要软件： `stata`、`EXCEL`、`stata`。
+主要软件： `stata`、`EXCEL`、`SAS`。
 
 ## 一、流行的国内数据库：
 
@@ -343,11 +343,9 @@ gen x=substr(var,1,4)
 
 ##### 一些可视化代码网站
 
-SDAS Stata Graph Gallery：https://surveydesign.com.au/stata/graphs.html
-
-StataViz by Asjad Naqvi：https://asjadnaqvi.github.io/stata-portfolio/tags/portfolio/
-
-Stata Visual Library：https://worldbank.github.io/stata-visual-library/
+- [SDAS Stata Graph Gallery](https://surveydesign.com.au/stata/graphs.html)
+- [StataViz by Asjad Naqvi](https://asjadnaqvi.github.io/stata-portfolio/tags/portfolio/)
+- [Stata Visual Library](https://worldbank.github.io/stata-visual-library/)
 
 #### 图片合并
 
