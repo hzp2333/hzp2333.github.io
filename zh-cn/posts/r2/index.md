@@ -3,9 +3,9 @@
 
 {{< music netease song 425684928>}}
 
-[R语言笔记1界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/R1/)
+[R语言笔记1界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/r1/)
 
-[R语言笔记2数据清洗、绘图与计量](https://blog.huaxiangshan.com/zh-cn/posts/R2/)
+[R语言笔记2数据清洗、绘图与计量](https://blog.huaxiangshan.com/zh-cn/posts/r2/)
 
 > 常用数据库和清洗思想已经在[ stata 版本](https://blog.huaxiangshan.com/zh-cn/posts/data/)介绍过了，这里重点记录常用代码。
 >
