@@ -216,7 +216,8 @@ $$
 - [Stata：一文读懂事件研究法Event Study](https://www.lianxh.cn/details/678.html)
 - [An Introductory Guide to Event Study Models](https://www.aeaweb.org/journals/jep)
 - [许文立计量经济学讲义](https://raw.githubusercontent.com/wenddymacro/AppliedEconometrics/main/AppliedEconometrics.pdf)
-- [ES，启动！——事件研究法入门指南](https://zhuanlan.zhihu.com/p/649264012)
+- [ES，启动！——事件研究法入门指南](https://mp.weixin.qq.com/s/5kC3RyyhZkOILtFrlbQOag)
+- [【文献学习】事件研究法入门指南](https://mp.weixin.qq.com/s/cqPkBcsTPmceHVyi7ubsbQ)
 
 [^1]: Jacobson L S, LaLonde R J, Sullivan D G. Earnings losses of displaced workers[J]. The American economic review, 1993: 685-709.
 [^2]: Li H, Meng L, Mu K, et al. English language requirement and educational inequality: Evidence from 16 million college applicants in China[J]. Journal of Development Economics, 2024: 103271.
