@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>原神概率论：材料合成天赋选 10%双倍还是 25%返还？ - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" />
+<meta property="og:description" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-09T18:39:02+08:00" />
+<meta property="article:modified_time" content="2023-08-09T18:39:02+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"/>
+<meta name="twitter:description" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/tl/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/art/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "原神概率论：材料合成天赋选 10%双倍还是 25%返还？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/genshin\/"
+        },"genre": "posts","keywords": "原神, 概率论","wordcount":  1869 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/genshin\/","datePublished": "2023-08-09T18:39:02+08:00","dateModified": "2023-08-09T18:39:02+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/meme.js"></script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/anime.min.js"></script>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/fireworks.js"></script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakana 小组件集成</title>
+    <style>
+         
+        #sakana-widget-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 268px;   
+            height: 268px;  
+        }
+        #sakana-widget {
+            width: 100%;
+            height: 100%;
+        }
+
+         
+        @media screen and (max-width: 600px) {
+            #sakana-widget-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sakana-widget-container">
+        <div id="sakana-widget"></div>
+    </div>
+
+    <script>
+        function initSakanaWidget() {
+            new SakanaWidget({
+                size: 300,  
+                autoFit: true,  
+                character: 'chisato',  
+                controls: true,  
+                rod: true,  
+                draggable: true,  
+                stroke: {
+                    color: '#b4b4b4',  
+                    width: 10  
+                },
+                threshold: 0.1,  
+                rotate: 0,  
+                title: false  
+            }).mount('#sakana-widget');
+        }
+
+        
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var container = document.getElementById('sakana-widget-container');
+            if (screenWidth <= 960) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        
+        checkScreenWidth();
+
+        
+        window.addEventListener('resize', checkScreenWidth);
+
+        
+        initSakanaWidget();
+    </script>
+    <script
+        async
+        onload="initSakanaWidget()"
+        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script>
+<script src="/js/yh.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/genshin/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/genshin/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">原神概率论：材料合成天赋选 10%双倍还是 25%返还？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1869 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp"
+        data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp 2x"
+        data-sizes="auto"
+        alt="/img/原神概率.zh-cn-20240523115303126.webp"
+        title="/img/原神概率.zh-cn-20240523115303126.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一设定介绍">一、设定介绍</a></li>
+    <li><a href="#二计算期望与方差"><strong>二、计算期望与方差</strong></a>
+      <ul>
+        <li><a href="#一10双倍产出的期望与方差"><strong>（一）10%双倍产出的期望与方差</strong></a></li>
+        <li><a href="#二25返回材料的期望与方差">（二）25%返回材料的期望与方差</a></li>
+      </ul>
+    </li>
+    <li><a href="#三初步结论">三、初步结论</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="1910966474" theme="#448aff"></meting-js>
+<p>网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。</p>
+<h2 id="一设定介绍">一、设定介绍</h2>
+<p>在原神中，<strong>三个低级材料能够合成一个高级材料</strong>。我们表示为 $a \xrightarrow{\text{转化}}\dfrac{b}{3}$</p>
+<p>为保持单位一致，我们统一<strong>使用 b 表示投入与产出</strong>，假设两边同时有初始材料 a，也就等价于 $\dfrac{b}{3}$。</p>
+<p>此时有两种天赋，<strong>如下图</strong></p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp" title="两种天赋" data-thumbnail="/img/原神概率.zh-cn-20240523115001685.webp" data-sub-html="<h2> </h2><p>两种天赋</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115001685.webp" />
+    </a><figcaption class="image-caption">两种天赋</figcaption>
+    </figure></p>
+<ul>
+<li>一种是有 10%的概率双倍产出。</li>
+</ul>
+<blockquote>
+<p>每使用 a 个材料，也就是 $\dfrac{b}{3}$ 材料时，10%概率直接产出 $\dfrac{2}{3}b$ 材料。</p>
+</blockquote>
+<ul>
+<li>一种是有 25%的概率返还部分低级材料。</li>
+</ul>
+<blockquote>
+<p>每使用 a 个材料，也就是 $\dfrac{b}{3}$ 材料时，25%概率返回 $\dfrac{1}{3} \times \dfrac{1}{3}b$ 材料。</p>
+</blockquote>
+<h2 id="二计算期望与方差"><strong>二、计算期望与方差</strong></h2>
+<blockquote>
+<p><strong>网上计算数学期望的已经有很多，但是似乎没有人计算方差，这里顺便把方差的计算补上。</strong></p>
+</blockquote>
+<h3 id="一10双倍产出的期望与方差"><strong>（一）10%双倍产出的期望与方差</strong></h3>
+<p><strong>1、期望</strong></p>
+<p>此时就是<strong>二项分布离散分布列</strong> 。10% 概率双倍产出，90% 概率普通产出。</p>
+<p>如下表 1：</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp" title="二项分布离散分布列" data-thumbnail="/img/原神概率.zh-cn-20240523115047136.webp" data-sub-html="<h2> </h2><p>二项分布离散分布列</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115047136.webp" />
+    </a><figcaption class="image-caption">二项分布离散分布列</figcaption>
+    </figure></p>
+<p>$$
+E_{\text{双倍}}(\dfrac{b}{3})=0.1\times \dfrac{2b}{3} + 0.9 \times \dfrac{b}{3} = \dfrac{11b}{30}
+$$
+所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，10%双倍天赋的数学期望 $E_{\text{双倍}}(\dfrac{b}{3})=\dfrac{11 b}{30} $ 。</p>
+<p><strong>2、方差</strong>
+$$
+Var_{\text{双倍}}(\dfrac{b}{3})=E(X^2)-(E(X))^2 =(\dfrac{2b}{3})^2\times 0.1+ (\dfrac{b}{3})^2\times 0.9 -(\dfrac{11b}{30})^2=\dfrac{1}{100}b^2
+$$
+所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，10%双倍天赋的方差 $ Var_{\text{双倍}}(\dfrac{b}{3})=\dfrac{1}{100}b^2 $。</p>
+<h3 id="二25返回材料的期望与方差">（二）25%返回材料的期望与方差</h3>
+<p><strong>1、期望的两种算法</strong></p>
+<p><strong>方法一：等比数列</strong></p>
+<p>$$
+\begin{align*}
+E_{\text{返回}}\left(\frac{b}{3}\right)<br>
+&amp;= \frac{b}{3} + \frac{b}{3} \times 25\% \times \frac{1}{3} + \ldots + \frac{b}{3} \times \left(\frac{1}{12}\right)^n \newline	
+&amp;= \frac{b}{3} \times (1+{\frac{1}{12}}+{\frac{1}{12}}^2+&hellip;+{\frac{1}{12}}^n)  \newline	 	
+&amp;= \frac{b}{3} \times \frac{1 \times (1-{\frac{1}{12}}^n)}{1-\frac{1}{12}}  \newline	
+\end{align*}
+$$</p>
+<p>$$
+\lim_{n\rightarrow + \infty}E_{\text{返回}}\left(\frac{b}{3}\right)=\frac{b}{3} \times \frac{1 \times (1-{\frac{1}{12}}^n)}{1-\frac{1}{12}}=\frac{4b}{11}
+$$</p>
+<p><strong>方法二：递归</strong></p>
+<p><strong>由于返还后的材料继续炼丹，会形成一个递归，因此我们得到：</strong>
+$$
+E_{\text{返回}}\left(\frac{b}{3}\right)=\frac{b}{3} +E_{\text{返回}}\left(\frac{b}{3}\right)\times 25% \times \frac{1}{3}
+$$
+答案与上面相同：</p>
+<p>所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，25%返回天赋的数学期望 $E_{\text{返回}}(\frac{b}{3} )=\frac{4b}{11}$。</p>
+<p><strong>2、方差</strong></p>
+<p><strong>错误方法：</strong></p>
+<p>如果这样处理:</p>
+<p>$$
+\lim_{n\rightarrow + \infty}E_{\text{返回}}(\dfrac{1}{9}b^2)=({\frac{1}{3}}b)^2 \times \frac{1 \times (1-{\frac{1}{12}}^n)}{1-\frac{1}{12}}=\frac{4b}{11}\times \frac{b}{3} =\frac{4}{33}b^2
+$$
+会得到一个错误的负数 (方差 $Var(x)=E(x-E(x))^2$ 不可能为负）：
+$$
+Var_{\text{返回}}({\frac{b}{3}})=E(X^2)-(E(X))^2=\frac{4}{33}b^2-(\frac{4b}{11})^2=-\frac{4}{363}b^2
+$$
+这种做法的前提是：
+$$
+\lim_{n\rightarrow + \infty}E_{\text{返回}}(\dfrac{1}{9}b^2)=\lim_{n\rightarrow + \infty}E_{\text{返回}}(\dfrac{1}{3}b)\times \dfrac{1}{3}b
+$$
+<strong>但实际上 b 是未知数，不是常数，所以不能这样粗暴地乘进括号内。</strong></p>
+<p><strong>正确方法：</strong></p>
+<p>正确做法如图 4, 通过树状图分析。</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp" title="树状图" data-thumbnail="/img/原神概率.zh-cn-20240523115108123.webp" data-sub-html="<h2> </h2><p>树状图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115108123.webp" />
+    </a><figcaption class="image-caption">树状图</figcaption>
+    </figure></p>
+<p>由于所有可能性不断分裂成“<strong>剩下的 25%还有机会继续维持好运继续触发天赋吗？</strong>”不断分裂，最后会趋近于 0，所以我们只用加总红色部分即可。</p>
+<p>我们可以验证下这种分类是否讨论完了所有情况，将所有概率加总：</p>
+<p>$$
+\lim_{n\rightarrow +\infty}75\%+&hellip;+{(25\%)}^{n-1}75\%=1
+$$
+所有对应概率加总为 1，一定程度上验证了这种分类的正确性。</p>
+<p>此时数学期望如下：</p>
+<p>$$
+E_{\text{返回}}(\frac{1}{9}b^2) =\sum_{i=1}^{i=n}{(25\%)}^{i-1}75 \%\times {\frac{b}{3}[1+&hellip;(\frac{1}{3})^{i-1}]}^2
+$$
+等比数列求和，取极限（这部分计算比较麻烦&hellip;&hellip;）</p>
+<p>$$
+\begin{align}
+&amp;=\lim_{n\rightarrow +\infty}E_{\text{返回}}\left(\frac{b^2}{9}\right) \newline
+&amp;= \sum_{i=1}^{n-1}\frac{3}{4^{i}} \times \frac{1}{9}b^2\left(\frac{1-\left(\frac{1}{3}\right)^i}{1-\frac{1}{3}}\right)^2\newline 	
+&amp;= \frac{3}{16}b^2\sum_{i=1}^{n-1}\frac{1}{4^{i-1}}\left[1-\left(\frac{1}{3}\right)^i\right]^2\newline 
+&amp; = \frac{3}{16}b^2\sum_{i=1}^{n-1}\frac{1}{4^{i-1}}(1-\frac{2}{3^i}+\frac{1}{9^i})\newline 	
+&amp;=\frac{3}{16}b^2(\dfrac{4}{3}-\dfrac{8}{11}+\dfrac{4}{35})\newline 	&amp;=\dfrac{52}{385}b^2
+\end{align}
+$$
+对应方差如下：</p>
+<p>$$
+Var_{\text{返回}}({\frac{b}{3}})=E(X^2)-(E(X))^2=\dfrac{52}{385}b^2-(\frac{4b}{11})^2=\dfrac{236}{2541}b^2
+$$
+所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，10%双倍天赋的方差返回$ Var_{\text{返回}}(\dfrac{b}{3})=\dfrac{236}{2541}b^2$。</p>
+<h2 id="三初步结论">三、初步结论</h2>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115224681.webp" title="初步结论" data-thumbnail="/img/原神概率.zh-cn-20240523115224681.webp" data-sub-html="<h2> </h2><p>初步结论</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115224681.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115224681.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115224681.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115224681.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115224681.webp" />
+    </a><figcaption class="image-caption">初步结论</figcaption>
+    </figure></p>
+<p>更多讨论详见：<a href="https://zhuanlan.zhihu.com/p/648950822?" target="_blank" rel="noopener noreffer ">原神概率论</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-08-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/genshin/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" data-hashtags="原神,概率论"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-hashtag="原神"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" data-image="/img/原神概率.zh-cn-20240523115303126.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8E%9F%E7%A5%9E/">原神</a>,&nbsp;<a href="/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/tl/" class="prev" rel="prev" title="奇葩而通俗的中世纪指南《如何屠龙》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>奇葩而通俗的中世纪指南《如何屠龙》</a>
+            <a href="/zh-cn/posts/art/" class="next" rel="next" title="看展：时代的容颜">看展：时代的容颜<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+
+	<div class="footer-line">
+	<span id="run-time"></span>
+</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+<a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+<a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px">异次元之旅</a>
+</div>
+
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+    <a href="https://www.travellings.cn/go.html" target="_blank"><img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt=""  title="开往-友链接力 v1.5"></a>
+    <a href="https://www.foreverblog.cn/" target="_blank"><img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="" > </a>
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+</div>
+
+
+
+
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
