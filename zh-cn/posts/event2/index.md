@@ -662,7 +662,7 @@ constraint define 32 D_p6=D_p8;
 
 ```
 
-![做法一：约束事件时间虚拟变量斜率相等](/img/stata事件研究法2.zh-cn-20240624121424373.webp)
+![做法一：约束事件时间虚拟变量间的值相等](/img/stata事件研究法2.zh-cn-20240624121424373.webp)
 **做法 2** 是约束系数与系数间的斜率（$\gamma_1-\gamma_0=\gamma_2-\gamma_1$）相等
 
 以下是约束代码的例子:
@@ -673,7 +673,7 @@ constraint define 11 D_m6=D_m5;
 constraint define 12 D_m4=D_m3;
 ```
 
-![系数间相等的约束](/img/stata事件研究法2.zh-cn-20240624122552395.webp)
+![系数间都斜率相等的约束](/img/stata事件研究法2.zh-cn-20240624122552395.webp)
 
 - 左上角是普通情况。
 - 右上角是两期斜率相等的分组。
