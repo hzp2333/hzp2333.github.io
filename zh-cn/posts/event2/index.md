@@ -6,7 +6,6 @@
 - [计量：事件研究法 2](https://blog.huaxiangshan.com/zh-cn/posts/event2/)
 
 书接上回，本文是《[An Introductory Guide to Event Study Models](https://www.aeaweb.org/articles?id=10.1257/jep.37.2.203)》的代码学习记录。  
-
 ## 附录 A：区分 DID 和 Timing-based
 
 这一部分的代码属于描述统计，描述样本分布（或者作为政策实施背景）。
