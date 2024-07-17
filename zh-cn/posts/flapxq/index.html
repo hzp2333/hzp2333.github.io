@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>微观经济：罗伊、霍太林、谢泼德  - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="微观经济：罗伊、霍太林、谢泼德 " />
+<meta property="og:description" content="学习了罗伊、霍太林、谢泼德经济计算式。《平新乔微观经济学十八讲》直接使用了上面三者作为课后试题的计算方法，但是《微观经济学：现代观点》（范里安）中并未提到这部分知识点（数学上感觉平新乔门槛挺高的），因此在此补充记录。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-13T17:23:04+08:00" />
+<meta property="article:modified_time" content="2023-09-13T17:23:04+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="微观经济：罗伊、霍太林、谢泼德 "/>
+<meta name="twitter:description" content="学习了罗伊、霍太林、谢泼德经济计算式。《平新乔微观经济学十八讲》直接使用了上面三者作为课后试题的计算方法，但是《微观经济学：现代观点》（范里安）中并未提到这部分知识点（数学上感觉平新乔门槛挺高的），因此在此补充记录。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/citespace/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/shounian/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "微观经济：罗伊、霍太林、谢泼德 ",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/flapxq\/"
+        },"genre": "posts","keywords": "微观经济学","wordcount":  2434 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/flapxq\/","datePublished": "2023-09-13T17:23:04+08:00","dateModified": "2023-09-13T17:23:04+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/meme.js"></script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/anime.min.js"></script>
+<script type="text/javascript" src="https://www.liuzehe.top/upload/bkjs/fireworks.js"></script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakana 小组件集成</title>
+    <style>
+         
+        #sakana-widget-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 268px;   
+            height: 268px;  
+        }
+        #sakana-widget {
+            width: 100%;
+            height: 100%;
+        }
+
+         
+        @media screen and (max-width: 600px) {
+            #sakana-widget-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sakana-widget-container">
+        <div id="sakana-widget"></div>
+    </div>
+
+    <script>
+        function initSakanaWidget() {
+            new SakanaWidget({
+                size: 300,  
+                autoFit: true,  
+                character: 'chisato',  
+                controls: true,  
+                rod: true,  
+                draggable: true,  
+                stroke: {
+                    color: '#b4b4b4',  
+                    width: 10  
+                },
+                threshold: 0.1,  
+                rotate: 0,  
+                title: false  
+            }).mount('#sakana-widget');
+        }
+
+        
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var container = document.getElementById('sakana-widget-container');
+            if (screenWidth <= 960) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        
+        checkScreenWidth();
+
+        
+        window.addEventListener('resize', checkScreenWidth);
+
+        
+        initSakanaWidget();
+    </script>
+    <script
+        async
+        onload="initSakanaWidget()"
+        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script>
+<script src="/js/yh.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/flapxq/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/flapxq/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">微观经济：罗伊、霍太林、谢泼德 </h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-13">2023-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2434 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp"
+        data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp 2x"
+        data-sizes="auto"
+        alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp"
+        title="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#总体理解框架">总体理解框架</a></li>
+    <li><a href="#一谢泼德引理shephards-lemma">一、谢泼德引理（Shephard&rsquo;s lemma）</a>
+      <ul>
+        <li><a href="#生产理论成本最小化"><strong>生产理论，成本最小化</strong></a></li>
+        <li><a href="#证明过程"><strong>证明过程：</strong></a></li>
+        <li><a href="#消费理论同理">消费理论，同理，</a></li>
+        <li><a href="#应用举例">应用举例</a></li>
+      </ul>
+    </li>
+    <li><a href="#二罗伊恒等式roys-identity">二、罗伊恒等式（Roy&rsquo;s identity）</a>
+      <ul>
+        <li><a href="#消费理论-效用最大化"><strong>消费理论</strong>, 效用<strong>最大化</strong></a></li>
+        <li><a href="#证明过程-1"><strong>证明过程：</strong></a></li>
+        <li><a href="#应用举例-1">应用举例</a></li>
+      </ul>
+    </li>
+    <li><a href="#三霍特林引理hotellings-lemma">三、<strong>霍特林引理</strong>（Hotelling&rsquo;s lemma）</a>
+      <ul>
+        <li><a href="#生产理论利润最大化">生产理论，利润最大化</a></li>
+        <li><a href="#证明过程-2">证明过程：</a></li>
+        <li><a href="#应用举例-2">应用举例</a></li>
+      </ul>
+    </li>
+    <li><a href="#四补充">四、补充</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="罗伊霍太林谢泼德经济计算式">罗伊、霍太林、谢泼德经济计算式</h1>
+<blockquote>
+<p>《平新乔微观经济学十八讲》直接使用了上面三者作为课后试题的计算方法，但是《微观经济学：现代观点》（范里安<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>）中并未提到这部分知识点（数学上感觉平新乔门槛挺高的），因此在此补充记录。<br>
+《平新乔微观经济学十八讲》<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>在以下附件中（来自 z-library）</p>
+</blockquote>
+<p><a href="https://pan.baidu.com/link/zhihu/7ph3zMubh4iTezc0RkMtMyxEOaXyQ1RQUZZz==" target="_blank" rel="noopener noreffer ">微观经济学十八讲 (平新乔) (Z-Library) .pdf</a></p>
+<h2 id="总体理解框架">总体理解框架</h2>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp" title="一个希克斯需求疯狂跨越各种知识点" data-thumbnail="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112139178.webp" data-sub-html="<h2> </h2><p>一个希克斯需求疯狂跨越各种知识点</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp"
+            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 2x"
+            data-sizes="auto"
+            alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112139178.webp" />
+    </a><figcaption class="image-caption">一个希克斯需求疯狂跨越各种知识点</figcaption>
+    </figure></p>
+<ul>
+<li>谢泼德引理（Shephard&rsquo;s lemma）给定生产函数数量，成本最小化；</li>
+<li>罗伊恒等式（Roy&rsquo;s identity）给定预算, 效用最大化；</li>
+<li>霍特林引理（Hotelling&rsquo;s lemma）是无约束利润函数。</li>
+</ul>
+<blockquote>
+<p>他们都是包络问题的分析</p>
+</blockquote>
+<h2 id="一谢泼德引理shephards-lemma">一、谢泼德引理（Shephard&rsquo;s lemma）</h2>
+<h3 id="生产理论成本最小化"><strong>生产理论，成本最小化</strong></h3>
+<p>给定生产函数数量，求成本最小
+$$
+min \sum_{i}^{n}{w_i x_i}\newline
+st.\bar{y}=f(x_1,x_2 \cdots x_n)
+$$
+
+<figure><a class="lightgallery" href="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112204619.webp" title="成本最小化" data-thumbnail="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112204619.webp" data-sub-html="<h2> </h2><p>成本最小化</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112204619.webp"
+            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112204619.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112204619.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112204619.webp 2x"
+            data-sizes="auto"
+            alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112204619.webp" />
+    </a><figcaption class="image-caption">成本最小化</figcaption>
+    </figure></p>
+<p>我们往往构造拉格朗日方程求解：$\mathcal{L}= \sum_{i}^{n}{w_i x_i}-\lambda[\bar{y}-f(x_1,x_2 \cdots x_n)]$</p>
+<p>对 $x_i$ 和 $\lambda$ 求偏导等于 0，最后解出最优产量投入 $x_i$, 带入成本函数，我们就得到了<strong>最小成本</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>$\sum_{i}^{n}{w_i x_i^*}$。</p>
+<p>范里安教材中常用的几何求解方法为：</p>
+<p>$$
+\large \bbox[#def,10px,border: 5px solid]{\frac{\Delta x_2}{\Delta x_1}=-\frac{MP_1(x_1^{*},x_2^{*})}{MP_2(x_1^{*},x_2^{*})}=-\frac{w_1}{w_2}}
+$$</p>
+<hr>
+<p><strong>谢泼德引理</strong>就是拉格朗日法过程的简化。对于成本函数 $c(\mathbf{w},y)=\sum_{i}^{n}{w_i x_i^*}$ 对要素价格 $w_i$ 求偏导，方程解被称 $x_2$ 为<strong>希克斯需求函数函数</strong>（最小支出下的最优商品束）。
+$$
+\large \bbox[#def,10px,border: 5px solid] { x_{i}(\mathbf{w},y)=\frac{\partial c(\mathbf{w},y)}{\partial w_{i}}}
+$$</p>
+<h3 id="证明过程"><strong>证明过程：</strong></h3>
+<p>$$
+\begin{align}
+&amp; x_{j}(\mathbf{w},y)=\frac{\partial c(\mathbf{w},y)}{\partial w_{j}}\newline
+&amp;=\frac{\partial\sum_{i=1}^{n}{w_i x_i}}{\partial w_{j}}\newline
+&amp;=x_j+\color{red}{\sum_{i=1}^{n}w_i\frac{\partial x_i}{\partial w_j}}
+\end{align}
+$$</p>
+<p>对于红色部分 $\color{red}{\sum_{i=1}^{n}w_i\frac{\partial x_i}{\partial w_j}}$，我们之前的拉格朗日方程有</p>
+<p>$$
+\frac{\partial \mathcal{L}}{\partial x_i}=w_i-\lambda f(x_1,\cdots ,x_n)=0\newline
+\Rightarrow w_i=\lambda f(x_1,\cdots ,x_n)
+$$
+把 $w_i$ 代入替换，原式变为
+$$
+\begin{align}
+&amp;x_j+\color{red}{\sum_{i=1}^{n}w_i\frac{\partial x_i}{\partial w_j}}\newline
+&amp;=x_j+\sum_{i=1}^{n}\lambda f (x&hellip;)\frac{\partial x_i}{\partial w_j}\newline
+&amp;=x_j+\lambda \sum_{i=1}^{n}f (x&hellip;)\frac{\partial x_i}{\partial w_j}\newline
+\end{align}
+$$
+同时，条件有给定产量函数数值 $\bar{y}$
+$$
+\bar{y}=f(x_1,x_2 \cdots x_n)
+$$
+因此实际上，对式子 $w_j$ 导为 0。
+$$
+\frac{\partial\bar{y}}{\partial w_j}=\frac{\partial f(x_1,x_2 \cdots x_n)}{\partial w_j}=0
+$$
+等式成立。</p>
+<h3 id="消费理论同理">消费理论，同理，</h3>
+<blockquote>
+<p><strong>要素价格变为商品价格，成本函数变成支出函数。</strong></p>
+</blockquote>
+<p>给定价格效用，最小成本问题的需求 $x_i^*$ 的解 ,我们把其叫做<strong>希克斯需求函数</strong>。</p>
+<p>$e(p,u)$: 给定的<strong>支出函数</strong>。
+$$
+\large \bbox[#def,10px,border: 5px solid]{x_i^h=h_i(p,u)=\frac{\partial e(p,u)}{\partial p_i}}
+$$
+<strong>使用条件：</strong>$e(p,u)$ 可微，$w_i&gt;0$。</p>
+<h3 id="应用举例">应用举例</h3>
+<blockquote>
+<p>总成本函数为：$C=qv^{2/3}v^{1/3}$</p>
+<p>（1）利用谢泼德引理计算 kk 和 ll 的要素需求函数<br>
+（2）根据（1）的结论计算潜在生产函数</p>
+</blockquote>
+<p>（1）</p>
+<p>$$
+\begin{aligned}
+l&amp;=\frac{\partial C}{\partial w}=\frac{2}{3}q\bigg(\frac{v}{w}\bigg)^{1/3} \newline
+k&amp;=\frac{\partial C}{\partial\nu}=\frac{1}{3}q\bigg(\frac{w}{\nu}\bigg)^{2/3}
+\end{aligned}
+$$
+（2）根据（1）的结果消除 $\frac{v}{w}$， $q=\left(\frac{3}{2}\right)^{2/3}(3)^{1/3}l^{2/3}k^{1/3}=Bl^{2/3}k^{1/3}$。</p>
+<p>$B=\left(\frac{3}{2}\right)^{2/3}\left(3\right)^{1/3}$。</p>
+<h2 id="二罗伊恒等式roys-identity">二、罗伊恒等式（Roy&rsquo;s identity）</h2>
+<h3 id="消费理论-效用最大化"><strong>消费理论</strong>, 效用<strong>最大化</strong></h3>
+<blockquote>
+<p>给定预算约束线，求效用最大化</p>
+</blockquote>
+<p>$$
+\max u=f(x_1,x_2 \cdots x_n) \newline
+st.\sum_{i=1}^{n}{x_ip_i}=m
+$$</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112226328.webp" title="img" data-thumbnail="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112226328.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112226328.webp"
+            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112226328.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112226328.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112226328.webp 2x"
+            data-sizes="auto"
+            alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112226328.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<p>范里安中常用的几何求解方法为：</p>
+<p>$$
+\large \bbox[#def,10px,border: 5px solid]{\frac{\Delta x_2}{\Delta x_1}=-\frac{MU_1(x_1^{*},x_2^{*})}{MU_2(x_1^{*},x_2^{*})}=-\frac{p_1}{p_2}}
+$$</p>
+<hr>
+<p><strong>间接效用函数</strong> ${\displaystyle v(\mathbf {p} ,w)}$：满足预算约束时的最大效用</p>
+<p>$\mathbf {p}$ : 商品价格， $w$ ：工资</p>
+<p>则商品需求数量的解 $x_i$ 也就是<strong>马歇尔需求函数</strong>（商品价格与需求的函数）。
+$$
+\large \bbox[#def,10px,border: 5px solid] {x_i^m=-\frac{\partial v/\partial p_i}{\partial v/\partial m} }
+$$
+($x_i^m$ 中的 m 表示的是马歇尔需求函数的意思，同理， $x_i^h$ 中的 h 是希克斯需求函数。）</p>
+<h3 id="证明过程-1"><strong>证明过程：</strong></h3>
+<p><strong>拉格朗日函数</strong>为 $\mathcal{L}=u(\mathbf{x})-\lambda(\mathbf{p}\cdot\mathbf{x}-m)$，对 $\mathcal{L}$ 求 $x_i$ 偏导。
+$$
+\frac{\partial\mathcal{L}(\mathbf{x}^{f},\lambda^{f})}{\partial x_i}=\frac{\partial u(\mathbf{x}^{f})}{\partial x_i}-\lambda^{f}p_i=0
+$$
+对于拉格朗日函数，我们对预算上限 $m$（这里指收入）求导</p>
+<p>$$
+\frac{\partial\mathcal{L}(\mathbf{x}^{f},\lambda^{f})}{\partial m}=\lambda^{f}
+$$
+如何理解 $\lambda$ ——它是<strong>影子价格</strong>。</p>
+<p>$$
+\boxed{\max u=f(x_1,x_2 \cdots x_n)\newline st.\sum_{i=1}^{n}{x_ip_i}=m\newline   }
+$$
+$$
+\mathcal{L}=u(\mathbf{x})-\lambda(\mathbf{p}\cdot\mathbf{x}-m)
+$$
+当我们改变<strong>约束条件</strong>$.st$ 里的 $m$ 的值时，也就是产生 $\Delta m$ 的变化，目标函数 $\max u$<strong>真正被改变的值</strong>是。$\lambda^f\Delta m$ 因此我们说 $\lambda$ 衡量了对应要素的改变对于真正目标函数的变化，被叫做“<strong>影子价格（真实价格）</strong>”。</p>
+<p>由此我们得到：</p>
+<p>$$
+\lambda={\frac{\partial{\mathcal{L}}}{\partial m}}={\frac{\partial v (\mathbf{p},m)}{\partial m}}
+$$
+同理，如果我们研究 p 的变化，可以得到</p>
+<p>$$
+\frac{\partial\nu(\mathbf{p},m)}{\partial p_{i}}=\frac{\partial\mathcal{L}(\mathbf{x}^{f},\lambda^{f})}{\partial p_{i}}=-\lambda^{f}x_{i}^{f}
+$$
+联立，
+$$
+\begin{cases} \lambda={\frac{\partial v (\mathbf{p},m)}{\partial m}}\newline
+\frac{\partial v(\mathbf{p},m)}{\partial p_{i}}=-\lambda^{f}x_{i}^{f}
+\end{cases}
+$$
+得到罗伊恒等式。</p>
+<h3 id="应用举例-1">应用举例</h3>
+<blockquote>
+<p>平新乔《微观经济学十八讲》第 16 讲“一般均衡与福利经济学的两个基本原理”<br>
+第 3 题<br>
+考虑两个消费者，两种商品的经济，消费者效用禀赋如下。<br>
+$$
+\begin{aligned}
+u^{1}(x_{1},x_{2})&amp;=\min{x_{1},x_{2}}&amp;e^{1}=(30,0) \newline
+\nu^{2}\left(p,y\right)&amp;=\frac{y}{2\sqrt{p_{1}p_{2}}}&amp;e^{2}=(0,20)\end{aligned}
+$$
+求发现瓦尔拉斯均衡</p>
+</blockquote>
+<p>消费者 1 的马歇尔需求：
+$$
+x_{1}^{1}=x_{2}^{1}=\frac{m}{p_{1}+p_{2}}=\frac{30p_{1}}{p_{1}+p_{2}}
+$$
+消费者 2，使用罗伊恒等式 $x_{i}\left(p,m\right)=-\frac{\partial\nu/\partial p_{i}}{\partial\nu/\partial m}$ 得到：</p>
+<p>$$
+x_{i}^{2}=\frac{m}{2p_{i}}=\frac{10p_{2}}{p_{i}}
+$$
+解得——略</p>
+<h2 id="三霍特林引理hotellings-lemma">三、<strong>霍特林引理</strong>（Hotelling&rsquo;s lemma）</h2>
+<blockquote>
+<p>谢泼德引理和罗伊恒等式都是由约束条件下的包络问题，霍特林引理则是无约束情况下的包络问题。</p>
+</blockquote>
+<h3 id="生产理论利润最大化">生产理论，利润最大化</h3>
+<p>给定利润函数</p>
+<p>$$
+\pi(p)=\max_{x}p\cdot f\small{(x(p,w))}-w\small{x(p,w)}
+$$
+$w$：生产要素价格，$ y (p)$ : 厂商供给函数, $y(p)\triangleq f(x(p))$ 为净供给量。</p>
+<blockquote>
+<p>范里安里这类题先判断是完全竞争还是非完全竞争、短期、长期、要素、商品市场。</p>
+</blockquote>
+<hr>
+<p><strong>霍特林引理为：</strong>
+$$
+\large \bbox[#def,10px,border: 5px solid] {y^{*}(p)=\frac{d\pi(p)}{dp} }
+$$</p>
+<h3 id="证明过程-2">证明过程：</h3>
+<p>对于
+$$
+\pi(p)=\max_{x}p\cdot f\small{(x(p,w))}-w\small{x(p,w)}
+$$
+<strong>一阶最大化条件</strong>为：
+$$
+p\frac{\mathrm{\partial}f(x(p,w))}{\mathrm{\partial}x}-w=0
+$$
+利润函数 $\pi$ 对 p 求导：
+$$
+\frac{\partial\pi(p,w)}{\partial p}=f(x(p,w))+\color{blue}{p\frac{\mathrm{d}f(x(p,w))}{\mathrm{d}x}\cdot\frac{\partial x(p,w)}{\partial p}-w\frac{\partial x(p,w)}{\partial p}}
+$$</p>
+<p>$$
+\color{blue}{蓝色部分=(p\frac{\mathrm{\partial}f(x(p,w))}{\mathrm{\partial}x}-w)\frac{\partial x(p,w)}{\partial p}}=0
+$$</p>
+<h3 id="应用举例-2">应用举例</h3>
+<blockquote>
+<p>平新乔《微观经济学十八讲》第七讲“要素需求函数、成本函数、利润函数与供给函数”<br>
+第一题<br>
+已知生产函数为 $f(x_1,2_2)=0.5lnx_1+0.5lnx_2$ 求利润函数 $\pi(w_1,w_2,p)$, 并用两种方法求供给函数。</p>
+</blockquote>
+<p><strong>利润函数</strong>： $\pi=\frac{p}{2}(lnp^2-ln4w_1w_2)-p$</p>
+<p><strong>供给函数</strong>：使用 Hotelling&rsquo;s lemma
+$$
+y=\frac{\partial\pi(w_1,w_2,p)}{\partial p}=\frac{1}{2}(lnp^2-ln4w_1w_2)
+$$
+普通方法，分别求偏导 $\frac{\partial \pi}{\partial x_i}=0$ 解出 $x^*$, 带入利润函数，答案相同。</p>
+<h2 id="四补充">四、补充</h2>
+<p>参考数理经济学的基本方法（蒋中一），这几个定理其实就是基于包络分析求出间接函数。</p>
+<p>将间接函数代入这类问题的一阶条件消除参数 𝜆 ，就会得到范里安中常见的图形解。</p>
+<p>给定成本，利润最大化；给定利润，成本最小化。两者互为对偶问题，函数结果相同，但包络分析下的参数 𝜆 互为倒数。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>范里安还是很体贴，没用啥复杂的数学，甚至直接在《成本最小化》章节里面说自己不会考 Cobb-Douglas 对应成本，不过到了中国就开考而且更近一步了&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>讲义名声在外，不过我还没有看完&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>顺便一提，对于这类条件问题，成本最小化就是利润最大化，问题可以互相转化&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-09-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/flapxq/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" data-title="微观经济：罗伊、霍太林、谢泼德 " data-hashtags="微观经济学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" data-hashtag="微观经济学"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" data-title="微观经济：罗伊、霍太林、谢泼德 "><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" data-title="微观经济：罗伊、霍太林、谢泼德 "><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" data-title="微观经济：罗伊、霍太林、谢泼德 " data-image="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">微观经济学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/citespace/" class="prev" rel="prev" title="Citespace 文献可视化"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Citespace 文献可视化</a>
+            <a href="/zh-cn/posts/shounian/" class="next" rel="next" title="收敛：从“算式的极限”到“增长的极限”">收敛：从“算式的极限”到“增长的极限”<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+
+	<div class="footer-line">
+	<span id="run-time"></span>
+</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+
+
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+<a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+<a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px">异次元之旅</a>
+</div>
+
+
+<style>
+    .footerImg {
+        height: 20px;  
+    }
+</style>
+<div class="footer-line custom">
+    <a href="https://www.travellings.cn/go.html" target="_blank"><img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt=""  title="开往-友链接力 v1.5"></a>
+    <a href="https://www.foreverblog.cn/" target="_blank"><img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="" > </a>
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"><img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+</div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
