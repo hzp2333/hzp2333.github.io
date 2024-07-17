@@ -1,6 +1,7 @@
 # The Hexi Corridor
 
 
+{{< music netease song 1956543008>}} 
 
 The Hexi Corridor, truly formidable, unfolds its rugged terrain. The Qilian Mountains, with their majestic peaks and ridges, reveal the lean loess skin weathered over ages, adorned with streaks of black and red hues. The mountain summits swell like vertebrae, encircling the narrow passage with a slow, imposing embrace.
 

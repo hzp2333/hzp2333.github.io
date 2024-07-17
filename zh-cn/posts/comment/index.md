@@ -1,6 +1,7 @@
 # Hugo 搭建 Giscus 评论区
 
 
+{{< music netease song 22078173 >}}
 
 如今 hugo 评论区已经有了很多成熟的方案。Waline 强大且好用，但对我这种小白来说太不友好了（例如我就不会配置 waline 评论区的中英文自动切换）；gitalk 利用 github 仓库的 Issue 区域作为评论区，搭建简单但权限授予有点问题（可见这里的[讨论](https://www.v2ex.com/t/535608)）。综上，我选择 Giscus——搭建简单且安全。
 

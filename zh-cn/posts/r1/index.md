@@ -1,6 +1,7 @@
 # R 语言基础 1：界面介绍与语法结构
 
 
+{{< music netease song 1476393685>}}
 
 [R语言笔记1界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/r1/)
 

@@ -1,6 +1,8 @@
 # stata 输出 Word 表格
 
 
+{{< music url="/music/Sunflower.flac" name=sunflower artist="Post Malone, Swae Lee" cover="/images/spyder.jpg" >}}
+
 
 写经济实证论文时，经常输出大量的表格（主要是描述性统计和回归结果）。掌握了表格输出瞬发技巧，就像使用魔法不需要吟唱！
 ![当你和别人讨论便变量选择时，直接秒回，就是这种感觉！](/img/stata输出Word表格.zh-cn-20240523133530444.webp)

@@ -1,6 +1,8 @@
 # Self-questioning: Econ-Learning mentality within the hierarchy of disdain
 
 
+{{< music netease song 1873049720>}}
+
 Reflecting on myself, what constitutes enthusiasm for studying economics is essentially a form of showing off, typically preceded by achievements before love.
 
 That being said, after the ebbing tide, don't some seaweeds also leave behind seeds that sprout on the land? This is also what I ponder—*Truth becomes fiction when the fiction's true; Real becomes not-real where the unreal's real*.**Enthusiasm for a subject does not require pure reasons or pure motives; by persevering, it becomes genuine.** A classmate I know once thought economics wasn't for them and wanted to switch majors. However, after achieving good grades, they started praising economics. When I see this classmate throwing out various economic terms, it's like seeing myself from the past.

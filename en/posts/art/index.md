@@ -1,7 +1,7 @@
 # Faces of Time
 
 
-
+{{< music netease song 2144069358>}}
 
 The process of stylistic evolution in character portrayal is akin to the process of human self-awareness. The thematic exhibition titled "Faces of Time" encapsulates this sentiment aptly. Whether it's the subject matter or the techniques employed in painting, they are essentially products of human quest for understanding in the waves of time.
 

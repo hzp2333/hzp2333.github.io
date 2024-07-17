@@ -1,6 +1,7 @@
 # The Custom Font in Hugo
 
 
+{{< music netease song 472045267>}}
 
 The method to customize fonts in each Hugo theme varies, and there are few resources online explaining how to modify fonts in Hugo. Here, we'll introduce how to change fonts in the [LoveIt theme](https://hugoloveit.com/zh-cn/).
 

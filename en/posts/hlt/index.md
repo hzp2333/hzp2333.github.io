@@ -1,6 +1,7 @@
 # HLT: Lifecycle and Wage Decomposition
 
 
+{{< music netease song 472045267>}}
 # HLT: Lifecycle and Wage Decomposition
 
 ## APC panel and life cycle

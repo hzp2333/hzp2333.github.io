@@ -1,6 +1,6 @@
 # 盛世与妖术并行，“权力幻觉”近在迟尺
 
-
+{{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/e3iviwrwnh1.jpg" >}} 
 ## 《叫魂》: 盛世与妖术并行，“权力幻觉”近在迟尺
 
 

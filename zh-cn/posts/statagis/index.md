@@ -1,6 +1,8 @@
 # Stata 绘制 Gis 着色图
 
 
+{{< music netease song 1879098277 >}}
+
 估计每个经济学学习者都向往过掌握全套统计语言的自己——Python 机器学习与爬虫，Stata 计量回归，R 绘图和文本分析，Gis 遥感与着色，Matlab 解均衡模型和仿真实验。不过人的精力终究还是有限的，个人决定先尝试用 Stata 实现其他语言的优势项目，例如 stata: [爬虫学习](https://blog.huaxiangshan.com/zh-cn/posts/pachong/)。
 
 今天这里记录的是用 Stata 画 Gis 着色图的过程。

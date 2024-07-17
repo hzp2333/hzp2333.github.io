@@ -1,7 +1,7 @@
 # Obsidian 管理文献阅读和博客文档
 
 
-
+{{< music netease song 2155423468>}} 
 
 最近开始接触 Obsidian，在此记录使用流程。
 

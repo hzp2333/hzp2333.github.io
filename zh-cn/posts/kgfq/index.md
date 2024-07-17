@@ -1,7 +1,7 @@
 # 客观赋权：PCA、CRITIC、EWM、COV
 
 
-
+{{< music url="/music/かたわれ時.mp3" name="かたわれ時" artist=RADWIMPS cover="/images/shh.jpg" >}}
 
 虎扑流行“我来发图，你们来打分”。经济学也经常赋权建立指标进行打分比较。目前互联网上的教程似乎都是“代码-数据-推导”的三缺一，这里打算一口气把三个部分通通概括。
 

@@ -1,6 +1,7 @@
 # 奇葩而通俗的中世纪指南《如何屠龙》
 
 
+{{< music netease song 865857523>}} 
 
 奇葩而通俗的中世纪指南 [《如何屠龙》](https://book.douban.com/subject/36421715/)
 
