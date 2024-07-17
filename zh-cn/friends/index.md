@@ -67,7 +67,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 {{< friend  name="loveit主题"
 url="https://hugoloveit.com/zh-cn/"
-logo=" https://hugoloveit.com/images/avatar.png"
+logo=" https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
 word="loveit主题文档"
     primary-color="default"
     img-animation="rotate"
