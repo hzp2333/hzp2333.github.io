@@ -42,7 +42,7 @@ At 4:46, the sun officially crested the mountain peak[^4]. At that moment, I kep
 > 
 > **But is it not me?**
 > 
-> —Shi Tiesheng, **I and the Temple of Earth****
+> —Shi Tiesheng, I and the Temple of Earth
 > ![sunrise view](/img/调研小记：夜爬夜长城.zh-cn-20240604184001951.webp)
 
 ## Research Summary

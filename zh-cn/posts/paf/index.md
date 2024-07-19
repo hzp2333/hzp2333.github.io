@@ -140,9 +140,10 @@ $$
 > >
 > >To summarize, in the SR, time FE and age dummies are used, while in the LR, we use cohort FE to account for differences in fertility patterns based on birth year. Time FE do not coexist in the LR analysis because they do not directly apply to the retrospective nature of the data.
 > 
-> 在我个人看来，做法是人为假设 age-period-time 中某个效应不重要，于是直接省略。这种做法坦白讲，个人依旧觉得不严谨。
+> 在我个人看来，做法是人为假设 age-period-time 中某个效应不重要，于是直接省略。这种做法坦白讲，个人依旧觉得不严谨。但还是可以辩护下，请参见下文：
 
-动态处理效应图现实，改革后城乡差距不断缩小，改革后生育率不断下降[^5]。
+动态处理效应图现实，改革后城乡差距不断缩小，改革后生育率不断下降[^5]。横坐标展示的是队列，控制了 age 为 45 岁，以出生年份分组展现。由于 age+cohort=period, 但从统计的现实意义上说，period 在图的统计中没有特别含义，因此可以忽略时间效应。
+
 ![工具变量部分](/img/养老金和生育率-20240713210232124.webp)
 #### 混杂因子
 

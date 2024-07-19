@@ -29,6 +29,6 @@
 - 知乎、微信公众号限制站外引用链接，审核也是大麻烦。
 - 建立自己的笔记库，我自己也经常回顾自己的博客笔记。
 
-**选择 [hugo](https://gohugo.io/) 的原因**：本来首选的是 hexo, 但经过学长劝导后选择了 hugo，即时预览，渲染快捷。目前使用 obsidian 编写管理博客文档。
+**选择 [hugo](https://gohugo.io/) 的原因**：本来首选的是 hexo, 但经过学长劝导后选择了 hugo，即时预览，渲染快捷。目前使用 obsidian 编写管理博客文档，托管在 github。
 
-**选择 [loveit](https://hugoloveit.com/zh-cn/) 主题的原因**：shortcode 支持丰富，简洁适中，作者帮助文档详细，各个年龄段的品味都能兼容！不过 loveit 主题作者已经放弃更新，同类主题可以参见 [doit](https://hugodoit.pages.dev/zh-cn/) 和 [fixit](https://fixit.lruihao.cn/)。
+**选择 [loveit](https://hugoloveit.com/zh-cn/) 主题的原因**：shortcode 支持丰富，风格简洁，作者帮助文档详细，各个年龄段的品味都能兼容！不过 loveit 主题作者已经放弃更新，同类主题可参见 [doit](https://hugodoit.pages.dev/zh-cn/) 和 [fixit](https://fixit.lruihao.cn/)。
