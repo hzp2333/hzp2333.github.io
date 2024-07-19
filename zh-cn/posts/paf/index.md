@@ -135,6 +135,8 @@ $$
 >双重差分部分 $\lambda_{t}$ 是调查数据年份时间虚拟变量，属于时间效应，代表数据调查时对应的科技水平、医疗水平、基础设施等随着时间变化的要素；
 >
 >事件研究法部分 $\lambda_{t}$ 是出生年份时间虚拟变量，用来标志特定群体经历过特定的历史社会环境。
+>
+>对于这个细节，我也邮件询问了两位作者，得到如下回复（非常感谢两位老师的热心回复🥰）。
 > ![我也邮件询问了两位作者，得到了如下回信（片段）](/img/养老金和生育率-20240716234809029.webp)
 > >In the short run (SR), we control for time fixed effects (FE) and age dummies. For the long run (LR), our sample includes women aged 45-69 years. We interpret their number of children as the number of children at age 45, regardless of their current age. Therefore, we control for different fertility patterns depending on the birth year of the women, which is why we include cohort fixed effects in the event study section. In this context, (current) time fixed effects are not relevant because we are looking at retrospective fertility patterns (in the past).
 > >
