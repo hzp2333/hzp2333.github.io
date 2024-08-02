@@ -22,11 +22,11 @@ conda update --all
 
 There is no one on the Internet who has the same situation as me. Finally, I opened `anaconda powershell prompt` and saw the specific problem, which was a problem with path recognition.
 
-![Although only a J was exposed, I still noticed that it was java](/img/v2-476787b0744665f6ef8864da337300e5_720w.png)
+![Although only a J was exposed, I still noticed that it was java](/img/anaconda.zh-cn-20240802115711967.webp)
 
 The problem is a Windows environment variable conflict: my `user variable path` and `environment variable path` settings conflict and are inconsistent. Causes the anaconda in the user variables to be recognized into the Java environment of the system variables.
 
-![Solution: Unify user variables and system variables, or delete the java path](/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg)
+![Solution: Unify user variables and system variables, or delete the java path](/img/anaconda.zh-cn-20240802115752502.webp)
 
 Solution: Unify user variables and system variables, or delete the java path. Personally, this is because the invalid path is blocking the way. I personally deleted the wrong path for Java: `%Java\_Home%\bin; %Java\_Home%\jre\bin`. Afterwards, it was checked that the Java environment was not affected, and the anaconda environment was also restored.
 

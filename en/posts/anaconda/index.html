@@ -292,26 +292,26 @@ None of the commonly used solutions on the Internet work, but here are some:</p>
 </blockquote>
 <p>There is no one on the Internet who has the same situation as me. Finally, I opened <code>anaconda powershell prompt</code> and saw the specific problem, which was a problem with path recognition.</p>
 <p>
-<figure><a class="lightgallery" href="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" title="Although only a J was exposed, I still noticed that it was java" data-thumbnail="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" data-sub-html="<h2> </h2><p>Although only a J was exposed, I still noticed that it was java</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802115711967.webp" title="Although only a J was exposed, I still noticed that it was java" data-thumbnail="/img/anaconda.zh-cn-20240802115711967.webp" data-sub-html="<h2> </h2><p>Although only a J was exposed, I still noticed that it was java</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/img/v2-476787b0744665f6ef8864da337300e5_720w.png"
-            data-srcset="/img/v2-476787b0744665f6ef8864da337300e5_720w.png, /img/v2-476787b0744665f6ef8864da337300e5_720w.png 1.5x, /img/v2-476787b0744665f6ef8864da337300e5_720w.png 2x"
+            data-src="/img/anaconda.zh-cn-20240802115711967.webp"
+            data-srcset="/img/anaconda.zh-cn-20240802115711967.webp, /img/anaconda.zh-cn-20240802115711967.webp 1.5x, /img/anaconda.zh-cn-20240802115711967.webp 2x"
             data-sizes="auto"
-            alt="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" />
+            alt="/img/anaconda.zh-cn-20240802115711967.webp" />
     </a><figcaption class="image-caption">Although only a J was exposed, I still noticed that it was java</figcaption>
     </figure></p>
 <p>The problem is a Windows environment variable conflict: my <code>user variable path</code> and <code>environment variable path</code> settings conflict and are inconsistent. Causes the anaconda in the user variables to be recognized into the Java environment of the system variables.</p>
 <p>
-<figure><a class="lightgallery" href="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" title="Solution: Unify user variables and system variables, or delete the java path" data-thumbnail="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" data-sub-html="<h2> </h2><p>Solution: Unify user variables and system variables, or delete the java path</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802115752502.webp" title="Solution: Unify user variables and system variables, or delete the java path" data-thumbnail="/img/anaconda.zh-cn-20240802115752502.webp" data-sub-html="<h2> </h2><p>Solution: Unify user variables and system variables, or delete the java path</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg"
-            data-srcset="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg, /img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg 1.5x, /img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg 2x"
+            data-src="/img/anaconda.zh-cn-20240802115752502.webp"
+            data-srcset="/img/anaconda.zh-cn-20240802115752502.webp, /img/anaconda.zh-cn-20240802115752502.webp 1.5x, /img/anaconda.zh-cn-20240802115752502.webp 2x"
             data-sizes="auto"
-            alt="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" />
+            alt="/img/anaconda.zh-cn-20240802115752502.webp" />
     </a><figcaption class="image-caption">Solution: Unify user variables and system variables, or delete the java path</figcaption>
     </figure></p>
 <p>Solution: Unify user variables and system variables, or delete the java path. Personally, this is because the invalid path is blocking the way. I personally deleted the wrong path for Java: <code>%Java\_Home%\bin; %Java\_Home%\jre\bin</code>. Afterwards, it was checked that the Java environment was not affected, and the anaconda environment was also restored.</p>

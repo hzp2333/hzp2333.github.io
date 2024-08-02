@@ -23,11 +23,11 @@ conda update --all
 
 网络上没有和我相同的情况，最后我是打开**anaconda powershell prompt**看到了具体问题，是路径识别出现问题。
 
-![虽然只露出个J，我还是察觉到了是java(](/img/v2-476787b0744665f6ef8864da337300e5_720w.png)
+![虽然只露出个J，我还是察觉到了是java(](/img/anaconda.zh-cn-20240802115711967.webp)
 
 原因是 Windows 环境变量冲突：我的用户变量 path 和环境变量 path 设置冲突，不一致。导致在用户变量的 anaconda 被识别到了系统变量的 Java 环境。
 
-![解决方法：统一用户变量和系统变量、或者删除java路径](/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg)
+![解决方法：统一用户变量和系统变量、或者删除java路径](/img/anaconda.zh-cn-20240802115752502.webp)
 
 解决方法：统一用户变量和系统变量、或者删除 java 路径。这里个人是因为**无效的 path 路径挡路了**。个人删除了 Java 的错误路径：`%Java\_Home%\bin;%Java\_Home%\jre\bin`。之后检验 Java 环境没受到影响，anaconda 环境也恢复了。
 

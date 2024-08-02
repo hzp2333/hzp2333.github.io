@@ -291,26 +291,26 @@
 </blockquote>
 <p>网络上没有和我相同的情况，最后我是打开<strong>anaconda powershell prompt</strong>看到了具体问题，是路径识别出现问题。</p>
 <p>
-<figure><a class="lightgallery" href="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" title="虽然只露出个J，我还是察觉到了是java(" data-thumbnail="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" data-sub-html="<h2> </h2><p>虽然只露出个J，我还是察觉到了是java(</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802115711967.webp" title="虽然只露出个J，我还是察觉到了是java(" data-thumbnail="/img/anaconda.zh-cn-20240802115711967.webp" data-sub-html="<h2> </h2><p>虽然只露出个J，我还是察觉到了是java(</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/img/v2-476787b0744665f6ef8864da337300e5_720w.png"
-            data-srcset="/img/v2-476787b0744665f6ef8864da337300e5_720w.png, /img/v2-476787b0744665f6ef8864da337300e5_720w.png 1.5x, /img/v2-476787b0744665f6ef8864da337300e5_720w.png 2x"
+            data-src="/img/anaconda.zh-cn-20240802115711967.webp"
+            data-srcset="/img/anaconda.zh-cn-20240802115711967.webp, /img/anaconda.zh-cn-20240802115711967.webp 1.5x, /img/anaconda.zh-cn-20240802115711967.webp 2x"
             data-sizes="auto"
-            alt="/img/v2-476787b0744665f6ef8864da337300e5_720w.png" />
+            alt="/img/anaconda.zh-cn-20240802115711967.webp" />
     </a><figcaption class="image-caption">虽然只露出个J，我还是察觉到了是java(</figcaption>
     </figure></p>
 <p>原因是 Windows 环境变量冲突：我的用户变量 path 和环境变量 path 设置冲突，不一致。导致在用户变量的 anaconda 被识别到了系统变量的 Java 环境。</p>
 <p>
-<figure><a class="lightgallery" href="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" title="解决方法：统一用户变量和系统变量、或者删除java路径" data-thumbnail="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" data-sub-html="<h2> </h2><p>解决方法：统一用户变量和系统变量、或者删除java路径</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802115752502.webp" title="解决方法：统一用户变量和系统变量、或者删除java路径" data-thumbnail="/img/anaconda.zh-cn-20240802115752502.webp" data-sub-html="<h2> </h2><p>解决方法：统一用户变量和系统变量、或者删除java路径</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg"
-            data-srcset="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg, /img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg 1.5x, /img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg 2x"
+            data-src="/img/anaconda.zh-cn-20240802115752502.webp"
+            data-srcset="/img/anaconda.zh-cn-20240802115752502.webp, /img/anaconda.zh-cn-20240802115752502.webp 1.5x, /img/anaconda.zh-cn-20240802115752502.webp 2x"
             data-sizes="auto"
-            alt="/img/v2-a640242f7bfc731fbbf8dea3f717372f_720w-17106790388694.jpeg" />
+            alt="/img/anaconda.zh-cn-20240802115752502.webp" />
     </a><figcaption class="image-caption">解决方法：统一用户变量和系统变量、或者删除java路径</figcaption>
     </figure></p>
 <p>解决方法：统一用户变量和系统变量、或者删除 java 路径。这里个人是因为<strong>无效的 path 路径挡路了</strong>。个人删除了 Java 的错误路径：<code>%Java\_Home%\bin;%Java\_Home%\jre\bin</code>。之后检验 Java 环境没受到影响，anaconda 环境也恢复了。</p>
