@@ -1,6 +1,8 @@
 # Hugo 自定义字体
 
 
+
+
 {{< music netease song 472045267>}}
 
 每个 hugo 主题设置字体的方法都不同，而网上很少人介绍 hugo 怎么修改字体。这里要介绍的是 [loveit主题](https://hugoloveit.com/zh-cn/)更换字体的方法。
