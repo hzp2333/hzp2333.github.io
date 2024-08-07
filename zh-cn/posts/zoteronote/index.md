@@ -58,6 +58,8 @@ github 项目地址：[https://github.com/windingwind/zotero-better-notes](https
 
 改自：[自用SCI笔记模版](https://github.com/windingwind/zotero-better-notes/discussions/771)
 
+可以在 [github](https://github.com/windingwind/zotero-better-notes/discussions/973) 或者[知乎](https://zhuanlan.zhihu.com/p/696175807 )找到我改造后的源码。
+
 > 就是文章开始展示的图片。  
 > 需要额外安装 zotero style、绿青蛙、translate 插件作为模板支持。
 
