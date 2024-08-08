@@ -64,19 +64,18 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 {{< friend   name="les1ie"
     url=" https://les1ie.com/"
-    logo=" https://les1ie.com/img/avatar-Les1ie.jpg"
-    Word="If there is permanence, why sleep at the third watch and wake up at the fifth watch? The most useless thing is to be exposed to the cold for ten days in one day."
+    logo="https://les1ie.com/img/avatar-Les1ie.jpg"
+    Word="With perseverance, gold and stone can be carved.。"
     Primary-color="default"
     Img-animation="rotate"
     Border-animation="shadow"  >}}
-
 ## Netizen
 
 ##  Hugo build
 
 {{< friend  name="loveit theme"
 url="https://hugoloveit.com/zh-cn/"
-logo=" https://hugoloveit.com/images/avatar.png"
+logo="https://hugoloveit.com/images/avatar.png"
 word="loveit document"
     primary-color="default"
     img-animation="rotate"
@@ -115,7 +114,7 @@ word="hugo loveit theme decoration guide"
 
 {{< friend  name="LuMing"
 url="http://www.profluming.com/"
-logo=" https://flcds.fudan.edu.cn/__local/8/BC/D5/3C1367EBE2BFC43C6F498ACC48F_C34DC394_92C5.jpg"
+logo="https://flcds.fudan.edu.cn/__local/8/BC/D5/3C1367EBE2BFC43C6F498ACC48F_C34DC394_92C5.jpg"
 word="Political Economy of Space"
     primary-color="default"
     img-animation="rotate"
@@ -139,7 +138,7 @@ word="All-round economist"
 
 {{< friend  name="Daron Acemoglu"
 url=" https://economics.mit.edu/people/faculty/daron-acemoglu"
-logo=" https://economics.mit.edu/sites/default/files/styles/facutly_profile_feature_image/public/2022-12/daron-acemoglu30.jpg?h=620fd1cb&itok=2p17a0hs"
+logo="https://economics.mit.edu/sites/default/files/styles/facutly_profile_feature_image/public/2022-12/daron-acemoglu30.jpg?h=620fd1cb&itok=2p17a0hs"
 Word="All-round economist"
     Primary-color="default"
     Img-animation="rotate"

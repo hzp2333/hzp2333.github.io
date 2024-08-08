@@ -4,8 +4,7 @@
 ## 校友：循循善诱如师者
 
 
-High school to graduate school, ranked randomly... Slogan using Google Translate
-
+高中到大学，排名随机......
 
 {{< friend   name="yll"    
 
@@ -69,17 +68,18 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend   name="les1ie"
-    url=" https://les1ie.com/"
-    logo=" https://les1ie.com/img/avatar-Les1ie.jpg"
-    Word="苟有恒,何必三更眠五更起; 最无益,莫过一日曝十日寒。"
+    url="https://les1ie.com/"
+    logo="https://les1ie.com/img/avatar-Les1ie.jpg"
+    Word="锲而不舍，金石可镂。"
     Primary-color="default"
     Img-animation="rotate"
     Border-animation="shadow"  >}}
+    
 ## HUGO美化：BLOG之爱，人皆有之
 
 {{< friend  name="loveit主题"
 url="https://hugoloveit.com/zh-cn/"
-logo=" https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
+logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
 word="loveit主题文档"
     primary-color="default"
     img-animation="rotate"
@@ -120,7 +120,7 @@ word="不想当写手的码农不是好咸鱼"
 
 {{< friend  name="陆铭"
 url="http://www.profluming.com/"
-logo=" https://flcds.fudan.edu.cn/__local/8/BC/D5/3C1367EBE2BFC43C6F498ACC48F_C34DC394_92C5.jpg"
+logo="https://flcds.fudan.edu.cn/__local/8/BC/D5/3C1367EBE2BFC43C6F498ACC48F_C34DC394_92C5.jpg"
 word="空间政治经济学"
     primary-color="default"
     img-animation="rotate"
