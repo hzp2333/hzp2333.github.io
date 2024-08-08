@@ -62,7 +62,17 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-##  hugo build
+{{< friend   name="les1ie"
+    url=" https://les1ie.com/"
+    logo=" https://les1ie.com/img/avatar-Les1ie.jpg"
+    Word="If there is permanence, why sleep at the third watch and wake up at the fifth watch? The most useless thing is to be exposed to the cold for ten days in one day."
+    Primary-color="default"
+    Img-animation="rotate"
+    Border-animation="shadow"  >}}
+
+## Netizen
+
+##  Hugo build
 
 {{< friend  name="loveit theme"
 url="https://hugoloveit.com/zh-cn/"
@@ -97,6 +107,7 @@ word="hugo loveit theme decoration guide"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
 
 ## Economists
 

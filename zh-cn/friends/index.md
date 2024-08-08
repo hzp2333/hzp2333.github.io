@@ -3,6 +3,10 @@
 
 ## 校友：循循善诱如师者
 
+
+High school to graduate school, ranked randomly... Slogan using Google Translate
+
+
 {{< friend   name="yll"    
 
 url="https://blog.yllhwa.com/"    
@@ -63,6 +67,14 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend   name="les1ie"
+    url=" https://les1ie.com/"
+    logo=" https://les1ie.com/img/avatar-Les1ie.jpg"
+    Word="苟有恒,何必三更眠五更起; 最无益,莫过一日曝十日寒。"
+    Primary-color="default"
+    Img-animation="rotate"
+    Border-animation="shadow"  >}}
 ## HUGO美化：BLOG之爱，人皆有之
 
 {{< friend  name="loveit主题"
@@ -97,6 +109,8 @@ word="不想当写手的码农不是好咸鱼"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+## 大佬们：有缘千里来相会
 
 
 
