@@ -65,10 +65,10 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   name="les1ie"
     url=" https://les1ie.com/"
     logo="https://les1ie.com/img/avatar-Les1ie.jpg"
-    Word="With perseverance, gold and stone can be carved.。"
-    Primary-color="default"
-    Img-animation="rotate"
-    Border-animation="shadow"  >}}
+    word="With perseverance, gold and stone can be carved"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 ## Netizen
 
 ##  Hugo build

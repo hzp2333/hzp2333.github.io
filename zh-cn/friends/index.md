@@ -70,10 +70,10 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   name="les1ie"
     url="https://les1ie.com/"
     logo="https://les1ie.com/img/avatar-Les1ie.jpg"
-    Word="锲而不舍，金石可镂。"
-    Primary-color="default"
-    Img-animation="rotate"
-    Border-animation="shadow"  >}}
+    word="锲而不舍，金石可镂"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
     
 ## HUGO美化：BLOG之爱，人皆有之
 
