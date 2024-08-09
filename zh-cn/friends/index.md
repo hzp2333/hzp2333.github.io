@@ -107,7 +107,7 @@ word="不想当写手的码农不是好咸鱼"
 ## 大佬们：有缘千里来相会
 
 {{< friend   name="寒夏摸鱼站"
-    url=" https://blog.rainiar.top"
+    url="https://blog.rainiar.top"
     logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
     word="稀奇古怪技术集散地"
     primary-color="default"
