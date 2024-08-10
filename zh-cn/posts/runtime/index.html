@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  1246 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  1338 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -221,7 +221,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">多语言 hugo 添加总字数统计和建站时间</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1246 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1338 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;
     
 
@@ -252,7 +252,12 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#总字数">总字数</a></li>
+    <li><a href="#总字数">总字数</a>
+      <ul>
+        <li><a href="#添加博客总字数统计">添加博客总字数统计</a></li>
+        <li><a href="#一个-bug">一个 bug</a></li>
+      </ul>
+    </li>
     <li><a href="#站点运行时间">站点运行时间</a>
       <ul>
         <li><a href="#添加自定义的-customjs">添加自定义的 <code>custom.js</code></a></li>
@@ -278,6 +283,7 @@
     </figure></p>
 <p>一般多语言 hugo 博客都有一个 <code>i18n</code> 文件，目的就是识别页面语言参数，然后替换相应文字。</p>
 <h2 id="总字数">总字数</h2>
+<h3 id="添加博客总字数统计">添加博客总字数统计</h3>
 <p>找到 <code>&lt;你的博客文件&gt;\layouts\partials\footer.html</code>，</p>
 <p>在里面添加以下代码：</p>
 <div class="highlight"><div class="chroma">
@@ -349,6 +355,10 @@
 <p>多语言切换显然是一对一的字符识别。</p>
 <p>因此，在 <code>i18n</code> 文件中，每个[调用名称]下只能有一个 <code>other=</code>，同时[调用名称]不能重复，这样才能一对一自动切换字符。</p>
 </blockquote>
+<h3 id="一个-bug">一个 bug</h3>
+<p>如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug.</p>
+<p>由于 hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器会继续保留，原因不明。</p>
+<p>因此个人选择放弃添加字数统计。</p>
 <h2 id="站点运行时间">站点运行时间</h2>
 <h3 id="添加自定义的-customjs">添加自定义的 <code>custom.js</code></h3>
 <p>在站点根目录下创建一个自定义的 JavaScript 文件 <code>\static\js\custom.js</code>。</p>
@@ -511,7 +521,7 @@
 <li><a href="https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97" target="_blank" rel="noopener noreffer ">总字数统计：“发表了 x 篇文章，共计 x 字”</a></li>
 <li><a href="https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4" target="_blank" rel="noopener noreffer ">添加站点运行时间</a></li>
 <li><a href="https://zishu.me/blog/213.html/" target="_blank" rel="noopener noreffer ">Hugo 的一些模板语法</a></li>
-<li>[Hugo 总文章数和总字数](<a href="https://flynx.dev/post/hugo-total-count/" target="_blank" rel="noopener noreffer ">Hugo 总文章数和总字数 | 飞天 (flynx.dev)</a>)</li>
+<li><a href="https://flynx.dev/post/hugo-total-count/" target="_blank" rel="noopener noreffer ">Hugo 总文章数和总字数</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -549,234 +559,8 @@
 <div class="footer-line">
     <span id="run-time" data-i18n="runtime"></span>
 </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-已经写了 59 篇文章，共 191882 字。
-
-
-
-
-
+                </div><div class="footer-line">已写55篇文章 · 总计191.97k字
+</div>
 
             <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
