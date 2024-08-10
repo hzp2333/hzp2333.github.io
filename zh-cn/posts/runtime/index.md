@@ -16,17 +16,15 @@
 在里面添加以下代码：
 
 ```HTML
-<!-- 添加在copyright之前,字数统计 -->
 
-{{$scratch := newScratch}}
-{{ range (where .Site.Pages "Kind" "page") }}
-  {{$scratch.Add "total" .WordCount}}  <!-- 使用 WordCount -->
+{{ $articleCount := len .Site.RegularPages }}
+{{ $totalWordCount := 0 }}
+{{ range .Site.Pages }}
+{{ $totalWordCount = add $totalWordCount .WordCount }}
 {{ end }}
-{{ $postCount := i18n "postCount" (dict "Count" (len (where .Site.RegularPages "Section" "posts"))) }}
-{{ $wordCount := i18n "wordCount2" (dict "WordCount" (div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2)) }}
 
-{{ $postCount }} · {{ $wordCount }}
-<br>
+{{ i18n "articleCount" (dict "Count" $articleCount) }}，{{ i18n "totalWordCount" (dict "WordCount" $totalWordCount) }}。
+
 ```
 
 然后找到 `<你的博客文件>\i18n`
@@ -36,11 +34,11 @@
 ```HTML
 # === footer/wordcount ===
 
-[wordCount2]
-other = "总计{{ .WordCount }}k字"
+[articleCount]
+other = "发布了 {{ .Count }} 篇文章"
 
-[runtime]
-other = "本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒"
+[totalWordCount]
+other = "共 {{ .WordCount }} 字"
 ```
 
 在 `en.toml` 里添加
@@ -48,12 +46,11 @@ other = "本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {
 ```HTML
 # === footer/wordcount ===
 
-[postCount]
+[articleCount]
 other = "published {{ .Count }} posts"
 
-
-[wordCount2]
-other = "total {{ .WordCount }}k words"
+[totalWordCount]
+other = "total {{ .WordCount }} words"
 ```
 
 >多语言切换显然是一对一的字符识别。
@@ -158,3 +155,5 @@ other = "The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .M
 
 - [总字数统计：“发表了 x 篇文章，共计 x 字”]( https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97 )
 - [添加站点运行时间](https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4)
+- [Hugo 的一些模板语法](https://zishu.me/blog/213.html/)
+- [Hugo 总文章数和总字数]([Hugo 总文章数和总字数 | 飞天 (flynx.dev)](https://flynx.dev/post/hugo-total-count/))

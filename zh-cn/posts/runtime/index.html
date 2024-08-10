@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  1272 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  1246 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -221,7 +221,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">多语言 hugo 添加总字数统计和建站时间</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1272 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1246 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;
     
 
@@ -282,30 +282,24 @@
 <p>在里面添加以下代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"><span class="c">&lt;!-- 添加在copyright之前,字数统计 --&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{$scratch := newScratch}}
-</span></span><span class="line"><span class="cl">{{ range (where .Site.Pages &#34;Kind&#34; &#34;page&#34;) }}
-</span></span><span class="line"><span class="cl">  {{$scratch.Add &#34;total&#34; .WordCount}}  <span class="c">&lt;!-- 使用 WordCount --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ $articleCount := len .Site.RegularPages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount := 0 }}
+</span></span><span class="line"><span class="cl">{{ range .Site.Pages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount = add $totalWordCount .WordCount }}
 </span></span><span class="line"><span class="cl">{{ end }}
-</span></span><span class="line"><span class="cl">{{ $postCount := i18n &#34;postCount&#34; (dict &#34;Count&#34; (len (where .Site.RegularPages &#34;Section&#34; &#34;posts&#34;))) }}
-</span></span><span class="line"><span class="cl">{{ $wordCount := i18n &#34;wordCount2&#34; (dict &#34;WordCount&#34; (div ($scratch.Get &#34;total&#34;) 1000.0 | lang.FormatNumber 2)) }}
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{ $postCount }} · {{ $wordCount }}
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ i18n &#34;articleCount&#34; (dict &#34;Count&#34; $articleCount) }}，{{ i18n &#34;totalWordCount&#34; (dict &#34;WordCount&#34; $totalWordCount) }}。
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
@@ -323,11 +317,11 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[wordCount2]
-</span></span><span class="line"><span class="cl">other = &#34;总计{{ .WordCount }}k字&#34;
+</span></span><span class="line"><span class="cl">[articleCount]
+</span></span><span class="line"><span class="cl">other = &#34;发布了 {{ .Count }} 篇文章&#34;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[runtime]
-</span></span><span class="line"><span class="cl">other = &#34;本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒&#34;
+</span></span><span class="line"><span class="cl">[totalWordCount]
+</span></span><span class="line"><span class="cl">other = &#34;共 {{ .WordCount }} 字&#34;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 <code>en.toml</code> 里添加</p>
@@ -340,17 +334,15 @@
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[postCount]
+</span></span><span class="line"><span class="cl">[articleCount]
 </span></span><span class="line"><span class="cl">other = &#34;published {{ .Count }} posts&#34;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[wordCount2]
-</span></span><span class="line"><span class="cl">other = &#34;total {{ .WordCount }}k words&#34;
+</span></span><span class="line"><span class="cl">[totalWordCount]
+</span></span><span class="line"><span class="cl">other = &#34;total {{ .WordCount }} words&#34;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -518,6 +510,8 @@
 <ul>
 <li><a href="https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97" target="_blank" rel="noopener noreffer ">总字数统计：“发表了 x 篇文章，共计 x 字”</a></li>
 <li><a href="https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4" target="_blank" rel="noopener noreffer ">添加站点运行时间</a></li>
+<li><a href="https://zishu.me/blog/213.html/" target="_blank" rel="noopener noreffer ">Hugo 的一些模板语法</a></li>
+<li>[Hugo 总文章数和总字数](<a href="https://flynx.dev/post/hugo-total-count/" target="_blank" rel="noopener noreffer ">Hugo 总文章数和总字数 | 飞天 (flynx.dev)</a>)</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -557,6 +551,227 @@
 </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+已发布 59 篇文章，共 191882 字。
 
 
 
