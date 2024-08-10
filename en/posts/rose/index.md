@@ -1,5 +1,6 @@
 #  Research Note 3: Mountains and Red Roses
 
+
 {{< music netease song 1861402597>}}
 
 Beijing's popular tourist spots are often located in the **east** and **south**—head east to Qinhuangdao or travel south to the Tianjin seaside. The southeast, near the sea, is a favorite among visitors.

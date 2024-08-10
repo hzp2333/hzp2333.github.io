@@ -80,3 +80,7 @@
 
 ![異議あり!](/img/逆转裁判.zh-cn-20240810201920520.webp)
 
+## 相关链接
+
+- [逆转裁判模拟器](https://objection.lol/maker)
+- [逆转裁判素材](http://www.court-records.net/sprites1.htm)

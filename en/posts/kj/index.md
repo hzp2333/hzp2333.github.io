@@ -1,6 +1,8 @@
 # watching  in 2024 : Various Approaches to Coexisting with Fate
 
+
 {{< music netease song 5283645>}}
+
 # Watching  in 2024 : Various Approaches to Coexisting with Fate
 
 [Xiangzi](https://en.wikipedia.org/wiki/Rickshaw_Boy) felt he hadn't worked hard enough even until his death. Of course, Xiangzi only focused outward, believing he had seen the world clearly. Yet, he overlooked one thing—looking outward enables one to see all corners of the external world but leaves one unable to see oneself clearly, making it impossible to discuss oneself and this era. As the protagonist, perspective is always outward, but as readers, we can observe the "world and me," then reflect inwardly. Therefore, as [Lu Zhishen](https://en.wikipedia.org/wiki/Lu_Zhishen) said, "Only today do I realize who I am," and I believe he meant precisely this.

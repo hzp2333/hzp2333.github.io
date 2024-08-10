@@ -2,6 +2,7 @@
 
 
 {{< music netease song 570332048>}}
+
 ## Beijing WTown
 
 Due to a shortage in the research team, I was roped in by my professor to join the weekend's door-to-door survey. The destination was **Chao Guan Village in Beijing WTown**, Miyun District, Beijing. This place is quite remarkable, **embodying the robust spirit of the north while cloaked in the delicate facade of the south**.

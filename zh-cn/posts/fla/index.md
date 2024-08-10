@@ -1,6 +1,8 @@
 # 范里安《微观经济学》退税案例解析
 
+
 {{< music netease song 19012449>}} 
+
 
 范里安经典教材《微观经济学：现代观点》（_Intermediate Microeconomics_）中在第八章“斯勒茨基方程（_Slutsky Equation_）”有一个著名的“退税案例”（第九版第 100 页）。**考察知识点是收入效应和替代效应。**
 

@@ -75,3 +75,7 @@ All of this can begin with a single phrase—
 
 ![異議あり!](/img/逆转裁判.zh-cn-20240810201920520.webp)
 
+## Related Links
+
+- [Ace Attorney Simulator](https://objection.lol/maker)
+- [Ace Attorney Resources](http://www.court-records.net/sprites1.htm)

@@ -2,6 +2,7 @@
 
 
 {{< music netease song 1815725297>}} 
+
 # Log (y+1) 的转化是否可靠
 
 

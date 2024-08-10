@@ -1,6 +1,9 @@
 # Aggregated subscriptions: free movies, comics
 
-{{< music netease song 2105497350>}}
+
+
+
+{{< music netease song 2105497350>}} 
 
 
 Every mainstream journal must have a website, and there are also many hidden websites for comics, animations, and TV shows around the world. The only problem is that resources among these websites differ and are relatively obscure. So, is it possible to create a website that aggregates all the websites we want? This is where aggregation subscriptions come in! Many experts have developed tools that allow us to directly capture these websites through software, enabling one-click subscription and use of resources.
