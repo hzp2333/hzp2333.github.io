@@ -124,7 +124,7 @@ word="不想当写手的码农不是好咸鱼"
     border-animation="shadow"  >}}
 
 
-{{< friend   name="第三夏尔   "
+{{< friend   name="第三夏尔"
     url="https://thirdshire.com"
     logo="https://thirdshire.com/blackcat_avatar.jpg"
     word="认真生活，积极摸鱼 "
@@ -132,6 +132,13 @@ word="不想当写手的码农不是好咸鱼"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend   name="蓝小柠"
+    url="https://bleshi.com/"
+    logo="https://cloudcache.bleshi.com/links.jpg"
+    word="00 后，坐标 Edinburgh ，研一"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 
 ## 经济学家：一流的大师在挖坑
 
@@ -182,6 +189,15 @@ word="计量经济学"
 url="https://econbrowser.com/"
 logo=""
 word="有趣的经济数据图"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="STATA官方"
+url="https://blog.stata.com/"
+logo="https://www.stata.com/includes/images/stata-logo-blue.svg"
+word="计量经济学官方软件"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
