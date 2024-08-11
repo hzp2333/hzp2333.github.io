@@ -61,7 +61,7 @@ other = "total {{ .WordCount }} words"
 
 ### 一个 bug
 
-如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug.
+如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug。
 
 由于 hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器会继续保留，原因不明。
 
@@ -163,7 +163,7 @@ other = "The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .M
 
 ## 参考资料
 
-- [总字数统计：“发表了 x 篇文章，共计 x 字”]( https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97 )
+- [总字数统计]( https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97 )
 - [添加站点运行时间](https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4)
 - [Hugo 的一些模板语法](https://zishu.me/blog/213.html/)
 - [Hugo 总文章数和总字数](https://flynx.dev/post/hugo-total-count/)
