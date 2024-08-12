@@ -140,6 +140,14 @@ word="不想当写手的码农不是好咸鱼"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend   name="shuzang"
+    url="http://shuzang.top/"
+    logo="https://picped-1301226557.cos.ap-beijing.myqcloud.com/avatar.png"
+    word="随心所向，素履以往"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 ## 经济学家：一流的大师在挖坑
 
 >这部分是方便自己跳转
