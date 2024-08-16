@@ -202,10 +202,23 @@ word="有趣的经济数据图"
     border-animation="shadow"  >}}
 
 
-{{< friend  name="STATA官方"
+{{< friend  name="STATA 官方"
 url="https://blog.stata.com/"
 logo="https://www.stata.com/includes/images/stata-logo-blue.svg"
 word="计量经济学官方软件"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+
+{{< friend  name="R 开发者博客"
+url="https://blog.r-project.org.cn/about/index.html"
+logo="https://blog.r-project.org.cn/images/Rlogo.png"
+word="R 开发者博客"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
