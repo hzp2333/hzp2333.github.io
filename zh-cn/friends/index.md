@@ -154,6 +154,24 @@ word="不想当写手的码农不是好咸鱼"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  
+	name="LS-Shandong"
+	url="https://ls-shandong.github.io"
+	logo="https://ls-shandong.github.io/images/avatar.png"
+	word="LS-Shandong 的博客网站"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="Lruihao"
+	url="https://lruihao.cn"
+	logo="https://lruihao.cn/images/avatar.jpg"
+	word="FixIt 主题作者"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+    
 ## 经济学家：一流的大师在挖坑
 
 >天行健，君子以自强不息
