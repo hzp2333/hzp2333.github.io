@@ -3,46 +3,46 @@
 
 {{< music netease song 541928>}} 
 
-因为学长发的朋友圈接触了latex，在这里记录下学习过程，顺便整合下这段时间看的实用帖子。
+因为学长发的朋友圈接触了 LaTeX ，在这里记录下学习过程，顺便整合下这段时间看的实用帖子。
 
-## LaTeX何方神圣
+## LaTeX 何方神圣
 
-> LaTeX（/ˈlɑːtɛx/，常被读作/ˈlɑːtɛk/或/ˈleɪtɛk/） 是一种基于TeX的高品质排版系统，由美国计算机科学家莱斯利·兰伯特在20世纪80年代初期开发，非常适用于生成高印刷质量的科技和数学、物理文档，尤其擅长于复杂表格和数学公式的排版。LaTeX是科学文献交流和出版的事实标准。 （维基百科）
+> LaTeX（/ˈlɑːtɛx/，常被读作/ˈlɑːtɛk/或/ˈleɪtɛk/） 是一种基于 TeX 的高品质排版系统，由美国计算机科学家莱斯利·兰伯特在 20 世纪 80 年代初期开发，非常适用于生成高印刷质量的科技和数学、物理文档，尤其擅长于复杂表格和数学公式的排版。LaTeX 是科学文献交流和出版的事实标准。 （维基百科）
 
 - Word：所见即所得
 - LaTeX：排版格式和文字内容是分开的
 
-（排版是通过代码调整，里面最棒的是各种宏包，调用来各可以做何种事情，比如在文章中加几个emoji~）
+（排版是通过代码调整，里面最棒的是各种宏包，调用来各可以做何种事情，比如在文章中加几个 emoji~）
 
 ![插入emoji，Word就不会插入的这么自然啦~](/img/LaTeX入门-20240804115505904.webp)
 
-对我而言，LaTeX的排版是真的美，排除舒服的版面很有成就感。如果你的文章里会出现**大量的数学公式和图文表格**，那么latex一定是比较好的选择~
+对我而言，LaTeX 的排版是真的美，排除舒服的版面很有成就感。如果你的文章里会出现**大量的数学公式和图文表格**，那么 LaTeX 一定是比较好的选择~
 
 ![word排版](/img/LaTeX入门-20240804115702301.webp)
 
 ![LaTeX排版](/img/LaTeX入门-20240804115745943.webp)
 
-![我们队在一次数学建模比赛中描写排队模型，latex排](/img/LaTeX入门-20240804115849727.webp)
+![我们队在一次数学建模比赛中描写排队模型，LaTeX排](/img/LaTeX入门-20240804115849727.webp)
 
 ## 下载和安装
 
-不下载也行，有在线编辑的 LaTeX 网站，可以跳过这里，先看后面的 LaTex 网站。
+不下载也行，有在线编辑的 LaTeX 网站，可以跳过这里，先看后面的 LaTeX 网站。
 
-LaTeX 有很多版本：LaTeX 、Ctex.......对应的编码环境配置也有很多版本 winedit，studio......
+LaTeX 有很多版本：LaTeX 、Ctex....... 对应的编码环境配置也有很多版本 winedit，studio......
 
-个人推荐以下配置（针对Windows系统）: `texlive` + `texstudio`
+个人推荐以下配置（针对 Windows 系统）: `texlive` + `texstudio`
 
-原因：对新手友好，支持中文页面（winedit页面是英文的）
+原因：对新手友好，支持中文页面（winedit 页面是英文的）
 
 [LaTeX 下载教程]( https://blog.csdn.net/SevenBerry/article/details/126692374 )：随便找的，可以自己找最新的。
 
-> 当初我找的教程是2018版本的，结果2021安装有点不同，这里放的是2022版本
+> 当初我找的教程是 2018 版本的，结果 2021 安装有点不同，这里放的是 2022 版本
 
 ## 快速上手 （两个小时以内）
 
-> 打开链接之前的tips:
+> 打开链接之前的 tips:
 > 
-> 里面有个地方在Windows更新后已经不行了，那就是“如何让latex支持中文正文”，代码修正放在链接下面的代码块里：
+> 里面有个地方在 Windows 更新后已经不行了，那就是“如何让 LaTeX 支持中文正文”，代码修正放在链接下面的代码块里：
 
 {{< bilibili BV11h41127FD>}}
 
@@ -53,7 +53,7 @@ LaTeX 有很多版本：LaTeX 、Ctex.......对应的编码环境配置也有很
 %window升级后用这个才方便输出中文或者识别
 ```
 
-如果内置PDF无法预览显示，可能是PDF阅读器的锅。
+如果内置 PDF 无法预览显示，可能是 PDF 阅读器的锅。
 
 ## 进阶教程（论文需要的）
 
@@ -61,25 +61,25 @@ LaTeX 有很多版本：LaTeX 、Ctex.......对应的编码环境配置也有很
 
 ### 引用有两种方法
 
-[Latex 插入参考文献的方法（两种全）](https://blog.csdn.net/weixin_44378800/article/details/109905695?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
+[LaTeX 插入参考文献的方法（两种全）](https://blog.csdn.net/weixin_44378800/article/details/109905695?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
-其中第一种方法（BiB格式）如果编码不成功：
+其中第一种方法（BiB 格式）如果编码不成功：
 
-1. 验bib格式或者引用文献那里有没有打了什么奇怪的符号
+1. 验 bib 格式或者引用文献那里有没有打了什么奇怪的符号
 2. 编码顺序和编码次数不对
 3. 重启然后再来
 
-### 补充，知网文献如何转化为BIB格式？
+### 补充，知网文献如何转化为 BIB 格式？
 
 我采用的方案是油猴插件（大学生的网课利器！）。
-目前火狐，QQ浏览器，edge，谷歌浏览器都支持油猴插件。
+目前火狐，QQ 浏览器，edge，谷歌浏览器都支持油猴插件。
 - [油猴插件下载](https://www.tampermonkey.net/index.php?browser=chrome&locale=zh)
 - [插件脚本下载](https://greasyfork.org/zh-CN/scripts?page=2)
 - [ 知网参考文献 bibtex](https://greasyfork.org/zh-CN/scripts/393305-%E7%9F%A5%E7%BD%91-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE-bibtex)
 
 ### Emoji 卖萌
 
-我推荐宏包的方式插入emoji，
+我推荐宏包的方式插入 emoji，
 详细可以看看对应的手册。
 
 举个例子：
@@ -93,15 +93,15 @@ LaTeX 有很多版本：LaTeX 、Ctex.......对应的编码环境配置也有很
 
 [在 LaTeX 中使用 Emoji ✌️](https://zhuanlan.zhihu.com/p/109158588)
 
-LaTeX 有很多个编译器，适用于emoji宏包的是lualatex
+LaTeX 有很多个编译器，适用于 emoji 宏包的是 luaLaTeX
 
-> 但如果一开始就这样似乎无法产生 PDF 文件。我的建议是，先不用 emoji 宏包，用pdfLaTeX 编译，产生 PDF 后，再加入emoji 命令使用 luaLaTeX 编译。
+> 但如果一开始就这样似乎无法产生 PDF 文件。我的建议是，先不用 emoji 宏包，用 pdfLaTeX 编译，产生 PDF 后，再加入 emoji 命令使用 luaLaTeX 编译。
 
 ### 有趣的宏包
 
 下棋宏包，围棋，中国象棋，国际象棋，乐谱
 
-[LaTeX 编辑部](https://www.latexstudio.net/hulatex/templet/musicBook.htm)
+[LaTeX 编辑部](https://www.LaTeXstudio.net/huLaTeX/templet/musicBook.htm)
 
 ### 进阶道路（来自学长的补充）
 
@@ -115,18 +115,18 @@ LaTeX 有很多个编译器，适用于emoji宏包的是lualatex
 
 ## LaTeX 网站
 
-### 在线LaTeX 编辑网站
+### 在线 LaTeX 编辑网站
 - 国外：[overleaf](https://www.overleaf.com/)
 - 国内：[texpage](https://www.texpage.com/) 、[slager](https://www.slager.link/#/home)
-- Latex 模板：[TeX 工作室](https://www.latexstudio.net/category/5.html)、[shareLaTeX](https://www.sharelatex.com/)
+- LaTeX 模板：[TeX 工作室](https://www.LaTeXstudio.net/category/5.html)、[shareLaTeX](https://www.shareLaTeX.com/)
 ### 数学公式识别网站
 - [SimpleLaTeX](https://simpletex.cn/)
 - [白描](https://web.baimiaoapp.com/image-to-LaTeX)
-- [LaTeX 公式编辑器](https://www.latexlive.com/)
+- [LaTeX 公式编辑器](https://www.LaTeXlive.com/)
 - [Mathpix](https://mathpix.com/)
 ### LaTeX 表格生成
 - [LaTeX 表格](https://www.tablesgenerator.com/)
-- [表格转换工具](https://tableconvert.com/zh-cn/latex-generator#google_vignette)
+- [表格转换工具](https://tableconvert.com/zh-cn/LaTeX-generator#google_vignette)
 ### PDF 处理网站
 > 为什么把这个放在 LaTeX 这里？因为 LaTeX 的效果是生成 PDF ，有时候一些比赛，论文场合只给 PDF 的封面。大家 LaTeX 协作时，我们也需要把几个 PDF 进行整合。
 
@@ -593,7 +593,7 @@ textwidth是文本区域宽度
 
 ## 结语
 
-恭喜你成功成为latex大军中的一员。
+恭喜你成功成为 LaTeX 大军中的一员。
 接下来展开精致的排版生活吧！
 
 最后来点 LaTeX 笑话：
