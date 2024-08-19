@@ -85,7 +85,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 博客美化细节参考了以下博主的文章
 
-{{< friend  name="loveit主题"
+{{< friend  name="LoveIt 主题"
 url="https://hugoloveit.com/zh-cn/"
 logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
 word="loveit主题文档"
@@ -96,7 +96,7 @@ word="loveit主题文档"
 {{< friend   name="Stilig"
     url="https://stilig.me/"
     logo="https://stilig.me/webhead.png"
-    word="一个分享自己杂七杂八知识的网站"
+    word="分享自己杂七杂八知识的网站"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
