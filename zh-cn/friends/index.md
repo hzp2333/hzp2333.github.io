@@ -171,6 +171,15 @@ word="不想当写手的码农不是好咸鱼"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+{{< friend   
+	name="萌豚 Moechu"
+	url="https://moechu.cn"
+	logo="https://cravatar.cn/avatar/294fc41a0551cb235455b29356002f46?s=500&r=X"
+	word="一个不走心的个人站点"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
     
 ## 经济学家：一流的大师在挖坑
 
