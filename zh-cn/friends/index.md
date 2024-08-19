@@ -81,7 +81,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   name="les1ie"
+{{< friend   name="花开庄"
     url="https://ohana.moe/"
     logo="https://imiku.org/avatar/58093d90103375406ebf6d320a9a6dd1?s=400"
     word="Love Ohana Forever"
@@ -172,7 +172,7 @@ word="不想当写手的码农不是好咸鱼"
     border-animation="shadow"  >}}
 
 {{< friend   
-	name="花开庄"
+	name="Lruihao"
 	url="https://lruihao.cn"
 	logo="https://lruihao.cn/images/avatar.jpg"
 	word="FixIt 主题作者"
