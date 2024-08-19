@@ -10,7 +10,7 @@
 ## 校友：循循善诱如师者
 
 
-高中到大学，排名皆随机......
+初中到大学，排名皆随机......
 
 {{< friend   name="yll"    
 
@@ -77,6 +77,14 @@ img-animation="rotate"    border-animation="shadow"  >}}
     url="https://les1ie.com/"
     logo="https://les1ie.com/img/avatar-Les1ie.jpg"
     word="锲而不舍，金石可镂"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   name="les1ie"
+    url="https://ohana.moe/"
+    logo="https://imiku.org/avatar/58093d90103375406ebf6d320a9a6dd1?s=400"
+    word="Love Ohana Forever"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -164,7 +172,7 @@ word="不想当写手的码农不是好咸鱼"
     border-animation="shadow"  >}}
 
 {{< friend   
-	name="Lruihao"
+	name="花开庄"
 	url="https://lruihao.cn"
 	logo="https://lruihao.cn/images/avatar.jpg"
 	word="FixIt 主题作者"
