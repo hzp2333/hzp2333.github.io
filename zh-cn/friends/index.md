@@ -49,7 +49,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   name="henrymao"
     url="https://henrymao.pages.dev/"
     logo=""
-    word="体贴温柔的学长"
+    word="好人"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -259,6 +259,17 @@ word="R 开发者博客"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+## 友链格式
+
+友链格式参考：
+```
+name="滑翔闪"
+url="https://blog.huaxiangshan.com/"
+logo="https://blog.huaxiangshan.com/images/avatar.png"
+word="正在学习经济学的二次元"
+```
+
 
 
 
