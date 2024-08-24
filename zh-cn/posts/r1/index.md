@@ -3,9 +3,9 @@
 
 {{< music netease song 1476393685>}}
 
-[R语言笔记1界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/r1/)
+[R 语言笔记 1 界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/r1/)
 
-[R语言笔记2数据清洗、绘图与计量](https://blog.huaxiangshan.com/zh-cn/posts/r2/)
+[R 语言笔记 2 数据清洗、绘图与计量](https://blog.huaxiangshan.com/zh-cn/posts/r2/)
 
 记录下 R 语言学习过程。个人感觉作为**只跑回归**的经济学学习者， Stata  完全够用了[^2]，不足的部分一般都用 Python 的轮子，即便是算 DSGE 用的也是 Matlab 的 Dynare 插件。对于计量经济学来说 R 语言回归表格样式和导出都不太友好，比较劝退。
 
