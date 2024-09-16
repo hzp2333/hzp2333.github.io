@@ -80,29 +80,6 @@ $header-title-font-height: 2rem;
 中文字体 api 也可考虑[字图网](https://chinese-font.netlify.app/cdn/)。
 
 国内开源字体比较火的是[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)。
-
-以下 cdn 调用来自 [Hugo使用自定义字体](Hugo使用自定义字体)
-
-```html
-
- <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" />
- <!-- 没有Lite version, 有需要的可以向cdnjs发pr看看能不能通过-->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
- <!-- 没有TC version, 有需要的可以向cdnjs发pr看看能不能通过-->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css" />
- <!-- Screen version -->
- <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
- body {
-  font-family: "LXGW WenKai", sans-serif;
-  /* Lite version */
-  font-family: "LXGW WenKai Lite", sans-serif;
-  /* TC version */
-  font-family: "LXGW WenKai TC", sans-serif;
-  /* Screen version */
-  font-family: "LXGW WenKai Screen", sans-serif;
- }
-
-```
 ### 本站所用字体
 
 ```css

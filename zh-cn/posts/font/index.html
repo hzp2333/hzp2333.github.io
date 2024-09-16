@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/font\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  1293 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  1134 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/font\/","datePublished": "2024-03-05T22:11:48+08:00","dateModified": "2024-03-05T22:11:48+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -217,7 +217,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo 自定义字体</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-05">2024-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1293 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-05">2024-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1134 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;
     
 
@@ -378,48 +378,7 @@
 <h3 id="中文字体-api">中文字体 api</h3>
 <p>中文字体 api 也可考虑<a href="https://chinese-font.netlify.app/cdn/" target="_blank" rel="noopener noreffer ">字图网</a>。</p>
 <p>国内开源字体比较火的是<a href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener noreffer ">霞鹜文楷</a>。</p>
-<p>以下 cdn 调用来自 <a href="Hugo%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93" rel="">Hugo使用自定义字体</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="c">&lt;!-- 没有Lite version, 有需要的可以向cdnjs发pr看看能不能通过--&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="c">&lt;!-- 没有TC version, 有需要的可以向cdnjs发pr看看能不能通过--&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="c">&lt;!-- Screen version --&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"> body {
-</span></span><span class="line"><span class="cl">  font-family: &#34;LXGW WenKai&#34;, sans-serif;
-</span></span><span class="line"><span class="cl">  /* Lite version */
-</span></span><span class="line"><span class="cl">  font-family: &#34;LXGW WenKai Lite&#34;, sans-serif;
-</span></span><span class="line"><span class="cl">  /* TC version */
-</span></span><span class="line"><span class="cl">  font-family: &#34;LXGW WenKai TC&#34;, sans-serif;
-</span></span><span class="line"><span class="cl">  /* Screen version */
-</span></span><span class="line"><span class="cl">  font-family: &#34;LXGW WenKai Screen&#34;, sans-serif;
-</span></span><span class="line"><span class="cl"> }
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="本站所用字体">本站所用字体</h3>
+<h3 id="本站所用字体">本站所用字体</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
