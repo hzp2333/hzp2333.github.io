@@ -1,7 +1,7 @@
 # Zotero: RSS Feed Aggregation Subscription
 
 
-{{< music netease song 492712>}}
+{{< music url="/music/空-大.mp3" name=空 artist= 大黒摩季 cover="/images/小当家.png" >}} 
 
 
 **RSS**: Electronic Abstract Aggregation, used to alert us to website updates and display partial information. Basically, journal websites and popular blogs all have RSS subscription addresses. Here is a list of economic journals that can be subscribed to.
