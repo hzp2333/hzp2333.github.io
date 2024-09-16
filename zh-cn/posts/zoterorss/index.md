@@ -1,8 +1,6 @@
 # Zotero：RSS 聚合订阅
 
 
-{{< music netease song 2077333577>}}
-
 {{< music url="/music/空-大.mp3" name=空 artist= 大黒摩季 cover="/images/小当家.png" >}} 
 
 
