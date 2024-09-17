@@ -106,4 +106,4 @@ In modern society, educated individuals are unlikely to be superstitious about "
 The discussion of three views is gradually becoming a weapon, Like blocking and reporting, once tools for maintaining discussion environment, Now wielded as weapons to attack dissenters. Misalignment of ideologies leads to explosions, Each fighting for their beliefs, But are we battling for truth itself, Or falling into the illusion of power?
 
 ![Israel's deadly attacks on the West Bank of the Jordan River are still ongoing.](https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&resize=770%2C514&quality=80)
-
+![Israel deadly assault on the west bank of the Jordan River continues](/img/叫魂.zh-cn-20240917093020556.webp)
