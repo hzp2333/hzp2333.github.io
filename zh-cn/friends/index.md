@@ -245,7 +245,7 @@ word="发展经济学"
 
 {{< friend  name="陈硕"
 url="https://www.frankchenshuo.com/"
-logo="https://www.frankchenshuo.com/img/img.jpg"
+logo="https://frankchenshuo.com/uploads/20231019/5818d7079610856f9651908e2c3d4403.png"
 word="中国的发展经济学、政治经济学和经济史"
     primary-color="default"
     img-animation="rotate"
