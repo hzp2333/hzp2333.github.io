@@ -234,6 +234,24 @@ word="计量经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend  name="曹一鸣"
+url="https://www.yimingcao.com/"
+logo="https://www.yimingcao.com/uploads/6/5/6/3/65630513/editor/bu-eco-portraits-21-123-edit.jpg?1633403052"
+word="发展经济学"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="陈硕"
+url="https://www.frankchenshuo.com/"
+logo="https://www.yimingcao.com/uploads/6/5/6/3/65630513/editor/bu-eco-portraits-21-123-edit.jpg?1633403052"
+word="中国的发展经济学、政治经济学和经济史"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 {{< friend  name="Econbrowser"
 url="https://econbrowser.com/"
 logo=""
