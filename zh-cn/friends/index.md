@@ -210,6 +210,14 @@ word="经济学必读教材作者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="辛迪加"
+url="https://www.columbia.edu/~jb38/"
+logo="https://www.columbia.edu/~jb38/img/bhagwati1.jpg"
+word="印度经济学学者"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="达龙"
 url="https://economics.mit.edu/people/faculty/daron-acemoglu"
 logo="https://economics.mit.edu/sites/default/files/styles/facutly_profile_feature_image/public/2022-12/daron-acemoglu30.jpg?h=620fd1cb&itok=2p17a0hs"
@@ -255,7 +263,16 @@ word="中国的发展经济学、政治经济学和经济史"
 {{< friend  name="兰小欢"
 url="https://xiaohuanlan.weebly.com/"
 logo="https://xiaohuanlan.weebly.com/uploads/1/9/1/3/19133549/published/1.jpg?1621843955"
-word="中国的发展经济学、政治经济学和经济史"
+word="经济政策"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="魏尚进"
+url="https://users.nber.org/~wei/"
+logo="https://users.nber.org/~wei/image/wei.jpg"
+word="国际金融与贸易"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
