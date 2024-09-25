@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis\/"
-        },"genre": "posts","keywords": "GIS","wordcount":  1739 ,
+        },"genre": "posts","keywords": "GIS","wordcount":  1813 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis\/","datePublished": "2024-09-25T12:00:19+08:00","dateModified": "2024-09-25T12:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -217,7 +217,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> arcGIS 批量转化 tif 为 excel</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-09-25">2024-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1739 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-09-25">2024-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1813 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;
     
 
@@ -296,14 +296,16 @@
 <p>通过行政区划 shp 进行分区。
 通过 <code>Apatial Analyst</code> - <code>区域分析</code> - <code>以表格显示分区统计</code> 这个函数方法对接数据地图和行政区划地图，计算行政面积里的均值。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240923154317568.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240923154317568.webp, /img/arcGIS.zh-cn-20240923154317568.webp 1.5x, /img/arcGIS.zh-cn-20240923154317568.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240923154317568.webp"
-        title="arcGIS.zh-cn-20240923154317568.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240923154317568.webp" title="img" data-thumbnail="/img/arcGIS.zh-cn-20240923154317568.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240923154317568.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240923154317568.webp, /img/arcGIS.zh-cn-20240923154317568.webp 1.5x, /img/arcGIS.zh-cn-20240923154317568.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240923154317568.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
 <h2 id="虚假的批处理">虚假的批处理</h2>
 <p>对于每个方法函数，右键-批处理，就会弹出一个自定义动作的 excel 表格，似乎在里面通过 excel 行设定我们的重复动作就可以快速批处理，但如果使用者真的用了就会发现问题。</p>
 <p>使用这个方法定义了 n 个重复动作后，只会保留最后一行定义的动作。</p>
@@ -376,77 +378,91 @@
     </figure></p>
 <p>Tif 属于栅格数据，插入-迭代器-栅格</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925113609908.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925113609908.webp, /img/arcGIS.zh-cn-20240925113609908.webp 1.5x, /img/arcGIS.zh-cn-20240925113609908.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925113609908.webp"
-        title="arcGIS.zh-cn-20240925113609908.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113609908.webp" title="插入-迭代器-栅格" data-thumbnail="/img/arcGIS.zh-cn-20240925113609908.webp" data-sub-html="<h2> </h2><p>插入-迭代器-栅格</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113609908.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113609908.webp, /img/arcGIS.zh-cn-20240925113609908.webp 1.5x, /img/arcGIS.zh-cn-20240925113609908.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113609908.webp" />
+    </a><figcaption class="image-caption">插入-迭代器-栅格</figcaption>
+    </figure></p>
 <p>双击“迭代栅格数据”。工作空间或栅格目录选择数据文件夹中的tif 文件夹，栅格数据格式选择 TIF。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925113808126.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925113808126.webp, /img/arcGIS.zh-cn-20240925113808126.webp 1.5x, /img/arcGIS.zh-cn-20240925113808126.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925113808126.webp"
-        title="arcGIS.zh-cn-20240925113808126.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113808126.webp" title="栅格数据格式选择 TIF" data-thumbnail="/img/arcGIS.zh-cn-20240925113808126.webp" data-sub-html="<h2> </h2><p>栅格数据格式选择 TIF</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113808126.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113808126.webp, /img/arcGIS.zh-cn-20240925113808126.webp 1.5x, /img/arcGIS.zh-cn-20240925113808126.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113808126.webp" />
+    </a><figcaption class="image-caption">栅格数据格式选择 TIF</figcaption>
+    </figure></p>
 <p>插入-仅模型工具-解析路径</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925113904528.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925113904528.webp, /img/arcGIS.zh-cn-20240925113904528.webp 1.5x, /img/arcGIS.zh-cn-20240925113904528.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925113904528.webp"
-        title="arcGIS.zh-cn-20240925113904528.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113904528.webp" title="解析路径" data-thumbnail="/img/arcGIS.zh-cn-20240925113904528.webp" data-sub-html="<h2> </h2><p>解析路径</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113904528.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113904528.webp, /img/arcGIS.zh-cn-20240925113904528.webp 1.5x, /img/arcGIS.zh-cn-20240925113904528.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113904528.webp" />
+    </a><figcaption class="image-caption">解析路径</figcaption>
+    </figure></p>
 <p>将自己找到的 shp 文件夹拖到模型框中。本文使用的是区县行政区划地图的 <code>district.shp</code> 文件。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925114033696.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925114033696.webp, /img/arcGIS.zh-cn-20240925114033696.webp 1.5x, /img/arcGIS.zh-cn-20240925114033696.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925114033696.webp"
-        title="arcGIS.zh-cn-20240925114033696.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114033696.webp" title="区县行政区" data-thumbnail="/img/arcGIS.zh-cn-20240925114033696.webp" data-sub-html="<h2> </h2><p>区县行政区</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114033696.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114033696.webp, /img/arcGIS.zh-cn-20240925114033696.webp 1.5x, /img/arcGIS.zh-cn-20240925114033696.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114033696.webp" />
+    </a><figcaption class="image-caption">区县行政区</figcaption>
+    </figure></p>
 <p>换成链接工具</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925114207152.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925114207152.webp, /img/arcGIS.zh-cn-20240925114207152.webp 1.5x, /img/arcGIS.zh-cn-20240925114207152.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925114207152.webp"
-        title="arcGIS.zh-cn-20240925114207152.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114207152.webp" title="链接工具" data-thumbnail="/img/arcGIS.zh-cn-20240925114207152.webp" data-sub-html="<h2> </h2><p>链接工具</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114207152.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114207152.webp, /img/arcGIS.zh-cn-20240925114207152.webp 1.5x, /img/arcGIS.zh-cn-20240925114207152.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114207152.webp" />
+    </a><figcaption class="image-caption">链接工具</figcaption>
+    </figure></p>
 <p>从“名称”连向“解析路径”，选择“输入数据元素”。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925114320208.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925114320208.webp, /img/arcGIS.zh-cn-20240925114320208.webp 1.5x, /img/arcGIS.zh-cn-20240925114320208.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925114320208.webp"
-        title="arcGIS.zh-cn-20240925114320208.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114320208.webp" title="连向" data-thumbnail="/img/arcGIS.zh-cn-20240925114320208.webp" data-sub-html="<h2> </h2><p>连向</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114320208.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114320208.webp, /img/arcGIS.zh-cn-20240925114320208.webp 1.5x, /img/arcGIS.zh-cn-20240925114320208.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114320208.webp" />
+    </a><figcaption class="image-caption">连向</figcaption>
+    </figure></p>
 <p>双击“解析路径”，解析类型选择 NAME</p>
 <blockquote>
 <p>所以注意，tif 的文件名最好是 <code>变量</code> + <code>数字</code> 的形式，便于识别规律。最好一切循环文件都是这种结构性命名。</p>
 </blockquote>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925114530352.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925114530352.webp, /img/arcGIS.zh-cn-20240925114530352.webp 1.5x, /img/arcGIS.zh-cn-20240925114530352.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925114530352.webp"
-        title="arcGIS.zh-cn-20240925114530352.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114530352.webp" title="解析路径" data-thumbnail="/img/arcGIS.zh-cn-20240925114530352.webp" data-sub-html="<h2> </h2><p>解析路径</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114530352.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114530352.webp, /img/arcGIS.zh-cn-20240925114530352.webp 1.5x, /img/arcGIS.zh-cn-20240925114530352.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114530352.webp" />
+    </a><figcaption class="image-caption">解析路径</figcaption>
+    </figure></p>
 <p>接下来是链接参数的操作。</p>
 <ol>
 <li>从“值”连向“以表格显示分区统计”，选择“环境”-“输出配置关键字”。</li>
@@ -454,92 +470,118 @@
 <li>从“识别出的第一个 tif 数据（本文例子为 <code>pop1990.tif</code>）”连向“以表格显示分区统计”，选择“输入赋值栅格”。</li>
 <li>从“shp 文件（本文例子为 <code>district.shp</code>）”连向“以表格显示分区统计”，选择“输入栅格数据或要素区域数据”。</li>
 </ol>
-<p>![[arcGIS.zh-cn-20240925114744988.webp]]</p>
+<p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114744988.webp" title="img" data-thumbnail="/img/arcGIS.zh-cn-20240925114744988.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114744988.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114744988.webp, /img/arcGIS.zh-cn-20240925114744988.webp 1.5x, /img/arcGIS.zh-cn-20240925114744988.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114744988.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
 <p>双击 <code>ZonalSt_shp5</code> 。将“查找范围”改为文件夹中的 result 文件夹（没有也可以在选择框里临时新建），“名称”改为 <code>%值%</code>。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925115208041.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925115208041.webp, /img/arcGIS.zh-cn-20240925115208041.webp 1.5x, /img/arcGIS.zh-cn-20240925115208041.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925115208041.webp"
-        title="arcGIS.zh-cn-20240925115208041.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115208041.webp" title="名称" data-thumbnail="/img/arcGIS.zh-cn-20240925115208041.webp" data-sub-html="<h2> </h2><p>名称</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115208041.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115208041.webp, /img/arcGIS.zh-cn-20240925115208041.webp 1.5x, /img/arcGIS.zh-cn-20240925115208041.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115208041.webp" />
+    </a><figcaption class="image-caption">名称</figcaption>
+    </figure></p>
 <p>右键tif模块，选择模型参数。</p>
 <blockquote>
 <p>此时别忘了在顶部工具栏从连线模式切换为选择模型，这样才能右键选择。</p>
 </blockquote>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925115531431.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925115531431.webp, /img/arcGIS.zh-cn-20240925115531431.webp 1.5x, /img/arcGIS.zh-cn-20240925115531431.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925115531431.webp"
-        title="arcGIS.zh-cn-20240925115531431.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115531431.webp" title="模型参数" data-thumbnail="/img/arcGIS.zh-cn-20240925115531431.webp" data-sub-html="<h2> </h2><p>模型参数</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115531431.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115531431.webp, /img/arcGIS.zh-cn-20240925115531431.webp 1.5x, /img/arcGIS.zh-cn-20240925115531431.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115531431.webp" />
+    </a><figcaption class="image-caption">模型参数</figcaption>
+    </figure></p>
 <p>右键区域划分模块（本文就是 district.shp），选择模型参数。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925115734046.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925115734046.webp, /img/arcGIS.zh-cn-20240925115734046.webp 1.5x, /img/arcGIS.zh-cn-20240925115734046.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925115734046.webp"
-        title="arcGIS.zh-cn-20240925115734046.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115734046.webp" title="模型参数" data-thumbnail="/img/arcGIS.zh-cn-20240925115734046.webp" data-sub-html="<h2> </h2><p>模型参数</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115734046.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115734046.webp, /img/arcGIS.zh-cn-20240925115734046.webp 1.5x, /img/arcGIS.zh-cn-20240925115734046.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115734046.webp" />
+    </a><figcaption class="image-caption">模型参数</figcaption>
+    </figure></p>
 <p>顶部的自动布局可以帮助我们优化布局。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925115801305.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925115801305.webp, /img/arcGIS.zh-cn-20240925115801305.webp 1.5x, /img/arcGIS.zh-cn-20240925115801305.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925115801305.webp"
-        title="arcGIS.zh-cn-20240925115801305.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115801305.webp" title="自动布局" data-thumbnail="/img/arcGIS.zh-cn-20240925115801305.webp" data-sub-html="<h2> </h2><p>自动布局</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115801305.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115801305.webp, /img/arcGIS.zh-cn-20240925115801305.webp 1.5x, /img/arcGIS.zh-cn-20240925115801305.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115801305.webp" />
+    </a><figcaption class="image-caption">自动布局</figcaption>
+    </figure></p>
 <h3 id="表格批量转-excel">表格批量转 excel</h3>
 <p>在前面的流程图基础上继续添加。</p>
-<p>将“工具箱-转换工具-Excel”中的“表转Excel”工具拖到模型框中。</p>
+<p>将“工具箱-转换工具 - Excel”中的“表转 Excel”工具拖到模型框中。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925115924493.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925115924493.webp, /img/arcGIS.zh-cn-20240925115924493.webp 1.5x, /img/arcGIS.zh-cn-20240925115924493.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925115924493.webp"
-        title="arcGIS.zh-cn-20240925115924493.webp" /></p>
-<p>将“%值%”与“表转Excel”进行连接，选择输入表。</p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115924493.webp" title="表转 Excel" data-thumbnail="/img/arcGIS.zh-cn-20240925115924493.webp" data-sub-html="<h2> </h2><p>表转 Excel</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115924493.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115924493.webp, /img/arcGIS.zh-cn-20240925115924493.webp 1.5x, /img/arcGIS.zh-cn-20240925115924493.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115924493.webp" />
+    </a><figcaption class="image-caption">表转 Excel</figcaption>
+    </figure></p>
+<p>将“%值%”与“表转 Excel”进行连接，选择输入表。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925120016912.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925120016912.webp, /img/arcGIS.zh-cn-20240925120016912.webp 1.5x, /img/arcGIS.zh-cn-20240925120016912.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925120016912.webp"
-        title="arcGIS.zh-cn-20240925120016912.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120016912.webp" title="表转 Excel" data-thumbnail="/img/arcGIS.zh-cn-20240925120016912.webp" data-sub-html="<h2> </h2><p>表转 Excel</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120016912.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120016912.webp, /img/arcGIS.zh-cn-20240925120016912.webp 1.5x, /img/arcGIS.zh-cn-20240925120016912.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120016912.webp" />
+    </a><figcaption class="image-caption">表转 Excel</figcaption>
+    </figure></p>
 <p>双击 <code>%值%\_TableToExcel.xls</code>，选择保存路径的文件夹，并且设置文件名为 <code>%值%\_TableToExcel.xls</code>。</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925120246941.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925120246941.webp, /img/arcGIS.zh-cn-20240925120246941.webp 1.5x, /img/arcGIS.zh-cn-20240925120246941.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925120246941.webp"
-        title="arcGIS.zh-cn-20240925120246941.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120246941.webp" title="路径的文件夹" data-thumbnail="/img/arcGIS.zh-cn-20240925120246941.webp" data-sub-html="<h2> </h2><p>路径的文件夹</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120246941.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120246941.webp, /img/arcGIS.zh-cn-20240925120246941.webp 1.5x, /img/arcGIS.zh-cn-20240925120246941.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120246941.webp" />
+    </a><figcaption class="image-caption">路径的文件夹</figcaption>
+    </figure></p>
 <p>绘制完流程图后，点击模型确定即可运行</p>
 <p>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/arcGIS.zh-cn-20240925120948913.webp"
-        data-srcset="/img/arcGIS.zh-cn-20240925120948913.webp, /img/arcGIS.zh-cn-20240925120948913.webp 1.5x, /img/arcGIS.zh-cn-20240925120948913.webp 2x"
-        data-sizes="auto"
-        alt="/img/arcGIS.zh-cn-20240925120948913.webp"
-        title="arcGIS.zh-cn-20240925120948913.webp" /></p>
+<figure><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120948913.webp" title="点击模型确定即可运行" data-thumbnail="/img/arcGIS.zh-cn-20240925120948913.webp" data-sub-html="<h2> </h2><p>点击模型确定即可运行</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120948913.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120948913.webp, /img/arcGIS.zh-cn-20240925120948913.webp 1.5x, /img/arcGIS.zh-cn-20240925120948913.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120948913.webp" />
+    </a><figcaption class="image-caption">点击模型确定即可运行</figcaption>
+    </figure></p>
 <h2 id="其他提示">其他提示</h2>
 <p>如果操作完全符合，但读取到一般说读取出现问题，较大可能性为以下问题：</p>
 <ul>
