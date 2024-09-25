@@ -245,12 +245,20 @@ word="发展经济学"
 
 {{< friend  name="陈硕"
 url="https://www.frankchenshuo.com/"
-logo="https://www.yimingcao.com/uploads/6/5/6/3/65630513/editor/bu-eco-portraits-21-123-edit.jpg?1633403052"
+logo="https://www.frankchenshuo.com/img/img.jpg"
 word="中国的发展经济学、政治经济学和经济史"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend  name="兰小欢"
+url="https://xiaohuanlan.weebly.com/"
+logo="https://xiaohuanlan.weebly.com/uploads/1/9/1/3/19133549/published/1.jpg?1621843955"
+word="中国的发展经济学、政治经济学和经济史"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 
 {{< friend  name="Econbrowser"
 url="https://econbrowser.com/"
