@@ -210,6 +210,14 @@ word="经济学必读教材作者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="克里斯"
+url="https://chrisblattman.com/about/"
+logo="https://chrisblattman.com/files/2022/04/ChrisBlattman-byJasonSmith-5136-scaled-e1650130010593-1024x600.jpg"
+word="## 全球冲突、犯罪和贫困"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="辛迪加"
 url="https://www.columbia.edu/~jb38/"
 logo="https://www.columbia.edu/~jb38/img/bhagwati1.jpg"
