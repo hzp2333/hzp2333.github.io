@@ -191,14 +191,24 @@ word="不想当写手的码农不是好咸鱼"
 
 
 {{< friend   
-	name="mCaO"
+	name="ImCaO"
 	url="https://www.imcao.cn/"
 	logo="https://www.imcao.cn/assets/img/avatar.png"
 	word="花有重开日，人无再少年"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-    
+
+{{< friend   
+	name="狐狸反走矣"
+	url="https://blog.southfox.me/"
+	logo="https://avatars.githubusercontent.com/u/58982705?u=af36926aaf5576c49066d99c326c021aa01e292c&v=4"
+	word="KEEP CALM AND CARRY ON"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 ## 经济学家：一流的大师在挖坑
 
 >天行健，君子以自强不息
