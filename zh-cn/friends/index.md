@@ -193,7 +193,7 @@ word="不想当写手的码农不是好咸鱼"
 {{< friend   
 	name="mCaO"
 	url="https://www.imcao.cn/"
-	logo="https://cravatar.cn/avatar/294fc41a0551cb235455b29356002f46?s=500&r=X"
+	logo="https://www.imcao.cn/assets/img/avatar.png"
 	word="花有重开日，人无再少年"
     primary-color="default"
     img-animation="rotate"
