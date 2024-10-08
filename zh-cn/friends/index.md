@@ -309,7 +309,7 @@ word="国际金融与贸易"
 {{< friend  name="David Mckenzie"
 url="https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0"
 logo="https://s7d1.scene7.com/is/image/wbcollab/logo-en?qlt=90&fmt=webp&resMode=sharp2"
-word="World Bank首席经济学加的计量识别分享博客"
+word="World Bank首席经济学家计量识别"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
