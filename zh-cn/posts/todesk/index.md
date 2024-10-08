@@ -1,7 +1,7 @@
 # Todesk 平板远程控制电脑的声音问题
 
 
-{{< music netease song 2155423467>}}
+{{< music netease song 2613610981>}}
 
 >个人目前**最新串流方案**是 moonlight，试过的各种串流方案评价放在结尾。
 

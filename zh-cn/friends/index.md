@@ -222,7 +222,7 @@ word="空间政治经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  name="曼昆"
+{{< friend  name="Greg Mankiw"
 url="https://gregmankiw.blogspot.com/"
 logo="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaKrVRhlHCIjAAvm0cXoFG2Kl7lI9rpvG0fcYJ9nTY1vIJcpmPciNLNu1a3MUjzm9AtwUBdoTmKnLLsZZKteFEtFH3YPsbNZekTmZLoYPvTZ301OlSUpoX7scOjDiK2ALBFLMxRxVSZgqOdNw96gkRF9ID34Rbz5xNf7LmKK4PadPIcg/s220/mankiw.jpg"
 word="经济学必读教材作者"
@@ -230,7 +230,7 @@ word="经济学必读教材作者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  name="克里斯"
+{{< friend  name="Chris Blattman"
 url="https://chrisblattman.com/about/"
 logo="https://chrisblattman.com/files/2022/04/ChrisBlattman-byJasonSmith-5136-scaled-e1650130010593-1024x600.jpg"
 word="全球冲突、犯罪和贫困"
@@ -238,7 +238,7 @@ word="全球冲突、犯罪和贫困"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  name="辛迪加"
+{{< friend  name="Jagdish N. Bhagwati"
 url="https://www.columbia.edu/~jb38/"
 logo="https://www.columbia.edu/~jb38/img/bhagwati1.jpg"
 word="印度经济学学者"
@@ -246,7 +246,7 @@ word="印度经济学学者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  name="达龙"
+{{< friend  name="Daron Acemoglu"
 url="https://economics.mit.edu/people/faculty/daron-acemoglu"
 logo="https://economics.mit.edu/sites/default/files/styles/facutly_profile_feature_image/public/2022-12/daron-acemoglu30.jpg?h=620fd1cb&itok=2p17a0hs"
 word="全才经济学家"
@@ -301,6 +301,15 @@ word="经济政策"
 url="https://users.nber.org/~wei/"
 logo="https://users.nber.org/~wei/image/wei.jpg"
 word="国际金融与贸易"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="David Mckenzie"
+url="https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0"
+logo="https://s7d1.scene7.com/is/image/wbcollab/logo-en?qlt=90&fmt=webp&resMode=sharp2"
+word="World Bank首席经济学加的计量识别分享博客"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
