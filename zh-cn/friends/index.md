@@ -9,7 +9,6 @@
 > 借问人间知我者能有几
 ## 校友：循循善诱如师者
 
-
 初中到大学，排名皆随机......
 
 {{< friend   name="yll"    
@@ -18,7 +17,7 @@ url="https://blog.yllhwa.com/"
 
 logo="https://avatars.githubusercontent.com/u/42028599?v=4"   
 
- word="我的代码救星"    
+ word="Focusing"    
 
 primary-color="default"   
 
@@ -29,7 +28,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   name="fernvenue"
     url="https://fernvenue.com/"
     logo="https://avatars.githubusercontent.com/u/84565547?v=4"
-    word="向学长看齐！"
+    word="Don't be evil"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -59,7 +58,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   name="wenjun zheng"
     url="https://wenjun-zheng.github.io/"
     logo="https://avatars.githubusercontent.com/u/116635232?v=4"
-    word="经济学热情引路人"
+    word="Econ student"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -91,6 +90,8 @@ img-animation="rotate"    border-animation="shadow"  >}}
     
 ## HUGO美化：BLOG之爱，人皆有之
 
+>生命意义在于折腾
+
 博客美化细节参考了以下博主的文章
 
 {{< friend  name="LoveIt 主题"
@@ -120,6 +121,7 @@ word="不想当写手的码农不是好咸鱼"
 
 ## 大佬们：有缘千里来相会
 
+>也有些单向链接是对我帮助很大的博客
 
 {{< friend   name="寒夏摸鱼站"
     url="https://blog.rainiar.top"
@@ -208,8 +210,17 @@ word="不想当写手的码农不是好咸鱼"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-
+{{< friend   
+	name="狷盦的小栈"
+	url="https://www.yangxk196.com/"
+	logo="https://www.yangxk196.com/static/sitting.png"
+	word="念念不忘，必有回响"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 ## 经济学家：一流的大师在挖坑
+
+>虽不能至，心向往之
 
 {{< friend  name="陆铭"
 url="http://www.profluming.com/"
