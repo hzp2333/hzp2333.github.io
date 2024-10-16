@@ -211,9 +211,6 @@ word="不想当写手的码农不是好咸鱼"
 
 ## 经济学家：一流的大师在挖坑
 
->天行健，君子以自强不息
-
-
 {{< friend  name="陆铭"
 url="http://www.profluming.com/"
 logo="https://flcds.fudan.edu.cn/__local/8/BC/D5/3C1367EBE2BFC43C6F498ACC48F_C34DC394_92C5.jpg"
