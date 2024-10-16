@@ -246,10 +246,18 @@ word="印度经济学学者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="Deirdre N. McCloskey"
+url="https://www.deirdremccloskey.com/"
+logo="https://www.deirdremccloskey.com/images/dmc/dmc_TGhead1C.JPG"
+word="女性、法律、伦理、哲学、经济学"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="Daron Acemoglu"
 url="https://economics.mit.edu/people/faculty/daron-acemoglu"
 logo="https://economics.mit.edu/sites/default/files/styles/facutly_profile_feature_image/public/2022-12/daron-acemoglu30.jpg?h=620fd1cb&itok=2p17a0hs"
-word="全才经济学家"
+word="制度与经济增长"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
