@@ -9,7 +9,7 @@
 > 借问人间知我者能有几
 ## 校友：循循善诱如师者
 
-初中到大学，排名皆随机......
+> 初中到大学，排名皆随机......
 
 {{< friend   name="yll"    
 
@@ -42,17 +42,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-
-
-
-{{< friend   name="henrymao"
-    url="https://henrymao.pages.dev/"
-    logo=""
-    word="好人"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
 
 
 {{< friend   name="wenjun zheng"
@@ -257,7 +246,7 @@ word="印度经济学学者"
 {{< friend  name="Deirdre N. McCloskey"
 url="https://www.deirdremccloskey.com/"
 logo="https://www.deirdremccloskey.com/images/dmc/dmc_TGhead1C.JPG"
-word="女性、法律、伦理、哲学、经济学"
+word="女性、文学、伦理、哲学、经济学"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
