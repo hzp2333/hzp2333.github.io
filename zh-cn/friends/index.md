@@ -219,6 +219,14 @@ word="空间政治经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="陶哲轩"
+url="https://terrytao.wordpress.com/"
+logo="https://www.math.ucla.edu/~tao/images/image1.jpg"
+word="数学家"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="Greg Mankiw"
 url="https://gregmankiw.blogspot.com/"
 logo="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaKrVRhlHCIjAAvm0cXoFG2Kl7lI9rpvG0fcYJ9nTY1vIJcpmPciNLNu1a3MUjzm9AtwUBdoTmKnLLsZZKteFEtFH3YPsbNZekTmZLoYPvTZ301OlSUpoX7scOjDiK2ALBFLMxRxVSZgqOdNw96gkRF9ID34Rbz5xNf7LmKK4PadPIcg/s220/mankiw.jpg"
