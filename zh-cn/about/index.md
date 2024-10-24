@@ -11,7 +11,7 @@
 
 - [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。
 - [Steam](https://steamcommunity.com/id/flytothemoon2333/)：开放世界、角色扮演、卡牌策略、轻动作类玩家。
-- [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻要素。
+- [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻、科幻要素。
 - [Zhihu](https://www.zhihu.com/people/nan-yang-xi-shu)：啥都看看。
 - [Github](https://github.com/hzp2333)：略懂古诗写作与 LaTeX ，好用 AI，参见《[无心之歌](https://blog.huaxiangshan.com/%E6%97%A0%E5%BF%83%E4%B9%8B%E6%AD%8C%EF%BC%88%E5%8F%A4%E8%AF%97%E5%88%9B%E4%BD%9C%E6%8C%87%E5%8C%97%EF%BC%89.pdf)》与《[精神污染](https://blog.huaxiangshan.com/%E7%B2%BE%E7%A5%9E%E6%B1%A1%E6%9F%93.pdf)》。熟练 Stata；R、Python 调包侠；matlab dynare 学习中。
 

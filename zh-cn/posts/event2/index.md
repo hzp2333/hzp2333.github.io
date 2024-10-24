@@ -6,7 +6,7 @@
 
 - [计量：事件研究法 1](https://blog.huaxiangshan.com/zh-cn/posts/event1/)
 - [计量：事件研究法 2](https://blog.huaxiangshan.com/zh-cn/posts/event2/)
-
+- [计量：事件研究法 3](https://blog.huaxiangshan.com/zh-cn/posts/event3/)
 书接上回，本文是《[An Introductory Guide to Event Study Models](https://www.aeaweb.org/articles?id=10.1257/jep.37.2.203)》的代码学习记录。  
 ## 附录 A：区分 DID 和 Timing-base
 

@@ -3,8 +3,9 @@
 
 {{< music netease song 1868553>}} 
 
-- [计量：事件研究法 1](https://blog.huaxiangshan.com/zh-cn/posts/event1/)
+-- [计量：事件研究法 1](https://blog.huaxiangshan.com/zh-cn/posts/event1/)
 - [计量：事件研究法 2](https://blog.huaxiangshan.com/zh-cn/posts/event2/)
+- [计量：事件研究法 3](https://blog.huaxiangshan.com/zh-cn/posts/event3/)
 
 > 做过 DID 的必然对平行趋势检验不陌生。而**平行趋势检验就是事件研究法的一种特殊运用**。  
 > 最近老师让阅读学习论文《An Introductory Guide to Event Study Models》。  
