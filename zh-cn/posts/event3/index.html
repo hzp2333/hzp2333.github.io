@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event3\/"
-        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  2485 ,
+        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  3341 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event3\/","datePublished": "2024-10-24T22:00:19+08:00","dateModified": "2024-10-24T22:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -238,8 +238,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 计量：事件研究法 3</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-10-24">2024-10-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2485 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-10-24">2024-10-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3341 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;
     
 
     
@@ -258,11 +258,11 @@
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241024223514260.webp"
-        data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241024223514260.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241024223514260.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241024223514260.webp 2x"
+        data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025094514640.webp"
+        data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025094514640.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025094514640.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025094514640.webp 2x"
         data-sizes="auto"
-        alt="/img/stata事件研究法3.zh-cn-20241024223514260.webp"
-        title="/img/stata事件研究法3.zh-cn-20241024223514260.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+        alt="/img/stata事件研究法3.zh-cn-20241025094514640.webp"
+        title="/img/stata事件研究法3.zh-cn-20241025094514640.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -279,8 +279,14 @@
             <li><a href="#eventdd-命令">Eventdd 命令</a></li>
           </ul>
         </li>
+        <li><a href="#关于平行趋势的回归提示">关于平行趋势的回归提示</a></li>
         <li><a href="#有约束的回归">有约束的回归</a></li>
-        <li><a href="#同一个图上展现多组回归系数">同一个图上展现多组回归系数</a></li>
+        <li><a href="#同一个图上展现多组回归系数">同一个图上展现多组回归系数</a>
+          <ul>
+            <li><a href="#coefplot-命令">Coefplot 命令</a></li>
+            <li><a href="#event-plot-命令">Event plot 命令</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#总结">总结</a></li>
@@ -463,7 +469,7 @@ $$</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Time&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">msymbol</span><span class="p">(</span><span class="n">O</span><span class="p">)</span><span class="w"> </span><span class="n">msize</span><span class="p">(</span><span class="n">small</span><span class="p">)</span><span class="w"> </span><span class="n">mcolor</span><span class="p">(</span><span class="n">gs1</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">点样式</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">addplot</span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="o">@</span><span class="k">at</span><span class="w"> </span><span class="p">,</span><span class="n">lcolor</span><span class="p">(</span><span class="n">gs1</span><span class="p">)</span><span class="w"> </span><span class="n">lwidth</span><span class="p">(</span><span class="n">medthick</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="err">连线</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ciopts</span><span class="p">(</span><span class="n">recast</span><span class="p">(</span><span class="n">rline</span><span class="p">)</span><span class="w"> </span><span class="n">lwidth</span><span class="p">(</span><span class="n">thin</span><span class="p">)</span><span class="w"> </span><span class="n">lpattern</span><span class="p">(</span><span class="n">dash</span><span class="p">)</span><span class="w"> </span><span class="n">lcolor</span><span class="p">(</span><span class="n">gs2</span><span class="p">))</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">置信区间样式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ciopts</span><span class="p">(</span><span class="n">recast</span><span class="p">(</span><span class="n">rline</span><span class="p">)</span><span class="w"> </span><span class="n">lwidth</span><span class="p">(</span><span class="n">thin</span><span class="p">)</span><span class="w"> </span><span class="n">lpattern</span><span class="p">(</span><span class="n">dash</span><span class="p">)</span><span class="w"> </span><span class="n">lcolor</span><span class="p">(</span><span class="n">gs2</span><span class="p">))</span><span class="w">  </span><span class="o">//</span><span class="w">  </span><span class="err">置信区间样式</span><span class="n">rarea</span><span class="w"> </span><span class="n">rline</span><span class="w"> </span><span class="n">rcap</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graphregion</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">white</span><span class="p">));</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">底色设置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="n">cr</span><span class="w"> </span><span class="o">//</span><span class="err">还原换行符号</span><span class="w">
@@ -534,6 +540,22 @@ $$</p>
             alt="/img/stata事件研究法3.zh-cn-20241024231648455.webp" />
     </a><figcaption class="image-caption">Eventdd</figcaption>
     </figure></p>
+<h3 id="关于平行趋势的回归提示">关于平行趋势的回归提示</h3>
+<p>我选择的回归式子是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">xtreg</span><span class="w">  </span><span class="n">entre_activation</span><span class="w">  </span><span class="n">d_2</span><span class="o">-</span><span class="n">d_10</span><span class="w"> </span><span class="n">d1</span><span class="o">-</span><span class="n">d9</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="w">  </span><span class="n">lnagdp</span><span class="w"> </span><span class="n">indust_stru</span><span class="w"> </span><span class="n">finance</span><span class="w"> </span><span class="n">ainternet</span><span class="w"> </span><span class="n">market</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">city</span><span class="o">#</span><span class="k">c</span><span class="p">.</span><span class="n">di</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fe</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>其中 <code>i.city#c.di</code> 是额外控制了每个个体的时间趋势（时间效应分解的是截距，这里分解的是斜率）。</li>
+<li>舍去了 <code>d_1</code> 期，一方面是省略做基准值，另一方面也可以避免共线性。</li>
+<li>有些文章会减去系数均值，让图看起来更美观，但并非必要操作。</li>
+<li>平行趋势虽然偏差争议大，但是不做上面几点也没人仔细关注，只是做了可能更好。</li>
+</ul>
 <h3 id="有约束的回归">有约束的回归</h3>
 <p>参照《<a href="https://www.aeaweb.org/articles?id=10.1257/jep.37.2.203" target="_blank" rel="noopener noreffer ">An Introductory Guide to Event Study Models</a>》的代码，我们可以对回归加上约束。</p>
 <p>使用 <code>cnsreg</code> 代码即可。在 <a href="https://blog.huaxiangshan.com/zh-cn/posts/event2/" target="_blank" rel="noopener noreffer ">计量：事件研究法 2</a> 中我已做过说明。在 coefplot 命令中将回归换成有约束的回归即可。</p>
@@ -559,6 +581,7 @@ $$</p>
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="同一个图上展现多组回归系数">同一个图上展现多组回归系数</h3>
+<h4 id="coefplot-命令">Coefplot 命令</h4>
 <p><code>twoway</code> 命令也可以做到，但是太麻烦，所以这里不再介绍。</p>
 <p>还是使用 <code>coefplot</code> 命令，其他参数依旧可以添加——<strong>但是无法设置线条参数</strong>（<code>addplot</code>）。</p>
 <div class="highlight"><div class="chroma">
@@ -656,6 +679,161 @@ $$</p>
             alt="/img/stata事件研究法3.zh-cn-20241024232953297.webp" />
     </a><figcaption class="image-caption">不在同一个图上</figcaption>
     </figure></p>
+<h4 id="event-plot-命令">Event plot 命令</h4>
+<p>我估计大部分刊物存在连线的图项是这个命令画出来的。</p>
+<p>**这个命令好处是可以设置不同的改革年份进行比较，而且画图支持连线。这个命令似乎针对双重差分有很多很好的子命令。</p>
+<p>估计 QJE 那一篇是用的这个命令画图。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">clear</span><span class="w"> </span><span class="k">all</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="s2">&#34;F:\桌面\事件研究法发学习代码\数据.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="n">white_tableau</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtset</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">year</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">生成相对时间</span><span class="p">:</span><span class="err">当年年份</span><span class="o">-</span><span class="err">改革年份</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">branch_reform</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">sum</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">//</span><span class="n">m目前是</span><span class="o">-</span><span class="mi">11</span><span class="err">到</span><span class="mi">12</span><span class="err">期，太长，可以缩短窗口期，可以缩短或者合并</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">去掉或者合并两段的数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">生成提前到虚拟变量</span><span class="n">d_1和d_10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">forvalues</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">pre_</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39;=(di==-`i&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">生成提前到虚拟变量</span><span class="n">d1和d10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">forvalues</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">post</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39;=(di==`i&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">testi</span><span class="o">=</span><span class="n">di</span><span class="o">+</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">生成提前到虚拟变量</span><span class="n">d_1和d_10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">forvalues</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">fpre_</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39;=(testi==-`i&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">生成提前到虚拟变量</span><span class="n">d1和d10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">forvalues</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">fpost</span><span class="o">`</span><span class="n">i</span><span class="s1">&#39;=(testi==`i&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">运行第一个回归模型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">entre_activation</span><span class="w"> </span><span class="n">pre_2</span><span class="o">-</span><span class="n">pre_10</span><span class="w"> </span><span class="n">post1</span><span class="o">-</span><span class="n">post9</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="n">lnagdp</span><span class="w"> </span><span class="n">indust_stru</span><span class="w"> </span><span class="n">finance</span><span class="w"> </span><span class="n">ainternet</span><span class="w"> </span><span class="n">market</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">city</span><span class="o">#</span><span class="k">c</span><span class="p">.</span><span class="n">di</span><span class="p">,</span><span class="w"> </span><span class="n">fe</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">estimates</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">model1</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">保存第一个模型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">运行第二个回归模型（可以是不同的变量或设定）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">produserv</span><span class="w"> </span><span class="n">pre_2</span><span class="o">-</span><span class="n">pre_10</span><span class="w"> </span><span class="n">post1</span><span class="o">-</span><span class="n">post9</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="n">lnagdp</span><span class="w"> </span><span class="n">indust_stru</span><span class="w"> </span><span class="n">finance</span><span class="w"> </span><span class="n">ainternet</span><span class="w"> </span><span class="n">market</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">city</span><span class="o">#</span><span class="k">c</span><span class="p">.</span><span class="n">di</span><span class="p">,</span><span class="w"> </span><span class="n">fe</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">estimates</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">model2</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">保存第二个模型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="w"> </span><span class="err">运行第二个回归模型（可以是不同的变量或设定）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">produserv</span><span class="w"> </span><span class="n">fpre_2</span><span class="o">-</span><span class="n">fpre_10</span><span class="w"> </span><span class="n">fpost1</span><span class="o">-</span><span class="n">fpost9</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="w">  </span><span class="n">i</span><span class="p">.</span><span class="n">city</span><span class="o">#</span><span class="k">c</span><span class="p">.</span><span class="n">di</span><span class="p">,</span><span class="w"> </span><span class="n">fe</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">estimates</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">model3</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">保存第二个模型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="n">delimit</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">event_plot</span><span class="w"> </span><span class="n">model1</span><span class="w"> </span><span class="n">model2</span><span class="w"> </span><span class="n">model3</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">stub_lag</span><span class="p">(</span><span class="n">post</span><span class="o">#</span><span class="w"> </span><span class="n">post</span><span class="o">#</span><span class="w"> </span><span class="n">fpost</span><span class="o">#</span><span class="p">)</span><span class="w"> </span><span class="n">stub_lead</span><span class="p">(</span><span class="n">pre_</span><span class="o">#</span><span class="w"> </span><span class="n">pre_</span><span class="o">#</span><span class="w"> </span><span class="n">fpre_</span><span class="o">#</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">plottype</span><span class="p">(</span><span class="n">connected</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">ciplottype</span><span class="p">(</span><span class="n">rcap</span><span class="p">)</span><span class="w">  </span><span class="n">together</span><span class="w"> </span><span class="n">noautolegend</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graph_opt</span><span class="p">(</span><span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Period&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">middle</span><span class="p">))</span><span class="n">ytitle</span><span class="p">(</span><span class="s2">&#34;Average Treatment Effect&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">middle</span><span class="p">))</span><span class="w"> </span><span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">7</span><span class="p">,)</span><span class="n">legend</span><span class="p">(</span><span class="k">order</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s2">&#34;entre_activation&#34;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="s2">&#34;produserv&#34;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="s2">&#34;produserv_test&#34;</span><span class="w"> </span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">rows</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">position</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="n">region</span><span class="p">(</span><span class="n">style</span><span class="p">(</span><span class="n">noe</span><span class="p">)))</span><span class="w"> </span><span class="n">xline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">lcolor</span><span class="p">(</span><span class="n">gs8</span><span class="p">)</span><span class="w"> </span><span class="n">lpattern</span><span class="p">(</span><span class="n">dash</span><span class="p">))</span><span class="w"> </span><span class="n">yline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">lcolor</span><span class="p">(</span><span class="n">gs8</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graphregion</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">white</span><span class="p">))</span><span class="w"> </span><span class="n">bgcolor</span><span class="p">(</span><span class="n">white</span><span class="p">)</span><span class="w"> </span><span class="n">ylabel</span><span class="p">(,</span><span class="n">angle</span><span class="p">(</span><span class="n">horizontal</span><span class="p">)));</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>plottype(connected ) </code> 处就是设置既有连线又有点。</p>
+<p><code>Stub_lag (post# post# fpost#) stub_lead (pre_# pre_# fpre_#) </code> 如果三个模型共享一个横坐标，只需要输入共享的横坐标符号即可。但是此处我为了测试，提前了其中一年（model 3）的改革年份, 因此需要一一对应，即便是同一个坐标也要重复写出来。</p>
+<p>
+<figure><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025100303691.webp" title="Event plot" data-thumbnail="/img/stata事件研究法3.zh-cn-20241025100303691.webp" data-sub-html="<h2> </h2><p>Event plot</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025100303691.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025100303691.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025100303691.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%953.zh-cn-20241025100303691.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法3.zh-cn-20241025100303691.webp" />
+    </a><figcaption class="image-caption">Event plot</figcaption>
+    </figure></p>
 <h2 id="总结">总结</h2>
 <p>计量就像这图一样，看起来复杂，但核心越是简单清楚越是了不起。事件研究法其实只是系数图表化罢了，但组合起来可以形象地展示更多东西——异质性、结构比较、平行趋势、组间差异、长期效应&hellip;&hellip;</p>
 </div><div class="post-footer" id="post-footer">
@@ -669,7 +847,7 @@ $$</p>
                             <a class="link-to-markdown" href="/zh-cn/posts/event3/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3" data-hashtags="因果效应,文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3" data-image="/img/stata事件研究法3.zh-cn-20241024223514260.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3" data-hashtags="因果效应,文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event3/" data-title=" 计量：事件研究法 3" data-image="/img/stata事件研究法3.zh-cn-20241025094514640.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

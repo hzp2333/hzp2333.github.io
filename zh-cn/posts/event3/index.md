@@ -12,6 +12,8 @@
 
 ## 简单回顾事件研究法的概念
 
+
+
 **从操作上上讲**：回归一般估计的是平均处理效应，而事件研究法就是把平均效应按照事件切片。
 
 **从统计意义上讲**：每个虚拟时间段就有了个系数，连起来就是平均处理效应的动态变化。
@@ -121,7 +123,7 @@ ytitle("coefficients")
 xtitle("Time")
 msymbol(O) msize(small) mcolor(gs1)  // 点样式
 addplot(line @b @at ,lcolor(gs1) lwidth(medthick)) //连线
-ciopts(recast(rline) lwidth(thin) lpattern(dash) lcolor(gs2))  // 置信区间样式
+ciopts(recast(rline) lwidth(thin) lpattern(dash) lcolor(gs2))  //  置信区间样式rarea rline rcap
 graphregion(color(white)); // 底色设置
 
 #delimit cr //还原换行符号
@@ -158,6 +160,18 @@ eventdd entre_activation i.year lnagdp indust_stru finance ainternet market,
 
 ![Eventdd](/img/stata事件研究法3.zh-cn-20241024231648455.webp)
 
+### 关于平行趋势的回归提示
+
+我选择的回归式子是：
+
+```SQL
+xtreg  entre_activation  d_2-d_10 d1-d9 di i.year  lnagdp indust_stru finance ainternet market i.city#c.di , fe r
+```
+
+- 其中 `i.city#c.di` 是额外控制了每个个体的时间趋势（时间效应分解的是截距，这里分解的是斜率）。
+- 舍去了 `d_1` 期，一方面是省略做基准值，另一方面也可以避免共线性。
+- 有些文章会减去系数均值，让图看起来更美观，但并非必要操作。
+- 平行趋势虽然偏差争议大，但是不做上面几点也没人仔细关注，只是做了可能更好。
 ### 有约束的回归
 
 参照《[An Introductory Guide to Event Study Models](https://www.aeaweb.org/articles?id=10.1257/jep.37.2.203)》的代码，我们可以对回归加上约束。
@@ -178,6 +192,8 @@ cnsreg  entre_activation  d_2-d_10 d1-d9 di i.year  lnagdp indust_stru finance a
 ```
 
 ### 同一个图上展现多组回归系数
+
+#### Coefplot 命令
 
 `twoway` 命令也可以做到，但是太麻烦，所以这里不再介绍。
 
@@ -225,6 +241,91 @@ coefplot model1 || model2,
 ```
 
 ![不在同一个图上](/img/stata事件研究法3.zh-cn-20241024232953297.webp)
+
+#### Event plot 命令
+
+我估计大部分刊物存在连线的图项是这个命令画出来的。
+
+**这个命令好处是可以设置不同的改革年份进行比较，而且画图支持连线。这个命令似乎针对双重差分有很多很好的子命令。
+
+估计 QJE 那一篇是用的这个命令画图。
+
+```SQL
+
+clear all
+use "F:\桌面\事件研究法发学习代码\数据.dta", clear
+set scheme white_tableau
+xtset city year
+
+//生成相对时间:当年年份-改革年份
+gen di = year - branch_reform
+sum di //m目前是-11到12期，太长，可以缩短窗口期，可以缩短或者合并
+
+*去掉或者合并两段的数据
+replace di = -10 if di < -10
+replace di = 10 if di > 10
+
+*生成提前到虚拟变量d_1和d_10
+forvalues i = 1/10{
+gen pre_`i'=(di==-`i')
+
+}
+
+*生成提前到虚拟变量d1和d10
+
+forvalues i = 1/10{
+gen post`i'=(di==`i')
+
+}
+
+
+gen testi=di+1
+
+*生成提前到虚拟变量d_1和d_10
+forvalues i = 1/10{
+gen fpre_`i'=(testi==-`i')
+
+}
+
+*生成提前到虚拟变量d1和d10
+
+forvalues i = 1/10{
+gen fpost`i'=(testi==`i')
+
+}
+
+
+// 运行第一个回归模型
+xtreg entre_activation pre_2-pre_10 post1-post9 di i.year lnagdp indust_stru finance ainternet market i.city#c.di, fe r
+estimates store model1  // 保存第一个模型
+
+// 运行第二个回归模型（可以是不同的变量或设定）
+xtreg produserv pre_2-pre_10 post1-post9 di i.year lnagdp indust_stru finance ainternet market i.city#c.di, fe r
+estimates store model2  // 保存第二个模型
+
+// 运行第二个回归模型（可以是不同的变量或设定）
+xtreg produserv fpre_2-fpre_10 fpost1-fpost9 di i.year  i.city#c.di, fe r
+estimates store model3  // 保存第二个模型
+
+
+
+#delimit;
+;
+event_plot model1 model2 model3,
+stub_lag(post# post# fpost#) stub_lead(pre_# pre_# fpre_#) 
+plottype(connected ) ciplottype(rcap)  together noautolegend  
+graph_opt(xtitle("Period", size(middle))ytitle("Average Treatment Effect", size(middle)) xlabel(-7(1)7,)legend(order( 1 "entre_activation" 2 "produserv" 3 "produserv_test" ) 
+rows(1) position(6) region(style(noe))) xline(-1,lcolor(gs8) lpattern(dash)) yline(0, lcolor(gs8))
+graphregion(color(white)) bgcolor(white) ylabel(,angle(horizontal)));
+
+```
+
+`plottype(connected ) ` 处就是设置既有连线又有点。
+
+`Stub_lag (post# post# fpost#) stub_lead (pre_# pre_# fpre_#) ` 如果三个模型共享一个横坐标，只需要输入共享的横坐标符号即可。但是此处我为了测试，提前了其中一年（model 3）的改革年份, 因此需要一一对应，即便是同一个坐标也要重复写出来。
+
+![Event plot](/img/stata事件研究法3.zh-cn-20241025100303691.webp)
+
 
 ## 总结
 
