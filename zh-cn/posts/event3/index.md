@@ -32,7 +32,7 @@ $$
 
 **平行趋势检验只是事件研究法的特例**。比如 A、B 两个县城，A 县城实施了乡村振兴，B 没有，然后 A 富起来了。
 
-我们不能轻易地说就是乡村振兴导致了 A 县城富起来——例如 A 县风景很美、土质肥沃、矿产资源丰富...... A 和 B 一直都有发展差距。为了验证在乡村振兴以前 A、B 两个村子的数据是几乎相等的，**这样 DID 的事件对两个县城来说才是外生的**。
+我们不能轻易地说就是乡村振兴导致了 A 县城富起来——例如 A 县可能条件本来就得天独厚——风景很美、土质肥沃、矿产资源丰富...... A 和 B 一直都有发展差距。为了验证在乡村振兴以前 A、B 两个村子的数据是几乎相等的，**这样 DID 的事件对两个县城来说才是外生的**。
 
 简单来说，平行趋势是想论证——实验组和对照组在事件发生以前几乎没差异。
 
@@ -48,9 +48,9 @@ $$
 
 在我读到的 top5 期刊论文中，已经有一个趋势——能用图展示的都加上图。因此事件研究法的运用已经越来越广泛。
 
-这里举我喜欢的刊物灵活运用事件研究法的例子。
+这里举我喜欢的论文其中灵活运用事件研究法的例子。
 
-JDE 的《English language requirement and educational inequality: Evidence from 16 million college applicants in China》使用事件分析法，论证听力考试的加入加剧了城乡教育不平等。
+JDE 的《English language requirement and educational inequality: Evidence from 16 million college applicants in China》使用事件分析法，论证英语听力考试加剧了城乡教育不平等。
 
 里面通过事件分析法展现了高考学生分层的异质性——从 985 到一本录取率，影响效果越来越大。
 
@@ -58,7 +58,7 @@ JDE 的《English language requirement and educational inequality: Evidence from
 
 QJE 的《The Long-Run Impacts of Public Industrial Investment on Local Development and Economic Mobility: Evidence from World War II》使用事件分析法，论证冷战时期，美国分散建厂提升了当地儿童的未来工资。
 
-通过多变量更换的动态比较，可以看出当地公司数量没怎么变，但就业人数增长明显，因此是规模效应提升到就业。
+通过多变量更换的动态比较，可以看出当地公司数量没怎么变，但就业人数增长明显，因此是规模效应导致的就业提升而不是企业数量增长。
 
 ![QJE 的《The Long-Run Impacts of Public Industrial Investment on Local Development and Economic Mobility: Evidence from World War II》](/img/stata事件研究法3.zh-cn-20241024225954204.webp)
 
@@ -68,9 +68,9 @@ QJE 的《The Long-Run Impacts of Public Industrial Investment on Local Developm
 
 以下示例数据为中国工业经济的《[创新驱动政策是否提升城市创业活跃度——来自国家创新型城市试点政策的经验证据](https://ciejournal.ajcass.com/Magazine/show/?id=83285)》。
 
-**其实我也想用自己收集的数据，奈何一个也不显著！**
+**其实我也想用自己收集的数据举例子，奈何一个也不显著！**
 
-数据都在附件，可以进去下载。
+数据都在官网附件中，直接进去下载即可。这篇论文也应该是国内较早完全公开整个双重差分流程代码的论文。城市面板数据用来学习任何代码都好使。
 
 ### 平行趋势检验的两种方式
 
@@ -201,9 +201,9 @@ cnsreg  entre_activation  d_2-d_10 d1-d9 di i.year  lnagdp indust_stru finance a
 
 ### 同一个图上展现多组回归系数
 
-#### Coefplot 命令
-
 `twoway` 命令也可以做到，但是太麻烦，所以这里不再介绍。
+
+#### Coefplot 命令
 
 还是使用 `coefplot` 命令，其他参数依旧可以添加——**但是无法设置线条参数**（`addplot`）。
 
@@ -252,11 +252,11 @@ coefplot model1 || model2,
 
 #### Event plot 命令
 
-我估计大部分刊物存在连线的图项是这个命令画出来的。
+我估计大部分刊物存在连线的图，如果用的不是 R 语言，应该都是是 event plot 命令画出来的。
 
-**这个命令好处是可以设置不同的改革年份进行比较，而且画图支持连线。这个命令似乎针对双重差分有很多很好的子命令。
+**这个命令好处是可以设置不同的改革年份进行比较，而且支持连线点图。该命令似乎针对双重差分有很多很好的子命令。**
 
-估计 QJE 那一篇是用的这个命令画图。
+估计本文提到的 QJE 那一篇是用的这个命令画的图。
 
 ```SQL
 
@@ -337,4 +337,6 @@ graphregion(color(white)) bgcolor(white) ylabel(,angle(horizontal)));
 
 ## 总结
 
-计量就像这图一样，看起来复杂，但核心越是简单清楚越是了不起。事件研究法其实只是系数图表化罢了，但组合起来可以形象地展示更多东西——异质性、结构比较、平行趋势、组间差异、长期效应......
+计量就像这图一样，看起来复杂，但核心思想总是一句话就能说清。
+
+就操作上的理解来看——**事件研究法只是系数可视化罢了**，但组合起来可以形象地展示更多东西——异质性、结构比较、平行趋势、组间差异、长期效应...... 其实更重要的是分组回归的设计思想与经济意义的考察分析。
