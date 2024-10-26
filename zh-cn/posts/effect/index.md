@@ -51,7 +51,19 @@ $$\begin{aligned} &\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\n
 
  其中 $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ 是我们主动添加的，是想要却无法直接找到的另一个”平行宇宙“——**假如**$\mathbf{E}[Y_{\color{blue}{1i}}\mid D_{i}=1]$ 部分群体，在平行世界没有没有接受处理，他们的状态表示为 $\mathbf{E}[Y_{\color{blue}{0i}}\mid D_{i}=1]$, 也就是 Rubin 想找到的"潜在结果"。
 
-$\color{red}{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}$ 代表着 $\boxed{处理组平均处理效应}$（Average Treatment Effect on Treated，简称 ATT）。再没有比“**一个二项选择分裂出两个平行宇宙**”更好的对照试验了，然而没有人能真正获得这种数据！因此，经济学家的做法是想通过 ATE 来估计 ATT，于是引入了随机试验（RCT）。 
+$\color{red}{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}$ 代表着 $\boxed{处理组平均处理效应}$（Average Treatment Effect on Treated，简称 ATT）。
+
+同理，$\mathbf{E}\lfloor Y_{1i}\mid D_{i}=0\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=0]$ 代表 $\boxed{对照组平均处理效应}$ （Average Treatment Effect on Untreated，简称ATU）。采用同样的构造，构造出新的平行宇宙情况
+
+$$
+\begin{aligned}   
+&\mathbf{E}[Y\_{i}\mid D\_{i}=1]-\mathbf{E}[Y\_{i}\mid D\_{i}=0]\\\\  & ={\underbrace{\mathbf{E}\lfloor Y\_{1i}\mid D\_{i}=0\rfloor-\mathbf{E}[Y\_{0i}\mid D\_{i}=0]}\_{\text{对照组的平均处理效应ATU}}  }\\\\
+&+\underbrace{\operatorname{E}[Y\_{1i}\mid D\_{i}=1]-\operatorname{E}[Y\_{1i}\mid D\_{i}=0]}_{\operatorname*{\text{选择性偏误}}} 
+\end{aligned}\\\\
+$$
+
+
+再没有比“**一个二项选择分裂出两个平行宇宙**”更好的对照试验了，然而没有人能真正获得这种数据！因此，经济学家的做法是想通过 ATE 来估计 ATT，于是引入了随机试验（RCT）。 
 
 ## RCT：让 ATE 趋近 ATT
 

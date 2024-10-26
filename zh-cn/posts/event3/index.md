@@ -12,6 +12,7 @@
 > 
 > 本文将介绍 coefplot、eventplot、eventdd、 cnreg 命令在事件研究法中的画图代码。
 
+![先来点锐评](/img/stata事件研究法3.zh-cn-20241026143656290.webp)
 ## 简单回顾事件研究法的概念
 
 
