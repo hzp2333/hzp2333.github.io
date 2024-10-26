@@ -81,8 +81,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 >生命意义在于折腾
 
-博客美化细节参考了以下博主的文章
-
 {{< friend  name="LoveIt 主题"
 url="https://hugoloveit.com/zh-cn/"
 logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
@@ -108,9 +106,52 @@ word="不想当写手的码农不是好咸鱼"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="十年之约"
+url="https://www.foreverblog.cn/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="希望博客能坚持十年"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="开往：友链计划"
+url="https://www.travellings.cn/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="让传统友链“活跃”，让网页相互接力"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="萌备"
+url="https://icp.gov.moe/AboutMoeICP.html"
+logo="https://icp.gov.moe/images/ico64.png"
+word="萌国ICP备案，号称萌ICP备，简称萌备"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="BlogFinder"
+url="https://bf.zzxworld.com/"
+logo="https://bf.zzxworld.com/images/logo-v2.png"
+word="与九百多位博友成为近邻"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="博友圈"
+url="https://www.boyouquan.com/home"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="博友圈 · 博客人的朋友圈"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 ## 大佬们：有缘千里来相会
 
->也有些单向链接是对我帮助很大的博客
+>也有些单向链接是我觉得很有意思的博客
 
 {{< friend   name="寒夏摸鱼站"
     url="https://blog.rainiar.top"
@@ -204,6 +245,15 @@ word="不想当写手的码农不是好咸鱼"
 	url="https://www.yangxk196.com/"
 	logo="https://www.yangxk196.com/static/sitting.png"
 	word="念念不忘，必有回响"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="TengFei"
+	url="https://blog.tengfei.website/"
+	logo=""
+	word="写一些关于我自己生活的乱七八糟的东西"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
