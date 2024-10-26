@@ -257,6 +257,15 @@ word="博友圈 · 博客人的朋友圈"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+{{< friend   
+	name="xkcd"
+	url="https://xkcd.com/1922/"
+	logo="https://imgs.xkcd.com/news/harris_news@2x.png"
+	word="火柴人小漫画"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 ## 经济学家：一流的大师在挖坑
 
 >虽不能至，心向往之
