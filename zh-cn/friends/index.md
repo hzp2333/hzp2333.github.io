@@ -351,6 +351,14 @@ word="发展经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="方汉明"
+url="https://web.sas.upenn.edu/hfang/"
+logo="https://web.sas.upenn.edu/hfang/files/2018/11/Hanming-Fang-1ga6f9y.jpg?customize_changeset_uuid=7a2dc201-8a7f-4cf7-8715-b35cea8fc5f6&customize_messenger_channel=preview-9"
+word="公共经济学，微观计量。"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="陈硕"
 url="https://www.frankchenshuo.com/"
 logo="https://frankchenshuo.com/uploads/20231019/5818d7079610856f9651908e2c3d4403.png"

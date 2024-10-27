@@ -29,6 +29,7 @@ ATE、ATT、ITT、LATE 这部分知识在《基本无害的计量经济学》[^3
 
 {{< bilibili BV1Qu4y1j7GS>}}
 
+
 # 细说 RCM 因果效应
 
 > ATE、ATT、ITT、LATE 是不同的统计估计量。
@@ -157,6 +158,7 @@ $$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Bi
 我开始认为——以怎样的框架挖掘均衡；通过经济现象构建具有特性的函数；总结出最优化约束条件才是经济学区别数理复合人才的“经济思想与直觉”。
 
 顺便插入下[高宏笔记](https://zhuanlan.zhihu.com/p/613416303)。
+
 
 # 总结
 
