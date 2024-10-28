@@ -395,6 +395,15 @@ word="高维计量经济学模型机器学习方法"
     border-animation="shadow"  >}}
 
 
+{{< friend  name="王绍达"
+url="http://www.sdwang.org/"
+logo="http://www.sdwang.org/uploads/4/4/8/5/44856715/published/pic.jpg?1706683932"
+word="微观计量"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 {{< friend  name="David Mckenzie"
 url="https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0"
 logo="https://s7d1.scene7.com/is/image/wbcollab/logo-en?qlt=90&fmt=webp&resMode=sharp2"
