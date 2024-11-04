@@ -146,6 +146,11 @@ $$\mathrm{LATE}=\mathrm{CATE}\_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi\_{\mathcal{
 此时估计如下：
 
 $$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$
+其实就是**工具变量**中的估计式子
+
+> $$\beta^{IV}=[E(Z^\prime Z)−E(Z^\prime X)]^{-1}[E(Z^\prime Z)−E(Z^\prime Y)]$$ 矩阵表示含义—— X先对Z做回归，然后Y对Z做回归。
+
+所以也可以理解工具变量其实对样本添加了权重，越满足假设和工具变量相关的样本权重越高。
 
 **LATE 部分**重点参考了[牛津的课件](https://andy.egge.rs/teaching/causal_inference/)，如果想看相对代数化的说明可以参考[哈佛的课件](https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf)和《基本无害的计量经济学》。
 
