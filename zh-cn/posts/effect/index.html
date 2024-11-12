@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/effect\/"
-        },"genre": "posts","keywords": "文献阅读, 因果效应","wordcount":  4461 ,
+        },"genre": "posts","keywords": "文献阅读, 因果效应","wordcount":  4669 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/effect\/","datePublished": "2024-02-28T18:27:40+08:00","dateModified": "2024-02-28T18:27:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -233,8 +233,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">因果效应</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4461 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4669 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
     
 
     
@@ -381,7 +381,7 @@ $$</p>
 <p>显然，存在这样一个过程，一个人先被告知有没有入伍资格，然后他决定是否进入军队。</p>
 <p>ITT 式子如下所示：</p>
 <p>$$ITT=\mathbf{E}[Y_i|Z_i=1]-\mathbf{E}[Y_i|Z_i=0]$$</p>
-<p>可以看出 ITT 估计和 $\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]$ 相当类似，也就是说，<strong>当</strong>$ D_i$ 和 $Z_i$ 一一对应时，也就是 $z=d$ 时，<strong>ITT=ATE</strong>。</p>
+<p>可以看出 ITT 估计和 $\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]$ 相当类似，也就是说，<strong>当</strong> $D_i$ 和 $Z_i$ 一一对应时，也就是 $z=d$ 时，<strong>ITT=ATE</strong>。</p>
 <ul>
 <li>$\pi_N$: 无论我有没有资格，我最终都不会参军。</li>
 <li>$\pi_D$: 逆反心态，有参军资格我偏不去，没有参军资格我偏要去。</li>
@@ -404,6 +404,7 @@ $$</p>
 <p>如此一来肯定不能单独估计出 $\pi_i(i\in{A,C,D,N})$ 了。</p>
 <p>不过由于随机分布，结果会成比例，可以变形出线性方程：</p>
 <p>$$ITT=\pi_CITT_C+\pi_AITT_A+\pi_NITT_N+\pi_DITT_D$$</p>
+<p>实际上，如果知道每个人对待抽签的反应，我们是可以计算所有 $π_i$ 的值的，但是计量要解决的恰恰是我们不知道总体样本点分布，因此做出假设：</p>
 <blockquote>
 <p><strong>解决办法是增加假设</strong> ——很有经济学笑话味道了。插入笑话原文：一个物理学家、一个化学家和一个经济学家漂流到孤岛上，十分饥饿。这时海面上漂來一个罐头。物理学家说：“我们可以用岩石对罐头施以动量，使其表层疲劳而断裂。”化学家说：“我们可以生火，然后把罐头加热，使它膨胀以至破裂。”经济学家则说：“假设我们有一个开罐头的起子……。”</p>
 </blockquote>
@@ -419,6 +420,8 @@ $$</p>
 <p><strong>LATE 部分</strong>重点参考了<a href="https://andy.egge.rs/teaching/causal_inference/" target="_blank" rel="noopener noreffer ">牛津的课件</a>，如果想看相对代数化的说明可以参考<a href="https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf" target="_blank" rel="noopener noreffer ">哈佛的课件</a>和《基本无害的计量经济学》。</p>
 <h1 id="数理经济中的社科属性">数理经济中的社科属性？</h1>
 <p>直接说&quot;解决办法是添加几个假设&quot;未免有些太经济学地狱笑话了。从经济含义看更加直观，如果我们研究的政策足够独特，我们需要论述政策对每个人都有影响，也就是假设中的单调性。在使用工具变量时，也需要介绍工具变量和解释变量之间的社会关系。所以为何经济学计量区别于数学？这些假设就是对社会现象的描述总结，就是其社科属性的鲜明体现。</p>
+<p>比如我们的样本是医院样本——一般来说，没有病人不会去跟医生反着来；还比如我们的样本是政府政策，由于政府的强硬手段，没人能够跟政府反着来，因此确实其他反应就为0，大家都是顺从的反应。</p>
+<p>当然，实际上工具变量还是会有偏差（一般会增大估计量），所以要仔细理解自己选择的工具变量和 y 和 x 的关系。</p>
 <p>最近学习高级宏观也有所体悟。高宏的方法非常单调，变分法加拉格朗日基本解决了所有经典模型的最优化。难点在于每个高宏模型飞来飞去的假设条件和阴间变形。无论是公式变形还是突然施加的假设，都是提炼经济现象的一个特征，然后加以数学化，这才是最大的难点。例如知识生产函数（知识作为全要素）、科夫道格拉斯生产函数（规模报酬）、家庭约束（消费贴现小于财富贴现）、家庭效用函数（风险规避）。</p>
 <p>我开始认为——以怎样的框架挖掘均衡；通过经济现象构建具有特性的函数；总结出最优化约束条件才是经济学区别数理复合人才的“经济思想与直觉”。</p>
 <p>顺便插入下<a href="https://zhuanlan.zhihu.com/p/613416303" target="_blank" rel="noopener noreffer ">高宏笔记</a>。</p>

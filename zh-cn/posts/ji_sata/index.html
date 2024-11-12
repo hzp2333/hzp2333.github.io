@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10142 ,
+        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10272 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -233,7 +233,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量数据的分组与测度（STATA 版）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10142 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10272 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
     
 
@@ -371,7 +371,7 @@
 </div>
 </div><p>如果我们不管三七二十一，直接对总体数据进行回归拟合，我们会得出来 <strong>收入越多，咖啡消费越低</strong> 的结论，但如果我们分别对男性和女性进行回归拟合，得到的结论却完全相反——“<strong>收入越多，咖啡消费越多</strong>”。显然，后者更贴合现实情况。</p>
 <p>这就是 $\boxed{辛普森悖论}$：局部的相关性和整体的相关性可能呈现截然不同的结果。</p>
-<p>辛普森悖论在生活中比比皆是，例如各个年龄段的人服用药物后的疗效测量、各个学院录取学生是否有性别歧视、警察执法是否有种族歧视，，，，，</p>
+<p>辛普森悖论在生活中比比皆是，例如各个年龄段的人服用药物后的疗效测量、各个学院录取学生是否有性别歧视、警察执法是否有种族歧视&hellip;&hellip;</p>
 <ul>
 <li>我们不但要关心数据的绝对值，例如某个结果的性别比；</li>
 <li>还有观察相对数值，例如警察执法更关注有色人种，那么前提是有色人种是不是犯罪率更高些；</li>
@@ -380,7 +380,7 @@
 <p><strong><em>《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》</em></strong>（2006）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>中就是基于“不同人种犯罪率与警察执法关注度”来研究佛罗里达的警察执法是否涉及种族歧视。自从佛洛依德（<strong><em>Floyd</em></strong>）的“I can&rsquo;t breathe”出圈后，很多书都热衷于通过这个事件引出真正的反事实推断<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>（例如《基本无害的计量经济学》（<strong><em>Joshua D. Angrist</em></strong>））</p>
 </blockquote>
 <ul>
-<li>还要注意内部的分层讨论，分种族、分地域、分性别，，，也就是上面这个喝咖啡的例子。</li>
+<li>还要注意内部的分层讨论，分种族、分地域、分性别&hellip;&hellip;也就是上面这个喝咖啡的例子。</li>
 </ul>
 <p>导致辛普森悖论的其中一个原因就是<strong>遗漏变量和混杂因子</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>——在咖啡消费与收入中，性别是一个重要影响因素，我们遗漏了，但是通过分组拟合实现了控制。</p>
 <blockquote>
@@ -453,6 +453,7 @@ Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+
 \xrightarrow{分解} 可解释部分+\color{blue}{不可解释部分}(误差)
 $$
 先放总结图，接下来展开解释</p>
+<p>随机效应假设更加严格，也就是数据要求更高，因此大家才倾向于使用固定效应（也就是允许个体效应存在内生性）。</p>
 <p>
 <figure><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp" title="先放总结图，接下来展开解释" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp" data-sub-html="<h2> </h2><p>先放总结图，接下来展开解释</p>">
         <img
@@ -491,7 +492,7 @@ $$
 <h3 id="2固定效应">2、固定效应</h3>
 <p>分为个体固定效应和时间固定效应（双固定）。</p>
 <p><strong>个体固定效应：</strong></p>
-<p>$\boxed{LSDV} :$ 混合 OLS 是对所有$\lambda_{it} $一视同仁。想象一下，我们对同一个人观测多次，在混合 OLS 看来每次重复观测都有等同的价值。固定效应不这么认为，固定效应认为个体具有某种性质，重复观测获得的价值有限，所以我们需要<strong>生成虚拟个体变量（n-1 个）加入回归不对每类个体进行标识，单独估计每一个个体的效应，<strong>也就是“最小二乘变量模型（Least Square Dummy Variable Model）”（简称</strong>LSDV</strong>）。</p>
+<p>$\boxed{LSDV} :$ 混合 OLS 是对所有$\lambda_{it}$一视同仁。想象一下，我们对同一个人观测多次，在混合 OLS 看来每次重复观测都有等同的价值。固定效应不这么认为，固定效应认为个体具有某种性质，重复观测获得的价值有限，所以我们需要<strong>生成虚拟个体变量（n-1 个）加入回归不对每类个体进行标识，单独估计每一个个体的效应，<strong>也就是“最小二乘变量模型（Least Square Dummy Variable Model）”（简称</strong>LSDV</strong>）。</p>
 <blockquote>
 <p>会生成很多控制变量，所以 $R^2$ 很好。</p>
 </blockquote>
@@ -571,6 +572,7 @@ $$
 Y=\dot \beta X_1 + (\alpha-\gamma)X_2+u
 $$
 可以发现 $\dot \beta=\beta_1$ ,通过曲线救国，间接估计，我们估计出了我们想要的系数 $\beta_1$。虚拟二乘回归就是先回归$ Y $与虚拟变量 $D$，然后回归 $X_1$ 与 $D$ ，最后使用残差进行估计，因此系数和组内估计系数回归一致。</p>
+<p>通过 FWL 可以证明一阶差分估计和虚拟变量的估计是相等的。</p>
 </blockquote>
 <p>如果想自己尝试，可以使用 stata 自带数据测试<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>：</p>
 <div class="highlight"><div class="chroma">
@@ -621,6 +623,7 @@ $$
 <h3 id="3随机效应">3、随机效应</h3>
 <p>固定效应假设个体效应 $\lambda_{\color{red}{i}}$ 与个体相关，意思就是相同的个体分组有相同的个体效应，于是我们可以通过离差法、组内估计相减，直接消掉干扰项。随机效应与之相反，<strong>假设个体效应  $\lambda_{\color{red}{i}}$ 没有与解释变量相关</strong>，我们无法通过离差法、组内估计相减消除。</p>
 <p>基于把残差看成截距的理解就是，在固定效应看来，每个分组共享一个截距，分组内部相减就消掉这个截距了；在随机效应看来，截距是随机的，不可能按照分组达成统一。</p>
+<p>在操作上，类似工具变量，其实是根据残差对变量进行了加权。</p>
 <p>要解决的问题是残差的自相关，</p>
 <p>$$
 Y_{\color{red}{it}}=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\color{blue}{\lambda_{\color{red}{i}}+u_{\color{red}{it}}}
