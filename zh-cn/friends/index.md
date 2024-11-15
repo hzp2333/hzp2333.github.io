@@ -33,6 +33,14 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend   name="kLiHz"
+    url="http://klihz.muc.moe/"
+    logo=""
+    word="kLiHz's Blog"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 
 
 {{< friend   name="bdim"
