@@ -11,7 +11,7 @@
 
 > 初中到大学，排名皆随机......
 
-{{< friend   name="yll"    
+{{< friend   name="Yllhwa"    
 
 url="https://blog.yllhwa.com/"    
 
@@ -25,7 +25,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 
-{{< friend   name="fernvenue"
+{{< friend   name="Fernvenue"
     url="https://fernvenue.com/"
     logo="https://avatars.githubusercontent.com/u/84565547?v=4"
     word="Don't be evil"
@@ -43,7 +43,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 
-{{< friend   name="bdim"
+{{< friend   name="Bdim"
     url="https://bdim.moe/"
     logo="https://avatars.githubusercontent.com/u/102711645?v=4"
     word="音乐计算机双修"
@@ -52,7 +52,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
-{{< friend   name="wenjun zheng"
+{{< friend   name="Wenjun Zheng"
     url="https://wenjun-zheng.github.io/"
     logo="https://avatars.githubusercontent.com/u/116635232?v=4"
     word="Econ student"
@@ -68,8 +68,16 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend   name="Econfinny"
+    url="http://econfinny.com/"
+    logo="https://econfinny.com/img/IMG_0005.JPG"
+    word="一个经济小登的主页"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 
-{{< friend   name="les1ie"
+
+{{< friend   name="Les1ie"
     url="https://les1ie.com/"
     logo="https://les1ie.com/img/avatar-Les1ie.jpg"
     word="锲而不舍，金石可镂"
