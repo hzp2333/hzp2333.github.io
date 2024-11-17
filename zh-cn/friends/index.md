@@ -69,7 +69,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 {{< friend   name="Finneas"
-    url="http://econfinny.com/"
+    url="http://blog.econfinny.com/"
     logo="https://econfinny.com/img/IMG_0005.JPG"
     word="一个经济小登的主页"
     primary-color="default"
