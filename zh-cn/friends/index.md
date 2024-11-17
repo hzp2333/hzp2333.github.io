@@ -68,7 +68,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   name="Econfinny"
+{{< friend   name="Finneas"
     url="http://econfinny.com/"
     logo="https://econfinny.com/img/IMG_0005.JPG"
     word="一个经济小登的主页"
