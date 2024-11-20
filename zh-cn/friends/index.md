@@ -70,7 +70,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 {{< friend   name="Finneas"
     url="http://blog.econfinny.com/"
-    logo="https://econfinny.com/img/IMG_0005.JPG"
+    logo="https://blog.econfinny.com/img/IMG_0005.JPG"
     word="一个经济小登的主页"
     primary-color="default"
     img-animation="rotate"
@@ -160,6 +160,14 @@ word="与九百多位博友成为近邻"
 url="https://www.boyouquan.com/home"
 logo="https://www.travellings.cn/assets/travelling.png"
 word="博友圈 · 博客人的朋友圈"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="BlogWe"
+url="https://blogwe.com/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="致敬还在写博客的我们"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
