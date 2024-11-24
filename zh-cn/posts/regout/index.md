@@ -26,7 +26,7 @@
 ```sql
  ssc install asdoc, replace //下载命令
  sysuse "auto.dta", clear //使用stata自带的样本数据
- asdoc sum price mpg rep78 trunk weight, robust , dec(4) save(表1描述性统计1.doc) title("表1描述性统计1")
+ asdoc sum price mpg rep78 trunk weight , dec(4) save(表1描述性统计1.doc) title("表1描述性统计1")
  asdoc reg price mpg rep78 trunk weight, robust ,  save(表2基本回归.doc) title("表2基本回归")
 ```
 

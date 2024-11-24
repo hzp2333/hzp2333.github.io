@@ -358,6 +358,14 @@ word="充满争议的政治经济学家"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="Jeff Ely"
+url="https://jeffely.com/"
+logo="https://jeffely.com/wp-content/uploads/2021/08/about-us.jpg"
+word="十分有趣的制度设计与信息博弈"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="宋铮"
 url="https://www.michael-song.org/"
 logo="https://www.michael-song.org/uploads/4/8/1/4/48141215/published/profsongzheng.jpg?1656989289"
