@@ -348,13 +348,34 @@ gen x=substr(var,1,4)
 - [StataViz by Asjad Naqvi](https://asjadnaqvi.github.io/stata-portfolio/tags/portfolio/)
 - [Stata Visual Library](https://worldbank.github.io/stata-visual-library/)
 
-#### 图片合并
+个人推荐自定义换行符, 这样画图命令更加优雅：
+
+
+```stata
+
+#delimit;
+;
+gen di = year - branch_reform;
+eventdd entre_activation i.year lnagdp indust_stru finance ainternet market,
+ timevar(di) //定义时间虚拟变量
+ ci(rcap) //误差条  
+ noline //不绘制-1期的置信区间条
+ method(fe) //如果要添加自相关聚类——method(fe,cluster(自相关聚类))
+ baseline(0) //基础年份为0
+ level(95)
+ graph_op(ytitle("coefficients") xtitle("Time")  xlabel(-10(2)14)); // 取消自定义换行
+#delimit cr
+
+```
+
+
+**图片合并**
 
 ```
 graph combine "a.gph" "b.gph", col(1) xcommon ycommon
 ```
 
-#### 气泡图
+**气泡图**
 
 在 [Stata绘制高级气泡图](https://zhuanlan.zhihu.com/p/581227252)看到的，很有意思
 
@@ -374,7 +395,7 @@ xlabel(2000(1000) 5000) ylabel(10(10)50) legend(label(1 " ") label(2 " ") label(
 ```
 
 ![气泡散点图](/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113214106.webp)
-#### 折线图
+ **折线图**
 
 ```sql
 twoway ///
@@ -396,7 +417,7 @@ twoway ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 饼图
+ **饼图**
 
 ```sql
 graph pie var2 if group <= 10, ///
@@ -407,7 +428,7 @@ graph pie var2 if group <= 10, ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 箱线图
+**箱线图**
 
 ```
 graph box ///
@@ -417,7 +438,7 @@ graph box ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 柱状图
+**柱状图**
 
 ```
 histogram var4, percent ///
@@ -434,7 +455,7 @@ histogram var4, ///
     kdensity
 ```
 
-#### 竖向条形图
+**竖向条形图**
 
 ```
 graph bar ///
@@ -445,7 +466,7 @@ graph bar ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 横向条形图
+**横向条形图**
 
 ```
 graph hbar (mean) ///
@@ -458,7 +479,7 @@ graph hbar (mean) ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 置信区间
+ **置信区间**
 
 ```
 twoway ///
@@ -470,7 +491,7 @@ twoway ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 范围区间
+**范围区间**
 
 ```
 twoway ///
@@ -481,7 +502,7 @@ twoway ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 面积图
+**面积图**
 
 ```
 twoway ///
@@ -492,7 +513,7 @@ twoway ///
 			note("The Stata Guide", size(vsmall))
 ```
 
-#### 标签散点
+ **标签散点**
 
 ```
 twoway ///
@@ -501,7 +522,7 @@ twoway ///
 		note("The Stata Guide", size(vsmall))
 ```
 
-#### 分组散点图
+ **分组散点图**
 
 ```
 twoway ///
@@ -511,7 +532,7 @@ twoway ///
 		by(, title("By graphs") note("The Stata Guide", size(vsmall)))
 ```
 
-#### 雷达图
+ **雷达图**
 
 `radar` 和 `spyder` 都可以，个人觉得蛛网好看很多。
 
@@ -671,6 +692,8 @@ foreach i in $xlist {
 > **[请看大屏幕](https://zhuanlan.zhihu.com/p/510963665)！**  
 > 最开始觉得 Excel 这样用起来挺小白的，但会用 stata 后才会发现 data 文件合并的效率远比 Excel 高。
 
+
+
 ## 六、结束
 
 这几天经管之家关闭了,
@@ -680,6 +703,7 @@ foreach i in $xlist {
 90%的问题都是从知乎、经管之家、B 站找到的解决方法。
 
 **可谓前人之述备矣，我只浅踩了几个坑。**
+
 
 ## 参考
 

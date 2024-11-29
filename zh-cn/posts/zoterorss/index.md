@@ -8,6 +8,8 @@
 
 # Zotero 如何导入 RSS 订阅
 
+[推荐参考：Feed RSS](https://zotero-chinese.com/user-guide/feed)
+
 **zotero 6 载入订阅：文库选项-新建订阅-从网址导入-输入网站**
 
 ![zotero6如何导入rss订阅](/img/Zotero：RSS聚合订阅.en-20240523134830568.webp) ![输入后就可以识别编辑名称了](/img/Zotero：RSS聚合订阅.en-20240523134843505.webp)
@@ -204,21 +206,29 @@ https://back.nber.org/rss/new.xml
 
 ![rss](/img/Zotero：RSS聚合订阅.en-20240523135034567.webp)
 
+### 注意！zotero7需要手动更改订阅地址
+
+将 navi 修改为 rss
+
+例如：navi.cnki.net/knavi/rss
+
+更改为：https://rss.cnki.net/knavi/rss/GGYY
+
 ### 省流列表
 
 ```css
 经济研究：
-https://navi.cnki.net/knavi/rss/JJYJ
+https://rss.cnki.net/knavi/rss/JJYJ
 经济学（季刊）：
-https://navi.cnki.net/knavi/rss/JJXU
+https://rss.cnki.net/knavi/rss/JJXU
 世界经济：
-https://navi.cnki.net/knavi/rss/SJJJ
+https://rss.cnki.net/knavi/rss/SJJJ
 中国工业经济：
-https://navi.cnki.net/knavi/rss/GGYY
+https://rss.cnki.net/knavi/rss/GGYY
 管理世界：
-https://navi.cnki.net/knavi/rss/GLSJ
+https://rss.cnki.net/knavi/rss/GLSJ
 数量经济技术经济研究：
-https://navi.cnki.net/knavi/rss/SLJY
+https://rss.cnki.net/knavi/rss/SLJY
 ```
 
 # 其他有趣的 RSS

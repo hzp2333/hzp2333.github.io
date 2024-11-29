@@ -290,6 +290,26 @@ word="致敬还在写博客的我们"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+{{< friend   
+	name="柯棋瀚"
+	url="https://kqh.me/"
+	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
+	word="自然科學史研究"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="刑辩人在路上"
+	url="https://xingbianren.cn"
+	logo="https://xingbianren.cn/zb_users/upload/2023/05/202305231684818664504571.png"
+	word="80后刑辩律师的办案手记。反抗者的灵魂从未远去。"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 ## 经济学家：一流的大师在挖坑
 
 >虽不能至，心向往之

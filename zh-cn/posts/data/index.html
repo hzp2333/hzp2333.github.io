@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  7656 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  7802 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/","datePublished": "2023-03-14T18:09:26+08:00","dateModified": "2023-03-14T18:09:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -235,7 +235,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一份经济微观数据库的数据清洗快速指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-03-14">2023-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7656 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-03-14">2023-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7802 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;
     
 
@@ -295,20 +295,6 @@
                 <li><a href="#一些可视化代码网站">一些可视化代码网站</a></li>
               </ul>
             </li>
-            <li><a href="#图片合并">图片合并</a></li>
-            <li><a href="#气泡图">气泡图</a></li>
-            <li><a href="#折线图">折线图</a></li>
-            <li><a href="#饼图">饼图</a></li>
-            <li><a href="#箱线图">箱线图</a></li>
-            <li><a href="#柱状图">柱状图</a></li>
-            <li><a href="#竖向条形图">竖向条形图</a></li>
-            <li><a href="#横向条形图">横向条形图</a></li>
-            <li><a href="#置信区间">置信区间</a></li>
-            <li><a href="#范围区间">范围区间</a></li>
-            <li><a href="#面积图">面积图</a></li>
-            <li><a href="#标签散点">标签散点</a></li>
-            <li><a href="#分组散点图">分组散点图</a></li>
-            <li><a href="#雷达图">雷达图</a></li>
           </ul>
         </li>
         <li><a href="#13绘图风格">13、绘图风格</a></li>
@@ -814,7 +800,40 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 <li><a href="https://asjadnaqvi.github.io/stata-portfolio/tags/portfolio/" target="_blank" rel="noopener noreffer ">StataViz by Asjad Naqvi</a></li>
 <li><a href="https://worldbank.github.io/stata-visual-library/" target="_blank" rel="noopener noreffer ">Stata Visual Library</a></li>
 </ul>
-<h4 id="图片合并">图片合并</h4>
+<p>个人推荐自定义换行符, 这样画图命令更加优雅：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#delimit;</span>
+</span></span><span class="line"><span class="cl"><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">di</span> <span class="o">=</span> <span class="n">year</span> <span class="o">-</span> <span class="n">branch_reform</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">eventdd</span> <span class="n">entre_activation</span> <span class="n">i</span><span class="o">.</span><span class="n">year</span> <span class="n">lnagdp</span> <span class="n">indust_stru</span> <span class="n">finance</span> <span class="n">ainternet</span> <span class="n">market</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="n">timevar</span><span class="p">(</span><span class="n">di</span><span class="p">)</span> <span class="o">//</span><span class="err">定义时间虚拟变量</span>
+</span></span><span class="line"><span class="cl"> <span class="n">ci</span><span class="p">(</span><span class="n">rcap</span><span class="p">)</span> <span class="o">//</span><span class="err">误差条</span>  
+</span></span><span class="line"><span class="cl"> <span class="n">noline</span> <span class="o">//</span><span class="err">不绘制</span><span class="o">-</span><span class="mi">1</span><span class="err">期的置信区间条</span>
+</span></span><span class="line"><span class="cl"> <span class="n">method</span><span class="p">(</span><span class="n">fe</span><span class="p">)</span> <span class="o">//</span><span class="err">如果要添加自相关聚类——</span><span class="n">method</span><span class="p">(</span><span class="n">fe</span><span class="p">,</span><span class="n">cluster</span><span class="p">(</span><span class="err">自相关聚类</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="n">baseline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">//</span><span class="err">基础年份为</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"> <span class="n">level</span><span class="p">(</span><span class="mi">95</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="n">graph_op</span><span class="p">(</span><span class="n">ytitle</span><span class="p">(</span><span class="s2">&#34;coefficients&#34;</span><span class="p">)</span> <span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Time&#34;</span><span class="p">)</span>  <span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="mi">14</span><span class="p">));</span> <span class="o">//</span> <span class="err">取消自定义换行</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#delimit cr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>图片合并</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -823,7 +842,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph combine &#34;a.gph&#34; &#34;b.gph&#34;, col(1) xcommon ycommon
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="气泡图">气泡图</h4>
+</div><p><strong>气泡图</strong></p>
 <p>在 <a href="https://zhuanlan.zhihu.com/p/581227252" target="_blank" rel="noopener noreffer ">Stata绘制高级气泡图</a>看到的，很有意思</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -865,8 +884,8 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113214106.webp" />
     </a><figcaption class="image-caption">气泡散点图</figcaption>
-    </figure></p>
-<h4 id="折线图">折线图</h4>
+    </figure>
+<strong>折线图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -907,7 +926,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="饼图">饼图</h4>
+</div><p><strong>饼图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -926,7 +945,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="箱线图">箱线图</h4>
+</div><p><strong>箱线图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -943,7 +962,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="柱状图">柱状图</h4>
+</div><p><strong>柱状图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -971,7 +990,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">    <span class="n">kdensity</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="竖向条形图">竖向条形图</h4>
+</div><p><strong>竖向条形图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -990,7 +1009,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="横向条形图">横向条形图</h4>
+</div><p><strong>横向条形图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1013,7 +1032,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="置信区间">置信区间</h4>
+</div><p><strong>置信区间</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1034,7 +1053,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="范围区间">范围区间</h4>
+</div><p><strong>范围区间</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1053,7 +1072,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="面积图">面积图</h4>
+</div><p><strong>面积图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1072,7 +1091,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">			note(&#34;The Stata Guide&#34;, size(vsmall))
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="标签散点">标签散点</h4>
+</div><p><strong>标签散点</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1087,7 +1106,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="分组散点图">分组散点图</h4>
+</div><p><strong>分组散点图</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1104,7 +1123,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 </span></span><span class="line"><span class="cl">		<span class="n">by</span><span class="p">(,</span> <span class="n">title</span><span class="p">(</span><span class="s2">&#34;By graphs&#34;</span><span class="p">)</span> <span class="n">note</span><span class="p">(</span><span class="s2">&#34;The Stata Guide&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">vsmall</span><span class="p">)))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="雷达图">雷达图</h4>
+</div><p><strong>雷达图</strong></p>
 <p><code>radar</code> 和 <code>spyder</code> 都可以，个人觉得蛛网好看很多。</p>
 <p>雷达图可以<a href="https://bbs.pinggu.org/thread-4128289-1-1.html" target="_blank" rel="noopener noreffer ">参考</a>。</p>
 <div class="highlight"><div class="chroma">
