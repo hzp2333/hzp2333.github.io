@@ -292,7 +292,7 @@ word="致敬还在写博客的我们"
     border-animation="shadow"  >}}
 
 {{< friend   
-	name="柯棋瀚"
+	name="赫赫文王"
 	url="https://kqh.me/"
 	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
 	word="自然科學史研究"
@@ -461,6 +461,14 @@ word="高维计量经济学模型机器学习方法"
 url="http://www.sdwang.org/"
 logo="http://www.sdwang.org/uploads/4/4/8/5/44856715/published/pic.jpg?1706683932"
 word="微观计量"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="聂辉华"
+url="http://www.niehuihua.com/a/zuopin/"
+logo="http://www.niehuihua.com/templets/default/images/logo.png"
+word="组织经济学"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
