@@ -310,6 +310,16 @@ word="致敬还在写博客的我们"
     border-animation="shadow"  >}}
 
 
+{{< friend   
+	name="松易涅"
+	url="https://www.sungyinieh.com/"
+	logo="https://www.sungyinieh.com/upload/logo-square-g4-150px-300ppi.png"
+	word="对历史、政治经济学、政治学感兴趣"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 ## 经济学家：一流的大师在挖坑
 
 >虽不能至，心向往之
