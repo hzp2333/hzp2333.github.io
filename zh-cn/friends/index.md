@@ -184,7 +184,7 @@ word="致敬还在写博客的我们"
     border-animation="shadow"  >}}
 
 
-## 大佬们：有缘千里来相会
+## 博主们：有缘千里来相会
 
 >也有些单向链接是我觉得很有意思的博客
 
@@ -326,6 +326,15 @@ word="致敬还在写博客的我们"
 	url="https://www.sungyinieh.com/"
 	logo="https://www.sungyinieh.com/upload/logo-square-g4-150px-300ppi.png"
 	word="对历史、政治经济学、政治学感兴趣"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="槐序"
+	url="https://www.sungyinieh.com/"
+	logo="https://prologue.dev/_next/image?url=%2Fstatic%2Ffavicons%2Favatar.png&w=128&q=75"
+	word="00后/社会边缘人/孤独成瘾/拒绝仪式感/无政府主义"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
