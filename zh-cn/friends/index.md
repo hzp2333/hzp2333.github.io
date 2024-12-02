@@ -42,7 +42,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
-
 {{< friend   name="Bdim"
     url="https://bdim.moe/"
     logo="https://avatars.githubusercontent.com/u/102711645?v=4"
@@ -50,6 +49,18 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+{{< friend   name="智能装机网"
+    url="http://www.pcaidiy.cn/"
+    logo="http://www.pcaidiy.cn/static/logo.png"
+    word="（建设中）人工智能，智能装机赋能"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
 
 
 {{< friend   name="Wenjun Zheng"
