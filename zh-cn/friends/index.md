@@ -340,6 +340,16 @@ word="致敬还在写博客的我们"
     border-animation="shadow"  >}}
 
 
+{{< friend   
+	name="不知可畏"
+	url="https://sliun.com/"
+	logo="https://sliun.com/lilun/hero.png"
+	word="历史爱好者"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 ## 经济学家：一流的大师在挖坑
 
 >虽不能至，心向往之
