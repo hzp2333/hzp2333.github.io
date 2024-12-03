@@ -103,86 +103,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-    
-## HUGO美化：BLOG之爱，人皆有之
-
->生命意义在于折腾
-
-{{< friend  name="LoveIt 主题"
-url="https://hugoloveit.com/zh-cn/"
-logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
-word="loveit主题文档"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   name="Stilig"
-    url="https://stilig.me/"
-    logo="https://stilig.me/webhead.png"
-    word="分享自己杂七杂八知识的网站"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend  name="雨临Lewis"
-url="https://lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
-word="不想当写手的码农不是好咸鱼"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend  name="十年之约"
-url="https://www.foreverblog.cn/"
-logo="https://www.travellings.cn/assets/travelling.png"
-word="希望博客能坚持十年"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend  name="开往：友链计划"
-url="https://www.travellings.cn/"
-logo="https://www.travellings.cn/assets/travelling.png"
-word="让传统友链“活跃”，让网页相互接力"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend  name="萌备"
-url="https://icp.gov.moe/AboutMoeICP.html"
-logo="https://icp.gov.moe/images/ico64.png"
-word="萌国ICP备案，号称萌ICP备，简称萌备"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend  name="BlogFinder"
-url="https://bf.zzxworld.com/"
-logo="https://bf.zzxworld.com/images/logo-v2.png"
-word="与九百多位博友成为近邻"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend  name="博友圈"
-url="https://www.boyouquan.com/home"
-logo="https://www.travellings.cn/assets/travelling.png"
-word="博友圈 · 博客人的朋友圈"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend  name="BlogWe"
-url="https://blogwe.com/"
-logo="https://www.travellings.cn/assets/travelling.png"
-word="致敬还在写博客的我们"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
 
 ## 博主们：有缘千里来相会
 
@@ -334,7 +254,7 @@ word="致敬还在写博客的我们"
 	name="槐序"
 	url="https://prologue.dev/"
 	logo="https://prologue.dev/_next/image?url=%2Fstatic%2Ffavicons%2Favatar.png&w=128&q=75"
-	word="00后/社会边缘人/孤独成瘾/拒绝仪式感/无政府主义"
+	word="对当下的反思和批判"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -353,7 +273,7 @@ word="致敬还在写博客的我们"
 {{< friend   
 	name="Rhizome"
 	url="https://dongrentianyu.github.io/rhizome/#:%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"
-	logo="https://sliun.com/lilun/hero.png"
+	logo=""
 	word="一世风尘，也只如雪泥打他人脚底经过"
     primary-color="default"
     img-animation="rotate"
@@ -545,6 +465,86 @@ word="计量经济学官方软件"
 url="https://blog.r-project.org.cn/about/index.html"
 logo="https://blog.r-project.org.cn/images/Rlogo.png"
 word="R 开发者博客"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+## HUGO美化：BLOG之爱，人皆有之
+
+>生命意义在于折腾
+
+{{< friend  name="LoveIt 主题"
+url="https://hugoloveit.com/zh-cn/"
+logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
+word="loveit主题文档"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   name="Stilig"
+    url="https://stilig.me/"
+    logo="https://stilig.me/webhead.png"
+    word="分享自己杂七杂八知识的网站"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="雨临Lewis"
+url="https://lewky.cn"
+logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+word="不想当写手的码农不是好咸鱼"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="十年之约"
+url="https://www.foreverblog.cn/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="希望博客能坚持十年"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="开往：友链计划"
+url="https://www.travellings.cn/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="让传统友链“活跃”，让网页相互接力"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="萌备"
+url="https://icp.gov.moe/AboutMoeICP.html"
+logo="https://icp.gov.moe/images/ico64.png"
+word="萌国ICP备案，号称萌ICP备，简称萌备"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="BlogFinder"
+url="https://bf.zzxworld.com/"
+logo="https://bf.zzxworld.com/images/logo-v2.png"
+word="与九百多位博友成为近邻"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="博友圈"
+url="https://www.boyouquan.com/home"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="博友圈 · 博客人的朋友圈"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="BlogWe"
+url="https://blogwe.com/"
+logo="https://www.travellings.cn/assets/travelling.png"
+word="致敬还在写博客的我们"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
