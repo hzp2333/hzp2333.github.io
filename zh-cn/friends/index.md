@@ -332,7 +332,7 @@ word="致敬还在写博客的我们"
 
 {{< friend   
 	name="槐序"
-	url="https://www.sungyinieh.com/"
+	url="https://prologue.dev/"
 	logo="https://prologue.dev/_next/image?url=%2Fstatic%2Ffavicons%2Favatar.png&w=128&q=75"
 	word="00后/社会边缘人/孤独成瘾/拒绝仪式感/无政府主义"
     primary-color="default"
