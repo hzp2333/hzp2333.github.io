@@ -350,6 +350,17 @@ word="致敬还在写博客的我们"
     border-animation="shadow"  >}}
 
 
+{{< friend   
+	name="Rhizome"
+	url="https://dongrentianyu.github.io/rhizome/#:%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"
+	logo="https://sliun.com/lilun/hero.png"
+	word="一世风尘，也只如雪泥打他人脚底经过"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
 ## 经济学家：一流的大师在挖坑
 
 >虽不能至，心向往之
