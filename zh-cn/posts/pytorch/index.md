@@ -20,6 +20,8 @@
 
 例如到 2024 年 7 月 26 日为止——最新版 CUDA 版本为 12.7。但 pytorch 并没有与之匹配的版本。
 
+版本匹配可以在[ pytorch 官网](https://pytorch.org/get-started/previous-versions/)看。
+
 ### CUDA 下载
 
 CUDA 官网下载后进行第一次下载地址选择。

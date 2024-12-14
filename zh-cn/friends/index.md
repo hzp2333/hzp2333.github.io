@@ -261,9 +261,9 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend   
-	name="不知可畏"
+	name="理论派"
 	url="https://sliun.com/"
-	logo="https://sliun.com/lilun/hero.png"
+	logo="https://sliun.com/lilun/logo.png"
 	word="历史爱好者"
     primary-color="default"
     img-animation="rotate"
