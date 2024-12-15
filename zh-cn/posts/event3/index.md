@@ -51,6 +51,8 @@ $$
 
 在我读到的 top5 期刊论文中，已经有一个趋势——能用图展示的都加上图表。因此事件研究法的运用已经越加频繁。
 
+比如可以参考博文《[政府一次性投资与制造业长期增长](https://blog.huaxiangshan.com/zh-cn/posts/zftz/)》
+
 这里举我喜欢的论文其中灵活运用事件研究法的例子。
 
 JDE 的《English language requirement and educational inequality: Evidence from 16 million college applicants in China》使用事件分析法，论证英语听力考试加剧了城乡教育不平等。
