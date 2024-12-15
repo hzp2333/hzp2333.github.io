@@ -48,12 +48,12 @@
 三重差分：
 
 $$
-\begin{equation} \begin{aligned} Y_{ijt} =  \beta_1 &+ \beta_2 High\_Space\_Capability_{ij<1958} \times SpaceRace_t \\\\
-& + \beta_3 High\_Space\_Capability_{ij<1958} \times Post\_SpaceRace_t \\\\
-& + {\color{red}{\beta_4}} High\_Space\_Capability_{ij<1958} \times SpaceRace \times Space\_Industry_j \\\\
-& +  {\color{red}{\beta_5}}  High\_Space\_Capability_{ij<1958} \times Post\_SpaceRace_t \times Space\_Industry_j \\\\
-& + TotalPre\_1958Patents_{ij} \times \gamma_t \\\\
-& + \delta_i + \theta_j + \gamma_t + v_{ijt} \end{aligned} \end{equation}
+\begin{equation} \begin{aligned} Y_{ijt} =  \beta\_1 &+ \beta_2 High\\\_Space\\\_Capability_{ij<1958} \times SpaceRace_t \\\\
+& + \beta_3 High\\\_Space\\\_Capability\_{ij<1958} \times Post\\\_SpaceRace_t \\\\
+& + {\color{red}{\beta_4}} High\\\_Space\\\_Capability\_{ij<1958} \times SpaceRace \times Space\\\_Industry\_j \\\\
+& +  {\color{red}{\beta\_5}}  High\\\_Space\\\_Capability\\\_{ij<1958} \times Post\\\_SpaceRace\_t \times Space\\\_Industry_j \\\\
+& + TotalPre\\\_1958Patents\_{ij} \times \gamma\_t \\\\
+& + \delta\_i + \theta\_j + \gamma\_t + v\_{ijt} \end{aligned} \end{equation}
 $$
 
 ${\color{red}{\beta_4}}$ 代表投资期间效应系数。
