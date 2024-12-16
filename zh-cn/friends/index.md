@@ -280,6 +280,16 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
+{{< friend   
+	name="6young"
+	url="https://www.6young.site/"
+	logo="https://gcore.jsdelivr.net/gh/6YoungHome/cdn2@main/clear_favicon.png"
+	word="学生、独立开发者、博主、量化研究员"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 
 ## 经济学家：一流的大师在挖坑
 

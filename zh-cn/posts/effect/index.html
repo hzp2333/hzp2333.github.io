@@ -266,14 +266,18 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</a></li>
-    <li><a href="#从-ate-到-att">从 ATE 到 ATT</a></li>
-    <li><a href="#rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</a>
+    <li><a href="#因果框架有哪些">因果框架有哪些？</a></li>
+    <li><a href="#细说-rcm-因果效应">细说 RCM 因果效应</a>
       <ul>
+        <li><a href="#引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</a></li>
+        <li><a href="#从-ate-到-att">从 ATE 到 ATT</a></li>
+        <li><a href="#rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</a></li>
         <li><a href="#补充卢卡斯批判">补充——卢卡斯批判</a></li>
+        <li><a href="#从-itt-到-late">从 ITT 到 LATE</a></li>
       </ul>
     </li>
-    <li><a href="#从-itt-到-late">从 ITT 到 LATE</a></li>
+    <li><a href="#数理经济中的社科属性">数理经济中的社科属性？</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><meting-js server="netease" type="song" id="1833805540" theme="#448aff"></meting-js>
@@ -282,7 +286,7 @@
 </blockquote>
 <div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1ag4y1e7Bm&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
-<h1 id="因果框架有哪些">因果框架有哪些？</h1>
+<h2 id="因果框架有哪些">因果框架有哪些？</h2>
 <p>今因果框架众多，群雄并起，统计学（本家之外，药物学、心理学也各有自家统计理解）、经济学、计算机皆有流派，交错纵横，我也不清楚整个体系到底如何。</p>
 <p>个人接触比较多的是 Judea Pearl 的<strong>结构因果模型</strong>（Structural Causal Model, 简称 SCM）。对于他的著作《为什么》<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ，我个人理解是，关联-干预-反事实就是三个因果层级。工具变量的选用就是控制后门（保证唯一的外生影响），控制变量的设置就是控制前门。</p>
 <p>
@@ -303,18 +307,18 @@
 <p>据我所知，目前因果分析在统计学中还分为频率学派、贝叶斯学派，研究通过马尔科夫链去理解因果推断。这方面个人就完全知之甚少了。个人对这块知识的了解完全来自于 B 站 up——Fmajor 的科普视频。</p>
 <div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Qu4y1j7GS&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
-<h1 id="细说-rcm-因果效应">细说 RCM 因果效应</h1>
+<h2 id="细说-rcm-因果效应">细说 RCM 因果效应</h2>
 <blockquote>
 <p>ATE、ATT、ITT、LATE 是不同的统计估计量。</p>
 </blockquote>
-<h2 id="引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</h2>
+<h3 id="引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</h3>
 <p>社会科学和自然科学的统计学面临不同的挑战。对于物理学家、生物学家来说，他们不用在意无偏性——因为大部分自然科学的实验都可以轻而易举地找到对照组和实验组。</p>
 <p>经济学并非如此，经济学的统计学尤其在意大数定理、中心极限定理、渐近性。由于社会科学测量的政策效应、经济因素的影响很难像物理规律一样推广，数据收集和测量已经是难题，代表性、泛用性在这之上更是一个大难题。</p>
 <blockquote>
 <p>老人群体得到的数据不一定对青少年有效；美国数据得到的结论不一定对中国有效；明年的数据得到的结论不一定对今年的社会有效&hellip;&hellip;</p>
 </blockquote>
 <p>需要明确的是——在这种情况下，计量只是妥协性给出一种可信性革命的方法。而什么样的方法才能真正得到社会科学的因果关系，这是一个永无止境的难题，也是因果推断永恒魅力所在。</p>
-<h2 id="从-ate-到-att">从 ATE 到 ATT</h2>
+<h3 id="从-ate-到-att">从 ATE 到 ATT</h3>
 <p>从小学开始，我们就接触了使用各个数组的均值来进行比较分析。不过这种分组对比只是因果讨论的起点，需要进一步对这种分组差异进行分解，进而探讨因果关系。</p>
 <blockquote>
 <p>在 OLS 中，控制变量的思想含义可以通过 FWL 定理理解——保持其他变量不变。当解释变量为 01 二元变量时，就类似实验组和对照组的划分。</p>
@@ -340,7 +344,7 @@ $$</p>
 <p>再没有比“<strong>一个二项选择分裂出两个平行宇宙</strong>”更好的对照试验了，然而没有人能真正获得这种数据！因此，经济学家的做法是想通过 ATE 来估计 ATT，于是引入了随机试验（RCT）。</p>
 <p><font color="#ff0000">强调</font>——实际上我们最想知道的一直是ATE（真正的实验组和对照组），但是我们只能观测到政策冲击推行以后的数据，因此才想从局部效应（ATT、ATU）推及到ATE。因此反事实也可以被看作修补出“缺失的数据”。</p>
 <p>也就是说，ATT 和 ATU 都是局部群体，并不是计量的终极目标—— ATE（整体）。</p>
-<h2 id="rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</h2>
+<h3 id="rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</h3>
 <p>RCT 全称为 Randomized controlled trial，代表 $\boxed{随机试验}$，<strong>在随机试验条件下，ATE=ATT</strong>，接下来展开介绍：</p>
 <p>平行世界分裂出的这部分群体 $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ 和现实一开始就没有接受过处理的群体 $\operatorname{E}[Y_{0i}\mid D_{i}=0]$ 相减，如果不为 0，就产生了选择性偏差。</p>
 <blockquote>
@@ -364,7 +368,7 @@ $$</p>
 </blockquote>
 <h3 id="补充卢卡斯批判">补充——卢卡斯批判</h3>
 <p>政策随机性的一种体现是人们对政策的预期是一致的。而诺奖得主卢卡斯曾经有一个著名的观点：当政策实施以后，人们对政策就有了预期，这时候再把政策当成外生冲击是不合适的。预期应当被纳入决策分析。</p>
-<h2 id="从-itt-到-late">从 ITT 到 LATE</h2>
+<h3 id="从-itt-到-late">从 ITT 到 LATE</h3>
 <blockquote>
 <p>RCT 在意的是政策的外生性，但即便政策是外生的，人们对政策的反应也可能是内生的。</p>
 </blockquote>
@@ -433,14 +437,14 @@ $$</p>
 </blockquote>
 <p>所以也可以理解工具变量其实对样本添加了权重，越满足假设和工具变量相关的样本权重越高。</p>
 <p><strong>LATE 部分</strong>重点参考了<a href="https://andy.egge.rs/teaching/causal_inference/" target="_blank" rel="noopener noreffer ">牛津的课件</a>，如果想看相对代数化的说明可以参考<a href="https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf" target="_blank" rel="noopener noreffer ">哈佛的课件</a>和《基本无害的计量经济学》。</p>
-<h1 id="数理经济中的社科属性">数理经济中的社科属性？</h1>
+<h2 id="数理经济中的社科属性">数理经济中的社科属性？</h2>
 <p>直接说&quot;解决办法是添加几个假设&quot;未免有些太经济学地狱笑话了。从经济含义看更加直观，如果我们研究的政策足够独特，我们需要论述政策对每个人都有影响，也就是假设中的单调性。在使用工具变量时，也需要介绍工具变量和解释变量之间的社会关系。所以为何经济学计量区别于数学？这些假设就是对社会现象的描述总结，就是其社科属性的鲜明体现。</p>
 <p>比如我们的样本是医院样本——一般来说，没有病人不会去跟医生反着来；还比如我们的样本是政府政策，由于政府的强硬手段，没人能够跟政府反着来，因此确实其他反应就为0，大家都是顺从的反应。</p>
 <p>当然，实际上工具变量还是会有偏差（一般会增大估计量），所以要仔细理解自己选择的工具变量和 y 和 x 的关系。</p>
 <p>最近学习高级宏观也有所体悟。高宏的方法非常单调，变分法加拉格朗日基本解决了所有经典模型的最优化。难点在于每个高宏模型飞来飞去的假设条件和阴间变形。无论是公式变形还是突然施加的假设，都是提炼经济现象的一个特征，然后加以数学化，这才是最大的难点。例如知识生产函数（知识作为全要素）、科夫道格拉斯生产函数（规模报酬）、家庭约束（消费贴现小于财富贴现）、家庭效用函数（风险规避）。</p>
 <p>我开始认为——以怎样的框架挖掘均衡；通过经济现象构建具有特性的函数；总结出最优化约束条件才是经济学区别数理复合人才的“经济思想与直觉”。</p>
 <p>顺便插入下<a href="https://zhuanlan.zhihu.com/p/613416303" target="_blank" rel="noopener noreffer ">高宏笔记</a>。</p>
-<h1 id="总结">总结</h1>
+<h2 id="总结">总结</h2>
 <p>进一步举例子说明，DID 估计是 ATE；RDD 估计是 LATE ；聚束分析是 LATE。</p>
 <p>ATE 和 LATE 是我们所求的，是我们渴望平行世界那样完善的对照试验，但我们有的只是 ATT 和 ITT。</p>
 <p>当 D 满足 RCT 时，ATT=ATE。</p>

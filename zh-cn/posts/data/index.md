@@ -142,17 +142,37 @@ Stata 的匹配代码——**以下只写简洁解释**
 //m:n id 意思就是第一个数据的m个id可以对应n个第二个数据库的样本id
 //简而言之，m:n就是多对一，n:n就是1对1，m:m就是多对多
 // 所以我们也可以添加多个匹配条件，例如merge 1:1 id year treat ......
-************横向匹配**************************
+************横向匹配1**************************
 use "master_data.dta"
 merge m:n id using "using_data.dta"
 drop _merge
 save "new_data.dta"
+************横向匹配2**************************
+use "master_data.dta"
+joinby id using "using_data.dta"
 ************纵向匹配**************************
 use "data1.dta"
 append using "data2.dta"
 save "new_data.dta"
+
 ```
 
+{{< admonition type=tip  title="关于横向匹配" open=false >}}
+
+`merge` 适合匹配方或者被匹配方的标识是**唯一**的。
+
+一对多匹配时，比如主数据标识是唯一的，被匹配数据虽然重复，但每个重复标识行分别在不同的变量空缺，可以使用 `merge` 的追加匹配子命令，每次匹配只更新空缺部分。
+
+```
+use "master_data.dta"
+merge 1:m id using "using_data.dta", update nogen force
+```
+
+多对多的匹配，需要使用 `joinby`。
+
+详细情况可参考: [多对多合并-merge-joinby](https://mp.weixin.qq.com/s/gJbMNzmVQ8C1za5rMdOjPQ)
+
+{{< /admonition >}}
 ### 3、变量的快速选择
 
 > Shift\ctrl 这类快捷键基本是软件设计通用的，用多了就能融会贯通到其他软件里。

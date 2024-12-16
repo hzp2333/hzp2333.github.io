@@ -1,7 +1,6 @@
-# stata: 爬虫学习
+# Stata: 爬虫学习
 
 
-![[stata爬虫学习.zh-cn-20241215155452334.webp]]
 
 {{< music netease song 1868553>}}
 ## 引入

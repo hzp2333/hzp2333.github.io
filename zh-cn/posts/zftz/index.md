@@ -234,5 +234,6 @@ $$
 - **学会演讲**：如果觉得这个系列论文有意思，思考**如何通过谋篇布局把论文的有趣点快速表现出来**。
 > 国外大师在合作中亲自出手的地方往往是引言（introduce）部分。论文的引言体现的就是这种能力。
 
+
 [^1]: 例如萨缪尔森的 [《经济学》](https://blog.huaxiangshan.com/zh-cn/posts/xz/#%E8%90%A8%E7%BC%AA%E5%B0%94%E6%A3%AE--%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%E6%98%AF%E6%88%91)出版时，其中的"混合经济"思考引发过巨大争议
 [^2]: 参考《[陆铭：给搞实证研究学者的经验建议](https://blog.huaxiangshan.com/zh-cn/posts/xz/#%E9%99%86%E9%93%AD%E7%BB%99%E6%90%9E%E5%AE%9E%E8%AF%81%E7%A0%94%E7%A9%B6%E5%AD%A6%E8%80%85%E7%9A%84%E7%BB%8F%E9%AA%8C%E5%BB%BA%E8%AE%AE)》
