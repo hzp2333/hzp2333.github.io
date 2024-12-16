@@ -293,7 +293,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 ## 经济学家：一流的大师在挖坑
 
->虽不能至，心向往之
+>山高，水深，风更邪。但你且走吧。敢问路在何方？大道，就在脚下。👨‍🎓
 
 {{< friend  name="陆铭"
 url="http://www.profluming.com/"
@@ -482,7 +482,7 @@ word="R 开发者博客"
 
 ## HUGO美化：BLOG之爱，人皆有之
 
->生命意义在于折腾
+>折腾，并非无用无聊，而是无穷尽，无休止。
 
 {{< friend  name="LoveIt 主题"
 url="https://hugoloveit.com/zh-cn/"
