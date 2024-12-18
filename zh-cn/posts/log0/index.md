@@ -201,6 +201,7 @@ C(根据潜在结果的边际分布进行点识别的)------A(估计出个体平
 ## 参考资料
 
 - 论文作者之一[博客](https://jiafengkevinchen.github.io/publications)
+- [可能你的老师一直都教错了：不能再用log(Y+0.0000000001)了](https://mp.weixin.qq.com/s/linHQsAq2tXV3LXA9gNPZQ)
 - [TOP5被质疑用log(1+x)数据转换, 固定效应, 双重差分事件图, 结论不可靠！](https://mp.weixin.qq.com/s/ki4zxiqyghx89wHBSbedKA)
 - [TOP5最新: 不接受log(y+1)或arcsinh(y)转换, 绝不接受！](https://mp.weixin.qq.com/s/3SXhDaahX54DvTlqPN6UYw)
 - [取对数：如何应对零值和负数](https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ)
