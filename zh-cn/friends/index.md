@@ -370,7 +370,7 @@ word="十分有趣的制度设计与信息博弈"
 
 {{< friend  name="Nicolasschutz"
 url="https://sites.google.com/site/nicolasschutz/Home"
-logo="https://lh3.googleusercontent.com/LpG_2BnrOWWu1UVH5_f7lkY3_Jx5gJKfOuRsCcfkn0X0q3UgEch1r7jsvxMJ9nB98NqI2S5LMub4eG1rp539p7Qg7DULTj85v3383C62PQlunvNl=w1280"
+logo="https://lh3.googleusercontent.com/-CAYQctdQ-O5oGusrGA3QZB0B49jltrBEj0Ced5JxJjBp6lZkSSr-8aXUYL_x_mgjFX3Y5awf_ZJS7tKdPcOnIuVDimZ4IdjHrzA83Hb9SZGQA_r=w1280"
 word="产业组织理论"
     primary-color="default"
     img-animation="rotate"
