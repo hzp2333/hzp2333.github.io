@@ -108,6 +108,75 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 >也有些单向链接是我觉得很有意思的博客
 
+{{< friend   
+	name="松易涅"
+	url="https://www.sungyinieh.com/"
+	logo="https://www.sungyinieh.com/upload/logo-square-g4-150px-300ppi.png"
+	word="对历史、政治经济学、政治学感兴趣"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+{{< friend   
+	name="槐序"
+	url="https://prologue.dev/"
+	logo="https://prologue.dev/_next/image?url=%2Fstatic%2Ffavicons%2Favatar.png&w=128&q=75"
+	word="对当下的反思和批判"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend   
+	name="理论派"
+	url="https://sliun.com/"
+	logo="https://sliun.com/lilun/logo.png"
+	word="历史爱好者"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="狷盦的小栈"
+	url="https://www.yangxk196.com/"
+	logo="https://www.yangxk196.com/static/sitting.png"
+	word="念念不忘，必有回响"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="TengFei"
+	url="https://blog.tengfei.website/"
+	logo=""
+	word="写一些关于我自己生活的乱七八糟的东西"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+{{< friend   
+	name="赫赫文王"
+	url="https://kqh.me/"
+	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
+	word="自然科學史研究"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   
+	name="刑辩人在路上"
+	url="https://xingbianren.cn"
+	logo="https://xingbianren.cn/zb_users/upload/2023/05/202305231684818664504571.png"
+	word="80后刑辩律师的办案手记。反抗者的灵魂从未远去。"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 {{< friend   name="寒夏摸鱼站"
     url="https://blog.rainiar.top"
     logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
@@ -195,76 +264,12 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   
-	name="狷盦的小栈"
-	url="https://www.yangxk196.com/"
-	logo="https://www.yangxk196.com/static/sitting.png"
-	word="念念不忘，必有回响"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   
-	name="TengFei"
-	url="https://blog.tengfei.website/"
-	logo=""
-	word="写一些关于我自己生活的乱七八糟的东西"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 {{< friend   
 	name="xkcd"
 	url="https://xkcd.com/1922/"
 	logo="https://imgs.xkcd.com/news/harris_news@2x.png"
 	word="火柴人小漫画"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   
-	name="赫赫文王"
-	url="https://kqh.me/"
-	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
-	word="自然科學史研究"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   
-	name="刑辩人在路上"
-	url="https://xingbianren.cn"
-	logo="https://xingbianren.cn/zb_users/upload/2023/05/202305231684818664504571.png"
-	word="80后刑辩律师的办案手记。反抗者的灵魂从未远去。"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend   
-	name="松易涅"
-	url="https://www.sungyinieh.com/"
-	logo="https://www.sungyinieh.com/upload/logo-square-g4-150px-300ppi.png"
-	word="对历史、政治经济学、政治学感兴趣"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   
-	name="槐序"
-	url="https://prologue.dev/"
-	logo="https://prologue.dev/_next/image?url=%2Fstatic%2Ffavicons%2Favatar.png&w=128&q=75"
-	word="对当下的反思和批判"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend   
-	name="理论派"
-	url="https://sliun.com/"
-	logo="https://sliun.com/lilun/logo.png"
-	word="历史爱好者"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
