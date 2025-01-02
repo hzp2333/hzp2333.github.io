@@ -389,6 +389,14 @@ word="计量经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="洪永淼"
+url="https://people.ucas.ac.cn/~ymhong"
+logo="https://people.ucas.ac.cn/self/img/60156583-3d35-4596-a7ec-79d83f51a1a8.jpg"
+word="计量经济学"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 
 {{< friend  name="曹一鸣"
 url="https://www.yimingcao.com/"
@@ -489,6 +497,14 @@ word="计量经济学官方软件"
 url="https://blog.r-project.org.cn/about/index.html"
 logo="https://blog.r-project.org.cn/images/Rlogo.png"
 word="R 开发者博客"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend  name="statlect"
+url="https://www.statlect.com/"
+logo=""
+word="一个统计教材网站"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
