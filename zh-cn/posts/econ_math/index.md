@@ -47,11 +47,11 @@
 
 **美国边际学派**： [费雪](https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%96%87%C2%B7%E8%B4%B9%E9%9B%AA)[^5]（Irving Fisher） 启发了凯恩斯。
 
-**奥地利学派后续**：门格尔的儿子成为了数学家，带出来两个重要人物，一个是哥德尔不完备猜想的  Gödel，另外一个是统计学家沃尔德（wald）[^6]（计量 wald 检验）。[熊彼特](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9)（Joseph Alois Schumpeter）虽然是奥派出生，但其理论影响几乎独领风骚。
+**奥地利学派后续**：门格尔的儿子成为了数学家，带出来两个重要人物，一个是哥德尔不完备猜想的[哥德尔](https://zh.wikipedia.org/wiki/%E5%BA%93%E5%B0%94%E7%89%B9%C2%B7%E5%93%A5%E5%BE%B7%E5%B0%94) (Gödel)，另外一个是统计学家沃尔德（wald）[^6]（计量 wald 检验）。[熊彼特](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9)（Joseph Alois Schumpeter）虽然是奥派出生，但其理论影响几乎独领风骚。
 
 ![2018年全国2卷的作文题目，主角正是 wald 。遗憾的是，wald 最后死于飞机事故。](/img/经济学与数学-20250102155048117.webp)
 
-宏观中最著名的数理方法是控制论，是维也纳一群无拘无束的科学家一起讨论形成的方法，其中就有冯诺依曼。最早将控制论认真引入经济学的是[艾伦](https://en.wikipedia.org/wiki/Alan_Blinder)（Alan Stuart Blinder），还有[菲利普斯]( https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_ (%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6))（Phillips）[^7]。
+宏观中最著名的数理方法是控制论，是维也纳一群无拘无束的科学家一起讨论形成的方法，其中就有冯诺依曼。最早将控制论认真引入经济学的是[艾伦](https://en.wikipedia.org/wiki/Alan_Blinder)（Alan Stuart Blinder）。早期引入控制论，大家更了解的可能是[菲利普斯]( https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_ (%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6))（Phillips）[^7]。
 
 ## 可用数学研究的经济学和经济研究中的数学
 
@@ -79,7 +79,7 @@
 
 史树中老师是从工程控制的角度探讨宏观部分。
 
-博主 {{< person "https://www.sungyinieh.com/" 松易涅 "author of the LoveIt theme" >}} 向我推荐过《控制论与科学方法论》，其实国外一些宏观方向的高校也会要求学生学习控制论、动力系统。瓦尔拉斯、帕累托也接受过这方面的训练。
+博主 {{< person "https://www.sungyinieh.com/" 松易涅 "author of the LoveIt theme" >}} 向我推荐过《控制论与科学方法论》。其实国外一些宏观方向的高校也会要求学生学习控制论、动力系统。瓦尔拉斯、帕累托也接受过这方面的训练。
 
 宏观系统需要考虑输入、输出、传递、反馈、目标实现、最优路径（流程图）。常微分方程组和控制论结合比较紧密。将社会看作一个系统，那么市场就是一个调节器。
 
@@ -92,7 +92,7 @@ $$
 \end{cases}
 $$
 
-在数学上，它其实是非线性灯伏尔特拉方程组。最开始是描述的湖底生态系统，大鱼吃小鱼，但小鱼被吃干净了大鱼也会变得生存艰难，最终达到一种均衡。（因此新剑桥学派认为这个式子就像阶级斗争）
+在数学上，它其实是非线性的伏尔特拉方程组。最开始是描述的湖底生态系统，大鱼吃小鱼，但小鱼被吃干净了大鱼也会变得生存艰难，最终达到一种均衡。（因此新剑桥学派认为这个式子就像阶级斗争）
 
 
 ## 总结
