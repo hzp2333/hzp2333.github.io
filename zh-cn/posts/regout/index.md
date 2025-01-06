@@ -1,4 +1,4 @@
-# stata 输出 Word 表格
+# Stata 输出 Word 表格
 
 
 {{< music url="/music/Sunflower.flac" name=sunflower artist="Post Malone, Swae Lee" cover="/images/spyder.jpg" >}}
