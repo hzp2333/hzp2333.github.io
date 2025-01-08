@@ -156,7 +156,14 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-
+{{< friend   
+	name="狐狸反走矣"
+	url="https://blog.southfox.me/"
+	logo="https://avatars.githubusercontent.com/u/58982705?u=af36926aaf5576c49066d99c326c021aa01e292c&v=4"
+	word="KEEP CALM AND CARRY ON"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
 
 {{< friend   
 	name="赫赫文王"
@@ -185,15 +192,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   name="Akilar "
-    url="https://akilar.top/"
-    logo=""
-    word="很酷的HEXO博客"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
 {{< friend   name="第三夏尔"
     url="https://thirdshire.com"
     logo="https://thirdshire.com/blackcat_avatar.jpg"
@@ -206,14 +204,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     url="https://bleshi.com/"
     logo="https://cloudcache.bleshi.com/links.jpg"
     word="00 后，坐标 Edinburgh ，研一"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   name="shuzang"
-    url="http://shuzang.top/"
-    logo="https://picped-1301226557.cos.ap-beijing.myqcloud.com/avatar.png"
-    word="随心所向，素履以往"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -255,14 +245,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   
-	name="狐狸反走矣"
-	url="https://blog.southfox.me/"
-	logo="https://avatars.githubusercontent.com/u/58982705?u=af36926aaf5576c49066d99c326c021aa01e292c&v=4"
-	word="KEEP CALM AND CARRY ON"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
+
 
 
 {{< friend   
@@ -332,21 +315,6 @@ word="全球冲突、犯罪和贫困"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  name="Jagdish N. Bhagwati"
-url="https://www.columbia.edu/~jb38/"
-logo="https://www.columbia.edu/~jb38/img/bhagwati1.jpg"
-word="印度经济学学者"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend  name="Deirdre N. McCloskey"
-url="https://www.deirdremccloskey.com/"
-logo="https://www.deirdremccloskey.com/images/dmc/dmc_TGhead1C.JPG"
-word="女性、文学、伦理、哲学、经济学"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 {{< friend  name="Daron Acemoglu"
 url="https://economics.mit.edu/people/faculty/daron-acemoglu"
@@ -418,24 +386,6 @@ word="公共经济学，微观计量。"
 url="https://www.frankchenshuo.com/"
 logo="https://frankchenshuo.com/uploads/20231019/5818d7079610856f9651908e2c3d4403.png"
 word="中国的发展经济学、政治经济学和经济史"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend  name="兰小欢"
-url="https://xiaohuanlan.weebly.com/"
-logo="https://xiaohuanlan.weebly.com/uploads/1/9/1/3/19133549/published/1.jpg?1621843955"
-word="经济政策"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
-{{< friend  name="魏尚进"
-url="https://users.nber.org/~wei/"
-logo="https://users.nber.org/~wei/image/wei.jpg"
-word="国际金融与贸易"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
