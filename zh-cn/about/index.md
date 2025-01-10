@@ -5,13 +5,7 @@
 
 > 注册账号时曾随机摇到名字“**滑翔闪电**”——瞬间联想到**滑翔闪**和**滑翔伞**的不严谨谐音，遂沿用至今。
 > 
-> 诺斯曾言，**历史有其意义**。个人享受生活中的偶然性元素。
-
-存在主义者——存在先于本质的乐观主义。
-
-正在学习经济学的二次元：尚无经济流派信仰，还在扩充经济理论认知和数理统计方法中。
-
-不善社交，但喜欢一切带有创造性的活动。
+> 诺斯曾言，**历史有其意义**。个人享受生活中这种偶然性元素。人生哲学为存在主义——存在先于本质的乐观主义。
 
 ### 活在社会（媒体）联系中的我：
 
@@ -19,7 +13,13 @@
 - [Steam](https://steamcommunity.com/id/flytothemoon2333/)：开放世界、角色扮演、卡牌策略、轻动作类玩家。
 - [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻、科幻要素。
 - [Zhihu](https://www.zhihu.com/people/nan-yang-xi-shu)：啥都看看。
-- [Github](https://github.com/hzp2333)：略懂古诗写作与 LaTeX ，好用 AI，参见《[无心之歌](https://blog.huaxiangshan.com/%E6%97%A0%E5%BF%83%E4%B9%8B%E6%AD%8C%EF%BC%88%E5%8F%A4%E8%AF%97%E5%88%9B%E4%BD%9C%E6%8C%87%E5%8C%97%EF%BC%89.pdf)》与《[精神污染](https://blog.huaxiangshan.com/%E7%B2%BE%E7%A5%9E%E6%B1%A1%E6%9F%93.pdf)》。熟练 Stata；R、Python 调包侠；matlab dynare 学习中。
+- [Github](https://github.com/hzp2333)：略懂古诗写作与 LaTeX ，好用 AI。熟练 Stata；R、Python 调包侠；matlab dynare 学习中。
+
+一些分享：
+《[无心之歌](https://blog.huaxiangshan.com/%E6%97%A0%E5%BF%83%E4%B9%8B%E6%AD%8C%EF%BC%88%E5%8F%A4%E8%AF%97%E5%88%9B%E4%BD%9C%E6%8C%87%E5%8C%97%EF%BC%89.pdf)》：AI 时代古诗创作小册子。
+《[精神污染](https://blog.huaxiangshan.com/%E7%B2%BE%E7%A5%9E%E6%B1%A1%E6%9F%93.pdf)》：AI 克苏鲁故事绘本。
+《[计量经济学笔记](https://github.com/hzp2333/hzp2333.github.io/blob/master/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
+
 
 ### 对世界的呐喊：
 
