@@ -281,7 +281,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 ## 经济学家：一流的大师在挖坑
 
->山高，水深，风更邪。但你且走吧。敢问路在何方？大道，就在脚下。👨‍🎓
+>最顶级的社科大师在用世界观挖坑
 
 {{< friend  name="陆铭"
 url="http://www.profluming.com/"
