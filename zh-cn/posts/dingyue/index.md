@@ -103,3 +103,8 @@ https://musicfreepluginshub.2020818.xyz/plugins.json
 https://musicfreepluginshub.pages.dev/plugins.json
 ```
 
+## 截图
+
+最后推荐一个开源的截图软件。能截图后置顶，便于工作。
+
+[SETUNA2](https://github.com/tylearymf/SETUNA2)
