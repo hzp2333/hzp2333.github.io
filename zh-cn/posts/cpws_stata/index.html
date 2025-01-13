@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/"
-        },"genre": "posts","keywords": "stata","wordcount":  10311 ,
+        },"genre": "posts","keywords": "stata","wordcount":  10301 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/","datePublished": "2025-01-13T18:52:19+08:00","dateModified": "2025-01-13T20:50:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -229,7 +229,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">裁判文书清洗指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10311 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10301 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
     
 
@@ -328,7 +328,10 @@
 <p><a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreffer ">通义千问</a>：<strong>上下文记忆能力长</strong>，能让它改善长代码。</p>
 <p><a href="https://chat.openai.com/auth/login" target="_blank" rel="noopener noreffer ">GPT</a> ：<strong>更了解 stata 的函数</strong>。在我处理字符串变量时，通义千问经常用复杂的命令处理，通常还报错，而 GPT 知道很多 stata 的不常用函数，一行代码就可以轻松搞定。</p>
 <p><a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreffer ">deepseek</a> :国内新秀。 语言表达很不错。能很快理解使用者的意思。</p>
-<p>💬 <strong>备注：裁判文书的清洗需要交替处理中文和数字。本文档会多提一些 python 和 stata 的常用正则表达式。</strong></p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC
+    <b> 备注：裁判文书的清洗需要交替处理中文和数字。本文档会多提一些 python 和 stata 的常用正则表达式。
+</b></div>
 <p>AI 虽然掌握了很多函数，但它不知道怎么组合。</p>
 <p>谋篇布局的算法理解才是我们的最大优势。</p>
 <p>提问时要替 AI 理顺代码的算法。</p>
@@ -348,7 +351,7 @@
             alt="/img/裁判文书清洗指南.zh-cn-20250113205914854.webp" />
     </a><figcaption class="image-caption">例子</figcaption>
     </figure></p>
-<p>👂 <strong>提示：每个 txt 文件都很大，一般软件打不开。个人推荐使用 <a href="https://www.emeditor.com/" target="_blank" rel="noopener noreffer ">EmEditor</a> 软件查看。积极使用 <a href="https://www.emeditor.com/" target="_blank" rel="noopener noreffer ">EmEditor</a> 软件查看例子，能让我们更好地了解乱码情况和裁判文书的书写规则，以便改进我们的文本处理代码。</strong></p>
+<p><strong>提示</strong>😍：每个 txt 文件都很大，一般软件打不开。个人推荐使用 <a href="https://www.emeditor.com/" target="_blank" rel="noopener noreffer ">EmEditor</a> 软件查看。积极使用 <a href="https://www.emeditor.com/" target="_blank" rel="noopener noreffer ">EmEditor</a> 软件查看例子，能让我们更好地了解乱码情况和裁判文书的书写规则，以便改进我们的文本处理代码。</p>
 <ul>
 <li><strong>Dta 数据</strong>：前辈们清洗好的 stata 文件。拆分为了 ans 1—ans 83。格式刷 stata 的 <code>.dta</code>格式</li>
 </ul>
@@ -381,14 +384,15 @@
     </figure></p>
 <p>重要的信息都在第三列，s*系列包含的数据结构当中</p>
 <p>但跑通了一到三份 txt 文件不等于能跑通所有。</p>
-<p>⛔ <strong>Txt 的裁判文书还存在一些其他格式：</strong>
-​</p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
+&#x26D4<b> Txt 的裁判文书还存在一些其他格式：
 <ul>
 <li>有些 txt 文件格式为 DocInfoVo 开头的。</li>
 <li>有些 txt 文件格式为 title 开头的。</li>
 <li>有些 txt 文件格式夹杂着 HTML 语言。</li>
 <li>有些 txt 文件格式是纯粹的乱码。</li>
-<li>有些格式中 s 系列和 DocInfoVo 格式混在一起，导致循环代码被打断。</li>
+<li>有些格式中 s 系列和 DocInfoVo 格式混在一起，导致循环代码被打断。
+</b></div></li>
 </ul>
 <p>因此处理时得考虑<strong>代码的兼容性和全面性</strong>，分开写处理代码，然后对这种 txt 文件处理两次。</p>
 <p>
@@ -463,7 +467,7 @@
 </div>
 </div><p>提取后去除重、排除包含“<code>['X', 'x', 'Ｘ', '执', '不动产', '-', '第']</code>”的案件号。</p>
 <blockquote>
-<p>如果继续使用这种方法提取，排除时最好加入 辖。</p>
+<p>如果继续使用这种方法提取，排除时最好加入 <strong>辖</strong>。</p>
 <p>这种案号也有辖初、辖再、辖终，但只表示法院在管理权上的划分。</p>
 <p>（或许以后还有人能想到用这个特征做研究？👍）</p>
 </blockquote>
@@ -1563,7 +1567,9 @@
 </div>
 </div><h3 id="文本匹配标识的格式转化">文本匹配标识的格式转化</h3>
 <p><code>ans*.dta</code> 系列的文本格式都是 <code>strL</code>，含义为长字符串。Stata 的字符串匹配只能选择有具体长度的字符串格式，我们可以通过字符截取来改变变量格式。</p>
-<p>🔊 <strong>重要：注意，英文字符的占位符和中文字符的占位符是不同的。</strong></p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+&#x1F50A<b> 重要：注意，英文字符的占位符和中文字符的占位符是不同的。</b>
+</div>
 <blockquote>
 <p>例如“民初 730 号”，虽然只是六个字符，但可能实际上占了 15 个位置。</p>
 <p>如果我们只截取 6 个长度，变量就会变成乱码。</p>
@@ -1688,8 +1694,9 @@
 <p>匹配耗时过长的原因在于每一次嵌套循环的文件读取时间太长了，而且不同文件之间有重复值。</p>
 <p>建议先将 119 个 dta 文件使用 <code>append</code> 命令纵向匹配到一起，然后循环匹配到 ans 1 到 ans 83 上去，这样最多只需要 2 天即可完成全部匹配。
 ​</p>
-<p>💬 <strong>备注：办公室电脑是 stata MP 版本，这个版本的特性是“计算速度根据电脑的核来分配资源”。目前 cpu 有足足 16 核，个人处理过的最大量峰值是 60 g。基本没有问题，只需要耐心等待处理过程中的卡顿。</strong></p>
-<p>​</p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC<b> 备注：办公室电脑是 stata MP 版本，这个版本的特性是“计算速度根据电脑的核来分配资源”。目前 cpu 有足足 16 核，个人处理过的最大量峰值是 60 g。基本没有问题，只需要耐心等待处理过程中的卡顿。</b>
+</div>
 <h2 id="dta-数据的清洗">dta 数据的清洗</h2>
 <h3 id="常用文本处理函数">常用文本处理函数</h3>
 <h4 id="去除空格">去除空格</h4>
@@ -1717,8 +1724,9 @@
 </div><h4 id="去除特殊字符">去除特殊字符</h4>
 <p>Ans 1 到 ans 83 的文本变量夹杂着各种非中文符号，可以使用以下函数去除：</p>
 <p>以下是个人筛选出的乱码符号。</p>
-<p>💬 <strong>备注：为什么要坚持排除法，而不选择只保留中文字符？ 因为个人尝试时，发现部分中文变量会因此变成乱码。</strong>
-​</p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC<b> 备注：为什么要坚持排除法，而不选择只保留中文字符？ 因为个人尝试时，发现部分中文变量会因此变成乱码。</b>
+</div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1730,7 +1738,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* 定义需要移除的符号列表（包括空格）  
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 定义需要移除的符号列表（包括空格）  
 </span></span><span class="line"><span class="cl">local symbols &#34;ⅩⅩⅩ Ｘ ? ; ；， 《 》 ． ＋ （ ） ( ) &amp; # 1 2 3 4 5 6 7 8 9 0 &amp; A-Z a-z ；？ ＊ ︰ ++  .   XX XXX   ______   ` - +  BRR H imestimes jzwjzwnjzwnjzwjzwnjzwnjzwnjzwjzwjzwjzwnjzwnjzwnjzwjzwnjzwnj jzwnjzwjzwjzwnjzwnjzwnjzwnjzwnjzwjzwjzwjzwnjzwjzwnjzwjzwj spemsp sp emsp ；； *  XX XXX Ｘ ＸＸＸ&#34;  
 </span></span><span class="line"><span class="cl">​  
 </span></span><span class="line"><span class="cl">* 遍历符号列表并移除每个符号及空格  
@@ -1770,7 +1778,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后根据情况<strong>只保留特定字符</strong>。</p>
-<p>⛔ <strong>警告：注意顺序！</strong></p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
+&#x26D4<b> 警告：注意顺序！</b>
+</div>
 <blockquote>
 <p>例如有以下组合</p>
 <p>张三<strong>于</strong> 2014 年进行庭审</p>
@@ -2167,8 +2177,9 @@
     </a><figcaption class="image-caption">如图</figcaption>
     </figure>
 csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
-<p><strong>裁判文书的中文数据格式千其百怪，一不留神，处理就变成无可挽回的乱码了</strong>。</p>
-</div><div class="post-footer" id="post-footer">
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
+&#x1F628<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
