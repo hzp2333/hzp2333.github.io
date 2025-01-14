@@ -1,7 +1,7 @@
 # R 语言笔记 2 : 数据清洗、绘图与计量
 
 
-{{< music netease song 570333037>}}
+
 
 [R 语言笔记 1 界面介绍与语法结构](https://blog.huaxiangshan.com/zh-cn/posts/r1/)
 

@@ -1,7 +1,11 @@
 # 逆转裁判游戏测评：逆转之道，就在其中
 
 
-{{< music url="/music/成步堂的异议.mp3" name=成步堂的异议2001  artist=杉森雅和  cover="/images/異議あり.png">}} 
+个人最爱的两首 BGM
+
+{{< music url="/music/成歩堂龍一 ～異議あり! 2001-杉森雅和.mp3" name=成歩堂龍一異議あり artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
+
+{{< music url="/music/綾里真宵 ～逆転姉妹のテーマ　2001-杉森雅和.mp3" name=逆転姉妹のテーマ artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
 
 ## 哲学意味大于逻辑意味
 

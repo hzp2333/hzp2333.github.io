@@ -1,7 +1,7 @@
 # 天河机场转机攻略：速通黄鹤楼（6 h)
 
 
-{{< music netease song 2097486090>}} 
+{{< music url="/music/春日影-CRYCHIC.mp3" name="春日影" artist= "CRYCHIC" cover="/images/默认.jpg" >}} 
 
 **时间：2024 年 3 月。11 点下武汉飞机，17 点 10 分下一班转机，拥有 6 小时 50 分钟转机时间。**
 

@@ -1,7 +1,7 @@
 #  调研小记 3：妙峰山与红玫瑰
 
 
-{{< music netease song 1861402597>}}
+{{< music url="/music/遥远的嘱托 Faraway Solicitude-陈致逸.mp3" name="遥远的嘱托 Faraway Solicitude" artist= "陈致逸" cover="/images/三葉のテーマ.jpg" >}} 
 
 北京热门旅游地方位常在**东**与**南**——东去秦皇岛；南下天津海滨。东南靠“海”，游客最爱。
 

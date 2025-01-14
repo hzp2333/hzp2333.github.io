@@ -1,12 +1,12 @@
 # Zotero：RSS 聚合订阅
 
 
-{{< music url="/music/空-大.mp3" name=空 artist= 大黒摩季 cover="/images/小当家.png" >}} 
+{{< music url="/music/空-大.mp3" name=空 artist= 大黒摩季 cover="/images/默认.jpg" >}} 
 
 
 **RSS**: 电子摘要聚合，用来提醒我们网站更新，并且显示部分信息。基本上期刊网站和著名博客都带有 RSS 订阅地址，这里主要是列举下可以订阅的经济期刊。
 
-# Zotero 如何导入 RSS 订阅
+## Zotero 如何导入 RSS 订阅
 
 [推荐参考：Feed RSS](https://zotero-chinese.com/user-guide/feed)
 
@@ -18,7 +18,7 @@ Zotero 7 (也就是 zotero beta) 载入订阅: 右键订阅
 
 ![右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里](/img/Zotero：RSS聚合订阅.en-20240523134857161.webp)
 
-# 期刊 RSS 订阅区别
+## 期刊 RSS 订阅区别
 
 同一期刊 RSS 订阅类型也有不同分类：
 
@@ -30,9 +30,9 @@ Zotero 7 (也就是 zotero beta) 载入订阅: 右键订阅
 
 ![图片截图于期刊《The Quarterly Journal of Economics》](/img/Zotero：RSS聚合订阅.en-20240523134914916.webp)
 
-# 国外经济期刊 RSS
+## 国外经济期刊 RSS
 
-## 省流列表：
+#### 省流列表：
 
 个人感觉 JLE 和 JPE（都是芝加哥大学旗下期刊）挺多只看标题就吸引人的，劳经研究婚姻、性别、工资都挺有意思, 而且劳经一向是内生性处理思想和技术的天花板。政经由于没有特别指向，研究主题也比较宽泛。几乎所有人都可以在里面找到自己想要的。
 
@@ -77,7 +77,7 @@ CER最新一期
 https://rss.sciencedirect.com/publication/science/1043951X
 ```
 
-### American Economic Review
+###### American Economic Review
 
 《American Economic Review》（简称 AER）期刊网没有自己的 RSS 源，但是它归“American economic association”（简称 AEA) 管理。AEA 会定期更新旗下期刊的研究亮点（Highlight) 总结。
 
@@ -87,7 +87,7 @@ RSS 如下：
 https://www.aeaweb.org/research/rss-feed
 ```
 
-### Econometrica
+###### Econometrica
 
 偏向统计学计量分析
 
@@ -100,7 +100,7 @@ https://onlinelibrary.wiley.com/feed/14680262/most-recent
 https://onlinelibrary.wiley.com/feed/14680262/most-cited
 ```
 
-### Journal of Political Economy
+###### Journal of Political Economy
 
 Journal of Political Economy (简称 JPE）归芝加哥大学管，芝加哥大学旗下全部期刊的 RSS 源可以参见如下 PDF 链接—— [芝加哥大学期刊RSS源](https://www.journals.uchicago.edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf)
 
@@ -110,7 +110,7 @@ RSS 如下：
 https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe
 ```
 
-### The Quarterly Journal of Economics
+###### The Quarterly Journal of Economics
 
 The Quarterly Journal of Economics（简称 QJE）
 
@@ -127,7 +127,7 @@ https://academic.oup.com/rss/site_5504/OpenAccess.xml
 https://academic.oup.com/rss/site_5504/3365_56068.xml
 ```
 
-### Review of economic studies
+###### Review of economic studies
 
 Review of economic studies (简称 RES）
 
@@ -142,7 +142,7 @@ https://academic.oup.com/rss/site_5508/advanceAccess_3369.xml
 https://academic.oup.com/rss/site_5508/OpenAccess.xml
 ```
 
-### Bank for international settlements
+###### Bank for international settlements
 
 Bank for international settlements（简称 BIS），世界清算银行。既提供工作论文，又提供数据。
 
@@ -155,7 +155,7 @@ https://www.bis.org/doclist/bis_fsi_publs.rss
 https://www.bis.org/doclist/all_statistics.rss
 ```
 
-### Top 5 之外的子领域好刊物
+###### Top 5 之外的子领域好刊物
 
 Journal of Applied Econometrics（简称 JAE）发展经济学领域
 
@@ -173,7 +173,7 @@ Journal of Labor Economics (简称 JLE）劳动经济学领域
 https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jole
 ```
 
-### National Bureau of Economic Research
+###### National Bureau of Economic Research
 
 一个著名的经济研究组织机构，发表的论文不少后来都登上了顶级刊物。
 
@@ -182,7 +182,7 @@ NBER最近工作论文推送
 https://back.nber.org/rss/new.xml
 ```
 
-## 国外期刊间接 rss
+#### 国外期刊间接 rss
 
 有时候一些期刊官网不提供 rss 但想要看，可以通过论文平台抓取他们的 rss。可以进入爱思唯尔的期刊导航找到我们想要的期刊进行订阅。
 
@@ -194,9 +194,9 @@ https://back.nber.org/rss/new.xml
 
 ![订阅效果](/img/Zotero：RSS聚合订阅.en-20240523135000418.webp)
 
-# 国内期刊订阅方式
+## 国内期刊订阅方式
 
-## 如何查找国内 RSS
+#### 如何查找国内 RSS
 
 > 国内一般通过知网查找即可
 
@@ -206,7 +206,7 @@ https://back.nber.org/rss/new.xml
 
 ![rss](/img/Zotero：RSS聚合订阅.en-20240523135034567.webp)
 
-### 注意！zotero7需要手动更改订阅地址
+###### 注意！zotero7需要手动更改订阅地址
 
 将 navi 修改为 rss
 
@@ -214,7 +214,7 @@ https://back.nber.org/rss/new.xml
 
 更改为：https://rss.cnki.net/knavi/rss/GGYY
 
-### 省流列表
+###### 省流列表
 
 ```css
 经济研究：
@@ -231,7 +231,7 @@ https://rss.cnki.net/knavi/rss/GLSJ
 https://rss.cnki.net/knavi/rss/SLJY
 ```
 
-# 其他有趣的 RSS
+## 其他有趣的 RSS
 
 **知乎每日精选**
 

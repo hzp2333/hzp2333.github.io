@@ -1,6 +1,8 @@
 # 动机论：二次元的真物与伪物
 
-{{< music netease song 1991452441>}}
+
+{{< music url="/music/三叶(主题曲) - RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
+
 # 《“伪物”，事在人为 》
 
 ## 真物和伪物

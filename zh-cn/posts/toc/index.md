@@ -16,7 +16,7 @@ Hugo 会为每个博客文章生成目录，并且目录标题应该能实现点
 
 我在页面里添加了 BGM（如下）——这个功能使用了 [APIayer](https://github.com/DIYgod/APlayer)，同时 APIayer 又调用了 [smoothScroll](https://github.com/alicelieutier/smoothScroll)。
 
-{{< music url="/music/Sunflower.flac" name=sunflower   artist="Post Malone, Swae Lee" cover="/images/spyder.jpg" >}}
+{{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/三葉のテーマ.jpg" >}} 
 
 smoothScroll 默认设置是英文参数，当引入 APIayer 播放音乐后，目录跳转[返回值就变成了空值](https://github.com/alicelieutier/smoothScroll/blob/master/smoothscroll.js#L100)。
 

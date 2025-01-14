@@ -1,7 +1,6 @@
 # Zotero 7 Better note 实证经济学笔记模板
 
 
-{{< music netease song 2122127828>}}
 
 众所周知，zotero 有很多神级插件, Better note 就是其中一个。我们可以直接在 zotero 里边读文献边写 markdown 笔记。
 
