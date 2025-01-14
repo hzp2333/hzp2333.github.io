@@ -2,8 +2,6 @@
 
  
 
-{{< music netease song 1965068762>}} 
-
 - [计量：事件研究法 1](https://blog.huaxiangshan.com/zh-cn/posts/event1/)
 - [计量：事件研究法 2](https://blog.huaxiangshan.com/zh-cn/posts/event2/)
 - [计量：事件研究法 3](https://blog.huaxiangshan.com/zh-cn/posts/event3/)

@@ -1,7 +1,6 @@
 #  养老金和生育率
 
 
-{{< music netease song 4919554>}} 
 ## 精华概括
 
 论文《[Pensions and Fertility: Microeconomic Evidence](https://www.aeaweb.org/articles?id=10.1257/pol.20200440)》使用巴西的微观数据集研究了养老金供给和生育率的关系。
