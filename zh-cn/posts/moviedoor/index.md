@@ -1,7 +1,7 @@
 # 2023 电影谈: 门的那一侧
 
 
-{{< music netease song 5059151>}} 
+{{< music url="/music/The Last Emperor (Main Title Theme)-David Byrne.mp3" name="The Last Emperor" artist="David Byrne" cover="/images/默认.jpg" >}}
 
 很久很久以后，我才开始明白——在末代皇帝的悲伤中，“末代”远远地大于“皇帝”。当历史的鞭子长驱而去，它不会因旅者的身份而停下鞭策，它只是单调地——重复着关门、开门的动作，并且随时准备开启下一次关门。
 

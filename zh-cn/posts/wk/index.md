@@ -1,6 +1,7 @@
 # 《黑神话：悟空》里的老猴子到底是谁？
 
 
+
 {{< music url="/music/ygxy.m4s" name=黑神话悟空《云宫迅音》 artist= 杉森雅和 cover="/images/黑神话.png" >}}
 
 {{< music url="/music/黑神话：悟空》主题音乐（完整版）-JLRS-jayfm.m4s" name=黑神话：悟空》主题音乐 artist= JLRS-jayfm cover="/images/黑神话.png" >}} 

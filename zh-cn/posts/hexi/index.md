@@ -1,7 +1,7 @@
 # 河西走廊
 
 
-{{< music netease song 1956543008>}} 
+{{< music url="/music/野云万里 Wandering Clouds-HOYO-MiX.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/敕勒川-野孩子.png.jpg" >}}
 
 河西走廊果然险峻。祁连山脉重山叠嶂，经过长期风化的山腰露出精瘦的黄土皮，连带着黑红色的斑驳纹理。山头鼓起，如节节骨脊，徐徐围住狭道。
 

@@ -1,12 +1,13 @@
-# [anaconda error]anaconda bytes object has no attribute get
+# [Anaconda Error Solution] Anaconda bytes object has no attribute get
 
 
-When running anaconda, the startup interface suddenly cannot be opened, but ` jupyter` and `notebook ` can be opened and run directly. The error message is shown in the figure below.
+Today, when I ran Anaconda, it suddenly could not open the startup interface, but I could directly open and run Jupyter and Notebook. The error situation is shown in the picture below.
 
-![I can’t quite understand this](/img/anaconda.en-20240523120650966.webp)
-None of the commonly used solutions on the Internet work, but here are some:
+![I can't understand this either](/img/anaconda.en-20240523120650966.webp)
 
--   Upgrade installation package，
+The commonly used solutions online did not work, but I will still list them here.
+
+-   Upgrade the installation packages,
 
 ```python
 conda update navigator
@@ -16,18 +17,16 @@ conda update conda
 conda update --all
 ```
 
--   Delete Files
+-   Delete files
 
-> Delete the `.condarc` file (usually in C drive, user, current user).
+> Delete the `.condarc` file (usually found in C drive, Users, Current User).
 
-There is no one on the Internet who has the same situation as me. Finally, I opened `anaconda powershell prompt` and saw the specific problem, which was a problem with path recognition.
+There was no similar situation online, and in the end, I opened the **Anaconda Powershell Prompt** and saw the specific issue, which was a problem with path recognition.
 
-![Although only a J was exposed, I still noticed that it was java](/img/anaconda.zh-cn-20240802115711967.webp)
+![I can't understand this either](/img/anaconda.zh-cn-20240802122011236.webp)
 
-The problem is a Windows environment variable conflict: my `user variable path` and `environment variable path` settings conflict and are inconsistent. Causes the anaconda in the user variables to be recognized into the Java environment of the system variables.
+The reason was a conflict in Windows environment variables: my user variable path and system variable path settings conflicted and were inconsistent. This caused Anaconda in the user variable to be recognized as the Java environment in the system variable.
 
-![Solution: Unify user variables and system variables, or delete the java path](/img/anaconda.zh-cn-20240802115752502.webp)
+![Solution: unify user variables and system variables, or delete Java path](/img/anaconda.zh-cn-20240802115752502.webp)
 
-Solution: Unify user variables and system variables, or delete the java path. Personally, this is because the invalid path is blocking the way. I personally deleted the wrong path for Java: `%Java\_Home%\bin; %Java\_Home%\jre\bin`. Afterwards, it was checked that the Java environment was not affected, and the anaconda environment was also restored.
-
-
+Solution: unify user variables and system variables, or delete the Java path. Personally, it was because an **invalid path blocked the way**. I deleted the incorrect Java path: `%Java_Home%\bin;%Java_Home%\jre\bin`. After that, I checked that the Java environment was not affected, and the Anaconda environment was restored.

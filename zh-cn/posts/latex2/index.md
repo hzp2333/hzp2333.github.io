@@ -1,7 +1,6 @@
 #  LaTeX 与绘图
 
 
-{{< music netease song 541853>}} 
 
 众所周知，tikz 宏包是 latex 画图的神级宏包，但是代码确实难打。
 

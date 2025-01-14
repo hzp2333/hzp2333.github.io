@@ -1,7 +1,7 @@
 # 再见绘梨：不是回忆别人，而是认识自己
 
 
-{{< music netease song 1474959445>}}
+{{< music url="/music/落山-陈越龙.mp3" name="落山" artist="陈越龙" cover="/images/三葉のテーマ.jpg" >}} 
 
 > 所有疯狂之举的背后，藏着一颗坚韧而纯粹的心脏。
 > 

@@ -1,7 +1,7 @@
 # 文字游戏：“回”到文字
 
 
-{{< music netease song 2611207399>}}
+{{< music url="/music/物語-やしきん.mp3" name="物語" artist="やしきん" cover="/images/默认.jpg" >}}
 
 <br>
 <center><font color="#ff0000">文字是我唯一的武器，也将是我最大的力量。</font></center>

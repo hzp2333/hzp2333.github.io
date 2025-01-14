@@ -1,13 +1,11 @@
 # 客观赋权：PCA、CRITIC、EWM、COV
 
-
-{{< music url="/music/かたわれ時.mp3" name="かたわれ時" artist=RADWIMPS cover="/images/shh.jpg" >}}
-
 虎扑流行“我来发图，你们来打分”。经济学也经常赋权建立指标进行打分比较。目前互联网上的教程似乎都是“代码-数据-推导”的三缺一，这里打算一口气把三个部分通通概括。
 
 > 本文先讲讲中文期刊最常见的三种“熵权法”“变异系数法”“主成分法”。以后用了其他方法将继续在本文补充。
 
-![一般赋权方法大赏（图源：http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105451784.webp)
+![一般赋权方法大赏（图源：http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152542120.webp)
+
 
 ## 一、“标准化”和“归一化”
 
@@ -40,7 +38,7 @@ $$
 -   **提示 1：正向指标和负向指标是不同的公式，需要区别处理**
 -   **提示 2：还有其他的规范化方法**
 
-![图源：http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105521113.webp)
+![图源：http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152608558.webp)
 
 ### 1-1、归一化 stata 代码
 
@@ -48,7 +46,7 @@ $$
 
 [百度网盘](https://pan.baidu.com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)
 
-![面板数据，五个指标衡量数字经济](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105548397.webp)
+![面板数据，五个指标衡量数字经济|542](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152627385.webp)
 
 面板数据，五个指标衡量数字经济
 
@@ -135,7 +133,7 @@ X_{负指标}=\frac{\max X_j-X_{ij}}{\max X_j-\min X_j} \end{cases}\in\{0,1\}
 $$
 然后就是根据**信息熵**的定义确定权重（论文《A mathematical theory of communication》）[^2]。
 
-![图源:《A mathematical theory of communication》（shannon,2001）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105611459.webp)
+![图源:《A mathematical theory of communication》（shannon,2001）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152641238.webp)
 
 熵实际是对随机变量的比特量和顺次发生概率相乘再总和的数学期望[^3]。
 
@@ -307,7 +305,7 @@ egen Score_b=rowtotal(Score_b_*)
 
 个人感觉对比下来变化差异不大
 
-![数字经济指标，个人找数据补到了2021年，额外进行了分组绘图。（左变异系数、右主成分法，总体排序基本是稳定的）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105634949.webp)
+![数字经济指标，个人找数据补到了2021年，额外进行了分组绘图。（左变异系数、右主成分法，总体排序基本是稳定的）](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152659188.webp)
 
 ## 四、CRITIC 法
 
@@ -327,18 +325,20 @@ egen Score_b=rowtotal(Score_b_*)
 
 当数据标准化（标准正态分布）后，我们会得到呈现椭圆形的数据集。
 
-![数据集](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105652147.webp)
+
+![数据集](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152714028.webp)
 
 此时我们画一个平行于 x 轴的线，使它对应的方向上具有最大方差，此时这个**主成分** $PC_1$ 就是两者的线性组合。
 
 $$
 PC_1=a_{11}X_1+a_{12}X_2
 $$
-![分解](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105710387.webp)
+![分解](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152727063.webp)
 
 同理，我们再画平行于 y 轴的线，同时注意到**y 轴与 x 轴是垂直的，这样才能保证两个主成分之间是无关的**。
 
-![y轴与x轴是垂直的，这样才能保证两个主成分之间是无关](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105725444.webp)
+
+![y轴与x轴是垂直的，这样才能保证两个主成分之间是无关](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152737524.webp)
 
 有 n 个指标就是 n 维空间，也就有 n 个互相垂直的方向
 
@@ -406,7 +406,8 @@ pca x1-x4
 * Comp 特征向量、载荷矩阵
 ```
 
-![数据源就是前文附件的excel:《数字经济、创业活跃度与高质量发展——来自中国城市的经验证据》](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105749781.webp)
+![数据源就是前文附件的excel:《数字经济、创业活跃度与高质量发展——来自中国城市的经验证据》](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152756051.webp)
+
 
 **一般要求特征值要大于 1**，小于 1 的话说明特征变量的解释能力还不如原变量。若三个变量特征值均大于 1，则要提取的主成分有三个。图中大于 1 的只有一个，说明我们只需要提取一个主成分。
 
@@ -417,7 +418,8 @@ screeplot,yline(1)
 *碎石图，选出大于1的对应主成分
 ```
 
-![碎石图，选出大于1的对应主成分](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105818701.webp)
+![碎石图，选出大于1的对应主成分](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152809750.webp)
+
 
 ```SAS
 *step4计算主成分得分
@@ -431,7 +433,7 @@ rotate,promax(3)factors(12) //旋转分解方向,promax(3)的（3）是旋转方
 //Score=(方差贡献率/累计方差贡献率)*f1+(方差贡献率/累计方差贡献率)*f2+......(方差贡献率/累计方差贡献率)*fn
 ```
 
-![结果](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105837129.webp)
+![结果](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152822506.webp)
 
 由于我们只需要一个主成分，所以最后得到总分：
 
@@ -461,7 +463,7 @@ predict f1 f2 f3 f4
 *两个节点距离越近说明越相似
 ```
 
-![得分分析](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105853385.webp)
+![得分分析](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152840677.webp)
 
 对于得分图来说，**距离越近越相似**，由于我们选择了参数 factors (4)，那么四个主成分两两组合，就会产生 $C_4^2=6$ 个得分图。我们使用的是面板数据，我们按照的地域标签，确实可以看出**不同年份的同一个城市（北京、重庆）**总是聚类在一起。
 
@@ -476,11 +478,11 @@ loadingplot, factors(4) yline(0) xline(0) //荷载图
 
 它反映了不同组成分下指标的聚类程度。
 
-![因为是对称的，所以只看一侧就行，也就是有6个图](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105908902.webp)
+![因为是对称的，所以只看一侧就行，也就是有6个图](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152851282.webp)
 
 因为是对称的，所以只看一侧就行，也就是有 6 个图
 
-![我做过的一个指标得分，指标数量有30个，主成分取了12个，最终结果没有太大变化](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cb-20240523105924372.webp)
+![我做过的一个指标得分，指标数量有30个，主成分取了12个，最终结果没有太大变化](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152903612.webp)
 
 我做过的一个指标得分，指标数量有 30 个，主成分取了 12 个，最终结果没有太大变化
 

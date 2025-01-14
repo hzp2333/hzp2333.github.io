@@ -1,7 +1,7 @@
 # 奇葩而通俗的中世纪指南《如何屠龙》
 
 
-{{< music netease song 865857523>}} 
+{{< music url="/music/OCTOPATH TRAVELER -メインテーマ--西木康智.mp3" name="OCTOPATH TRAVELER" artist="西木康智" cover="/images/默认.jpg" >}}
 
 奇葩而通俗的中世纪指南 [《如何屠龙》](https://book.douban.com/subject/36421715/)
 
