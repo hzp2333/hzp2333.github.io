@@ -1,7 +1,7 @@
 # 记录一次梦境与 AI 解梦
 
 
-{{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/e3iviwrwnh1.jpg" >}} 
+{{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/三葉のテーマ.jpg" >}} 
 
 > 梦中的世界确实别有一番趣味。
 > 

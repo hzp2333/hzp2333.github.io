@@ -1,7 +1,7 @@
 #  调研小记 2：密云野长城
 
 
-{{< music netease song 570332048>}} 
+{{< music url="/music/敕勒川-野孩子.mp3" name=敕勒川 artist= 野孩子 cover="/images/敕勒川-野孩子.png" >}} 
 
 ## 古北水口镇
 
