@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>《企鹅公路》：少年的成长 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="《企鹅公路》：少年的成长" />
+<meta property="og:description" content="世界的尽头，少年的成长之路" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-24T20:52:19+08:00" />
+<meta property="article:modified_time" content="2020-12-24T20:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="《企鹅公路》：少年的成长"/>
+<meta name="twitter:description" content="世界的尽头，少年的成长之路"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/lxgj/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "《企鹅公路》：少年的成长",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/qegl\/"
+        },"genre": "posts","keywords": "二次元","wordcount":  2252 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/qegl\/","datePublished": "2020-12-24T20:52:19+08:00","dateModified": "2020-12-24T20:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakana 小组件集成</title>
+    <style>
+         
+        #sakana-widget-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 268px;   
+            height: 268px;  
+        }
+        #sakana-widget {
+            width: 100%;
+            height: 100%;
+        }
+
+         
+        @media screen and (max-width: 600px) {
+            #sakana-widget-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sakana-widget-container">
+        <div id="sakana-widget"></div>
+    </div>
+
+    <script>
+        function initSakanaWidget() {
+            new SakanaWidget({
+                size: 300,  
+                autoFit: true,  
+                character: 'chisato',  
+                controls: true,  
+                rod: true,  
+                draggable: true,  
+                stroke: {
+                    color: '#b4b4b4',  
+                    width: 10  
+                },
+                threshold: 0.1,  
+                rotate: 0,  
+                title: false  
+            }).mount('#sakana-widget');
+        }
+
+        
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var container = document.getElementById('sakana-widget-container');
+            if (screenWidth <= 960) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        
+        checkScreenWidth();
+
+        
+        window.addEventListener('resize', checkScreenWidth);
+
+        
+        initSakanaWidget();
+    </script>
+    <script
+        async
+        onload="initSakanaWidget()"
+        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+</body>
+</html>
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/qegl/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/qegl/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">《企鹅公路》：少年的成长</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E5%BD%B1%E8%A7%86%E5%89%A7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>影视剧</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-24">2020-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2252 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
+        data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+        data-sizes="auto"
+        alt="/img/朝花夕誓.zh-cn-20250119002110402.webp"
+        title="/img/朝花夕誓.zh-cn-20250119002110402.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>企鹅公路的尽头究竟是什么呢？</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic3.zhimg.com/80/v2-6336d4756bc465400cfa9ba035698250_720w.jpg"
+        data-srcset="https://pic3.zhimg.com/80/v2-6336d4756bc465400cfa9ba035698250_720w.jpg, https://pic3.zhimg.com/80/v2-6336d4756bc465400cfa9ba035698250_720w.jpg 1.5x, https://pic3.zhimg.com/80/v2-6336d4756bc465400cfa9ba035698250_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic3.zhimg.com/80/v2-6336d4756bc465400cfa9ba035698250_720w.jpg"
+        title="v2-6336d4756bc465400cfa9ba035698250_720w.jpg" /></p>
+<p>动漫电影《企鹅公路》</p>
+<p>世界的尽头，少年的成长之路</p>
+<p>&mdash;-动漫电影《企鹅公路》</p>
+<blockquote>
+<p>简介：讲述了在一个原本百无聊赖的平凡夏天，一群企鹅凭空出现在远离大海的小镇之上。在目睹了牙医大姐姐（苍井优 配音）所投掷的可乐罐变成企鹅之后，有着强烈好奇心的小少年青山（北香那 配音）同学决心一探究竟，并展开了一场不可思议而令人难忘的夏季冒险。</p>
+</blockquote>
+<p>这里先放上宝藏央视影评人王鹏老师的影评。</p>
+<p>【今日影评】《企鹅公路》：一场少年童心的奇妙之旅_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​www.bilibili.com/video/BV1e4411L7X7?from=search&amp;seid=11319164530531804078</p>
+<p>广袤的世界有着数不尽的神秘现象，少年于幼稚中面对风暴，最后终于在成长中抓住了自己甘甜的梦，而成长往往会舍弃很多东西……</p>
+<p>本电影角色形象独特，十分的夸张，却没有傲娇，逼王那种让人无法代入的疏离感。</p>
+<p>女主（大姐姐）：能变出企鹅的神秘人物，是神秘现象的起因。和男主青山一起下象棋，满足其一些小任性，美丽知性，佩服青山的科学头脑，称呼他为“科学之子”。</p>
+<p>男主青山：早慧四年级小学生，，万物皆为研究对象，甚至大姐姐的胸部。。。认为大姐姐是完美的化身。</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic3.zhimg.com/80/v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg"
+        data-srcset="https://pic3.zhimg.com/80/v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg, https://pic3.zhimg.com/80/v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg 1.5x, https://pic3.zhimg.com/80/v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic3.zhimg.com/80/v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg"
+        title="v2-6b331a5710a9605eaee97314eebdb9e8_720w.jpg" /></p>
+<p>男主的胸部研究，哈哈，用碗来比较这弧线就离谱，这就是对照实验吗~</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic2.zhimg.com/80/v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg"
+        data-srcset="https://pic2.zhimg.com/80/v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg, https://pic2.zhimg.com/80/v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg 1.5x, https://pic2.zhimg.com/80/v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic2.zhimg.com/80/v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg"
+        title="v2-47dad0b6f11ac1645adcdc098a13fd05_720w.jpg" /></p>
+<p>男主青山了不起的开场发言</p>
+<p>虽然用成熟的语气说出最装逼的话，但我们能从各种细节中看出男主努力的脚印。这也为电影的探索奠定了氛围基础。</p>
+<p>小学生的身份也为电影增添了一些很幽默的场景（具体大家自己去看吧）。</p>
+<p>电影围绕“海”“大姐姐”“大姐姐产生的各种动物”为谜团展开推理。</p>
+<p>里面青山爸爸对他的研究提的意见也很有意思</p>
+<ol>
+<li>
+<p>把大问题分成小问题</p>
+</li>
+<li>
+<p>多多提问，多多联想，提相关的问题</p>
+</li>
+<li>
+<p>从更大的角度看问题</p>
+</li>
+</ol>
+<p>试想，如果家里的电灯坏了，你认为是什么原因？</p>
+<p>跳闸？短路？到这里看起来正确的答案在这之中</p>
+<p>但是你发现全小镇的灯泡都没亮了，你就会有全新的猜想。</p>
+<p>由此，青山将其所有的研究《世界尽头》《水渠研究》《大姐姐的胸部》等等结合来看，才发现了所有奇妙事件间的隐秘联系，也颇有些拨云见日的感觉。</p>
+<p>电影虽然是奇幻电影，里面整个推理的过程却是用的是科学的眼光审视，让电影明显一开始就有种理性色彩。</p>
+<p>可是主角是小学生啊，儿童的身份又让研究的主题变的更加欢快。这里面还从日常中琐碎地体现出了亲情，友情&hellip;&hellip;</p>
+<p>然而最优秀的是，这些都以主角青山对大姐姐的懵懂情感为主线，只是丰富，而不喧宾夺主。</p>
+<hr>
+<ul>
+<li>再回到内容上来</li>
+</ul>
+<p>青山在将所有联系起来后得到下面的关系（大概）</p>
+<p>电影将各个关系慢慢展开，节奏良好 随时随地地吊人胃口。</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic2.zhimg.com/80/v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg"
+        data-srcset="https://pic2.zhimg.com/80/v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg, https://pic2.zhimg.com/80/v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg 1.5x, https://pic2.zhimg.com/80/v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic2.zhimg.com/80/v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg"
+        title="v2-d0c32700887315279ba7e7ca5fa12d9a_720w.jpg" /></p>
+<p>自己整理了下关系网（海的特性还有很多，这里就不透露了）</p>
+<p>大姐姐自己既是海的受益者，又是海的狩猎者，甚至形成了一套小型生态链！（王鹏老师的观点是这里体现了“真理与谬误共生”也体现出“大姐姐是真理的化身”）</p>
+<ul>
+<li>
+<p>（关于大姐姐的身份和更多的象征意义我也还有疑惑，希望知乎大佬补充）</p>
+</li>
+<li>
+<p>（Ps：关于主角青山对海的研究也可以看出他极高的科学素养，什么外形，周期啊，就像研究函数一样&hellip;&hellip;）</p>
+</li>
+</ul>
+<p>但最后由于“海”的不稳定，大姐姐选择了消灭海，牺牲自己，防止“海”壮大淹没小镇。</p>
+<blockquote>
+<p>“海”是一份只有青山同学知道的真相 ，也是属于他的成人礼，引领他迈出探索世界的步伐。</p>
+</blockquote>
+<p>我赞同王鹏老师的观点：</p>
+<p>其实，大姐姐就是美丽，谜团的化身，所以青山所象征的“探索者”才会对其产生懵懂的情感。</p>
+<p>但是，个人觉得不能忽略《企鹅公路》讲述的是一个成长的故事：</p>
+<p>最开始青山害怕拔牙</p>
+<p>然后一个夜晚，青山妹妹向她讲述了自己“害怕终有一天妈妈会死去”的恐惧，此刻开始青山蜕变更加明显，在大姐姐的帮助下拔牙</p>
+<p>最后更是接受了大姐姐牺牲的现实，这就是少年的成长。</p>
+<p>这个过程中，青山变的勇敢，也从原来一味的科学理性变得更加感性，感性下有科学的信仰和直面成长的勇气，我想，是大姐姐让他获得了新的看待世界的角度。</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic4.zhimg.com/80/v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg"
+        data-srcset="https://pic4.zhimg.com/80/v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg, https://pic4.zhimg.com/80/v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg 1.5x, https://pic4.zhimg.com/80/v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic4.zhimg.com/80/v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg"
+        title="v2-ef34b2a734a513ebf69f9db272cdf794_720w.jpg" /></p>
+<p>大姐姐最后的消失&hellip;&hellip;</p>
+<p>大姐姐就是这样的“引路人”，每个少年心中或许都有这样一位大姐姐，在你前进的路上不断老去，最后离开，你虽然悲伤，但学会了接受这样的现实，然后成长，成为更出色的大人。</p>
+<p>全篇其实非常的温柔，各种明示“海”就是世界的尽头（这也对青山的世界观产生了冲击，是其成长的一部分），大姐姐既然不是人类，那么就算结尾消失，那么如果“海”是世界尽头的话&hellip;大概也一定能够&hellip;&hellip;</p>
+<blockquote>
+<p>奇幻的电影搭上了科学，最后用温情和成长将伤口缝合，企鹅公路就是这样一条道路。</p>
+</blockquote>
+<p>那么，企鹅公路的尽头究竟是什么呢？</p>
+<p>那是一个少年奔跑的背影，在失去中探索，最终成为一个出色的大人吧。</p>
+<p>请一直奔跑吧，沿着企鹅公路，直到世界尽头！</p>
+<hr>
+<p>最后介绍下这位日本奇幻小说家森见登美彦吧~</p>
+<p>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic3.zhimg.com/80/v2-1a2b222d35506c67941593de441849cb_720w.jpg"
+        data-srcset="https://pic3.zhimg.com/80/v2-1a2b222d35506c67941593de441849cb_720w.jpg, https://pic3.zhimg.com/80/v2-1a2b222d35506c67941593de441849cb_720w.jpg 1.5x, https://pic3.zhimg.com/80/v2-1a2b222d35506c67941593de441849cb_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic3.zhimg.com/80/v2-1a2b222d35506c67941593de441849cb_720w.jpg"
+        title="v2-1a2b222d35506c67941593de441849cb_720w.jpg" /></p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<blockquote>
+<p>（图源于百度百科）</p>
+</blockquote>
+<p>《企鹅公路》被称为“非森见式作品”，和作者的其他书在文风主题上完全不同。</p>
+<p>总体上作者语言还是比较幽默，作品比较偏宅属性。属于那种看似平淡但语言之间就有种喜剧色彩的那种范畴。比如《神圣的懒汉》&hellip;.（一听这名字就&hellip;）</p>
+<p>森见登美彦编集过太宰治的短篇选集《奇想与微笑》，他坦言，比起《<a href="https://baike.baidu.com/item/%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC/35849" target="_blank" rel="noopener noreffer ">人间失格</a>》《<a href="https://baike.baidu.com/item/%E6%96%9C%E9%98%B3/3361806" target="_blank" rel="noopener noreffer ">斜阳</a>》这些名作，倒是太宰治幽默的写作技巧与有趣的对话对自己影响更大。关于写作背景，他承认自己也想过以京都之外的地方作为小说舞台，却绞尽脑汁也做不到。大概自己只能对日常生活的圈子进行描写与想象。（百度百科）</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-12-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/qegl/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" data-title="《企鹅公路》：少年的成长" data-hashtags="二次元"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" data-hashtag="二次元"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" data-title="《企鹅公路》：少年的成长"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" data-title="《企鹅公路》：少年的成长"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/qegl/" data-title="《企鹅公路》：少年的成长" data-image="/img/朝花夕誓.zh-cn-20250119002110402.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/">二次元</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/lxgj/" class="prev" rel="prev" title="鲁迅故居：唯一的光"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>鲁迅故居：唯一的光</a>
+            <a href="/zh-cn/posts/ydzh/" class="next" rel="next" title="朝花夕誓——于离别之朝束起约定之花">朝花夕誓——于离别之朝束起约定之花<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main>    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+</div>
+    </footer>
+
+
+
+
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
