@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>《富种起源》：千年暗室，一灯即明 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="《富种起源》：千年暗室，一灯即明" />
+<meta property="og:description" content="《富种起源》反驳了学界主流的马尔萨斯陷阱，同时构建了达尔文的经济史观。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-18T16:09:19+08:00" />
+<meta property="article:modified_time" content="2024-12-25T17:59:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="《富种起源》：千年暗室，一灯即明"/>
+<meta name="twitter:description" content="《富种起源》反驳了学界主流的马尔萨斯陷阱，同时构建了达尔文的经济史观。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/cpws_stata/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "《富种起源》：千年暗室，一灯即明",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fzqy\/"
+        },"genre": "posts","keywords": "阅读, 微观历史, 宏观经济学","wordcount":  4594 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fzqy\/","datePublished": "2025-01-18T16:09:19+08:00","dateModified": "2024-12-25T17:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakana 小组件集成</title>
+    <style>
+         
+        #sakana-widget-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 268px;   
+            height: 268px;  
+        }
+        #sakana-widget {
+            width: 100%;
+            height: 100%;
+        }
+
+         
+        @media screen and (max-width: 600px) {
+            #sakana-widget-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sakana-widget-container">
+        <div id="sakana-widget"></div>
+    </div>
+
+    <script>
+        function initSakanaWidget() {
+            new SakanaWidget({
+                size: 300,  
+                autoFit: true,  
+                character: 'chisato',  
+                controls: true,  
+                rod: true,  
+                draggable: true,  
+                stroke: {
+                    color: '#b4b4b4',  
+                    width: 10  
+                },
+                threshold: 0.1,  
+                rotate: 0,  
+                title: false  
+            }).mount('#sakana-widget');
+        }
+
+        
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var container = document.getElementById('sakana-widget-container');
+            if (screenWidth <= 960) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        
+        checkScreenWidth();
+
+        
+        window.addEventListener('resize', checkScreenWidth);
+
+        
+        initSakanaWidget();
+    </script>
+    <script
+        async
+        onload="initSakanaWidget()"
+        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+</body>
+</html>
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/fzqy/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/fzqy/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">《富种起源》：千年暗室，一灯即明</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-18">2025-01-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4594 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp"
+        data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 2x"
+        data-sizes="auto"
+        alt="/img/富种起源-20250118161832879.webp"
+        title="/img/富种起源-20250118161832879.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#推荐理由-">推荐理由 ：</a></li>
+    <li><a href="#传统马尔萨斯框架下的经济史">传统马尔萨斯框架下的经济史</a>
+      <ul>
+        <li><a href="#马尔萨斯陷阱">马尔萨斯陷阱</a></li>
+        <li><a href="#经济增长史">经济增长史</a></li>
+        <li><a href="#有趣的问题">有趣的问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#竞择">竞择</a>
+      <ul>
+        <li><a href="#两部门马尔萨斯模型与效用品">两部门马尔萨斯模型与效用品</a></li>
+        <li><a href="#人口漏斗">人口漏斗</a></li>
+        <li><a href="#族群竞择">族群竞择</a></li>
+      </ul>
+    </li>
+    <li><a href="#大一统理论">大一统理论</a>
+      <ul>
+        <li><a href="#目前的大一统理论">目前的大一统理论</a></li>
+        <li><a href="#富种起源的解释">《富种起源》的解释：</a></li>
+        <li><a href="#市场的脆弱和韧性">市场的脆弱和韧性</a></li>
+      </ul>
+    </li>
+    <li><a href="#经济史的可解释性">经济史的可解释性</a>
+      <ul>
+        <li><a href="#历史观">历史观</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>To the time to life, rather than to life in time</p>
+<p>—— 布莱斯·帕斯卡（Blaise Pascal）</p>
+</blockquote>
+<h2 id="推荐理由-">推荐理由 ：</h2>
+<p>《富种起源》通过两部门马尔萨斯模型加竞择理论重构了一种经济增长史。</p>
+<blockquote>
+<p>《自私的基因》启发了作者从进化论的角度去理解经济史，《三体》启发了作者从科幻和模型的角度去寻找反事实。</p>
+</blockquote>
+<p>在<strong>竞择机制</strong>的理解框架下，历史周期性的繁荣和毁灭，技术爆发与财富增长的发展拐点都有了一套包容性的解释。</p>
+<p>反驳学界主流的看法是一个艰难的过程。本书在谈论理论模型之余，还包含着对科学概念和方法论点思考。我一向认为——<font color="#ff0000">最顶级的社会科学学者在售卖的是世界观</font>。</p>
+<p>《富种起源》在境界上达到了这种地步，<strong>结合进化论、经济现象、历史背景完成一种史观的构建</strong>。由于作者钟爱科幻小说、自然科学的科普著作，《富种起源》本书也写得趣味盎然。</p>
+<p>本书更像生物经济学的建模手册，作者还介绍了他曾走过的岔路口
+已经对方法论的思索。既有反对主流的勇气，又有严谨的逻辑体系和学术训练，实在是吾辈楷模。</p>
+<h2 id="传统马尔萨斯框架下的经济史">传统马尔萨斯框架下的经济史</h2>
+<h3 id="马尔萨斯陷阱">马尔萨斯陷阱</h3>
+<p>马尔萨斯人口论造就了人资环这个学科。</p>
+<blockquote>
+<ul>
+<li>社会富有了，人就会增加生育；</li>
+<li>社会贫穷了，人就会减少生育。</li>
+<li>最终人均收入就会稳定在一个层面上。</li>
+<li>同理，人口增长的速度无法追赶生产增长的速度就会带来灾难。</li>
+</ul>
+</blockquote>
+<h3 id="经济增长史">经济增长史</h3>
+<p>人资环只是从资源利用，人口控制的角度理解马尔萨斯陷阱，但在经济增长的研究领域，我们会得到更有意思的数据图。</p>
+<p>在工业革命以前，世界人均收入几乎不变，而工业革命后，发展迎来了指数级别的爆发。</p>
+<blockquote>
+<p>在漫长的经济增长史中，似乎只发生了一件事——工业革命。</p>
+</blockquote>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp" title="如图,世界人均收入，人们一般划分两个时期，马尔萨斯前和马尔萨斯后" data-thumbnail="/img/富种起源-20250118181734292.webp" data-sub-html="<h2> </h2><p>如图,世界人均收入，人们一般划分两个时期，马尔萨斯前和马尔萨斯后</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118181734292.webp" />
+    </a><figcaption class="image-caption">如图,世界人均收入，人们一般划分两个时期，马尔萨斯前和马尔萨斯后</figcaption>
+    </figure></p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp" title="如图,身高数据似乎也是同步的" data-thumbnail="/img/富种起源-20250118181710751.webp" data-sub-html="<h2> </h2><p>如图,身高数据似乎也是同步的</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118181710751.webp" />
+    </a><figcaption class="image-caption">如图,身高数据似乎也是同步的</figcaption>
+    </figure></p>
+<h3 id="有趣的问题">有趣的问题</h3>
+<p>这种历史趋势图，会让我们冒出以下疑问：</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp" title="图源 wiki 百科。麦迪逊对1500年至1950年间选定的欧洲和亚洲国家以1990年国际美元购买力平价计算的人均GDP的估计 。显示了19世纪西欧和日本的爆炸性增长。" data-thumbnail="/img/富种起源-20250118180725493.webp" data-sub-html="<h2> </h2><p>图源 wiki 百科。麦迪逊对1500年至1950年间选定的欧洲和亚洲国家以1990年国际美元购买力平价计算的人均GDP的估计 。显示了19世纪西欧和日本的爆炸性增长。</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118180725493.webp" />
+    </a><figcaption class="image-caption">图源 wiki 百科。麦迪逊对1500年至1950年间选定的欧洲和亚洲国家以1990年国际美元购买力平价计算的人均GDP的估计 。显示了19世纪西欧和日本的爆炸性增长。</figcaption>
+    </figure></p>
+<ul>
+<li>明朝的人均收入和宋朝的难道就一样吗?</li>
+<li>繁荣如果是完美的话，为何没有带来持续？</li>
+</ul>
+<blockquote>
+<p>例如雅典城邦文明、罗马帝国。</p>
+</blockquote>
+<ul>
+<li>为何历史总在民主和不民主间摇摆。</li>
+</ul>
+<blockquote>
+<p>例如雅典被斯巴达覆灭、民主出现后也会出现极端的黑暗中世纪。</p>
+</blockquote>
+<ul>
+<li>为何工业革命能破坏马尔萨斯陷阱？</li>
+<li>能不能用一个大一统模型描述整个经济增长史？</li>
+</ul>
+<p>大一统经济增长模型的延伸讨论很有意思：</p>
+<p>例如李约瑟之问<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>、韦伯之问<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>、大分流<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>&hellip;&hellip; 需要解释同时三个事情：</p>
+<ul>
+<li>为什么穷？</li>
+<li>转折点发生了什么？</li>
+<li>为什么富？</li>
+</ul>
+<h2 id="竞择">竞择</h2>
+<p>这里只会简单举例《富种起源》的解答角度</p>
+<h3 id="两部门马尔萨斯模型与效用品">两部门马尔萨斯模型与效用品</h3>
+<p>传统的马尔萨斯理论是单部门的，只会比较生育和生存（生产资料部门看作一个整体）。</p>
+<p>本书使用两部门来分析，人们会在效用品和生存品中做出抉择。在此基础还有一个马尔萨斯人口平衡线发挥作用。</p>
+<blockquote>
+<p>添加的一个均衡就是：均衡会回归人口平衡线。人口增长超越平衡线时，人均所有资源下降，体现为生产可能性曲线等比例萎缩。</p>
+</blockquote>
+<p>下图是其中一个场景分析:</p>
+<p>人们对效用品偏好增加(无差异曲线变得平坦)。
+此时均衡低于人口平衡线（生产可能性曲线扩展）。
+最终形成新的均衡。</p>
+<p>这个定理从经济含义来看不可思议：<strong>社会偏好改变，更加偏好效用品，于是社会福利就莫名其妙地提升了！代价则是过渡时期偏离人口平衡线</strong>。</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp" title="如图" data-thumbnail="/img/富种起源-20250118181630328.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118181630328.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>我个人是很欣赏这个两部门的改进的。其结论很符合历史趋势，随着历史发展，艺术、美、精神的追求都可以看作效用品，实际上人类文明对生存以外的效用品重视程度一直在增加。</p>
+<p>与此同时，<strong>对效用品的追求可能与文明的繁衍自相矛盾</strong>。例如追求梦想而放弃婚姻，为了天上的月亮而放弃生存的五便士，为了容貌而亏待自己的身体。</p>
+<p>这也能解释<strong>财富大爆炸与生育率下降如影随形，实际上我们的生活水平又确实在提升</strong>。很多人把原因归结为养育成本，但《富种起源》的框架能包容这一点——教育、住房、医疗这一类生存品在今天被消费主义转换为了效用品。<strong>生存品转化为效用品对社会福利提升的作用是巨大的，成本则是整体的生育意愿</strong>。</p>
+<h3 id="人口漏斗">人口漏斗</h3>
+<p>作者模型计算的平衡增长路径为：</p>
+<p>$$
+g_{社会福利}=\beta(g_{效应品}-g_{生存品})
+$$</p>
+<blockquote>
+<p>在经济增长（宏观经济学）的相关研究中， $g$ 一般代表增长率。平衡增长路径就是基于模型解出增长率的变化过程。</p>
+</blockquote>
+<p>也就是说在马尔萨斯时期，既然人均收入没有变化，也就是式子中的效用部门的进步率和生存部门的进步率是一样的。</p>
+<blockquote>
+<p>最大的难题是，<strong>商业工业这类部门天然就比农业更容易进</strong>步。也是从这里开始，我并不能被作者真正说服。这里也是连接经济分析部分和进化论博弈分析的链接点。</p>
+</blockquote>
+<p>作者使用的人口迁移与区域贸易作为解释：</p>
+<ol>
+<li>前面的两部门模型提到了：效用品偏好增加，社会福利也会增加。</li>
+<li>此时自然就有人口流入，生产可能性曲线又会萎缩。</li>
+<li>最终回到一种均衡。</li>
+</ol>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp" title="如图" data-thumbnail="/img/富种起源-20250118190245891.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118190245891.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>感觉这里也能包含刘易斯拐点。也能解释<strong>人们总是会从民风朴实的地方跑到骄奢淫逸的地方</strong>。</p>
+<h3 id="族群竞择">族群竞择</h3>
+<p>从进化论点角度讲，个体和集体的竞争可能是存在矛盾的。</p>
+<p>下面这个式子是非线性的伏尔特拉方程组。最开始是描述的湖底生态系统，大鱼吃小鱼，但小鱼被吃干净了，大鱼也会变得生存艰难，最终达到一种均衡。</p>
+<blockquote>
+<p>因此新剑桥学派认为这个式子就像阶级斗争，他们赋予的含义是<strong>工资产量-产出</strong>比和<strong>就业率</strong>的关系</p>
+<p>但其解释意义其实更加深远，此消彼长的自然哲学在这个式子里体现地淋漓尽致。</p>
+</blockquote>
+<p>$$
+\begin{cases}
+\dot{\varepsilon}=-{\varepsilon }h\left( \theta \right)\\
+\dot{\theta}=-{\theta }g\left( \varepsilon \right)
+\end{cases}
+$$</p>
+<p>例如今天的经济，所有人都认为公务员才是铁饭碗，是最稳妥的选择，但如果大部分人都这么想了，社会就会失去财富创造的动力，进而崩溃。凯恩斯流动陷阱同理。</p>
+<p><strong>《自私的基因》认为基因竞争才是进化论的最好诠释</strong>。但这个式子能反驳这一点，事实上，主流生物学界也认为<strong>种族竞争也在进化论中发挥了巨大作用</strong>。</p>
+<blockquote>
+<p>个人对《自私的基因》的读书笔记可参见<a href="https://blog.huaxiangshan.com/zh-cn/posts/selfishgene/" target="_blank" rel="noopener noreffer ">自私的基因》：利他道德之问</a>。</p>
+</blockquote>
+<p>例如对于一个种族来说，每一个个体通过强化自己的生殖器或者其他炫耀性求偶的功能来实现基因的传承。</p>
+<p><strong>但这种种群内部的竞争，其实在族群间的竞争看来是种内耗。</strong></p>
+<blockquote>
+<p>白垩纪介形虫的化石证据表明——只有生殖器长度适中的种群能够延续。生殖器越长反而延续概率越低<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+</blockquote>
+<p>举一个例子，雅典的文明高度发达，实施民主制度，他们却没能抵御独裁制的斯巴达城邦都攻击。原因就在于，雅典的民主制度带来了效用品的增加——艺术、演讲、民主。却没有增加生存品的进步——军事、农业。因此这种繁荣会容易吸引敌人的觊觎，自己却没有增加反抗的手段。</p>
+<p>综上，效用品部门如果大大超越生存品部门的增长速度，则容易被攻击。同理的还有中国的宋朝。</p>
+<p><strong>于是我们可以得到一个结论——全球范围内，生存品和效用品的增长速度是几乎一致的。</strong></p>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp" title="计算机模拟结果图" data-thumbnail="/img/富种起源-20250118193222032.webp" data-sub-html="<h2> </h2><p>计算机模拟结果图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118193222032.webp" />
+    </a><figcaption class="image-caption">计算机模拟结果图</figcaption>
+    </figure></p>
+<h2 id="大一统理论">大一统理论</h2>
+<blockquote>
+<p>前面解释了马尔萨斯时期为什么人均收入总是停滞。这里则解释为什么工业革命后就开始富有了。</p>
+</blockquote>
+<h3 id="目前的大一统理论">目前的大一统理论</h3>
+<blockquote>
+<p>一般认为，工业革命前是马尔萨斯陷阱导致的，后面的内生增长技术进步导致的。大部分大一统模型都是解释人口结构与生育意愿的转型来解释。</p>
+</blockquote>
+<p>琼斯（2001）的理论模型是基于人口结构作为桥梁。马尔萨斯陷阱假设人富就生，但现实表明社会富有到一定程度就会减少生育。技术会强化这个趋势，而工业革命就是那个转折点<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<p>盖勒和韦尔（2000）的模型存在两个权衡：1.享乐和养育，养育孩子会牺牲自己的享乐。2.生育和养育。生育回报和养育成本之间存在一个均衡<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>。</p>
+<p>盖勒和阿莫夫（2002）在前面的基础上强化了教育积累的作用。把工业革命，教育，基因选择论积累联系在一起<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。</p>
+<blockquote>
+<p>2002 年的 QJE。看来进化论和经济学早就被联系过了。当然，追溯到更早，马尔萨斯的人口论本身就是启发达尔文的一个重要文献。马尔萨斯的人口论和达尔文的进化论也启发了马克思。</p>
+</blockquote>
+<p>汉森和普雷斯科特（2002）尝试用技术转型解释。前期生产力匮乏，人们依赖土地作为生产要素，而工业革命后，技术进步替代了土地利用的开发，因此实现了财富的爆炸增长<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>。</p>
+<h3 id="富种起源的解释">《富种起源》的解释：</h3>
+<p>乌云散了，太阳就出来了，大部分人会尝试去解释太阳从无到有的过程。<br>
+<strong>可如果太阳一直存在呢？</strong></p>
+<p>就像刘慈欣的《球状闪电》，不是球状闪电从无到有，而是它的伪装从有到无。  不是太阳在动，  而是地球在动。  许多人认为幸福是从无到有，  但是幸福或许是痛苦得到缓解。</p>
+<p><strong>不是太阳从无到有，而是乌云从有到无。</strong></p>
+<p>三个因素把遮挡在经济增长上的乌云拨开了。</p>
+<ol>
+<li>贸易替代了移民</li>
+<li>知识媒介的革新</li>
+<li>效用品大爆炸</li>
+</ol>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp" title="如图" data-thumbnail="/img/富种起源-20250118200017478.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118200017478.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>也就是说，经济增长，效用品的追求，福利的提升从未停止。但在工业革命那个点以前，谁强谁死。例如发达的宋朝、雅典、罗马帝国。但他们发展的只是生物炫耀行动羽毛，而不是种群竞争的优势。</p>
+<blockquote>
+<p>这个理论相当于证明了穿越者的无能为力。</p>
+</blockquote>
+<p>在今天，竞争是多层次的。生存品和效用品可以同步转化，制造业和国防紧密联系。在过去，效用品的过度发展是种阻碍，在今天，效用品的发展却是一种助推力。</p>
+<h3 id="市场的脆弱和韧性">市场的脆弱和韧性</h3>
+<p><strong>继续质疑：那工业革命以后的苏联为何依旧会灭亡？</strong></p>
+<p>竞争是多层次的，长时期的。</p>
+<blockquote>
+<ul>
+<li><strong>农村的生存品可能成为城市的效用品</strong>。例如草原奶场、农村的绿色瓜果。</li>
+<li><strong>今天的效用品也可能成为明天的生存品</strong>。就像历史上的铝和铜，随着技术的发展，他们和金的交换价值也在发生改变。</li>
+</ul>
+</blockquote>
+<p>美国和苏联处于同一层次的竞争；法西斯和非法西斯的竞争也处于一个层次。当经济越发达，竞争胜利的影响也会越大。因此，如果落后的一方压到了另外一方，黑暗统治也会更加长久。悲伤的结论便是，永恒的繁荣并不存在，但始终有新的繁荣。</p>
+<center><font color="#ff0000">沉舟侧畔千帆过，病树前头万木春。</font></center>
+<ul>
+<li>繁荣始终存在——这是市场的<strong>坚韧</strong>。</li>
+<li>繁荣没有永恒——这是市场的<strong>脆弱</strong>。</li>
+</ul>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp" title="计算机模拟结果" data-thumbnail="/img/富种起源-20250118201827549.webp" data-sub-html="<h2> </h2><p>计算机模拟结果</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118201827549.webp" />
+    </a><figcaption class="image-caption">计算机模拟结果</figcaption>
+    </figure></p>
+<p>换而言之，繁荣的发展一直存在，但是他们的扩散一直在被压抑。直到世界的经济整体发展到一定地步，一个优秀的制度才有了扩散到可能。</p>
+<h2 id="经济史的可解释性">经济史的可解释性</h2>
+<h3 id="历史观">历史观</h3>
+<p>我赞同作者在书中对于科学的看法——初见不可思议，分析完后却觉得不得不如此。这个不得不如此便可谓“科学”。</p>
+<p>当发现经济增长才是历史长河的昙花一现，而停滞的均衡才是历史的大部分面貌时，我们就会减轻在现实中焦虑。</p>
+<p>亚当斯密《道德情操论》曾言“人在追求内心的平静和愉悦”。一旦放弃快乐的猪，成为痛苦的人，就会踏上追求内心平静的旅程。</p>
+<p>在我个人看来，<strong>历史可解释性带来的平静感和包容性，比经济学的预测性和实用性更难能可贵。</strong> 孟子曰“养我浩然之气”。或许也包含这层意思吧。有所知，方包容万象，自强不息。</p>
+<p>回过头来说，《富种起源》是基于种群竞争和马尔萨斯两部门模型构建了一个宏观经济史的理解框架。作者使用了<font color="#ff0000">星火燎原</font>来形容经济演化从沉寂到起伏的过程。文明的繁荣机会从未停止，缺的只是适当的外在条件。</p>
+<p>不过作者也并没有真正解释为何工业革命后时代，也存在落后文明打倒先进文明的现象。不过这种框架还是很具有包容性的。</p>
+<p>我像用两句话概括这种史观：</p>
+<ul>
+<li>马尔萨斯前：木秀于林，风被摧之</li>
+<li>马尔萨斯后：千年暗室，一灯即明</li>
+</ul>
+<p>
+<figure><a class="lightgallery" href="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp" title="如图" data-thumbnail="/img/富种起源-20250118201943319.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 2x"
+            data-sizes="auto"
+            alt="/img/富种起源-20250118201943319.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>尽管中国古代对人类科技发展做出了很多重要贡献，但为什么科学和工业革命没有在近代的中国发生？&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>为何中国、印度这样的东方社会，没能在政治、经济、科学乃至艺术领域走上独立于西方之外的理性化道路？&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>西方世界在19世纪克服了增长限制，超越了以前占主导地位或类似的中东和亚洲文明&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Höglund J, Sheldon B C. The cost of reproduction and sexual selection[J]. Oikos, 1998: 478-483.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Jones C I. Was an industrial revolution inevitable? Economic growth over the very long run[J]. The BE Journal of Macroeconomics, 2001, 1(2): 153460131028.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Galor O, Weil D N. Population, technology, and growth: From Malthusian stagnation to the demographic transition and beyond[J]. American economic review, 2000, 90(4): 806-828.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Galor O, Moav O. Natural selection and the origin of economic growth[J]. The Quarterly Journal of Economics, 2002, 117(4): 1133-1191.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Hansen G D, Prescott E C. Malthus to solow[J]. American economic review, 2002, 92(4): 1205-1217.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-12-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/fzqy/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" data-title="《富种起源》：千年暗室，一灯即明" data-hashtags="阅读,微观历史,宏观经济学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" data-hashtag="阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" data-title="《富种起源》：千年暗室，一灯即明"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" data-title="《富种起源》：千年暗室，一灯即明"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/" data-title="《富种起源》：千年暗室，一灯即明" data-image="/img/富种起源-20250118161832879.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E5%8E%86%E5%8F%B2/">微观历史</a>,&nbsp;<a href="/zh-cn/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">宏观经济学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/cpws_stata/" class="prev" rel="prev" title="裁判文书清洗指南"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>裁判文书清洗指南</a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main>    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+</div>
+    </footer>
+
+
+
+
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
