@@ -1,7 +1,7 @@
 # 朝花夕誓——于离别之朝束起约定之花
 
 
-{{< music url="/music/我的美丽 (feat.PO8)-小霞、PO8.mp3" name="我的美丽" artist= "小霞、PO8" cover="/images/朝花夕誓.png.png" >}}  
+{{< music url="/music/我的美丽 (feat.PO8)-小霞、PO8.mp3" name="我的美丽" artist= "小霞、PO8" cover="/images/朝花夕誓.png" >}}  
 
 > 个人早期最认真的影评，于此补档。
 

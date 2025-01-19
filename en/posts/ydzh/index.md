@@ -1,7 +1,7 @@
 # The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting
 
 
-{{< music url="/music/我的美丽 (feat.PO8)-小霞、PO8.mp3" name="我的美丽" artist= "小霞、PO8" cover="/images/朝花夕誓.png.png" >}}  
+{{< music url="/music/我的美丽 (feat.PO8)-小霞、PO8.mp3" name="我的美丽" artist= "小霞、PO8" cover="/images/朝花夕誓.png" >}}  
 
 > My earliest serious film review, archived here.
 
