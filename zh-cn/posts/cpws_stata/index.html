@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/"
-        },"genre": "posts","keywords": "Stata, Python","wordcount":  10301 ,
+        },"genre": "posts","keywords": "Stata, Python","wordcount":  12567 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/","datePublished": "2025-01-13T18:52:19+08:00","dateModified": "2025-01-13T20:50:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -229,8 +229,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">裁判文书清洗指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10301 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 12567 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 26 分钟&nbsp;
     
 
     
@@ -306,6 +306,7 @@
         </li>
       </ul>
     </li>
+    <li><a href="#dta-时间修正">dta 时间修正</a></li>
     <li><a href="#例子3-python-跨行匹配">例子3 ：python 跨行匹配</a>
       <ul>
         <li><a href="#任务与思路">任务与思路</a></li>
@@ -313,6 +314,7 @@
         <li><a href="#提醒">提醒</a></li>
       </ul>
     </li>
+    <li><a href="#例子-4-python-提取上诉法官过去和现在的特征均值">例子 4 ：python 提取上诉法官过去和现在的特征均值</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="裁判文书清洗手册">裁判文书清洗手册</h1>
@@ -1853,6 +1855,198 @@
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="n">replace</span> <span class="n">num_var</span> <span class="o">=</span>  <span class="n">regexm</span><span class="p">(</span><span class="n">str_var</span><span class="p">,</span> <span class="s2">&#34;([0-9]+\.[0-9]+|[0-9]+)&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="dta-时间修正">dta 时间修正</h2>
+<p>在师门的招投标中，很多时间格式是混乱的。</p>
+<p>例如标准的两种：
+<code>2019-12-31 09:00:00</code>、
+<code> 2019/12/30 09:30</code></p>
+<p>但是也会出现 <code>20220516 09:30:00</code>、<code>2022051609:30:00</code>、<code>2022051609:30</code></p>
+<p>例如缺少秒、月份位置写成 4 而不是 04。</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e8%a3%81%e5%88%a4%e6%96%87%e4%b9%a6%e6%b8%85%e6%b4%97%e6%8c%87%e5%8d%97.zh-cn-20250123143246038.webp" title="如图" data-thumbnail="/img/裁判文书清洗指南.zh-cn-20250123143246038.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%a3%81%e5%88%a4%e6%96%87%e4%b9%a6%e6%b8%85%e6%b4%97%e6%8c%87%e5%8d%97.zh-cn-20250123143246038.webp"
+            data-srcset="/img/%e8%a3%81%e5%88%a4%e6%96%87%e4%b9%a6%e6%b8%85%e6%b4%97%e6%8c%87%e5%8d%97.zh-cn-20250123143246038.webp, /img/%e8%a3%81%e5%88%a4%e6%96%87%e4%b9%a6%e6%b8%85%e6%b4%97%e6%8c%87%e5%8d%97.zh-cn-20250123143246038.webp 1.5x, /img/%e8%a3%81%e5%88%a4%e6%96%87%e4%b9%a6%e6%b8%85%e6%b4%97%e6%8c%87%e5%8d%97.zh-cn-20250123143246038.webp 2x"
+            data-sizes="auto"
+            alt="/img/裁判文书清洗指南.zh-cn-20250123143246038.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>下面的代码集中处理了这套时间编码。</p>
+<p>一些中文符号转英文的预处理。</p>
+<p>在日期和时间之间没有空格时（例如 <code>2022051609:30:00</code>），如果范围在对应年月内（比如 0-31）则优先取两位数，超过范围了则取前面的个位数。</p>
+<p>最后兼容各种格式的时间提取。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/*-----------------------------------------
+</span></span><span class="line"><span class="cl">  日期提取转换方案（紧凑格式增强版）
+</span></span><span class="line"><span class="cl">  版本：2.6
+</span></span><span class="line"><span class="cl">  最后更新：2024-06-27
+</span></span><span class="line"><span class="cl">-----------------------------------------*/
+</span></span><span class="line"><span class="cl">version 17
+</span></span><span class="line"><span class="cl">clear all
+</span></span><span class="line"><span class="cl">set more off
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">use &#34;F:\桌面\test.dta&#34;, clear
+</span></span><span class="line"><span class="cl">keep time
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">*        预处理阶段（增强）
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">// 基础清理
+</span></span><span class="line"><span class="cl">replace time = ustrtrim(time)
+</span></span><span class="line"><span class="cl">replace time = subinstr(time, char(92), &#34;-&#34;, .)
+</span></span><span class="line"><span class="cl">replace time = subinstr(time, &#34;：&#34;, &#34;:&#34;, .) 
+</span></span><span class="line"><span class="cl">replace time = subinstr(time, &#34; &#34;, &#34;&#34;, .)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">*      新增紧凑格式识别模块
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">// 识别YYYYMMDD-格式（核心改进）
+</span></span><span class="line"><span class="cl">gen str8 compact_date = &#34;&#34;
+</span></span><span class="line"><span class="cl">replace compact_date = substr(time, 1, 8) ///
+</span></span><span class="line"><span class="cl">    if ustrregexm(time, &#34;^\d{8}-&#34;)  // 严格匹配8位数字+连字符格式
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 分离紧凑格式数据
+</span></span><span class="line"><span class="cl">preserve
+</span></span><span class="line"><span class="cl">keep if compact_date != &#34;&#34;
+</span></span><span class="line"><span class="cl">gen date_stata = date(compact_date, &#34;YMD&#34;)
+</span></span><span class="line"><span class="cl">format date_stata %tdCCYY-NN-DD
+</span></span><span class="line"><span class="cl">tempfile compact
+</span></span><span class="line"><span class="cl">save `compact&#39;
+</span></span><span class="line"><span class="cl">restore
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 处理非紧凑格式数据
+</span></span><span class="line"><span class="cl">keep if compact_date == &#34;&#34;
+</span></span><span class="line"><span class="cl">drop compact_date
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">*      原有处理流程（优化）
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">// 统一分隔符处理
+</span></span><span class="line"><span class="cl">foreach s in &#34;.&#34; &#34;_&#34; &#34;/&#34; {
+</span></span><span class="line"><span class="cl">    replace time = subinstr(time, &#34;`s&#39;&#34;, &#34;-&#34;, .)
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 日期部分提取
+</span></span><span class="line"><span class="cl">gen str50 date_part = ustrregexs(1) if ustrregexm(time, &#34;(\d{4}-\d{1,2}-\d{2,})[^\d]&#34;)
+</span></span><span class="line"><span class="cl">replace date_part = time if missing(date_part)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 智能日期处理
+</span></span><span class="line"><span class="cl">gen str4 year = ustrregexs(1) if ustrregexm(date_part, &#34;^(\d{4})-\d+&#34;)
+</span></span><span class="line"><span class="cl">gen str2 month = ustrregexs(1) if ustrregexm(date_part, &#34;-(\d{1,2})-&#34;)
+</span></span><span class="line"><span class="cl">gen str5 raw_day = ustrregexs(1) if ustrregexm(date_part, &#34;-(\d+)$&#34;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">replace month = cond(strlen(month) == 1, &#34;0&#34; + month, month)
+</span></span><span class="line"><span class="cl">replace month = &#34;12&#34; if real(month) &gt; 12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gen str2 day = substr(raw_day,1,2)
+</span></span><span class="line"><span class="cl">replace day = substr(day,1,1) if real(day) &gt; 31
+</span></span><span class="line"><span class="cl">replace day = &#34;31&#34; if real(day) &gt; 31
+</span></span><span class="line"><span class="cl">replace day = &#34;0&#34; + day if real(day) &lt; 10 &amp; strlen(day) == 1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">replace date_part = year + &#34;-&#34; + month + &#34;-&#34; + day
+</span></span><span class="line"><span class="cl">drop year month raw_day day
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gen date_stata = date(date_part, &#34;YMD&#34;)
+</span></span><span class="line"><span class="cl">replace date_stata = date(ustrregexra(time, &#34;[^0-9]&#34;, &#34;&#34;), &#34;YMD&#34;) if missing(date_stata)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">*      合并处理结果
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">append using `compact&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">*      后处理与验证
+</span></span><span class="line"><span class="cl">*===============================
+</span></span><span class="line"><span class="cl">format date_stata %tdCCYY-NN-DD
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h2 id="例子3-python-跨行匹配">例子3 ：python 跨行匹配</h2>
 <h3 id="任务与思路">任务与思路</h3>
 <p>这里，我需要完成以下工作：</p>
@@ -2179,7 +2373,327 @@
 csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
 &#x1F628<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
-</div></div><div class="post-footer" id="post-footer">
+</div>
+<h2 id="例子-4-python-提取上诉法官过去和现在的特征均值">例子 4 ：python 提取上诉法官过去和现在的特征均值</h2>
+<p>例子 3 是逐行匹配，但是这样处理实在是太慢了。</p>
+<p>现在我想要这样处理：</p>
+<p>提取法官经历上诉前的 20 个案子，然后求罚款均值；同时提取法官经历上诉后的 20 个案子，然后求罚款的均值。</p>
+<p>个人设计的算法逻辑如下：</p>
+<ul>
+<li>按照法院-法官的组合对数据进行分组。</li>
+<li>每个数据都有初审到终审的时间，形成时间戳，并且每一行应该识别一系列时间中的最早时间和最晚时间。</li>
+<li>当最早时间不等于最晚时间时，这条数据就是主干数据。</li>
+<li>在每个组别内，只保留满足条件的样本。</li>
+<li>在主干数据周围，当在主干数据最早数据之前还有 10 个案子，在主干数据之后也还有 10 个案子，最终只保留这 21 条数据。</li>
+<li>如果一个组别同时有多个案子，则都保留满足要求的样本。</li>
+<li>给满足周围存在对应数量案子的主干数据生成变量 a，标识为 1。</li>
+<li>生成上诉前变量和上诉后变量，求数量对应案子的均值。</li>
+</ul>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>分解代码<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">为了更好地利用 ai，实际上这个算法我是拆成了两步。第一部分是筛选满足要求的所有样本；第二部是在满足要求的主干数据（a=1）处计算前后案件的均值。最周再整合两部分的代码。</div>
+        </div>
+    </div>
+<p>我最终多设置了一个参数，关于主干案件周围需要有多少案子才保留。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 时间字段</span>
+</span></span><span class="line"><span class="cl"><span class="n">time_columns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;jud_month&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;m1_jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;m1_jud_month&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;m2_jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;m2_jud_month&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;m3_jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;m3_jud_month&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;m4_jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;m4_jud_month&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_timestamps</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;提取一行数据中的所有时间戳&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_columns</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">year</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">time_columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">month</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">time_columns</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">timestamps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_main_cases</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;筛选主干数据&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main_cases</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timestamps</span> <span class="o">=</span> <span class="n">extract_timestamps</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">timestamps</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">min_time</span> <span class="o">!=</span> <span class="n">max_time</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">main_cases</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">min_time</span><span class="p">,</span> <span class="n">max_time</span><span class="p">))</span>  <span class="c1"># 保存索引和时间范围</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">main_cases</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">before_n</span><span class="p">,</span> <span class="n">after_n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;处理每组数据&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main_cases</span> <span class="o">=</span> <span class="n">get_main_cases</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">main_cases</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>  <span class="c1"># 如果没有主干数据，返回空</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">case_idx</span><span class="p">,</span> <span class="n">min_time</span><span class="p">,</span> <span class="n">max_time</span> <span class="ow">in</span> <span class="n">main_cases</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 统计早于和晚于主干数据时间范围的记录</span>
+</span></span><span class="line"><span class="cl">        <span class="n">before_condition</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">                <span class="p">((</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">min_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_month&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_time</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">after_condition</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">                <span class="p">((</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_month&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_time</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">before_records</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">before_condition</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;jud_month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">before_n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">after_records</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">after_condition</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;jud_year&#39;</span><span class="p">,</span> <span class="s1">&#39;jud_month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">after_n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 检查是否满足条件</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">before_records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">before_n</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">after_records</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">after_n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 标记主干数据</span>
+</span></span><span class="line"><span class="cl">            <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">case_idx</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 标记为主干</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 保留主干数据及其前后样本</span>
+</span></span><span class="line"><span class="cl">            <span class="n">main_record</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">case_idx</span><span class="p">]]</span>  <span class="c1"># 主干数据</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">before_records</span><span class="p">,</span> <span class="n">main_record</span><span class="p">,</span> <span class="n">after_records</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_means</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">main_cases</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算前后均值&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">main_row</span> <span class="ow">in</span> <span class="n">main_cases</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 主干数据的时间</span>
+</span></span><span class="line"><span class="cl">        <span class="n">main_year</span> <span class="o">=</span> <span class="n">main_row</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">main_month</span> <span class="o">=</span> <span class="n">main_row</span><span class="p">[</span><span class="s1">&#39;jud_month&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 计算之前的均值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">before_condition</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">main_year</span><span class="p">)</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">                <span class="p">((</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">main_year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_month&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">main_month</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bf_judge_am</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">before_condition</span><span class="p">,</span> <span class="s1">&#39;judge_am&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 计算之后的均值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">after_condition</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">main_year</span><span class="p">)</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">                <span class="p">((</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">main_year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;jud_month&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">main_month</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">af_judge_am</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">after_condition</span><span class="p">,</span> <span class="s1">&#39;judge_am&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 更新主干数据行</span>
+</span></span><span class="line"><span class="cl">        <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;bf_judge_am&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bf_judge_am</span>
+</span></span><span class="line"><span class="cl">        <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;af_judge_am&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">af_judge_am</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">group</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 主程序</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 加载数据</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;成功加载数据，总记录数：</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;数据加载失败: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 添加 &#39;a&#39; 列，初始化为 0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bf_judge_am&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;af_judge_am&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 分组处理</span>
+</span></span><span class="line"><span class="cl">    <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;court_name&#39;</span><span class="p">,</span> <span class="s1">&#39;judge_fin&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&#34;处理进度&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">processed</span> <span class="o">=</span> <span class="n">process_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">before_n</span><span class="p">,</span> <span class="n">after_n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">processed</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 筛选标记为主干的数据</span>
+</span></span><span class="line"><span class="cl">                <span class="n">main_cases</span> <span class="o">=</span> <span class="n">processed</span><span class="p">[</span><span class="n">processed</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 计算均值</span>
+</span></span><span class="line"><span class="cl">                <span class="n">processed</span> <span class="o">=</span> <span class="n">calculate_means</span><span class="p">(</span><span class="n">processed</span><span class="p">,</span> <span class="n">main_cases</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存结果</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">results</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">final_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">final_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">结果已保存至：</span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">警告：没有符合条件的记录&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 参数配置（移到最后）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">input_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;F:\桌面\测试.csv&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;F:\桌面\测试_结果.csv&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">before_n</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># 保留之前记录的条数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">after_n</span> <span class="o">=</span> <span class="mi">20</span>   <span class="c1"># 保留之后记录的条数</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>以上代码如果不是在 jupyter 环境中运行而是在 pycharm 环境中运行，需要调整下输入参数的位置。</p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

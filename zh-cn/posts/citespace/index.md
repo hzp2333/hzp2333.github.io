@@ -130,6 +130,15 @@ WOS 就是 [web of science](https://www.webofscience.com/wos/alldb/basic-search)
 
 ![来源：《CiteSpace科技文本挖掘及可视化（第2版）》，最新版是第3版](/img/Citespace文献可视化.zh-cn-20240523121536973.webp)
 
+
+## 去重操作
+
+文档 txt 记录重复会影响节点计算。
+
+去重功能在 wos 这里。将 txt 文档按照数据库来源转化后，再在 wos 这个选项中去以下重即可。
+
+![如图](/img/Citespace文献可视化.zh-cn-20250125211700404.webp)
+
 ## 四、可视化实操
 
 ### （一）关键词图谱

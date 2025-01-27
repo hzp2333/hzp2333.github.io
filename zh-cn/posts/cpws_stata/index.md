@@ -943,6 +943,117 @@ foreach s of local symbols {
  replace num_var =  regexm(str_var, "([0-9]+\.[0-9]+|[0-9]+)")
 ```
 
+## dta 时间修正
+
+在师门的招投标中，很多时间格式是混乱的。
+
+例如标准的两种：
+`2019-12-31 09:00:00`、
+` 2019/12/30 09:30`
+
+但是也会出现 ` 20220516 09:30:00 `、` 2022051609:30:00 `、` 2022051609:30 `
+
+例如缺少秒、月份位置写成 4 而不是 04。
+
+![如图](/img/裁判文书清洗指南.zh-cn-20250123143246038.webp)
+
+下面的代码集中处理了这套时间编码。
+
+一些中文符号转英文的预处理。
+
+在日期和时间之间没有空格时（例如 `2022051609:30:00`），如果范围在对应年月内（比如 0-31）则优先取两位数，超过范围了则取前面的个位数。
+
+最后兼容各种格式的时间提取。
+
+```
+/*-----------------------------------------
+  日期提取转换方案（紧凑格式增强版）
+  版本：2.6
+  最后更新：2024-06-27
+-----------------------------------------*/
+version 17
+clear all
+set more off
+
+use "F:\桌面\test.dta", clear
+keep time
+
+*===============================
+*        预处理阶段（增强）
+*===============================
+// 基础清理
+replace time = ustrtrim(time)
+replace time = subinstr(time, char(92), "-", .)
+replace time = subinstr(time, "：", ":", .) 
+replace time = subinstr(time, " ", "", .)
+
+*===============================
+*      新增紧凑格式识别模块
+*===============================
+// 识别YYYYMMDD-格式（核心改进）
+gen str8 compact_date = ""
+replace compact_date = substr(time, 1, 8) ///
+    if ustrregexm(time, "^\d{8}-")  // 严格匹配8位数字+连字符格式
+
+// 分离紧凑格式数据
+preserve
+keep if compact_date != ""
+gen date_stata = date(compact_date, "YMD")
+format date_stata %tdCCYY-NN-DD
+tempfile compact
+save `compact'
+restore
+
+// 处理非紧凑格式数据
+keep if compact_date == ""
+drop compact_date
+
+*===============================
+*      原有处理流程（优化）
+*===============================
+// 统一分隔符处理
+foreach s in "." "_" "/" {
+    replace time = subinstr(time, "`s'", "-", .)
+}
+
+// 日期部分提取
+gen str50 date_part = ustrregexs(1) if ustrregexm(time, "(\d{4}-\d{1,2}-\d{2,})[^\d]")
+replace date_part = time if missing(date_part)
+
+// 智能日期处理
+gen str4 year = ustrregexs(1) if ustrregexm(date_part, "^(\d{4})-\d+")
+gen str2 month = ustrregexs(1) if ustrregexm(date_part, "-(\d{1,2})-")
+gen str5 raw_day = ustrregexs(1) if ustrregexm(date_part, "-(\d+)$")
+
+replace month = cond(strlen(month) == 1, "0" + month, month)
+replace month = "12" if real(month) > 12
+
+gen str2 day = substr(raw_day,1,2)
+replace day = substr(day,1,1) if real(day) > 31
+replace day = "31" if real(day) > 31
+replace day = "0" + day if real(day) < 10 & strlen(day) == 1
+
+replace date_part = year + "-" + month + "-" + day
+drop year month raw_day day
+
+gen date_stata = date(date_part, "YMD")
+replace date_stata = date(ustrregexra(time, "[^0-9]", ""), "YMD") if missing(date_stata)
+
+*===============================
+*      合并处理结果
+*===============================
+append using `compact'
+
+*===============================
+*      后处理与验证
+*===============================
+format date_stata %tdCCYY-NN-DD
+
+
+```
+
+
+
 ## 例子3 ：python 跨行匹配
 
 ### 任务与思路
@@ -1122,6 +1233,8 @@ foreach s of local symbols {
  ​
 ```
 
+
+
 ### 提醒
 
 建议先将 stata 数据导出为 csv 格式。
@@ -1135,3 +1248,177 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
 &#x1F628<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
 </div>
+
+## 例子 4 ：python 提取上诉法官过去和现在的特征均值
+
+例子 3 是逐行匹配，但是这样处理实在是太慢了。
+
+现在我想要这样处理：
+
+提取法官经历上诉前的 20 个案子，然后求罚款均值；同时提取法官经历上诉后的 20 个案子，然后求罚款的均值。
+
+个人设计的算法逻辑如下：
+
+- 按照法院-法官的组合对数据进行分组。
+- 每个数据都有初审到终审的时间，形成时间戳，并且每一行应该识别一系列时间中的最早时间和最晚时间。
+- 当最早时间不等于最晚时间时，这条数据就是主干数据。
+- 在每个组别内，只保留满足条件的样本。
+- 在主干数据周围，当在主干数据最早数据之前还有 10 个案子，在主干数据之后也还有 10 个案子，最终只保留这 21 条数据。
+- 如果一个组别同时有多个案子，则都保留满足要求的样本。
+- 给满足周围存在对应数量案子的主干数据生成变量 a，标识为 1。
+- 生成上诉前变量和上诉后变量，求数量对应案子的均值。
+
+{{< admonition type=note  title="分解代码" open=false >}}
+为了更好地利用 ai，实际上这个算法我是拆成了两步。第一部分是筛选满足要求的所有样本；第二部是在满足要求的主干数据（a=1）处计算前后案件的均值。最周再整合两部分的代码。
+{{< /admonition >}}
+
+我最终多设置了一个参数，关于主干案件周围需要有多少案子才保留。
+
+```python
+import pandas as pd
+from tqdm import tqdm
+
+# 时间字段
+time_columns = [
+    'jud_year', 'jud_month',
+    'm1_jud_year', 'm1_jud_month',
+    'm2_jud_year', 'm2_jud_month',
+    'm3_jud_year', 'm3_jud_month',
+    'm4_jud_year', 'm4_jud_month',
+]
+
+
+def extract_timestamps(row):
+    """提取一行数据中的所有时间戳"""
+    timestamps = []
+    for i in range(0, len(time_columns), 2):
+        year = row[time_columns[i]]
+        month = row[time_columns[i + 1]]
+        if pd.notna(year) and pd.notna(month):
+            timestamps.append((int(year), int(month)))
+    return timestamps
+
+
+def get_main_cases(group):
+    """筛选主干数据"""
+    main_cases = []
+    for _, row in group.iterrows():
+        timestamps = extract_timestamps(row)
+        if not timestamps:
+            continue
+        min_time = min(timestamps, key=lambda x: (x[0], x[1]))
+        max_time = max(timestamps, key=lambda x: (x[0], x[1]))
+        if min_time != max_time:
+            main_cases.append((row.name, min_time, max_time))  # 保存索引和时间范围
+    return main_cases
+
+
+def process_group(group, before_n, after_n):
+    """处理每组数据"""
+    main_cases = get_main_cases(group)
+    if not main_cases:
+        return pd.DataFrame()  # 如果没有主干数据，返回空
+
+    result = []
+    for case_idx, min_time, max_time in main_cases:
+        # 统计早于和晚于主干数据时间范围的记录
+        before_condition = (
+                (group['jud_year'] < min_time[0]) |
+                ((group['jud_year'] == min_time[0]) & (group['jud_month'] < min_time[1]))
+        )
+        after_condition = (
+                (group['jud_year'] > max_time[0]) |
+                ((group['jud_year'] == max_time[0]) & (group['jud_month'] > max_time[1]))
+        )
+
+        before_records = group[before_condition].sort_values(['jud_year', 'jud_month']).tail(before_n)
+        after_records = group[after_condition].sort_values(['jud_year', 'jud_month']).head(after_n)
+
+        # 检查是否满足条件
+        if len(before_records) >= before_n and len(after_records) >= after_n:
+            # 标记主干数据
+            group.loc[case_idx, 'a'] = 1  # 标记为主干
+            # 保留主干数据及其前后样本
+            main_record = group.loc[[case_idx]]  # 主干数据
+            result.append(pd.concat([before_records, main_record, after_records]))
+
+    if result:
+        return pd.concat(result).drop_duplicates()
+    return pd.DataFrame()
+
+
+def calculate_means(group, main_cases):
+    """计算前后均值"""
+    for idx, main_row in main_cases.iterrows():
+        # 主干数据的时间
+        main_year = main_row['jud_year']
+        main_month = main_row['jud_month']
+
+        # 计算之前的均值
+        before_condition = (
+                (group['jud_year'] < main_year) |
+                ((group['jud_year'] == main_year) & (group['jud_month'] < main_month))
+        )
+        bf_judge_am = group.loc[before_condition, 'judge_am'].mean()
+
+        # 计算之后的均值
+        after_condition = (
+                (group['jud_year'] > main_year) |
+                ((group['jud_year'] == main_year) & (group['jud_month'] > main_month))
+        )
+        af_judge_am = group.loc[after_condition, 'judge_am'].mean()
+
+        # 更新主干数据行
+        group.loc[idx, 'bf_judge_am'] = bf_judge_am
+        group.loc[idx, 'af_judge_am'] = af_judge_am
+
+    return group
+
+
+# 主程序
+if __name__ == "__main__":
+    # 加载数据
+    try:
+        df = pd.read_csv(input_path, encoding='utf-8')
+        print(f"成功加载数据，总记录数：{len(df):,}")
+    except Exception as e:
+        print(f"数据加载失败: {e}")
+        exit()
+
+    # 添加 'a' 列，初始化为 0
+    df['a'] = 0
+    df['bf_judge_am'] = float('nan')
+    df['af_judge_am'] = float('nan')
+
+    # 分组处理
+    grouped = df.groupby(['court_name', 'judge_fin'])
+    results = []
+
+    with tqdm(total=len(grouped), desc="处理进度") as pbar:
+        for _, group in grouped:
+            processed = process_group(group, before_n, after_n)
+            if not processed.empty:
+                # 筛选标记为主干的数据
+                main_cases = processed[processed['a'] == 1]
+                # 计算均值
+                processed = calculate_means(processed, main_cases)
+                results.append(processed)
+            pbar.update(1)
+
+    # 保存结果
+    if results:
+        final_df = pd.concat(results)
+        final_df.to_csv(output_path, index=False, encoding='utf-8')
+        print(f"\n结果已保存至：{output_path}")
+    else:
+        print("\n警告：没有符合条件的记录")
+
+    # 参数配置（移到最后）
+    input_path = r'F:\桌面\测试.csv'
+    output_path = r'F:\桌面\测试_结果.csv'
+    before_n = 20  # 保留之前记录的条数
+    after_n = 20   # 保留之后记录的条数
+```
+
+> 以上代码如果不是在 jupyter 环境中运行而是在 pycharm 环境中运行，需要调整下输入参数的位置。
+
