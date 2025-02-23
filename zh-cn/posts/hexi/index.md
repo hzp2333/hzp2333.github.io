@@ -5,7 +5,7 @@
 
 {{< music url="/music/野云万里 WanderingClouds-HOYO-MiX.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}}
 
-{{< music url="/music/三叶(主题曲) - RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
+{{< music url="/music/三葉のテーマ.flac" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
 
 {{< music url="/music/clc.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}}
 
