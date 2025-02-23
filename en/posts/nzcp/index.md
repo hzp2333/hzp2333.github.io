@@ -1,7 +1,9 @@
 # The path to a turnabout lies within
 
 
-{{< music netease song 27791217>}}
+{{< music url="/music/成歩堂龍一 ～異議あり! 2001-杉森雅和.mp3" name=成歩堂龍一異議あり artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
+
+{{< music url="/music/綾里真宵 ～逆転姉妹のテーマ　2001-杉森雅和.mp3" name=逆転姉妹のテーマ artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
 
 Don't approach Ace Attorney with the expectation of learning legal principles or honing your logical reasoning. Its true beauty shines through in its breathtaking twists of thought and masterfully crafted narrative rhythm!
 
