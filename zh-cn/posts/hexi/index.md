@@ -1,17 +1,8 @@
 # 河西走廊
 
 
-{{< music url="/music/野云万里 Wandering Clouds-HOYO-MiX.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}}
-
-{{< music url="/music/野云万里 WanderingClouds-HOYO-MiX.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}}
-
-{{< music url="/music/三葉のテーマ.flac" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
-
 {{< music url="/music/clc.mp3" name="野云万里 Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}}
 
-{{< music url="/music/clc.mp3" name="Wandering Clouds" artist="HOYOMiX" cover="/images/clc.png" >}}
-
-{{< music url="/music/clc.mp3" name="野云万里Wandering Clouds" artist="HOYO-MiX" cover="/images/clc.png" >}} 
 
 河西走廊果然险峻。祁连山脉重山叠嶂，经过长期风化的山腰露出精瘦的黄土皮，连带着黑红色的斑驳纹理。山头鼓起，如节节骨脊，徐徐围住狭道。
 

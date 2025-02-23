@@ -1,6 +1,5 @@
 # Notes on Learning Calculus of Variations
 
-{{< music url="/music/三葉のテーマ.flac" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}}  
 
 
 I am recording these study notes because of the elegance of the calculus of variations. The reference book is "Fundamentals of Dynamic Optimization" by Alpha C. Chiang, which is a very friendly introductory textbook on dynamic optimization for economics students.
