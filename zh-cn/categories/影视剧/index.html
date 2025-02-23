@@ -29,7 +29,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -206,7 +205,15 @@
                         <a href="/zh-cn/posts/penguin/" class="archive-item-link">《企鹅公路》：少年终长成</a>
                         <span class="archive-item-date">12-24</span>
                     </article></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -560,6 +567,7 @@
     </script>
 </body>
 </html>
+
 
 
 </div>

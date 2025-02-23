@@ -69,7 +69,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -641,7 +640,15 @@ In other words, in dynamic monopoly, firms should continuously adjust their prof
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -915,6 +922,7 @@ published 46 posts，total 59462 words。<div class="footer-line">Powered by <a 
     </script>
 </body>
 </html>
+
 
 
 </div>

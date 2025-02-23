@@ -29,7 +29,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -313,7 +312,15 @@
                                     <a href="/zh-cn/posts/wzyy/" class="archive-item-link">文字游戏：“回”到文字</a>
                                 </article></div>
                     </div></div></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -667,6 +674,7 @@
     </script>
 </body>
 </html>
+
 
 
 </div>

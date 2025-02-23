@@ -47,7 +47,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -211,7 +210,15 @@
                 <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster"></h1><div class="content" id="content">google-site-verification: googlebe7b79f1a25bcca0.html</div><div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -565,6 +572,7 @@
     </script>
 </body>
 </html>
+
 
 
 </div>

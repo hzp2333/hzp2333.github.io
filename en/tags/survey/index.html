@@ -30,7 +30,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -201,7 +200,15 @@
                         <a href="/en/posts/ynzt/" class="archive-item-link"> Research Note 1: Zhaotong, Yunnan</a>
                         <span class="archive-item-date">09-10</span>
                     </article></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -475,6 +482,7 @@ published 46 posts，total 59462 words。<div class="footer-line">Powered by <a 
     </script>
 </body>
 </html>
+
 
 
 </div>

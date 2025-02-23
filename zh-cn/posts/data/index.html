@@ -68,7 +68,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -1442,7 +1441,15 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -1796,6 +1803,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
     </script>
 </body>
 </html>
+
 
 
 </div>

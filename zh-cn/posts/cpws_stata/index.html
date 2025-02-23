@@ -47,7 +47,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -2722,7 +2721,15 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -3076,6 +3083,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
     </script>
 </body>
 </html>
+
 
 
 </div>

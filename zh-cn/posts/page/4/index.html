@@ -29,7 +29,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -261,7 +260,15 @@
                         <a href="/zh-cn/posts/page/6/">6</a>
                     </span>
                 </li></ul></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -615,6 +622,7 @@
     </script>
 </body>
 </html>
+
 
 
 </div>

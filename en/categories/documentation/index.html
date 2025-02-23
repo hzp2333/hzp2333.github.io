@@ -30,7 +30,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -192,7 +191,15 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster"><i class="far fa-folder-open fa-fw"></i>&nbsp;Documentation<sup>0</sup></h2></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -466,6 +473,7 @@ published 46 posts，total 59462 words。<div class="footer-line">Powered by <a 
     </script>
 </body>
 </html>
+
 
 
 </div>

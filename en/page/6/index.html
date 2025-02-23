@@ -40,7 +40,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -292,7 +291,15 @@
                         <a href="/en/page/6/">6</a>
                     </span>
                 </li></ul></div></div>
-            </main>    
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -566,6 +573,7 @@ published 46 posts，total 59462 words。<div class="footer-line">Powered by <a 
     </script>
 </body>
 </html>
+
 
 
 </div>
