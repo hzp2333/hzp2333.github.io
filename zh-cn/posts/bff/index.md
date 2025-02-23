@@ -1,7 +1,7 @@
 # 变分法学习笔记
 
 
-
+{{< music url="/music/三叶(主题曲) - RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
 
 只因变分法的优美在此记录学习笔记，参考书为《动态最优化基础》（蒋中一），对经济学学习者是非常友好的动态优化入门教材。
 
