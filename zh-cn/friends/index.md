@@ -1,6 +1,7 @@
 # 有朋自远方来
 
 {{< music netease song 1394167216>}}
+
 > 高山流水只为君挽  
 > 残梦回还曲终不复弹  
 > 徒余留明月忆往昔  
@@ -164,11 +165,28 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  
+	name="LS-Shandong"
+	url="https://ls-shandong.codeberg.page/"
+	logo="https://ls-shandong.github.io/images/avatar.png"
+	word="LS-Shandong 的博客网站"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend   
 	name="赫赫文王"
 	url="https://kqh.me/"
 	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
 	word="自然科學史研究"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+{{< friend   name="寒夏摸鱼站"
+    url="https://blog.rainiar.top"
+    logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
+    word="稀奇古怪技术集散地"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -183,13 +201,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
-{{< friend   name="寒夏摸鱼站"
-    url="https://blog.rainiar.top"
-    logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
-    word="稀奇古怪技术集散地"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
+
 
 {{< friend   name="第三夏尔"
     url="https://thirdshire.com"
@@ -207,14 +219,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  
-	name="LS-Shandong"
-	url="https://ls-shandong.github.io"
-	logo="https://ls-shandong.github.io/images/avatar.png"
-	word="LS-Shandong 的博客网站"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 {{< friend   
 	name="Lruihao"
@@ -243,9 +247,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-
-
-
 
 {{< friend   
 	name="xkcd"
