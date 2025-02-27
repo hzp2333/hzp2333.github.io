@@ -291,6 +291,15 @@ word="空间政治经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend  name="叶晓阳"
+url="https://etw.fm/"
+logo="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/cover_small.jpg?v=4"
+word="教育经济学"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="陶哲轩"
 url="https://terrytao.wordpress.com/"
 logo="https://www.math.ucla.edu/~tao/images/image1.jpg"
