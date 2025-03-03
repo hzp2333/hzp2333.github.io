@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/solow\/"
-        },"genre": "posts","keywords": "Matlab, 宏观经济学","wordcount":  4272 ,
+        },"genre": "posts","keywords": "Matlab, 宏观经济学","wordcount":  4270 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/solow\/","datePublished": "2025-03-02T23:02:19+08:00","dateModified": "2025-03-02T23:02:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -234,7 +234,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> Solow 模型 matlab 模拟代码</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-03-02">2025-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4272 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-03-02">2025-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4270 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
     
 
@@ -267,8 +267,8 @@
   <ul>
     <li><a href="#solow-模型的思想">Solow 模型的思想</a></li>
     <li><a href="#matlab-收敛图">Matlab 收敛图</a></li>
-    <li><a href="#matlab-相图不同的初始人均资本">Matlab 相图：不同的初始人均资本</a></li>
-    <li><a href="#matlab-储蓄率外生冲击图">Matlab 储蓄率外生冲击图</a></li>
+    <li><a href="#matlab-相图不同初始资本">Matlab 相图：不同初始资本</a></li>
+    <li><a href="#matlab-冲击图不同储蓄率">Matlab 冲击图：不同储蓄率</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="solow-模型的思想">Solow 模型的思想</h2>
@@ -641,7 +641,7 @@ $$\dot{k_t}=sf(k_t)-(n+g+d)k_t$$</p>
 </span></span><span class="line"><span class="cl"><span class="n">text</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">K</span><span class="p">),</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">),[</span><span class="s">&#39;t = &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span> <span class="c">% 显示最终周期</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="matlab-相图不同的初始人均资本">Matlab 相图：不同的初始人均资本</h2>
+</div><h2 id="matlab-相图不同初始资本">Matlab 相图：不同初始资本</h2>
 <p>比较两个经济体，其他参数都相同，只有<strong>初始人均资本</strong> $k_1$ 不同（收敛方向不同）。</p>
 <p>在给定的参数中， solow 模型的人均资本会收敛于 149.8 的水平。因此一个国家的处初始人均资本高于这个值，就会下降；低于这个值，就会上升。</p>
 <p>
@@ -887,7 +887,7 @@ $$\dot{k_t}=sf(k_t)-(n+g+d)k_t$$</p>
 </span></span><span class="line"><span class="cl"><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span> <span class="n">kmax</span><span class="p">])</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="matlab-储蓄率外生冲击图">Matlab 储蓄率外生冲击图</h2>
+</div><h2 id="matlab-冲击图不同储蓄率">Matlab 冲击图：不同储蓄率</h2>
 <p>当代宏观的 DSGE 核心图是展示要素受到冲击后的变化图。</p>
 <p>Solow 模型假设储蓄率是外生的，下面这个代码是假设初始储蓄率是 0.4。在初始人均资本为 6 的情况下，后面储蓄率被调整为了 0.5。</p>
 <p>最后计算的分别是人均资本、人均产出、人均产出增长率（产出取对数然后一阶差分 $\log y_t-\log y_{t-1}\approx\frac{y_t-y_{t-1}}{y_{t-1}}$）、人均消费。</p>
