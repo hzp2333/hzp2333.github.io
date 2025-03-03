@@ -24,17 +24,18 @@ $$\dot{k}=f(k)$$
 > Solow 模型在这之上进行了更多的分解。
 > 
 > - 起点低，进步速度可能更快；起点高，进步速度可能更慢。
-> - Solow 模型想解释的是“低收入国家的发展速度在早期是大于高收入国家”这个现象。例如二战以后，战后的亚洲国家迎来了发展的黄金时期。战后大家偏好储蓄，这也启发 solow 假设储蓄率外生。
+> - Solow 模型想解释的是“低收入国家的发展速度早期大于高收入国家”这个现象。例如二战以后，战后的亚洲国家迎来了发展的黄金时期。战后大家偏好储蓄，这也启发 solow 假设储蓄率外生。
+> - Solow 模型的收敛性后面也启发了学者讨论高收入国家和发展中国家的经济水平是否会趋于一致。可参考另外一篇博文《 [收敛：从“算式的极限”到“增长的极限”](https://blog.huaxiangshan.com/zh-cn/posts/shounian/)》
 
 这里主要是介绍其 matlab 绘图代码，就不具体展开数理证明了。
 更具体的索洛模型解释可以参考：
 
 - [ 索洛模型 (Solow Model)](https://blog.econfinny.com/2024/11/17/solow-model/)
-- [中级宏观经济学 | 第3讲：索洛增长模型](https://mp.weixin.qq.com/s/fhhiaZrmlYW70oibSTagWA)
-- [高级宏观经济学笔记（Romer版）](https://zhuanlan.zhihu.com/p/613416303)
+- [中级宏观经济学 | 第 3 讲：索洛增长模型](https://mp.weixin.qq.com/s/fhhiaZrmlYW70oibSTagWA)
+- [高级宏观经济学笔记（ Romer 版）](https://zhuanlan.zhihu.com/p/613416303)
 ## Matlab 收敛图
 
-![如图](/img/solow.zh-cn-20250302213518789.webp)
+![如图，经济体的人均资本 k 会收敛与图中的交叉点](/img/solow.zh-cn-20250302213518789.webp)
 
 代码绘图分为四个部分：
 
@@ -72,7 +73,7 @@ end
 {{< admonition type=note  title="宏观：python还是matlab" open=false >}}
 对于经济学来说，R 语言和 matlab 都快被 python 打败了。R 语言还有的优势是顶刊的统计学家会优先开发 R 语言包。
 
-Matlab 和 stata 一样，目前尚占据主流是因为大部分论文代码给的文件是 `.m` 和 `.do`。随着模型越来越复杂，python 在**优化代码**，**调整算法**进行计算方面具有更大优势[^3]。我在网上看到不少做宏观模型的新研究者开始从 matlab 转向 python 来优化计算过程。
+Matlab 和 stata 一样，目前尚占据主流是因为大部分论文代码给的文件是 `.m` 和 `.do`。随着模型越来越复杂，python 在**优化代码**，**调整算法**进行计算方面具有更大优势。我在网上看到不少做宏观模型的新研究者开始从 matlab 转向 python 来优化计算过程。
 {{< /admonition >}}
 
 ```matlab
@@ -213,7 +214,131 @@ end
 text(mean(K),mean(y),['t = ', num2str(t)]) % 显示最终周期
 ```
 
-## Matlab 冲击图
+## Matlab 相图：不同的初始人均资本
+
+比较两个经济体，其他参数都相同，只有**初始人均资本** $k_1$ 不同（收敛方向不同）。
+
+在给定的参数中， solow 模型的人均资本会收敛于 149.8 的水平。因此一个国家的处初始人均资本高于这个值，就会下降；低于这个值，就会上升。
+
+![如图](/img/solow.zh-cn-20250303112806996.webp)
+
+```matlab
+%% Solow 新古典增长模型示例
+% 1. 两个初始值的资本收敛曲线
+% 2. 相图：\dot{k} 与 k 的关系 (含箭头标识方向)
+% 此处我沿用上一个章节代码设定的参数
+
+clear; clc; close all;
+
+%% =============== 参数设置 ===============
+
+t = 400; % 模拟总期数
+alpha = 0.3; % 资本产出弹性
+s = 0.5; % 储蓄率
+n = 0.02; % 人口增长率
+d = 0.01; % 折旧率
+A0 = 2; % 全要素生产率
+kmax = 250; % 资本显示范围（根据模拟结果动态调整）
+
+%% =============== 不同初始值的收敛模拟 ===============
+
+k1_init = 100; % 经济体1初始资本
+k2_init = 200; % 经济体2初始资本
+
+% 预分配
+
+k1 = zeros(t+1,1);
+k2 = zeros(t+1,1);
+k1(1) = k1_init;
+k2(1) = k2_init;
+
+% 迭代更新资本水平
+
+for i = 1:t
+	k1(i+1) = k1(i) + s*A0*(k1(i)^alpha) - (n+d)*k1(i);
+	k2(i+1) = k2(i) + s*A0*(k2(i)^alpha) - (n+d)*k2(i);
+end
+
+% 动态调整显示范围
+kmax = max([k1; k2]) * 1.1;
+
+%% =============== 1) 绘制收敛图 ===============
+
+figure(1);
+plot(0:t, k1, 'r-', 'LineWidth', 2); hold on;
+plot(0:t, k2, 'b-', 'LineWidth', 2);
+xlabel('时间', 'FontSize', 12);
+ylabel('人均资本 k', 'FontSize', 12);
+title('资本收敛过程', 'FontSize', 14);
+legend(sprintf('初始k=%.0f', k1_init), sprintf('初始k=%.0f', k2_init), ...
+'Location','best');
+grid on;
+set(gca, 'FontSize', 10)
+
+%% =============== 2) 绘制相图 ( \dot{k} vs k ) ===============
+
+% 准备相图数据
+k_cont = linspace(0, kmax); % 连续资本值
+f_k = A0 * k_cont.^alpha; % 生产函数
+sy = s * f_k; % 实际投资
+nd = (n + d) * k_cont; % 所需投资
+dotk = sy - nd; % 资本变化率
+
+% 计算轨迹数据
+dotk1 = s*A0*k1.^alpha - (n+d)*k1;
+dotk2 = s*A0*k2.^alpha - (n+d)*k2;
+
+% 计算稳态值
+k_star = (s*A0/(n+d))^(1/(1-alpha));
+figure(2);
+
+% 1) 绘制相图主曲线
+plot(k_cont, dotk, 'k-', 'LineWidth', 2); hold on;
+
+% 2) 绘制稳态线
+plot([0 kmax], [0 0], 'k--', 'LineWidth', 1);
+
+% 3) 绘制稳态标记
+plot(k_star, 0, 'mo', 'MarkerSize', 10, 'MarkerFaceColor', 'm')
+
+% 4) 绘制轨迹点
+plot(k1, dotk1, 'r.-', 'MarkerSize', 12, 'LineWidth', 2);
+
+plot(k2, dotk2, 'b.-', 'MarkerSize', 12, 'LineWidth', 2);
+
+% 5) 添加轨迹箭头
+arrow_step = 20; % 箭头间隔步长
+
+% 经济体1箭头
+for i = 1:arrow_step:length(k1)-1
+	quiver(k1(i), dotk1(i),...
+	k1(i+1)-k1(i), dotk1(i+1)-dotk1(i),...
+	0, 'Color', 'r', 'MaxHeadSize', 1.5, 'LineWidth', 2)
+end
+
+% 经济体2箭头
+for i = 1:arrow_step:length(k2)-1
+	quiver(k2(i), dotk2(i),...
+	k2(i+1)-k2(i), dotk2(i+1)-dotk2(i),...
+	0, 'Color', 'b', 'MaxHeadSize', 1.5, 'LineWidth', 2)
+end
+
+% 6) 图形标注
+title('相图: 资本动态变化', 'FontSize', 14);
+xlabel('人均资本 k', 'FontSize', 12);
+ylabel('资本变化率 $\dot{k}$', 'Interpreter', 'latex', 'FontSize', 12);
+legend('$\dot{k} = s f(k) - (n + \delta)k$',...
+'稳态线 ($\dot{k}=0$)',...
+sprintf('稳态 k* = %.1f', k_star),...
+'经济体1：k初始值100',...
+'经济体2：k初始值200',...
+'Location','best', 'Interpreter', 'latex');
+grid on;
+set(gca, 'FontSize', 10)
+xlim([0 kmax])
+```
+
+## Matlab 储蓄率外生冲击图
 
 当代宏观的 DSGE 核心图是展示要素受到冲击后的变化图。
 
@@ -290,4 +415,4 @@ axis([1 130 1 1.6])
 
 [^1]: 博客标签已经有 stata、python、R 了，这里添加一个 matlab。
 [^2]: solow 模型假设储蓄外生，且是单部门模型，这些成为后来模型的优化点。
-[^3]: 新生代的高手是会优化自己的数值计算速度的。
+
