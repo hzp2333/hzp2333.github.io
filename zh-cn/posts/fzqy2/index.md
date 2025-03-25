@@ -273,8 +273,8 @@ $$
 
 取对数求导线性化，即可得到：
 
-$$g_U=\beta\left(g_B-g_A\right)+{\color{red}{g_A-\left(1-\gamma\right)g_H}}$$
-红色部门即为引理部门，已经证明了趋于 0。
+$$g_U=\beta\left(g_B-g_A\right)+g_A-(1-\gamma)g_H$$
+后面即为引理部门，已经证明了趋于 0。
 
 于是得到了人均福利（收入）与生存品和效用品的关系。
 
