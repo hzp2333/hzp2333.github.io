@@ -181,7 +181,7 @@ $$
 产品决策后，代入效用 $U=x^{1-\beta}y^{\beta}$，
 
 $$
-\begin{aligned}\mathrm{U}&={\color{red}{A\left(\frac{H}{L}\right)^{\gamma-1}}}\left(\frac{B}{A}\right)^\beta{\color{red}{(1-\beta)}}^{{\color{red}{1}}-\beta}\beta^\beta\\\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
+\begin{aligned}\mathrm{U}&={\color{red}{A\left(\frac{H}{L}\right)^{\gamma-1}}}\left(\frac{B}{A}\right)^\beta{\color{red}{(1-\beta)}}^{{\color{red}{1}}-\beta}\beta^\beta\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{{{1-\beta}}}\right)^\beta\end{aligned}
 $$
 
 {{< admonition type=question  title="为什么提取x" open=false >}}
