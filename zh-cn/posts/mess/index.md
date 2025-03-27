@@ -3,7 +3,7 @@
 
 > 课堂展示使用，《富种起源》部分数理推导细节。
 
-## 丰厚的悬赏
+## 问题的悬赏
 
 《富种起源》作者的博士论文，希望高中生也能阅读，这里只介绍简化版的古典模型。
 
@@ -13,7 +13,7 @@
 
 反驳的悬赏如下：
 
-![如图](/img/课堂展示.zh-cn-20250325170526413.webp)
+![如图，合理的质疑、反驳、改进有奖金拿](/img/课堂展示.zh-cn-20250325170526413.webp)
 
 ## 马尔萨斯叙事
 
@@ -59,6 +59,15 @@
 只考虑生存。
 
 人生存必须需要农产品，但不一定需要工业品。
+
+
+
+{{< /admonition >}}
+
+
+{{< admonition type=question  title="如果人口平衡线是一条垂线呢？" open=false >}}
+
+也就是单单部门马尔萨斯的情况，因此不同部门的特性是这个模型推广的核心思路。
 
 {{< /admonition >}}
 
@@ -184,7 +193,7 @@ $$
 产品决策后，代入效用 $U=x^{1-\beta}y^{\beta}$，
 
 $$
-\begin{aligned}\mathrm{U}&=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^\beta(1-\beta)^{1-\beta}\beta^\beta\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
+\begin{aligned}\mathrm{U}&=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^\beta(1-\beta)^{1-\beta}\beta^\beta\\\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
 $$
 
 {{< admonition type=question  title="为什么提取x" open=false >}}
@@ -288,7 +297,7 @@ $$
 
 效用品的增长速度总是无法高于生存品的增长速度。
 
-更复杂的情况会引入人口迁移与贸易（通过设定人口迁移率来满足人口平衡线）、技术竞争（需要一些随机过程的数学），直觉上通过多层次博弈理解即可，这里不再展开具体的数理模型。
+更复杂的情况会引入人口迁移与贸易（通过设定人口迁移率来满足人口平衡线）、技术竞争（需要一些随机过程的数学），直觉上通过多层次博弈(《三体：黑暗森林》)理解即可，这里不再展开具体的数理模型。
 
 **后半部分简单解读**参见：
 
