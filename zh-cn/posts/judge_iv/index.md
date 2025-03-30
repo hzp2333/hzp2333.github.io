@@ -1,4 +1,4 @@
-#  审查员设计：一种随机分配的因果推断
+#  审查员设计（Judge IV）：一种随机分配的因果推断
 
 
 > 在混乱之中发现单纯 ——爱因斯坦
@@ -99,7 +99,7 @@ $$
 - Juge iv 的渐进性要求体现在哪里？该聚焦被审查者次数还是审查员的工作次数？个人认为两者的样本规模都很重要。
 
 
-随机分配比较有魔力的地方在于，它总让我思考偶然与必然的关系。偶然中的必然——必然有人中彩票，只是那个人偶然是你。在知晓随机分配之后？我们又该如何看待命运？对于一个人来说，他该选择偶然的上限？还是平均值的下限[^7]？
+是不是很多人都有过这样的想法？若是某时某刻碰见了其他的人，我们的人生是否会变得不同？随机分配总会让我思考偶然与必然的关系。偶然中的必然——必然有人中彩票，只是那个人偶然是你。在知晓随机分配之后？我们又该如何看待命运？对于一个人来说，他该选择偶然的上限？还是平均值的下限[^7]？
 
 ## 推荐参考资料
 
@@ -108,6 +108,8 @@ $$
 [可能你一辈子都用不上的因果推断方法：仁慈法官工具变量](https://mp.weixin.qq.com/s/ZKEOQgUdBB_2vsTnSQw4bw)
 
 [世界银行经济学家发展经济学专栏作者博客](https://blogs.worldbank.org/en/impactevaluations/judge-leniency-iv-designs-now-not-just-crime-studies)
+
+个人格外推荐关注他们的[计量技术主题](https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0)专栏。
 
 [耶鲁大学的博士助教课（计量专题）](https://www.youtube.com/watch?v=Aa0i54jxFa8)
 
