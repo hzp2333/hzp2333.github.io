@@ -72,8 +72,22 @@ nd(k1,1)=(n+d)*k1; % 所需投资
 end
 ```
 
+
+
+
 3、收敛条件：
 自然就是 $\dot{k_t}=sf(k_t)-(n+g+d)k_t=0$。所以下面代码的逻辑是比较 `sy(k1,1)` 和 `nd(k1,1)`。不相等时，则根据大于小于符号增加或减少人均资本 $k$。
+
+{{< admonition type=bug  title="包含人口增长、技术进步且离散的情况" open=false >}}
+在此处，我们将资本运动方程设置为 $\dot{k_t}=sf(k_t)-(n+g+d)k_t$ ，根据其正负性设置 k 加一或者减一。
+
+实际上在考虑离散情况时，最精确的表达式子为：
+
+  $$\dot{k_t}=\frac{sf(k_t)-dk_t}{1+g+n}$$
+  也就是：
+    $${k_{t+1}}=\frac{sf(k_t)+(1-d)k_t}{1+n+g}$$
+均衡条件意味着 ${k_{t+1}}={k_{t}}$，代入化简，在均衡收敛时才可以简写成 $0=\dot{k_t}=sf(k_t)-(n+g+d)k_t$，但在非均衡（$\dot{k_t} \neq 0$）时，将运动方程写成 $\dot{k_t}=sf(k_t)-(n+g+d)k_t$ 是不严谨的。
+{{< /admonition >}}
 
 {{< admonition type=note  title="宏观：python 还是 matlab " open=false >}}
 对于经济学来说，R 语言和 matlab 都快被 python 打败了。R 语言还有的优势是顶刊的统计学家会优先开发 R 语言包。
