@@ -38,9 +38,29 @@ $$\dot{k}=f(k)$$
 - [ 索洛模型 (Solow Model)](https://blog.econfinny.com/2024/11/17/solow-model/)
 - [中级宏观经济学 | 第 3 讲：索洛增长模型](https://mp.weixin.qq.com/s/fhhiaZrmlYW70oibSTagWA)
 - [高级宏观经济学笔记（ Romer 版）](https://zhuanlan.zhihu.com/p/613416303)
+
+{{< admonition type=note  title="做题家的速通" open=false >}}
+Solow 模型两个核心稳态：
+
+稳态求解：
+$$
+\dot{k}=sf(k)-(n+\delta)k=0
+$$
+
+
+黄金率求解：
+
+$$
+f^{\prime}(k_{\mathrm{gold}})=n+\delta
+$$
+
+$$
+
+$$
+{{< /admonition >}}
 ## Matlab 收敛图
 
-![如图，经济体的人均资本 k 会收敛与图中的交叉点](/img/solow.zh-cn-20250302213518789.webp)
+![如图，经济体的人均资本 k 会收敛与图中的交叉点|585](/img/solow.zh-cn-20250302213518789.webp)
 
 代码绘图分为四个部分：
 
