@@ -19,7 +19,7 @@
 
 [GPT](https://chat.openai.com/auth/login) ：**更了解 stata 的函数**。在我处理字符串变量时，通义千问经常用复杂的命令处理，通常还报错，而 GPT 知道很多 stata 的不常用函数，一行代码就可以轻松搞定。
 
-[deepseek](https://chat.deepseek.com/) :国内新秀。语言表达很不错。能很快理解使用者的意思。
+[deepseek](https://chat.deepseek.com/) :国内新秀。语言表达很不错。能很快理解使用者的意思。虽然 GPT 的代码能力更加优秀，但 deepseek 更能听懂要求，建议 deepseek 生产基础代码，gpt 进行优化。
 
 ## 关于裁判文书的网站
 
