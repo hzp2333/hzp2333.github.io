@@ -228,7 +228,9 @@ $$
 
 ### 引理 ：$g_A-(1-\gamma)g_H\to0$
 
-马尔萨斯人口增长的假设：$g_H\equiv\frac{\dot{H}}{H}=n=\delta\left(\ln x-\ln x\right)$
+马尔萨斯人口增长的假设：$g_H\equiv\frac{\dot{H}}{H}=n=\delta\left(\ln x-\ln \bar{x}\right)$
+
+> 含义：人口增长取决于人均生存消费品水平。
 
 均衡人均消费的情况：$x=A(1-\beta)\left(\frac{H}{L}\right)^{\gamma-1}$
 
