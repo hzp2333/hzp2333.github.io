@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/"
-        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  2558 ,
+        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  2776 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/","datePublished": "2025-04-01T15:30:19+08:00","dateModified": "2025-04-01T15:30:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -234,7 +234,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 审查员设计（Judge IV）：一种随机分配的因果推断</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-04-01">2025-04-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2558 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-04-01">2025-04-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2776 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
     
 
@@ -339,14 +339,29 @@ $$</p>
 <p>在《Feedback and learning: The causal effects of reversals on judicial decision-making》中，作者通过案件的逆转方向（工具变量）对案件特征变量进行回归，皆不显著，验证了随机分配。也就说案件的结果和法官的特征是无关，每一个案件被随机分配到了不同的法官手中。</p>
 <p>随机分配也证明了工具变量的<strong>排他性</strong>。法官随机抽取一个案件然后判案，断绝了法官自身性格因素以外情况（例如权钱交易）。</p>
 <p>
-<figure><a class="lightgallery" href="/img/judgeiv.zh-cn-20250330151210442.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250330151210442.webp" data-sub-html="<h2> </h2><p>如图</p>">
+<figure><a class="lightgallery" href="/img/judgeiv.zh-cn-20250508195205074.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250508195205074.webp" data-sub-html="<h2> </h2><p>如图</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/img/judgeiv.zh-cn-20250330151210442.webp"
-            data-srcset="/img/judgeiv.zh-cn-20250330151210442.webp, /img/judgeiv.zh-cn-20250330151210442.webp 1.5x, /img/judgeiv.zh-cn-20250330151210442.webp 2x"
+            data-src="/img/judgeiv.zh-cn-20250508195205074.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250508195205074.webp, /img/judgeiv.zh-cn-20250508195205074.webp 1.5x, /img/judgeiv.zh-cn-20250508195205074.webp 2x"
             data-sizes="auto"
-            alt="/img/judgeiv.zh-cn-20250330151210442.webp" />
+            alt="/img/judgeiv.zh-cn-20250508195205074.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>上面是使用解释变量对其他特征进行回归，通过 F 检验检验随机分配。</p>
+<p>第二种更直观的检验随机分配的方法，就是比较实验组和对照组的平均特征差异。也就是使用案件特征对解释变量进行回归，此时经济意义就是对照组和实验组的平均差异。</p>
+<p>$$X_i=\beta\cdot PD_i+\alpha_{j(i)}+e_i$$
+下面这篇 2025 年斯隆奖获奖的博士论文研究的就是律师的随机分配，贫穷的被告会被随机分配到公共组织和私人组织的辩护律师。将律师特征作为工具变量对分配类型进行回归，经济系数接近于 0 且不显著，说明组间差异不大进而说明随机分配。</p>
+<p>
+<figure><a class="lightgallery" href="/img/judgeiv.zh-cn-20250508195601076.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250508195601076.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250508195601076.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250508195601076.webp, /img/judgeiv.zh-cn-20250508195601076.webp 1.5x, /img/judgeiv.zh-cn-20250508195601076.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250508195601076.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
 <h3 id="一阶回归可视化">一阶回归可视化</h3>
