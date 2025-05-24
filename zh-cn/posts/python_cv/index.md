@@ -403,6 +403,9 @@ MBTSLS  635.8036  (395.9637)
 
 ### chgdiv6命令：在Stata中算铜钱卦
 
+
+![如图](/img/pythonGIS.zh-cn-20250524111744270.webp)
+
 回归前来点玄学，详细参见
 
 {{< bilibili BV1bGQtYFEte>}}
