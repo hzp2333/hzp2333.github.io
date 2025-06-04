@@ -16,7 +16,7 @@
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/fld/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/fld/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/amateur_radio/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/python_cv\/"
-        },"genre": "posts","keywords": "Python, Stata","wordcount":  5945 ,
+        },"genre": "posts","keywords": "Python, Stata","wordcount":  5949 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/python_cv\/","datePublished": "2025-05-24T10:12:19+08:00","dateModified": "2025-05-24T10:12:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -213,7 +213,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 代码储存：python 年份、 stata 稳健性平行趋势检验</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-05-24">2025-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5945 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-05-24">2025-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5949 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;
     
 
@@ -259,8 +259,8 @@
 </blockquote>
 <h2 id="使用-python-cv-包的一次体验">使用 python cv 包的一次体验</h2>
 <p>最近在研究法院随机分案。老师看到了一篇论文讨论随机分案的利弊——《<a href="https://sites.google.com/utexas.edu/ruizuo11/research" target="_blank" rel="noopener noreffer ">Algorithm as Manager: How Algorithmic Judge-Case Assignment Influences Court Performance</a>》<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
-<p>如何判断当地法院是否执行了随机分案呢？作者一个很聪明的做法是通过政府采购信息查看，如果当地法院公共采购购买了随机分案系统，那么就是执行了随机分案。按照作者的资料，目前法院有纯随机分案和机器学习两种方式。</p>
-<p>不过目前作者暂时只定位到了省级，假设省里面存在一个法院进行了随机分案，全省统一（作者说未来会更新到地区层面）。</p>
+<p>如何判断当地法院是否执行了随机分案？这位作者一个很聪明的做法是通过政府采购信息进行辨别，如果当地法院公共采购购买了随机分案系统，那么就执行了随机分案。按照作者的资料，目前法院有纯随机分案和机器学习两种方式。</p>
+<p>目前作者只定位到了省级，假设省里面存在一个法院进行了随机分案，全省统一（图片注释说未来会更新到地区层面）。</p>
 <p>
 <figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524102004632.webp" title="如图" data-thumbnail="/img/pythonGIS.zh-cn-20250524102004632.webp" data-sub-html="<h2> </h2><p>如图</p>">
         <img
@@ -272,12 +272,12 @@
             alt="/img/pythonGIS.zh-cn-20250524102004632.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
-<p>虽然肉眼也能看出来省级年份，但是为了方便以后我通过图像定位更细的颜色（理论上这篇论文的色彩分布应该具体到季度层面？），同时早就想试试看 cv 包，所以通过 ai 尝试了下。</p>
+<p>虽然肉眼也能看出来省级年份，但是为了方便以后我通过图像定位更细的颜色（理论上这篇论文的色彩分布应该具体到了季度层面？），同时早就想试试看 cv 包，所以通过 ai 尝试了下。</p>
 <p>使用步骤如下：</p>
 <ul>
-<li>定位图片地址（不能包含中文）</li>
-<li>框选两个色条（左侧和右侧），定位初始时间和最终时间</li>
-<li>双击自己想要判断的像素点——直接得到对应的年份</li>
+<li>定位图片地址（不能包含中文）。</li>
+<li>框选两个色条（左侧和右侧），定位初始时间和最终时间。</li>
+<li>双击自己想要判断的像素点——直接得到对应的年份。</li>
 </ul>
 <p>
 <figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524102618436.webp" title="如图" data-thumbnail="/img/pythonGIS.zh-cn-20250524102618436.webp" data-sub-html="<h2> </h2><p>如图</p>">
@@ -1134,7 +1134,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/fld/" class="prev" rel="prev" title="当我们反垄断时，反对的到底是什么？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>当我们反垄断时，反对的到底是什么？</a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/fld/" class="prev" rel="prev" title="当我们反垄断时，反对的到底是什么？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>当我们反垄断时，反对的到底是什么？</a>
+            <a href="/zh-cn/posts/amateur_radio/" class="next" rel="next" title=" 业余无线电：泉盛 UV-K7 按键操作"> 业余无线电：泉盛 UV-K7 按键操作<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
