@@ -244,6 +244,11 @@ Stata 关于 DID 的平行趋势稳健性检验方法。
 
 ![如图,绘图风格使用的schemepack包的Rainbow风格（个人最爱的风格）](/img/pythonGIS.zh-cn-20250524103449818.webp)
 
+关于 did 异质性的理论讨论，推荐：
+
+{{< bilibili BV1vH4y1B7kk>}}
+
+
 代码如下
 
 ```stata
