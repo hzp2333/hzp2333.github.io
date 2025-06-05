@@ -85,7 +85,8 @@
 ![字母解释法，来源：http://www.scraa.org.cn/rumen/291.html](/img/业余无线电-20250604202118932.webp)
 
 我的呼号：BD8FEO
-
+- BRAVO  DELTA  EIGHT FOXTROT  ECHO OSCAR
+- BOSTON DENMARK  EIGHT  FLORIDA  ENGLAND  ONTARIO 
 ## 我国分区
 
 > 异地发射时使用
