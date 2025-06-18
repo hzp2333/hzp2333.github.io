@@ -131,21 +131,13 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 {{< friend   
 	name="理论派"
-	url="https://sliun.com/"
+	url="https://lilun.bearblog.dev/"
 	logo="https://sliun.com/lilun/logo.png"
 	word="历史爱好者"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   
-	name="狷盦的小栈"
-	url="https://www.yangxk196.com/"
-	logo="https://www.yangxk196.com/static/sitting.png"
-	word="念念不忘，必有回响"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 {{< friend   
 	name="TengFei"
