@@ -5,7 +5,7 @@
 
 Stata 图像框只支持统一设置一种字体，因此中英文字体需要在代码中额外设置下。
 
-## Stata 代码，不同回归系数可视化与中英文
+## 回归系数可视化与中英文字体
 
 使用 local 暂元命令储存下字体命令。
 
@@ -144,13 +144,13 @@ coefplot ///
 顺便一提， `coefplot` 命令是 [Ben Jann](https://repec.sowi.unibe.ch/stata/) 教授开发的，他还开发了一系列很火的命令包。
 
 ![Ben Jann 教授开发的其他包](/img/Stata图片中英文字体设置.zh-cn-20250707134419361.webp)
-## 额外讨论：不同学科的绘图风格
+## 额外讨论：不同学科绘图差异？
 
 我的室友是电子信息专业的，每次看到我的回归图片都会觉得发论文，图像怎能这么简洁? 不过确实如此，比起生物统计、信息统计、卫生统计各种花里胡哨的图片，经济学最复杂的图片除去 GIS 之外，或许就是事件研究图的系数可视化了，剩余的都是大片表格。
 
-不过，一个趋势似乎是——**回归系数可视化**正在变的越来越常见。
+不过，似乎有这样一个趋势——**回归系数可视化**正在变的越来越常见。
 
-再来看看发表在 nature、science 的经济学文章。我的很多老师吐槽这些论文是发不了经济学领域顶刊的，却能发在 nature 和 science 上——**这是不是意味着经济学科的崩坏**？我个人觉得就是吃了学科交叉的空子，环境资源经济学比较容易吃到学科交叉红利。
+再来看看发表在 nature、science 的经济学文章。我的很多老师吐槽这些论文是发不了经济学领域顶刊的，却能发在 nature 和 science 上——**这是不是意味着经济学科的崩坏**？我个人觉得就是吃了**学科交叉**的空子，环境资源经济学尤其容易获得这种红利。
 
 这些论文的图片风格也完全不同，更贴近理工科的绘图风格与分析范式。
 
@@ -162,6 +162,15 @@ coefplot ///
 ![如图,发表在nature的《 Ageing threatens sustainability of smallholder farming in China》](/img/Stata图片中英文字体设置.zh-cn-20250707123458729.webp)
 
 ![如图,发表在nature的《 Ageing threatens sustainability of smallholder farming in China》](/img/Stata图片中英文字体设置.zh-cn-20250707123336622.webp)
+
+例子 2：发表在 science 的《Climate policies that achieved major emissionrecuctions: Global evidence from two decades》
+
+(类似的中国环境经济学的在上面的还有不少)
+
+> 本文通过全球性的系统性事后评估，以确定在 1998 年至 2022 年期间在六大洲 41 个国家实施的 1500 项气候政策中实现大幅减排的政策组合。我们的方法将全面的气候政策数据库与基于机器学习的常见双重差分方法的扩展相结合。我们确定了 63 项成功的政策干预措施，总减排量在 6 亿至 18 亿公吨 CO2 之间。我们对有效但很少被研究的政策组合的见解强调了基于价格的工具在精心设计的政策组合中的重要作用，以及缩小排放差距所需的政策努力。
+
+
+![如图,发表在 science 的《Climate policies that achieved major emissionrecuctions: Global evidence from two decades》](/img/Stata图片中英文字体设置.zh-cn-20250707135340190.webp)
 
 [^1]: 不少高校出现升中文奖励等级，降英文奖励等级的趋势。
 [^2]: 但是 science 和 nature 的文章页数一直很短。
