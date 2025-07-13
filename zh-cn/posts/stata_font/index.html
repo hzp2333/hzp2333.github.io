@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_font\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  2679 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  2777 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_font\/","datePublished": "2025-07-07T12:02:19+08:00","dateModified": "2025-07-07T12:02:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -213,7 +213,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> Stata 图片中英文字体设置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-07-07">2025-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2679 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-07-07">2025-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2777 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
     
 
@@ -410,9 +410,9 @@
             alt="/img/Stata图片中英文字体设置.zh-cn-20250707130935909.webp" />
     </a><figcaption class="image-caption">如图，这种图常常在外生性检验、异质性检验中被用到</figcaption>
     </figure></p>
-<p><strong>图中这种可视化检验也在变得越来越常见</strong>。例如一个城市政策（01 二元变量）是否是外生冲击的呢？就使用城市 gdp、城市人口、城市经济增速这些相对于研究外生且代表城市特征的变量对政策选择回归。此时回归系数的理论含义就是试点与非试点的平均差异，不显著则说明差异不大，选择具有外生性<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<p><strong>图中这种可视化检验也在变得越来越常见</strong>。例如一个城市政策（01 二元变量）是否是外生冲击的呢<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>？就使用城市 gdp、城市人口、城市经济增速这些相对于研究外生且代表城市特征的变量对政策选择回归。此时回归系数的理论含义就是试点与非试点的平均差异，不显著则说明差异不大，一定程度上检验政策实施具有外生性<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
 <p><font color="#ff0000">中英文混排还有个问题就是 times 字体会偏高一些</font>（例如图中标题的 x、y、（a））, 因此最好避免在标题使用中英文混排。</p>
-<p>如果想要在多个回归，展示不同系数项，使用 <code>keep</code> 命令即可：</p>
+<p>如果想要在多个回归，展示不同系数项，使用 <code>keep</code> 命令限制相关系数即可：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -531,7 +531,7 @@
 <p>不过，似乎有这样一个趋势——<strong>回归系数可视化</strong>正在变的越来越常见。</p>
 <p>再来看看发表在 nature、science 的经济学文章。我的很多老师吐槽这些论文是发不了经济学领域顶刊的，却能发在 nature 和 science 上——<strong>这是不是意味着经济学科的崩坏</strong>？我个人觉得就是吃了<strong>学科交叉</strong>的空子，环境资源经济学尤其容易获得这种红利。</p>
 <p>这些论文的图片风格也完全不同，更贴近理工科的绘图风格与分析范式。</p>
-<p>例子：发表在 nature 的《 Ageing threatens sustainability of smallholder farming in China》<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+<p>例子：发表在 nature 的《 Ageing threatens sustainability of smallholder farming in China》<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
 <blockquote>
 <p>本文基于面板模型，利用中国 3 万多户农村家庭的调查数据，探讨了农村人口老龄化（家庭层面 65 岁以上人口比例）与农业可持续性之间的关系。总共选取了九个指标来说明农业可持续性，包括农场规模、农民教育程度、劳动生产率、农业总投入和产出、成本利润率、机械投入、化肥投入和肥料使用效率（FUE）。</p>
 </blockquote>
@@ -580,13 +580,16 @@
 <p>不少高校出现升中文奖励等级，降英文奖励等级的趋势。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2">
-<p>老师有次还对我说图片方框需要很细的，因为太粗了打印出来不好看，不过我看大部分顶刊使用的都是粗线条外框，但无论如何，字体肯定推荐中号大小以显示清楚。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>老师有次还对我说图片方框需要很细的，因为太粗了打印出来不好看，不过我看大部分顶刊使用的都是粗线条外框。无论如何，字体肯定推荐中号大小以兼顾显示和美观。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3">
-<p>当然，只是一种必要条件的检验，一切计量检验的都是必要条件而非充要，所以有人才认为计量只是一种说服人的学科，通过无数必要条件的展示说服人们这可能是充要条件。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>工具变量的排他性，解释变量的外生性正在逐渐被重视，随机分配的检验正在变得越来越多。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4">
-<p>但是 science 和 nature 的文章页数一直很短。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>当然，只是一种必要条件的检验，一切计量检验的都是必要条件而非充要，所以有人才认为计量只是一种说服人的学科，通过无数必要条件的展示说服人们这可能是充要条件。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>science 和 nature 的文章页数一直很短，甚至没有附录，和经济学的趋势完全相反。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
