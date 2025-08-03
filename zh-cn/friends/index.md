@@ -104,6 +104,15 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend   name="吕志冲"
+    url="https://zhichonglyu.com/"
+    logo="https://cdn.jsdelivr.net/gh/zhichonglyu/blogimg/img/202404291749220.jpg"
+    word="四川万悟昇长科技有限公司"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 ## 博主们：有缘千里来相会
 
 >也有些单向链接是我觉得很有意思的博客
