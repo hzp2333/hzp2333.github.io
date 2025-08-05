@@ -105,13 +105,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
-{{< friend   name="吕志冲"
-    url="https://zhichonglyu.com/"
-    logo="https://cdn.jsdelivr.net/gh/zhichonglyu/blogimg/img/202404291749220.jpg"
-    word="四川万悟昇长科技有限公司"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 ## 博主们：有缘千里来相会
 
@@ -274,6 +267,25 @@ img-animation="rotate"    border-animation="shadow"  >}}
 	url="https://www.6young.site/"
 	logo="https://gcore.jsdelivr.net/gh/6YoungHome/cdn2@main/clear_favicon.png"
 	word="学生、独立开发者、博主、量化研究员"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend   name="吕志冲"
+    url="https://zhichonglyu.com/"
+    logo="https://cdn.jsdelivr.net/gh/zhichonglyu/blogimg/img/202404291749220.jpg"
+    word="四川万悟昇长科技有限公司"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+{{< friend   name="左祥太"
+    url="https://shutterzor.cn/"
+    logo="https://shutterzor.github.io/images/profile2.jpg"
+    word="热衷于 Stata 和 Python 方法的开源共享"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}

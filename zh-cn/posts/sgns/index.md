@@ -2,7 +2,10 @@
 
 
 
-{{< music url="/music/敕勒川-野孩子.mp3" name=敕勒川 artist= 野孩子 cover="/images/敕勒川-野孩子.png" >}} 
+{{< music url="/music/Sea, Your Memory-VISUAL ARTS, Key Sounds Label.flac" name="Sea，You And Me" artist= "summer pockets" cover="/images/summerpockets.png" >}} 
+
+
+> 我都快忘记了，小时候度过暑假的方式——Summer Pockets
 
 
 ## 四姑娘山
