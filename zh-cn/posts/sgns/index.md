@@ -1,11 +1,7 @@
 #  四姑娘山，雪山脚下的徒步之旅
 
 
-
-{{< music url="/music/Sea, Your Memory-VISUAL ARTS, Key Sounds Label.flac" name="Sea，You And Me" artist= "summer pockets" cover="/images/summerpockets.png" >}} 
-
-
-> 我都快忘记了，小时候度过暑假的方式——Summer Pockets
+{{< music url="/music/山庄闲游.wav" name="山庄闲游" artist= "再见断刀" cover="/images/再见断刀.png" >}} 
 
 
 ## 四姑娘山

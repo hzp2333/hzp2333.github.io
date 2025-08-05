@@ -1,7 +1,7 @@
 # 看展：时代的容颜
 
 
-
+{{< music url="/music/Sea, Your Memory-VISUAL ARTS, Key Sounds Label.flac" name="Sea，You And Me" artist= "summer pockets" cover="/images/summerpockets.png" >}} 
 
 
 
