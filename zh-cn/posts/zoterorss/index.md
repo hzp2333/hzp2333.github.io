@@ -34,7 +34,7 @@ Zotero 7 (也就是 zotero beta) 载入订阅: 右键订阅
 
 #### 省流列表：
 
-个人感觉 JLE 和 JPE（都是芝加哥大学旗下期刊）挺多只看标题就吸引人的，劳经研究婚姻、性别、工资都挺有意思, 而且劳经一向是内生性处理思想和技术的天花板。政经由于没有特别指向，研究主题也比较宽泛。几乎所有人都可以在里面找到自己想要的。
+
 
 ```css
 AEA精彩集锦：
@@ -175,7 +175,7 @@ https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jole
 
 ###### National Bureau of Economic Research
 
-一个著名的经济研究组织机构，发表的论文不少后来都登上了顶级刊物。
+著名的经济研究组织机构，发表的论文不少后来都登上了顶级刊物。
 
 ```
 NBER最近工作论文推送

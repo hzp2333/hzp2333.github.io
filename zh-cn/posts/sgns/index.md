@@ -27,7 +27,7 @@
 
 **每一条路线都是单向路，只需要把握整体时间，不需要看地图。**
 
-![图源，背包客栈，https://www.backpackers.com.tw/forum/showthread.php?t=10606664#post12439890](/img/四姑娘山.zh-cn-20250730125427517.webp)
+![图源，背包客栈，https://www.backpackers.com.tw/forum/showthread.php?t=10606664#post12439890|668](/img/四姑娘山.zh-cn-20250730125427517.webp)
 
 ## 长坪沟
 
