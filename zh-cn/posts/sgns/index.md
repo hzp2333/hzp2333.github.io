@@ -1,7 +1,7 @@
 #  四姑娘山，雪山脚下的徒步之旅
 
 
-{{< music url="/music/山庄闲游.wav" name="山庄闲游" artist= "再见断刀" cover="/images/再见断刀.png" >}} 
+{{< music url="/music/争流口岸.mp3" name="争流口岸" artist= "三Z-STUDIO" cover="/images/再见断刀.png" >}} 
 
 
 ## 四姑娘山
