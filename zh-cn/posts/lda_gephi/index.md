@@ -34,9 +34,9 @@ Gephi 是一个网络关系可视化软件。这个软件还是博主 {{< person
 社会网络分析最经典的数据集为**空手道俱乐部**。空手道俱乐部有两个教练，有一天他们分道扬镳了。此前有统计学家记录了俱乐部的人际关系，然后进行社会网络可视化然后聚类，最终成员分家的分布基本吻合。
 
 
-![来源wiki百科，空手道俱乐部数据集可视化](/img/社会网络.zh-cn-20250824235924254.webp)
+![空手道俱乐部数据集可视化](/img/社会网络.zh-cn-20250824235924254.webp)
 
-社会网络的可视化主要涉及网络关系的演化（聚集、分裂）、分布（关键节点、权重、密度、结构[^2]）、预测。
+社会网络的可视化主要涉及网络关系的演化（聚集、分裂）、分布[^6]（关键节点、权重、密度、结构[^2]）、预测。
 
 论文《[Ownership Networks and Firm Growth: What Do Forty Million Companies Tell Us About the Chinese Economy? ](https://cfrc.pbcsf.tsinghua.edu.cn/__local/C/E3/F1/034E2CB105C230C8A028BDF18AD_5B83ADAD_18F58A.pdf?e=.pdf)》研究了中国股权网络的分布和演化。
 
@@ -44,7 +44,7 @@ Gephi 是一个网络关系可视化软件。这个软件还是博主 {{< person
 
 论文《[Community Interaction and Conflict on the Web](https://arxiv.org/abs/1803.03697)》研究了 raddit 的社群网络：**不到 1% 的社区引发了 74% 的负面 mobilization（动员行为）**。这些冲突一般由活跃社区的核心成员发起，而真正参与冲突的却是较不活跃的外围成员
 
-![如图](/img/社会网络.zh-cn-20250824231228354.webp)
+![raddit 的社群网络](/img/社会网络.zh-cn-20250824231228354.webp)
 
 Citespace 这种文献综述软件也是一种网络分析，也就是知识图谱。可参见我的另外一篇博文《[ Citespace 文献可视化](https://blog.huaxiangshan.com/zh-cn/posts/citespace/)》
 
@@ -384,3 +384,4 @@ if __name__ == '__main__':
 [^3]: 但是大数据的情况下，分散性分布美化计算太过复杂，因此使用很少。
 [^4]: 有了 ai，数据分析都不难，难的是拿到符合要求的素材。
 [^5]: 所以费曼吐槽社会科学可能是伪科学。
+[^6]: 光是描述性统计就已经足够赚人眼球。
