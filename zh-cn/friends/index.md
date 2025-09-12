@@ -493,6 +493,14 @@ word="R 开发者博客"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+{{< friend  name="Arcgis 开发博客"
+url="https://www.esri.com/arcgis-blog/overview"
+logo="https://www.esri.com/en-us/home"
+word="Arcgis 开发博客"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="statlect"
 url="https://www.statlect.com/"
 logo=""
