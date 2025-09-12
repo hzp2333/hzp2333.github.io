@@ -142,6 +142,16 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend   
+	name="时歌"
+	url="https://www.lapis.cafe/"
+	logo="https://www.lapis.cafe/_astro/avatar.exAKhE7w_1xwha6.webp"
+	word="理解以真实为本，但真实本身并不会自动呈现."
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend   
 	name="TengFei"
 	url="https://blog.tengfei.website/"
 	logo=""
