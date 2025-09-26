@@ -54,9 +54,6 @@ $$
 f^{\prime}(k_{\mathrm{gold}})=n+\delta
 $$
 
-$$
-
-$$
 {{< /admonition >}}
 ## Matlab 收敛图
 
