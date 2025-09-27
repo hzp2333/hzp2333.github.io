@@ -246,14 +246,7 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><p>今天运行 anaconda 突然无法打开启动界面，但可以直接打开并运行 jupyter 和 notebook。报错情况如下图所示。</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/anaconda.en-20240523120650966.webp" title="看这个的话，我也看不太明白" data-thumbnail="/img/anaconda.en-20240523120650966.webp" data-sub-html="<h2> </h2><p>看这个的话，我也看不太明白</p>">
+<figure><a class="lightgallery" href="/img/anaconda.en-20240523120650966.webp" title="看这个的话，我也看不太明白" data-thumbnail="/img/anaconda.en-20240523120650966.webp" data-sub-html="<h2> </h2><p>看这个的话，我也看不太明白</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -261,10 +254,8 @@
             data-srcset="/img/anaconda.en-20240523120650966.webp, /img/anaconda.en-20240523120650966.webp 1.5x, /img/anaconda.en-20240523120650966.webp 2x"
             data-sizes="auto"
             alt="/img/anaconda.en-20240523120650966.webp" />
-    </a>        <figcaption class="image-caption">
-           看这个的话，我也看不太明白        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">看这个的话，我也看不太明白</figcaption>
+    </figure></p>
 <p>网上常用解决方法都没起效，但这里还是列举一下</p>
 <ul>
 <li>升级安装包，</li>
@@ -293,14 +284,7 @@
 </blockquote>
 <p>网络上没有和我相同的情况，最后我是打开<strong>anaconda powershell prompt</strong>看到了具体问题，是路径识别出现问题。</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/anaconda.zh-cn-20240802122011236.webp" title="看这个的话，我也看不太明白" data-thumbnail="/img/anaconda.zh-cn-20240802122011236.webp" data-sub-html="<h2> </h2><p>看这个的话，我也看不太明白</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802122011236.webp" title="看这个的话，我也看不太明白" data-thumbnail="/img/anaconda.zh-cn-20240802122011236.webp" data-sub-html="<h2> </h2><p>看这个的话，我也看不太明白</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -308,20 +292,11 @@
             data-srcset="/img/anaconda.zh-cn-20240802122011236.webp, /img/anaconda.zh-cn-20240802122011236.webp 1.5x, /img/anaconda.zh-cn-20240802122011236.webp 2x"
             data-sizes="auto"
             alt="/img/anaconda.zh-cn-20240802122011236.webp" />
-    </a>        <figcaption class="image-caption">
-           看这个的话，我也看不太明白        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">看这个的话，我也看不太明白</figcaption>
+    </figure></p>
 <p>原因是 Windows 环境变量冲突：我的用户变量 path 和环境变量 path 设置冲突，不一致。导致在用户变量的 anaconda 被识别到了系统变量的 Java 环境。</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/anaconda.zh-cn-20240802115752502.webp" title="解决方法：统一用户变量和系统变量、或者删除java路径" data-thumbnail="/img/anaconda.zh-cn-20240802115752502.webp" data-sub-html="<h2> </h2><p>解决方法：统一用户变量和系统变量、或者删除java路径</p>">
+<figure><a class="lightgallery" href="/img/anaconda.zh-cn-20240802115752502.webp" title="解决方法：统一用户变量和系统变量、或者删除java路径" data-thumbnail="/img/anaconda.zh-cn-20240802115752502.webp" data-sub-html="<h2> </h2><p>解决方法：统一用户变量和系统变量、或者删除java路径</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -329,10 +304,8 @@
             data-srcset="/img/anaconda.zh-cn-20240802115752502.webp, /img/anaconda.zh-cn-20240802115752502.webp 1.5x, /img/anaconda.zh-cn-20240802115752502.webp 2x"
             data-sizes="auto"
             alt="/img/anaconda.zh-cn-20240802115752502.webp" />
-    </a>        <figcaption class="image-caption">
-           解决方法：统一用户变量和系统变量、或者删除java路径        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">解决方法：统一用户变量和系统变量、或者删除java路径</figcaption>
+    </figure></p>
 <p>解决方法：统一用户变量和系统变量、或者删除 java 路径。这里个人是因为<strong>无效的 path 路径挡路了</strong>。个人删除了 Java 的错误路径：<code>%Java\_Home%\bin;%Java\_Home%\jre\bin</code>。之后检验 Java 环境没受到影响，anaconda 环境也恢复了。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

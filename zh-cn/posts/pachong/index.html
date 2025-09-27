@@ -267,14 +267,7 @@
             </div><div class="content" id="content"><h2 id="引入">引入</h2>
 <p>何谓爬虫？即“可见即可得”的抓取。每一个网站都有源代码，源代码中自然就包含了网站显示的信息。抓取源代码时，数据和代码混杂在一起，我们再进行清洗就可以得到干净的数据。 <strong>stata 代码附件放在结尾。爬虫代码复用性并不高，本文主要是记录爬虫学习过程。</strong></p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp" title="爬虫流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132508772.webp" data-sub-html="<h2> </h2><p>爬虫流程</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp" title="爬虫流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132508772.webp" data-sub-html="<h2> </h2><p>爬虫流程</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -282,10 +275,8 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132508772.webp" />
-    </a>        <figcaption class="image-caption">
-           爬虫流程        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">爬虫流程</figcaption>
+    </figure></p>
 <p>从整个爬虫过程来说，<strong>获取网站源代码是最关键的一步</strong>。对于严格加密的网站（例如&quot;中国裁判文书网&quot;），还要伪装 ip，进行多账号切换，突破文字加密等，遗憾的是这些 stata 都做不到。Stata 擅长的是对没有防备的网站爬取然后快速清洗，处理数据。虽然 stata 擅长的这部分——&ldquo;切分代码和数据&quot;只是熟练度的问题，不过对于个人来说，使用 stata 进行爬虫的初步学习还是挺友好的。</p>
 <h2 id="一抓取网页源代码">一、抓取网页源代码</h2>
 <p>数据网站：国信房地产信息网-土地市场库网站页面如下：</p>
@@ -294,14 +285,7 @@
 <p>使用 python 能伪装 ip 登陆，stata 目前似乎不行，本文只做学习分享。</p>
 </blockquote>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp" title="网站" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132529559.webp" data-sub-html="<h2> </h2><p>网站</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp" title="网站" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132529559.webp" data-sub-html="<h2> </h2><p>网站</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -309,20 +293,11 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132529559.webp" />
-    </a>        <figcaption class="image-caption">
-           网站        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">网站</figcaption>
+    </figure></p>
 <p>右键——检查——右侧网站查看界面——点击进入“Network”</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp" title="如图" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132608238.webp" data-sub-html="<h2> </h2><p>如图</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp" title="如图" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132608238.webp" data-sub-html="<h2> </h2><p>如图</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -330,20 +305,11 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132608238.webp" />
-    </a>        <figcaption class="image-caption">
-           如图        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
 <p>之后我们切换网站的页数，这时候网站自然会更新数据，于是我们在右侧得到对应的数据变化源代码</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp" title="源代码" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132637510.webp" data-sub-html="<h2> </h2><p>源代码</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp" title="源代码" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132637510.webp" data-sub-html="<h2> </h2><p>源代码</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -351,10 +317,8 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132637510.webp" />
-    </a>        <figcaption class="image-caption">
-           源代码        </figcaption>
-    </figure>
-
+    </a><figcaption class="image-caption">源代码</figcaption>
+    </figure>
 对于该网站的数据切换源代码，多切换几次可以发现控制<strong>页面变化的是代码是 p=2</strong>。同理，当 p=1 时，对应的是第一页的数据页面。遇上加密网站时，这个工作会很困难。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -425,14 +389,7 @@
 </div>
 </div><p>可在 stata 里面对比网页源代码（进入对应网站后，右键查看网页源代码即可） ，可见下图：</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp" title="stata" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132656233.webp" data-sub-html="<h2> </h2><p>stata</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp" title="stata" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132656233.webp" data-sub-html="<h2> </h2><p>stata</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -440,10 +397,8 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132656233.webp" />
-    </a>        <figcaption class="image-caption">
-           stata        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">stata</figcaption>
+    </figure></p>
 <h3 id="2初步切割">2、初步切割</h3>
 <ul>
 <li><strong>keep 命令：</strong> 保留 stata 数据的哪些行</li>
@@ -485,14 +440,7 @@
 </div>
 </div><p>如图，到目前位置，第一页前 20 条数据已经被爬取下来并且进行了初步切割。</p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp" title="切割" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133224742.webp" data-sub-html="<h2> </h2><p>切割</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp" title="切割" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133224742.webp" data-sub-html="<h2> </h2><p>切割</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -500,10 +448,8 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523133224742.webp" />
-    </a>        <figcaption class="image-caption">
-           切割        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">切割</figcaption>
+    </figure></p>
 <h3 id="3进一步切割">3、进一步切割</h3>
 <ul>
 <li><strong>replace:</strong> 将要切割的代码换成“滑翔闪”或者&quot;&ldquo;表示删除，然后一次性切割。</li>
@@ -597,14 +543,7 @@
 </div>
 </div><p><strong>起始价和交易价部分使用的 js 进行加密，所以无法爬取，本文主要是记录爬虫原理和流程。</strong></p>
 <p>
-    
-
-
-
-
-
-
-    <figure class="">         <a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp" title="起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133244093.webp" data-sub-html="<h2> </h2><p>起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</p>">
+<figure><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp" title="起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133244093.webp" data-sub-html="<h2> </h2><p>起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -612,10 +551,8 @@
             data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 2x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523133244093.webp" />
-    </a>        <figcaption class="image-caption">
-           起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程        </figcaption>
-    </figure>
-</p>
+    </a><figcaption class="image-caption">起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</figcaption>
+    </figure></p>
 <p>Stata 无法使用 ip 和账号登入，所以无法爬取价格</p>
 <h3 id="5多页爬取">5、多页爬取</h3>
 <p>Forvalues：stata 循环函数，我们将源代码的<strong>p=1</strong>换成 <strong>p=`i&rsquo;</strong> 即可实现循环爬取。</p>
