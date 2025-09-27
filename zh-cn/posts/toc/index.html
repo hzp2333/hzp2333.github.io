@@ -257,7 +257,14 @@
 </blockquote>
 <p>Hugo 会为每个博客文章生成目录，并且目录标题应该能实现点击跳转。几天前我发现我的博客，中文页面不能实现标题跳转，英文依旧可以。</p>
 <p>
-<figure><a class="lightgallery" href="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240523120305243.webp" title="hugo目录生成" data-thumbnail="/img/中文博客目录跳转失败.zh-cn-20240523120305243.webp" data-sub-html="<h2> </h2><p>hugo目录生成</p>">
+    
+
+
+
+
+
+
+    <figure class="">         <a class="lightgallery" href="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240523120305243.webp" title="hugo目录生成" data-thumbnail="/img/中文博客目录跳转失败.zh-cn-20240523120305243.webp" data-sub-html="<h2> </h2><p>hugo目录生成</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -265,8 +272,10 @@
             data-srcset="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240523120305243.webp, /img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240523120305243.webp 1.5x, /img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240523120305243.webp 2x"
             data-sizes="auto"
             alt="/img/中文博客目录跳转失败.zh-cn-20240523120305243.webp" />
-    </a><figcaption class="image-caption">hugo目录生成</figcaption>
-    </figure></p>
+    </a>        <figcaption class="image-caption">
+           hugo目录生成        </figcaption>
+    </figure>
+</p>
 <h2 id="原因">原因</h2>
 <p>在询问 <a href="https://github.com/HEIGE-PCloud/DoIt/issues/1209" target="_blank" rel="noopener noreffer ">doit主题维护者</a>后我得到了错误原因：</p>
 <p>我在页面里添加了 BGM（如下）——这个功能使用了 <a href="https://github.com/DIYgod/APlayer" target="_blank" rel="noopener noreffer ">APIayer</a>，同时 APIayer 又调用了 <a href="https://github.com/alicelieutier/smoothScroll" target="_blank" rel="noopener noreffer ">smoothScroll</a>。</p>
@@ -304,7 +313,14 @@
 <p>将 <code>themes\LoveIt\assets\data\cdn\jsdelivr.yml</code> 复制到 <code>&lt;自己网站&gt;\assets\data\cdn\jsdelivr.yml</code>。</p>
 <p>然后注释掉 <code>aplayerJS: aplayer@1.10.1/dist/APlayer.min.js</code>。</p>
 <p>
-<figure><a class="lightgallery" href="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240717214838677.webp" title="看来最后还是出现在调用问题上" data-thumbnail="/img/中文博客目录跳转失败.zh-cn-20240717214838677.webp" data-sub-html="<h2> </h2><p>看来最后还是出现在调用问题上</p>">
+    
+
+
+
+
+
+
+    <figure class="">         <a class="lightgallery" href="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240717214838677.webp" title="看来最后还是出现在调用问题上" data-thumbnail="/img/中文博客目录跳转失败.zh-cn-20240717214838677.webp" data-sub-html="<h2> </h2><p>看来最后还是出现在调用问题上</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -312,8 +328,10 @@
             data-srcset="/img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240717214838677.webp, /img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240717214838677.webp 1.5x, /img/%e4%b8%ad%e6%96%87%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac%e5%a4%b1%e8%b4%a5.zh-cn-20240717214838677.webp 2x"
             data-sizes="auto"
             alt="/img/中文博客目录跳转失败.zh-cn-20240717214838677.webp" />
-    </a><figcaption class="image-caption">看来最后还是出现在调用问题上</figcaption>
-    </figure></p>
+    </a>        <figcaption class="image-caption">
+           看来最后还是出现在调用问题上        </figcaption>
+    </figure>
+</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
