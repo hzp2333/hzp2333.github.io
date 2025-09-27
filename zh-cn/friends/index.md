@@ -339,6 +339,16 @@ word="经济学必读教材作者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend  name="ETH Zurich"
+url="https://elliottash.com/"
+logo="https://elliottash.com/wp-content/uploads/2020/11/head-shot-DGESS-1-768x768.jpg"
+word="法律与政治经济学"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 {{< friend  name="Chris Blattman"
 url="https://chrisblattman.com/about/"
 logo="https://chrisblattman.com/files/2022/04/ChrisBlattman-byJasonSmith-5136-scaled-e1650130010593-1024x600.jpg"
