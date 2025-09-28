@@ -42,82 +42,69 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sakana 小组件集成</title>
-    <style>
-         
-        #sakana-widget-container {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            width: 268px;   
-            height: 268px;  
-        }
-        #sakana-widget {
-            width: 100%;
-            height: 100%;
-        }
-
-         
-        @media screen and (max-width: 600px) {
-            #sakana-widget-container {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-    <div id="sakana-widget-container">
-        <div id="sakana-widget"></div>
-    </div>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
 
-    <script>
-        function initSakanaWidget() {
-            new SakanaWidget({
-                size: 300,  
-                autoFit: true,  
-                character: 'chisato',  
-                controls: true,  
-                rod: true,  
-                draggable: true,  
-                stroke: {
-                    color: '#b4b4b4',  
-                    width: 10  
-                },
-                threshold: 0.1,  
-                rotate: 0,  
-                title: false  
-            }).mount('#sakana-widget');
-        }
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
 
-        
-        function checkScreenWidth() {
-            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            var container = document.getElementById('sakana-widget-container');
-            if (screenWidth <= 960) {
-                container.style.display = 'none';
-            } else {
-                container.style.display = 'block';
-            }
-        }
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
 
-        
-        checkScreenWidth();
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
 
-        
-        window.addEventListener('resize', checkScreenWidth);
-
-        
-        initSakanaWidget();
-    </script>
-    <script
-        async
-        onload="initSakanaWidget()"
-        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
-    ></script>
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
 </body>
 </html>
+
 
 
 
@@ -281,7 +268,7 @@
         alt="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"
         title="/img/Hugo中英文建站.zh-cn-20240810172249058.webp" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/zh-cn/posts/runtime/">多语言 hugo 添加总字数统计和建站时间</a>
+        <a href="/zh-cn/posts/runtime/">hugo 美化 2</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-08-10">2024-08-10</time>, 
             </span>&nbsp;<span class="post-publish">更新于 <time datetime="2024-08-10">2024-08-10</time>, 
             </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div><div class="content">在博客页脚添加总字数统计和建站时间并且能自动中英切换。</div><div class="post-footer">
