@@ -631,7 +631,6 @@ other = "The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .M
 Math = true
 ```
 
-{{< admonition type=danger  title="hugo 渲染数学公式" open=true >}}
 
 由于 Hugo 在渲染 Markdown 文档时会根据 `_`/`*`/`>>` 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 (如 `\(`/`\)`/`\[`/`\]`/`\\`) 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:
 
@@ -674,7 +673,7 @@ V (\varepsilon)=\int\_{0}^{T}F[t,\underbrace{y^{\*}\left (t\right)+\varepsilon p
 
 例如我渲染 `$2\_i^\*-2_j^*$` —— $2_i^\*-2_j^*$, 由于式子很简单，转不转化命令都一样。
 
-{{< /admonition >}}
+
 
 
 
