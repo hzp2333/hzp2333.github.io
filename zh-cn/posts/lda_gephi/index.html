@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/lda_gephi\/"
-        },"genre": "posts","keywords": "Gephi, Python, Network","wordcount":  5045 ,
+        },"genre": "posts","keywords": "Gephi, Python, Network","wordcount":  7569 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/lda_gephi\/","datePublished": "2025-08-31T07:00:19+08:00","dateModified": "2025-08-31T07:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -200,8 +200,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LDA 主题模型与 Gephi 可视化</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-08-31">2025-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5045 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-08-31">2025-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7569 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;
     
 
     
@@ -382,6 +382,9 @@
 <li>结果文件夹</li>
 </ol>
 <p>我使用的 <code>jieba</code> 分词、<code>gensim.models</code> 库的模型训练方式，如果想要进一步优化，可以从这几个环节进行修改<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<blockquote>
+<p>注意 <code>gensim</code> 和 <code>numps</code> 的版本兼容问题。</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">  1
@@ -975,7 +978,519 @@
             alt="/img/社会网络.zh-cn-20250824180041018.webp" />
     </a><figcaption class="image-caption">LDA 生成主题|444x221</figcaption>
     </figure></p>
-<h2 id="一些感叹">一些感叹</h2>
+<p>下面这个图是优化了代码，使用 <code>jieba</code> 进一步删减副词形容词得到的图片，个人感觉这种图片总结就相当到位了。</p>
+<p>
+<figure><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp" title="如图" data-thumbnail="/img/社会网络.zh-cn-1759046125538.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-1759046125538.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure>
+
+<figure><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp" title="15个主题" data-thumbnail="/img/社会网络.zh-cn-1759046196231.webp" data-sub-html="<h2> </h2><p>15个主题</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-1759046196231.webp" />
+    </a><figcaption class="image-caption">15个主题</figcaption>
+    </figure>
+优化版代码（个人笔记本跑不动了买了个便宜云服务器跑的）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">优化 LDA 管道：支持 Markdown (.md) 文档、自动停用词、词性过滤
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 使用 LdaMulticore 多线程训练
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 支持豁免词强制保留为主题关键词
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 可直接生成 Gephi 二部图
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">glob</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jieba</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jieba.posseg</span> <span class="k">as</span> <span class="nn">pseg</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim.models.ldamulticore</span> <span class="kn">import</span> <span class="n">LdaMulticore</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Markdown 解析</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">markdown</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;错误：缺少必要库，请执行 &#39;pip install markdown beautifulsoup4&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 配置 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">DOCS_GLOB</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/原始博客/*.md&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">STOPWORDS_PATH</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/设置/分词stop.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/结果输出&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 词典和语料参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_BELOW</span> <span class="o">=</span> <span class="mi">3</span>            <span class="c1"># 词语至少出现的文档数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_ABOVE</span> <span class="o">=</span> <span class="mf">0.8</span>          <span class="c1"># 词语在文档中出现比例上限</span>
+</span></span><span class="line"><span class="cl"><span class="n">KEEP_N</span> <span class="o">=</span> <span class="mi">100000</span>              <span class="c1"># 词典最大词数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LDA 模型参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NUM_TOPICS</span> <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># 主题数</span>
+</span></span><span class="line"><span class="cl"><span class="n">TOPN</span> <span class="o">=</span> <span class="mi">15</span>               <span class="c1"># 每个主题显示的关键词数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">PASSES</span> <span class="o">=</span> <span class="mi">20</span>             <span class="c1"># LDA训练轮数</span>
+</span></span><span class="line"><span class="cl"><span class="n">WORKERS</span> <span class="o">=</span> <span class="mi">28</span>             <span class="c1"># 多线程数（建议 = CPU核心数 - 1）</span>
+</span></span><span class="line"><span class="cl"><span class="n">CHUNKSIZE</span> <span class="o">=</span> <span class="mi">5000</span>        <span class="c1"># 每批处理文档数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">BATCH</span> <span class="o">=</span> <span class="kc">True</span>            <span class="c1"># 是否使用小批量训练</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 分词与停用词</span>
+</span></span><span class="line"><span class="cl"><span class="n">USE_POS_FILTER</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">POS_BLACKLIST</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">USE_AUTO_DF_STOPWORDS</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">AUTO_DF_THRESHOLD</span> <span class="o">=</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl"><span class="n">AUTO_DF_TOPK</span> <span class="o">=</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 额外停用词</span>
+</span></span><span class="line"><span class="cl"><span class="n">ADDITIONAL_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;什么&#39;</span><span class="p">,</span> <span class="s1">&#39;推荐&#39;</span><span class="p">,</span> <span class="s1">&#39;获取&#39;</span><span class="p">,</span> <span class="s1">&#39;点击&#39;</span><span class="p">,</span> <span class="s1">&#39;生成&#39;</span><span class="p">,</span> <span class="s1">&#39;绘制&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;存在&#39;</span><span class="p">,</span> <span class="s1">&#39;问题&#39;</span><span class="p">,</span> <span class="s1">&#39;使用&#39;</span><span class="p">,</span> <span class="s1">&#39;可以&#39;</span><span class="p">,</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;现在&#39;</span><span class="p">,</span> <span class="s1">&#39;通过&#39;</span><span class="p">,</span> <span class="s1">&#39;文章&#39;</span><span class="p">,</span> <span class="s1">&#39;内容&#39;</span><span class="p">,</span> <span class="s1">&#39;研究法&#39;</span><span class="p">,</span> <span class="s1">&#39;人为&#39;</span><span class="p">,</span> <span class="s1">&#39;保留&#39;</span><span class="p">,</span> <span class="s1">&#39;来讲&#39;</span><span class="p">,</span> <span class="s1">&#39;叫魂&#39;</span><span class="p">,</span> <span class="s1">&#39;学家&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DEFAULT_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;的&#39;</span><span class="p">,</span> <span class="s1">&#39;了&#39;</span><span class="p">,</span> <span class="s1">&#39;和&#39;</span><span class="p">,</span> <span class="s1">&#39;是&#39;</span><span class="p">,</span> <span class="s1">&#39;在&#39;</span><span class="p">,</span> <span class="s1">&#39;就&#39;</span><span class="p">,</span> <span class="s1">&#39;都&#39;</span><span class="p">,</span> <span class="s1">&#39;而&#39;</span><span class="p">,</span> <span class="s1">&#39;及&#39;</span><span class="p">,</span> <span class="s1">&#39;与&#39;</span><span class="p">,</span> <span class="s1">&#39;或&#39;</span><span class="p">,</span> <span class="s1">&#39;一个&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;我&#39;</span><span class="p">,</span> <span class="s1">&#39;你&#39;</span><span class="p">,</span> <span class="s1">&#39;他&#39;</span><span class="p">,</span> <span class="s1">&#39;她&#39;</span><span class="p">,</span> <span class="s1">&#39;它&#39;</span><span class="p">,</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;你们&#39;</span><span class="p">,</span> <span class="s1">&#39;他们&#39;</span><span class="p">,</span> <span class="s1">&#39;她们&#39;</span><span class="p">,</span> <span class="s1">&#39;这&#39;</span><span class="p">,</span> <span class="s1">&#39;那&#39;</span><span class="p">,</span> <span class="s1">&#39;其&#39;</span><span class="p">,</span> <span class="s1">&#39;又&#39;</span><span class="p">,</span> <span class="s1">&#39;被&#39;</span><span class="p">,</span> <span class="s1">&#39;上&#39;</span><span class="p">,</span> <span class="s1">&#39;中&#39;</span><span class="p">,</span> <span class="s1">&#39;对&#39;</span><span class="p">,</span> <span class="s1">&#39;所&#39;</span><span class="p">,</span> <span class="s1">&#39;为&#39;</span><span class="p">,</span> <span class="s1">&#39;于&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 豁免词（强制保留为主题关键词）</span>
+</span></span><span class="line"><span class="cl"><span class="n">WHITELIST_WORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;经济&#39;</span><span class="p">,</span> <span class="s1">&#39;国家&#39;</span><span class="p">,</span> <span class="s1">&#39;政府&#39;</span><span class="p">,</span> <span class="s1">&#39;政策&#39;</span><span class="p">,</span> <span class="s1">&#39;文学&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 文本清理正则</span>
+</span></span><span class="line"><span class="cl"><span class="n">RE_CLEAN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[\s\d\u0000-\u007F]+&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 函数 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_text_from_markdown</span><span class="p">(</span><span class="n">md_content</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">md_content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tag</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_stopwords</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sw</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">w</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">w</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sw</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">combined</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">DEFAULT_STOPWORDS</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">ADDITIONAL_STOPWORDS</span><span class="p">)</span> <span class="o">|</span> <span class="n">sw</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">combined</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_documents</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">docs</span><span class="p">,</span> <span class="n">filenames</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;未找到文件: </span><span class="si">{</span><span class="n">glob_pattern</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个文件&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">raw_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">raw_text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clean_text</span> <span class="o">=</span> <span class="n">extract_text_from_markdown</span><span class="p">(</span><span class="n">raw_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">filenames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;读取失败 </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">auto_find_generic_terms</span><span class="p">(</span><span class="n">tokens_list</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">AUTO_DF_THRESHOLD</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">AUTO_DF_TOPK</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n_docs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">tokens_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">df</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_ratio</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">cnt</span> <span class="o">/</span> <span class="n">n_docs</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">high_df</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">high_df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">top_k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sorted_by_df</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">high_df</span> <span class="o">|=</span> <span class="p">{</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">sorted_by_df</span><span class="p">[:</span><span class="n">top_k</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">high_df</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">,</span> <span class="n">use_pos_filter</span><span class="o">=</span><span class="n">USE_POS_FILTER</span><span class="p">,</span> <span class="n">pos_blacklist</span><span class="o">=</span><span class="n">POS_BLACKLIST</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">RE_CLEAN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">use_pos_filter</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">pseg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">short_flag</span> <span class="o">=</span> <span class="n">flag</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">flag</span> <span class="k">else</span> <span class="n">flag</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">short_flag</span> <span class="ow">in</span> <span class="n">pos_blacklist</span> <span class="ow">or</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WHITELIST_WORDS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">words</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">or</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">WHITELIST_WORDS</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tokens</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 主流程 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载停用词...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stopwords</span> <span class="o">=</span> <span class="n">load_stopwords</span><span class="p">(</span><span class="n">STOPWORDS_PATH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;加载了 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个停用词&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载 Markdown 文档...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">load_documents</span><span class="p">(</span><span class="n">DOCS_GLOB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;成功处理 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s1"> 篇文档&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;文本预处理...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">USE_AUTO_DF_STOPWORDS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;自动检测高频泛用词...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">detected</span> <span class="o">=</span> <span class="n">auto_find_generic_terms</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">detected</span> <span class="o">-=</span> <span class="n">WHITELIST_WORDS</span>  <span class="c1"># 豁免词不加入停用词</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">detected</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;检测到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">detected</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个泛用词，加入停用词重新处理&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stopwords</span> <span class="o">|=</span> <span class="n">detected</span>
+</span></span><span class="line"><span class="cl">            <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">total_tokens</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;共 </span><span class="si">{</span><span class="n">total_tokens</span><span class="si">}</span><span class="s1"> 个有效词汇&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建词典与语料...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span><span class="o">.</span><span class="n">filter_extremes</span><span class="p">(</span><span class="n">no_below</span><span class="o">=</span><span class="n">NO_BELOW</span><span class="p">,</span> <span class="n">no_above</span><span class="o">=</span><span class="n">NO_ABOVE</span><span class="p">,</span> <span class="n">keep_n</span><span class="o">=</span><span class="n">KEEP_N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;文档数量: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span><span class="si">}</span><span class="s1">, 词典大小: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;训练 LDA 模型 (多线程)...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span> <span class="o">=</span> <span class="n">LdaMulticore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">passes</span><span class="o">=</span><span class="n">PASSES</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">workers</span><span class="o">=</span><span class="n">WORKERS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunksize</span><span class="o">=</span><span class="n">CHUNKSIZE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">batch</span><span class="o">=</span><span class="n">BATCH</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">per_word_topics</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;lda_model.model&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA 模型已保存: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 主题关键词</span>
+</span></span><span class="line"><span class="cl">    <span class="n">topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">show_topics</span><span class="p">(</span><span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span> <span class="n">num_words</span><span class="o">=</span><span class="n">TOPN</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows_kw</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">主题关键词:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_words</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Topic </span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">topic_words</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows_kw</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="n">tid</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">:</span> <span class="n">rank</span><span class="p">,</span> <span class="s1">&#39;word&#39;</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_kw</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 文档-主题分布</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows_dt</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">bow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc_topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">bow</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">doc_topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows_dt</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="n">filenames</span><span class="p">[</span><span class="n">doc_id</span><span class="p">],</span> <span class="s1">&#39;doc_id&#39;</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span> <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">tid</span><span class="p">),</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">weight</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_dt</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;文档-主题分布已保存&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建 Topic-Term 二部图</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建 Topic-Term 二部图...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;Topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s2">_&#34;</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">topic_label</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="n">topic_id</span><span class="o">=</span><span class="n">tid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">term</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">G</span><span class="o">.</span><span class="n">has_node</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">term</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nx</span><span class="o">.</span><span class="n">write_gexf</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Topic-Term 二部图已保存&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出文件信息</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">全部完成! 生成文件:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lda_model.model&#39;</span><span class="p">,</span> <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; - </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> KB)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="一些感叹">一些感叹</h2>
 <p>总是吐槽机器学习是黑箱子，但是对于使用各种分析软件的我来说，很多软件方法和黑箱子又有什么区别呢？假设 stata 外部命令错误，如果不知根知底，或者从理论上多角度比对结果就难以发现错误。</p>
 <p>例如 <a href="https://mp.weixin.qq.com/s/IsuB02q6Lek07Oxknvx6Vw" target="_blank" rel="noopener noreffer ">「Stata」bdiff+reghdfe的正确用法，很多论文都被坑了</a>。个人记得以前有个 did 外部命令也出现过错误。</p>
 <p>我相信 ai 会加强代码类学习的正反馈，但与此同时 ai 也会带来“我懂了”的幻觉。正如费曼一向强调的那样——<strong>知道和理解并不相同</strong><sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。跑通代码和理解代码远远不是一个层次的学习。Ai 学习的知识幻觉时代，什么才是懂了？或许应该被重新思考。</p>
