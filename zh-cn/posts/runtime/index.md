@@ -586,7 +586,7 @@ other = "The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .M
 
 ## 在博客中渲染数学公式
 
-虽然 **[LoveIt](https://hugoloveit.com/zh-cn/theme-documentation-content/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F)** 主题通过 [KaTeX](https://katex.org/) 提供数学公式的支持，但个人觉得使用体验不如 `MathJax`。
+虽然 **[LoveIt](https://hugoloveit.com/zh-cn/theme-documentation-content/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F)** 主题通过 [KaTeX](https://katex.org/) 提供数学公式的支持，但个人觉得使用体验不如 [MathJax](https://www.mathjax.org/) 。
 
 使用 `MathJax` 的方法首先是在 `<你的博客>\layouts\partials` 中创建 `mathjax.html`。
 

@@ -132,39 +132,6 @@ LaTeX 有很多个编译器，适用于 emoji 宏包的是 luaLaTeX
 
 [PDF 处理网站](https://www.ilovepdf.com/zh-cn/merge_pdf)
 
-## Texstudio 配置语言助手
-
-Texstudio 页面。
-
-![如图](/img/LaTeX入门.zh-cn-1758093039527.webp)
-
-先下载 java (请自行寻找娇教程)
-
-然后下载免费的语法检查助手—— [https://languagetool.org/download/](https://languagetool.org/download/)
-
-下载自己对应的电脑版本，我是 win 系统加最新版 texstudio，所以选择 [LanguageTool-6.6.zip](https://languagetool.org/download/LanguageTool-6.6.zip)。
-
-下载好之后解压对应的 languagetool 压缩包。在对应的文件夹页面打开 cmd（直接在路径栏输入 cmd 即可从这里打开）
-
-然后运行 java -jar languagetool. Jar
-
-打开后，`text checking` - `选项` 进入页面，设置语言、服务器端口。
-
-![如图](/img/LaTeX入门.zh-cn-1758092612033.webp)
-
-设置完成后，进入 texstudio 设置最下面的 languagetool 即可。
-
-![如图](/img/LaTeX入门.zh-cn-1758092768418.webp)
-
-之后重启 texstudio，在帮助检查语言工具即可：
-
-波浪线对应的就是语法错误。
-
-![如图](/img/LaTeX入门.zh-cn-1758092931198.webp)
-
-右键错误地方就会有更正提示：
-
-![如图](/img/LaTeX入门.zh-cn-1758092975675.webp)
 
 ## 个人入门代码
 

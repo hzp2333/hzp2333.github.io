@@ -46,6 +46,8 @@ Gephi 是一个网络关系可视化软件。这个软件最早还是博主 {{< 
 
 论文《[Community Interaction and Conflict on the Web](https://arxiv.org/abs/1803.03697)》研究了 raddit 的社群网络：**不到 1% 的社区引发了 74% 的负面动员行为**。这些冲突一般由活跃社区的核心成员发起，而真正参与冲突的却是较不活跃的外围成员。
 
+
+
 ![raddit 的社群网络](/img/社会网络.zh-cn-20250824231228354.webp)
 
 Citespace 这种文献综述软件也是一种网络分析，也就是知识图谱。可参见另外一篇博文《[ Citespace 文献可视化](https://blog.huaxiangshan.com/zh-cn/posts/citespace/)》。
