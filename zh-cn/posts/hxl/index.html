@@ -41,55 +41,29 @@
         <div id="mask"></div><div class="wrapper">
 
 <script>
-  
-  window.MathJax = {
+  MathJax = {
     tex: {
-      inlineMath: [["$", "$"], ["\\(", "\\)"]],
-      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
-      processEscapes: true,
+      inlineMath: [["$", "$"]],
     },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
     svg: {
       fontCache: "global",
     },
   };
 </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 
 
-<script>
-  (function() {
-    var script = document.createElement("script");
-    script.src = "/js/polyfill.min.js";
-    script.onerror = function() {
-      console.warn("⚠️ 本地 polyfill 加载失败，切换至 CDN");
-      var cdn = document.createElement("script");
-      cdn.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";
-      document.head.appendChild(cdn);
-    };
-    document.head.appendChild(script);
-  })();
-</script>
 
 
-<script>
-  (function() {
-    var script = document.createElement("script");
-    script.id = "MathJax-script";
-    script.async = true;
-    script.src = "/js/mathjax/es5/tex-chtml.js";
-    script.onerror = function() {
-      console.warn("⚠️ 本地 MathJax 加载失败，切换至 BootCDN");
-      var cdn = document.createElement("script");
-      cdn.id = "MathJax-script";
-      cdn.async = true;
-      cdn.src = "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js";
-      document.head.appendChild(cdn);
-    };
-    document.head.appendChild(script);
-  })();
-</script>
-
-
-<script id="MathJax-script" async src="/js/mathjax/es5/tex-chtml.js"></script>
 
 
 
