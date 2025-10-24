@@ -21,7 +21,7 @@ conda update --all
 
 > 删除 `.condarc` 文件（一般在 C 盘、用户、当前用户中）。
 
-网络上没有和我相同的情况，最后我是打开**anaconda powershell prompt**看到了具体问题，是路径识别出现问题。
+网络上没有和我相同的情况，最后我是打开**anaconda powershell prompt** 看到了具体问题，是路径识别出现问题。
 
 ![看这个的话，我也看不太明白](/img/anaconda.zh-cn-20240802122011236.webp)
 

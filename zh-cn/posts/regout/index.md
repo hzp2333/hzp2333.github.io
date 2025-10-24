@@ -32,6 +32,11 @@
 
 ![asdoc描述性统计](/img/stata输出Word表格.zh-cn-20240523133544872.webp)
 ![asdoc回归统计](/img/stata输出Word表格.zh-cn-20240523133602158.webp)
+###   Sum2doc：描述统计
+
+```
+local varlist "wage age race married grade collgrad south union occupation" sum2docx `varlist' using Myfile.docx,replace /// stats(N mean(%9.2f) sd(%9.3f) min(%9.2f) median(%9.2f) max(%9.2f)) /// title(sum2docx_Table: Descriptive statistics)
+```
 ### Logout：均值差异、相关系数检验
 
 `logout` 好处是在描述统计、回归结果之外，还能输出均值差异检验、相关系数检验[^2]。

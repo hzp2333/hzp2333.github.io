@@ -54,11 +54,15 @@ var envMap = {
     "定理": "theorem",
     "引理": "lemma",
     "命题": "proposition",
+	"性质": "proposition",
+	"练习": "exercise",
+	"思考题": "exercise",
+	"思考": "exercise",
+	"问题": "exercise",
     "推论": "corollary",
     "定义": "definition",
 	"概念": "definition",
     "例子": "example",
-	"案例": "example",
     "备注": "remark",
 	"注意": "remark",
     "笔记": "note",
@@ -91,18 +95,18 @@ cursor.insertText(txt);
 // ===== 调整光标位置到环境内部 =====
 cursor.movePosition(2, cursorEnums.Up);
 cursor.movePosition(1, cursorEnums.StartOfLine);
-
-
 ```
 
 触发器设置为
 ```js
-\-(.+.)\-(.+.)\-(.+.)\r
+\-(.+.)\-(.+.)\-(.+.)\t
+
+*\t 是tab键
 ```
 
 逻辑也不难，触发器三个括号的正则识别内容对应着代码里的 env 、title、label。填入构造代码模板，然后移动光标。(唯一问题是 texstudio 正则识别对中文符号的兼容太差了)
 
-![如图](/img/texstudio.zh-cn.md-1760091756396.webp)
+![如图](/img/texstudio.zh-cn.md-1760491203042.webp)
 
 
 ## Texstudio 配置语言助手
