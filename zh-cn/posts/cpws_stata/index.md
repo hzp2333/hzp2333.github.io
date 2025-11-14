@@ -1680,6 +1680,59 @@ if __name__ == "__main__":
     main(input_path, output_path)
 ```
 
+## 例子 6：法院-年份案件公开率
+
+```sql
+**********思路*************
+/*
+由于每年案件编号为
+民初（2020）**号，**号按照顺序编号。
+有可能样本只有1、3、5、7号，
+通过极大似然法估计产生的“坦克公式”估计公开率（二战坦克缴获率）
+最终计算每年每个法院对应的公开率
+考虑去掉公开率低的法院（等同于去掉公开率低的地区）
+*/
+**********变量说明*************
+/*
+case_num_str：裁判文书案号
+court_name：法院名称
+jud_year：判决年份
+public_rate：公开率
+*/
+**********参考文献*************
+/*
+1公式的提出，还有其他估计公开率的方法
+Augmenting serialized bureaucratic data: the case of Chinese courts（2022，工作论文）
+
+2应用例子
+Suing the government under weak rule of law: Evidence from administrative litigation reform in China（2023，jpube）
+*/
+
+gen case_num_str = ustrregexs(1) if ustrregexm(case_wid_str, "民[^0-9]*([0-9]+)")
+replace case_num_str = ustrregexra(case_num_str, "^0+", "")
+destring case_num_str, gen(case_num)
+drop case_num_str
+order case_wid_str case_num
+
+
+bysort court_name jud_year: egen max_case_num = max(case_num)
+
+bysort court_name jud_year: gen case_count = _N
+
+order max_case_N 
+
+
+bysort court_name jud_year: egen max_case_N = max(case_count)
+gen case_count = max_case_num
+gen public_rate = max_case_N / (max_case_num * (1 + 1/max_case_N) - 1)
+sum public_rate
+
+keep court_name jud_year public_rate
+
+duplicates drop court_name jud_year, force
+
+duplicates report  court_name jud_year
+```
 ## 描述统计
 
 ### 环状图

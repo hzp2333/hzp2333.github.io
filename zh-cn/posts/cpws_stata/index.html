@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/"
-        },"genre": "posts","keywords": "Stata, Python","wordcount":  17264 ,
+        },"genre": "posts","keywords": "Stata, Python","wordcount":  17775 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/","datePublished": "2025-01-13T18:52:19+08:00","dateModified": "2025-01-13T20:50:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -219,8 +219,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">裁判文书清洗指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 17264 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 35 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 17775 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 36 分钟&nbsp;
     
 
     
@@ -309,6 +309,7 @@
     <li><a href="#例子-4-python-提取上诉法官过去和现在的特征均值">例子 4 ：python 提取上诉法官过去和现在的特征均值</a></li>
     <li><a href="#一些可以提取的裁判文书变量">一些可以提取的裁判文书变量</a></li>
     <li><a href="#例子-5案件积压量">例子 5：案件积压量</a></li>
+    <li><a href="#例子-6法院-年份案件公开率">例子 6：法院-年份案件公开率</a></li>
     <li><a href="#描述统计">描述统计</a>
       <ul>
         <li><a href="#环状图">环状图</a></li>
@@ -3190,6 +3191,111 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="例子-6法院-年份案件公开率">例子 6：法院-年份案件公开率</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">**********</span><span class="err">思路</span><span class="o">*************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">由于每年案件编号为
+</span></span></span><span class="line"><span class="cl"><span class="cm">民初（2020）**号，**号按照顺序编号。
+</span></span></span><span class="line"><span class="cl"><span class="cm">有可能样本只有1、3、5、7号，
+</span></span></span><span class="line"><span class="cl"><span class="cm">通过极大似然法估计产生的“坦克公式”估计公开率（二战坦克缴获率）
+</span></span></span><span class="line"><span class="cl"><span class="cm">最终计算每年每个法院对应的公开率
+</span></span></span><span class="line"><span class="cl"><span class="cm">考虑去掉公开率低的法院（等同于去掉公开率低的地区）
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">**********</span><span class="err">变量说明</span><span class="o">*************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">case_num_str：裁判文书案号
+</span></span></span><span class="line"><span class="cl"><span class="cm">court_name：法院名称
+</span></span></span><span class="line"><span class="cl"><span class="cm">jud_year：判决年份
+</span></span></span><span class="line"><span class="cl"><span class="cm">public_rate：公开率
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">**********</span><span class="err">参考文献</span><span class="o">*************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">1公式的提出，还有其他估计公开率的方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">Augmenting serialized bureaucratic data: the case of Chinese courts（2022，工作论文）
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">2应用例子
+</span></span></span><span class="line"><span class="cl"><span class="cm">Suing the government under weak rule of law: Evidence from administrative litigation reform in China（2023，jpube）
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">case_num_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrregexs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ustrregexm</span><span class="p">(</span><span class="n">case_wid_str</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;民[^0-9]*([0-9]+)&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">case_num_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrregexra</span><span class="p">(</span><span class="n">case_num_str</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;^0+&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">destring</span><span class="w"> </span><span class="n">case_num_str</span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">case_num</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">drop</span><span class="w"> </span><span class="n">case_num_str</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="n">case_wid_str</span><span class="w"> </span><span class="n">case_num</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bysort</span><span class="w"> </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="p">:</span><span class="w"> </span><span class="n">egen</span><span class="w"> </span><span class="n">max_case_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">case_num</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bysort</span><span class="w"> </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="p">:</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="n">case_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_N</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="n">max_case_N</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bysort</span><span class="w"> </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="p">:</span><span class="w"> </span><span class="n">egen</span><span class="w"> </span><span class="n">max_case_N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">case_count</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">case_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_case_num</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">public_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_case_N</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">max_case_num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="n">max_case_N</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">sum</span><span class="w"> </span><span class="n">public_rate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keep</span><span class="w"> </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="w"> </span><span class="n">public_rate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">duplicates</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="p">,</span><span class="w"> </span><span class="k">force</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">duplicates</span><span class="w"> </span><span class="n">report</span><span class="w">  </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="描述统计">描述统计</h2>
 <h3 id="环状图">环状图</h3>

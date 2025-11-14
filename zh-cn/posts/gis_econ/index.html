@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis_econ\/"
-        },"genre": "posts","keywords": "区域经济学, GIS","wordcount":  1610 ,
+        },"genre": "posts","keywords": "区域经济学, GIS","wordcount":  2088 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis_econ\/","datePublished": "2025-11-03T21:08:58+08:00","dateModified": "2025-11-03T21:08:58+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,8 +248,8 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ArcGispro 操作简要</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-11-03">2025-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1610 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-11-03">2025-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2088 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
     
 
     
@@ -294,6 +294,7 @@ loadMathJax();
         <li><a href="#邻接分析proximity">邻接分析（Proximity）</a></li>
       </ul>
     </li>
+    <li><a href="#栅格数据">栅格数据</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
@@ -427,6 +428,104 @@ loadMathJax();
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762181791273.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h2 id="栅格数据">栅格数据</h2>
+<p>Gis 有矢量、栅格、图像数据。实际上遥感图像也是栅格数据，通过网格进行划分填色，例如手机照片像素点概念。</p>
+<p>不同的矢量转栅格插值方法不同，结果也不同。例如区域经济学中刻画<strong>城市形态</strong>其实是很困难的地方，<strong>例如城市中间有大山大河？此时如何插值？</strong></p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp" title="如图,这是一个人口密度的点集矢量数据" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129086988.webp" data-sub-html="<h2> </h2><p>如图,这是一个人口密度的点集矢量数据</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129086988.webp" />
+    </a><figcaption class="image-caption">如图,这是一个人口密度的点集矢量数据</figcaption>
+    </figure></p>
+<p>可以通过 <code>要素转栅格</code> 命令转化。典型的均匀涂色到对应的方格子之中。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp" title="直接对点数据转栅格" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129127588.webp" data-sub-html="<h2> </h2><p>直接对点数据转栅格</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129127588.webp" />
+    </a><figcaption class="image-caption">直接对点数据转栅格</figcaption>
+    </figure></p>
+<p>使用插值进行填充，这里使用 <code>插值</code> 中的<strong>反距离权重法</strong>。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp" title="反距离权重法对点数据进行插值" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129200989.webp" data-sub-html="<h2> </h2><p>反距离权重法对点数据进行插值</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129200989.webp" />
+    </a><figcaption class="image-caption">反距离权重法对点数据进行插值</figcaption>
+    </figure></p>
+<p>使用 <code>密度</code> 进行计算，这里使用 <code>核密度</code> 估计。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp" title="核密度" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129405819.webp" data-sub-html="<h2> </h2><p>核密度</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129405819.webp" />
+    </a><figcaption class="image-caption">核密度</figcaption>
+    </figure></p>
+<p>此外，通过 <code>表面-等值线</code> 还可以插入等高线。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp" title="等高线和核密度" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129520527.webp" data-sub-html="<h2> </h2><p>等高线和核密度</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129520527.webp" />
+    </a><figcaption class="image-caption">等高线和核密度</figcaption>
+    </figure></p>
+<p>如果想要修改分组层次，右键图层点击<code>符号系统</code>即可修改。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp" title="符号系统可以修改分组层次" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129597060.webp" data-sub-html="<h2> </h2><p>符号系统可以修改分组层次</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129597060.webp" />
+    </a><figcaption class="image-caption">符号系统可以修改分组层次</figcaption>
+    </figure></p>
+<p>例如在城市规划中，我们有了城市用地规划、人口密度、学校分布、道路交通的矢量密度图。接下来思考新学校修建在哪里？我们可以使用 <code>地图代数-栅格计算器</code> 叠加计算每个栅格数据的值。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp" title="如图" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129832685.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129832685.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>例如这里人口流量大，加五分，这里是山地，减少五分，这里有学校覆盖了，减少五分，最终得到新建学校的栅格分数。</p>
+<p>
+<figure><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp" title="我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129840413.webp" data-sub-html="<h2> </h2><p>我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129840413.webp" />
+    </a><figcaption class="image-caption">我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。</figcaption>
     </figure></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
