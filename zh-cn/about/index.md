@@ -23,6 +23,7 @@
 - 《[无心之歌](https://blog.huaxiangshan.com/%E6%97%A0%E5%BF%83%E4%B9%8B%E6%AD%8C%EF%BC%88%E5%8F%A4%E8%AF%97%E5%88%9B%E4%BD%9C%E6%8C%87%E5%8C%97%EF%BC%89.pdf)》：AI 时代古诗创作小册子。
 - 《[精神污染](https://blog.huaxiangshan.com/%E7%B2%BE%E7%A5%9E%E6%B1%A1%E6%9F%93.pdf)》：AI 克苏鲁故事绘本。
 - 《[计量经济学笔记](https://blog.huaxiangshan.com/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
+- 《[微观经济学笔记](https://blog.huaxiangshan.com/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
 
 
 ### 对世界的呐喊：
