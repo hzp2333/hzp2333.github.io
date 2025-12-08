@@ -1093,6 +1093,11 @@ foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
  keep if strpos(var, "民初") > 0
 ```
 
+如果有两个变量，例如一个是规范的省份变量 a（四川省，内蒙古自治区），另外一个是不规范的省变量 b（四川，内蒙古）。如果要判断 a 变量是否包含了 b 变量，则可以使用：
+
+```
+gen localed = strpos(a, b) > 0
+```
 #### 去除特殊字符
 
 Ans 1 到 ans 83 的文本变量夹杂着各种非中文符号，可以使用以下函数去除：
