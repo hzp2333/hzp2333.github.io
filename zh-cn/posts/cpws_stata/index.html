@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/"
-        },"genre": "posts","keywords": "Stata, Python","wordcount":  17862 ,
+        },"genre": "posts","keywords": "Stata, Python","wordcount":  18564 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/","datePublished": "2025-01-13T18:52:19+08:00","dateModified": "2025-01-13T20:50:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -219,8 +219,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">裁判文书清洗指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 17862 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 36 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 18564 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 38 分钟&nbsp;
     
 
     
@@ -259,20 +259,20 @@
         <li><a href="#乱码文档">乱码文档</a></li>
       </ul>
     </li>
-    <li><a href="#例子-1python-提取案件号序列">例子 1：python 提取案件号序列</a>
+    <li><a href="#python-例子-提取案件号序列">Python 例子 ：提取案件号序列</a>
       <ul>
         <li><a href="#思路">思路</a></li>
         <li><a href="#单个-txt-的处理">单个 txt 的处理</a></li>
         <li><a href="#批量处理">批量处理</a></li>
       </ul>
     </li>
-    <li><a href="#例子-2python-提取法条和移动文件夹">例子 2：python 提取法条和移动文件夹</a>
+    <li><a href="#python-例子-提取法条和移动文件夹">Python 例子 ：提取法条和移动文件夹</a>
       <ul>
         <li><a href="#多个-txt">多个 txt</a></li>
         <li><a href="#移动-txt">移动 txt</a></li>
       </ul>
     </li>
-    <li><a href="#例子-3-裁判文书索引重新排序">例子 3 裁判文书索引重新排序</a></li>
+    <li><a href="#例子--裁判文书索引重新排序">例子 ： 裁判文书索引重新排序</a></li>
     <li><a href="#dta-数据的匹配">dta 数据的匹配</a>
       <ul>
         <li><a href="#关于案号">关于案号</a></li>
@@ -306,10 +306,11 @@
         <li><a href="#提醒">提醒</a></li>
       </ul>
     </li>
-    <li><a href="#例子-4-python-提取上诉法官过去和现在的特征均值">例子 4 ：python 提取上诉法官过去和现在的特征均值</a></li>
-    <li><a href="#一些可以提取的裁判文书变量">一些可以提取的裁判文书变量</a></li>
-    <li><a href="#例子-5案件积压量">例子 5：案件积压量</a></li>
-    <li><a href="#例子-6法院-年份案件公开率">例子 6：法院-年份案件公开率</a></li>
+    <li><a href="#python-例子--提取上诉法官过去和现在的特征均值">Python 例子 ： 提取上诉法官过去和现在的特征均值</a></li>
+    <li><a href="#一些可以快速得到的裁判文书变量">一些可以快速得到的裁判文书变量</a></li>
+    <li><a href="#python-例子-案件积压量">Python 例子 ：案件积压量</a></li>
+    <li><a href="#stata-例子-法院-年份案件公开率">Stata 例子 ：法院-年份案件公开率</a></li>
+    <li><a href="#python-例子大型数据的匹配">Python 例子：大型数据的匹配</a></li>
     <li><a href="#描述统计">描述统计</a>
       <ul>
         <li><a href="#环状图">环状图</a></li>
@@ -446,7 +447,7 @@
             alt="/img/裁判文书清洗指南.zh-cn-20250113210248250.webp" />
     </a><figcaption class="image-caption">例子</figcaption>
     </figure></p>
-<h2 id="例子-1python-提取案件号序列">例子 1：python 提取案件号序列</h2>
+<h2 id="python-例子-提取案件号序列">Python 例子 ：提取案件号序列</h2>
 <h3 id="思路">思路</h3>
 <p>python 读取 txt 的 json 格式。</p>
 <p>提取第三列 <code>CourtInfo</code> 数据。</p>
@@ -1118,7 +1119,7 @@
 </span></span><span class="line"><span class="cl"> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Processing complete.&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="例子-2python-提取法条和移动文件夹">例子 2：python 提取法条和移动文件夹</h2>
+</div><h2 id="python-例子-提取法条和移动文件夹">Python 例子 ：提取法条和移动文件夹</h2>
 <p>法条数量可以衡量案件复杂度，法条本身也衡量了案件类型。</p>
 <p>Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格式：</p>
 <div class="highlight"><div class="chroma">
@@ -1517,7 +1518,7 @@
 </span></span><span class="line"><span class="cl"> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Process completed.&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="例子-3-裁判文书索引重新排序">例子 3 裁判文书索引重新排序</h2>
+</div><h2 id="例子--裁判文书索引重新排序">例子 ： 裁判文书索引重新排序</h2>
 <p><strong>初审案号最早的排在前（m_sorted_1）</strong></p>
 <p><strong>终审案号最晚的排在后（m_sorted_3）</strong></p>
 <p><strong>再审案件按照“终审前最早、终审后最晚”安排（m_sorted_2, m_sorted_4）</strong></p>
@@ -2509,7 +2510,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
 &#x1F628<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
 </div>
-<h2 id="例子-4-python-提取上诉法官过去和现在的特征均值">例子 4 ：python 提取上诉法官过去和现在的特征均值</h2>
+<h2 id="python-例子--提取上诉法官过去和现在的特征均值">Python 例子 ： 提取上诉法官过去和现在的特征均值</h2>
 <p>例子 3 是逐行匹配，但是这样处理实在是太慢了。</p>
 <p>现在我想要这样处理：</p>
 <p>提取法官经历上诉前的 20 个案子，然后求罚款均值；同时提取法官经历上诉后的 20 个案子，然后求罚款的均值。</p>
@@ -2886,7 +2887,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </div><blockquote>
 <p>以上代码如果不是在 jupyter 环境中运行而是在 pycharm 环境中运行，需要调整下输入参数的位置。</p>
 </blockquote>
-<h2 id="一些可以提取的裁判文书变量">一些可以提取的裁判文书变量</h2>
+<h2 id="一些可以快速得到的裁判文书变量">一些可以快速得到的裁判文书变量</h2>
 <ul>
 <li>工作经验：第一次出现的时间和最后一次出现的时间段</li>
 <li>共同案件：在样本中一共处理了多少案件</li>
@@ -2956,7 +2957,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </span></span><span class="line"><span class="cl">egen combo_count = count(court_name + judge_fin), by(court_name judge_fin)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="例子-5案件积压量">例子 5：案件积压量</h2>
+</div><h2 id="python-例子-案件积压量">Python 例子 ：案件积压量</h2>
 <p>在裁判文书中有两个时间，案件判决时间( jud 开头)和案件立案( acc 开头)时间。</p>
 <p>案件积压量是指立案时间早于当前年月，判决年饭晚于当前年份的所有案件。这种涉及跨行变量识别处理的操作就是 stata 的弱点。</p>
 <div class="highlight"><div class="chroma">
@@ -3201,7 +3202,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="例子-6法院-年份案件公开率">例子 6：法院-年份案件公开率</h2>
+</div><h2 id="stata-例子-法院-年份案件公开率">Stata 例子 ：法院-年份案件公开率</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -3305,6 +3306,150 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">duplicates</span><span class="w"> </span><span class="n">report</span><span class="w">  </span><span class="n">court_name</span><span class="w"> </span><span class="n">jud_year</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="python-例子大型数据的匹配">Python 例子：大型数据的匹配</h2>
+<p>现在比较流行工商注册数据和其他企业数据库的匹配，几乎就是 5000 万条有效数据起步。</p>
+<p>Stata 的 <code>merge</code> 命令在匹配时非常消耗内存，因为其临时副本的原因会轻松在内存损耗上翻倍。因此个人推荐都导出 <code>.csv</code> 文件使用 python 的 <code>duckdb</code>（<code>pandas</code> 匹配只是比 stata <code>merge</code> 略微好一点而已。）</p>
+<p>下面这个例子就是 <code>duckdb</code> 的例子，代码作用和 stata 的 <code>merge m:1</code> 效果相同，但更优化内存：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">duckdb</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;DROP TABLE IF EXISTS using_tbl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;DROP TABLE IF EXISTS main_tbl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;DROP TABLE IF EXISTS merged&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =====================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 路径（按你自己实际路径改）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =====================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">MAIN_CSV</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;C:\Users\PC\Desktop\中国招投标\论文代码\回归数据.csv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">USING_CSV</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;C:\Users\PC\Desktop\中国招投标\论文代码\注册数据.csv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">OUT_CSV</span>  <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;C:\Users\PC\Desktop\中国招投标\论文代码\merged.csv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">DB_FILE</span>  <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;C:\Users\PC\Desktop\中国招投标\论文代码\merge.duckdb&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =====================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 连接 DuckDB（落盘，防 OOM）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =====================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">DB_FILE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># （可选）限制内存，更稳</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;PRAGMA memory_limit=&#39;16GB&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;PRAGMA threads=8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;1️⃣ 读取 using 表（1.8 亿）&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">CREATE TABLE using_tbl AS
+</span></span></span><span class="line"><span class="cl"><span class="s2">SELECT *
+</span></span></span><span class="line"><span class="cl"><span class="s2">FROM read_csv_auto(
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;</span><span class="si">{</span><span class="n">USING_CSV</span><span class="si">}</span><span class="s2">&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    SAMPLE_SIZE=1000000,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    parallel=true
+</span></span></span><span class="line"><span class="cl"><span class="s2">)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;2️⃣ 读取 main 表（2000 万）&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">CREATE TABLE main_tbl AS
+</span></span></span><span class="line"><span class="cl"><span class="s2">SELECT *
+</span></span></span><span class="line"><span class="cl"><span class="s2">FROM read_csv_auto(
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;</span><span class="si">{</span><span class="n">MAIN_CSV</span><span class="si">}</span><span class="s2">&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    SAMPLE_SIZE=500000,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    parallel=true
+</span></span></span><span class="line"><span class="cl"><span class="s2">)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;3️⃣ LEFT JOIN（m:1）&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">CREATE TABLE merged AS
+</span></span></span><span class="line"><span class="cl"><span class="s2">SELECT
+</span></span></span><span class="line"><span class="cl"><span class="s2">    m.*,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    u.*
+</span></span></span><span class="line"><span class="cl"><span class="s2">FROM main_tbl m
+</span></span></span><span class="line"><span class="cl"><span class="s2">LEFT JOIN using_tbl u
+</span></span></span><span class="line"><span class="cl"><span class="s2">ON m.credit_code = u.credit_code
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;4️⃣ 导出结果&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">COPY merged
+</span></span></span><span class="line"><span class="cl"><span class="s2">TO &#39;</span><span class="si">{</span><span class="n">OUT_CSV</span><span class="si">}</span><span class="s2">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s2">(HEADER, DELIMITER &#39;,&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;✅ 完成&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="描述统计">描述统计</h2>
 <h3 id="环状图">环状图</h3>

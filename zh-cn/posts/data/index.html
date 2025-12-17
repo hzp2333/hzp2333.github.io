@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  8011 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  8018 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/data\/","datePublished": "2023-03-14T18:09:26+08:00","dateModified": "2023-03-14T18:09:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,8 +248,8 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一份经济微观数据库的数据清洗快速指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-03-14">2023-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8011 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-03-14">2023-03-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8018 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;
     
 
     
@@ -330,7 +330,18 @@ loadMathJax();
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><strong>前人之述备矣，我只是浅踩了几个坑。</strong><br>
+            </div><div class="content" id="content"><p>
+<figure><a class="lightgallery" href="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp" title="微观数据库例子" data-thumbnail="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-1765803069193.webp" data-sub-html="<h2> </h2><p>微观数据库例子</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp 2x"
+            data-sizes="auto"
+            alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-1765803069193.webp" />
+    </a><figcaption class="image-caption">微观数据库例子</figcaption>
+    </figure></p>
+<p><strong>前人之述备矣，我只是浅踩了几个坑。</strong><br>
 主要软件： <code>stata</code>、<code>EXCEL</code>、<code>SAS</code>。</p>
 <h2 id="一流行的国内数据库">一、流行的国内数据库：</h2>
 <blockquote>
