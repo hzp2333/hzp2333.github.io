@@ -324,6 +324,15 @@ word="教育经济学"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
+
+{{< friend  name="Zhiren Hu"
+url="https://sites.google.com/view/zhiren-hu/about-me"
+logo="https://lh3.googleusercontent.com/sitesv/AAzXCkdRii3qTCLc06YnX_vMWPIH8xSGZY1DHSHNHreul4aiyhksL-wOxl9ZeVcC6KMTJqUsV0wrN5abPiUYv67fI-UF1QJL0LLk3lojfLwhalHf9P-JGjR4tzFY9v3en85H_oLydzHQ8cZljhIGq68-cDdrc7gHIblNQbPCFeLeZEhYBEAf0C9_SusMFn5sjxRWUMWIDkFFw_a6fs06ADMI3K9BPKTp8Mgtbhh4u8I=w1280"
+word="Energy; Environment; Urban; Transportatio"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 {{< friend  name="陶哲轩"
 url="https://terrytao.wordpress.com/"
 logo="https://www.math.ucla.edu/~tao/images/image1.jpg"
