@@ -292,9 +292,331 @@
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
             </noscript></div></article></div>
             </main><script>
-document.addEventListener('pjax:end', function() {
-  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
-});
+
+(function() {
+  console.log('[Music Player] Enhanced initialization script loaded');
+
+  
+  const CDN_SOURCES = [
+    'https://cdn.jsdelivr.net/npm/',
+    'https://unpkg.com/',
+    'https://cdnjs.cloudflare.com/ajax/libs/'
+  ];
+
+  const APLAYER_CSS = 'aplayer@1.10.1/dist/APlayer.min.css';
+  const APLAYER_JS = 'aplayer@1.10.1/dist/APlayer.min.js';
+  const METING_JS = 'meting@2.0.1/dist/Meting.min.js';
+
+  
+  function safeHasMusicPlayers() {
+    try {
+      return document.querySelectorAll('meting-js').length > 0;
+    } catch (e) {
+      console.warn('[Music Player] Error checking for music players:', e);
+      return false;
+    }
+  }
+
+  function safeResourcesLoaded() {
+    try {
+      return typeof window.APlayer !== 'undefined' && typeof window.Meting !== 'undefined';
+    } catch (e) {
+      console.warn('[Music Player] Error checking resources:', e);
+      return false;
+    }
+  }
+
+  
+  function loadResource(url, resourceType, retries = 2) {
+    return new Promise((resolve, reject) => {
+      const isCSS = resourceType === 'css';
+      const isJS = resourceType === 'js';
+
+      
+      const existing = isCSS
+        ? document.querySelector(`link[href*="${url.split('/').pop()}"]`)
+        : document.querySelector(`script[src*="${url.split('/').pop()}"]`);
+
+      if (existing) {
+        console.log(`[Music Player] Resource already loaded: ${url}`);
+        resolve();
+        return;
+      }
+
+      const element = isCSS ? document.createElement('link') : document.createElement('script');
+
+      if (isCSS) {
+        element.rel = 'stylesheet';
+        element.href = url;
+      } else {
+        element.src = url;
+      }
+
+      let attempts = 0;
+
+      const attemptLoad = () => {
+        attempts++;
+
+        element.onload = () => {
+          console.log(`[Music Player] Successfully loaded: ${url}`);
+          resolve();
+        };
+
+        element.onerror = (err) => {
+          console.warn(`[Music Player] Failed to load ${url} (attempt ${attempts}/${retries + 1})`);
+
+          if (attempts <= retries) {
+            
+            const nextCDN = CDN_SOURCES.find(cdn => url.startsWith(cdn));
+            if (nextCDN) {
+              const nextUrl = url.replace(nextCDN, CDN_SOURCES[(CDN_SOURCES.indexOf(nextCDN) + 1) % CDN_SOURCES.length]);
+              console.log(`[Music Player] Retrying with alternative CDN: ${nextUrl}`);
+              if (isCSS) {
+                element.href = nextUrl;
+              } else {
+                element.src = nextUrl;
+              }
+              setTimeout(attemptLoad, 500);
+            } else {
+              reject(err);
+            }
+          } else {
+            reject(err);
+          }
+        };
+
+        
+        if (isCSS) {
+          document.head.appendChild(element);
+        } else {
+          document.body.appendChild(element);
+        }
+      };
+
+      attemptLoad();
+    });
+  }
+
+  
+  function loadDependencies() {
+    console.log('[Music Player] Loading dependencies with fallback support...');
+
+    
+    const primaryCDN = CDN_SOURCES[0];
+
+    return loadResource(primaryCDN + APLAYER_CSS, 'css', 1)
+      .then(() => {
+        console.log('[Music Player] APlayer CSS loaded');
+        return loadResource(primaryCDN + APLAYER_JS, 'js', 1);
+      })
+      .then(() => {
+        console.log('[Music Player] APlayer JS loaded');
+        return loadResource(primaryCDN + METING_JS, 'js', 1);
+      })
+      .then(() => {
+        console.log('[Music Player] All dependencies loaded successfully');
+        return true;
+      })
+      .catch(async (err) => {
+        console.error('[Music Player] Primary CDN failed, trying alternative CDNs:', err);
+
+        
+        for (let i = 1; i < CDN_SOURCES.length; i++) {
+          try {
+            const cdn = CDN_SOURCES[i];
+            console.log(`[Music Player] Trying CDN: ${cdn}`);
+
+            await loadResource(cdn + APLAYER_CSS, 'css', 0);
+            await loadResource(cdn + APLAYER_JS, 'js', 0);
+            await loadResource(cdn + METING_JS, 'js', 0);
+
+            console.log('[Music Player] Successfully loaded from alternative CDN');
+            return true;
+          } catch (altErr) {
+            console.warn(`[Music Player] CDN ${CDN_SOURCES[i]} failed:`, altErr);
+            continue;
+          }
+        }
+
+        console.error('[Music Player] All CDN attempts failed');
+        return false;
+      });
+  }
+
+  
+  function initializePlayers() {
+    try {
+      if (!safeResourcesLoaded()) {
+        console.error('[Music Player] Cannot initialize: dependencies not loaded');
+        return false;
+      }
+
+      console.log('[Music Player] Initializing meting-js players...');
+      let successCount = 0;
+      let errorCount = 0;
+
+      const players = document.querySelectorAll('meting-js');
+
+      players.forEach(el => {
+        try {
+          if (el.hasAttribute('data-initialized')) {
+            console.log('[Music Player] Player already initialized, skipping');
+            return;
+          }
+
+          
+          if (typeof window.Meting !== 'function') {
+            throw new Error('Meting constructor not available');
+          }
+
+          new window.Meting(el);
+          el.setAttribute('data-initialized', 'true');
+          successCount++;
+          console.log('[Music Player] Successfully initialized meting-js element');
+        } catch (err) {
+          errorCount++;
+          console.error('[Music Player] Error initializing meting-js element:', err);
+        }
+      });
+
+      console.log(`[Music Player] Initialization complete: ${successCount} successful, ${errorCount} failed`);
+
+      
+      if (successCount === 0 && players.length > 0) {
+        console.log('[Music Player] No players initialized, scheduling retry...');
+        setTimeout(() => {
+          console.log('[Music Player] Retrying initialization...');
+          initializePlayers();
+        }, 1000);
+      }
+
+      return successCount > 0;
+    } catch (error) {
+      console.error('[Music Player] Fatal error during initialization:', error);
+      return false;
+    }
+  }
+
+  
+  function initMusicPlayers() {
+    console.log('[Music Player] Initialization triggered');
+
+    try {
+      if (!safeHasMusicPlayers()) {
+        console.log('[Music Player] No meting-js elements found');
+        return;
+      }
+
+      const playerCount = document.querySelectorAll('meting-js').length;
+      console.log(`[Music Player] Found ${playerCount} meting-js element(s)`);
+
+      
+      if (safeResourcesLoaded()) {
+        console.log('[Music Player] Resources already loaded, initializing...');
+        setTimeout(() => initializePlayers(), 50);
+        return;
+      }
+
+      
+      const scripts = Array.from(document.querySelectorAll('script[src]'));
+      const hasAPlayerScript = scripts.some(s => s.src.includes('APlayer.min.js'));
+      const hasMetingScript = scripts.some(s => s.src.includes('Meting.min.js'));
+
+      if (hasAPlayerScript || hasMetingScript) {
+        console.log('[Music Player] Resources detected in DOM, waiting for load...');
+        waitForResources();
+        return;
+      }
+
+      
+      console.log('[Music Player] Loading dependencies dynamically...');
+      loadDependencies().then(success => {
+        if (success) {
+          console.log('[Music Player] Dependencies loaded, initializing players...');
+          setTimeout(() => initializePlayers(), 100);
+        } else {
+          console.error('[Music Player] Failed to load dependencies, will retry in 2s');
+          setTimeout(initMusicPlayers, 2000);
+        }
+      });
+    } catch (error) {
+      console.error('[Music Player] Error in initialization flow:', error);
+    }
+  }
+
+  
+  function waitForResources() {
+    const maxWaitTime = 10000; 
+    const checkInterval = 250;
+    let elapsed = 0;
+    let timeoutId = null;
+
+    const check = () => {
+      elapsed += checkInterval;
+
+      if (safeResourcesLoaded()) {
+        console.log(`[Music Player] Resources loaded after ${elapsed}ms`);
+        setTimeout(() => initializePlayers(), 50);
+        return;
+      }
+
+      if (elapsed >= maxWaitTime) {
+        console.warn('[Music Player] Timeout waiting for resources, loading dynamically...');
+        loadDependencies().then(success => {
+          if (success) {
+            setTimeout(() => initializePlayers(), 100);
+          }
+        });
+        return;
+      }
+
+      timeoutId = setTimeout(check, checkInterval);
+    };
+
+    check();
+  }
+
+  
+  function startInitialization() {
+    
+    setTimeout(initMusicPlayers, 100);
+  }
+
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('[Music Player] DOMContentLoaded event fired');
+      startInitialization();
+    });
+  } else {
+    console.log('[Music Player] DOM already loaded');
+    startInitialization();
+  }
+
+  
+  if (typeof document.addEventListener === 'function') {
+    document.addEventListener('pjax:end', function() {
+      console.log('[Music Player] PJAX navigation detected');
+      setTimeout(initMusicPlayers, 100);
+    });
+  }
+
+  
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+      setTimeout(() => {
+        if (document.querySelectorAll('meting-js').length > 0 && !safeResourcesLoaded()) {
+          console.log('[Music Player] Page visible again, checking music players...');
+          initMusicPlayers();
+        }
+      }, 500);
+    }
+  });
+
+  
+  window.initMusicPlayers = initMusicPlayers;
+  console.log('[Music Player] Initialization system ready');
+})();
 </script>
 
 
