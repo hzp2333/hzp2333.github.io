@@ -90,7 +90,7 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
     - 点击 **Add Plugin**。
 
 
-我个人使用的最多的是让其翻译文档，适配博客的英文版本。
+我个人喜欢让其翻译本博客中文文档，适配英文版本。
 
 ## 推荐 api？
 
@@ -98,7 +98,9 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
 
 如果想要免费的，个人推荐 [GLM](https://bigmodel.cn/)，注册就送模型 token[^6]。
 
-![注册送的资源包](/img/Stata_auto.zh-cn-1771587415799.webp)
+现在注册[硅基流动](https://siliconflow.cn/)也送 50+16 元的代金券。
+
+![GLM 注册送的资源包。不过我两天就用得差不多了。](/img/Stata_auto.zh-cn-1771587415799.webp)
 
 ## 安装 skills
 
@@ -144,7 +146,7 @@ https://github.com/meleantonio/awesome-econ-ai-stuff
 - [skillsmp.com](https://skillsmp.com/)
 - [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)
 
-首先推荐个寻找 skills 的命令：
+首先推荐个寻找 skills 的命令，安装之后明显调用 skills 更顺畅准确率。
 
 ```js
 npx skills add https://github.com/vercel-labs/skills --skill find-skills
@@ -156,11 +158,11 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 
 如果想要更深入地了解当今结合 ai 的自动化流程，或许可以进一步检索 vibecoding 相关术语。
 
-对标同样的 claude code ，openai 的是 [codex](https://openai.com/zh-Hans-CN/codex/)，google 的则是 [gemini cili](https://geminicli.com/)[^7]。
+对标同样的 claude code ，openai 的是 [codex](https://openai.com/zh-Hans-CN/codex/)，google 的则是 [gemini cili](https://geminicli.com/)[^7]。如今正在早期竞争阶段，各家注册福利都不少。
 
-说到底，赛车早已超越了人类的极限，我们却依旧为百米赛跑感到刺激、恐惧、兴奋。若真如刘慈欣《诗云》那样[^4]，某种文明能排列出所有的文字组合，我们对诗歌的感受才是更重要的事情。
+不过也别怕，工业革命之前还得是能源革命。现在 ai 烧钱烧资源性价比太低了，泛用注定是个大问题。但是，让人恐怖的不是 ai 的绝对值，而是进步的迭代速度，至少能让我们对变化的时代保持一种清醒。从另外一个角度讲，赛车早已超越了人类的极限，我们却依旧为百米赛跑感到刺激、恐惧、兴奋。若真如刘慈欣《诗云》那样[^4]，某种文明能排列出所有的文字组合，我们对诗歌的感受才是更重要的事情。
 
-![漫改电影《百米》](/img/Stata_auto.zh-cn-1771518187683.webp)
+![漫改电影《百米》：跑得快不一定能解决所有事，但只要在100米内跑得比任何人都快，那就能解决任何事情。](/img/Stata_auto.zh-cn-1771518187683.webp)
 
 
 
