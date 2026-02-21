@@ -121,7 +121,7 @@ NBER 最近有篇论文爬取了 OpenRouter 网站的数据进行市场分析:
 
 ![纵坐标为每百万tokens价格的对数值。在2023年中期至2024年初急剧下降之后，即使更新、更强大的模型进入市场，价格也保持相对稳定。在任何给定的时间点，最低十分位数的模型比最高十分位数的模型便宜50到150倍。](/img/Stata_auto.zh-cn-1771695452859.webp)
 
-不知道是不是受到这篇论文的启发😂，OpenRouter 团队自己用数据又做了个分析[^8]，就在：
+在 NBER 论文之前，其实 OpenRouter 团队自己就用数据做过分析，就在：
 
 《[An Empirical 100 Trillion Token Study with OpenRouter](https://openrouter.ai/state-of-ai)》
 
@@ -203,4 +203,4 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 [^5]: openai 对应的产品为 [codex](https://openai.com/zh-Hans-CN/codex/)。
 [^6]: token 烧的也快，我一个下午就烧完了送的第一个资源包。
 [^7]: 甚至可以考虑让 codex 具有 mcp claude code 的能力联合拷打代码。 
-[^8]: 这也太尴尬了
+
