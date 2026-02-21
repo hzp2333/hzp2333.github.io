@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  4056 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  4542 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,8 +248,8 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">hugo 美化 2</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4056 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4542 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
     
 
     
@@ -407,8 +407,63 @@ loadMathJax();
 <h4 id="一个-bug">一个 bug</h4>
 <p>如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug。</p>
 <meting-js url="/music/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.flac" name="三葉のテーマ" artist="君の名" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
-<p>由于 hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器会继续保留，原因不明。</p>
-<p>因此个人选择放弃添加字数统计。</p>
+<p>Hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器可能会继续保留，原因不明。本地渲染时，更新博客内容触发刷新后，音乐播放器就会出现，但上传到 github 渲染后却不行。</p>
+<div class="details admonition bug">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-bug fa-fw" aria-hidden="true"></i>2026年2月21日更新<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>最近借助 claude 加 deepseek v3.2 模型测试了下这个 bug。</p>
+<p>发现音乐插件的失效原因大概是：</p>
+<p>LoveIt 主题使用 Hugo 的 Scratch 系统作为&quot;功能开关&quot;机制：</p>
+<ul>
+<li><code>music</code> 短代码执行时设置：<code>{{- .Page.Scratch.SetInMap &quot;this&quot; &quot;music&quot; true -}}</code></li>
+<li><code>assets.html</code> 中检查：<code>{{- if (.Scratch.Get &quot;this&quot;).music -}}</code> 来加载音乐资源。</li>
+</ul>
+<p><code>wordcount.html</code> 引入了一个<strong>变化</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">posts</span> <span class="o">:=</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">RegularPages</span> <span class="s">&#34;Type&#34;</span> <span class="s">&#34;posts&#34;</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="k">range</span> <span class="err">$</span><span class="nx">posts</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">totalWords</span> <span class="p">=</span> <span class="nx">add</span> <span class="err">$</span><span class="nx">totalWords</span> <span class="p">.</span><span class="nx">WordCount</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">totalPosts</span> <span class="p">=</span> <span class="nx">add</span> <span class="err">$</span><span class="nx">totalPosts</span> <span class="mi">1</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="nx">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当Hugo执行<code>.Site.RegularPages</code>时：</p>
+<p>Hugo 为了获取 WordCount 需要计算每篇文章的内容，这会重置页面的 Scratch 状态。然而在这个过程中，原本在单次渲染流程中保持的 Scratch 状态被干扰。</p>
+<p>个人观察是否安装了评论区插件也会影响这个 bug，原因似乎也是同样的——Scratch 状态值似乎被清空了。</p>
+<p>在评论区加载部分<code>layouts/partials/comment.html</code>存在这样的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- dict &#34;comment&#34; $commentConfig | dict &#34;config&#34; | merge (.Scratch.Get &#34;this&#34;) | .Scratch.Set &#34;this&#34; -}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本地渲染可以通过更新网站重新加载 scratch 中的 <code>this</code> 映射，但上传到 github 后容易被映射为空。</p>
+<p>修改流程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">之前的流程：音乐短代码 → Scratch设置 → 主题条件判断 → 加载资源
+</span></span><span class="line"><span class="cl">修改后的流程：直接检测DOM → 动态加载资源 → 自主初始化
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
 <h3 id="站点运行时间">站点运行时间</h3>
 <h4 id="添加自定义的-customjs">添加自定义的 <code>custom.js</code></h4>
 <p>在站点根目录下创建一个自定义的 JavaScript 文件 <code>\static\js\custom.js</code>。</p>
@@ -1866,7 +1921,7 @@ V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left (t\right)+\varepsilon p\l
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345071 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345557 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

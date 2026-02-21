@@ -71,9 +71,53 @@ other = "total {{ .WordCount }} words"
 
 {{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/三葉のテーマ.jpg" >}} 
 
-由于 hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器会继续保留，原因不明。
+Hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器可能会继续保留，原因不明。本地渲染时，更新博客内容触发刷新后，音乐播放器就会出现，但上传到 github 渲染后却不行。
 
-因此个人选择放弃添加字数统计。
+{{< admonition type=bug  title="2026年2月21日更新" open=false >}}
+
+最近借助 claude 加 deepseek v3.2 模型测试了下这个 bug。
+
+发现音乐插件的失效原因大概是：
+
+
+LoveIt 主题使用 Hugo 的 Scratch 系统作为"功能开关"机制：
+
+- `music` 短代码执行时设置：`{{- .Page.Scratch.SetInMap "this" "music" true -}}`
+- `assets.html` 中检查：`{{- if (.Scratch.Get "this").music -}}` 来加载音乐资源。
+
+`wordcount.html` 引入了一个**变化**：
+
+```go
+{{- $posts := where .Site.RegularPages "Type" "posts" -}}
+{{- range $posts -}}
+  {{- $totalWords = add $totalWords .WordCount -}}
+  {{- $totalPosts = add $totalPosts 1 -}}
+{{- end -}}
+```
+
+当Hugo执行`.Site.RegularPages`时：
+
+Hugo 为了获取 WordCount 需要计算每篇文章的内容，这会重置页面的 Scratch 状态。然而在这个过程中，原本在单次渲染流程中保持的 Scratch 状态被干扰。
+
+个人观察是否安装了评论区插件也会影响这个 bug，原因似乎也是同样的——Scratch 状态值似乎被清空了。
+
+在评论区加载部分`layouts/partials/comment.html`存在这样的代码：
+
+```html
+{{- dict "comment" $commentConfig | dict "config" | merge (.Scratch.Get "this") | .Scratch.Set "this" -}}
+```
+
+本地渲染可以通过更新网站重新加载 scratch 中的 `this` 映射，但上传到 github 后容易被映射为空。
+
+修改流程：
+
+```txt
+之前的流程：音乐短代码 → Scratch设置 → 主题条件判断 → 加载资源
+修改后的流程：直接检测DOM → 动态加载资源 → 自主初始化
+```
+
+
+{{< /admonition >}}
 ### 站点运行时间
 
 #### 添加自定义的 `custom.js`
