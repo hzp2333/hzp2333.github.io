@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>On Motivation: The Genuine and Counterfeit in Anime and Manga - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="On Motivation: The Genuine and Counterfeit in Anime and Manga" />
+<meta property="og:description" content="The concepts of &ldquo;genuine&rdquo; and &ldquo;counterfeit&rdquo; are common topics in anime and manga. I believe clarifying this issue is crucial for properly understanding utilitarian mindsets." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/zyw/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-10T16:08:54+08:00" />
+<meta property="article:modified_time" content="2023-12-10T16:08:54+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="On Motivation: The Genuine and Counterfeit in Anime and Manga"/>
+<meta name="twitter:description" content="The concepts of &ldquo;genuine&rdquo; and &ldquo;counterfeit&rdquo; are common topics in anime and manga. I believe clarifying this issue is crucial for properly understanding utilitarian mindsets."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/zyw/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/wxb/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/ji_sata/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "On Motivation: The Genuine and Counterfeit in Anime and Manga",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/zyw\/"
+        },"genre": "posts","keywords": "ACG, Anime, Philosophy","wordcount":  2948 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/zyw\/","datePublished": "2023-12-10T16:08:54+08:00","dateModified": "2023-12-10T16:08:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/zyw/">简体中文</option><option value="/en/posts/zyw/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/zyw/">简体中文</option><option value="/en/posts/zyw/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">On Motivation: The Genuine and Counterfeit in Anime and Manga</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/film-and-tv/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Film and TV</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-10">2023-12-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2948 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp"
+        data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp 2x"
+        data-sizes="auto"
+        alt="/img/真物与伪物.zh-cn-20240523120128154.webp"
+        title="/img/真物与伪物.zh-cn-20240523120128154.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-genuine-and-the-counterfeit">The Genuine and the Counterfeit</a></li>
+    <li><a href="#discussions-in-anime-and-manga-works">Discussions in Anime and Manga Works</a></li>
+    <li><a href="#the-stance-of-exalting-the-counterfeit">The Stance of Exalting the Counterfeit</a>
+      <ul>
+        <li><a href="#first-layer-of-meaning">First Layer of Meaning</a></li>
+        <li><a href="#second-layer-of-meaning">Second Layer of Meaning</a></li>
+      </ul>
+    </li>
+    <li><a href="#returning-to-reality">Returning to Reality</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E4%B8%89%E5%8F%B6%28%E4%B8%BB%E9%A2%98%E6%9B%B2%29%20-%20RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
+<h1 id="counterfeit-a-matter-of-human-agency">&ldquo;Counterfeit&rdquo;: A Matter of Human Agency</h1>
+<h2 id="the-genuine-and-the-counterfeit">The Genuine and the Counterfeit</h2>
+<p><strong>What is &ldquo;counterfeit&rdquo;—it is human-made.</strong> The counterfeit is a product infused with attributes of human intervention, perceived as unnatural.</p>
+<blockquote>
+<p>For instance, many mock the trendy normies—when Marvel hits, they&rsquo;re Marvel fans; when Spy × Family becomes popular, they become old-school otaku; when variety shows with Wang Xinling go viral, they become her girls; when The Wandering Earth explodes in popularity, they&rsquo;re suddenly long-time Liu Cixin fans. All such behaviors, imbued with artificial attributes, carry the taint of bandwagoning.</p>
+<p>Then there are traits that only manifest in social interactions—&ldquo;checking in to show focused study, emphasizing one&rsquo;s soaring enthusiasm for learning&rdquo; or &ldquo;claiming to love xx genre of books, yet never discussing any specific insights gained.&rdquo; &ldquo;It&rsquo;s not so much loving a certain thing as loving the self that yearns for that thing&rdquo;—in reality, they enjoy the state of being fanatical; toward what that fanaticism is directed becomes irrelevant.</p>
+</blockquote>
+<p>Conversely, <strong>the &ldquo;genuine&rdquo; is a pure, natural attribute, requiring no deliberate human effort to maintain or display.</strong></p>
+<p><strong>China has not lacked similar concepts, such as the Song-Ming Neo-Confucian principle of &ldquo;preserving heavenly principles and extinguishing human desires,&rdquo; yet whether in depth of meaning or grandeur of scope, Neo-Confucianism stands on a higher plane. The distinction between genuine and counterfeit exists merely on the level of personal fulfillment.</strong></p>
+<h2 id="discussions-in-anime-and-manga-works">Discussions in Anime and Manga Works</h2>
+<p>Drawing upon anime and manga works like <em>Oregairu</em> and <em>Monogatari Series</em>, I wish to summarize the boundary between counterfeit and genuine in traditional anime and manga.</p>
+<ul>
+<li><strong>In the perspective of viewing things:</strong> The &ldquo;genuine&rdquo; requires acceptance in its entirety, with the implicit requirement of seeing the many facets, even the essence, of things; the counterfeit is partial, remaining at the surface.</li>
+</ul>
+<blockquote>
+<p>In <em>Oregairu</em>, Hachiman&rsquo;s classic statement about why he hates kind-hearted girls stems precisely from the fact that this kindness extends to everyone—it is a politeness extended without knowing one&rsquo;s full circumstances. The conclusion is that this kindness is neither unique nor lasting.</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1E44y1U7gY&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p><em>Oregairu</em> — Hikigaya&rsquo;s classic discourse on counterfeit youth: I hate kind-hearted girls. Kind-hearted girls are actually kind to everyone, yet I would mistakenly believe they are kind only to me, then become complacent and arrogant, and finally part on bad terms with both sides hurt. That&rsquo;s why I hate kind-hearted girls.</p>
+<ul>
+<li><strong>In the duration of maintaining passion:</strong> The genuine is enduring, loyal, and scarce; even after a long separation, mutual understanding persists—it is unique and irreplaceable. The counterfeit is transient, requiring constant, deliberate human effort to maintain; it fears being replaced by others and can itself be replaced.</li>
+</ul>
+<blockquote>
+<p>For instance, in <em>Rascal Does Not Dream</em>, the protagonist stands against social atmosphere, believing that such atmosphere amounts to nothing before precious people.</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1s64y1T7Gm&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>From now on, my enemy is the atmosphere. Echoing what others say is effortless; judging right and wrong entirely by one&rsquo;s own will burns calories. Bearing one&rsquo;s own judgment, when met with denial, inflicts pain.</p>
+<ul>
+<li><strong>In the motivation of inner expression:</strong> The genuine is pure, natural, a feeling springing spontaneously from the depths of the heart; the counterfeit is impure in motive, harboring other utilitarian purposes.</li>
+</ul>
+<blockquote>
+<p>The debate over &ldquo;what is human nature at birth&rdquo; can be considered a discussion of the genuine.</p>
+</blockquote>
+<ul>
+<li><strong>In narrative construction:</strong> The genuine and the counterfeit reflect one another in pairs, and contradictions exist within them.</li>
+</ul>
+<blockquote>
+<p>Perhaps one believes that friendship requires accommodation, so the author writes that true friends can quarrel; one believes that the species distinction between humans and demons is their essence, yet the author states that goodness of character is the more important measure; some believe that朋友圈 (social media posts) prove happiness and joy that begs sharing, yet the author writes that the contented do not proclaim their satisfaction to the outside world.</p>
+</blockquote>
+<p>In character portrayal, counterfeit and genuine are often intertwined with &ldquo;self-awareness,&rdquo; &ldquo;envy,&rdquo; &ldquo;disgust,&rdquo; and &ldquo;inferiority.&rdquo;</p>
+<p>Japanese anime displays such adeptness in this regard, inseparable from their early creation of campus youth anime—these emotions are the normative state of adolescent students.</p>
+<p><strong>If a person is self-aware (feels that they) can distinguish between &ldquo;counterfeit&rdquo; and &ldquo;genuine,&rdquo;</strong> such characters often feel inferior for being counterfeit.</p>
+<blockquote>
+<p>For example, in <em>Oshi no Ko</em>, in the early stages, Ai Hoshino dares not express &ldquo;love&rdquo; to her children—she is unwilling to falsely speak loving words to them.</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp" title="Oshi no Ko" data-thumbnail="/img/真物与伪物.zh-cn-20240523115915540.webp" data-sub-html="<h2> </h2><p>Oshi no Ko</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523115915540.webp" />
+    </a><figcaption class="image-caption">Oshi no Ko</figcaption>
+    </figure></p>
+<p>From this perspective, it is evident that most authors write characters who consider themselves &ldquo;counterfeit&rdquo; with a sympathetic attitude.</p>
+<p><strong>Considering oneself counterfeit has a premise: having never attained the &ldquo;genuine&rdquo; while yearning for it, at which point they are self-aware, self-aware of their ability to distinguish between genuine and counterfeit.</strong></p>
+<p>The pain of yearning without attainment, and a past devoid of happiness, can both become sources of counterfeit inferiority, and also the entry point for sympathetic perspective.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp" title="Manga Oshi no Ko" data-thumbnail="/img/真物与伪物.zh-cn-20240523115942537.webp" data-sub-html="<h2> </h2><p>Manga Oshi no Ko</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523115942537.webp" />
+    </a><figcaption class="image-caption">Manga Oshi no Ko</figcaption>
+    </figure></p>
+<p><strong>If a person is recognized as &ldquo;genuine&rdquo; or &ldquo;counterfeit&rdquo; and lacks self-awareness,</strong> then they will be despised or envied by others.</p>
+<p>Mashiro Shiina in <em>The Pet Girl of Sakurasou</em> possesses powerful painting talent. She is a naturally beautiful girl, lacks self-care abilities, and aligns more closely with the &ldquo;natural genuine&rdquo; godlike creation—in short, a pure angel unlike ordinary mortals.</p>
+<p>At the beginning of such works, the genuine is like a brilliant rising ideal sun, while the counterfeit lies dormant in the shadows below; the genuine appears as an afterglow unattainable to mortals, while the counterfeit is merely a paper shell preserving dignity for ordinary people.</p>
+<p>The vast difference between them means that the unconscious radiance of one can make another self-aware person feel ashamed of themselves, low as an ant.</p>
+<h2 id="the-stance-of-exalting-the-counterfeit">The Stance of Exalting the Counterfeit</h2>
+<p>A vast number of works, <strong>in the end, express an existentialist viewpoint—the counterfeit is not a disguise; artificiality is not necessarily evil. The center of definition lies in human emotion.</strong></p>
+<h3 id="first-layer-of-meaning">First Layer of Meaning</h3>
+<p><strong>The counterfeit is &ldquo;human-made,&rdquo; but &ldquo;human-made&rdquo; need not be a source of inferiority.</strong></p>
+<p>Pursuing &ldquo;non-artificial purity&rdquo; in such works is regarded as human nature. The pain lies in &ldquo;the fair maiden, sought but not obtained.&rdquo; The genuine is either god-made or human heart-made, meaning that as long as human interaction is involved, the genuine is impossible.</p>
+<blockquote>
+<p>Past philosophers pursued &ldquo;objectivity,&rdquo; yet regrettably, philosophy has only subjectivity-objectivity, not objectivity-objectivity, because it is humans observing, humans interacting. Then, where lies the sought non-artificial, absolute objectivity? Philosophy&rsquo;s answer is utilitarianism or dialectics.</p>
+</blockquote>
+<p>The common answer in anime and manga works is this—like drawing a circle according to an ideal. Reality cannot have a perfect circle.</p>
+<blockquote>
+<p>Teacher Luo Xiang seems to greatly enjoy this metaphor—there is never perfect justice, just as there is never a perfect circle.</p>
+</blockquote>
+<p>What has always been worth praising in humans is not the magnificent feat of drawing the circle, but the human heart that creates the ideal circle, as well as the eternally maintained posture of pursuit—infinitely approaching the genuine amidst futility, like the rolling stone borne by Sisyphus—that is the genuine of brief life.</p>
+<p>For example, in <em>Hyouka</em>, from the &ldquo;Jumonji Incident&rdquo; to numerous sports anime (<em>Run with the Wind</em>, <em>Haikyuu!!</em>, <em>Slam Dunk</em>, <em>SK8 the Infinity</em>, <em>Ping Pong: The Animation</em>, etc.), a genius embracing the genuine without awareness is pursued by an inferiority-stricken bosom friend. Powerlessness and inferiority simultaneously strike the &ldquo;self-aware counterfeit&rdquo; character.</p>
+<p>In <em>Ping Pong: The Animation</em>, Chinese player &ldquo;Kong&rdquo; is eliminated and comes to Japan, filled with resentment, then is defeated by a Japanese player. The airplane scene symbolizes that the wish to defeat Japan and return home is blocked. Later, he accepts everything and trains with the Japanese player to improve himself.</p>
+<p>The final method of resolution is also cliché—binding the relationship of the two into one, or that love transcends all. Suppressing utilitarian competition, understanding that what matters most is the attitude of mutual pursuit—there is no counterfeit and no genuine, only genuine heart exchanged for genuine heart.</p>
+<blockquote>
+<p>When <em>SK8 the Infinity</em> came out, I expected it to offer new insights on &ldquo;effort and unsurpassable talent,&rdquo; but it still gave the same formulaic answer—love is greater than everything.</p>
+<p>Real athletic competition is far more ruthless; in this regard, <em>Ping Pong: The Animation</em> portrays it more authentically.</p>
+</blockquote>
+<h3 id="second-layer-of-meaning">Second Layer of Meaning</h3>
+<p><strong>The counterfeit may not fail to become genuine.</strong></p>
+<p><strong>Conversely, the genuine may not fail to become counterfeit.</strong></p>
+<blockquote>
+<p><strong>&ldquo;When false becomes true, true also becomes false; when true becomes false, false also becomes true.&rdquo;</strong> Japan also has a famous concept called &ldquo;twilight.&rdquo; At twilight, the sun sets, day and night interweave, and the boundary between false and real blurs, overlapping together—<em>Labyrinth of Magic</em>.
+Mahua FunAge&rsquo;s <em>Too Cool to Kill</em> is a remake of <em>Labyrinth of Magic</em>.
+In <em>Your Name</em>, Mitsuha and Taki meet across displaced time and space also at twilight, and the BGM is also called Twilight.</p>
+</blockquote>
+<p>The &ldquo;Monogatari Series&rdquo; directly and vividly demonstrates both types. In <em>Nisemonogatari</em>, Koyomi Araragi genuinely treats the counterfeit Karen as his sister—whether genuine or not has already become irrelevant.</p>
+<p>There are many similar concepts in Buddhism, broadly speaking, &ldquo;phenomena arise from the mind.&rdquo; Once there was a famous reading comprehension passage <a href="https://www.thn21.com/Article/ji/30385.html" target="_blank" rel="noopener noreffer ">&ldquo;Again the Year When Zongzi Fragrance Floats&rdquo;</a>, in which the author ate everywhere to find the taste of his mother&rsquo;s zongzi, but in the end, the more he compared, the less he found it. The question asks: did he find it in the end? The answer is yes: because the taste of his mother&rsquo;s zongzi became clearer in the contrast of memories.</p>
+<p>(This is Chinese reading comprehension! I gradually understand everything)</p>
+<p><strong>In <em>Kizumonogatari</em>, it is the genuine becoming counterfeit.</strong> Nadeko Sengoku cannot obtain Araragi Koyomi&rsquo;s love, and in grief and indignation, becomes a god. Fraud master and logical genius Kaiki Deishu uses &ldquo;talk therapy&rdquo; (talking no jutsu), making Sengoku pretend to be deceived and give up romantic feelings—<strong>&ldquo;there is no irreplaceable love in this world; if he doesn&rsquo;t love you, find another.&rdquo;</strong></p>
+<p><strong>Kaiki&rsquo;s counterfeit logic: there is no irreplaceable genuine in this world, only counterfeits, because everything can be replaced. Therefore, the so-called unattainable genuine is actually irrelevant; cherishing oneself is most important.</strong></p>
+<blockquote>
+<p>(Kaiki is a fraud master; he defrauded Sengoku and also defrauded himself—in the work, he too pursues the genuine)</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1HK4y1U7bE&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>Below is an example of counterfeit becoming genuine. It is mainly a false shell plus sincere emotion. Sincerity is number one.</p>
+<blockquote>
+<p>For instance, Emiya Shirou&rsquo;s counterfeit overpowering the King&rsquo;s Treasury. Whether in <em>The Unpromised Garden of Words</em> or <em>Fate/stay night</em>, Emiya&rsquo;s overpowering of the King&rsquo;s Treasury is because he protects important people with counterfeits—this is a sincerity that enemies who merely attack with genuine items lack.</p>
+</blockquote>
+<p>In <em>The Unpromised Garden of Words</em> and <em>Fate/stay night</em>, Emiya Shirou battles the King&rsquo;s Treasury through reproductions; here is my favorite excerpt from <em>The Unpromised Garden of Words</em>.</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Px411L7ac&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>In <em>Oregairu</em>, even in the middle-to-late stages, Hachiman refers to his relationship with Yukino as &ldquo;parasitic,&rdquo; but after mutual confession of feelings, I believe he attains the genuine.</p>
+<p>Even more famous is the plot of <em>Nisekoi</em>—the classic &ldquo;girl who falls from the sky&rdquo; versus childhood friend, where the initial true love is forcibly isolated by the author&rsquo;s &ldquo;hand of plot,&rdquo; and the bickering couple unknowingly become unable to leave each other, while the childhood friend Onodera becomes the queen of &ldquo;loser dogs&rdquo; voiced by Hikasa Yō.</p>
+<p>(I am very dissatisfied with such handling! I can only say that triangular relationships are most prone to blowing up. <em>The Silent Pavilion</em>, <em>Stealing Star September Sky</em>, <em>Work! Demon Lord!</em> have all blown up—let&rsquo;s see whether Conan can safely emerge)</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp" title="Gradually默契的 bickering couple in Nisekoi" data-thumbnail="/img/真物与伪物.zh-cn-20240523120004409.webp" data-sub-html="<h2> </h2><p>Gradually默契的 bickering couple in Nisekoi</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523120004409.webp" />
+    </a><figcaption class="image-caption">Gradually默契的 bickering couple in Nisekoi</figcaption>
+    </figure></p>
+<p><em>Saekano: How to Raise a Boring Girlfriend</em> is also typical—Megumi always buries her emotions deep in her heart; though she is the heroine, the setting is that of a &ldquo;background character&rdquo; making a comeback.</p>
+<p>In such works, the protagonist often feels inferior for being counterfeit. The protagonist walks a certain path merely to satisfy others&rsquo; expectations, or to compete with others, but in doing so, often genuinely falls in love with something and moves toward the genuine. Alternatively, they recognize their true heart and pursue the other path in their own heart.</p>
+<h2 id="returning-to-reality">Returning to Reality</h2>
+<blockquote>
+<p>Once, my high school math teacher said meaningfully in class, &ldquo;In our class, no one likes mathematics, including myself.&rdquo;</p>
+<blockquote>
+<p>I understand the meaning of these words was to let our class (I am typical) not片面 pursue the final problems of the college entrance exam and clever solutions, but to value basic methods and aim for scores.</p>
+<p>At the same time, the mathematics we learn now is not truly abstract mathematics in the genuine sense; we are far from witnessing genuine mathematics. This current idea of liking偏, difficult, strange college entrance exam problems is merely a form of adolescent中二.</p>
+</blockquote>
+<p>Perhaps the teacher has long forgotten this matter, but I have constantly reflected on this mindset.</p>
+<p>From the perspective of the college entrance exam system, finding the rhythm and method that suits oneself is another discussion; the teacher undoubtedly meant well for us. However, what I want to contemplate is: what is &ldquo;love for a subject&rdquo;?</p>
+<p>In fact, the distinction between genuine and counterfeit is a standard.</p>
+<p>Yet, in reality, using &ldquo;motive&rdquo; as a standard for judgment does not accord with reality, so I remain an exalter of the counterfeit. As <em>Stove-side Night Talk</em> says, &ldquo;All evils begin with lust; judge by deeds, not by heart; judge by heart, and there are few perfect people in this world&rdquo;—this is roughly the principle being spoken of.</p>
+</blockquote>
+<p>In the end, the distinction between genuine and counterfeit is whether humans <strong>consciously identify or even negate</strong> the &ldquo;artificial&rdquo; side, to pursue beautiful ideals that are closer to nature, eternal, and irreplaceable. This process is painful, relative, and memories of failure or success will be etched in one&rsquo;s bones and heart.</p>
+<p>I used to scoff at such meaningless subjective judgments, but now I feel they can be accepted. <strong>In an era where everyone upholds &ldquo;it doesn&rsquo;t matter&rdquo; and numbness, finding something to pour one&rsquo;s passion into is painful self-mutilation, but it can also become a ladder toward greatness.</strong></p>
+<p>Using the一贯 &ldquo;affectation&rdquo; of Japanese anime—artificially creating pain, transcending pain, then living with self-righteous arrogance. Or in Japanese anime sentence structure—in the end, humans are just such creatures, living waveringly, awkward, inferior yet arrogant.</p>
+<p>Although I have summarized numerous standards from anime and manga works, reality is, after all, not anime or literary works—<strong>artificiality, duration, and natural purity are actually unimportant, as long as they aid one&rsquo;s development and can enrich the inner heart—what does it matter if I deceive myself? What does it matter if passion is brief? The authenticity of emotion comes entirely from the human heart.</strong></p>
+<p><strong>Whether negating the genuine and exalting the counterfeit; or obstinately pursuing the genuine, in the end it is merely a choice. Sincere heart is the standard of judgment in traditional works, but reality is far more complex.</strong></p>
+<p><strong>In short!</strong></p>
+<p><strong>Promote existentialism and anthropocentrism!</strong></p>
+<p><strong>Offer a sincere heart, obtain what one desires—what harm is there?</strong></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/zyw/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/zyw/" data-title="On Motivation: The Genuine and Counterfeit in Anime and Manga" data-via="ygVNLSZ1omFBCeB" data-hashtags="ACG,Anime,Philosophy"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/zyw/" data-hashtag="ACG"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/zyw/" data-title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/zyw/" data-title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/zyw/" data-title="On Motivation: The Genuine and Counterfeit in Anime and Manga" data-image="/img/真物与伪物.zh-cn-20240523120128154.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/acg/">ACG</a>,&nbsp;<a href="/en/tags/anime/">Anime</a>,&nbsp;<a href="/en/tags/philosophy/">Philosophy</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/wxb/" class="prev" rel="prev" title="Pursuing Scholarship: Beyond &#39;Serving the World&#39; and &#39;Because the Mountain Is There&#39;"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Pursuing Scholarship: Beyond 'Serving the World' and 'Because the Mountain Is There'</a>
+            <a href="/en/posts/ji_sata/" class="next" rel="next" title="Grouping and Measurement of Econometric Data (STATA Version)">Grouping and Measurement of Econometric Data (STATA Version)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>动机论：二次元的真物与伪物 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="动机论：二次元的真物与伪物" />
+<meta property="og:description" content="真物和伪物是二次元作品中常见的讨论。个人认为想清这个问题对正确认识功利性的心态很重要" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-10T16:08:54+08:00" />
+<meta property="article:modified_time" content="2023-12-10T16:08:54+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="动机论：二次元的真物与伪物"/>
+<meta name="twitter:description" content="真物和伪物是二次元作品中常见的讨论。个人认为想清这个问题对正确认识功利性的心态很重要"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/wxb/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "动机论：二次元的真物与伪物",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zyw\/"
+        },"genre": "posts","keywords": "二次元","wordcount":  4047 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zyw\/","datePublished": "2023-12-10T16:08:54+08:00","dateModified": "2023-12-10T16:08:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/zyw/" selected>简体中文</option><option value="/en/posts/zyw/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/zyw/" selected>简体中文</option><option value="/en/posts/zyw/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">动机论：二次元的真物与伪物</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E5%BD%B1%E8%A7%86%E5%89%A7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>影视剧</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-10">2023-12-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4047 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp"
+        data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120128154.webp 2x"
+        data-sizes="auto"
+        alt="/img/真物与伪物.zh-cn-20240523120128154.webp"
+        title="/img/真物与伪物.zh-cn-20240523120128154.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#真物和伪物">真物和伪物</a></li>
+    <li><a href="#二次元作品中的讨论">二次元作品中的讨论</a></li>
+    <li><a href="#歌颂伪物的立场">歌颂伪物的立场</a>
+      <ul>
+        <li><a href="#第一层含义">第一层含义</a></li>
+        <li><a href="#第二层含义">第二层含义</a></li>
+      </ul>
+    </li>
+    <li><a href="#回到现实">回到现实</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E4%B8%89%E5%8F%B6%28%E4%B8%BB%E9%A2%98%E6%9B%B2%29%20-%20RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
+<h1 id="伪物事在人为-">《“伪物”，事在人为 》</h1>
+<h2 id="真物和伪物">真物和伪物</h2>
+<p><strong>何为“伪”——人为。</strong> 伪物就是掺杂人为干预属性的产物，被看作非自然的。</p>
+<blockquote>
+<p>例如很多人吐槽潮流现充——漫威火了是漫威粉，间谍过家家火了成老二次元，破浪综艺火了成王心凌女孩，流浪地球爆了成刘慈欣老粉。如此种种，掺杂人为属性，很有跟风嫌疑。</p>
+<p>还有在社交中才能实现展现的特质——“打卡自己专注学习，强调自己学习热情高涨”或“自己喜欢 xx 类书，但从不具体谈论收获”。“与其说是爱着某个事物，不如说是爱着憧憬着某个事物的自己”，其实是喜欢自己陷入狂热的状态，至于对谁狂热，无关紧要。</p>
+</blockquote>
+<p>反之，<strong>“真物”是一种纯洁的，自然的属性，不需要刻意人为维系，彰显。</strong></p>
+<p><strong>中国不是没有相近的，比如宋明理学“存天理，灭人欲”，但无论是内涵深度，格局，理学都要更高，真伪物只是在个人满足层面。</strong></p>
+<h2 id="二次元作品中的讨论">二次元作品中的讨论</h2>
+<p>借助春物和伪物语等二次元作品，我想总结下传统二次元作品伪物与真物的分界线。</p>
+<ul>
+<li><strong>看待事物的角度上：</strong>“真物”是全盘接受的，潜在要求是能看到事物的多面乃至本质；伪物是片面的，停留在表面。</li>
+</ul>
+<blockquote>
+<p>《春物》大老师经典发言讨厌温柔女孩的原因就是因为这份善良是面向所有人，在不知其全部情况下的客套。结论是这份善良不独特，不持久。</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1E44y1U7gY&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>《春物》比企谷经典对伪物青春的发言：我讨厌温柔的女孩子。温柔的女孩子其实对所有人都温柔，我却会误以为只对我温柔，然后就沾沾自喜得意忘形，最后闹得不欢而散，双方都受到伤害。所以我才讨厌温柔的女孩子。</p>
+<ul>
+<li><strong>保持热忱的时间上：</strong> 真物是持久的，忠贞的，稀缺的，许久不见再见也彼此理解，独一无二，不可替代；伪物是短暂的，需要不断地人为刻意维系，害怕被别人替换，自己也可以替换其他。</li>
+</ul>
+<blockquote>
+<p>例如《青春期猪头少年》中与社会氛围对抗，认为氛围在珍贵的人面前不值一提。</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1s64y1T7Gm&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>从今往后，我的敌人就是氛围。人云亦云的方式很轻松，靠着自己的意志去判断一切是非，需要消耗卡路里。带着自己的意志判断，遭到否定就会受到伤害。</p>
+<ul>
+<li><strong>内心表现的动机上：</strong> 真物是纯洁的，自然的，发自内心油然而生的感觉；伪物是动机不纯的，抱有其他功利性目的的。</li>
+</ul>
+<blockquote>
+<p>人之初，性本什么，这种讨论可被认为是真物的讨论。</p>
+</blockquote>
+<ul>
+<li><strong>作品设置上：</strong> 真物和伪物是互相映照成对的，内部也存在矛盾性。</li>
+</ul>
+<blockquote>
+<p>可能一个人认为朋友关系需要迎合，作者就会说真正的朋友是可以争吵的；一个人认为人和妖的物种之别就是各自的本质，但作者就会说性格良善与否才是更重要的尺度；一些人认为朋友圈证明了幸福快乐得想分享，但作者就会说心满意足的人不会对外宣扬。</p>
+</blockquote>
+<p>在角色表现中，伪物与真物往往和“自觉”，“羡慕”，“厌恶”，“自卑”联系在一起。</p>
+<p>日漫在这方面表现地如此娴熟，离不开他们较早地做校园青春动漫，这些情感是青春期在校学生的常态。</p>
+<p><strong>如果一个人自觉（自己觉得）能分清“伪物”和“真物”</strong>，此类角色往往会为自己是伪物而感到自卑。</p>
+<blockquote>
+<p>例如《我推的偶像》前期的星野爱不敢对孩子表达“爱意”——她不愿意对孩子虚假地表达爱语。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp" title="《我推的偶像》" data-thumbnail="/img/真物与伪物.zh-cn-20240523115915540.webp" data-sub-html="<h2> </h2><p>《我推的偶像》</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523115915540.webp" />
+    </a><figcaption class="image-caption">《我推的偶像》</figcaption>
+    </figure></p>
+<p>在这种视角下，显然大多数作者对自认“伪物”的角色都多是以同情的态度书写。</p>
+<p><strong>自认为伪物，都有个前提，没获得过“真物”的同时向往真物，此时他们都是自觉的，自觉自己能辨别真物和伪物。</strong></p>
+<p>求而不得的痛苦和没有幸福感的过去，都可以成为伪物自卑的来源，也是同情视角的切入点。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp" title="漫画《我推的孩子》" data-thumbnail="/img/真物与伪物.zh-cn-20240523115942537.webp" data-sub-html="<h2> </h2><p>漫画《我推的孩子》</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523115942537.webp" />
+    </a><figcaption class="image-caption">漫画《我推的孩子》</figcaption>
+    </figure></p>
+<p><strong>如果一个人被认作是“真物”或“伪物”且不抱有自觉</strong>，那么会被他人厌恶或者羡慕。</p>
+<p>《樱花庄的宠物女孩》中的“真白”具有强大的绘画天赋。她是天生的美少女，也没有自理能力，更加贴合“天然真物”近神的塑造，简而言之，纯净的天使不像人一样普通</p>
+<p>在这类作品的开头，真物就像煌煌升起的理想旭日，伪物是下面蛰伏的阴影；真物仿佛凡人可望不可及的余晖，伪物只是凡人打点尊严的纸壳。</p>
+<p>二者天差地别，一个人不自觉的光芒可以让另一个自觉的人自惭形秽，卑如蝼蚁。</p>
+<h2 id="歌颂伪物的立场">歌颂伪物的立场</h2>
+<p>大量的作品，<strong>最后都表现了一种存在主义观点——伪物并非伪装，人为的不自然至少不一定是恶劣。定义的中心是人的情感。</strong></p>
+<h3 id="第一层含义">第一层含义</h3>
+<p><strong>伪物是“人为”，但“人为”不需要自卑</strong></p>
+<p>追求“非人为的纯洁”在这类作品中被视为人的天性。痛苦的是“窈窕淑女，求而不得”。真物要么是神造的，要么是人心造的，意味着只要有人参与互动，就不可能有真物。</p>
+<blockquote>
+<p>曾经的哲学家追求“客观”，遗憾的是哲学只有主客观，没有客客观，因为是人在观察，人在交互。那么，所求的非人为的，绝对客观在何方呢？哲学的答案是功利主义或辩证法。</p>
+</blockquote>
+<p>二次元作品常见的答案则是——就像照着理想的圆画画。现实不可能有完美的圆。</p>
+<blockquote>
+<p>罗翔老师似乎很喜欢这个比喻——永远没完美的正义，也就是完美的圆圈。</p>
+</blockquote>
+<p>人被值得歌颂的从来不是画出圆的壮举，而是创造出理想圆的人心，以及永远保持追求的姿态，无限于徒劳中逼近伪物，如西西弗斯背负的滚石，那就是短暂人生的真物。</p>
+<p>例如《冰菓》“十文字事件”到诸多运动番（狂风吹拂，排球少年，灌篮高手，无限滑板，乒乓等），怀抱真物而不自知的天才被自卑的挚友追赶。无力感和自卑感同时打击着“自觉伪物”的角色。</p>
+<p>《乒乓》中中国选手“孔爷”被淘汰后来到日本，怨气满满，后又被日本选手打败。飞机画面象征着打赢日本回国的心愿被拦住了。之后接受了一切，和日本选手一起训练提升自我。</p>
+<p>最后解决的方法也是老套——把二者的关系绑定为一体或者热爱超越一切。把功利性的比拼压下，明白最重要是的彼此追赶的态度——没有伪物与真物，只有真心换真心。</p>
+<blockquote>
+<p>《无限滑板》出来时，我期待对它在“努力和不可超越的天赋”上有新解，不过还是一样的套路回答——热爱大于一切。</p>
+<p>现实的体育竞技残酷得多，这一点上《乒乓》刻画地更加真实</p>
+</blockquote>
+<h3 id="第二层含义">第二层含义</h3>
+<p><strong>伪物未必不能成真</strong></p>
+<p><strong>反之，真物未必不能化为伪。</strong></p>
+<blockquote>
+<p><strong>假亦真时真亦假，真亦假时假亦真。</strong> <strong>日本还一个著名的概念就是“黄昏之时”。黄昏时，太阳落下，白天与夜晚交织，虚假和真实的界限会模糊，重叠在一起——《魔幻时刻》。</strong>
+开心麻花的《这个杀手不太冷静》翻拍的就是《魔幻时刻》
+《你的名字》中，三叶和泷错位时空相见也是在黄昏之时，BGM 也叫黄昏之时。</p>
+</blockquote>
+<p>“物语系列”直接鲜明地体现了两种。《伪物语》中垃圾君真心把伪物火怜当成妹妹，那么真不真已经无关紧要了。</p>
+<p>佛法里就比较多，广义上的相由心生。曾经有个著名的阅读理解 <a href="https://www.thn21.com/Article/ji/30385.html" target="_blank" rel="noopener noreffer ">《 又是一年粽飘香》</a>，作者为了找母亲粽子的味道到处吃，在最后越对比越没找到。题目问最后找到了吗？答案是找到了：因为母亲粽子的味道在对比的回忆中更加清晰了。</p>
+<p>（这就是中国阅读理解！我逐渐理解一切）</p>
+<p><strong>在《恋物语》中就是真物变成了伪物</strong> 。千石扶子无法得到阿良良木历的爱，悲愤化神。欺诈师逻辑鬼才贝木通过 talk 话疗，让扶子假装被欺骗，放弃恋爱之情——<strong>世界上没有不可以替代的爱情，他不爱你，就换一个。</strong></p>
+<p><strong>贝木的伪物逻辑：世界上没有不可替代的真物，只有伪物，因为一切皆可替换。那么，所谓的无法得到的真物其实无关紧要，珍惜自己才是最重要的。</strong></p>
+<blockquote>
+<p>（贝木是欺诈师，他欺诈了抚子，也欺诈了自己，他在作品中也是追求真物的）</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1HK4y1U7bE&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>下面是伪物变真物的例子。主要是虚假的壳加上真情实感。真心 no. 1。</p>
+<blockquote>
+<p>例如卫宫士郎的赝品力克王之宝库。无论是在《雪下的誓言》，还是在《fate stay night》中，卫宫力克王之宝库都是因为用赝品守护重要之人，这一点是只是单纯用真品攻击的敌人不具有的真心。</p>
+</blockquote>
+<p>在《雪下的誓言》和《fate stay night》中，卫宫士郎都通过复制体大战王之宝库，这里是我最爱的雪下的誓言截取片段。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Px411L7ac&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>春物中的大老师就算在中后期也把自己和雪乃的关系称为“寄生”，但最后互表心意后，相信获得真物。</p>
+<p>更著名的是《伪恋》的剧情，经典的天降打青梅，一开始的真爱被作者使用“剧情之手”强制隔离，欢喜冤家不自觉间已离不开彼此，青梅小野寺又是败犬王者东山献声。</p>
+<p>（我很不满意这样的处理！只能说三角关系最易暴雷。哑舍，偷星九月天，打工吧！魔王大人都暴雷了，且看柯南能否平安吧）</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp" title="《伪恋》中逐渐默契的欢喜冤家" data-thumbnail="/img/真物与伪物.zh-cn-20240523120004409.webp" data-sub-html="<h2> </h2><p>《伪恋》中逐渐默契的欢喜冤家</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 2x"
+            data-sizes="auto"
+            alt="/img/真物与伪物.zh-cn-20240523120004409.webp" />
+    </a><figcaption class="image-caption">《伪恋》中逐渐默契的欢喜冤家</figcaption>
+    </figure></p>
+<p>《路人女主》也是典型，惠一直把自己的情感埋藏心底，虽然是女主，但是设定上是作为路人逆袭。</p>
+<p>在这类作品中，主人公往往因为自己是伪物而自卑。主人公走上某个道路只是为了满足他人的期待，或者与他人竞争，但往往借此真正爱上了某个事物，走向真物。也或者认清真心，最求自己心底的另一条路。</p>
+<h2 id="回到现实">回到现实</h2>
+<blockquote>
+<p>曾经，我的高中数学老师在课堂上意味深长地说过这样一番话“我们班没有人喜欢数学，包括我自己”。</p>
+<blockquote>
+<p>我明白这番话的意思是让我们班（我就是典型）别片面追求高考压轴题和巧解，要重视基础方法，以得分为目标。</p>
+<p>同时，我们现在学的数学根本不是真正意义上的抽象数学，我们远未见识真正的数学，现在这种喜欢偏、难、怪高考题的想法只是青少年的一种中二。</p>
+</blockquote>
+<p>或许老师早已忘记这件事，但我一直在回想这种心态。</p>
+<p>就高考体制下来说，找准适合自己的节奏和方法是另一方面的讨论，老师毫无疑问是为了我们好。不过我想思考的是何为“对学科的热爱”？</p>
+<p>其实真物和伪物就是一种标准。</p>
+<p>然而事实上，以“动机”作为判断的标准并不符合现实，所以我依旧是伪物的歌颂者。《围炉夜话》所谓“万恶淫为首，论迹不论心，论心世上少完人”, 大概说的就是这番道理吧。</p>
+</blockquote>
+<p>说到底，真物和伪物的区别就是人是否<strong>自觉地辨识甚至否定</strong>“人为”一侧，去追逐更贴近自然，永恒，不可替代的美好理想。这个过程是痛苦的，相对的，失败或成功的记忆将刻骨铭心。</p>
+<p>我以前对这种无意义的主观判断嗤之以鼻，但是现在我觉得可以接受。<strong>在人人崇尚“无所谓，麻木”的当下，寻找倾注热情的东西是痛苦的自残，但也可以成为通向伟大的阶梯。</strong></p>
+<p>用日漫一贯“矫情”的话说——人为制造痛苦，超越痛苦，然后自以为是的活着。还是日漫的句式——说到底人类就是这样一种生物，摇摇摆摆地活着，别扭、自卑又傲慢。</p>
+<p>虽然从二次元作品中归纳了不少标准，但现实毕竟不是二次元或文字作品，<strong>人为，持久度，纯天然度，其实都不重要，只要有助于自己的发展，能充盈内心，我自己骗自己又如何？短暂的热情又如何？感情真伪全来自人心。</strong></p>
+<p><strong>无论是否定真物，歌颂伪物；或是执着追求真物，说到底只是种选择，真心是传统作品里的评判标准，但现实复杂得多。</strong></p>
+<p><strong>总之！</strong></p>
+<p><strong>发扬存在主义，人类中心主义思想！</strong></p>
+<p><strong>付出真心，求得所偿，又有何妨？</strong></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/zyw/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" data-title="动机论：二次元的真物与伪物" data-hashtags="二次元"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" data-hashtag="二次元"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" data-title="动机论：二次元的真物与伪物"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" data-title="动机论：二次元的真物与伪物"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" data-title="动机论：二次元的真物与伪物" data-image="/img/真物与伪物.zh-cn-20240523120128154.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/">二次元</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/wxb/" class="prev" rel="prev" title="经世济民 or 因为山在那"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>经世济民 or 因为山在那</a>
+            <a href="/zh-cn/posts/ji_sata/" class="next" rel="next" title="计量数据的分组与测度（STATA 版）">计量数据的分组与测度（STATA 版）<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>存档：sss 级重生猎人第 84 章 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="存档：sss 级重生猎人第 84 章" />
+<meta property="og:description" content="本存档是 sss 重生猎人（84 章），发现本文纯属偶然。原著是韩文小说，B 站有人发的专栏只有机翻。意外看到觉得不错，所以拜托 cc 同学优化语言后存个档。最后我还是凭借个人喜好有所裁剪。机翻倒是意外地弄出点意识流的感觉" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/sss/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-27T22:16:36+08:00" />
+<meta property="article:modified_time" content="2023-06-27T22:16:36+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="存档：sss 级重生猎人第 84 章"/>
+<meta name="twitter:description" content="本存档是 sss 重生猎人（84 章），发现本文纯属偶然。原著是韩文小说，B 站有人发的专栏只有机翻。意外看到觉得不错，所以拜托 cc 同学优化语言后存个档。最后我还是凭借个人喜好有所裁剪。机翻倒是意外地弄出点意识流的感觉"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/sss/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/xz/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/wzyy/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "存档：sss 级重生猎人第 84 章",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/sss\/"
+        },"genre": "posts","keywords": "阅读","wordcount":  3705 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/sss\/","datePublished": "2023-06-27T22:16:36+08:00","dateModified": "2023-06-27T22:16:36+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/sss/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/sss/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">存档：sss 级重生猎人第 84 章</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-27">2023-06-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3705 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp"
+        data-srcset="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp 1.5x, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp 2x"
+        data-sizes="auto"
+        alt="/img/sss级重生猎人第84章.zh-cn-20240523132038685.webp"
+        title="/img/sss级重生猎人第84章.zh-cn-20240523132038685.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>本存档是 <a href="https://www.bilibili.com/read/readlist/rl682564" target="_blank" rel="noopener noreffer ">sss重生猎人</a>（<a href="https://www.bilibili.com/read/cv22477503/?from=readlist&amp;jump_opus=1" target="_blank" rel="noopener noreffer ">84章</a>），发现本文纯属偶然。原著是韩文小说，B 站有人发的专栏只有机翻。意外看到觉得不错，所以拜托 cc 同学优化语言后存个档。最后我还是凭借个人喜好有所裁剪。机翻倒是意外地弄出点意识流的感觉，</p>
+<p>&ldquo;这里是一朵一朵一朵一朵玫瑰&rdquo;。</p>
+</blockquote>
+<p>冬天，下雪了。</p>
+<p>师父的步伐很轻，像一阵掠过冰面的风。白色的世界里，师父黑色的衣襟与地面仿佛笔触一样流淌。</p>
+<p>“你想逃到何时？”</p>
+<p>“若论轻功，本座可不会输。”</p>
+<p>“一切迟早会结束。”</p>
+<p>“你看不到吗？这世界已成无边雪原，天地偌大，本座随处可去！”</p>
+<p>“你哪里也去不了。”背后灵猛地发力，巨剑横扫，荡开风雪，拉近距离。“若你真是全盛时期，我或许无计可施。现在你生机已寥寥无几了。还剩不到一个小时吧？你还打算一直打下去吗？”</p>
+<p>“啊哈，真卑鄙啊”</p>
+<p>“确实卑鄙。”背后灵挥舞巨剑。</p>
+<p>“好吧，我承认”师父扭头轻躲，“本座命数所剩无几，确实不能再逃了”</p>
+<p>“看来还说得通。”背后灵大笑挥剑。</p>
+<p>师父握住剑柄，“那就让你见识下本座的最强绝技”</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132018974.webp" title="师父握住剑柄，“那就让你见识下本座的最强绝技”" data-thumbnail="/img/sss级重生猎人第84章.zh-cn-20240523132018974.webp" data-sub-html="<h2> </h2><p>师父握住剑柄，“那就让你见识下本座的最强绝技”</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132018974.webp"
+            data-srcset="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132018974.webp, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132018974.webp 1.5x, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132018974.webp 2x"
+            data-sizes="auto"
+            alt="/img/sss级重生猎人第84章.zh-cn-20240523132018974.webp" />
+    </a><figcaption class="image-caption">师父握住剑柄，“那就让你见识下本座的最强绝技”</figcaption>
+    </figure></p>
+<p>魔天神功, 第一式——饿死剑。</p>
+<p>“大饥是灾年时的遍野饿殍，是瘦骨嶙峋的父母易子而食时绝望的手势。”</p>
+<p>刀剑划过冬风，发出刺耳的尖啸。</p>
+<p>“那个大人说过，把邻居家孩子的身体搞成肉干，埋在雪地里。你听说过镇上的谣言吗？你听说过村里的故事吗？冬天用铁锹挖雪的时候，孩子们的肉会把铁锹卡住。”</p>
+<p>“砰！”师父剑锋落在背后灵巨剑上。</p>
+<p>“我想那是个荒年。”</p>
+<p>“是啊，荒年。荒年如病，随时复来”</p>
+<p>“但这是偶然”背后灵逆着冬风，抡动巨剑。“偶遇丰年，偶遇歉年，世间万物，顺其自然。魔教教主啊，你既然为偶然的悲剧而悲哀，那也该因偶然的喜悦而展颜。人的悲痛沉沦的深度与其幸福徜徉的高度别无二致。”</p>
+<p>“铿锵！”长剑与阔剑交叠，雪花飘零，红梅尽落。</p>
+<p>“有那么一天，我漫步在路上，浩瀚无际的麦田从地平线翻涌起伏，一直铺到了我的眼前。这是个明媚的，连风都带着暖意的日子，麦浪涨落，现出几个雀跃玩耍着的孩子，他们跳着，跑着，呼吸着。满溢着快乐与活力的笑声一阵又一阵，在饱满低垂的麦穗间时隐时现”</p>
+<p>隆秋，起风了。红叶如火漫山遍野，原野广阔金浪连天。</p>
+<p>“你跟我说被埋在雪地里的孩子的悲泣吗？那我便要给你讲在麦穗间捉迷藏的孩子的笑声。”漫天枫叶卷动在背后灵剑身身后。“不管是凛冬还是隆秋，都是在某个偶然的日子里偶然发生的事。当我将死之时，我想起的肯定会是孩子们玩捉迷藏的情景。这是显而易见的吧？”</p>
+<p>师父割开枫叶。魔天神功，第二式——渴死剑。</p>
+<p>“两件事都是偶然？但偶然的富足不会杀人，偶然的饥渴却会致人死地。死了便是死了，所有的一切，都结束了”</p>
+<p>烈日当空，酷暑难耐。</p>
+<p>“一口水也没有，我要为死去的百姓反抗！”</p>
+<p>山川干涸，草木焦黄，果实干瘪，虫鸟嘶喑，河摊晾晒着成千上万枯死的鱼尸，没有水分的鱼眼凸出已成鱼干的身体。</p>
+<p>“噌”“当”伴随着越来越快逐渐相连不断的相击声，无数破碎的剑光在我眼底铺成明晃晃一片。他们贴的更近了，交锋愈发激烈，也愈发危险。</p>
+<p>“确实是很热的夏天，但在这么酣畅淋漓的夏天洗个澡，也会很痛快吧。”背后灵阔剑如山，滴水不漏“你把公子教错了。”</p>
+<p>“……你说什么？”</p>
+<p>“额，说得有点过了。与其说教错了，不如说教得太早了。”背后灵的剑光便如流水般接踵而至，“我喜欢歌颂世界的幸福，把目光投向别人的痛苦虽然也不错，但你不能永远这样做。”</p>
+<p>“为何？”</p>
+<p>嚓昂！灼风激荡，枯枝簌簌</p>
+<p>“这小子还没尝到世界的甜头。”攻防在不知不觉间转换。</p>
+<p>“你得让他尝尝山珍海味。尝尝这些，他才会为那些一辈子都吃不到这个的人难过。夏天需要水的时候，他才会为那些因为没有水而饥渴的人哭泣。你认为人心是烛光的芯，只要燃烧就行。但蜡烛总有一天会燃烧殆尽的。你知道吗，教坛的教主啊，这小子还没谈过恋爱，还没爱上过任何人。”</p>
+<p>剑如瀑布般倾泻而下，连绵不绝。</p>
+<p>“你把世界上所有的痛苦和悲伤都背下来，你就是装腔作势！你教导的也太早了！”</p>
+<p>“我会教他如何发乎肺腑地大笑，如何毫不虚伪地生活。我会教他如何与人相互依靠，如何与人长相厮守。直到真正无可奈何的时候，再让他学会悲伤，最后坚强。”</p>
+<p>“你&hellip;&hellip;”</p>
+<p>久旱的大地天降甘露，壮大的水流卷走干萎的死鱼，雨水顺着树皮滑落的地方，不久便有新芽滋长，草木蔚然。</p>
+<p>“你打算取代本座弟子吗？！”</p>
+<p>魔天神功，第三剑，溺死剑。</p>
+<p>“是的。”</p>
+<p>“你敢！”电光如网，雷声大作。越来越大的雨水逐渐汇聚成一股股湍流，汩汩湍流又彼此勾连，脆弱的河道被冲刷得千疮百孔。</p>
+<p>“你居然敢觊觎本座唯一的弟子？”</p>
+<p>雨水泛滥，流淌出几万朵猩红的玫瑰。</p>
+<p>“开什么玩笑！他师父本就是我！”</p>
+<p>二人脚下的水库轰然塌陷，村庄被洪水吞没。</p>
+<p>“是我教他怎么对抗兽人，是我启发他如何运用灵气，好不容易将这块没什么天赋的朽木雕刻成才，哪能让你这个邪教头目横插一脚！”</p>
+<p>无边无尽的水面升起无数玫瑰，猩红如血的玫瑰从四面八方流淌而来。两个人垂挂在水波和花瓣上。</p>
+<p>“挥剑是件愉快的事！”雨声和剑声也盖不过背后灵恣肆嚣狂的笑声。“痛苦？用痛苦挥舞的剑，那是什么？太魔功了吧！闻到花香的快乐，光着身子迎接夏雨的喜悦才好。”</p>
+<p>“公子，是本座的弟子，是为成为本教教主而生的！”</p>
+<p>“你个邪教教主！”</p>
+<p>无边无际无穷无尽的红，猩红的红，玫瑰的红，也是牡丹的红。</p>
+<p>数亿朵玫瑰在一瞬间绽放，洪水消失，风止雨停，双剑交接声也骤然远去。天地间没有一点多余的声音，没有一点多余的颜色，只红红，无边无尽的红，填满我双眼的红。</p>
+<p>世界红成一片花丛。</p>
+<p>春天。花开始流动，却不再有刺，红牡丹漫天飞舞，像是天际的流霞。</p>
+<p>“牡丹兰剑第六招——兰盆兰格，剜去你的颈椎穴！”</p>
+<p>师父后退几步，精准避过。</p>
+<p>我看见了。</p>
+<p>“魔天神功第七剑”</p>
+<p>我听见了。</p>
+<p>背后灵以海华漫德第四招——秋夜落月抗衡。</p>
+<p>我看到了二人的剑。</p>
+<p>看见两个人踩着的牡丹花。</p>
+<p>被踩得香喷喷的红牡丹。</p>
+<p>看得见，我才知道，比武接近尾声了。</p>
+<p>师父要输了。</p>
+<p>烂漫花海中，师父浑身是血。师父和背后灵实力差距显而易见。即使且战且退，也难以抵挡背后灵的排山倒海的攻势。尝试的代价是浑身的伤痕。</p>
+<p>背后灵摆好姿势，“我将用落日落花剑的第一招——月夜来剑”。</p>
+<p>师父的呼吸声变细了。</p>
+<p>“本座内功已尽，用真气也是奢望。本座&hellip;&hellip;”师父的嘴唇翕张，“本座本没有完成魔天神功的最后一个剑路。原因只有一个，被母亲遗弃，被世界遗忘，被风雪掩埋，被寒冷浸没，这是本座心中从小便认定的死亡结局。”</p>
+<p>“但——”师父高举长剑，像正午的时针，指向高天。“讽刺的是，世界灭亡之后，魔天神功的第九剑才得以完成。”</p>
+<p>“……..”</p>
+<p>“天上天下，本座独尊。”</p>
+<p>“不论抬眼仰望无边的苍天，还是垂眸丈量无际的大地，悠悠天地，只余本座。”</p>
+<p>“世界是冬，本座便是烛，本座为天下歌，因而本座的死也将是天地之死”</p>
+<p>剑，光芒万丈，划破天幕。</p>
+<p>“本座的魔天第九剑，将在雪原立下遗嘱”</p>
+<p>“魔天神功，本座的最后一式，孤剑独存。”</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp" title="魔天神功，本座的最后一式，孤剑独存" data-thumbnail="/img/sss级重生猎人第84章.zh-cn-20240523132038685.webp" data-sub-html="<h2> </h2><p>魔天神功，本座的最后一式，孤剑独存</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp"
+            data-srcset="/img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp 1.5x, /img/sss%e7%ba%a7%e9%87%8d%e7%94%9f%e7%8c%8e%e4%ba%ba%e7%ac%ac84%e7%ab%a0.zh-cn-20240523132038685.webp 2x"
+            data-sizes="auto"
+            alt="/img/sss级重生猎人第84章.zh-cn-20240523132038685.webp" />
+    </a><figcaption class="image-caption">魔天神功，本座的最后一式，孤剑独存</figcaption>
+    </figure></p>
+<p>冬天撕裂的春天。花瓣分开的裂隙中，四季轮转，始而复周，凛冬再临，呼啸而下。万千的红牡丹化作数亿多雪花冰冻世界。</p>
+<p>孤独的剑，这一击，歌颂着世界的死亡。</p>
+<p>“好吧，我承认。作为这样的世界里的最后一个武人，这是非常合适的一击。”</p>
+<p>“但唯独孤独，我比你更清楚。”他双手抬起阔剑，“你在这样无趣的世界独自守望了多长时间？三年还是两年？当然不是。因为你身边一直有个武林盟主。他一死，你就疯了。”</p>
+<p>剑柄开始震颤，剑身开始震颤，大地在震颤，天空在震颤，半空中那道纯白的洪流也隐隐在震颤。</p>
+<p>“抱歉。我一个人坚持了一百三十年。”</p>
+<p>出剑，无形，一剑。</p>
+<p>玫瑰花谢，牡丹花开，夏雨连绵，大浪滔天，红叶如火，麦浪如海。冬天、秋天、夏天、春天、夏天、秋天、冬天，冬天变为了红色，红色涌出了冬天……</p>
+<p>我简直无法理解刚才的一击，但是，现在还有一件比理解剑更重要的事。</p>
+<p>“师父”</p>
+<p>“师父，你没事吧？….”</p>
+<p>师父怔怔地仰望着冬日的天空，眼睛里已没了焦点。胸口一震，我摸了摸师父的手。给师父把脉。活着。师父还活着。</p>
+<p>“师父&hellip;&hellip;”</p>
+<p>“原来如此”师父说，“原来是这样啊”。</p>
+<p>“原来如此，本座唯一的弟子。你呀，从一开始就只是想着帮本座，塞外慕本座之名而来……”她的声音越来越轻。“本就是个彻头彻尾的谎言”</p>
+<p>师父的声音越来越小。</p>
+<p>“谢谢”，师父说。</p>
+<p>“徒弟啊，与本座相遇，觉得幸福吗？”</p>
+<p>我点了点头。</p>
+<p>“嗯&hellip;&hellip;”</p>
+<p>“本座能被你记为一朵花吗？”</p>
+<p>“师父&hellip;&hellip;”</p>
+<p>“我想知道是什么花”</p>
+<p>“是牡丹……”我抱住师父的身体。“我会记住你是红牡丹的，师父”</p>
+<p>“哈哈”师父轻笑着。“很漂亮啊”</p>
+<p>师父抚摸着我的脸，“好漂亮啊……”</p>
+<p>然后，师父用剩下的一只手，向着远方挥下，轻轻地，像是一只刚出生的小鸟在扇动翅膀。</p>
+<p>“我的徒弟……”</p>
+<p>以无声的方式，高耸的雪山被斩断了。</p>
+<p>一分为二的雪山静在那里，彷佛从来如此。</p>
+<p>师父喘着白气。</p>
+<p>“我应该是做了一个纯白色的梦吧&hellip;&hellip;”</p>
+<p>“师父……”我把脸埋在师父的肩膀上。在停止的呼吸中，对一个生来就带着雪的香气的人。</p>
+<p>冬天被斩断了，师父把冬天撕裂了。</p>
+<p>那天，</p>
+<p>一个世界的冬天被斩断了。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-06-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/sss/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/sss/" data-title="存档：sss 级重生猎人第 84 章" data-hashtags="阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/sss/" data-hashtag="阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/sss/" data-title="存档：sss 级重生猎人第 84 章"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/sss/" data-title="存档：sss 级重生猎人第 84 章"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/sss/" data-title="存档：sss 级重生猎人第 84 章" data-image="/img/sss级重生猎人第84章.zh-cn-20240523132038685.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/xz/" class="prev" rel="prev" title="转载：写作建议"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>转载：写作建议</a>
+            <a href="/zh-cn/posts/wzyy/" class="next" rel="next" title="文字游戏：“回”到文字">文字游戏：“回”到文字<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

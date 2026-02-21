@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>优化你的 Texstudio 编辑体验 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="优化你的 Texstudio 编辑体验" />
+<meta property="og:description" content="对于中文背景的用户来说，恐怕没有比想打出 $$ 却由于输入法没来得及切换，最后打成了 ￥￥ 更让人抓狂的日常了。🙃" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-10-10T16:52:19+08:00" />
+<meta property="article:modified_time" content="2025-10-10T16:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="优化你的 Texstudio 编辑体验"/>
+<meta name="twitter:description" content="对于中文背景的用户来说，恐怕没有比想打出 $$ 却由于输入法没来得及切换，最后打成了 ￥￥ 更让人抓狂的日常了。🙃"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/law_econ/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/rsc_econ/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "优化你的 Texstudio 编辑体验",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/texstudio\/"
+        },"genre": "posts","keywords": "LaTeX, 软件推荐","wordcount":  2080 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/texstudio\/","datePublished": "2025-10-10T16:52:19+08:00","dateModified": "2025-10-10T16:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/texstudio/" selected>简体中文</option><option value="/en/posts/texstudio/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/texstudio/" selected>简体中文</option><option value="/en/posts/texstudio/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">优化你的 Texstudio 编辑体验</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-10-10">2025-10-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2080 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758801557393.webp"
+        data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758801557393.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758801557393.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758801557393.webp 2x"
+        data-sizes="auto"
+        alt="/img/谷子经济的函数.zh-cn-1758801557393.webp"
+        title="/img/谷子经济的函数.zh-cn-1758801557393.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#宏命令">宏命令</a></li>
+    <li><a href="#texstudio-配置语言助手">Texstudio 配置语言助手</a></li>
+    <li><a href="#一些快捷键">一些快捷键</a></li>
+    <li><a href="#其他提示">其他提示</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>对于中文背景的用户来说，恐怕没有比想打出 <code>$$</code> 却由于输入法没来得及切换，最后打成了 <code>￥￥</code> 更让人抓狂的日常了。</p>
+<p>尽管现在有 <a href="https://www.overleaf.com/" target="_blank" rel="noopener noreffer ">overleaf</a>、<a href="https://www.texpage.com/zh/" target="_blank" rel="noopener noreffer ">texpage</a> 、<a href="https://www.slager.link/#/home" target="_blank" rel="noopener noreffer ">slager</a> 等一系列 $\LaTeX$ 在线编译网站，但他们依旧难以为此提供便利。线上渲染正变得越来越小气。如果想要尝试编译更大、更复杂、更长的文档又不愿付费，本地化软件永远是最好的选择（<strong>只要没有协作编辑的需求</strong>），同时也意味着更大的自由。</p>
+<ul>
+<li>$\LaTeX$ 教程可参见<a href="https://blog.huaxiangshan.com/zh-cn/posts/latex/" target="_blank" rel="noopener noreffer ">如何在1小时内快速入手LaTeX？</a></li>
+</ul>
+<h2 id="宏命令">宏命令</h2>
+<p>对于中文背景的 $\LaTeX$ 用户来说，恐怕没有比打出 <code>$$</code> 却由于输入法没来得及切换打成了 <code>￥￥</code> 更让人抓狂的日常了。</p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/ob/" target="_blank" rel="noopener noreffer ">Obsidian</a> 留住我的原因是极其便利的写作插件：</p>
+<ul>
+<li>快捷命令：<code>commander</code>、<code> editing toolbar</code></li>
+<li>图片转化：<code>image converter</code></li>
+<li>写作增强：<code>easy typing</code></li>
+<li>&hellip;&hellip;</li>
+</ul>
+<p>尤其是写作增强的 <a href="https://github.com/Yaozhuwa/easy-typing-obsidian/tree/master" target="_blank" rel="noopener noreffer ">easy typing</a>，支持自定义补全、中英文自动空格、无缝中英字符切换——例如连续两次输入 <code>￥￥</code> 就会自动变成 <code>$$</code>。</p>
+<p>那么问题在于，如何使得 texstudio 实现同样的功能呢？</p>
+<p>答案是自定义宏。Texstudio 支持自定义宏定义，详细语法参见官方文档 <a href="https://texstudio-org.github.io/advanced.html#personal-macros" target="_blank" rel="noopener noreffer ">Personal macros</a>。</p>
+<p><strong>正常模式</strong>的宏可以理解为文本转化和补全。我在<strong>触发器</strong>中写入 <code>￥￥￥￥ </code>（注意，此处结尾故意留下了一个空格）。<code>%|</code> 代表补全后的光标位置。</p>
+<p>个人宏还可以自定义快捷键，例如下图我设置了 <code>Ctrl+M</code> 作为 <code>$$</code> 插入的快捷键。当我输入 <code>￥*2（空格）</code> 时，也会自动触发转化。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/texstudio.zh-cn.md-1760090933518.webp" title="触发器就是格式检测，当正则表达识别满足时自动触发" data-thumbnail="/img/texstudio.zh-cn.md-1760090933518.webp" data-sub-html="<h2> </h2><p>触发器就是格式检测，当正则表达识别满足时自动触发</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/texstudio.zh-cn.md-1760090933518.webp"
+            data-srcset="/img/texstudio.zh-cn.md-1760090933518.webp, /img/texstudio.zh-cn.md-1760090933518.webp 1.5x, /img/texstudio.zh-cn.md-1760090933518.webp 2x"
+            data-sizes="auto"
+            alt="/img/texstudio.zh-cn.md-1760090933518.webp" />
+    </a><figcaption class="image-caption">触发器就是格式检测，当正则表达识别满足时自动触发</figcaption>
+    </figure></p>
+<p>个人宏还支持脚本顺序，如果会玩可以玩出各种花样（例如一环扣一环的转换）。因此写宏时要注意顺序，<strong>将更严格的正则检验宏放在上面</strong>，例如 <code>￥￥￥￥转$$$$</code> 应当放在 <code>￥￥转$$</code> 之前。</p>
+<p><strong>环境模式</strong>感觉很鸡肋，完全能用正常模式替代。</p>
+<p><strong>脚本模式</strong>更加灵活，支持 <code>java script</code> 语言。</p>
+<p>个人写了一个是，能把 <code>-内容1-内容2-内容2</code>（tab 键） 格式的内容转化为代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{内容1}[内容2]\label{内容2}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">\end{内容1}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>顺便进一步设置了个映射，如果内容 1 是“证明”，就转化为“proof”; 是“概念”，就转化为“definition”。</p>
+<p>代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// ===== 环境中英文映射 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">envMap</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;定理&#34;</span><span class="o">:</span> <span class="s2">&#34;theorem&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;引理&#34;</span><span class="o">:</span> <span class="s2">&#34;lemma&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;命题&#34;</span><span class="o">:</span> <span class="s2">&#34;proposition&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;性质&#34;</span><span class="o">:</span> <span class="s2">&#34;proposition&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;练习&#34;</span><span class="o">:</span> <span class="s2">&#34;exercise&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;思考题&#34;</span><span class="o">:</span> <span class="s2">&#34;exercise&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;思考&#34;</span><span class="o">:</span> <span class="s2">&#34;exercise&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;问题&#34;</span><span class="o">:</span> <span class="s2">&#34;exercise&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;推论&#34;</span><span class="o">:</span> <span class="s2">&#34;corollary&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;定义&#34;</span><span class="o">:</span> <span class="s2">&#34;definition&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;概念&#34;</span><span class="o">:</span> <span class="s2">&#34;definition&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;例子&#34;</span><span class="o">:</span> <span class="s2">&#34;example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;备注&#34;</span><span class="o">:</span> <span class="s2">&#34;remark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;注意&#34;</span><span class="o">:</span> <span class="s2">&#34;remark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;笔记&#34;</span><span class="o">:</span> <span class="s2">&#34;note&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;注释&#34;</span><span class="o">:</span> <span class="s2">&#34;note&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;案例&#34;</span><span class="o">:</span> <span class="s2">&#34;case&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;证明&#34;</span><span class="o">:</span> <span class="s2">&#34;proof&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;证&#34;</span><span class="o">:</span> <span class="s2">&#34;proof&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;练习&#34;</span><span class="o">:</span> <span class="s2">&#34;exercise&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== 获取匹配内容 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">triggerMatches</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>   <span class="c1">// 环境
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">triggerMatches</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// 标题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">label</span> <span class="o">=</span> <span class="nx">triggerMatches</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// 标签
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== 转换中文环境为 LaTeX 英文环境 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">envMap</span><span class="p">[</span><span class="nx">env</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">env</span> <span class="o">=</span> <span class="nx">envMap</span><span class="p">[</span><span class="nx">env</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== 构造 LaTeX 代码 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="s2">&#34;\\begin{&#34;</span> <span class="o">+</span> <span class="nx">env</span> <span class="o">+</span> <span class="s2">&#34;}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="nx">txt</span> <span class="o">+=</span> <span class="s2">&#34;[&#34;</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="s2">&#34;]&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="nx">txt</span> <span class="o">+=</span> <span class="s2">&#34;\\label{&#34;</span> <span class="o">+</span> <span class="nx">label</span> <span class="o">+</span> <span class="s2">&#34;}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">txt</span> <span class="o">+=</span> <span class="s2">&#34;\n\n\\end{&#34;</span> <span class="o">+</span> <span class="nx">env</span> <span class="o">+</span> <span class="s2">&#34;}\n&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== 插入文本 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">cursor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="nx">txt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== 调整光标位置到环境内部 =====
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">cursor</span><span class="p">.</span><span class="nx">movePosition</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nx">cursorEnums</span><span class="p">.</span><span class="nx">Up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cursor</span><span class="p">.</span><span class="nx">movePosition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">cursorEnums</span><span class="p">.</span><span class="nx">StartOfLine</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>触发器设置为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err">\</span><span class="o">-</span><span class="p">(.</span><span class="o">+</span><span class="p">)</span><span class="err">\</span><span class="o">-</span><span class="p">(.</span><span class="o">+</span><span class="p">)</span><span class="err">\</span><span class="o">-</span><span class="p">(.</span><span class="o">+</span><span class="p">)</span><span class="err">\</span><span class="nx">t</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="err">\</span><span class="nx">t</span> <span class="nx">是tab键</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="p">(.</span><span class="o">+</span><span class="p">)</span> <span class="err">：</span><span class="nx">括号就是一个环境</span><span class="err">，</span><span class="nx">代表分隔符</span><span class="o">-</span><span class="nx">中的环境</span><span class="err">。</span><span class="nx">其中</span><span class="p">.</span><span class="o">+</span><span class="nx">代表一个及其以上字符</span><span class="err">，</span><span class="nx">如果要求至少两个字符</span><span class="err">，</span><span class="nx">使用</span><span class="p">.</span><span class="o">+</span><span class="p">.</span><span class="nx">即可</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>逻辑也不难，触发器三个括号的正则识别内容对应着代码里的 env 、title、label。填入构造代码模板，然后移动光标。(唯一问题是 texstudio 正则识别对中文符号的兼容太差了)</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/texstudio.zh-cn.md-1760491203042.webp" title="如图" data-thumbnail="/img/texstudio.zh-cn.md-1760491203042.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/texstudio.zh-cn.md-1760491203042.webp"
+            data-srcset="/img/texstudio.zh-cn.md-1760491203042.webp, /img/texstudio.zh-cn.md-1760491203042.webp 1.5x, /img/texstudio.zh-cn.md-1760491203042.webp 2x"
+            data-sizes="auto"
+            alt="/img/texstudio.zh-cn.md-1760491203042.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h2 id="texstudio-配置语言助手">Texstudio 配置语言助手</h2>
+<p>Texstudio 页面。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp" title="如图" data-thumbnail="/img/LaTeX入门.zh-cn-1758093039527.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门.zh-cn-1758093039527.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>先下载 java (请自行寻找教程)</p>
+<p>然后下载免费的语法检查助手—— <a href="https://languagetool.org/download/" target="_blank" rel="noopener noreffer ">https://languagetool.org/download/</a></p>
+<p>下载自己对应的电脑版本，我是 win 系统加最新版 texstudio，所以选择 <a href="https://languagetool.org/download/LanguageTool-6.6.zip" target="_blank" rel="noopener noreffer ">LanguageTool-6.6.zip</a>。</p>
+<p>下载好之后解压对应的 languagetool 压缩包。在对应的文件夹页面打开 cmd（直接在路径栏输入 cmd 即可从这里打开）</p>
+<p>然后运行 java -jar languagetool. Jar</p>
+<p>打开后，<code>text checking</code> - <code>选项</code> 进入页面，设置语言、服务器端口。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp" title="如图" data-thumbnail="/img/LaTeX入门.zh-cn-1758092612033.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门.zh-cn-1758092612033.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>设置完成后，进入 texstudio 设置最下面的 languagetool 即可。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp" title="如图" data-thumbnail="/img/LaTeX入门.zh-cn-1758092768418.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门.zh-cn-1758092768418.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>之后重启 texstudio，在帮助检查语言工具即可：</p>
+<p>波浪线对应的就是语法错误。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp" title="如图" data-thumbnail="/img/LaTeX入门.zh-cn-1758092931198.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门.zh-cn-1758092931198.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>右键错误地方就会有更正提示：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp" title="如图" data-thumbnail="/img/LaTeX入门.zh-cn-1758092975675.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门.zh-cn-1758092975675.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h2 id="一些快捷键">一些快捷键</h2>
+<ul>
+<li><strong><code>Ctrl</code> + 鼠标左键</strong>：可以快速定位（跳转到源代码或 PDF 对应位置）。</li>
+<li><strong><code>Ctrl</code> + <code>Shift</code> + <code>I</code></strong>：可以迅速添加 <code>\item</code>（用于列表环境 <code>itemize</code>/<code>enumerate</code>）。</li>
+<li><strong><code>Ctrl</code> + <code>T</code></strong>：可以快速添加、取消注释（对当前行或选中的多行）。</li>
+<li><strong><code>Ctrl</code> + <code>Shift</code> + <code>M</code></strong>：可以快速添加<strong>行内代码</strong>，例如在光标位置添加 <code>$ x $</code>。</li>
+<li><strong><code>Ctrl</code> + <code>Shift</code> + <code>N</code></strong>：可以增加 <code>equation</code> 环境（例如 <code>\begin{equation} ... \end{equation}</code>）。</li>
+<li><strong><code>Alt</code> + <code>Shift</code> + <code>M</code></strong>：可以增加<strong>显示的代码</strong>（通常是数学环境，例如 <code>$$...$$</code> 或 <code>\[ ... \]</code>）。</li>
+</ul>
+<h2 id="其他提示">其他提示</h2>
+<p>活用左边列的符号收藏功能。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/texstudio.zh-cn.md-1760092010830.webp" title="如图" data-thumbnail="/img/texstudio.zh-cn.md-1760092010830.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/texstudio.zh-cn.md-1760092010830.webp"
+            data-srcset="/img/texstudio.zh-cn.md-1760092010830.webp, /img/texstudio.zh-cn.md-1760092010830.webp 1.5x, /img/texstudio.zh-cn.md-1760092010830.webp 2x"
+            data-sizes="auto"
+            alt="/img/texstudio.zh-cn.md-1760092010830.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>代码编辑页面右键可以跳转 pdf 渲染位置。
+<code>Ctrl</code> 键点击 pdf 位置可以跳转代码编辑位置。</p>
+<p>Texstudio 支持行内预览。<code>alt+p</code> 启动，但是可能和其他模板渲染设置冲突。例如我使用了 elegent 系列的模板就无法查看预览了。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/texstudio.zh-cn.md-1760238587723.webp" title="Texstudio 支持行内预览。&lt;code&gt;alt&#43;p&lt;/code&gt; 启动" data-thumbnail="/img/texstudio.zh-cn.md-1760238587723.webp" data-sub-html="<h2> </h2><p>Texstudio 支持行内预览。&lt;code&gt;alt&#43;p&lt;/code&gt; 启动</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/texstudio.zh-cn.md-1760238587723.webp"
+            data-srcset="/img/texstudio.zh-cn.md-1760238587723.webp, /img/texstudio.zh-cn.md-1760238587723.webp 1.5x, /img/texstudio.zh-cn.md-1760238587723.webp 2x"
+            data-sizes="auto"
+            alt="/img/texstudio.zh-cn.md-1760238587723.webp" />
+    </a><figcaption class="image-caption">Texstudio 支持行内预览。<code>alt+p</code> 启动</figcaption>
+    </figure></p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://texstudio-org.github.io/advanced.html#personal-macros" target="_blank" rel="noopener noreffer ">Advanced features</a></li>
+<li><a href="https://www.bilibili.com/video/BV1uA4y1X7Ji/?spm_id_from=333.1391.0.0&amp;vd_source=0e137afa81fa006aaa9f39b597699a06" target="_blank" rel="noopener noreffer ">Texstudio宏脚本编写-2022-4-24 16:48:09</a></li>
+<li><a href="https://tex.stackexchange.com/questions/155148/installing-language-tool-in-texstudio" target="_blank" rel="noopener noreffer ">Installing Language Tool in TexStudio</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-10-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/texstudio/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" data-title="优化你的 Texstudio 编辑体验" data-hashtags="LaTeX,软件推荐"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" data-hashtag="LaTeX"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" data-title="优化你的 Texstudio 编辑体验"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" data-title="优化你的 Texstudio 编辑体验"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/texstudio/" data-title="优化你的 Texstudio 编辑体验" data-image="/img/谷子经济的函数.zh-cn-1758801557393.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/latex/">LaTeX</a>,&nbsp;<a href="/zh-cn/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">软件推荐</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/law_econ/" class="prev" rel="prev" title="思想的力量：当法官学习了经济学"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>思想的力量：当法官学习了经济学</a>
+            <a href="/zh-cn/posts/rsc_econ/" class="next" rel="next" title="四川省分家之后：政治规划与经济增长">四川省分家之后：政治规划与经济增长<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

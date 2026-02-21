@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 计量：事件研究法 1 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 计量：事件研究法 1" />
+<meta property="og:description" content="参考《An Introductory Guide to Event Study Models》总结下事件研究法的使用。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/event1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-20T18:52:19+08:00" />
+<meta property="article:modified_time" content="2024-06-20T18:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 计量：事件研究法 1"/>
+<meta name="twitter:description" content="参考《An Introductory Guide to Event Study Models》总结下事件研究法的使用。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/event1/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/rose/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/event2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 计量：事件研究法 1",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event1\/"
+        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  4127 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event1\/","datePublished": "2024-06-20T18:52:19+08:00","dateModified": "2024-06-20T18:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/event1/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/event1/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 计量：事件研究法 1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-06-20">2024-06-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4127 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624162133449.webp"
+        data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624162133449.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624162133449.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624162133449.webp 2x"
+        data-sizes="auto"
+        alt="/img/stata事件研究法2.zh-cn-20240624162133449.webp"
+        title="/img/stata事件研究法2.zh-cn-20240624162133449.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#经济学如何研究事件冲击">经济学如何研究事件冲击？</a></li>
+    <li><a href="#事件研究法的亿点细节">事件研究法的“亿”点细节</a>
+      <ul>
+        <li><a href="#回归估计式">回归估计式</a></li>
+        <li><a href="#数据结构分类">数据结构分类</a></li>
+        <li><a href="#事件时间的选择">事件时间的选择</a>
+          <ul>
+            <li><a href="#事件发生时间的选择-">事件发生时间的选择 ：</a></li>
+            <li><a href="#事件基期的相关处理">事件基期的相关处理</a></li>
+            <li><a href="#窗口期选择">窗口期选择</a></li>
+            <li><a href="#实验组和对对照组的选择">实验组和对对照组的选择</a></li>
+            <li><a href="#趋势的干扰问题">趋势的干扰问题</a></li>
+          </ul>
+        </li>
+        <li><a href="#事件研究的推断统计">事件研究的推断统计</a></li>
+      </ul>
+    </li>
+    <li><a href="#未来展望">未来展望</a></li>
+    <li><a href="#省流总结">省流总结</a></li>
+    <li><a href="#本文主要参考文献">本文主要参考文献</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li><a href="https://blog.huaxiangshan.com/zh-cn/posts/event1/" target="_blank" rel="noopener noreffer ">计量：事件研究法 1</a></li>
+<li><a href="https://blog.huaxiangshan.com/zh-cn/posts/event2/" target="_blank" rel="noopener noreffer ">计量：事件研究法 2</a></li>
+<li><a href="https://blog.huaxiangshan.com/zh-cn/posts/event3/" target="_blank" rel="noopener noreffer ">计量：事件研究法 3</a></li>
+</ul>
+<blockquote>
+<p>做过 DID 的必然对平行趋势检验不陌生。而<strong>平行趋势检验就是事件研究法的一种特殊运用</strong>。<br>
+最近老师让阅读学习论文《An Introductory Guide to Event Study Models》。<br>
+作者们也发过一个<a href="https://www.youtube.com/@linearpanelevent-studydesi780" target="_blank" rel="noopener noreffer ">油管系列视频</a>。
+本文将基于这篇论文框架记录个人感悟。<br>
+代码还没有细看，这里先放上统计理论理解。</p>
+</blockquote>
+<h2 id="经济学如何研究事件冲击">经济学如何研究事件冲击？</h2>
+<p><strong>事件研究法</strong>就是研究<strong>特定事件是否对研究对象产生了影响</strong> 。这种方法最先在金融领域得到应用。例如分析公司改名，公司丑闻爆发，公司信息披露对股票波动的影响<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<blockquote>
+<p>这种方法当然需要更严谨地统计分析——例如某乎动不动就出现以下形式的问题：</p>
+<p>政策实施 or 发布会后，苹果 or 英伟达公司股价第二天就蒸发 or 暴涨几十亿，原因是什么？</p>
+<p>这种分析就是事件研究法的起点，但统计学上的检验还需要更严谨些。</p>
+</blockquote>
+<p>被引入到计量经济学中，事件研究法主要用于研究<strong>动态处理效应</strong>。通过处理效应的时间分组切片，进一步讨论事件影响。</p>
+<p>例如下图研究失业对收入<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>的影响中，根据每个人失业时间建立动态的时间虚拟变量：失业前一年（t-1）、失业后一年(t+1)、失业后两年(t+2)。其中包含了预期趋势和事后趋势。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp" title="Earnings losses of displaced workers" data-thumbnail="/img/事件研究法.zh-cn-20240620154618867.webp" data-sub-html="<h2> </h2><p>Earnings losses of displaced workers</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp"
+            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp 1.5x, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp 2x"
+            data-sizes="auto"
+            alt="/img/事件研究法.zh-cn-20240620154618867.webp" />
+    </a><figcaption class="image-caption">Earnings losses of displaced workers</figcaption>
+    </figure></p>
+<ul>
+<li><strong>事前趋势</strong>：例如大家都预期失业潮要来了，在事件到来之前，可以看出就有缓慢下降的趋势，但在时间出现那一刻（横坐标为 0）的前后，冲击效果依旧明显。</li>
+<li><strong>事后趋势</strong>：随着时间冲击后，效应开始逐渐反弹。也就是比较时间冲击后每年都效果是逐年增强还是减弱。</li>
+<li><strong>模型假设</strong>：DID 中的平行趋势检验也是事件研究法。证明政策满足模型假设——外生冲击。因此，在政策开始前，处理效应应该不显著且系数接近 0，政策开始后，系数显著异于 0。</li>
+</ul>
+<blockquote>
+<p>以英语听力考试与教育不平等<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>的一个论文为例子。</p>
+<p>论文设置的时间虚拟变量是<strong>英语听力何时加入高考</strong>。</p>
+<p>被解释变量：英语成绩、数学语文成绩、录取率。
+异质性分组：城市和农村样本。</p>
+<p>通过图也可以看出，在引入英语听力前，城乡差距不大，引入后城乡水平差距不断扩大。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp" title="英语听力考试与教育不平等" data-thumbnail="/img/事件研究法.zh-cn-20240620155803548.webp" data-sub-html="<h2> </h2><p>英语听力考试与教育不平等</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp"
+            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp 1.5x, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp 2x"
+            data-sizes="auto"
+            alt="/img/事件研究法.zh-cn-20240620155803548.webp" />
+    </a><figcaption class="image-caption">英语听力考试与教育不平等</figcaption>
+    </figure></p>
+</blockquote>
+<h2 id="事件研究法的亿点细节">事件研究法的“亿”点细节</h2>
+<h3 id="回归估计式">回归估计式</h3>
+<p>在计量经济学中，事件研究法就是估计动态处理效应——对<strong>回归进行时间切片</strong>。</p>
+<p>以面板数据为例，特点是加入了<strong>事件时间虚拟变量</strong>  $D_{i, t-j}$ 。</p>
+<p>$$
+y_{ii}=\underbrace{\left(\sum_{j\in{-m,\ldots,0,\ldots,n}}\gamma_{j}\cdot D_{i,t-j}\right)}_{\text{事件时间虚拟变量}}+\underbrace{\alpha_{i}+\delta_{i}}_{\text{面板固定效应}}+\underbrace{\beta\cdot X_{ii}}_{\text{ 控制变量}}+\epsilon_{ii}.
+$$</p>
+<h3 id="数据结构分类">数据结构分类</h3>
+<p>《An introductory guide to event study models》<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>给出了两种分类依据：</p>
+<ol>
+<li>是否有“从未经历处理”的样本组？</li>
+<li>不同样本组的受到处理的事件日期是否存在较大差异？</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分组</th>
+<th>没有“从未经历处理”的样本</th>
+<th>有“从未经历处理”的样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">事件日期相同</td>
+<td>N/A</td>
+<td>DID-type</td>
+</tr>
+<tr>
+<td style="text-align:center">事件日期不同</td>
+<td>Timing-based</td>
+<td>Hybrid</td>
+</tr>
+</tbody>
+</table>
+<p>省流总结一下——</p>
+<ul>
+<li>
+<p>N/A：没有对照组，处理效应根本不能估计。</p>
+</li>
+<li>
+<p>DiD-type：完美的对照实验，传统 DID。</p>
+</li>
+<li>
+<p>Timing-based：虽然都是实验组，但是实验组的事件冲击有差异，也可以做对照实验。</p>
+</li>
+</ul>
+<blockquote>
+<p>以易地搬迁的一个面板数据研究为例子<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。人大这个易地搬迁数据库长期在易地搬迁安置点做问卷调查，所以他们的研究其实是 <a href="https://blog.huaxiangshan.com/zh-cn/posts/effect/" target="_blank" rel="noopener noreffer "> ITT</a> ——<strong>所有样本都是经历了易地搬迁政策的实验组</strong>。</p>
+<p>但是！易地搬迁是分批执行的，也就是有人先搬出去，有人后搬出去，于是同样的年份，也存在搬了的实验组和没有搬走的对照组，因此还是可以做。</p>
+<p>顺便一提，本文的结论是居住环境变好了，打工人就不想离开家了。所以文章题目叫《甜蜜陷阱（Home sweet home）》</p>
+</blockquote>
+<ul>
+<li>Hybrid： 既有实验组和对照组的对比，又有同样年份实验组内部的对比。</li>
+</ul>
+<h3 id="事件时间的选择">事件时间的选择</h3>
+<p>实验研究法的整体逻辑为：</p>
+<p>选择 <code>事件和发生时间</code>，选择 <code>事件基期</code>，选择 <code>窗口期（动态处理效应范围）</code>，选择 <code>实验组和对照组</code>，计算和分解 <code>平均处理效应</code>。</p>
+<h4 id="事件发生时间的选择-">事件发生时间的选择 ：</h4>
+<p>即便一个政策在全国某个具体时间统一普及，可能市场会提前做出反应；更何况，大部分事后，事件的冲击是不均匀的，分群体、分载体、分时间、分空间地慢慢波及出去。不过经济学统计也就只是有啥，就选个最好的就行。</p>
+<blockquote>
+<p>以研究 Facebook 对大学生心理健康的一个研究为例子<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>每个人何时开始使用 Facebook 显然难以获取数据，这个研究就使用大学生个体心理问卷，和 Facebook 展开校园合作的校园时间匹配到一起回归。</p>
+<p>顺便一提研究结果：社交媒体的使用加剧了大学生的心理不健康。渠道测试显示是攀比焦虑导致的。</p>
+</blockquote>
+<h4 id="事件基期的相关处理">事件基期的相关处理</h4>
+<p>补充计量中虚拟变量（dummy）的知识点：</p>
+<blockquote>
+<p>为了避免共线性——使用 n-1 个虚拟变量估计 n 个变量间的相对差距。
+例如比较空气污染的春夏秋冬周期水平。
+这种处理效应的估计需要一个基期作为对照。
+我们可以默认春天为基期，
+那么夏、秋、冬的系数估计其实都是和春天数据比较出的结果。</p>
+</blockquote>
+<p>时间研究法的的时间虚拟变量也需要设置一个基期，于是有了以下选择或处理：</p>
+<ul>
+<li><font color="#ff0000">绝对基期</font>：一般选择<strong>事件发生的前一期</strong> （对比效果更好些，能突出跳跃性）：能反映长期差距，事前期数较多时用。</li>
+<li><font color="#ff0000">相对基期</font>：相对前一期位置作为基期：关注预期效应，或者事前期数较少时用。</li>
+<li><font color="#ff0000">期数合并</font>：目的是处理共线性问题。例如把 t-6 及其以前的合并为一期，把 t+5 及其以后的合并为一期。或者删除某一期。</li>
+<li><font color="#ff0000">基期处理</font>：归一化，设为 0&hellip;&hellip;</li>
+<li><font color="#ff0000">时间趋势</font>：是否添加时间趋势、个体固定效应、时间固定效应。</li>
+<li><font color="#ff0000">事件端点</font>：端点可能偏移而不好看，也可能反映了事件趋势。</li>
+</ul>
+<blockquote>
+<p>《An introductory guide to event study models》中提到考虑到事件虚拟变量的设置可能会影响分析结果，这里应该加强虚拟变量的设置和限制描述。</p>
+<p>但就我最近读的 top5 论文而言，似乎事件研究法主要用于直观地展现异质性差异、模型外生冲击假设。所以这方面的描述基本都是一带而过，只说了怎么设置，而不强调为何要这么设置。</p>
+</blockquote>
+<h4 id="窗口期选择">窗口期选择</h4>
+<p>窗口期的选择，本质就是结果美观和统计偏差的平衡。</p>
+<ul>
+<li>太短统计有偏差，太长反事实估计不够有效。</li>
+<li>从实用主义的角度来说🤪——让回归结果体现一种趋势是最好的。</li>
+<li>事前和事后窗口期对称是最好的。</li>
+<li>可以进一步拟合，例如先按月份估计动态变化，再按季节进行加权，从而反映一种趋势变化。多事件的加权拟合也是一样的方法。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp" title="二次加权拟合，更能反映一种趋势变化" data-thumbnail="/img/stata事件研究法.zh-cn-20240620180847975.webp" data-sub-html="<h2> </h2><p>二次加权拟合，更能反映一种趋势变化</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法.zh-cn-20240620180847975.webp" />
+    </a><figcaption class="image-caption">二次加权拟合，更能反映一种趋势变化</figcaption>
+    </figure></li>
+</ul>
+<h4 id="实验组和对对照组的选择">实验组和对对照组的选择</h4>
+<ol>
+<li>排除特殊样本。例如中国城市数据，我们往往会排除直辖市，因为他们太特殊了！而在异质性部分，一般会看下省会城市和非省会城市的区别。</li>
+<li>注重平行趋势检验。也就是事件冲击前，实验组和对照组越像越好。</li>
+<li>加入控制变量。</li>
+<li>加权匹配。例如合成控制法和倾向匹配法。</li>
+<li>如果一个事件研究具有 Hybrid 数据结构，可以选择剔除未被处理组的数据。</li>
+<li>论文作者也推荐把系数标准化。</li>
+</ol>
+<blockquote>
+<p>一个有趣的问题：控制变量和倾向匹配有什么区别？在我个人看来，一个是后门控制，通过因果路径估计；一个是前门控制，通过样本匹配加强对照。</p>
+</blockquote>
+<h4 id="趋势的干扰问题">趋势的干扰问题</h4>
+<p><strong>趋势分解这部分太复杂，不能完全看懂，就大致说说了</strong></p>
+<p>需要考虑以下两个方面的趋势问题：</p>
+<ul>
+<li>个体趋势和时间趋势如果不控制，处理效应的估计就会有偏差。</li>
+<li>处理效应本身也会随时间变化而变化，需要加以分解。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp" title="论文有关讲解中举例的一些趋势变化" data-thumbnail="/img/stata事件研究法.zh-cn-20240621002113002.webp" data-sub-html="<h2> </h2><p>论文有关讲解中举例的一些趋势变化</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法.zh-cn-20240621002113002.webp" />
+    </a><figcaption class="image-caption">论文有关讲解中举例的一些趋势变化</figcaption>
+    </figure></li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp" title="个人画过的一个平行趋势检验的图，虽然勉强通过，但可以看出很明显的事前趋势，因此说服力会稍微次一点" data-thumbnail="/img/stata事件研究法.zh-cn-20240620184506612.webp" data-sub-html="<h2> </h2><p>个人画过的一个平行趋势检验的图，虽然勉强通过，但可以看出很明显的事前趋势，因此说服力会稍微次一点</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法.zh-cn-20240620184506612.webp" />
+    </a><figcaption class="image-caption">个人画过的一个平行趋势检验的图，虽然勉强通过，但可以看出很明显的事前趋势，因此说服力会稍微次一点</figcaption>
+    </figure></p>
+<p>1、一些情况下，由于事件时间、日历时间和个体固定效应存在多重共线性，因此不可能在处理线性趋势。除非估计成非线性估计。</p>
+<blockquote>
+<p>对于趋势的估计，个人确实感触颇深，其实有一些很巧妙的思路来分解，例如《<a href="https://blog.huaxiangshan.com/zh-cn/posts/hlt/" target="_blank" rel="noopener noreffer ">生命周期与工资分解</a> 》。这里面的经济分析非常巧妙。即便是个体、时间、事件时间共线了，依旧能通过理论分解出来。当然，这种处理只能针对特定对象，非统计学数理通用方法。</p>
+</blockquote>
+<p>2、可以设置一期为 0，进而讨论非线性趋势</p>
+<p>3、一些具体的内生性。例如一些政策是分时间进行的。此时可能得到后处理的效应比先处理的效应大。但可能是因为个体随时间发育从而影响。因此，做社会调查数据库时，很多人也会设置问卷入库批次的固定效应。</p>
+<p>4、加入时间趋势和个体虚拟变量的交互项。</p>
+<p>5、Timing-based 的数据结构建议引入<strong>二次趋势变量</strong>，避免共线性。</p>
+<p>6、加入时间趋势。时间固定效应分解的是截距，时间趋势估计分解的是斜率。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp" title="左图没有加入时间趋势，右侧加入时间趋势后——这种对比逻辑就是双重差分法的逻辑。来源：论文作者的油管视频讲解" data-thumbnail="/img/stata事件研究法.zh-cn-20240621001023449.webp" data-sub-html="<h2> </h2><p>左图没有加入时间趋势，右侧加入时间趋势后——这种对比逻辑就是双重差分法的逻辑。来源：论文作者的油管视频讲解</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法.zh-cn-20240621001023449.webp" />
+    </a><figcaption class="image-caption">左图没有加入时间趋势，右侧加入时间趋势后——这种对比逻辑就是双重差分法的逻辑。来源：论文作者的油管视频讲解</figcaption>
+    </figure></p>
+<h3 id="事件研究的推断统计">事件研究的推断统计</h3>
+<p>聚类检验的是自相关问题。哪个层级存在自相关就在哪个层级进行聚类。</p>
+<p>可以参考<a href="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" target="_blank" rel="noopener noreffer ">计量数据的分组与测度（STATA 版）</a>。</p>
+<h2 id="未来展望">未来展望</h2>
+<p>1、测度强度可变的事件效应</p>
+<p>时间虚拟变量和事件规模大小交互项。</p>
+<p>个人感觉这种思路和差额移动法工具变量（<a href="https://www.lianxh.cn/details/912.html" target="_blank" rel="noopener noreffer ">shift-IV</a>）比较类似。利用<strong>排除个体的组内趋势乘以个体规模</strong>作为工具变量。</p>
+<p>2、每个单位有多个事件</p>
+<p>进行加权，或者限定唯一——只计入最大的事件或者第一次出现的时间。</p>
+<p>3、异质性处理</p>
+<p>交互项，或者根据时间分组，例如较早受到影响的组和较晚受到影响的组。</p>
+<p>通过反事实进一步估计。事件研究法由于固定效应和趋势没有估计到会产生偏差，文章使用了一种估计手段让其估计更准确（这里我没看懂）。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp" title="事件研究法由于固定效应和趋势没有估计到会产生偏差，文章使用了一种估计手段让其估计更准确（这里我没看懂）。" data-thumbnail="/img/stata事件研究法.zh-cn-20240621003012668.webp" data-sub-html="<h2> </h2><p>事件研究法由于固定效应和趋势没有估计到会产生偏差，文章使用了一种估计手段让其估计更准确（这里我没看懂）。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata事件研究法.zh-cn-20240621003012668.webp" />
+    </a><figcaption class="image-caption">事件研究法由于固定效应和趋势没有估计到会产生偏差，文章使用了一种估计手段让其估计更准确（这里我没看懂）。</figcaption>
+    </figure></p>
+<p>4、考虑非年份事件时间</p>
+<p>例如队列效应。其实就是自定义时间虚拟变量分组。</p>
+<p>5、状态转变</p>
+<p>《<a href="https://www.aeaweb.org/journals/jep" target="_blank" rel="noopener noreffer ">An Introductory Guide to Event Study Models</a>》虽然没有提到这点，个人觉得还有个可以展望的地方——广延边际和集约边际的分解。</p>
+<p>请参考《<a href="https://blog.huaxiangshan.com/zh-cn/posts/log0/" target="_blank" rel="noopener noreffer ">Log (y+1) 的转化是否可靠</a>》</p>
+<h2 id="省流总结">省流总结</h2>
+<p>事件研究法本质估计的是动态处理效应。</p>
+<p>为了估计准确，有以下建议：</p>
+<ol>
+<li>系数标准化</li>
+<li>选择合适的基期和事件窗</li>
+<li>考虑个体效应、时间效应、时间趋势</li>
+<li>考虑样本特性带来的混杂因子（采用论文提供的估计器）。</li>
+</ol>
+<h2 id="本文主要参考文献">本文主要参考文献</h2>
+<ul>
+<li><a href="https://www.lianxh.cn/details/707.html" target="_blank" rel="noopener noreffer ">Stata：事件研究法的编程实现</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwODY5MDA3NA==&amp;mid=2455735619&amp;idx=1&amp;sn=74012c8b12a5666372e84621664e0840&amp;chksm=8cc02db6bbb7a4a06dada3d7118df00d04d741416704c8fee67cf55ab2aee901a0f2df63378b&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">从DID到事件研究（一）：三幕剧构成一台戏</a></li>
+<li><a href="https://www.lianxh.cn/details/678.html" target="_blank" rel="noopener noreffer ">Stata：一文读懂事件研究法Event Study</a></li>
+<li><a href="https://www.aeaweb.org/journals/jep" target="_blank" rel="noopener noreffer ">An Introductory Guide to Event Study Models</a></li>
+<li><a href="https://raw.githubusercontent.com/wenddymacro/AppliedEconometrics/main/AppliedEconometrics.pdf" target="_blank" rel="noopener noreffer ">许文立计量经济学讲义</a></li>
+<li><a href="https://mp.weixin.qq.com/s/5kC3RyyhZkOILtFrlbQOag" target="_blank" rel="noopener noreffer ">ES，启动！——事件研究法入门指南</a></li>
+<li><a href="https://mp.weixin.qq.com/s/cqPkBcsTPmceHVyi7ubsbQ" target="_blank" rel="noopener noreffer ">【文献学习】事件研究法入门指南</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>很符合我对金融研究信息因子无情挖掘的刻板印象。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Jacobson L S, LaLonde R J, Sullivan D G. Earnings losses of displaced workers[J]. The American economic review, 1993: 685-709.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Li H, Meng L, Mu K, et al. English language requirement and educational inequality: Evidence from 16 million college applicants in China[J]. Journal of Development Economics, 2024: 103271.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Miller D L. An introductory guide to event study models[J]. Journal of Economic Perspectives, 2023, 37(2): 203-230.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Qiu H, Hong J, Wang X, et al. Home sweet home: Impacts of living conditions on worker migration with evidence from randomized resettlement in China[J]. Journal of Economic Behavior &amp; Organization, 2024, 220: 558-583.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Braghieri L, Levy R, Makarin A. Social media and mental health[J]. American Economic Review, 2022, 112(11): 3660-3693.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-06-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/event1/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event1/" data-title=" 计量：事件研究法 1" data-hashtags="因果效应,文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event1/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event1/" data-title=" 计量：事件研究法 1"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event1/" data-title=" 计量：事件研究法 1"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event1/" data-title=" 计量：事件研究法 1" data-image="/img/stata事件研究法2.zh-cn-20240624162133449.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/rose/" class="prev" rel="prev" title=" 调研小记 3：妙峰山与红玫瑰"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 调研小记 3：妙峰山与红玫瑰</a>
+            <a href="/zh-cn/posts/event2/" class="next" rel="next" title=" 计量：事件研究法 2"> 计量：事件研究法 2<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

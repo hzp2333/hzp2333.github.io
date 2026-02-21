@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>LDA 主题模型与 Gephi 可视化 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="LDA 主题模型与 Gephi 可视化" />
+<meta property="og:description" content="少年，你渴望网络分析的力量吗" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-08-31T07:00:19+08:00" />
+<meta property="article:modified_time" content="2025-08-31T07:00:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="LDA 主题模型与 Gephi 可视化"/>
+<meta name="twitter:description" content="少年，你渴望网络分析的力量吗"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/sgns/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/gzhs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "LDA 主题模型与 Gephi 可视化",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/lda_gephi\/"
+        },"genre": "posts","keywords": "Gephi, Python, Network","wordcount":  7569 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/lda_gephi\/","datePublished": "2025-08-31T07:00:19+08:00","dateModified": "2025-08-31T07:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/lda_gephi/" selected>简体中文</option><option value="/en/posts/lda_gephi/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/lda_gephi/" selected>简体中文</option><option value="/en/posts/lda_gephi/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LDA 主题模型与 Gephi 可视化</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-08-31">2025-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7569 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp"
+        data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 2x"
+        data-sizes="auto"
+        alt="/img/社会网络.zh-cn-20250824180041018.webp"
+        title="/img/社会网络.zh-cn-20250824180041018.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#lda-主题建模">LDA 主题建模</a></li>
+    <li><a href="#gephi">Gephi</a>
+      <ul>
+        <li><a href="#例子">例子</a></li>
+        <li><a href="#分析软件">分析软件</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#一些感叹">一些感叹</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>最近很多经济论文使用了 LDA 主题建模<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>和社会网络分析，所以在这里尝试用这套方法可视化下博客主题词。流程就是：</p>
+<ul>
+<li>Python 读取 markdown 文档。</li>
+<li>清洗、分词。</li>
+<li>LDA 主题构建。</li>
+<li>构建网络数据。</li>
+<li>利用 Gephi 可视化。</li>
+</ul>
+<h2 id="lda-主题建模">LDA 主题建模</h2>
+<p>LDA 对于计算机文本分析来说是一个老东西了，但简单好用，算是种无监督机器学习。对于经济学来说，只需要知道其用于<strong>概括文本有多少个主题词</strong>就行了。在顶刊文章中，其往往用于测度数据类型<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<p>论文应用举例：</p>
+<ul>
+<li>JPE 2025 年的《<a href="https://www.journals.uchicago.edu/doi/full/10.1086/734874" target="_blank" rel="noopener noreffer ">More Laws, More Growth? Evidence from US States</a>》量化了美国每州新立法主题的分布，讨论立法和经济增长的关系。关于营商环境类主题的立法更有效，机制是吸引投资，同时降低经济发展的不确定性。</li>
+<li>RES 2025 年的《<a href="https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdaf066/8220859" target="_blank" rel="noopener noreffer ">Women in the Courtroom: Technology and Justice</a>》使用直播庭审推广试点的案件面板研究女性案件胜诉情况，其中案件类型基于每个案件的法条内容总结为 50 个主题类型。</li>
+<li>其他文本分析可以参考《<a href="https://mp.weixin.qq.com/s/9SzkCP0kkG3gw-ca-wNqAA" target="_blank" rel="noopener noreffer "> 香樟推文3057：怎么在经济学中用文本分析算法？</a>》</li>
+</ul>
+<p>关于 LDA 的理解，推荐一个简洁形象的<a href="https://www.youtube.com/watch?v=3mHy4OSyRf0" target="_blank" rel="noopener noreffer ">油管视频</a>（挂了梯子才能看见）：</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/3mHy4OSyRf0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="gephi">Gephi</h2>
+<h3 id="例子">例子</h3>
+<p>Gephi 是一个网络关系可视化软件。这个软件最早还是博主 <span class="h-card person-mention"><a href="https://www.sungyinieh.com/" class="u-url url" title="博友"><i class="far fa-user-circle" aria-hidden="true"></i>&#8201;<span class="p-name fn">松易涅</span></a></span> 推荐给我的。他在撰写毕业论文时使用这个软件研究了<a href="https://mp.weixin.qq.com/s/M2Y3_Cre5vl7Wnk6o6J1fg" target="_blank" rel="noopener noreffer ">全球锂产品贸易依赖网络</a>。</p>
+<blockquote>
+<p>关于网络分析的基础知识，我十分推荐学习开源的鸢尾花统计学教材《<a href="https://github.com/Visualize-ML/Book6_First-Course-in-Data-Science" target="_blank" rel="noopener noreffer ">数据有道</a>》。</p>
+</blockquote>
+<p>社会网络最经典的例子是<strong>六度理论</strong>——<strong>经由六个关键人士就可以认识世界任何一个人</strong>。六度理论体现在网络分析中就是（最短）路径和网络连通性。</p>
+<p>社会网络分析最经典的数据集为<strong>空手道俱乐部</strong>。空手道俱乐部有两个教练，有一天他们分道扬镳了。此前有统计学家记录了俱乐部的人际关系，然后进行社会网络可视化然后聚类，最终成员分家的分布基本吻合。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp" title="空手道俱乐部数据集可视化，来源 wiki 百科" data-thumbnail="/img/社会网络.zh-cn-20250824235924254.webp" data-sub-html="<h2> </h2><p>空手道俱乐部数据集可视化，来源 wiki 百科</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-20250824235924254.webp" />
+    </a><figcaption class="image-caption">空手道俱乐部数据集可视化，来源 wiki 百科</figcaption>
+    </figure></p>
+<p>社会网络可视化主要涉及网络关系的演化（聚集、分裂）、分布<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>（关键节点、权重、密度、结构<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>）、预测。</p>
+<p>论文《<a href="https://cfrc.pbcsf.tsinghua.edu.cn/__local/C/E3/F1/034E2CB105C230C8A028BDF18AD_5B83ADAD_18F58A.pdf?e=.pdf" target="_blank" rel="noopener noreffer ">Ownership Networks and Firm Growth: What Do Forty Million Companies Tell Us About the Chinese Economy? </a>》研究了中国股权网络的分布和演化。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp" title="如图" data-thumbnail="/img/社会网络.zh-cn-20250824230329625.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-20250824230329625.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>论文《<a href="https://arxiv.org/abs/1803.03697" target="_blank" rel="noopener noreffer ">Community Interaction and Conflict on the Web</a>》研究了 raddit 的社群网络：<strong>不到 1% 的社区引发了 74% 的负面动员行为</strong>。这些冲突一般由活跃社区的核心成员发起，而真正参与冲突的却是较不活跃的外围成员。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp" title="raddit 的社群网络" data-thumbnail="/img/社会网络.zh-cn-20250824231228354.webp" data-sub-html="<h2> </h2><p>raddit 的社群网络</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-20250824231228354.webp" />
+    </a><figcaption class="image-caption">raddit 的社群网络</figcaption>
+    </figure></p>
+<p>Citespace 这种文献综述软件也是一种网络分析，也就是知识图谱。可参见另外一篇博文《<a href="https://blog.huaxiangshan.com/zh-cn/posts/citespace/" target="_blank" rel="noopener noreffer "> Citespace 文献可视化</a>》。</p>
+<p>以前测试的图片。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp" title="二次元主题，可以发现B站、初音未来也是三级关键词（homo是这样的）" data-thumbnail="/img/Citespace文献可视化.zh-cn-20240523120837358.webp" data-sub-html="<h2> </h2><p>二次元主题，可以发现B站、初音未来也是三级关键词（homo是这样的）</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 2x"
+            data-sizes="auto"
+            alt="/img/Citespace文献可视化.zh-cn-20240523120837358.webp" />
+    </a><figcaption class="image-caption">二次元主题，可以发现B站、初音未来也是三级关键词（homo是这样的）</figcaption>
+    </figure></p>
+<h3 id="分析软件">分析软件</h3>
+<blockquote>
+<p>让 gpt 总结了下可以选择哪些社会网络分析软件。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>定位</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适合场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gephi</strong></td>
+<td>网络可视化 + 探索</td>
+<td>界面友好；丰富的布局算法；社区检测等功能</td>
+<td>偏重可视化；不适合超大规模网络</td>
+<td>快速可视化、演示、探索</td>
+</tr>
+<tr>
+<td><strong>Cytoscape</strong></td>
+<td>生物网络分析起家 → 泛用</td>
+<td>插件生态丰富；科研常用；分析+可视化结合紧密</td>
+<td>大规模性能有限；界面稍复杂</td>
+<td>生物信息学、科研网络分析</td>
+</tr>
+<tr>
+<td><strong>Pajek</strong></td>
+<td>经典社会网络分析软件</td>
+<td>可处理百万级大网络；学术界常见</td>
+<td>界面老旧；学习曲线陡</td>
+<td>大规模社会网络研究</td>
+</tr>
+<tr>
+<td><strong>NodeXL</strong></td>
+<td>Excel 插件（微软系）</td>
+<td>上手快；社交媒体数据抓取方便</td>
+<td>功能有限；商业版才完整</td>
+<td>社交媒体网络分析入门</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>NetworkX / igraph 编程工具</td>
+<td>灵活；可定制；能结合机器学习和文本挖掘</td>
+<td>无可视化界面；需写代码</td>
+<td>高度灵活、科研实验</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代码">代码</h2>
+<p>三个文件夹：</p>
+<ol>
+<li>博客 markdown 文件夹（博客原文<code>. md</code>）</li>
+<li>分词文件夹（txt 文档一个词单独一行即可，例如了、的、得、地、他、她、滑翔闪&hellip;&hellip;）</li>
+<li>结果文件夹</li>
+</ol>
+<p>我使用的 <code>jieba</code> 分词、<code>gensim.models</code> 库的模型训练方式，如果想要进一步优化，可以从这几个环节进行修改<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<blockquote>
+<p>注意 <code>gensim</code> 和 <code>numps</code> 的版本兼容问题。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">glob</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">itertools</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jieba</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">LdaModel</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局配置参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">DOCS_GLOB</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">PyTorch_practice</span><span class="se">\\</span><span class="s1">博客分析</span><span class="se">\\</span><span class="s1">数据</span><span class="se">\\</span><span class="s1">原始博客</span><span class="se">\\</span><span class="s1">*.md&#39;</span>   <span class="c1"># 文档路径通配符</span>
+</span></span><span class="line"><span class="cl"><span class="n">STOPWORDS_PATH</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">PyTorch_practice</span><span class="se">\\</span><span class="s1">博客分析</span><span class="se">\\</span><span class="s1">数据</span><span class="se">\\</span><span class="s1">设置</span><span class="se">\\</span><span class="s1">分词stop.txt&#39;</span>  <span class="c1"># 可选停用词文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">PyTorch_practice</span><span class="se">\\</span><span class="s1">博客分析</span><span class="se">\\</span><span class="s1">数据</span><span class="se">\\</span><span class="s1">结果输出</span><span class="se">\\</span><span class="s1">&#39;</span>       <span class="c1"># 统一输出文件夹</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_BELOW</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 词频低于此值的词将被过滤</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_ABOVE</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># 词频高于此比例的词将被过滤</span>
+</span></span><span class="line"><span class="cl"><span class="n">KEEP_N</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># 保留的最高频词数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">NUM_TOPICS</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 主题数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">TOPN</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># 每个主题显示的关键词数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">MAX_EDGES</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># 词共现图中保留的最大边数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认停用词集合</span>
+</span></span><span class="line"><span class="cl"><span class="n">DEFAULT_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;的&#39;</span><span class="p">,</span> <span class="s1">&#39;了&#39;</span><span class="p">,</span> <span class="s1">&#39;和&#39;</span><span class="p">,</span> <span class="s1">&#39;是&#39;</span><span class="p">,</span> <span class="s1">&#39;在&#39;</span><span class="p">,</span> <span class="s1">&#39;就&#39;</span><span class="p">,</span> <span class="s1">&#39;都&#39;</span><span class="p">,</span> <span class="s1">&#39;而&#39;</span><span class="p">,</span> <span class="s1">&#39;及&#39;</span><span class="p">,</span> <span class="s1">&#39;与&#39;</span><span class="p">,</span> <span class="s1">&#39;或&#39;</span><span class="p">,</span> <span class="s1">&#39;一个&#39;</span><span class="p">,</span> <span class="s1">&#39;我&#39;</span><span class="p">,</span> <span class="s1">&#39;你&#39;</span><span class="p">,</span> <span class="s1">&#39;他&#39;</span><span class="p">,</span> <span class="s1">&#39;她&#39;</span><span class="p">,</span> <span class="s1">&#39;它&#39;</span><span class="p">,</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;你们&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;他们&#39;</span><span class="p">,</span> <span class="s1">&#39;她们&#39;</span><span class="p">,</span> <span class="s1">&#39;这&#39;</span><span class="p">,</span> <span class="s1">&#39;那&#39;</span><span class="p">,</span> <span class="s1">&#39;其&#39;</span><span class="p">,</span> <span class="s1">&#39;又&#39;</span><span class="p">,</span> <span class="s1">&#39;被&#39;</span><span class="p">,</span> <span class="s1">&#39;上&#39;</span><span class="p">,</span> <span class="s1">&#39;中&#39;</span><span class="p">,</span> <span class="s1">&#39;对&#39;</span><span class="p">,</span> <span class="s1">&#39;所&#39;</span><span class="p">,</span> <span class="s1">&#39;为&#39;</span><span class="p">,</span> <span class="s1">&#39;于&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_stopwords</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;加载停用词列表&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sw</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">w</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">w</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">sw</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;读取停用词文件失败 </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果自定义停用词为空，则使用默认停用词</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sw</span> <span class="k">if</span> <span class="n">sw</span> <span class="k">else</span> <span class="n">DEFAULT_STOPWORDS</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_documents</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;加载文档集合&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">docs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 获取匹配的文件列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;未找到匹配的文件: </span><span class="si">{</span><span class="n">glob_pattern</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个文件&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 读取每个文件内容</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">filenames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;读取文件失败 </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 文本清洗与分词</span>
+</span></span><span class="line"><span class="cl"><span class="n">RE_CLEAN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[\s\d\u0000-\u007F]+&#34;</span><span class="p">)</span>  <span class="c1"># 去掉 ascii/数字/多余空白，保留中文汉字和中文标点</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;文本预处理：清洗、分词、过滤&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">RE_CLEAN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokens</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 过滤停用词和单字词</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tokens</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_cooccurrence</span><span class="p">(</span><span class="n">tokens_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;构建词共现矩阵&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cooc</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">freq</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">tokens_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 对每篇文档中的词去重</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unique_tokens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">tokens</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 更新词频</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">unique_tokens</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">freq</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="c1"># 构建共现关系</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">unique_tokens</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 确保有序，避免重复计数</span>
+</span></span><span class="line"><span class="cl">                <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cooc</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">freq</span><span class="p">,</span> <span class="n">cooc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;主函数&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建输出目录</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载停用词...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stopwords</span> <span class="o">=</span> <span class="n">load_stopwords</span><span class="p">(</span><span class="n">STOPWORDS_PATH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;加载了 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个停用词&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载文档...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">load_documents</span><span class="p">(</span><span class="n">DOCS_GLOB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s1"> 篇文档&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;未找到任何文档，检查 DOCS_GLOB 设置&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;分词并预处理...（这一步可能需要一些时间）&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 统计处理后的词汇信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_tokens</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;预处理完成，共处理 </span><span class="si">{</span><span class="n">total_tokens</span><span class="si">}</span><span class="s1"> 个词汇&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建字典与语料</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建词典与语料...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">original_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span><span class="o">.</span><span class="n">filter_extremes</span><span class="p">(</span><span class="n">no_below</span><span class="o">=</span><span class="n">NO_BELOW</span><span class="p">,</span> <span class="n">no_above</span><span class="o">=</span><span class="n">NO_ABOVE</span><span class="p">,</span> <span class="n">keep_n</span><span class="o">=</span><span class="n">KEEP_N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filtered_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;词典过滤: </span><span class="si">{</span><span class="n">original_size</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">filtered_size</span><span class="si">}</span><span class="s1"> 个词&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 训练LDA模型</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;训练 LDA 模型...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span> <span class="o">=</span> <span class="n">LdaModel</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">passes</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">per_word_topics</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;lda_model.model&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA 模型已保存: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出主题-词分布</span>
+</span></span><span class="line"><span class="cl">    <span class="n">topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">show_topics</span><span class="p">(</span><span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span> <span class="n">num_words</span><span class="o">=</span><span class="n">TOPN</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">主题关键词（每行一个主题）:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">rows_kw</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_words</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Topic </span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">topic_words</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows_kw</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="n">tid</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;rank&#39;</span><span class="p">:</span> <span class="n">rank</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;word&#39;</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存主题关键词</span>
+</span></span><span class="line"><span class="cl">    <span class="n">kw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_kw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_kw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_kw</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">kw_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;主题关键词已保存: </span><span class="si">{</span><span class="n">kw_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 导出文档-主题分布</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;导出文档-主题分布...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">bow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc_topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">bow</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">doc_topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="n">filenames</span><span class="p">[</span><span class="n">doc_id</span><span class="p">],</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;doc_id&#39;</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">tid</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">dt_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_dt</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">dt_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;文档-主题分布已保存: </span><span class="si">{</span><span class="n">dt_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建 topic-term 二部图</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建 topic-term 二部图...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 使用前3个关键词作为主题名称</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;Topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s2">_&#34;</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">topic_label</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="n">topic_id</span><span class="o">=</span><span class="n">tid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">term</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">G</span><span class="o">.</span><span class="n">has_node</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">term</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存二部图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bipartite_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nx</span><span class="o">.</span><span class="n">write_gexf</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">bipartite_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Topic-Term 二部图已保存: </span><span class="si">{</span><span class="n">bipartite_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建词共现图</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建词共现图...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">freq</span><span class="p">,</span> <span class="n">cooc</span> <span class="o">=</span> <span class="n">build_cooccurrence</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 按权重排序边，只保留权重最高的MAX_EDGES条边</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sorted_edges</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cooc</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 收集所有需要保留的节点（出现在前MAX_EDGES条边中的节点）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes_to_keep</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edges_to_keep</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sorted_edges</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges_to_keep</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">MAX_EDGES</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodes_to_keep</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nodes_to_keep</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">edges_to_keep</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">w</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建图，只添加需要保留的节点和边</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 添加节点（只保留出现在边中的节点）</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes_to_keep</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">freq</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">H</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">node</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">freq</span><span class="p">[</span><span class="n">node</span><span class="p">]),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 添加边</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges_to_keep</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">H</span> <span class="ow">and</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">H</span><span class="p">:</span>  <span class="c1"># 确保两个节点都存在</span>
+</span></span><span class="line"><span class="cl">            <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 移除孤立节点（如果有的话）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">isolates</span><span class="p">(</span><span class="n">H</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;词共现图包含 </span><span class="si">{</span><span class="n">H</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span><span class="si">}</span><span class="s1"> 个节点和 </span><span class="si">{</span><span class="n">H</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s1"> 条边&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存共现图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cooccurrence_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;gephi_term_cooccurrence.gexf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nx</span><span class="o">.</span><span class="n">write_gexf</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">cooccurrence_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;词共现图已保存: </span><span class="si">{</span><span class="n">cooccurrence_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出总结信息</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">全部完成。生成的文件：&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output_files</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;lda_model.model&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;gephi_term_cooccurrence.gexf&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">output_files</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; - </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">file_size</span><span class="o">/</span><span class="mi">1024</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> KB)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; - </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1"> (文件未生成)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Gephi 可视化建议:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1. 打开 Gephi：File → Open → 选择 .gexf 文件&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2. 使用 Layout（例如 ForceAtlas2）进行布局&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3. 根据 node attribute 的 type 上色/筛选&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;4. 根据 degree/weight 调整节点大小&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用代码生成图文件 <code>gephi_topic_term.gexf</code> 后，</p>
+<ol>
+<li>打开 Gephi：File → Open → 选择 .gexf 文件</li>
+<li>使用 Layout（例如 ForceAtlas2）进行布局</li>
+<li>根据 node attribute 的 type 上色/筛选</li>
+<li>根据 degree/weight 调整节点大小</li>
+</ol>
+<p>如果使用过 citespace 就不难理解 gephi 的一些美化操作<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>。个人感觉这种可视化主要是为了更直观呈现聚类结构，但是实际上大数据很难跑重力图可视化。<strong>社会网络分析的重点在于对于特殊结构、重要节点的捕捉和测度</strong>。</p>
+<p>使用 LDA 生成主题和词语后，可视化结果如下：</p>
+<p>看来我的博客围绕<strong>经济学</strong>，然后向软件、子学科散开。电影观后感、其他软件确实被孤立到最远，</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp" title="LDA 生成主题|444x221" data-thumbnail="/img/社会网络.zh-cn-20250824180041018.webp" data-sub-html="<h2> </h2><p>LDA 生成主题|444x221</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-20250824180041018.webp" />
+    </a><figcaption class="image-caption">LDA 生成主题|444x221</figcaption>
+    </figure></p>
+<p>下面这个图是优化了代码，使用 <code>jieba</code> 进一步删减副词形容词得到的图片，个人感觉这种图片总结就相当到位了。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp" title="如图" data-thumbnail="/img/社会网络.zh-cn-1759046125538.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-1759046125538.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure>
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp" title="15个主题" data-thumbnail="/img/社会网络.zh-cn-1759046196231.webp" data-sub-html="<h2> </h2><p>15个主题</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 2x"
+            data-sizes="auto"
+            alt="/img/社会网络.zh-cn-1759046196231.webp" />
+    </a><figcaption class="image-caption">15个主题</figcaption>
+    </figure>
+优化版代码（个人笔记本跑不动了买了个便宜云服务器跑的）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">优化 LDA 管道：支持 Markdown (.md) 文档、自动停用词、词性过滤
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 使用 LdaMulticore 多线程训练
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 支持豁免词强制保留为主题关键词
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 可直接生成 Gephi 二部图
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">glob</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jieba</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jieba.posseg</span> <span class="k">as</span> <span class="nn">pseg</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">gensim.models.ldamulticore</span> <span class="kn">import</span> <span class="n">LdaMulticore</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Markdown 解析</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">markdown</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;错误：缺少必要库，请执行 &#39;pip install markdown beautifulsoup4&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 配置 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">DOCS_GLOB</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/原始博客/*.md&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">STOPWORDS_PATH</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/设置/分词stop.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&#34;/root/博客分析/数据/结果输出&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 词典和语料参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_BELOW</span> <span class="o">=</span> <span class="mi">3</span>            <span class="c1"># 词语至少出现的文档数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NO_ABOVE</span> <span class="o">=</span> <span class="mf">0.8</span>          <span class="c1"># 词语在文档中出现比例上限</span>
+</span></span><span class="line"><span class="cl"><span class="n">KEEP_N</span> <span class="o">=</span> <span class="mi">100000</span>              <span class="c1"># 词典最大词数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LDA 模型参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">NUM_TOPICS</span> <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># 主题数</span>
+</span></span><span class="line"><span class="cl"><span class="n">TOPN</span> <span class="o">=</span> <span class="mi">15</span>               <span class="c1"># 每个主题显示的关键词数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">PASSES</span> <span class="o">=</span> <span class="mi">20</span>             <span class="c1"># LDA训练轮数</span>
+</span></span><span class="line"><span class="cl"><span class="n">WORKERS</span> <span class="o">=</span> <span class="mi">28</span>             <span class="c1"># 多线程数（建议 = CPU核心数 - 1）</span>
+</span></span><span class="line"><span class="cl"><span class="n">CHUNKSIZE</span> <span class="o">=</span> <span class="mi">5000</span>        <span class="c1"># 每批处理文档数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">BATCH</span> <span class="o">=</span> <span class="kc">True</span>            <span class="c1"># 是否使用小批量训练</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 分词与停用词</span>
+</span></span><span class="line"><span class="cl"><span class="n">USE_POS_FILTER</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">POS_BLACKLIST</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">USE_AUTO_DF_STOPWORDS</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">AUTO_DF_THRESHOLD</span> <span class="o">=</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl"><span class="n">AUTO_DF_TOPK</span> <span class="o">=</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 额外停用词</span>
+</span></span><span class="line"><span class="cl"><span class="n">ADDITIONAL_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;什么&#39;</span><span class="p">,</span> <span class="s1">&#39;推荐&#39;</span><span class="p">,</span> <span class="s1">&#39;获取&#39;</span><span class="p">,</span> <span class="s1">&#39;点击&#39;</span><span class="p">,</span> <span class="s1">&#39;生成&#39;</span><span class="p">,</span> <span class="s1">&#39;绘制&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;存在&#39;</span><span class="p">,</span> <span class="s1">&#39;问题&#39;</span><span class="p">,</span> <span class="s1">&#39;使用&#39;</span><span class="p">,</span> <span class="s1">&#39;可以&#39;</span><span class="p">,</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;现在&#39;</span><span class="p">,</span> <span class="s1">&#39;通过&#39;</span><span class="p">,</span> <span class="s1">&#39;文章&#39;</span><span class="p">,</span> <span class="s1">&#39;内容&#39;</span><span class="p">,</span> <span class="s1">&#39;研究法&#39;</span><span class="p">,</span> <span class="s1">&#39;人为&#39;</span><span class="p">,</span> <span class="s1">&#39;保留&#39;</span><span class="p">,</span> <span class="s1">&#39;来讲&#39;</span><span class="p">,</span> <span class="s1">&#39;叫魂&#39;</span><span class="p">,</span> <span class="s1">&#39;学家&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DEFAULT_STOPWORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;的&#39;</span><span class="p">,</span> <span class="s1">&#39;了&#39;</span><span class="p">,</span> <span class="s1">&#39;和&#39;</span><span class="p">,</span> <span class="s1">&#39;是&#39;</span><span class="p">,</span> <span class="s1">&#39;在&#39;</span><span class="p">,</span> <span class="s1">&#39;就&#39;</span><span class="p">,</span> <span class="s1">&#39;都&#39;</span><span class="p">,</span> <span class="s1">&#39;而&#39;</span><span class="p">,</span> <span class="s1">&#39;及&#39;</span><span class="p">,</span> <span class="s1">&#39;与&#39;</span><span class="p">,</span> <span class="s1">&#39;或&#39;</span><span class="p">,</span> <span class="s1">&#39;一个&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;我&#39;</span><span class="p">,</span> <span class="s1">&#39;你&#39;</span><span class="p">,</span> <span class="s1">&#39;他&#39;</span><span class="p">,</span> <span class="s1">&#39;她&#39;</span><span class="p">,</span> <span class="s1">&#39;它&#39;</span><span class="p">,</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;你们&#39;</span><span class="p">,</span> <span class="s1">&#39;他们&#39;</span><span class="p">,</span> <span class="s1">&#39;她们&#39;</span><span class="p">,</span> <span class="s1">&#39;这&#39;</span><span class="p">,</span> <span class="s1">&#39;那&#39;</span><span class="p">,</span> <span class="s1">&#39;其&#39;</span><span class="p">,</span> <span class="s1">&#39;又&#39;</span><span class="p">,</span> <span class="s1">&#39;被&#39;</span><span class="p">,</span> <span class="s1">&#39;上&#39;</span><span class="p">,</span> <span class="s1">&#39;中&#39;</span><span class="p">,</span> <span class="s1">&#39;对&#39;</span><span class="p">,</span> <span class="s1">&#39;所&#39;</span><span class="p">,</span> <span class="s1">&#39;为&#39;</span><span class="p">,</span> <span class="s1">&#39;于&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 豁免词（强制保留为主题关键词）</span>
+</span></span><span class="line"><span class="cl"><span class="n">WHITELIST_WORDS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;经济&#39;</span><span class="p">,</span> <span class="s1">&#39;国家&#39;</span><span class="p">,</span> <span class="s1">&#39;政府&#39;</span><span class="p">,</span> <span class="s1">&#39;政策&#39;</span><span class="p">,</span> <span class="s1">&#39;文学&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 文本清理正则</span>
+</span></span><span class="line"><span class="cl"><span class="n">RE_CLEAN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;[\s\d\u0000-\u007F]+&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 函数 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_text_from_markdown</span><span class="p">(</span><span class="n">md_content</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">md_content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tag</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_stopwords</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sw</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">w</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">w</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sw</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">combined</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">DEFAULT_STOPWORDS</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">ADDITIONAL_STOPWORDS</span><span class="p">)</span> <span class="o">|</span> <span class="n">sw</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">combined</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_documents</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">docs</span><span class="p">,</span> <span class="n">filenames</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">glob_pattern</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;未找到文件: </span><span class="si">{</span><span class="n">glob_pattern</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个文件&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">raw_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">raw_text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">clean_text</span> <span class="o">=</span> <span class="n">extract_text_from_markdown</span><span class="p">(</span><span class="n">raw_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">filenames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;读取失败 </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">auto_find_generic_terms</span><span class="p">(</span><span class="n">tokens_list</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">AUTO_DF_THRESHOLD</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">AUTO_DF_TOPK</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n_docs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">tokens_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">df</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_ratio</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">cnt</span> <span class="o">/</span> <span class="n">n_docs</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">high_df</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">high_df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">top_k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sorted_by_df</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">high_df</span> <span class="o">|=</span> <span class="p">{</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">sorted_by_df</span><span class="p">[:</span><span class="n">top_k</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">high_df</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">,</span> <span class="n">use_pos_filter</span><span class="o">=</span><span class="n">USE_POS_FILTER</span><span class="p">,</span> <span class="n">pos_blacklist</span><span class="o">=</span><span class="n">POS_BLACKLIST</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">RE_CLEAN</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">use_pos_filter</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">pseg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">short_flag</span> <span class="o">=</span> <span class="n">flag</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">flag</span> <span class="k">else</span> <span class="n">flag</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">short_flag</span> <span class="ow">in</span> <span class="n">pos_blacklist</span> <span class="ow">or</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WHITELIST_WORDS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">words</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">or</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">WHITELIST_WORDS</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tokens</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------------------- 主流程 --------------------</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载停用词...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stopwords</span> <span class="o">=</span> <span class="n">load_stopwords</span><span class="p">(</span><span class="n">STOPWORDS_PATH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;加载了 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个停用词&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;加载 Markdown 文档...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filenames</span><span class="p">,</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">load_documents</span><span class="p">(</span><span class="n">DOCS_GLOB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;成功处理 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s1"> 篇文档&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;文本预处理...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">USE_AUTO_DF_STOPWORDS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;自动检测高频泛用词...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">detected</span> <span class="o">=</span> <span class="n">auto_find_generic_terms</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">detected</span> <span class="o">-=</span> <span class="n">WHITELIST_WORDS</span>  <span class="c1"># 豁免词不加入停用词</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">detected</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;检测到 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">detected</span><span class="p">)</span><span class="si">}</span><span class="s1"> 个泛用词，加入停用词重新处理&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stopwords</span> <span class="o">|=</span> <span class="n">detected</span>
+</span></span><span class="line"><span class="cl">            <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocess</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">total_tokens</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;共 </span><span class="si">{</span><span class="n">total_tokens</span><span class="si">}</span><span class="s1"> 个有效词汇&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建词典与语料...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dictionary</span><span class="o">.</span><span class="n">filter_extremes</span><span class="p">(</span><span class="n">no_below</span><span class="o">=</span><span class="n">NO_BELOW</span><span class="p">,</span> <span class="n">no_above</span><span class="o">=</span><span class="n">NO_ABOVE</span><span class="p">,</span> <span class="n">keep_n</span><span class="o">=</span><span class="n">KEEP_N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;文档数量: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span><span class="si">}</span><span class="s1">, 词典大小: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;训练 LDA 模型 (多线程)...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span> <span class="o">=</span> <span class="n">LdaMulticore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">passes</span><span class="o">=</span><span class="n">PASSES</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">workers</span><span class="o">=</span><span class="n">WORKERS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chunksize</span><span class="o">=</span><span class="n">CHUNKSIZE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">batch</span><span class="o">=</span><span class="n">BATCH</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">per_word_topics</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;lda_model.model&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lda</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA 模型已保存: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 主题关键词</span>
+</span></span><span class="line"><span class="cl">    <span class="n">topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">show_topics</span><span class="p">(</span><span class="n">num_topics</span><span class="o">=</span><span class="n">NUM_TOPICS</span><span class="p">,</span> <span class="n">num_words</span><span class="o">=</span><span class="n">TOPN</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows_kw</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">主题关键词:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_words</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Topic </span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">topic_words</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows_kw</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="n">tid</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">:</span> <span class="n">rank</span><span class="p">,</span> <span class="s1">&#39;word&#39;</span><span class="p">:</span> <span class="n">word</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_kw</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 文档-主题分布</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows_dt</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">bow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc_topics</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">bow</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">doc_topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rows_dt</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="n">filenames</span><span class="p">[</span><span class="n">doc_id</span><span class="p">],</span> <span class="s1">&#39;doc_id&#39;</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span> <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">tid</span><span class="p">),</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">weight</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_dt</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;文档-主题分布已保存&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建 Topic-Term 二部图</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;构建 Topic-Term 二部图...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tid</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">topic_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;Topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s2">_&#34;</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">topic_label</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="n">topic_id</span><span class="o">=</span><span class="n">tid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">term</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">G</span><span class="o">.</span><span class="n">has_node</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">term</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;topic_</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">prob</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nx</span><span class="o">.</span><span class="n">write_gexf</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Topic-Term 二部图已保存&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出文件信息</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">全部完成! 生成文件:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;lda_model.model&#39;</span><span class="p">,</span> <span class="s1">&#39;topic_keywords.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;doc_topic.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;gephi_topic_term.gexf&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; - </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> KB)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="一些感叹">一些感叹</h2>
+<p>总是吐槽机器学习是黑箱子，但是对于使用各种分析软件的我来说，很多软件方法和黑箱子又有什么区别呢？假设 stata 外部命令错误，如果不知根知底，或者从理论上多角度比对结果就难以发现错误。</p>
+<p>例如 <a href="https://mp.weixin.qq.com/s/IsuB02q6Lek07Oxknvx6Vw" target="_blank" rel="noopener noreffer ">「Stata」bdiff+reghdfe的正确用法，很多论文都被坑了</a>。个人记得以前有个 did 外部命令也出现过错误。</p>
+<p>我相信 ai 会加强代码类学习的正反馈，但与此同时 ai 也会带来“我懂了”的幻觉。正如费曼一向强调的那样——<strong>知道和理解并不相同</strong><sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。跑通代码和理解代码远远不是一个层次的学习。Ai 学习的知识幻觉时代，什么才是懂了？或许应该被重新思考。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>虽然 LDA 方法已经很老了, 但是经济学向来擅长冷饭新炒。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>近年异质性主体的挖掘越来越重要&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>光是描述性统计就已经足够赚人眼球。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>把宇宙看作一个网络空间，最新研究发现地球也可能处于一个空洞之中。自从看了知乎上关于星际航行的一篇回答<a href="https://www.zhihu.com/question/329908379/answer/1943305925965374152" target="_blank" rel="noopener noreffer ">（人类真的永远无法离开拉尼亚凯亚超星系团吗）</a>，我已经不相信地球上有外星人了😢。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>有了 ai，数据分析都不难，难的是拿到符合要求的素材。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>但是大数据的情况下，分散性分布美化计算太过复杂，因此使用很少。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>所以费曼吐槽社会科学可能是伪科学。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-08-31</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/lda_gephi/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" data-title="LDA 主题模型与 Gephi 可视化" data-hashtags="Gephi,Python,Network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" data-hashtag="Gephi"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" data-title="LDA 主题模型与 Gephi 可视化"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" data-title="LDA 主题模型与 Gephi 可视化"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/" data-title="LDA 主题模型与 Gephi 可视化" data-image="/img/社会网络.zh-cn-20250824180041018.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/gephi/">Gephi</a>,&nbsp;<a href="/zh-cn/tags/python/">Python</a>,&nbsp;<a href="/zh-cn/tags/network/">Network</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/sgns/" class="prev" rel="prev" title=" 四姑娘山，雪山脚下的徒步之旅"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 四姑娘山，雪山脚下的徒步之旅</a>
+            <a href="/zh-cn/posts/gzhs/" class="next" rel="next" title="解释“潮玩热”：从网络效应到多重均衡">解释“潮玩热”：从网络效应到多重均衡<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

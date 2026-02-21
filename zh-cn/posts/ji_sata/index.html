@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>计量数据的分组与测度（STATA 版） - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="计量数据的分组与测度（STATA 版）" />
+<meta property="og:description" content="计量经济学学习笔记，理解因果关系，区别混合、固定、随机效应和 stata 操作。也记录下个人对机制检验的理解，这涉及交互项的相关探讨" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-26T13:35:20+08:00" />
+<meta property="article:modified_time" content="2023-12-26T13:35:20+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="计量数据的分组与测度（STATA 版）"/>
+<meta name="twitter:description" content="计量经济学学习笔记，理解因果关系，区别混合、固定、随机效应和 stata 操作。也记录下个人对机制检验的理解，这涉及交互项的相关探讨"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "计量数据的分组与测度（STATA 版）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/"
+        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10272 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/ji_sata/" selected>简体中文</option><option value="/en/posts/ji_sata/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/ji_sata/" selected>简体中文</option><option value="/en/posts/ji_sata/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量数据的分组与测度（STATA 版）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10272 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp"
+        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 2x"
+        data-sizes="auto"
+        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"
+        title="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一统计学的悖论">一、统计学的悖论</a>
+      <ul>
+        <li><a href="#辛普森悖论">辛普森悖论</a></li>
+      </ul>
+    </li>
+    <li><a href="#二面板数据">二、面板数据</a></li>
+    <li><a href="#三残差经济数学统计含义">三、残差经济、数学、统计含义</a>
+      <ul>
+        <li><a href="#1混合-ols">1、混合 OLS</a></li>
+        <li><a href="#2固定效应">2、固定效应</a></li>
+        <li><a href="#补充frisch-waugh-lovell-theorem">*补充：Frisch-Waugh-Lovell Theorem</a></li>
+        <li><a href="#3随机效应">3、随机效应</a></li>
+        <li><a href="#省流总结">省流总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#四常用-stata-操作">四、常用 stata 操作</a>
+      <ul>
+        <li><a href="#1reg-命令经典回归">1、reg 命令：经典回归</a></li>
+        <li><a href="#2areg-命令优化后的-reg-命令">2、areg 命令：优化后的 reg 命令</a></li>
+        <li><a href="#3xtreg-命令针对面板数据">3、xtreg 命令：针对面板数据</a></li>
+        <li><a href="#4reghdfe-命令多维固定">4、reghdfe 命令：多维固定</a></li>
+        <li><a href="#5stata-代码验证">5、stata 代码验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#四机制检验">四、机制检验</a>
+      <ul>
+        <li><a href="#1机制检验在实证中的灰色地带">1、机制检验在实证中的灰色地带</a></li>
+        <li><a href="#2中介效应和心理统计的区别">2、中介效应：和心理统计的区别</a></li>
+        <li><a href="#3调节效应分组回归还是交互项">3、调节效应：分组回归还是交互项</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>很多时候，我们总<strong>强调数据量的庞大，认为数据越多就越有代表性，从而忽视了数据结构的分析，进而导致了错误的估计</strong>。不恰当的估计方法会带来与现实完全相反的结果。为更好地了解数据结构，经济学有了固定效应、调节效应、异质性分析、稳健性分析。这些看起来是实证范式截然不同的部分，但个人理解他们都是为了区分数据结构进行分类，以保证我们的结论是真正有效的。因此，<strong>本文想从数据结构与变量分类的角度重新理一下实证论文的操作意义，并且区分 stata 不同的回归命令。</strong></p>
+<p>下面以范里安《微观经济学：现代观点》的第 17 章“测度”中的一个例子引入。</p>
+<h2 id="一统计学的悖论">一、统计学的悖论</h2>
+<h3 id="辛普森悖论">辛普森悖论</h3>
+<p>假设我们想要研究“咖啡消费与收入”的关系。有这样一组数据，4 位男性和 4 位女性，以及他们的收入和咖啡消费情况。</p>
+<p>Stata 数据生成如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
+</span></span><span class="line"><span class="cl"><span class="k">input</span> str6 gender income coffee
+</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">8</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">9</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">10</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">11</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">1</span> <span class="m">6</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">2</span> <span class="m">7</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">3</span> <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">4</span> <span class="m">9</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后我们可以画出散点图进行<strong>三次不同样本数的拟合</strong>，分别是整体一次，男性一次，女性一次：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp" title="用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" data-sub-html="<h2> </h2><p>用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" />
+    </a><figcaption class="image-caption">用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：</figcaption>
+    </figure></p>
+<p>用这个风格画 stata 基本能做到和 R 语言效果类似——绘图代码放在下面：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //绘画风格命令
+</span></span><span class="line"><span class="cl">*介绍详见：https://www<span class="m">.</span>lianxh<span class="m">.</span>cn/news/e76a8a7e3c6c4<span class="m">.</span>html
+</span></span><span class="line"><span class="cl">  <span class="k">set</span> scheme gg_w3d
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">twoway scatter coffee income <span class="k">if</span> gender == <span class="s">&#34;man&#34;</span>,color(blue) msize(<span class="m">3</span>) || scatter coffee income <span class="k">if</span> gender == <span class="s">&#34;woman&#34;</span>,color(green) msize(<span class="m">3</span>) msymbol(triangle) || lfit coffee income <span class="k">if</span> gender == <span class="s">&#34;man&#34;</span>,color(red) || lfit coffee income <span class="k">if</span> gender == <span class="s">&#34;woman&#34;</span> ,color(black) || lfit coffee income ,color(red)  lpattern(dash) ///
+</span></span><span class="line"><span class="cl">		legend(<span class="k">order</span>(<span class="m">1</span> <span class="s">&#34;男性&#34;</span> <span class="m">2</span> <span class="s">&#34;女性&#34;</span> <span class="m">3</span> <span class="s">&#34;男性拟合&#34;</span>  <span class="m">4</span> <span class="s">&#34;女性拟合&#34;</span>  <span class="m">5</span> <span class="s">&#34;整体拟合&#34;</span> )) ///
+</span></span><span class="line"><span class="cl">		xtitle(<span class="s">&#34;income&#34;</span>) ytitle(<span class="s">&#34;coffee&#34;</span>) ///
+</span></span><span class="line"><span class="cl">		<span class="k">title</span>(stata style：gg_w3d) ///
+</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果我们不管三七二十一，直接对总体数据进行回归拟合，我们会得出来 <strong>收入越多，咖啡消费越低</strong> 的结论，但如果我们分别对男性和女性进行回归拟合，得到的结论却完全相反——“<strong>收入越多，咖啡消费越多</strong>”。显然，后者更贴合现实情况。</p>
+<p>这就是 $\boxed{辛普森悖论}$：局部的相关性和整体的相关性可能呈现截然不同的结果。</p>
+<p>辛普森悖论在生活中比比皆是，例如各个年龄段的人服用药物后的疗效测量、各个学院录取学生是否有性别歧视、警察执法是否有种族歧视&hellip;&hellip;</p>
+<ul>
+<li>我们不但要关心数据的绝对值，例如某个结果的性别比；</li>
+<li>还有观察相对数值，例如警察执法更关注有色人种，那么前提是有色人种是不是犯罪率更高些；</li>
+</ul>
+<blockquote>
+<p><strong><em>《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》</em></strong>（2006）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>中就是基于“不同人种犯罪率与警察执法关注度”来研究佛罗里达的警察执法是否涉及种族歧视。自从佛洛依德（<strong><em>Floyd</em></strong>）的“I can&rsquo;t breathe”出圈后，很多书都热衷于通过这个事件引出真正的反事实推断<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>（例如《基本无害的计量经济学》（<strong><em>Joshua D. Angrist</em></strong>））</p>
+</blockquote>
+<ul>
+<li>还要注意内部的分层讨论，分种族、分地域、分性别&hellip;&hellip;也就是上面这个喝咖啡的例子。</li>
+</ul>
+<p>导致辛普森悖论的其中一个原因就是<strong>遗漏变量和混杂因子</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>——在咖啡消费与收入中，性别是一个重要影响因素，我们遗漏了，但是通过分组拟合实现了控制。</p>
+<blockquote>
+<p>其他类似的悖论还有幸存者偏差、柏克森悖论&hellip;&hellip; 两者是无意识地筛选了样本从而影响了分析结果。</p>
+</blockquote>
+<h2 id="二面板数据">二、面板数据</h2>
+<blockquote>
+<p>截面数据同一时间/对象不同空间、时间序列同一空间/对象不同时间、面板数据不同时间不同空间/对象。<br>
+面板数据天然的多了<strong>两个值得讨论的变量——空间/对象和时间</strong>。</p>
+</blockquote>
+<p>经济学常使用面板数据分析现实。</p>
+<p>$$
+数据\begin{cases}
+一维\begin{cases}时间序列：时间\newline
+截面数据：空间 \end{cases}\newline
+二维(面板数据)：时间+空间\newline
+高维：更多维度
+\end{cases}\newline
+$$
+$$
+面板数据\begin{cases} 平衡/非平衡（时间空间数之比是否一致）\newline
+长/短（空间数是否少于时间数）
+\end{cases}\newline
+$$</p>
+<p>对于数据面板，我们首先要明确哪个维度对应了时间、哪个维度对应了空间/对象。其实就是一个分组的过程，你可以从行业的角度分组，也可以每个人单独编号 id 分组。用 stata 的语言来说，就是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三残差经济数学统计含义">三、残差经济、数学、统计含义</h2>
+<p>普通的回归方程<strong>OLS</strong>是：
+$$
+Y=\alpha X +u
+$$
+直接对<strong>数据整体</strong>进行拟合。当我们知道辛普森悖论后，我们知道这样做回归是整体拟合，可能与局部拟合是完全不一样的结果。残差$ \color{red}{u} $遗漏的我们没关注的信息太多了，例如性别分类。所以我们要进行分组，把性别变量 M 从残差 $\color{red}{u}$ 中分解出来。</p>
+<p>$$
+Y=\alpha X +\beta M+u
+$$
+其实这时候就有了 $\boxed{控制变量}$。注意！这里是我个人从分组的视角引出控制变量，是强调控制变量在<strong>选择性偏差</strong>的作用，这种分组需要充分考虑控制变量对我们研究的<strong>实际经济意义</strong>，例如大量研究表明不同性别的咖啡消费习惯确实不同。控制变量的选择的其他重要作用是减少混杂因子干扰；此外，我们还要考虑最优拟合、无偏估计等<strong>统计学上的数学意义</strong>。</p>
+<p>有了<strong>面板数据</strong>后，我们的式子变成了<strong>二维</strong>，有了对象\空间的编码 i 和时间的编码 t 。普通的回归方程 OLS 变为：
+$$
+Y_{\color{red}{it}}=\alpha X_{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u_{_{\color{red}{it}}}
+$$
+为了进一步<strong>分解时间和空间/对象两个维度</strong>的残差的经济解释，我们又继续分解
+$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime }
+$$
+于是式子就变成了这样：</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime }
+$$
+首先我们来分析他们的<strong>经济意义——变量</strong>：</p>
+<p>$\boxed{\gamma_{\color{red}{t}}}:$ 这部分残差是时间维度的分解，说明这部分变动只和时间相关，是<strong>时间效应</strong>，例如时令蔬菜产量显然和季节相关，长期来看技术自然而然的稳定进步。同时这些效应是每个个体共享的，也就是所有样本都在随时间同步改变的变量。</p>
+<p>$\boxed{\lambda_{\color{red}{i}}}:$ 这部分残差是空间/对象维度的分解，说明这部分变动只和个体相关，是<strong>个体效应</strong>，例如苹果公司就是拖了很久才出 C 口，这就是他们的企业文化，只有苹果有这种想法，而且相当长的时间里，同类企业里只有他们坚持这么干。</p>
+<p>$\boxed{u_{\color{red}{it}}^{\prime }}:$ 现实值和估计值的偏差，在我们的模型解释之外, 是<strong>残差</strong>。导致的原因有很多，例如测量误差、遗漏变量、模型不符合现实&hellip;&hellip;</p>
+<p>然后我们来分析他们的<strong>数学意义——截距</strong>：</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha X_{_{\color{red}{it}}}+\beta D_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
+$$
+显然，$(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })$ 作为常数，在线性方程的结构中就是<strong>截距</strong>！</p>
+<p>最后我们来分析他们的<strong>统计学意义——残差</strong>：</p>
+<p>是否有不同的截距，这与残差的分布情况、异方差、相关性等方面密切相关。固定效应、随机效应、混合回归的一个区别是对残差的分解，我们认为我们的模型是否能解释个体效应、时间效应。</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
+\newline
+\xrightarrow{分解} 可解释部分+\color{blue}{不可解释部分}(误差)
+$$
+先放总结图，接下来展开解释</p>
+<p>随机效应假设更加严格，也就是数据要求更高，因此大家才倾向于使用固定效应（也就是允许个体效应存在内生性）。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp" title="先放总结图，接下来展开解释" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp" data-sub-html="<h2> </h2><p>先放总结图，接下来展开解释</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp" />
+    </a><figcaption class="image-caption">先放总结图，接下来展开解释</figcaption>
+    </figure></p>
+<p>通过经济意义、数学意义、统计意义的大致介绍，对于面板数据，我们有了不同的分解方法：</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
+$$</p>
+<h3 id="1混合-ols">1、混合 OLS</h3>
+<p>$\boxed{混合OLS}$ : 当 $Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u$ 时，也就是虽然我们有很多方法，比如可以按照年份分组、按照个体分组，但是还是把他们每个都看做独特的散点混合在一起进行回归，此时也就可以看做所有散点的拟合线共享一个截距。</p>
+<p>此时<strong>假设</strong>个体效应不存在：$\lambda_{\color{red}{i}}=0$ 。</p>
+<p>同时<strong>假设</strong>剩余残差与解释变量、控制变量都不相关：$Cov（u|M_{_{\color{red}{it}}},X_{_{\color{red}{it}}}） =0$，残差分布也满足正态分布。</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u
+$$
+混合 OLS 就是用最小二乘法笼统地对所有点进行整体回归，所有散点的拟合线共享了一个截距 u<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。因此混合 OLS 也叫“长截面回归”或者“合并截面回归”。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp" title="第一列是按照年份分组，每个时间截面的散点拟合共享一个截距；第二列是按照个体分组，每个个体截面的散点拟合共享一个截距；第三列的图就是混合OLS，所有散点在一个面上直接进行拟合" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp" data-sub-html="<h2> </h2><p>第一列是按照年份分组，每个时间截面的散点拟合共享一个截距；第二列是按照个体分组，每个个体截面的散点拟合共享一个截距；第三列的图就是混合OLS，所有散点在一个面上直接进行拟合</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp" />
+    </a><figcaption class="image-caption">第一列是按照年份分组，每个时间截面的散点拟合共享一个截距；第二列是按照个体分组，每个个体截面的散点拟合共享一个截距；第三列的图就是混合OLS，所有散点在一个面上直接进行拟合</figcaption>
+    </figure></p>
+<p>第一列是按照年份分组，每个时间截面的散点拟合共享一个截距；第二列是按照个体分组，每个个体截面的散点拟合共享一个截距；第三列的图就是混合 OLS，所有散点在一个面上直接进行拟合</p>
+<h3 id="2固定效应">2、固定效应</h3>
+<p>分为个体固定效应和时间固定效应（双固定）。</p>
+<p><strong>个体固定效应：</strong></p>
+<p>$\boxed{LSDV} :$ 混合 OLS 是对所有$\lambda_{it}$一视同仁。想象一下，我们对同一个人观测多次，在混合 OLS 看来每次重复观测都有等同的价值。固定效应不这么认为，固定效应认为个体具有某种性质，重复观测获得的价值有限，所以我们需要<strong>生成虚拟个体变量（n-1 个）加入回归不对每类个体进行标识，单独估计每一个个体的效应，<strong>也就是“最小二乘变量模型（Least Square Dummy Variable Model）”（简称</strong>LSDV</strong>）。</p>
+<blockquote>
+<p>会生成很多控制变量，所以 $R^2$ 很好。</p>
+</blockquote>
+<p>$$
+\begin{align}
+Y_{\color{red}{it}}&amp;=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\alpha_{1}D_{1}+\alpha_{2}D_{2}+\cdots+\alpha_{N}D_{N}+u_{\color{red}{it}}\newline
+\end{align}
+$$
+
+<img
+        class="lazyload center-image"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp"
+        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp 2x"
+        data-sizes="auto"
+        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp"
+        title="计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp" /></p>
+<p>个体效应——因果关系示意图。将个体效应看做混淆因子，通过控制进行截断</p>
+<p>$\boxed{组内估计}$，固定效应假定个体效应与解释变量相关，因此我们要利用组内离差法消除这种相关，类似去中心化——进行减去分组内组内均值的处理<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<p>平均值取同一个变量，不同年份的数值的平均: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$</p>
+<p><div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>补充<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">面板数据的方差分析。当我们设定好了 <code>xtset id year</code> 后，<code>id</code> 可能是空间编号、也可能是行业编号、也可能是个体编号，我们就有了 n 个小组，每个组内部有有方差，就是组内方差；每组之间也有方差，就是组间方差。进行方差分析有助以确认我们研究的分组是否合适。<br>
+这里采用的组内估计的方法，比组间估计更有效。论证过程为伍德里奇计量经济学课后题，这里不再展开。</div>
+        </div>
+    </div>
+$$
+Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=\alpha (X _{_{\color{red}{it}}}-\bar X _{\color{red}{i}})+\beta (M_{_{\color{red}{it}}}-\bar M _{\color{red}{i}})+(u_{_{\color{red}{it}}}-\bar u _{\color{red}{i}})
+$$
+这个式子也能理解成滞后的 $\boxed{一阶差分法}$ 。
+$$
+Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=Y_{\color{red}{i,t}}-Y_{\color{red}{i,t-1}} =\alpha (X _{_{\color{red}{it}}}-X _{\color{red}{i,t-1}})+\beta (M_{_{\color{red}{it}}}- M _{\color{red}{i,t-1}})+(u_{_{\color{red}{it}}}- u _{\color{red}{i,t-1}})
+$$
+综上，目前<strong>个体固定效应有了三种估计方程</strong>：<strong>虚拟变量最小二乘、组内估计、一阶差分</strong>。它们的估计基本上是一致的，不同点主要体现在数据假设上。一阶差分消除了个体效应，所以无法估计不随时间变化的各种效应。虚拟最小二乘法（LSDV）则要求构造的虚拟变量必须是严格外生的，而且虚拟变量太多可能导致控制变量超出 stata 的运行限制。
+$$
+\begin{cases} Y_{\color{red}{it}}=\alpha   X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\sum_{1}^{N}{\alpha_{j}D_{j}}+u_{\color{red}{it}}\newline
+Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=\alpha (X _{_{\color{red}{it}}}-\bar X _{\color{red}{i}})+\beta (M_{_{\color{red}{it}}}-\bar M _{\color{red}{i}})+(u_{_{\color{red}{it}}}-\bar u _{\color{red}{i}})\newline
+Y_{\color{red}{i,t}}-Y_{\color{red}{i,t-1}}  =\alpha (X _{_{\color{red}{it}}}-X _{\color{red}{i,t-1}})+\beta (M_{_{\color{red}{it}}}- M _{\color{red}{i,t-1}})+(u_{_{\color{red}{it}}}- u _{\color{red}{i,t-1}})<br>
+\end{cases}
+$$
+目标都是为了正确估计个体效应与控制变量相关时，被解释变量的系数$\alpha $，而且上面的四个估计式的参数$ \alpha $也相同：
+$$
+Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\color{blue}{(\gamma_{\color{red}{t}}+u^{\prime })}\
+$$</p>
+<h3 id="补充frisch-waugh-lovell-theorem">*补充：Frisch-Waugh-Lovell Theorem</h3>
+<blockquote>
+<p>证明虚拟变量最小二乘、组内估计的系数 $\alpha$ 相同的引理为“<strong>Frisch-Waugh-Lovell Theorem</strong>”。<br>
+举个极简的例子：<br>
+现实的方程是：
+$$
+Y=\beta_1 X_1+ \beta_2 X_2 +u_1
+$$
+我们想要估计出 $\beta_1$，但是我们遗漏了变量 $X_1$，只回归了 $X_2$ ,得到以下式子：<br>
+$$
+Y=\alpha X_2+u_2
+$$
+此时我们只需要再用 $X_2、X_1$ 进行回归, 得到如下式子：<br>
+$$
+X_1=\gamma X_2+u_3
+$$
+最后使用残差进行回归：<br>
+$$
+u_2=\dot \beta u_3+u
+$$
+根据已经进行的两个回归的残差，我们可以得到：<br>
+$$
+\begin{cases}
+u_2=Y-\alpha X_2\newline
+u_3 = X_1 - \gamma X_2
+\end{cases}
+$$
+展开变形，我们直接得到：<br>
+$$
+Y=\dot \beta X_1 + (\alpha-\gamma)X_2+u
+$$
+可以发现 $\dot \beta=\beta_1$ ,通过曲线救国，间接估计，我们估计出了我们想要的系数 $\beta_1$。虚拟二乘回归就是先回归$ Y $与虚拟变量 $D$，然后回归 $X_1$ 与 $D$ ，最后使用残差进行估计，因此系数和组内估计系数回归一致。</p>
+<p>通过 FWL 可以证明一阶差分估计和虚拟变量的估计是相等的。</p>
+</blockquote>
+<p>如果想自己尝试，可以使用 stata 自带数据测试<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear                            
+</span></span><span class="line"><span class="cl">sysuse auto  
+</span></span><span class="line"><span class="cl">*stata自带测试数据
+</span></span><span class="line"><span class="cl">reg mpg <span class="k">foreign</span> weight
+</span></span><span class="line"><span class="cl">*现实想要回归的数据，有两个解释变量foreign和weight
+</span></span><span class="line"><span class="cl">reg mpg <span class="k">foreign</span>
+</span></span><span class="line"><span class="cl">*漏掉变量weight进行回归
+</span></span><span class="line"><span class="cl">predict mpgResidF, residual
+</span></span><span class="line"><span class="cl">*生成残差
+</span></span><span class="line"><span class="cl">reg weight <span class="k">foreign</span>
+</span></span><span class="line"><span class="cl">predict weightResidF, residual
+</span></span><span class="line"><span class="cl">reg mpgResidF weightResidF
+</span></span><span class="line"><span class="cl">*会发现回归系数和reg mpg <span class="k">foreign</span> weight的对应weight系数相同
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>时间固定效应：</strong></p>
+<p>时间固定效应是基于个体固定效应进行添加，添加了后称为“双固定效应”。基于<strong>LSDV 法</strong>添加 t-1 个虚拟变量。</p>
+<blockquote>
+<p>个体固定效应不随时间改变，所以可以通过一阶离差、组内估计相减去除，但时间效应很难采用相同的做法，因为个体与个体分组、排序都不明确。只能采用<strong>LSDV 法</strong>添加 t-1 个虚拟变量。</p>
+</blockquote>
+<p>$$
+Y_{\color{red}{it}}=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\sum_{1}^{T}{\alpha_{j}D_{j}}+\color{blue}{u_{\color{red}{it}}}
+$$</p>
+<p>如果我们假设每年时间效应相同，为固定值 $\gamma$，式子也可以简化为：</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\gamma t+\color{blue}{u_{\color{red}{it}}}
+$$
+<strong>再次提醒</strong>固定效应、随机效应整个分类都是重点关注个体效应带来的内生性问题。个体效应的控制是为了对抗个体特质的内生性（类似“辛普森悖论”的分组，因为用于分组的属性本身影响着我们要研究的模型），时间效应则没有这么强的干扰，所以都是在控制个体效应的基础上再控制时间效应，面板数据一般没有单独控制时间效应，不控制个体效应的做法。</p>
+<h3 id="3随机效应">3、随机效应</h3>
+<p>固定效应假设个体效应 $\lambda_{\color{red}{i}}$ 与个体相关，意思就是相同的个体分组有相同的个体效应，于是我们可以通过离差法、组内估计相减，直接消掉干扰项。随机效应与之相反，<strong>假设个体效应  $\lambda_{\color{red}{i}}$ 没有与解释变量相关</strong>，我们无法通过离差法、组内估计相减消除。</p>
+<p>基于把残差看成截距的理解就是，在固定效应看来，每个分组共享一个截距，分组内部相减就消掉这个截距了；在随机效应看来，截距是随机的，不可能按照分组达成统一。</p>
+<p>在操作上，类似工具变量，其实是根据残差对变量进行了加权。</p>
+<p>要解决的问题是残差的自相关，</p>
+<p>$$
+Y_{\color{red}{it}}=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\color{blue}{\lambda_{\color{red}{i}}+u_{\color{red}{it}}}
+$$
+$\color{blue}{\lambda_{\color{red}{i}}+u_{\color{red}{it}}}$ 虽然与$ X_{\color{red}{it}}$ 、 $ M_{\color{red}{it}}$ 不相关，但是由于其具有个体效应，在面板数据中，<strong>不同年份、同一个个体是自相关的</strong>。正是<strong>自相关这点让随机效应区别于混合 OLS</strong>。</p>
+<p>为了彻底理清这个复合残差 $\color{blue}{\lambda_{\color{red}{i}}+u_{\color{red}{it}}}$，借助广义最小二乘（GLS）变形消除序列自相关。</p>
+<p>$$
+Y_{\color{red}{it}}-\theta\bar Y_{\color{red}{i}}=\alpha (X _{_{\color{red}{it}}}-\theta\bar X _{\color{red}{i}})+\beta (M_{_{\color{red}{it}}}-\theta\bar M _{\color{red}{i}})+(u_{_{\color{red}{it}}}-\theta\bar u _{\color{red}{i}})
+$$
+我们可以发现 $\theta=1$ 时，这是<strong>固定效应（FE）</strong> ； $\theta=0$ 时，这是<strong>混合 OLS</strong>。因为随机效应就是借助固定效应和混合 OLS 拆解估计随机效应的残差。</p>
+<h3 id="省流总结">省流总结</h3>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103328654.webp" title="省流总结" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103328654.webp" data-sub-html="<h2> </h2><p>省流总结</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103328654.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103328654.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103328654.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103328654.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103328654.webp" />
+    </a><figcaption class="image-caption">省流总结</figcaption>
+    </figure></p>
+<p>面板数据必定带有时间和空间两个维度，因此混合 OLS、固定效应、随机效应是分解残差的构成。</p>
+<p>第一个问题是回答个体效应的内生性。在固定效应的估计又有三种方法。</p>
+<p>第二个问题是回答个体效应的自相关。</p>
+<h2 id="四常用-stata-操作">四、常用 stata 操作</h2>
+<h3 id="1reg-命令经典回归">1、reg 命令：经典回归</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*混合OLS
+</span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> ,robust
+</span></span><span class="line"><span class="cl">*固定效应：使用虚拟变量最小二乘回归法（LSDV）
+</span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> i<span class="m">.</span>id //单向固定，方法为LSDV
+</span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> i<span class="m">.</span>year i<span class="m">.</span>id //双向固定，方法为LSDV
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2areg-命令优化后的-reg-命令">2、areg 命令：优化后的 reg 命令</h3>
+<p>和 reg 的估计完全一样。由于使用 LSDV 法会产生大量虚拟变量，展示结果的表格往往会很长，areg 会用 absorb 进行固定效应，但是通过 absorb（）命令吸收不进行展现。但缺点是 absorb（）中只能放一个。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">areg Y <span class="k">X</span> i<span class="m">.</span>year, absorb(id) //双固定 ，方法为LSDV
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3xtreg-命令针对面板数据">3、xtreg 命令：针对面板数据</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">xtset id year //设定个体分组和时间变量
+</span></span><span class="line"><span class="cl">*固定效应
+</span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> ,fe //单向固定，采用的方式是“组内估计”
+</span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> i<span class="m">.</span>year ，fe //双向固定,“组内估计”的个体固定效应和LSDV的时间固定效应
+</span></span><span class="line"><span class="cl">sdds
+</span></span><span class="line"><span class="cl">*随机效应
+</span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> ,re //GLS,广义最小二乘估计
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4reghdfe-命令多维固定">4、reghdfe 命令：多维固定</h3>
+<p>可以进行两个以上的固定效应控制。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*双向固定
+</span></span><span class="line"><span class="cl">reghdfe Y <span class="k">X</span>, absorb(id year) //既然它的命令id和year能等效处理，那么我猜测估计方法依然是LSDV
+</span></span><span class="line"><span class="cl">*混合OLS
+</span></span><span class="line"><span class="cl">reghdfe Y <span class="k">X</span>, noabsorb 
+</span></span><span class="line"><span class="cl">*交互变量的固定
+</span></span><span class="line"><span class="cl">reghdfe Y , absorb(year#prov) //year和prov效应的交互影响，也允许定类变量和连续性变量进行交互
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5stata-代码验证">5、stata 代码验证</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*使用stata自带的xtpcse命令专用例子数据
+</span></span><span class="line"><span class="cl">webuse grunfeld,clear
+</span></span><span class="line"><span class="cl">*如果没有网络导入，可能是网络问题，需要挂梯子
+</span></span><span class="line"><span class="cl">*数据库站：*https://www<span class="m">.</span>stata-press<span class="m">.</span>com/data/r10/xt<span class="m">.</span>html
+</span></span><span class="line"><span class="cl">*也可以直接去下载
+</span></span><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company
+</span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe
+</span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)
+</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码块分别使用了四种命令进行固定效应，<strong>固定个体效应，不固定时间效应</strong>，结果如下图，可以发现他们的<strong>系数估计是完全相同的</strong>。</p>
+<blockquote>
+<p><strong>为何截距部分，也就是常数项不同</strong>——并未在任何实操书中找到解答。个人认为<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>是因为各个命令计算残差方式不同影响的。</p>
+<p>（1）混合 OLS 是计算一个回归方程与所有的点的残差。</p>
+<p>（2）（3）（4）是聚类有了很多系数相同、截距不同的回归方程，每个点和自己对应的回归方程计算方差然后加总。<br>
+为何 $R^2$ 不同：</p>
+<p>（1）（3）（4）都使用的 LSDV 法，所以生成了很多虚拟变量。</p>
+<p>（2）用的组间估计，没有生产虚拟变量。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp" title="回归表" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp" data-sub-html="<h2> </h2><p>回归表</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp" />
+    </a><figcaption class="image-caption">回归表</figcaption>
+    </figure></p>
+<p>顺便一提，当我们把代码换成如下的代码，情况也会发生改变：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
+</span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe r 
+</span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)  vce(cluster company)
+</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company) 
+</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp" title="回归表" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" data-sub-html="<h2> </h2><p>回归表</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" />
+    </a><figcaption class="image-caption">回归表</figcaption>
+    </figure></p>
+<p>从图片中可以看出，系数估计相同，标准差也不同。</p>
+<blockquote>
+<p>默认回归是普通标准差，要求数据满足<strong>同方差</strong>；</p>
+<p>添加 r, 也就是 robust 后是稳健标准差，是为了解决数据<strong>异方差</strong>；</p>
+<p>添加 vce (cluster company) 是聚类稳健标准差，是为了解决数据<strong>异方差+内部自相关</strong>。</p>
+</blockquote>
+<h2 id="四机制检验">四、机制检验</h2>
+<h3 id="1机制检验在实证中的灰色地带">1、机制检验在实证中的灰色地带</h3>
+<p>辛普森悖论启示我们分组回归和整体回归的结果可能完全相反，原因之一就是遗漏变量。所以我们要添加控制变量。在使用&quot;面板数据”时，数据多了“时间”和“空间”两个维度。依然可能对研究产生影响，所以我们需要分离“个体效应”和“时间效应”。<strong>回答辛普森悖论——此时我们解决的是因果性问题，要求避免内生性。<strong>在机制检验中，有人用分组回归或者交互项回归来</strong>扩展结论，默认前提——机制检验的新变量不是你忽略的控制变量。</strong></p>
+<p>这里有个巨大的问题——<strong>在进行机制检验时，你又如何保证没有内生性呢？<strong>例如下图，最左边的是因果关系的对撞路径，右边是机制检验的调节效应、中介效应。很显然的地方在于，<strong>含有混杂因子的对撞效应依然能满足调节效应和中介效应</strong>。所以这又有了一个新的内生性问题！！！！所以朱家祥和张文睿（2021）<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>说</strong>调节效应是不满足统计学的因果关系检验</strong>的。在这基础上，江艇（2022）<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>干脆呼吁取消中介三步法，因为没有意义——这样既无法证明有内生性，也无法证明没有内生性。</p>
+<p>
+<img
+        class="lazyload center-image"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp"
+        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 2x"
+        data-sizes="auto"
+        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"
+        title="计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp" /></p>
+<p>于是我们的机制检验就只剩两条路可选</p>
+<blockquote>
+<p><strong>1. 再进一步证明没有内生性。</strong> 此时再做一个对照试验（感觉又是一个微缩的经济实证对比）；或者讨论分组回归后残差的与被解释变量的相关性。基于相关关系+理论解释去靠近因果关系。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp" title="《因果推断经验研究中的中介效应与调节效应》江艇（2022）" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp" data-sub-html="<h2> </h2><p>《因果推断经验研究中的中介效应与调节效应》江艇（2022）</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp" />
+    </a><figcaption class="image-caption">《因果推断经验研究中的中介效应与调节效应》江艇（2022）</figcaption>
+    </figure></p>
+<blockquote>
+<p><strong>2. 无需证明，我的变量是天然外生的。</strong> 变量从现实意义上来看没有内生性，也就是多扩展理论和经济意义的解释即可。国内最常见的灌水就是四大区域、胡焕庸线，因为从现实意义上来看这些分类就是天然的外生变量。</p>
+</blockquote>
+<p>似乎机制检验似乎就是不完整的小实证，通过残缺的实证步骤大概扩展下结论。个人感觉所有的计量教材中都没有强调过所谓的“机制分析”，只是在国内成为了特定的要求。可见经济学的定量最后还是现实理论+定量各一半的分析。</p>
+<h3 id="2中介效应和心理统计的区别">2、中介效应：和心理统计的区别</h3>
+<blockquote>
+<p>中介效应这部分的观点主要参考了《为什么》（朱迪亚·珀尔）</p>
+</blockquote>
+<p>当我们询问为什么时，回答问题的逻辑链条有两种，一种是原理、一种是过程。</p>
+<p>$$
+吃橘子\rightarrow维生素C\rightarrow抵抗坏血病\newline
+老人\rightarrow摔倒\rightarrow住院\
+$$
+以上面两个路径图为例子，第一个吃维生素 C 抵抗坏血病听起来更像原理性的回答，而老人摔倒更像是过程。我见过许多论坛、社科自媒体视频认为是“经济学偷了心理学的中介效应”——实际情况并非如此。</p>
+<p>心理学能够广泛应用中介效应，是因为心理学统计的路径图是： $外界刺激\rightarrow人体反应、激素变化\rightarrow行为变化$ ，这样的路径更像原理。经济学则只是这 $变量1\rightarrow变量2\rightarrow变量3$ 样的回答，更像一种过程描述，更加宽泛，不像心理学那样看起来贴合原理实质，所以备受质疑。心理学在选择中介变量时限定了是人体表现，经济学的变量并没有这么严格的限制，因此极易出现伪相关。例如在维生素 C 和坏血病中，人们长久以来以为是“水果——橘子”的作用，科斯特北极探险队认为重点在于水果是新鲜的，那么新鲜肉有同样的效果没有准备任何水果，最后大家都得了坏血病。</p>
+<p>为回答“辛普森悖论”类似，我们依旧需要中介效应，因为存在“ $\boxed{中介谬误}$ ”</p>
+<p>以 science 上发表的《Sex Bias in Graduate Admissions: Data from Berkeley》<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>为例，我们得到以下因果关系路径图。</p>
+<p>性别对录取率有两个方面的影响路径。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp" title="《Sex Bias in Graduate Admissions: Data from Berkeley》" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp" data-sub-html="<h2> </h2><p>《Sex Bias in Graduate Admissions: Data from Berkeley》</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp" />
+    </a><figcaption class="image-caption">《Sex Bias in Graduate Admissions: Data from Berkeley》</figcaption>
+    </figure></p>
+<p>直接效应：$性别\rightarrow录取率$</p>
+<p>间接效应： $性别\rightarrow院系\rightarrow录取率$，在间接效应中，“院系”就是中介变量。</p>
+<p>如果我们直接将&quot;院系&quot;作为控制变量，此时展现的是性别-录取率的直接效应，回归会显示女性遭到了歧视。</p>
+<p>如果我们只将“居住州”作为控制变量，此时展现的就是性别-录取的直接效应和性别-院系-录取率的间接效应，此时显示女性没有遭到歧视。截然不同的结果就是“辛普森悖论”。在咖啡中，我们犯错了是<strong>遗漏了变量</strong>；这里犯错是因为<strong>控制了“中介变量”</strong>。最终结论是，因为女生们敢于申请难度最大的院系所以看起来录取率低，所以院系是重要的中介变量并且不应该随便加以控制。</p>
+<p>所以中介变量不应该作为控制变量，同时如果我们要区分直接效应和中介效应，是需要进一步区分的。</p>
+<h3 id="3调节效应分组回归还是交互项">3、调节效应：分组回归还是交互项</h3>
+<p>发现了个超全<a href="https://zhuanlan.zhihu.com/p/120310111" target="_blank" rel="noopener noreffer ">总结</a></p>
+<blockquote>
+<p>这一部分主要参考了《回归分析》（谢宇）</p>
+</blockquote>
+<p>对于变量 $Y$ 、$X_1$ 、$ X_2$ 、$D$ 来说，我们产生了不同的估计策略。</p>
+<p>分组回归：$Y=\beta_1 X_1+\beta_2 X_2+u$ ,然后按照 D 进行分组</p>
+<p>引入交互项, 此时还有两种估计：</p>
+<p>$$
+\begin{cases}
+Y=\beta_1 X_1+\beta_2 X_2+\beta_3D+\beta_4 DX_1+u \newline
+Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u
+\end{cases}
+$$
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>交互项和分组回归的作用区别？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>一般来说，交互项强调调节效应、分组回归强调异质性，江艇（2022）认为二者是一个东西。不过，两者确实还是存在一些差别：</p>
+<p>首先，存在<strong>必须要用分组回归</strong>的情况，当虚拟变量大于两组时，例如东西南北中区域异质性讨论，我们不可能用 1-4 来量化他们在交互项中的作用，反复采用 0-1 编号也不符合对照逻辑，此时需要分组回归。其次，存在我们<strong>需要研究交互项</strong>的情况，也就是替代效应和互补效应。当方程变为 $Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u$ 时，研究边际效应，彼此的边际效应会受对方的影响。最后一点，当组间系数较为相似时，分组回归也会被当成一种<strong>稳健性检验</strong>。</p>
+<p>接下来总结经常出现的几个结论看法（不过我感觉这些结论没有权威论文证实）:</p>
+<ul>
+<li>统计检验交互项更好，因为有显著性检验（但是现在分组回归似乎也可以<a href="https://zhuanlan.zhihu.com/p/629123531" target="_blank" rel="noopener noreffer ">检查系数差异的显著性</a>了），且敏感度更高，而且用的是全体样本，分组回归会减少样本量；</li>
+<li>数据假设不同，<strong>交互项假设只有交互相关的分组存在组间差异</strong>，要求更加严格。<strong>交互项要求组与组之间控制变量系数要一致</strong>，分组回归则不要求。由此有个引申的结论——当一个变量和所有控制变量交互，交互变量估计和分组回归是完全一致的。</li>
+<li>不同变量不同讨论，交互项可以分为虚拟变量虚拟变量（<a href="https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG" target="_blank" rel="noopener noreffer ">建议参考</a>）、虚拟变量连续变量、连续变量连续变量，需要具体分析。（《计量经济学基础》（古扎拉蒂）在虚拟变量部分支持虚拟变量虚拟变量——双重差分法盛行下这点没有争议。)</li>
+</ul>
+<p>交互项假设总体上机制检验这里依旧属于灰色地带。只要你的变量逻辑讲得通，分组和交互哪个用显著用哪个就行，都显著更好，就都用上。</p>
+</div>
+        </div>
+    </div></p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>什么样的项目适合作为交互<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>从数学意义来考虑，加法管截距，乘法管斜率。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp" title="从图中可以看出，调节效应强调交互，因为和X一起影响斜率" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp" data-sub-html="<h2> </h2><p>从图中可以看出，调节效应强调交互，因为和X一起影响斜率</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp"
+            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp 2x"
+            data-sizes="auto"
+            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp" />
+    </a><figcaption class="image-caption">从图中可以看出，调节效应强调交互，因为和X一起影响斜率</figcaption>
+    </figure></p>
+<p>从图中可以看出，调节效应强调交互，因为和 X 一起影响斜率。</p>
+<p>分组回归则强调 X 的斜率是一样的，只是截距不同，不存在调节效应，更适合作为控制变量。</p>
+</div>
+        </div>
+    </div>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>我们能删除低次变量吗？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">也就是下面两个估计式子选哪个？我们可以在取了交互项 $XD$ 后去掉低次项 $X$、$D$ 吗？
+$$
+\begin{cases} Y=\beta_1 X_1+\beta_2 X_2+\beta_3 D+\beta_4 DX_1+u\newline
+Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX_2 +u\end{cases}
+$$
+答案是需要带上 $\beta_3 D$，在第一个式子中，$\beta_4$ 确实是控制了 $X_1$ 和 $D$ 后的净效用。此时容易产生“共线性”，可以进行去中心化处理减去均值。因此如果是双重差分法，如果 did 和预定的时间和空间设定一致，就变成了要求双向固定效应。</div>
+        </div>
+    </div>
+<p>以上参考来自<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>交互项最多能几个相乘?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">一般不超过三个。原因是三个以内更符合直觉性的对照试验，三个以上后作者难以解释对照实验结论。</div>
+        </div>
+    </div>
+<p><strong>参考资料：</strong></p>
+<p>《计量经济学导论》（伍德里奇）</p>
+<p><em>《计量经济学基础》</em>（古扎拉蒂）</p>
+<p>《基本无害的计量经济学》（安格里斯特 / 皮施克）</p>
+<p>《因果推断实用计量方法》 (邱嘉平)</p>
+<p>《高级计量经济学及 Stata 应用》（陈强）</p>
+<p>《回归分析》（谢宇）</p>
+<p>《为什么》（朱迪亚·珀尔）</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448056220&amp;idx=1&amp;sn=b079a3454204a013fd441b874186f91d&amp;chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">计量回归中的交互项到底什么鬼? 捎一本书给你</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448057995&amp;idx=1&amp;sn=43011772c6adf79ad636463014d98423&amp;chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">计量经济学中&quot;交互项&quot;相关的5个问题和回应</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36" target="_blank" rel="noopener noreffer ">Stata: 交叉项\交乘项该这么分析！</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89" target="_blank" rel="noopener noreffer ">Stata：交乘项该如何使用？</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf" target="_blank" rel="noopener noreffer ">Stata：边际效应分析</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24" target="_blank" rel="noopener noreffer ">Stata：图示连续变量的边际效应(交乘项)</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354" target="_blank" rel="noopener noreffer ">Stata：图示交互效应\调节效应</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195" target="_blank" rel="noopener noreffer ">加入交乘项后符号变了!?</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>每每看到各类书用这个例子引出因果关系，总是感觉时间飞逝&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Judea Pearl 在他的著作《the book of why》中支持这一点。书中第六章是从平均值比例数出发引出辛普森悖论&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>陈强高级计量教材中说也可以理解为“个体效应被平均掉了”&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>下面这个使用去中心化的式子，写最终结果时伍德里奇教材的第六版好像写错了残差的符号，陈强教材是正确的。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>参考代码来自哈佛商学院的课程资料 https://www.hbs.edu/research-computing-services/Shared%20Documents/Training/fwltheorem.pdf&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>欢迎质疑。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>朱家祥, 张文睿. 调节效应的陷阱[J]. 经济学 (季刊), 2021,21 (05): 1867-1876. DOI: 10.13821/j.cnki. Ceq. 2021.05.19.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>江艇. 因果推断经验研究中的中介效应与调节效应[J]. 中国工业经济[2023-12-28].&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>P. J. Bickel et al. ,Sex Bias in Graduate Admissions: Data from Berkeley. Science 187,398-404 (1975). DOI: 10.1126/science. 187.4175.398&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Cleary P D, Kessler R C. The estimation and interpretation of modifier effects[J]. Journal of Health and Social Behavior, 1982: 159-169.12:&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-26</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/ji_sata/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-hashtags="因果效应,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/zyw/" class="prev" rel="prev" title="动机论：二次元的真物与伪物"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>动机论：二次元的真物与伪物</a>
+            <a href="/zh-cn/posts/zoterorss/" class="next" rel="next" title="Zotero：RSS 聚合订阅">Zotero：RSS 聚合订阅<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

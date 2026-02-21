@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>The Mathematical History of Economics - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="The Mathematical History of Economics" />
+<meta property="og:description" content="Reading notes on the book &ldquo;Mathematics and Economics&rdquo; by Shi Shuzhong, which introduces the development of mathematical tools in economics." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/econ_math/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-02T08:52:19+08:00" />
+<meta property="article:modified_time" content="2025-01-11T20:46:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="The Mathematical History of Economics"/>
+<meta name="twitter:description" content="Reading notes on the book &ldquo;Mathematics and Economics&rdquo; by Shi Shuzhong, which introduces the development of mathematical tools in economics."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/econ_math/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/ai_m/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/fzqy-en/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Mathematical History of Economics",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/econ_math\/"
+        },"genre": "posts","keywords": "Reading, Microeconomics, Macroeconomics","wordcount":  1923 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/econ_math\/","datePublished": "2025-01-02T08:52:19+08:00","dateModified": "2025-01-11T20:46:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/econ_math/">简体中文</option><option value="/en/posts/econ_math/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/econ_math/">简体中文</option><option value="/en/posts/econ_math/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">The Mathematical History of Economics</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-02">2025-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1923 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp"
+        data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp 2x"
+        data-sizes="auto"
+        alt="/img/经济学与数学-20250102145434783.webp"
+        title="/img/经济学与数学-20250102145434783.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#reasons-for-recommendation">Reasons for Recommendation</a></li>
+    <li><a href="#historical-review">Historical Review</a></li>
+    <li><a href="#economics-that-can-be-studied-with-mathematics-and-mathematics-in-economic-research">Economics That Can Be Studied with Mathematics and Mathematics in Economic Research</a></li>
+    <li><a href="#interesting-mathematical-economic-thinking">Interesting Mathematical Economic Thinking</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>If economics and mathematics continue to coexist for another century and a half, who can imagine what changes it will bring about. — Shi Shuzhong</p>
+</blockquote>
+<h2 id="reasons-for-recommendation">Reasons for Recommendation</h2>
+<ul>
+<li><strong>Perspective</strong>: Shi Shuzhong has a pure mathematics background. This book is actually a popular science introduction to the mathematics of economics for mathematics students. The interesting disciplinary stance is that mathematicians generally try to avoid normative analysis in social sciences and non-mathematical explanations of terms.</li>
+<li><strong>Reading Difficulty</strong>: Intermediate microeconomics level, but since it is aimed at mathematics students, some parts exceed intermediate level. For example, intermediate microeconomics usually introduces Arrow&rsquo;s Impossibility Theorem using tables, while this book directly uses functional analysis.</li>
+<li><strong>Disciplinary History</strong>: This book can be seen as a history of the development of mathematics in economics. Many people finish studying microeconomics without understanding the development of mathematical tools. For example, many only know a couple of example problems from textbooks about the contributions of Cournot, Walras, and Arrow. The history of the discipline fills in the gaps, helping to understand the inheritance process of these masters.</li>
+</ul>
+<blockquote>
+<p>As I mentioned in <a href="https://blog.huaxiangshan.com/zh-cn/posts/fs3/#center%E6%95%B0%E5%AD%A6%E5%AD%A6%E5%A4%9A%E5%B0%91center" target="_blank" rel="noopener noreffer ">The Arrogance of Economics: Some Recent Thoughts</a>, I believe that learning the history of a discipline is very important. Understanding the history of the integration of mathematics and economics is also crucial.</p>
+<p>If you haven&rsquo;t experienced the beauty of intermediate level, it&rsquo;s hard to go far by immersing yourself in advanced mathematical techniques. Because economic thought is already fully permeated at the intermediate level, the advanced level is just a precise expression and generalization of the intermediate models.</p>
+<p>Reviewing the biographies of economists is actually quite interesting. Just as people are obsessed with commenting on contemporary economists and gossiping about the career moves of academic stars, in the history of mathematical economics, you can also see many familiar names who were once obscure in their papers until their contributions were later recognized.</p>
+</blockquote>
+<ul>
+<li><strong>Ideology</strong>: In that era, using mathematical tools to analyze economics was considered to have a capitalist flavor. The book is full of this era-specific characteristic, with the author having to emphasize that they are critically viewing it and inserting discussions on Soviet socialist mathematical economics. This historical atmosphere feels quite novel to me 😂.</li>
+</ul>
+<h2 id="historical-review">Historical Review</h2>
+<blockquote>
+<p>The fusion of mathematics and economics was a tortuous process, with many geniuses not being recognized by their contemporaries because their mathematics was too advanced.</p>
+</blockquote>
+<p>17th Century. <a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E9%85%8D%E7%AC%AC" target="_blank" rel="noopener noreffer ">William Petty</a> (William Petty) &ldquo;Political Arithmetic&rdquo;. This was the beginning of using numbers.</p>
+<p>19th Century.</p>
+<p><strong>Use of Functions</strong>: <a href="https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%B0%94%C2%B7%E5%8F%A4%E8%AF%BA" target="_blank" rel="noopener noreffer ">Cournot</a> (Charles-François Gounod)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (student of Paris Normal School, student of Laplace and Poisson) &ldquo;Mathematical Principles of the Theory of Wealth&rdquo;. Many could not accept the mathematical expression of the price-demand function in the book, so Cournot wrote another version avoiding mathematics (but it still didn&rsquo;t become popular). His contributions were only recognized 80 years after his death.</p>
+<p><strong>Pioneers of Marginal Analysis</strong>:</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E6%B5%B7%E5%9B%A0%E9%87%8C%E5%B8%8C%C2%B7%E6%88%88%E6%A3%AE" target="_blank" rel="noopener noreffer ">Gossen</a> (Hermann Heinrich Gossen)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> was not accepted in his time because his mathematics was too advanced. The founder of the Austrian School, <a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%C2%B7%E9%96%80%E6%A0%BC%E7%88%BE" target="_blank" rel="noopener noreffer ">Menger</a> (Carl Menger), who did not know calculus, described marginal analysis using intuition, which had a great influence. The Austrian School thereafter had few economists who actively used mathematics.</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E6%96%AF%E5%9D%A6%E5%88%A9%C2%B7%E6%9D%B0%E6%96%87%E6%96%AF" target="_blank" rel="noopener noreffer ">Jevons</a> (William Stanley Jevons) &ldquo;A Brief Statement of a General Mathematical Theory of Political Economy&rdquo; (1862), Walras (Léon Walras) (founder of the Lausanne School) &ldquo;Elements of Pure Economics&rdquo;. Both knew calculus, <a href="https://zh.wikipedia.org/wiki/%E8%8E%B1%E6%98%82%C2%B7%E7%93%A6%E5%B0%94%E6%8B%89%E6%96%AF" target="_blank" rel="noopener noreffer ">Walras</a> was better at mathematics than Jevons.</p>
+<blockquote>
+<p>Menger, Jevons, and Walras all independently developed marginal analysis, but they later found that Gossen was the earliest, though he was not recognized.</p>
+</blockquote>
+<p><strong>Expansion of Mathematical Models</strong>: Walras&rsquo;s general equilibrium theory emerged. It proved the existence of prices that balance market supply and demand. However, Walras&rsquo;s mathematics was not good enough; he thought that if the number of variables equals the number of equations, there would be a solution, without considering the rank of the equation system. Although the proof was not rigorous, the idea still had a profound impact. Von Neumann also thought about game theory based on general equilibrium.</p>
+<p>80 years after Walras proposed the general equilibrium theory, <a href="https://zh.wikipedia.org/wiki/%E5%82%91%E6%8B%89%E5%BE%B7%C2%B7%E5%BE%B7%E5%B8%83%E9%AD%AF" target="_blank" rel="noopener noreffer ">Debreu</a> (Gérard Debreu) &ldquo;Theory of Value: An Axiomatic Analysis of Economic Equilibrium&rdquo; (1959) strictly proved the existence of general equilibrium. It is a necessary and sufficient condition with the Brouwer fixed-point theorem.</p>
+<p><strong>Second Generation of Marginal Utility School</strong>: <a href="https://zh.wikipedia.org/wiki/%E5%BC%97%E6%9C%97%E8%A5%BF%E6%96%AF%C2%B7%E4%BC%8A%E8%A5%BF%E5%BE%B7%E7%BD%97%C2%B7%E5%9F%83%E5%A5%87%E6%B2%83%E6%80%9D" target="_blank" rel="noopener noreffer ">Edgeworth</a> &ldquo;Mathematical Psychics&rdquo;, Marshall &ldquo;Principles of Economics&rdquo; (<a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E5%BC%97%E9%9B%B7%E5%BE%B7%C2%B7%E9%A9%AC%E6%AD%87%E5%B0%94" target="_blank" rel="noopener noreffer ">Marshall</a> (Alfred Marshall)<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> also had a mathematics background, representing the Cambridge School). <a href="https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E5%87%AF%E6%81%A9%E6%96%AF" target="_blank" rel="noopener noreffer ">Keynes</a> (John Maynard Keynes)<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> was a student of Marshall.</p>
+<p><strong>Second Generation of Lausanne School</strong>: <a href="https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%B0%94%E5%BC%97%E9%9B%B7%E5%A4%9A%C2%B7%E5%B8%95%E7%B4%AF%E6%89%98" target="_blank" rel="noopener noreffer ">Pareto</a> (Vilfredo Federico Damaso Pareto) (worked as a railway mining engineer for 20 years).</p>
+<p><strong>American Marginal School</strong>: <a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%96%87%C2%B7%E8%B4%B9%E9%9B%AA" target="_blank" rel="noopener noreffer ">Fisher</a><sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> (Irving Fisher) inspired Keynes.</p>
+<p><strong>Austrian School Follow-up</strong>: Menger&rsquo;s son became a mathematician and brought out two important figures, one being <a href="https://zh.wikipedia.org/wiki/%E5%BA%93%E5%B0%94%E7%89%B9%C2%B7%E5%93%A5%E5%BE%B7%E5%B0%94" target="_blank" rel="noopener noreffer ">Gödel</a> (Gödel) of the incompleteness theorem, and the other being the statistician Wald (wald)<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> (Wald test in econometrics). <a href="https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9" target="_blank" rel="noopener noreffer ">Schumpeter</a> (Joseph Alois Schumpeter), though born in the Austrian School, had theories that almost dominated the field.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp" title="The protagonist of the 2018 National Volume 2 essay question is Wald. Unfortunately, Wald died in a plane crash." data-thumbnail="/img/经济学与数学-20250102155048117.webp" data-sub-html="<h2> </h2><p>The protagonist of the 2018 National Volume 2 essay question is Wald. Unfortunately, Wald died in a plane crash.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学与数学-20250102155048117.webp" />
+    </a><figcaption class="image-caption">The protagonist of the 2018 National Volume 2 essay question is Wald. Unfortunately, Wald died in a plane crash.</figcaption>
+    </figure></p>
+<p>The most famous mathematical method in macroeconomics is control theory, which was formed by a group of free-spirited scientists in Vienna, including von Neumann. The first to seriously introduce control theory into economics was <a href="https://en.wikipedia.org/wiki/Alan_Blinder" target="_blank" rel="noopener noreffer ">Alan Blinder</a> (Alan Stuart Blinder). Earlier introductions of control theory are more commonly known through <a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_" title="%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6" target="_blank" rel="noopener noreffer ">Phillips</a> (Phillips)<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+<h2 id="economics-that-can-be-studied-with-mathematics-and-mathematics-in-economic-research">Economics That Can Be Studied with Mathematics and Mathematics in Economic Research</h2>
+<p>There was once a fierce debate in domestic Marxist political economy about what the research object should be. Shi Shuzhong&rsquo;s words are thought-provoking—<strong>the significance of choosing a research object is determined by the research results</strong>, not by arguing with others. You should study whatever object you want, and it&rsquo;s best to accept the test, but the choice of research object should not be constrained. Do not be overly constrained by terms like xx-ism, xx school, xx needs, xx practice.</p>
+<p>The part of economics that frequently uses mathematics is empirical economics. But it is necessary to distinguish the goals of using mathematics, because many people hope that economics can achieve the same predictive power as physics through mathematics. But take physiology as an example, although we can dissect the heart, no one expects it to predict the heartbeat.</p>
+<p>The role of economics should be to cooperate with empirical analysis to form clear axiomatic expressions.</p>
+<h2 id="interesting-mathematical-economic-thinking">Interesting Mathematical Economic Thinking</h2>
+<blockquote>
+<p>Here I will only summarize some information that I think is worth extracting.</p>
+</blockquote>
+<p>Dual problem. Profit maximization and cost minimization are dual problems. Continuous iteration and calculus may lead to some more important transformations.</p>
+<p>Cardinal utility theory is difficult to generalize, while ordinal utility theory is easier and can prove that cardinal utility theory has a corresponding suitable ordinal utility theory.</p>
+<p>Prisoner&rsquo;s dilemma inspiration: local optimum does not equal global optimum, the key is not to be too dispersed, otherwise it is easy to fight internally.</p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/shxz/" target="_blank" rel="noopener noreffer ">Arrow&rsquo;s Impossibility Theorem</a> is a网红 theorem, many people like to hang a title—mathematics proves that democracy is impossible. Buchanan developed public choice theory based on this, criticizing the effectiveness of collective decision-making. However, the contributor Arrow himself was very cautious:</p>
+<blockquote>
+<p>The philosophical and distributive implications of social choice contradictions are not clear, and there is certainly no simple way to resolve them. — Arrow</p>
+</blockquote>
+<p>Edgeworth Box: <strong>The exchange process is not necessarily equal, this is an equal opportunity</strong>, at every Pareto optimal point, the distribution between the two parties can easily be unequal, but the opportunity to achieve any result is equal. This reflects that procedural justice may be more important than outcome justice.</p>
+<p>Uncertain environments can help us determine cardinal utility theory.</p>
+<p>Shi Shuzhong approaches the macro part from the perspective of engineering control.</p>
+<p>The blogger <span class="h-card person-mention"><a href="https://www.sungyinieh.com/" class="u-url url" title="Yinnie"><img class="u-photo photo" src="author%20of%20the%20LoveIt%20theme" alt="Song">&#8201;<span class="p-name fn">Song</span></a></span> recommended &ldquo;Cybernetics and Scientific Methodology&rdquo; to me. In fact, some foreign universities in macroeconomics also require students to study control theory and dynamical systems. Walras and Pareto also received training in this area.</p>
+<p>Macro systems need to consider input, output, transfer, feedback, goal achievement, and optimal path (flowchart). Ordinary differential equations are closely related to control theory. If society is seen as a system, then the market is a regulator.</p>
+<p>For example, the following differential equations reflect the relationship between wage-product ratio and employment rate.</p>
+<p>$$
+\begin{cases}
+\dot{\varepsilon}=-{\varepsilon }h\left( \theta \right)\\
+\dot{\theta}=-{\theta }g\left( \varepsilon \right)
+\end{cases}
+$$</p>
+<p>Mathematically, it is a nonlinear Volterra equation. Initially, it described the ecosystem at the bottom of a lake, where big fish eat small fish, but when the small fish are eaten up, the big fish also find it difficult to survive, eventually reaching an equilibrium. (Therefore, the New Cambridge School believes that this equation is like class struggle.)</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Regarding the current relationship between economics and mathematics.</p>
+<p>I feel that the controversy lies in what is called economic intuition. For example, in this foreign exam question, you are first asked to calculate, then to think intuitively after calculating. At this point, mathematics and economic reasoning complement each other.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp" title="Question source: https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view" data-thumbnail="/img/经济学与数学-20250111203831787.webp" data-sub-html="<h2> </h2><p>Question source: https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学与数学-20250111203831787.webp" />
+    </a><figcaption class="image-caption">Question source: https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view</figcaption>
+    </figure></p>
+<p>What is economic intuition? Is there really so-called counter-intuitive research?</p>
+<blockquote>
+<p>My current feeling is that intuition is the grasp of the trend of factor changes. Roughly knowing the direction of influence and weight of a factor in the market system.</p>
+<p>I also agree with a sentence from &ldquo;The Origin of Wealth&rdquo;: The most wonderful part of science is that it seems incredible before analysis, but after analysis, it seems inevitable.</p>
+</blockquote>
+<p>Many people quote Marx&rsquo;s saying—A science is only truly perfected when it successfully applies mathematics.</p>
+<p>Actually, this sentence appears in Lafargue&rsquo;s memoirs, where Lafargue said that Marx said this. Marx did not express this view in his own works. However, Marx&rsquo;s mathematics at least reached Taylor expansion. Interestingly, although Marx learned some calculus, he did not realize that his theory of differential rent had the idea of marginal analysis. Marx also believed that the mystification tendency of mathematics was one of the reasons for its development. This can be found in &ldquo;Marx&rsquo;s Mathematical Manuscripts.&rdquo;</p>
+<p>The successful mathematics in economics is actually an abstraction of the essence of phenomena. Through scientific abstraction, the internal mechanism of things is revealed. Can we achieve qualitative analysis without quantitative analysis? Although Adam Smith directly conducted qualitative analysis, after mathematization, people understood Adam Smith&rsquo;s qualitative analysis more clearly. The journey from vague text to rigorous mathematical description is a long one, measured in centuries.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The classic Cournot model in microeconomics discusses a type of duopoly game. For example, why Coca-Cola and Pepsi can compete until now.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Gossen&rsquo;s two laws: diminishing marginal utility and equal marginal utility at equilibrium.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Author of &ldquo;Principles of Economics.&rdquo;&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Keynes also wrote a book &ldquo;A Treatise on Probability&rdquo; in 1921. However, Keynes was not very optimistic about his models being mathematized.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>What you need to know in finance and monetary studies—Fisher equation. It contains the idea of dichotomy, nominal and real.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>His more famous story is the U.S. military survivor bias, which was also a multiple-choice question in the 2017 college entrance exam.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Phillips curve, the trade-off between inflation and unemployment.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-01-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/econ_math/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/econ_math/" data-title="The Mathematical History of Economics" data-via="ygVNLSZ1omFBCeB" data-hashtags="Reading,Microeconomics,Macroeconomics"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/econ_math/" data-hashtag="Reading"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/econ_math/" data-title="The Mathematical History of Economics"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/econ_math/" data-title="The Mathematical History of Economics"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/econ_math/" data-title="The Mathematical History of Economics" data-image="/img/经济学与数学-20250102145434783.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reading/">Reading</a>,&nbsp;<a href="/en/tags/microeconomics/">microeconomics</a>,&nbsp;<a href="/en/tags/macroeconomics/">Macroeconomics</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/ai_m/" class="prev" rel="prev" title="Recording a Dream and AI Dream Interpretation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Recording a Dream and AI Dream Interpretation</a>
+            <a href="/en/posts/fzqy-en/" class="next" rel="next" title="The Origin of Wealth: A Thousand Years of Darkness, One Lamp Illuminates All">The Origin of Wealth: A Thousand Years of Darkness, One Lamp Illuminates All<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

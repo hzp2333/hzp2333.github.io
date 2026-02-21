@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>HLT: Lifecycle and Wage Decomposition - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="HLT: Lifecycle and Wage Decomposition" />
+<meta property="og:description" content="GPT: The text discusses the decomposition of wages throughout individuals lifecycles using the APC (Age-Period-Cohort) panel model and the Heckman-Lochner-Taber (HLT) approach. The Mincer earnings function forms the basis for this analysis, focusing on the relationships between education level, work experience, and wages. However, traditional decompositions face challenges due to collinearity between age, birth year, and current year. Deatons method addresses this by isolating time and cohort effects, allowing for separate analysis. The HLT approach further dissects wage growth, suggesting that as individuals near retirement, wage growth is primarily influenced by the time effect rather than human capital investment. This comprehensive approach aims to better understand wage dynamics over the course of individuals lives, incorporating factors such as education, work experience, age, and cohort effects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/hlt/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-19T09:58:30+08:00" />
+<meta property="article:modified_time" content="2024-01-19T09:58:30+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="HLT: Lifecycle and Wage Decomposition"/>
+<meta name="twitter:description" content="GPT: The text discusses the decomposition of wages throughout individuals lifecycles using the APC (Age-Period-Cohort) panel model and the Heckman-Lochner-Taber (HLT) approach. The Mincer earnings function forms the basis for this analysis, focusing on the relationships between education level, work experience, and wages. However, traditional decompositions face challenges due to collinearity between age, birth year, and current year. Deatons method addresses this by isolating time and cohort effects, allowing for separate analysis. The HLT approach further dissects wage growth, suggesting that as individuals near retirement, wage growth is primarily influenced by the time effect rather than human capital investment. This comprehensive approach aims to better understand wage dynamics over the course of individuals lives, incorporating factors such as education, work experience, age, and cohort effects."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/hlt/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/zoterorss/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/dingyue/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HLT: Lifecycle and Wage Decomposition",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/hlt\/"
+        },"genre": "posts","keywords": "Literature Review, Stata","wordcount":  2737 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/hlt\/","datePublished": "2024-01-19T09:58:30+08:00","dateModified": "2024-01-19T09:58:30+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/hlt/">简体中文</option><option value="/en/posts/hlt/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/hlt/">简体中文</option><option value="/en/posts/hlt/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HLT: Lifecycle and Wage Decomposition</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-study/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Study</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-19">2024-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2737 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523125159554.webp"
+        data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523125159554.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523125159554.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523125159554.webp 2x"
+        data-sizes="auto"
+        alt="/img/HLT生命周期与工资分解.zh-cn-20240523125159554.webp"
+        title="/img/HLT生命周期与工资分解.zh-cn-20240523125159554.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#apc-panel-and-life-cycle">APC panel and life cycle</a></li>
+    <li><a href="#deatons-approachmathematical-decomposition">Deaton&rsquo;s approach（mathematical Decomposition）</a></li>
+    <li><a href="#quantitative-decomposition">Quantitative decomposition</a>
+      <ul>
+        <li><a href="#high-order-difference-method-estimation">High-order difference method estimation</a></li>
+      </ul>
+    </li>
+    <li><a href="#hlt">HLT</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="472045267" theme="#448aff"></meting-js>
+<h1 id="hlt-lifecycle-and-wage-decomposition">HLT: Lifecycle and Wage Decomposition</h1>
+<h2 id="apc-panel-and-life-cycle">APC panel and life cycle</h2>
+<p><strong>The Mincer earnings function</strong> , which was discussed earlier, examines the relationship between returns on human capital investment. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>$$ ln(w)=\alpha_0+\beta_ss+\beta_0\exp+\beta_1\exp^2+\gamma X_i+\varepsilon$$</p>
+<p>$s$ represents the level of education, $exp$ represents the level of work experience, and $X_i$ denotes other control variables.</p>
+<blockquote>
+<p>Here, it is assumed that the returns to education are linear and the returns to work experience are nonlinear for the logarithmized wages. Heckman et al. (2006) empirically tested this assumption in their related research <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+</blockquote>
+<p>Even if we don&rsquo;t discuss the specific form of the equation, such a decomposition of variables is certainly insufficient.</p>
+<p>As the famous bread hunter DIO once said——</p>
+<p>&ldquo;JOJO, in the brief span of a human life, I have discovered&hellip; The more one plays with schemes, the more limited one finds the capabilities of humanity to be&hellip;&rdquo; Indeed! Human lifespan and physical stages are points we cannot ignore! Once we delve into labor economics, we cannot avoid discussing human age and condition.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp" title="Bread Hunter——DIO" data-thumbnail="/img/HLT生命周期与工资分解.zh-cn-20240523124553835.webp" data-sub-html="<h2> </h2><p>Bread Hunter——DIO</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp 2x"
+            data-sizes="auto"
+            alt="/img/HLT生命周期与工资分解.zh-cn-20240523124553835.webp" />
+    </a><figcaption class="image-caption">Bread Hunter——DIO</figcaption>
+    </figure></p>
+<p>Firstly, let&rsquo;s consider the lifecycle. Even if individuals have the same education level and work experience, or even higher, the rate of return on education varies with age. Here, we estimate parameters that are <strong>age and time-related</strong>. Moreover, the historical context in which each individual exists also influences wage earnings. For instance, movements like &ldquo;going to the countryside&rdquo; and &ldquo;reform and opening up&rdquo; deeply affected specific cohorts. Here, we estimate parameters (usually categorized by birth year) that are <strong>related to individual cohorts and time</strong>. Additionally, <strong>time effects</strong> (including economic cycles and linear growth, such as wage inflation) are also <strong>related to time</strong>! All these parameters are time-dependent! Decomposing them in the econometric equation becomes a significant challenge. Hence, we have the following extended and flexible Mincer equation.</p>
+<p>$$ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict}$$</p>
+<p>$i$ represents an independent number. $c$ represents the group number, for example, one group was born during the reform and opening up, one group was born when people went to the mountains and countryside, and one cohort group <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. In the life cycle, work experience is generally divided into groups. The descriptive statistics in the figure below are preliminary descriptive statistics of the life cycle carried out by comparing groups after five years of grouping. $t$ represents the time variable. $\theta(s_{ict})$ represents the education income function, $f(x_{ict})$ represents the work experience income function, $\gamma_t$ represents the queue effect of group $c$, $\chi_t$ represents the group queue Effect, $\varepsilon_{ict}$ is the paper.</p>
+<p>Individual-level panel data is often challenging to obtain directly. Therefore, Deaton proposed:</p>
+<p>&ldquo;We don&rsquo;t need individual tracking panels anymore! Your room has no space left for you to obtain positions! We&rsquo;ll synthesize a &lsquo;pseudo-panel&rsquo; from repeated cross-sections of census data! Epidemiology, drug trials, social psychology, and other statistical fields all make use of such pseudo-panels.</p>
+<p>For example, in the figure below: These income comparison data are not from individual tracking panel data but rather from a pseudo-panel constructed from cross-sectional data of different ages at the same time.&rdquo;</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp" title="Life cycle wage growth across countries(2018）" data-thumbnail="/img/HLT生命周期与工资分解.zh-cn-20240523124632737.webp" data-sub-html="<h2> </h2><p>Life cycle wage growth across countries(2018）</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp 2x"
+            data-sizes="auto"
+            alt="/img/HLT生命周期与工资分解.zh-cn-20240523124632737.webp" />
+    </a><figcaption class="image-caption">Life cycle wage growth across countries(2018）</figcaption>
+    </figure></p>
+<p>This type of panel data requires consideration of <strong>age, time period, and cohort</strong> as independent variables, also known as the Age-Period-Cohort Model (APC). In labor economics, the estimation of APC panel data has always been a hot topic (endorsed by the great Deaton, after all, it is a framework he established in economic analysis).</p>
+<p>For the estimation equation:</p>
+<p>$$ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict}$$</p>
+<p>When we directly regress APC data, we encounter the problem of <strong>collinearity</strong>—<strong>age + birth year = current year</strong>.</p>
+<h2 id="deatons-approachmathematical-decomposition">Deaton&rsquo;s approach（mathematical Decomposition）</h2>
+<blockquote>
+<p>Angus Deaton, who won the Nobel Prize in 2015 for his research on poverty, has made significant contributions to labor economics, with much discussion focused on his findings that aid may worsen conditions <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>The following method is mainly based on his work &ldquo;The Analysis of Household Surveys: A Microeconometric Approach to Development Policy&rdquo; (1997) (starting from page 123), to be honest, it feels a bit, well, unfriendly.</p>
+</blockquote>
+<p>For the formula:</p>
+<p>$$ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict}$$</p>
+<p>Like this:</p>
+<p>$$w_{ict}=\exp (\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict})$$</p>
+<p>The <strong>aggregate total wage</strong> can be decomposed into sums grouped first by $c$, and within each group, summed over individuals $i$:</p>
+<p>$$\begin{aligned} \sum_{i=1}^{N_{ct}}w_{ict}=&amp; \sum_{i=1}^{N_{ct}}\exp(\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict})  \newline &amp;=\exp(\alpha+\gamma_t+\chi_c)\underbrace{\sum_{i=1}^{N_{ct}}\exp(\theta(s_{ict})+f(x_{ict})+\varepsilon_{ict})}_{F_{ct}} \newline &amp;=\exp(\alpha+\gamma_{t}+\chi_{c})F_{ct} \end{aligned}$$</p>
+<p>$F_{ct}$ at this point represents the total wage contribution of both the education experience function $\theta(s_{ict})$ and the work experience function $f(x_{ict})$.</p>
+<p>Define $\bar{F}_t = \sum*{c\in C_t} F_{ct}$, then proceed to separate <strong>this part</strong> out, transforming it as follows:</p>
+<p>$$\begin{aligned} W_{t}=&amp; \sum_{c\in C_{t}}\sum_{i=1}^{N_{ct}}w_{ict}   \newline &amp;=\sum_{c\in C_{t}}\exp(\alpha+\gamma_{t}+\chi_{c})F_{ct} \newline &amp;=\exp(\alpha)\exp(\gamma_{t})\sum_{c\in C_{t}}\exp(\chi_{c})F_{ct} \newline &amp;=\exp(\alpha)\exp(\gamma_{t})\bar{F}_{t}\sum_{c\in C_{t}}\exp(\chi_{c})\frac{F_{ct}}{\bar{F}_{t}} \end{aligned}$$</p>
+<p>At this point, wages can be decomposed into three parts: time effect $\Gamma_{t}$, the effect of work experience and education $\bar F_{t}$, and cohort effect $\bar X_{t}$.</p>
+<p>$$W_{t}=\underbrace{\exp(\gamma_{t})}_{\Gamma_{t}}\bar F_{t}\underbrace{\sum_{c\in C_{t}}\exp(\chi_{c})\frac{F_{ct}}{\overline{F_{t}}}}_{\tilde{X_{t}}}$$</p>
+<p>The effects of work experience and education can be quantified through the years of education and work, but identifying the time effect and cohort effect is challenging. Therefore, the purpose of this approach is to <strong>isolate and study the time and cohort effects separately</strong>. Hence, we define:</p>
+<p>$$\Omega_{t}=\frac{W_t}{\bar F_{t}}=\Gamma_{t}\bar{X}_{t}$$</p>
+<p>In studying cohort and time effects, we typically approach it from <strong>two perspectives</strong>.</p>
+<ul>
+<li>Time trend: Our technology always advances over time, representing a time trend that progresses on average.</li>
+<li>Cyclical variations: For example, seasonal vegetables have cyclical supply and demand patterns, or the baby boom generation—when the baby boomers reach middle age, there may be a peak in the labor force.</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124731085.webp" title=" time effects" data-thumbnail="/img/HLT生命周期与工资分解.en-20240523124731085.webp" data-sub-html="<h2> </h2><p> time effects</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124731085.webp"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124731085.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124731085.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124731085.webp 2x"
+            data-sizes="auto"
+            alt="/img/HLT生命周期与工资分解.en-20240523124731085.webp" />
+    </a><figcaption class="image-caption"> time effects</figcaption>
+    </figure>
+At this point logarithmize again—— $\omega_t=\log\Omega_t,\bar{\chi}_t=\log\bar{X}_t，\bar{\gamma}_t=\log\bar{\Gamma}_t$ ​</p>
+<p>At the same time, it should be emphasized that what is defined is that $\bar{\chi}_t$ and $\bar{\gamma}_t$ are the deviations of the sample mean at this time. Just like we assume that the sum of residuals after regression is 0, this assumption also requires that the sum of sample mean residuals is 0:</p>
+<p>$$\frac1T\sum_{t=0}^T\gamma_t=\frac1T\sum_{t=0}^T\bar{\chi}_t=0$$</p>
+<p>At this time, the formula is decomposed into: $\omega_t=\bar{\omega}+\bar \gamma_t+\bar{\chi}_t$</p>
+<p>The original paper only stated that $\bar{\omega}$ is &ldquo;an appropriately chosen constant&rdquo;. Personally, I think it is the sample mean, so in contrast, $\bar{\chi}_t$ and ${\bar \gamma}_t$ are the deviations from the sample mean.</p>
+<p>At this time, both the time effect and the queue effect can be decomposed into <strong>time trend</strong>$g$ and <strong>periodic change</strong> $u$, which can be expressed by $gt+u$, and the following decomposition is obtained:</p>
+<p>$$\gamma_{t}=g_{\gamma}t+u_{\gamma,t},\quad\bar{\chi}_{t}=g_{\bar \chi}t+u_{\bar \chi,t}$$</p>
+<p>We make $g_{\omega}=g_{\bar \gamma}+g_{\bar{\chi}}$, and the final estimate becomes $$\omega_t=\bar{w} _t+g_\omega t+u_{\omega,t}$$</p>
+<p>Deaton (1997) <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> is unable to do anything at this point. He can only perform enumeration processing.</p>
+<ul>
+<li>The residual decomposition is all explained as time effects: $g_{\omega}=g_{\bar \gamma}+g_{\bar{\chi}}=g_{\bar \gamma}$</li>
+<li>The residual decomposition is all explained as cohort effects: $g_{\omega}=g_{\bar \gamma}+g_{\bar{\chi}}=g_{\bar{\chi}}$</li>
+<li>You two are evenly divided, each gets half: $\frac{1}{2}g_{\omega}=g_{\bar \gamma}=g_{\bar{\chi}}$</li>
+</ul>
+<h2 id="quantitative-decomposition">Quantitative decomposition</h2>
+<p>That is to say, the following formula is estimated:</p>
+<p>$$\log(w_{ict})=\alpha+\theta(s_{ict})+\sum_{x\in\mathbf{X}}\phi_{x}D_{ict}^{x}+\gamma_ {t}+\chi_{c}+\varepsilon_{ict}$$</p>
+<p>$\theta(s_{ict})$ represents the income function of educational age, which is generally expressed linearly.</p>
+<p>$D_{ict}^{x}$ is a dummy variable for each age group in the life cycle.</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>tip<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Let’s review the knowledge points about dummy variables (dummy) in measurement: Generally, n categories are used to generate n-1 dummy variables to avoid collinearity. That is to say, if there is a period of 5 years, 30 years will be divided into 6 periods, so the period of 0-4 years is generally omitted and 5 dummy variables are generated. The generated coefficients are all conclusions drawn from comparing with the missing parts. In other words, each coefficient is compared to the growth level in the 0-4 years segment.</div>
+        </div>
+    </div>
+<p>$\gamma_{t}$: time effect. $\chi_{c}$ individual effects.</p>
+<p>Directly use this formula to regression, $D_{ict}^{x}$, $\gamma_{t}$, $\chi_{c}$ have collinearity, the Deaton method is to give $\gamma_{t}$, $\chi_{c}$ imposes an additional linear constraint. When we set only the queue effect and the time effect to 0, we need to satisfy $\sum_{t=0}^{T}\gamma_{t}t=0$. We can achieve this by &ldquo;normalizing&rdquo; $\gamma_{t}$:</p>
+<p>Definition</p>
+<p>$$\quad d_t^*=d_t-[(t-1)d_2-(t-2)d_1]$$</p>
+<p>$t$ is the year label. When this data is in year $t$, it is 1, otherwise it is 0. The corresponding stata operation is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">tab year ,gen(d)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For example,</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>mathematical Transformation<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">For
+$$
+\begin{align*} &amp;d_1 = \begin{bmatrix} 1 &amp;0 &amp;0 &amp;0 &amp;0 \end{bmatrix}\newline &amp;d_2 = \begin{bmatrix} 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\newline &amp;d_3 = \begin{bmatrix} 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\end{bmatrix}\newline &amp;d_4 = \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix}\newline &amp;d_5 = \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} \end{align*}
+$$
+Generate $d^\ast_t = d_t + (t-2) d_1 - (t-1)d_2$
+$$
+\begin{align*} d^\ast_3 = \begin{bmatrix} 1 &amp; -2 &amp; 1 &amp; 0 &amp; 0\end{bmatrix}\newline d^\ast_4 = \begin{bmatrix} 2 &amp; -3 &amp; 0 &amp; 1 &amp; 0\end{bmatrix}\newline d^\ast_5 = \begin{bmatrix} 3 &amp; -4 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \end{align*}
+$$
+It can be found that the sum within each $d_i^{*}$ group is 0, and at the same time, the sum between $d_i^{*}$ groups satisfies: $-(t-1) + (t-2) + 1 = 0$</div>
+        </div>
+    </div>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp" title="数据源（局部）：户籍制度下劳动力的经验人力资本:生命周期视角《中国工业经济》图中d3star和d4star就是估计出的年份效应标准化处理后的虚拟变量" data-thumbnail="/img/HLT生命周期与工资分解.zh-cn-20240523124800357.webp" data-sub-html="<h2> </h2><p>数据源（局部）：户籍制度下劳动力的经验人力资本:生命周期视角《中国工业经济》图中d3star和d4star就是估计出的年份效应标准化处理后的虚拟变量</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp 2x"
+            data-sizes="auto"
+            alt="/img/HLT生命周期与工资分解.zh-cn-20240523124800357.webp" />
+    </a><figcaption class="image-caption">数据源（局部）：户籍制度下劳动力的经验人力资本:生命周期视角《中国工业经济》图中d3star和d4star就是估计出的年份效应标准化处理后的虚拟变量</figcaption>
+    </figure></p>
+<h3 id="high-order-difference-method-estimation">High-order difference method estimation</h3>
+<p>Deaton estimated that the year and cohort effects were actually a bit extreme, either taking them all or dividing them equally, and were criticized by later generations as having &ldquo;no theoretical basis.&rdquo; Some scholars have suggested that we cannot find the growth rate (first-order derivative), so we can use high-order differences to estimate the second-order and above, so that we can verify the general shape of the year and group effects!</p>
+<blockquote>
+<p>If you want to see the super-detailed derivation, it is recommended to check out &ldquo;Disentangling age, cohort and time effects in the additive model&rdquo; (McKenzie et al., 2006) <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">For the estimated formula:
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>$$
+ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict}
+$$
+Direct regression will have the problem of <strong>collinearity</strong> - <strong>age + year of birth = current year</strong>. We cannot directly estimate the form of $\gamma_t$ and $\chi_t$ (such as concavity and convexity), but we can use the difference method to study the properties of high-order differences after group subtraction, and then estimate low-order differences.</p>
+<p>In the life cycle model here, the years of education are linear estimates and easy to decompose, so we ignore <sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> for now. The individual number is $i$, and the queue is grouped $c$ according to the life cycle. $k$ is the work experience, which is equal to $t-c$. The corresponding equations for each group of queues are as follows:
+$$
+y_{ct}=\alpha+\beta _kx_{ct}+\gamma_{t}+\chi_{c}+\varepsilon_{ct}
+$$</p>
+<blockquote>
+<p>**Emphasis! In other words, the estimate of $\color{red}{k}$ of $\beta_{\color{red}{k}}$ is closely related to $\color{blue}{k=t-c}$! ! ! ! We take advantage of this to perform high-order difference estimation. **</p>
+</blockquote>
+<p>We are in <strong>the same group</strong> (for example, we select the middle-aged group $c_1$), and use the data of $y_{c_1,t_2}$ minus $y_{c_1,t_1}$ to carry out the time analysis within the group. The first difference** of:</p>
+<p>During the life cycle, the time difference of each group of queues is evenly distributed, basically every five years, that is
+$$
+(x_{ci,t+1}-x_{ci,t})=(x_{cj,t+1}-x_{cj,t})=\Delta x_t
+$$
+So the formula can be transformed as follows:
+$$
+\begin{align}
+&amp;y_{c_1,t_2}-y_{c_1,t_1}\newline
+&amp;=(\beta_{\color{red}{k_{2}}}- \beta_{\color{red}{k_{1}}})(x_{c_1,t_2}- x_{c_1,t_1})+(\gamma_{t_2}-\gamma_{t_1})+(\varepsilon_{c_1,t_2}-\varepsilon_{c_1,t_1})\newline
+&amp;=(\beta_{\color{red}{k_{2}}}- \beta_{\color{red}{k_{1}}})\Delta x_t+(\gamma_{t_2}-\gamma_{t_1})+(\varepsilon_{c_1,t_2}-\varepsilon_{c_1,t_1})\newline
+\end{align}
+$$
+The corresponding time relationship $k=t-c$, we then perform the first-order difference in time on another same group.</p>
+<p>We select a group $c_{0}$ that is younger than group $c_{1}$ (regarded as a youth group), and get $k_2=t_1-c_0,k_3=t_2-c_0$.</p>
+<p>At this point the first difference is obtained:
+$$
+\begin{align}
+&amp;y_{c_0,t_2}-y_{c_0,t_1}\newline
+&amp;=(\beta_{\color{red}{k_{3}}}- \beta_{\color{red}{k_{2}}})\Delta x_t+(\gamma_{t_1+1}-\gamma_{t_1})+(\varepsilon_{c_0,t_2}-\varepsilon_{c_0,t_1})\newline
+\end{align}
+$$
+At this time, we subtract the first-order differences of $c_1$ and $c_0$ <strong>the two sets of time</strong>:
+$$
+\begin{align}
+&amp;[y_{c_1,t_2}-y_{c_1,t_1}]-[y_{c_0,t_2}-y_{c_0,t_1}]\newline
+&amp;=(\beta_{\color{red}{k_{2}}}- \beta_{\color{red}{k_{1}}})\Delta x_t+(\gamma_{t_1+1}-\gamma_{t_1})+(\varepsilon_{c_1,t_2}-\varepsilon_{c_1,t_1})\newline
+&amp;-(\beta_{\color{red}{k_{3}}}- \beta_{\color{red}{k_{2}}})\Delta x_t-(\gamma_{t_1+1}-\gamma_{t_1})-(\varepsilon_{c_0,t_2}-\varepsilon_{c_0,t_1})\newline
+&amp;=[(\beta_{\color{red}{k_{2}}}- \beta_{\color{red}{k_{1}}})-(\beta_{\color{red}{k_{3}}}- \beta_{\color{red}{k_{2}}})]\Delta x_t-\Delta_{c}\Delta_{t}\varepsilon_{c_{0},t_{2}}
+\end{align}
+$$
+We can find that this high-order difference does not contain time effect $\gamma_t$ and queue effect $\chi_c$ at this time.</p>
+<p>$[(\beta_{\color{red}{k_{j}}}- \beta_{\color{red}{k_{j-1}}})-(\beta_{\color{red}{k_{ j+2}}}- \beta_{\color{red}{k_{j}}})]$ also has geometric meaning. For the formula:
+$$
+y_{ct}=\alpha+\beta _kx_{ct}+\gamma_{t}+\chi_{c}+\varepsilon_{ct}
+$$
+$[(\beta_{\color{red}{k_{j}}}- \beta_{\color{red}{k_{j-1}}})-(\beta_{\color{red}{k_{ j+2}}}- \beta_{\color{red}{k_{j}}})]$ is the slope of $\beta _k$. It is similar to the situation where we cannot see the first derivative of a function, but we have derived the second derivative. What the second derivative can tell us is the concavity and convexity of the function and the marginal effect of the growth rate. So for each set of $c$, we have an estimator of its second-order slope.</p>
+<p>Using the same method, we estimate the high-order differences of the three effects as follows:</p>
+<p>The following is a personal balance, which uses $k=t-c$ to eliminate the parameters.
+$$
+\begin{cases}
+\text{age effect} \newline
+:[y_{c_i,t_{i+1}}-y_{c_i,t_i}]-[y_{c_{i-1},t_{i+1}}-y_{c_{i-1},t_i}]\newline
+\text{time effect}\newline
+:[y_{c_i,t_{i}}-y_{c_{i},t_{i-1}}]-[y_{c_{i+1},t_{i+1}}-y_{c_{i+1},t_{i} }]\newline\text{chort effect} \newline
+:[y_{c_i,t_{i}}-y_{c_{i-1},t_i}]-[y_{c_{i+1},t_{i+1}}-y_{c_{i},t_{i+1} }]\newline \end{cases} \newline
+$$</p>
+<h2 id="hlt">HLT</h2>
+<p>Full name heckman-lochner-taber. The introduction here mainly refers to the appendix of &ldquo;&ldquo;golden ages&rdquo;: A tale of the labor markets in China and the united states&rdquo; (Hanming et al., 2023) <sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>. The original text can be found in &ldquo;Life cycle wage growth across countries&rdquo; (Lagakos et al., 2018)</p>
+<p>The previous equation estimate decomposes the wage contribution into: work experience, cohort, age, and education.</p>
+<p>This is what leads to collinearity, but this decomposition is not permanent.</p>
+<p>If we look at people&rsquo;s wage growth from a life cycle perspective, we can put forward a hypothesis: **When a person is about to retire, he will give up any human capital investment. At this time, the source of his wage growth is only the time effect. **At this time, in the two cohorts, within the same $t$ year period, the wage growth rate of the elderly group is 1%; the growth rate of the youth group is 5%, which means that 1% is contributed by the time effect, and 4% is Queue effect + work experience. Then we can study whether the time effect of each group tends to be consistent in old age by continuously adjusting the income effect.</p>
+<p>At this time, the depreciation rate $\delta$ can be used for sensitivity testing.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124844882.webp" title="flow chart" data-thumbnail="/img/HLT生命周期与工资分解.en-20240523124844882.webp" data-sub-html="<h2> </h2><p>flow chart</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124844882.webp"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124844882.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124844882.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.en-20240523124844882.webp 2x"
+            data-sizes="auto"
+            alt="/img/HLT生命周期与工资分解.en-20240523124844882.webp" />
+    </a><figcaption class="image-caption">flow chart</figcaption>
+    </figure></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Other estimation methods include instrumental variable method, incremental data, internal revenue function (functional optimization analysis), and difference-in-difference&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Heckman J J, Lochner L J, Todd P E. Earnings functions, rates of return and treatment effects: The Mincer equation and beyond[J]. Handbook of the Economics of Education, 2006, 1: 307-458.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>《Arrival of Young Talent: The Send- Down Movement and Rural Education in China》(Chen Yi et al., 2020) used cohort did to estimate the impact of going to the mountains and countryside on education in China.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>When I read about the Nobel Prize winner in 2015, most people were talking about aid, and not much about his contribution to the labor economy.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Deaton A. The analysis of household surveys: a microeconometric approach to development policy[M]. World Bank Publications, 1997.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>McKenzie D J. Disentangling age, cohort and time effects in the additive model[J]. Oxford bulletin of economics and statistics, 2006, 68 (4): 473-495.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Personally, I feel that the lack of detailed discussion of educational age is the weakness of this method, especially in today&rsquo;s battle between work and postgraduate entrance examinations. However, under the linear assumption, the education variable will also be eliminated due to differences.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-01-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/hlt/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/hlt/" data-title="HLT: Lifecycle and Wage Decomposition" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/hlt/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/hlt/" data-title="HLT: Lifecycle and Wage Decomposition"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/hlt/" data-title="HLT: Lifecycle and Wage Decomposition"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/hlt/" data-title="HLT: Lifecycle and Wage Decomposition" data-image="/img/HLT生命周期与工资分解.zh-cn-20240523125159554.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/zoterorss/" class="prev" rel="prev" title="Zotero: RSS Feed Aggregation Subscription"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Zotero: RSS Feed Aggregation Subscription</a>
+            <a href="/en/posts/dingyue/" class="next" rel="next" title="Aggregated subscriptions: free movies, comics">Aggregated subscriptions: free movies, comics<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

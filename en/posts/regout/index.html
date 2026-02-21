@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Stata Export Word Tables - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Stata Export Word Tables" />
+<meta property="og:description" content="GPT Summary: This article introduces commonly used table output commands in economic empirical papers, including estout, asdoc, logout, outreg2, putdocx series, and etable. Each command has its features and applicable scenarios, such as estout for versatile custom effects and LaTeX output, asdoc for descriptive statistics, logout for diverse statistical result outputs, outreg2 for aesthetically pleasing regression result outputs, the putdocx series for exporting multiple tables into a single Word file, and etable, which supports Chinese encoding in Stata 17. Example codes demonstrate the basic usage and output effects of each command, helping readers select suitable commands for table outputs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/regout/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-13T17:33:02+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:33:02+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Stata Export Word Tables"/>
+<meta name="twitter:description" content="GPT Summary: This article introduces commonly used table output commands in economic empirical papers, including estout, asdoc, logout, outreg2, putdocx series, and etable. Each command has its features and applicable scenarios, such as estout for versatile custom effects and LaTeX output, asdoc for descriptive statistics, logout for diverse statistical result outputs, outreg2 for aesthetically pleasing regression result outputs, the putdocx series for exporting multiple tables into a single Word file, and etable, which supports Chinese encoding in Stata 17. Example codes demonstrate the basic usage and output effects of each command, helping readers select suitable commands for table outputs."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/regout/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/anaconda/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/fs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Stata Export Word Tables",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/regout\/"
+        },"genre": "posts","keywords": "Stata","wordcount":  1342 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/regout\/","datePublished": "2024-03-13T17:33:02+08:00","dateModified": "2024-03-13T17:33:02+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/regout/">简体中文</option><option value="/en/posts/regout/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/regout/">简体中文</option><option value="/en/posts/regout/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Stata Export Word Tables</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a>&nbsp;<a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-13">2024-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1342 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp"
+        data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp 2x"
+        data-sizes="auto"
+        alt="/img/stata输出Word表格.zh-cn-20240523134135371.webp"
+        title="/img/stata输出Word表格.zh-cn-20240523134135371.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#estout-versatile-latex-output">Estout: Versatile, LaTeX Output</a></li>
+        <li><a href="#asdoc-descriptive-statistics">Asdoc: Descriptive Statistics</a></li>
+        <li><a href="#logout-mean-difference-and-correlation-coefficient-tests">Logout: Mean Difference and Correlation Coefficient Tests</a></li>
+        <li><a href="#outreg2-regression-output">Outreg2: Regression Output</a></li>
+        <li><a href="#putdocx-series-unified-solution">Putdocx Series: Unified Solution</a></li>
+        <li><a href="#etable-supports-chinese">Etable: Supports Chinese</a></li>
+        <li><a href="#code-for-illustrations-in-this-article">Code for Illustrations in This Article</a></li>
+      </ul>
+    </li>
+    <li><a href="#footnotes">Footnotes</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>When writing economic empirical papers, it is common to output a large number of tables (mainly descriptive statistics and regression results). Mastering instant table output techniques is like casting spells without incantations!</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp" title="When discussing variable selection with others, responding instantly feels just like this!" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133530444.webp" data-sub-html="<h2> </h2><p>When discussing variable selection with others, responding instantly feels just like this!</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133530444.webp" />
+    </a><figcaption class="image-caption">When discussing variable selection with others, responding instantly feels just like this!</figcaption>
+    </figure></p>
+<p>Currently, Stata has a plethora of corresponding commands—<code>asdoc</code>, <code>outreg2</code>, <code>logout</code>, <code>estout</code>. Here&rsquo;s a brief summary of where each command is commonly used and its characteristics.</p>
+<h3 id="estout-versatile-latex-output">Estout: Versatile, LaTeX Output</h3>
+<p><code>estout</code> is written by Professor Ben Jann from the University of Bern, Institute of Sociology. (<a href="https://repec.sowi.unibe.ch/stata/" target="_blank" rel="noopener noreffer ">The <code>coefplot</code> command</a> was also developed by this expert).</p>
+<p>It excels in customization, making it a mainstream command for result outputs. Its most powerful feature is support for <a href="https://www.lianxh.cn/details/948.html" target="_blank" rel="noopener noreffer ">LaTeX export</a>.</p>
+<h3 id="asdoc-descriptive-statistics">Asdoc: Descriptive Statistics</h3>
+<p>Add <code>asdoc</code> to your operations to save the corresponding file.</p>
+<p>The downside is that regression table customization is poor and does not meet the general journal requirements. <strong>It is generally used only to display descriptive statistics.</strong></p>
+<blockquote>
+<p><code>tabout</code> supports powerful descriptive statistics custom tables. For the latest installation, see: [https://tabout.net.au/docs/home.php<a href="https://tabout.net.au/docs/home.php%5B%5E1" target="_blank" rel="noopener noreffer ">^1</a>]</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">asdoc</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="o">//</span><span class="n">Download</span><span class="w"> </span><span class="n">command</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="n">Use</span><span class="w"> </span><span class="n">Stata</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="k">in</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="k">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">asdoc</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="nb">dec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Table1_Descriptive_Statistics1</span><span class="p">.</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 1 Descriptive Statistics 1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">asdoc</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Table2_Basic_Regression</span><span class="p">.</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 2 Basic Regression&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp" title="asdoc descriptive statistics" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133544872.webp" data-sub-html="<h2> </h2><p>asdoc descriptive statistics</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133544872.webp" />
+    </a><figcaption class="image-caption">asdoc descriptive statistics</figcaption>
+    </figure>
+
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp" title="asdoc regression statistics" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133602158.webp" data-sub-html="<h2> </h2><p>asdoc regression statistics</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133602158.webp" />
+    </a><figcaption class="image-caption">asdoc regression statistics</figcaption>
+    </figure></p>
+<h3 id="logout-mean-difference-and-correlation-coefficient-tests">Logout: Mean Difference and Correlation Coefficient Tests</h3>
+<p><code>logout</code> stands out by being able to output mean difference tests and correlation coefficient tests in addition to descriptive statistics and regression results<a href="https://chatgpt.com/c/6788ad29-6abc-8008-92e7-39d8cac5b1f3#user-content-fn-2" target="_blank" rel="noopener noreffer ">1</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="o">//</span><span class="n">Download</span><span class="w"> </span><span class="n">command</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="n">Descriptive</span><span class="w"> </span><span class="k">Statistics</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="n">Use</span><span class="w"> </span><span class="n">Stata</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="k">in</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="k">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="k">Output</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="p">(</span><span class="n">RTF</span><span class="w"> </span><span class="n">format</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Filename</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">tabstat</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">wei</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">stats</span><span class="p">(</span><span class="n">mean</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">p50</span><span class="w"> </span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="k">c</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="o">%</span><span class="mi">6</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="k">Output</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Excel</span><span class="w"> </span><span class="p">(</span><span class="n">XML</span><span class="w"> </span><span class="n">format</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Filename</span><span class="p">)</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">tabstat</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">wei</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="n">Mean</span><span class="w"> </span><span class="n">Difference</span><span class="w"> </span><span class="n">Tests</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">ttable2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">Mean</span><span class="w"> </span><span class="n">t</span><span class="o">-</span><span class="n">tests</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Professors</span><span class="w"> </span><span class="n">Li</span><span class="w"> </span><span class="n">Chuntao</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Zhang</span><span class="w"> </span><span class="n">Xuan</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Zhongnan</span><span class="w"> </span><span class="n">University</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">Economics</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Law</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Filename</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ttable2</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="n">headroom</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">by</span><span class="p">(</span><span class="k">foreign</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="o">%</span><span class="mi">12</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="n">Correlation</span><span class="w"> </span><span class="n">Coefficient</span><span class="w"> </span><span class="n">Tests</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="n">Correlation_File_Name</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">pwcorr_a</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">headroom</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">star1</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="p">)</span><span class="w"> </span><span class="n">star5</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">)</span><span class="w"> </span><span class="n">star10</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="k">Add</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">annotations</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp" title="logout correlation coefficient output" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133647133.webp" data-sub-html="<h2> </h2><p>logout correlation coefficient output</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133647133.webp" />
+    </a><figcaption class="image-caption">logout correlation coefficient output</figcaption>
+    </figure></p>
+<h3 id="outreg2-regression-output">Outreg2: Regression Output</h3>
+<p>For table outputs, I choose <code>outreg2</code>! Tables are aesthetically pleasing, support Word, and are convenient to export.</p>
+<p>The command <code>ssc hot, n(10)</code> will show the top 10 most popular Stata commands. <code>outreg</code> ranks first!</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp" title="Stata external command rankings" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133727402.webp" data-sub-html="<h2> </h2><p>Stata external command rankings</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133727402.webp" />
+    </a><figcaption class="image-caption">Stata external command rankings</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">outreg2</span><span class="w"> </span><span class="o">//</span><span class="n">Download</span><span class="w"> </span><span class="n">command</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">webuse</span><span class="w"> </span><span class="n">grunfeld</span><span class="p">,</span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="n">Use</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtset</span><span class="w"> </span><span class="n">company</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">//</span><span class="n">Define</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="k">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="n">Descriptive</span><span class="w"> </span><span class="k">Statistics</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Filename</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">log</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">company</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"> </span><span class="n">eqkeep</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">mix</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="n">Descriptive</span><span class="w"> </span><span class="k">statistics</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="n">Regression</span><span class="w"> </span><span class="n">Results</span><span class="w"> </span><span class="k">Output</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">Perform</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">effects</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="n">effects</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">mixed</span><span class="w"> </span><span class="n">effects</span><span class="w"> </span><span class="n">regression</span><span class="p">,</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">merge</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">Starting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">merging</span><span class="w"> </span><span class="n">corresponds</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Filename</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">RE</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">,</span><span class="w"> </span><span class="k">Year</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">fe</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Filename</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">FE</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">,</span><span class="w"> </span><span class="k">Year</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Filename</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">OLS</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">mvalue</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">,</span><span class="w"> </span><span class="k">Year</span><span class="w"> </span><span class="k">NO</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">represent</span><span class="w"> </span><span class="nb">decimal</span><span class="w"> </span><span class="n">places</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">coefficients</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-</span><span class="n">tests</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">R</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">respectively</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">addstat</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">addtext</span><span class="w"> </span><span class="n">correspond</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="k">statistics</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">content</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">keep</span><span class="p">(</span><span class="n">var1</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="n">var3</span><span class="p">)</span><span class="w"> </span><span class="n">selects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">output</span><span class="w"> </span><span class="n">coefficients</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">keep</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp" title="outreg2 regression output" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133746623.webp" data-sub-html="<h2> </h2><p>outreg2 regression output</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133746623.webp" />
+    </a><figcaption class="image-caption">outreg2 regression output</figcaption>
+    </figure></p>
+<h3 id="putdocx-series-unified-solution">Putdocx Series: Unified Solution</h3>
+<p>The <code>docx</code> series commands are developed by <a href="https://stata-club.github.io/" target="_blank" rel="noopener noreffer ">Crawler Club</a>. Most of the above commands (not including asdoc) mean that a table output takes up a separate Word file. The <code>docx</code> series allows reusing a single file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">sum2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">corr2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">t2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">reg2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The following example code is from &ldquo;<a href="https://www.lianxh.cn/details/264.html" target="_blank" rel="noopener noreffer ">Jun Sheng Wo Wei Sheng! Stata Output: One-Click Paper Tables - reg2docx-corr2docx</a>.&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w"> </span><span class="k">all</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="k">more</span><span class="w"> </span><span class="k">off</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">                     </span><span class="o">//</span><span class="k">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="n">document</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">paragraph</span><span class="p">,</span><span class="w"> </span><span class="n">halign</span><span class="p">(</span><span class="n">center</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="n">Center</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">paragraph</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="n">Define</span><span class="w"> </span><span class="n">font</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">settings</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">(</span><span class="s2">&#34;Attachment: Tables to be inserted in the article&#34;</span><span class="p">),</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">font</span><span class="p">(</span><span class="s2">&#34;Huawei Kaiti&#34;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">black</span><span class="p">)</span><span class="w"> </span><span class="n">bold</span><span class="w"> </span><span class="n">linebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="n">Save</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">My_Table</span><span class="p">.</span><span class="n">docx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="k">Load</span><span class="w"> </span><span class="k">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 1-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sum2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">obs</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="n">median</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 1: Descriptive Statistics&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="n">Note</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 2-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">corr2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">star</span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">)</span><span class="w"> </span><span class="n">fmt</span><span class="p">(</span><span class="o">%</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 2: Correlation Matrix&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 3-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">t2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">by</span><span class="p">(</span><span class="k">foreign</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 3: Between-Group Mean Difference t-Test&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 4-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w"> </span><span class="k">foreign</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">probit</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg2docx</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">r2</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">ar2</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="o">%</span><span class="mi">7</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 4: Regression Results&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">shellout</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="w">  </span><span class="o">//</span><span class="n">Done</span><span class="o">!</span><span class="w"> </span><span class="k">Open</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">generated</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="n">document</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="etable-supports-chinese">Etable: Supports Chinese</h3>
+<p>The output command built into Stata 17 is not very user-friendly but seems to be the only one<a href="https://chatgpt.com/c/6788ad29-6abc-8008-92e7-39d8cac5b1f3#user-content-fn-3" target="_blank" rel="noopener noreffer ">2</a> that supports Chinese encoding.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">input</span><span class="w"> </span><span class="n">str6</span><span class="w"> </span><span class="n">Gender</span><span class="w"> </span><span class="n">Income</span><span class="w"> </span><span class="n">Expenditure</span><span class="w"> </span><span class="n">Others</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Male&#34;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">90</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Female&#34;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">21</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Female&#34;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Male&#34;</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">31</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Male&#34;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">49</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Female&#34;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">95</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Female&#34;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">86</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;Male&#34;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">Expenditure</span><span class="w"> </span><span class="n">Income</span><span class="w"> </span><span class="n">Others</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">Gender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&#34;Male&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">Male_Regression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">Expenditure</span><span class="w"> </span><span class="n">Income</span><span class="w"> </span><span class="n">Others</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">Gender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&#34;Female&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">Female_Regression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">Expenditure</span><span class="w"> </span><span class="n">Income</span><span class="w"> </span><span class="n">Others</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">Overall_Regression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">etable</span><span class="p">,</span><span class="w"> </span><span class="n">estimates</span><span class="p">(</span><span class="n">Male_Regression</span><span class="w"> </span><span class="n">Female_Regression</span><span class="w"> </span><span class="n">Overall_Regression</span><span class="p">)</span><span class="w"> </span><span class="k">column</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">Income</span><span class="w"> </span><span class="n">Others</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cstat</span><span class="p">(</span><span class="n">_r_b</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cstat</span><span class="p">(</span><span class="n">_r_se</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">mstat</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">mstat</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="k">g</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">stars</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">10</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w"> </span><span class="p">.</span><span class="mi">05</span><span class="w"> </span><span class="s2">&#34;**&#34;</span><span class="w"> </span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="s2">&#34;***&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">attach</span><span class="p">(</span><span class="n">_r_b</span><span class="p">))</span><span class="w">   </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">showstars</span><span class="w"> </span><span class="n">showstarsnote</span><span class="w">   </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Table 1: Etable Regression Results&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;Data source: custom&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">export</span><span class="p">(</span><span class="s2">&#34;Filename.docx&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp" title="etable regression command" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133808475.webp" data-sub-html="<h2> </h2><p>etable regression command</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133808475.webp" />
+    </a><figcaption class="image-caption">etable regression command</figcaption>
+    </figure></p>
+<h3 id="code-for-illustrations-in-this-article">Code for Illustrations in This Article</h3>
+<p>From <a href="https://stata-club.github.io/stata_article/2017-09-29.html" target="_blank" rel="noopener noreffer ">Crawler Club WeChat Account</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_n</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uniform</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f400&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f430&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f439&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f411&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f410&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f404&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f408&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f412&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f434&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f437&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f418&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f43a&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">scatter</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">msymbol</span><span class="p">(</span><span class="k">none</span><span class="p">)</span><span class="w"> </span><span class="n">mlabel</span><span class="p">(</span><span class="n">emoji</span><span class="p">)</span><span class="w"> </span><span class="n">mlabposition</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">mlabsize</span><span class="p">(</span><span class="n">huge</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graph</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">animals</span><span class="p">.</span><span class="n">svg</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">shellout</span><span class="w"> </span><span class="n">animals</span><span class="p">.</span><span class="n">svg</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="footnotes">Footnotes</h2>
+<ol>
+<li>Correlation coefficients seem to be outputtable only by logout.</li>
+<li>All previous commands result in garbled text when loading Chinese variable names.</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-03-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/regout/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/regout/" data-title="Stata Export Word Tables" data-via="ygVNLSZ1omFBCeB" data-hashtags="Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/regout/" data-hashtag="Stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/regout/" data-title="Stata Export Word Tables"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/regout/" data-title="Stata Export Word Tables"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/regout/" data-title="Stata Export Word Tables" data-image="/img/stata输出Word表格.zh-cn-20240523134135371.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/anaconda/" class="prev" rel="prev" title="[Anaconda Error Solution] Anaconda bytes object has no attribute get"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[Anaconda Error Solution] Anaconda bytes object has no attribute get</a>
+            <a href="/en/posts/fs/" class="next" rel="next" title="Self-questioning: Econ-Learning mentality within the hierarchy of disdain">Self-questioning: Econ-Learning mentality within the hierarchy of disdain<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

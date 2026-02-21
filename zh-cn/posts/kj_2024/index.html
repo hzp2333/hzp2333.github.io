@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>2024 观剧总结: 和“命运”相处的几种方式 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="2024 观剧总结: 和“命运”相处的几种方式" />
+<meta property="og:description" content="GPT 总结: 这篇文章通过分析《繁花》、《漫长的季节》、《河边的错误》和《宇宙探索编辑部》等作品，深入探讨了命运这一主题。文章指出，人们面对命运时可能会陷入疯狂、妥协或接受，强调了在生存中保持积极态度和展望未来的重要性。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-08T00:00:58+08:00" />
+<meta property="article:modified_time" content="2024-03-08T00:00:58+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="2024 观剧总结: 和“命运”相处的几种方式"/>
+<meta name="twitter:description" content="GPT 总结: 这篇文章通过分析《繁花》、《漫长的季节》、《河边的错误》和《宇宙探索编辑部》等作品，深入探讨了命运这一主题。文章指出，人们面对命运时可能会陷入疯狂、妥协或接受，强调了在生存中保持积极态度和展望未来的重要性。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/hxl/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "2024 观剧总结: 和“命运”相处的几种方式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/kj_2024\/"
+        },"genre": "posts","keywords": "电视剧","wordcount":  2010 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/kj_2024\/","datePublished": "2024-03-08T00:00:58+08:00","dateModified": "2024-03-08T00:00:58+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/kj_2024/" selected>简体中文</option><option value="/en/posts/kj_2024/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/kj_2024/" selected>简体中文</option><option value="/en/posts/kj_2024/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">2024 观剧总结: 和“命运”相处的几种方式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E5%BD%B1%E8%A7%86%E5%89%A7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>影视剧</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-08">2024-03-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2010 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/2024%e8%a7%82%e5%89%a7%e6%80%bb%e7%bb%93%e5%92%8c%e2%80%9c%e5%91%bd%e8%bf%90%e2%80%9d%e7%9b%b8%e5%a4%84%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f.en-20240523093711232.webp"
+        data-srcset="/img/2024%e8%a7%82%e5%89%a7%e6%80%bb%e7%bb%93%e5%92%8c%e2%80%9c%e5%91%bd%e8%bf%90%e2%80%9d%e7%9b%b8%e5%a4%84%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f.en-20240523093711232.webp, /img/2024%e8%a7%82%e5%89%a7%e6%80%bb%e7%bb%93%e5%92%8c%e2%80%9c%e5%91%bd%e8%bf%90%e2%80%9d%e7%9b%b8%e5%a4%84%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f.en-20240523093711232.webp 1.5x, /img/2024%e8%a7%82%e5%89%a7%e6%80%bb%e7%bb%93%e5%92%8c%e2%80%9c%e5%91%bd%e8%bf%90%e2%80%9d%e7%9b%b8%e5%a4%84%e7%9a%84%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f.en-20240523093711232.webp 2x"
+        data-sizes="auto"
+        alt="/img/2024观剧总结和“命运”相处的几种方式.en-20240523093711232.webp"
+        title="/img/2024观剧总结和“命运”相处的几种方式.en-20240523093711232.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#繁花和漫长的季节">《繁花》和《漫长的季节》</a></li>
+    <li><a href="#河边的错误和宇宙探索编辑部">《河边的错误》和《宇宙探索编辑部》</a></li>
+    <li><a href="#漫长的季节是和解">《漫长的季节》是和解</a></li>
+    <li><a href="#繁花也是和解">《繁花》也是和解</a></li>
+    <li><a href="#河边的错误就是单纯疯了">《河边的错误》就是单纯疯了</a></li>
+    <li><a href="#宇宙探索编辑部是醒了">《宇宙探索编辑部》是醒了</a></li>
+    <li><a href="#对待命运">对待命运</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E5%86%8D%E5%9B%9E%E9%A6%96-%E5%A7%9C%E8%82%B2%E6%81%92.mp3" name="再回首" artist="姜育恒" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
+<p>祥子到死都觉得是自己还不够努力。当然，祥子只放眼于外，自认为看清了世界，却唯独遗漏了一点——向外看可以看清外在世界的所有角落，却唯独看不清自己，自然就无从谈起自己和这个时代。作为主角代入总是放眼于外，作为读者才能观“世界与我”，然后反求诸己。故鲁智深有言“今日方知我是我”，我想正有此意。</p>
+<p>好的电视剧都有这个反转，就想<strong>美妙的画作，只用艳丽的外表已经足够打动读者，如果隐含的结构构思和理念能让人进一步感动，更是艺术。</strong></p>
+<p>2023 命运的讨论可为纪事派和荒谬派。</p>
+<h2 id="繁花和漫长的季节">《繁花》和《漫长的季节》</h2>
+<p>《<a href="https://en.wikipedia.org/wiki/Blossoms_Shanghai" target="_blank" rel="noopener noreffer ">繁花</a>》和《<a href="https://www.imdb.com/title/tt27628576/" target="_blank" rel="noopener noreffer ">漫长的季节</a>》是纪事派。人在世界的发展中总显得手足无措。
+《漫长的季节》里王响想不通为什么自己作为“劳模”会被裁员，儿子成了杀人犯，身边的人都没活明白。一场雪下了 20 年，他一直没跨过这个坎，不断地从这个世界找出过去的幽灵。沈默问王阳“信命吗？”，王响，彪子搞不清生活是什么了，他们同样开始认为都是“命运”。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1io4y1j7hB&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>《繁花》上演王家卫的错过<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，阿宝和四个女人——雪芝，玲子，汪小姐，李李分别错过。各自财富，地点，身份，经历的不匹配导致的情感反复迂回。里面说“从至真园开始，一切结果都早已注定”，“一切都是必然的命运”。</p>
+<p>原著最后曾说——走在这命运的漩涡，人终会走散，只剩下自己一人。</p>
+<h2 id="河边的错误和宇宙探索编辑部">《河边的错误》和《宇宙探索编辑部》</h2>
+<p><strong>《河边的错误》和《宇宙探索编辑部》是荒谬派。小概率事件通过扎堆出现让人迷惑。</strong></p>
+<p>《河边的错误》中马原不承认疯子杀人，离真相越来越远。电影引用加缪的话“人理解不了命运，因此我装扮成了命运。我换成神的那副愚蠢又不可理解的面孔”。</p>
+<p>《宇宙探索编辑部》中唐志军相信是命运在引导自己找到外星人。一切巧合都是必然</p>
+<p>。<strong>只从主角视角出发时，我们总是向外看，放肆地嘲弄孔乙己。作为读者，却能感知到他们各自对命运不同的态度。</strong></p>
+<h2 id="漫长的季节是和解">《漫长的季节》是和解</h2>
+<p>一场雪下了 20 年，足够漫长，正如一个真相等待了 20 年才得到知晓。</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>王阳的诗<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>打个响指吧，他说</p>
+<p>我们打个共鸣的响指</p>
+<p>遥远的事物将被震碎</p>
+<p>面前的人们此时尚不知情</p>
+<p>吹个口哨吧，</p>
+<p>我说你来吹个斜斜的口哨</p>
+<p>像一块铁然后是一枚针磁极的弧线拂过绿玻璃</p>
+<p>喝一杯水吧，</p>
+<p>也看一看河在平静时平静，</p>
+<p>不平静时我们就错过了一层台阶</p>
+<p>一小颗眼泪滴在石头上很长时间也不会干涸</p>
+<p>整个季节将它结成了琥珀块状的流淌，</p>
+<p>具体的光芒在它背后是些遥远的事物</p>
+</div>
+        </div>
+    </div>
+<p>王响对应响指，一个案件让他二十年没跨过。在初期，他认为只要自己努力立功，就能避免被裁掉的境遇。职工大会上揭露和真相公开时开始反转——厂主想开谁就开谁，想留谁就留谁。倒卖资产是厂长组织的！东北工业，王响一辈子都骄傲终于碎掉了。悬疑案件的背后是东北在腐朽。</p>
+<p>个人不能抵抗时代的变故，他只能和《一句话顶一万句》里的主旨一样，努力抓住自己想要的解答，继续想前看。命运不能抵抗，人们总要学会向前看。于是火车缓缓奏响，沿着铁轨在玉米地里前进。</p>
+<h2 id="繁花也是和解">《繁花》也是和解</h2>
+<p>阿宝走进来能成为宝总，走出去就愿意继续当阿宝，从容不迫<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，保持着《基督山伯爵》的口号：</p>
+<p><strong>面对命运只有两个词语——等待和希望。</strong></p>
+<h2 id="河边的错误就是单纯疯了">《河边的错误》就是单纯疯了</h2>
+<p>荒谬派总是提出困境并不会回答。人对抗不了时代，到此为止。</p>
+<p>当知道这一点时，你就理解了克苏鲁，解决不了，想解决，于是人疯了。</p>
+<p>荒谬的事件自然就没有解答了，因为我们无法理解，只有现实在无情地流动——Only The River Flows&hellip;</p>
+<h2 id="宇宙探索编辑部是醒了">《宇宙探索编辑部》是醒了</h2>
+<p>主角团和西游记一样，分别对应唐、孙、沙、猪，一路向西，唐志军想要找到自己的真经——外星人。</p>
+<p>表面上是找外星人，其实是求一个答案。婚姻不幸，职场难过，人生意义何在？如果人解决不了，那外星人呢？与其说是为科幻痴狂，其实还是在为人生飘零。电影结尾想表达反求诸己，寻找外星人是向外，这没有必要，人类自己就是奇迹，所以释然。但是这个过程展现地并不连贯。</p>
+<h2 id="对待命运">对待命运</h2>
+<p>当人的渺小遇上了局中人不能理解的时代，就用命运打个马虎眼。后来人和旁观者总归是看得清的，降临到自己头上就晕头转向了，这就是巨大的命运。
+大部分人对命运发起质问，回答不外乎“只有相对公平，没有绝对公平”“英雄主义是看清世界依然爱”“世界以痛吻我，我却回报以歌”。</p>
+<p>此时真相不重要，重要的坚持生存主义哲学，不管对不对，让我们保持活下去的积极态度总是好的。
+当一个人定要研究出人与时代洪流的关系时，这些回答不足以提供答案<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<p>要么陷入疯狂；要么学会妥协——接受一切，活在明天，向前看。</p>
+<p>生存哲学就是这样，有些东西已经证实了就是办不成，但就是心痒痒想去搞到手。这就是命运与人，放弃思考是一种解答，继续思考到崩溃还是种解答，继续思考到妥协，还是一种解答，也就是和命运相处的几个方式咯。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>话说全网营销太恐怖了，《摆渡人》已经被遗忘在角落完成洗白。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>凯恩斯主义者反对市场总是对的这句话&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>因为这个议题总是在时代悲剧时出现，我们默认此时人不可抵抗时代，此时命运总是个灰色的词汇&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/kj_2024/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" data-title="2024 观剧总结: 和“命运”相处的几种方式" data-hashtags="电视剧"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" data-hashtag="电视剧"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" data-title="2024 观剧总结: 和“命运”相处的几种方式"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" data-title="2024 观剧总结: 和“命运”相处的几种方式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" data-title="2024 观剧总结: 和“命运”相处的几种方式" data-image="/img/2024观剧总结和“命运”相处的几种方式.en-20240523093711232.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E7%94%B5%E8%A7%86%E5%89%A7/">电视剧</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/pachong/" class="prev" rel="prev" title="Stata: 爬虫学习"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Stata: 爬虫学习</a>
+            <a href="/zh-cn/posts/hxl/" class="next" rel="next" title="天河机场转机攻略：速通黄鹤楼（6 h)">天河机场转机攻略：速通黄鹤楼（6 h)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

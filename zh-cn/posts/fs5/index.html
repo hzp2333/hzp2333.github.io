@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>一些和大学老师互动时的建议 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="一些和大学老师互动时的建议" />
+<meta property="og:description" content="结合个人经历，谈谈一些目前为止个人觉得和老师交流时应该注意的地方" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-05-10T14:00:19+08:00" />
+<meta property="article:modified_time" content="2025-05-10T14:00:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="一些和大学老师互动时的建议"/>
+<meta name="twitter:description" content="结合个人经历，谈谈一些目前为止个人觉得和老师交流时应该注意的地方"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/fld/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "一些和大学老师互动时的建议",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fs5\/"
+        },"genre": "posts","keywords": "反思","wordcount":  2620 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fs5\/","datePublished": "2025-05-10T14:00:19+08:00","dateModified": "2025-05-10T14:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakana 小组件集成</title>
+    <style>
+         
+        #sakana-widget-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 268px;   
+            height: 268px;  
+        }
+        #sakana-widget {
+            width: 100%;
+            height: 100%;
+        }
+
+         
+        @media screen and (max-width: 600px) {
+            #sakana-widget-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sakana-widget-container">
+        <div id="sakana-widget"></div>
+    </div>
+
+    <script>
+        function initSakanaWidget() {
+            new SakanaWidget({
+                size: 300,  
+                autoFit: true,  
+                character: 'chisato',  
+                controls: true,  
+                rod: true,  
+                draggable: true,  
+                stroke: {
+                    color: '#b4b4b4',  
+                    width: 10  
+                },
+                threshold: 0.1,  
+                rotate: 0,  
+                title: false  
+            }).mount('#sakana-widget');
+        }
+
+        
+        function checkScreenWidth() {
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var container = document.getElementById('sakana-widget-container');
+            if (screenWidth <= 960) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        
+        checkScreenWidth();
+
+        
+        window.addEventListener('resize', checkScreenWidth);
+
+        
+        initSakanaWidget();
+    </script>
+    <script
+        async
+        onload="initSakanaWidget()"
+        src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+</body>
+</html>
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/fs5/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/fs5/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><script>
+			(function(){
+				if( 2333 ){
+					if (prompt('请输入文章密码') !=  2333 ){
+						alert('密码错误！');
+						if (history.length === 1) {
+							window.opener = null;
+							window.open('', '_self');
+							window.close();
+						} else {
+							history.back();
+						}
+					}
+				}
+			})();
+		</script><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一些和大学老师互动时的建议</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-05-10">2025-05-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2620 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e4%b8%80%e4%ba%9b%e5%b8%88%e7%94%9f%e4%ba%a4%e4%ba%92%e5%bb%ba%e8%ae%ae-20250715231819259.webp"
+        data-srcset="/img/%e4%b8%80%e4%ba%9b%e5%b8%88%e7%94%9f%e4%ba%a4%e4%ba%92%e5%bb%ba%e8%ae%ae-20250715231819259.webp, /img/%e4%b8%80%e4%ba%9b%e5%b8%88%e7%94%9f%e4%ba%a4%e4%ba%92%e5%bb%ba%e8%ae%ae-20250715231819259.webp 1.5x, /img/%e4%b8%80%e4%ba%9b%e5%b8%88%e7%94%9f%e4%ba%a4%e4%ba%92%e5%bb%ba%e8%ae%ae-20250715231819259.webp 2x"
+        data-sizes="auto"
+        alt="/img/一些师生交互建议-20250715231819259.webp"
+        title="/img/一些师生交互建议-20250715231819259.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#老师的选择">老师的选择</a></li>
+    <li><a href="#老师的培养思想">老师的培养思想</a>
+      <ul>
+        <li><a href="#1选择一来就能干活的">1、选择一来就能干活的。</a></li>
+        <li><a href="#2模仿-top5">2、模仿 top5。</a></li>
+        <li><a href="#3师生合作的比较优势">3、师生合作的比较优势</a></li>
+      </ul>
+    </li>
+    <li><a href="#论文上的交流">论文上的交流</a></li>
+    <li><a href="#关于展望">关于展望</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>不同的老师有不同的风格，在现代的（国内）大学市场，<strong>很难让老师适应学生，只能让自己适应老师</strong>。我一直认为，国内外教育不单纯只是环境问题，单纯的一分钱一分货，至少小学到硕士阶段，大家支付的教育成本本就不同。大部分人老是拿绝对值去跟性价比比较。</p>
+<p>同时，随着国内教职内卷，师资力量的<strong>内卷下沉</strong>会带来<strong>负反馈</strong>的<strong>预期结构</strong>，这会进一步使得师生结构匹配难以兼容，导致凯恩斯所说的“<a href="https://en.wikipedia.org/wiki/Coordination_failure_" title="economics" target="_blank" rel="noopener noreffer ">协调失效</a>”。例如下面这个博弈矩阵，<code>{老师备课，学生学习}</code> 和 <code>{老师不备课，学生不学习}</code> 都是纳什均衡，但是社会压力和教职下沉的现象会让 <code>{老师不备课，学生不学习}</code> 的概率上升进而加强恶性循环。这种下沉内卷也会让老师对学生前途焦虑的同理心降低。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">学生学习</th>
+<th style="text-align:left">学生不学习</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">老师备课</td>
+<td style="text-align:left">（1，1）</td>
+<td style="text-align:left">（-1，0）</td>
+</tr>
+<tr>
+<td style="text-align:left">老师不备课</td>
+<td style="text-align:left">（0，-1）</td>
+<td style="text-align:left">（0，0）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="老师的选择">老师的选择</h2>
+<p>不同的老师有不同的培养方法，一切都无法预料，老师会变，环境会变，之前学生给老师留下的印象也会带来统计性歧视。如果倾向于学术，个人感觉最靠谱的选择标准是——选择和学生有成果发表记录的老师。</p>
+<ul>
+<li>本科生不算，因为本科就开始科研的情况下，你不知道他们背后的家庭背景；</li>
+<li>开门大弟子的情况需要结合考核标准思考，因为很多学校要求第一个学生顺利毕业才能得到晋升机会，待遇是不同的，且老师容易产生思想改变。</li>
+<li>自身博士、硕士目标下同门的发表记录相对更为可信。仔细调研带的正式硕士生、博士生的论文情况，这可比性别、职称、年龄更加可靠。</li>
+<li>如果不想在硕士学校留校读博，注意看老师的<strong>发表周期</strong>，周期太长虽然有质量但也会带来约束。老师的时间约束和学生的完全不同。</li>
+</ul>
+<h2 id="老师的培养思想">老师的培养思想</h2>
+<p>目前我老师的指导方针可以简单概括为两点，</p>
+<h3 id="1选择一来就能干活的">1、选择一来就能干活的。</h3>
+<p>这里我还是叹口气。老师认为本土学生的出路需要在大二就精通计量然后进组学习。但我觉得这样代表着一个事实，就像大厂喜欢捞现成的而不去培训，<font color="#ff0000">这代表着这条路的容错率已经越来越低</font>。<strong>比起 ai 时代下快速掌握计量技巧，要求在大二就对人生目标有如此清晰的认知和紧迫性才是最可怕的现实</strong>。所以老师最喜欢出国那种，这样能和老师长期雕琢一篇论文，但是对于广大普通学子来说，这点并不兼容。</p>
+<h3 id="2模仿-top5">2、模仿 top5。</h3>
+<p>老师要求带的任何学生，毕业论文只选择经济学 top5 期刊论文进行模仿。不过最近个人模仿的选题历经了两学期的数据清洗、实证分析后，距离结束依旧遥遥无期，不免感到挫败，因此在这里总结下，选择模仿论文时，一些论文的模仿可能是值得警惕的。个人目前的感想是——选择模仿论文，不能只看手头数据、擅长题材、更要关注如何在模仿论文的基础上进行扩展创新，这个扩展创新的<strong>现实条件</strong>更加重要。</p>
+<p>按照个人目前的感想，下面这几类 top 论文需要警惕。</p>
+<p>1、<strong>只为旧理论提供实证证据</strong>。一些 top5 论文可能只为一些理论提供实证证据。这种贡献就属于只有第一个做的人才能赢得赞誉的情况。除非后续用中国数据进行推翻，否则很难有所突破。</p>
+<p>2、<strong>没有理论争议的论文</strong>。同理，理论实证类文章只是提供确实存在的证据，但是进一步讨论为什么存在，怎么发展，难度更加巨大。</p>
+<p>3、<strong>检验非常严苛的文章</strong>。小心纯正计量经济学家的论文！我目前做的这个选题检验就十分严苛。例如统计回归系数理论上不可能为负，但实际回归确实容易出现负数，就阻碍了很多检验的表达范围，关键这些检验又十分重要。</p>
+<h3 id="3师生合作的比较优势">3、师生合作的比较优势</h3>
+<p>老师认为，学生相比老师，存在的比较优势只在代码这种现代青春饭上，因此老师负责写作，学生负责实证。</p>
+<p>我在网上听说过两种说法：一种是本硕的论文想法毫无意义，本硕跟着老师选题当执行者才是最好的；一种说法是在当下的经济范式情况下，所有论文选题一样烂，只看谁能包装的更好。</p>
+<h2 id="论文上的交流">论文上的交流</h2>
+<p>这些只针对我和老师的交流，仅供参考。我做了这个数据结构比较复杂，所以老师经常抱怨我们沟通成本很大。</p>
+<p>一方面，这是源于“知识诅咒”。掌握了特定知识的人，反而很难向一无所知的人恰如其分地描述抽象知识。写博客也在锻炼我的解释能力，需要同时想象读者一无所知或者具有怎样的知识基础。</p>
+<p>另一方面，如果我真的写一份详细的文档给老师说明，大概率老师不会仔细看。所以要突出重点，突出卖相，尽量尝试只通过表格图像加对应注释让老师明白，这也是向审稿人展示需要的。交流时可以多使用举例说明。</p>
+<p>比如在经济学，大部分人动不动就说中文期刊都是垃圾，这种情况你不能指望老师有耐心看你写的东西。注意力向来是稀缺资源。</p>
+<p>由于我写的这篇论文环环相扣，一个部分修改了全部回归都要遭殃，每次我发了一大堆文档给老师，老师只看一个部分然后就要重新跑全部，这种饱和性工作对心脏健康的摧残还是挺严重的。</p>
+<p>个人建议，写一点，马上发给老师。</p>
+<p>关键点来了。平时老师只会觉得都可以，因为希望在文章完成之前，老师希望你能尽可能地探索各种可能性。但是一旦真正要组合文章了，老师就会思考各种内生性。我们要让自己变得非常严格，同时在发过去的文档中为老师塑造一种严肃的思考环境，因此草稿文档的格式最好也像正文一样，切忌随意。并且主动提出 xx 是否合适，xx 是否需要考虑。<strong>所以我觉得线下组会的形式确实重要，能在当时就提供严肃的环境</strong>。当然，更大的可能是老师当时说可以事后又不行了，相机抉择嘛。</p>
+<h2 id="关于展望">关于展望</h2>
+<p>当代师生交流的一个困境就是，老师还要会激励学生，这导致了一个现象——画饼。实际上今天这种急功近利的科研环境，谁不在包装的过程中加点泡沫？别把当代越过千军万马，通过各种考核拿到教职的老师想的太天真。个人感觉不会包装的人甚至很难晋升——所以需要穿过泡沫看意图。</p>
+<p>个人经验是，无论老师提供了什么承诺，总之先砍掉 50%的程度来理解。</p>
+<ul>
+<li>例如选题不难，三个月搞定——我是三个月才清洗好数据，然后三个月完成基本回归，然后又三个月在拷打数据。</li>
+<li>数据质量很难得，很珍贵——虽然数据集独特，清洗还是会花费大量时间。我有半年都在清洗数据。</li>
+<li>每年给一次出去交流的机会——前提是有论文。我们要明白老师承诺的原因，无非是激励快点写论文，参考第一条，我两学期了都还在拷打数据，更别提出去了。</li>
+<li>未来推荐给 xx 老师，能去 xx 学校——不要因为这个忽视了博士选拔的基本功，英语学习，三高学习不能断，这种承诺其实很虚，现在竞争很激烈。</li>
+<li>结果已经可以了，只要再加点检验就行——正式完成后又会有更多新的要求。</li>
+</ul>
+<p>老师没有完美，只有合适，一切优势对应着均衡的劣势，关键在对长处的配合和对短处的忍受。</p>
+<p>随着分配之争越来越严重，学术圈子几乎没有人真正在用心把圈子做大，这种结构性匹配困境只会越来越严重。</p>
+<p><strong>前路山高路远，妖风正劲，无论如何，祝愿看到这里的你能存活下去</strong>。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-05-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/fs5/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" data-title="一些和大学老师互动时的建议" data-hashtags="反思"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" data-hashtag="反思"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" data-title="一些和大学老师互动时的建议"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" data-title="一些和大学老师互动时的建议"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs5/" data-title="一些和大学老师互动时的建议" data-image="/img/一些师生交互建议-20250715231819259.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8F%8D%E6%80%9D/">反思</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/fld/" class="prev" rel="prev" title="当我们反垄断时，反对的到底是什么？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>当我们反垄断时，反对的到底是什么？</a>
+            <a href="/zh-cn/posts/python_cv/" class="next" rel="next" title=" 代码储存：python 年份、 stata 稳健性平行趋势检验"> 代码储存：python 年份、 stata 稳健性平行趋势检验<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

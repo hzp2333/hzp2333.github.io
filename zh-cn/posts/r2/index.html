@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>R 语言笔记 2 : 数据清洗、绘图与计量 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="R 语言笔记 2 : 数据清洗、绘图与计量" />
+<meta property="og:description" content="R 语言常用代码，主要记录数据清洗、回归统计、常用画图代码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/r2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-22T01:01:52+08:00" />
+<meta property="article:modified_time" content="2024-04-22T01:01:52+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="R 语言笔记 2 : 数据清洗、绘图与计量"/>
+<meta name="twitter:description" content="R 语言常用代码，主要记录数据清洗、回归统计、常用画图代码"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "R 语言笔记 2 : 数据清洗、绘图与计量",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r2\/"
+        },"genre": "posts","keywords": "R","wordcount":  7033 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r2\/","datePublished": "2024-04-22T01:01:52+08:00","dateModified": "2024-04-22T01:01:52+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/r2/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/r2/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">R 语言笔记 2 : 数据清洗、绘图与计量</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-04-22">2024-04-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7033 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp"
+        data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp 2x"
+        data-sizes="auto"
+        alt="/img/R语言基础.zh-cn-20240523130853495.webp"
+        title="/img/R语言基础.zh-cn-20240523130853495.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据清洗">数据清洗</a>
+      <ul>
+        <li><a href="#工作目录">工作目录</a></li>
+        <li><a href="#数据导入">数据导入</a></li>
+        <li><a href="#查看数据类型">查看数据类型</a></li>
+        <li><a href="#修改变量名">修改变量名</a></li>
+        <li><a href="#创建新变量">创建新变量</a>
+          <ul>
+            <li><a href="#方法一">方法一</a></li>
+            <li><a href="#方法二">方法二</a></li>
+            <li><a href="#方法三">方法三</a></li>
+            <li><a href="#截取与添加字符">截取与添加字符</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据类型转换">数据类型转换</a></li>
+        <li><a href="#时间日期相关">时间日期相关</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#日期转换">日期转换</a></li>
+                <li><a href="#日期提取">日期提取</a></li>
+                <li><a href="#日期计算">日期计算</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#排序选择与分组">排序、选择与分组</a>
+          <ul>
+            <li><a href="#筛选行">筛选行</a></li>
+            <li><a href="#筛选列">筛选列</a></li>
+            <li><a href="#排序">排序</a></li>
+            <li><a href="#分组处理">分组处理</a></li>
+          </ul>
+        </li>
+        <li><a href="#匹配合并">匹配合并</a></li>
+        <li><a href="#异常值处理">异常值处理</a>
+          <ul>
+            <li><a href="#删除重复值">删除重复值</a></li>
+            <li><a href="#数据插补">数据插补</a></li>
+            <li><a href="#缩尾处理">缩尾处理</a></li>
+            <li><a href="#数据删除">数据删除</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#绘图">绘图</a>
+      <ul>
+        <li><a href="#散点图与折线图">散点图与折线图</a></li>
+        <li><a href="#条形图">条形图</a></li>
+        <li><a href="#直方图">直方图</a></li>
+        <li><a href="#箱型图">箱型图</a></li>
+        <li><a href="#词云">词云</a></li>
+        <li><a href="#相关系数热力图">相关系数热力图</a></li>
+        <li><a href="#气泡图">气泡图</a></li>
+        <li><a href="#图片合并">图片合并</a>
+          <ul>
+            <li><a href="#加载包和绘图">加载包和绘图</a></li>
+            <li><a href="#组合图片">组合图片</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#计量">计量</a>
+      <ul>
+        <li><a href="#描述性统计和输出">描述性统计和输出</a>
+          <ul>
+            <li><a href="#描述统计">描述统计</a></li>
+            <li><a href="#相关性分析">相关性分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#回归和-word-输出">回归和 word 输出</a>
+          <ul>
+            <li><a href="#回归">回归</a></li>
+            <li><a href="#回归输出">回归输出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" target="_blank" rel="noopener noreffer ">R 语言笔记 1 界面介绍与语法结构</a></p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" target="_blank" rel="noopener noreffer ">R 语言笔记 2 数据清洗、绘图与计量</a></p>
+<blockquote>
+<p>推荐的学习资源在 <a href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" target="_blank" rel="noopener noreffer ">R语言笔记1界面介绍与语法结构</a></p>
+<p>常用数据库和清洗思想已经在 <a href="https://blog.huaxiangshan.com/zh-cn/posts/data/" target="_blank" rel="noopener noreffer "> stata 版本</a>介绍过了，这里重点记录 R 语言数据清洗常用代码。</p>
+<p>在整理的过程中我反复感受到开源的力量。所有的处理都有 R 语言原生的技巧，但总会冒出各种包让你更省事，所以，</p>
+<p><strong>即便引导已经破碎，也请你成为调包之王！</strong></p>
+</blockquote>
+<h2 id="数据清洗">数据清洗</h2>
+<h3 id="工作目录">工作目录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 清楚所有变量</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rm</span><span class="p">(</span><span class="n">list</span><span class="o">=</span><span class="nf">ls</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看当前目录</span>
+</span></span><span class="line"><span class="cl"><span class="nf">getwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置工作目录,注意使用的是斜杠</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取文件路径，此时会打开电脑文件手动寻找文件，然后点击后会返回文件路径</span>
+</span></span><span class="line"><span class="cl"><span class="nf">file.choose</span><span class="p">()</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据导入">数据导入</h3>
+<p>表格出处：《<a href="https://bookdown.org/wangminjie/R4DS/index.html" target="_blank" rel="noopener noreffer ">数据科学中的 R 语言</a>》</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.txt</td>
+<td><code>read.table()</code></td>
+</tr>
+<tr>
+<td>.csv</td>
+<td><code>read.csv()</code> and <code>readr::read_csv()</code></td>
+</tr>
+<tr>
+<td>.xls and .xlsx</td>
+<td><code>readxl::read_excel()</code> and <code>openxlsx::read.xlsx()</code></td>
+</tr>
+<tr>
+<td>.sav (SPSS files)</td>
+<td><code>haven::read_sav()</code> and <code>foreign::read.spss()</code></td>
+</tr>
+<tr>
+<td>.Rdata or rda</td>
+<td><code>load()</code></td>
+</tr>
+<tr>
+<td>.rds</td>
+<td><code>readRDS()</code> and <code>readr::read_rds()</code></td>
+</tr>
+<tr>
+<td>.dta</td>
+<td><code>haven::read_dta()</code> and <code>haven::read_stata()</code></td>
+</tr>
+<tr>
+<td>.sas 7 bdat (SAS files)</td>
+<td><code>haven::read_sas()</code></td>
+</tr>
+<tr>
+<td>Internet</td>
+<td><code>download.file()</code></td>
+</tr>
+</tbody>
+</table>
+<p>遇到中文乱码则加入编码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">read.table</span><span class="p">(</span>…<span class="p">,</span> <span class="n">fileEncoding</span> <span class="o">=</span> “<span class="n">UTF</span><span class="m">-8</span>”<span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考来源 <a href="https://xueningzhu.github.io/Statistical-Analysis-with-R/" target="_blank" rel="noopener noreffer ">《统计分析（以R语言为工具）：辅助材料》</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">### 1. read.rable() ###</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#从txt中读入,分隔符为&#34;\t&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># head表示查看前几行</span>
+</span></span><span class="line"><span class="cl"><span class="n">tes</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;./data/top250.txt&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span><span class="n">fileEncoding</span> <span class="o">=</span> <span class="s">&#34;GBK&#34;</span><span class="p">);</span> <span class="nf">head</span><span class="p">(</span><span class="n">tes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### 2. read.csv() ###</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#专用函数read.csv</span>
+</span></span><span class="line"><span class="cl"><span class="n">movie_csv</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;./data/top250.csv&#34;</span><span class="p">,</span><span class="n">fileEncoding</span> <span class="o">=</span> <span class="s">&#34;GBK&#34;</span><span class="p">);</span> <span class="nf">head</span><span class="p">(</span><span class="n">movie_csv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;readxl&#34;</span><span class="p">)</span> <span class="c1"># 加载包</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其中col_names参数仍然是为了设定是否把第一行当做变量名</span>
+</span></span><span class="line"><span class="cl"><span class="n">movie_excel</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">read_excel</span><span class="p">(</span><span class="s">&#34;./data/top250.xlsx&#34;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">));</span><span class="nf">head</span><span class="p">(</span><span class="n">movie_excel</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>手动输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">mydatatxt</span><span class="o">&lt;-</span><span class="s">&#34;name gender age
+</span></span></span><span class="line"><span class="cl"><span class="s">张三 M 20
+</span></span></span><span class="line"><span class="cl"><span class="s">李四 F 23
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>批量合并的 excel 和 CSV 代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#批量获取csv文件</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置文件夹路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">folder_path</span> <span class="o">&lt;-</span> <span class="s">&#34;F:/桌面/文件夹/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取文件夹中的所有csv文件路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">csv_files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;\\.csv$&#34;</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个空的列表，用于存储读取的csv数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 循环读取每个csv文件，并将其存储在data_list中</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">file</span> <span class="kr">in</span> <span class="n">csv_files</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data_list[[file]]</span> <span class="o">&lt;-</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将所有数据合并到一个数据框中</span>
+</span></span><span class="line"><span class="cl"><span class="n">combined_data</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看合并后的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">combined_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#————————————————————————————————————————————————————</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#批量获取xlsx文件</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置文件夹路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">folder_path</span> <span class="o">&lt;-</span> <span class="s">&#34;F:/桌面/文件夹/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取文件夹中的所有xlsx文件路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">xlsx_files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;\\.xlsx$&#34;</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个空的列表，用于存储读取的xlsx数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 循环读取每个xlsx文件，并将其存储在data_list中</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">file</span> <span class="kr">in</span> <span class="n">xlsx_files</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data_list[[file]]</span> <span class="o">&lt;-</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将所有数据合并到一个数据框中</span>
+</span></span><span class="line"><span class="cl"><span class="n">combined_data</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="查看数据类型">查看数据类型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span>中国城市数据库<span class="p">)</span>		<span class="c1">#查看变量名对应的列数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span>中国城市数据库<span class="p">)</span> 		<span class="c1">#查看数据类型</span>
+</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span>中国城市数据库<span class="p">)</span>	<span class="c1">#最大值最小值均值，只支持数值列表</span>
+</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span>中国城市数据库<span class="n">[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>	<span class="c1">#查看第二列和四到六列</span>
+</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span>中国城市数据库<span class="n">[</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">12</span><span class="n">]</span><span class="p">)</span>			<span class="c1">#查看第二列到十二列</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改变量名">修改变量名</h3>
+<p>最减简单的方法——select</p>
+<blockquote>
+<p>注意！我们是想把年份改成  year ，等式为 year  = 年份！</p>
+<p>如果文件含有特殊符号，使用``符号包围</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span>中国城市数据库<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="o">&lt;-</span><span class="nf">rename</span><span class="p">(</span>中国城市数据库<span class="p">,</span><span class="n">year</span> <span class="o">=</span> 年份 <span class="p">,</span><span class="n">GDP</span> <span class="o">=</span> <span class="nf">`地区生产总值</span><span class="p">(</span>万元<span class="p">)</span><span class="n">` ,one = `</span>第一产业增加值<span class="p">(</span>万元<span class="p">)</span><span class="n">`</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>顺便提一下复杂的改名方式（ R 语言基本语法）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 修改第一列数据的列名，修改为bb</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面/R&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">中国城市数据库 <span class="o">&lt;-</span> <span class="n">readxl</span><span class="o">::</span><span class="nf">read_excel</span><span class="p">(</span><span class="s">&#34;中国城市数据库.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span>中国城市数据库<span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#39;bb&#39;</span>   
+</span></span><span class="line"><span class="cl"><span class="c1"># 同理，行名修改为rownames</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp" title="数据库$列名是指定列变量的方式，Rstudio的很多功能还是挺好用的" data-thumbnail="/img/R语言基础2.zh-cn-20240523131432548.webp" data-sub-html="<h2> </h2><p>数据库$列名是指定列变量的方式，Rstudio的很多功能还是挺好用的</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131432548.webp" />
+    </a><figcaption class="image-caption">数据库$列名是指定列变量的方式，Rstudio的很多功能还是挺好用的</figcaption>
+    </figure></p>
+<p>如果变量太长，我们不知道要修改的数据变量在第几列，请使用 <code>names(中国城市数据库)</code>，结果会展示变量名和其对应列数。</p>
+<h3 id="创建新变量">创建新变量</h3>
+<p>推荐使用方法一</p>
+<h4 id="方法一">方法一</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">d3</span> <span class="o">&lt;-</span> <span class="nf">mutate</span><span class="p">(</span>中国城市数据库<span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="n">year</span> <span class="o">=</span> 年份<span class="o">/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="方法二">方法二</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 主要使用transform()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 第一个参数是要操作的数据框名称</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 接下来的参数就是操作公式</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 公式左边是新变量名</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 公式右边是具体的操作</span>
+</span></span><span class="line"><span class="cl"><span class="n">mydata</span> <span class="o">&lt;-</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">mydata</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="n">sum</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span><span class="o">/</span><span class="m">2</span> 
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="方法三">方法三</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">mydata</span><span class="o">$</span><span class="n">mean</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">mydata</span><span class="o">$</span><span class="n">x1</span> <span class="o">+</span> <span class="n">mydata</span><span class="o">$</span><span class="n">x2</span><span class="p">)</span><span class="o">/</span><span class="m">2</span> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 新建名称为mean的变量，它是由原来的两个变量（x1和x2）取平均值后所得</span>
+</span></span><span class="line"><span class="cl"><span class="n">mydata</span><span class="o">$</span><span class="n">empty_variable</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建空白变量</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="截取与添加字符">截取与添加字符</h4>
+<p>新建变量 x ,截取变量 var 第一个位置开始，长度为 4 的字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">中国城市数据库 <span class="o">&lt;-</span> 中国城市数据库 <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">substr</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在后面添加  </span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="m">2</span> <span class="o">&lt;-</span> 中国城市数据库<span class="m">2</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="s">&#34;_suffix&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在前面添加</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="m">2</span> <span class="o">&lt;-</span> 中国城市数据库<span class="m">2</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="s">&#34;_suffix&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据类型转换">数据类型转换</h3>
+<p>包括日期的转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">mydata</span><span class="o">$</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">mydata</span><span class="o">$</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他类型</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.numeric</span><span class="p">(</span><span class="s">&#39;123&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.character</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="时间日期相关">时间日期相关</h3>
+<h5 id="日期转换">日期转换</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">as.Date</span><span class="p">(</span><span class="s">&#39;1/15/2020&#39;</span><span class="p">,</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&#39;%m/%d/%Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">###(2)将字符转换成POSIXct/POSIXlt时间格式###</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.POSIXct</span><span class="p">(</span><span class="m">1472562988</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#34;1960-01-01&#34;</span><span class="p">)</span><span class="c1">#日期值转换，以&#34;1960-01-01&#34;为起点</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="日期提取">日期提取</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载lubridate包</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="s">&#34;2020-11-20 01:30:29&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">year</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#提取年份</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 2020</span>
+</span></span><span class="line"><span class="cl"><span class="nf">month</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#提取月份</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 11</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mday</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#提取日期是一个月中的第几天</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 20</span>
+</span></span><span class="line"><span class="cl"><span class="nf">wday</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#提取日期是一周中的第几天</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 6</span>
+</span></span><span class="line"><span class="cl"><span class="nf">hour</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#取出日期中的小时数</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 1</span>
+</span></span><span class="line"><span class="cl"><span class="nf">minute</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#取出日期中的分钟数</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 30</span>
+</span></span><span class="line"><span class="cl"><span class="nf">second</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="c1">#取出日期中的秒</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## [1] 29</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="日期计算">日期计算</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 求任意两个日期距离的天数</span>
+</span></span><span class="line"><span class="cl"><span class="n">begin</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&#34;2016-03-04&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&#34;2016-05-08&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">during</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">begin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Time difference of 65 days</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 求任意两个日期距离的周数和小时数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">difftime</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">begin</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s">&#34;weeks&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Time difference of 9.285714 weeks</span>
+</span></span><span class="line"><span class="cl"><span class="nf">difftime</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">begin</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s">&#34;hours&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Time difference of 1560 hours</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="排序选择与分组">排序、选择与分组</h3>
+<h4 id="筛选行">筛选行</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 选择数据集mydata中2020年且城市id大于等于1100的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nf">filter</span><span class="p">(</span><span class="n">mydata</span><span class="p">,</span> <span class="n">year</span> <span class="o">==</span> <span class="m">2020</span><span class="p">,</span> <span class="n">cityid</span> <span class="o">&gt;=</span> <span class="m">1100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 排除所有数据集mydata中2020年且城市id大于等于1100的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nf">filter</span><span class="p">(</span><span class="n">mydata</span><span class="p">,</span> <span class="o">!</span><span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="m">2020</span><span class="o">|</span> <span class="n">cityid</span> <span class="o">&gt;=</span> <span class="m">1100</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="筛选列">筛选列</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 去掉年份到城市id对应的列</span>
+</span></span><span class="line"><span class="cl"><span class="nf">select</span><span class="p">(</span><span class="n">mydata</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">year</span><span class="o">:</span><span class="n">cityid</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="排序">排序</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 按照GDP排序</span>
+</span></span><span class="line"><span class="cl"><span class="nf">order</span><span class="p">(</span>中国城市数据库<span class="o">$$</span>地区生产总值<span class="n">.万元.</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 当变量名含有（）时，使用..替代名称被R识别</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 按照GDP降序排列</span>
+</span></span><span class="line"><span class="cl"><span class="n">sorted_values</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span>中国城市数据库<span class="o">$</span>地区生产总值<span class="n">.万元.</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="分组处理">分组处理</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 dplyr 包进行分组计算均值</span>
+</span></span><span class="line"><span class="cl">中国城市数据库 <span class="o">&lt;-</span> 中国城市数据库 <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span>国界<span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    乡村振兴边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>乡村振兴<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    产业兴旺边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>产业兴旺<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    生态宜居边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>生态宜居<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    治理有效边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>治理有效<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    乡风文明边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>乡风文明<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    生活富裕边境 <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span>生活富裕<span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="匹配合并">匹配合并</h3>
+<p>虽然 R 语言自带 merge ,和 stata 的 merge 类似，但功能更弱且只能进行一对一匹配，这里推荐使用 <code>dplyr</code> 包。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp" title="横向" data-thumbnail="/img/R语言基础2.zh-cn-20240523131456173.webp" data-sub-html="<h2> </h2><p>横向</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131456173.webp" />
+    </a><figcaption class="image-caption">横向</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp" title="纵向" data-thumbnail="/img/R语言基础2.zh-cn-20240523131512036.webp" data-sub-html="<h2> </h2><p>纵向</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131512036.webp" />
+    </a><figcaption class="image-caption">纵向</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 横向</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">left_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">right_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">inner_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">outer_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">semi_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">anti_join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&#34;x1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 纵向</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">setdiff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dplyr</span><span class="o">::</span><span class="nf">bind_rows</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 举例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 按照id和year匹配城市数据和试点政策</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果进行局部匹配则按照索引[m,n:l]切分</span>
+</span></span><span class="line"><span class="cl"><span class="n">merged_data</span> <span class="o">&lt;-</span> <span class="n">dplyr</span><span class="o">::</span><span class="nf">left_join</span><span class="p">(</span>中国城市数据库<span class="p">,</span> 智慧城市<span class="p">,</span><span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;year&#34;</span><span class="p">,</span> <span class="s">&#34;id&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">merged_data2</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span>中国城市数据库<span class="n">[</span><span class="p">,</span><span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">,</span> 智慧城市<span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;year&#34;</span><span class="p">,</span> <span class="n">all</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="异常值处理">异常值处理</h3>
+<h4 id="删除重复值">删除重复值</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">unique_data</span> <span class="o">&lt;-</span> 中国城市数据库 <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">distinct</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">.keep_all</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据插补">数据插补</h4>
+<p><code>na.rm = TRUE</code> 是一个参数，通常用于在对数据进行计算时指定是否移除缺失值。当 <code>na.rm</code> 参数设置为 <code>TRUE</code> 时，函数会在计算前移除数据中的缺失值；而当设置为 <code>FALSE</code> 或省略时，函数将包含缺失值并返回结果为 <code>NA</code>。</p>
+<p><strong>截面插值</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 将中国城市数据库 gdp 列中的缺失值用该列的均值替代</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="nf">[is.na</span><span class="p">(</span>中国城市数据库<span class="o">$</span><span class="n">gdp</span><span class="p">),</span> <span class="n">]</span><span class="o">$</span><span class="n">gdp</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span>中国城市数据库<span class="o">$</span><span class="n">gdp</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将中国城市数据库 score 列中小于 0 的异常值替换为缺失值</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="nf">[which</span><span class="p">(</span>中国城市数据库<span class="o">$</span><span class="n">score</span> <span class="o">&lt;</span> <span class="m">0</span><span class="p">),</span> <span class="n">]</span><span class="o">$</span><span class="n">score</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将中国城市数据库 score 列中的缺失值用该列的均值替代</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="nf">[is.na</span><span class="p">(</span>中国城市数据库<span class="o">$</span><span class="n">score</span><span class="p">),</span> <span class="n">]</span><span class="o">$</span><span class="n">score</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span>中国城市数据库<span class="o">$</span><span class="n">score</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>面板插值</strong></p>
+<p>参考 stata 的<a href="https://blog.huaxiangshan.com/zh-cn/posts/data/#4%E6%8F%92%E5%80%BC%E6%B3%95" target="_blank" rel="noopener noreffer ">插值命令</a>，在 R 中找到了相似的插入方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置数据框为面板数据，按照 id year 分类，对“地区生产总值.万元.”进行插值</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="n">_new</span> <span class="o">&lt;-</span> 中国城市数据库 <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 内插</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="n">_new</span> <span class="o">&lt;-</span> 中国城市数据库<span class="n">_new</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>地区生产总值<span class="n">.万元.</span> <span class="o">=</span> <span class="nf">na.approx</span><span class="p">(</span>地区生产总值<span class="n">.万元.</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 外插</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="n">_new</span> <span class="o">&lt;-</span> 中国城市数据库<span class="n">_new</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>地区生产总值<span class="n">.万元.</span> <span class="o">=</span> <span class="nf">na.approx</span><span class="p">(</span>地区生产总值<span class="n">.万元.</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;constant&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="缩尾处理">缩尾处理</h4>
+<p>参考 <a href="https://www.lianxh.cn/details/1228.html" target="_blank" rel="noopener noreffer ">R语言与Stata等价命令-statar</a>，使用 <code>statar</code> 包。</p>
+<p>将超过特定范围的值，替换为特定范围边界对应的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">statar</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">statar</span><span class="o">::</span><span class="nf">winsorize</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.01</span><span class="p">,</span> <span class="m">0.99</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># R也可以线算数据分布，然后根据数据分布删除</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算百分位数</span>
+</span></span><span class="line"><span class="cl"><span class="n">quantiles</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span>中国城市数据库<span class="m">2</span><span class="o">$</span><span class="n">R.D内部经费支出.万元.</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.01</span><span class="p">,</span> <span class="m">0.99</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 替换极端值</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="m">2</span><span class="o">$</span><span class="n">R.D内部经费支出.万元.[中国城市数据库2</span><span class="o">$</span><span class="n">R.D内部经费支出.万元.</span> <span class="o">&lt;</span> <span class="n">quantiles[1]]</span> <span class="o">&lt;-</span> <span class="n">quantiles[1]</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="m">2</span><span class="o">$</span><span class="n">R.D内部经费支出.万元.[中国城市数据库2</span><span class="o">$</span><span class="n">R.D内部经费支出.万元.</span> <span class="o">&gt;</span> <span class="n">quantiles[2]]</span> <span class="o">&lt;-</span> <span class="n">quantiles[2]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据删除">数据删除</h4>
+<p>删除空白值，问卷不适用值。</p>
+<p>由于 stata 一次性只能操作一张表，所以都是在一张表上增减，但是 R 语言支持多张表操控，所以实际上是通过<strong>截取合适数据形成一张新的表</strong>来达成筛选目的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 删除为2020年年份的对应行，删去第5列，第10列</span>
+</span></span><span class="line"><span class="cl">中国城市数据库<span class="n">_new</span> <span class="o">&lt;-</span> 中国城市数据库<span class="n">[中国城市数据库</span><span class="o">$</span><span class="n">year</span> <span class="o">!=</span> <span class="s">&#34;2020&#34;</span><span class="p">,</span> <span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#使用循环函数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个包含需要插值的变量名的字符向量</span>
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;var0&#34;</span><span class="p">,</span> <span class="s">&#34;var1&#34;</span><span class="p">,</span> <span class="s">&#34;var2&#34;</span><span class="p">,</span> <span class="s">&#34;var3&#34;</span><span class="p">,</span> <span class="s">&#34;genshin&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 循环遍历每个变量名</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="n">var</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 删除变量中的特定值</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">!</span><span class="p">(</span><span class="n">data[</span><span class="p">,</span> <span class="n">i]</span> <span class="o">==</span> <span class="m">-88</span> <span class="o">|</span> <span class="n">data[</span><span class="p">,</span> <span class="n">i]</span> <span class="o">==</span> <span class="m">-99</span> <span class="o">|</span> <span class="nf">is.na</span><span class="p">(</span><span class="n">data[</span><span class="p">,</span> <span class="n">i]</span><span class="p">)</span> <span class="o">|</span> <span class="n">data[</span><span class="p">,</span> <span class="n">i]</span> <span class="o">&lt;=</span> <span class="m">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="绘图">绘图</h2>
+<p>这里参考《<a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html" target="_blank" rel="noopener noreffer ">统计软件</a> R》 <a href="https://www.stat-center.pku.edu.cn/zxry/zxjy/ldf/1227393.htm" target="_blank" rel="noopener noreffer ">李东风老师</a>写的电子讲义。</p>
+<p><a href="https://github.com/Mounment/R-Project/blob/master/%E7%BA%A2%E9%85%92%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/wineQualityReds.csv" target="_blank" rel="noopener noreffer ">个人数据来源</a></p>
+<p>Ggplot 2 就是分治画图，所以语法组成就是
+$$
+步骤1(指定数据库，指定坐标轴)+步骤2(指定图像类型)+图像3(装饰)+组合4(&hellip;&hellip;)
+$$
+Ggplot 2 的作图一般步骤为：</p>
+<ul>
+<li>准备数据，一般为数据框，且一般为长表，即每个观测时间占一行，每个观测变量占一列。</li>
+<li>将数据输入到 <code>ggplot()</code> 函数中，并指定参与作图的每个变量分别映射到哪些图形特性，比如映射为 x 坐标、y 坐标、颜色、形状等。这些映射称为 aesthetic mappings 或 aesthetics。</li>
+<li>选择一个合适的图形类型，函数名以 <code>geom_</code> 开头，如 <code>geom_point()</code> 表示散点图。图形类型简称为 geom。将 <code>ggplot()</code> 部分与 <code>geom_xxx()</code> 部分用加号连接。到此已经可以作图，下面的步骤是进一步的细化设定。</li>
+<li>设定适当的坐标系统，如 <code>coord_cartesian()</code>, <code>scale_x_log10()</code> 等。仍用加号连接。</li>
+<li>设定标题和图例位置等，如 <code>labs()</code>。仍用加号连接。</li>
+</ul>
+<p>这个流程的一个大致的模板为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=&lt;</span>输入数据框<span class="o">&gt;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mapping</span><span class="o">=</span><span class="nf">aes</span><span class="p">(</span><span class="o">&lt;</span>维度<span class="o">&gt;=&lt;</span>变量名<span class="o">&gt;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span>维度<span class="o">&gt;=&lt;</span>变量名<span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="kc">...</span><span class="o">&gt;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="n">geom_</span><span class="o">&lt;</span>图形类型<span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="kc">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">scale_</span><span class="o">&lt;</span>映射<span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span>类型<span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="kc">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="n">coord_</span><span class="o">&lt;</span>类型<span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="kc">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="o">&lt;</span><span class="kc">...</span><span class="o">&gt;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="散点图与折线图">散点图与折线图</h3>
+<p>感觉语法上确实不如 stata 简洁好用（</p>
+<ul>
+<li><code>geom_point()</code>: 散点，同理，加折线图就是 <code>geom_line()</code></li>
+<li><code>geom_smooth()</code>: 拟合线</li>
+<li><code>scale_x_log10</code>：横坐标以 10 为低对数化</li>
+<li><code>color = quality</code> 按照 <code>quality</code> 变量分组填充颜色</li>
+<li><code> facet_wrap(~ quality)</code> 按照 <code>quality</code> 变量进行切片分组，也可以变成 <code>（a~b）</code>，就是二维分组。也可以使用 <code>facet_grid(行变量 ~ 列变量)</code>。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面/R&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">testdata</span> <span class="o">&lt;-</span> <span class="n">readr</span><span class="o">::</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;wineQualityReds.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">testdata</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># qplot快速画图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">qplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">chlorides</span> <span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">chlorides</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">testdata</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s">&#34;point&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ggplot画图</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">testdata</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">              <span class="n">x</span> <span class="o">=</span> <span class="n">residual.sugar</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">y</span> <span class="o">=</span> <span class="n">chlorides</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">color</span> <span class="o">=</span> <span class="n">quality</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">fill</span> <span class="o">=</span> <span class="n">quality</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_x_log10</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="s">&#34;横坐标&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="s">&#34;纵坐标&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="s">&#34;test标题&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">subtitle</span> <span class="o">=</span> <span class="s">&#34;随便找的数据&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">caption</span> <span class="o">=</span> <span class="s">&#34;数据来源: github&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span><span class="o">+</span>  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">quality</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggsave</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#34;文件名.png&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp" title="散点图加拟合线" data-thumbnail="/img/R语言基础2.zh-cn-20240523131531461.webp" data-sub-html="<h2> </h2><p>散点图加拟合线</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131531461.webp" />
+    </a><figcaption class="image-caption">散点图加拟合线</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp" title="切片以后" data-thumbnail="/img/R语言基础2.zh-cn-20240523131547470.webp" data-sub-html="<h2> </h2><p>切片以后</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131547470.webp" />
+    </a><figcaption class="image-caption">切片以后</figcaption>
+    </figure></p>
+<h3 id="条形图">条形图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 使用数据集计数</span>
+</span></span><span class="line"><span class="cl">数据集 <span class="o">&lt;-</span> 原始数据集 <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span>分类变量<span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">count</span><span class="p">(</span>分类变量<span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>比例值 <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span>数据集<span class="p">,</span> <span class="nf">aes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> 分类变量
+</span></span><span class="line"><span class="cl">	<span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="c1">#也可以改成比例值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fill</span> <span class="o">=</span><span class="n">religion</span> <span class="c1">#不同分类不同颜色 ))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">+</span><span class="nf">geom_col</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="o">+</span><span class="nf">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s">&#34;纵坐标名字&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="o">+</span><span class="nf">guides</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span><span class="p">)</span> <span class="c1">#是否取消图例</span>
+</span></span><span class="line"><span class="cl"> <span class="o">+</span> <span class="nf">coord_flip</span><span class="p">()</span> <span class="c1">#x轴和y轴互换</span>
+</span></span><span class="line"><span class="cl"> <span class="o">+</span> <span class="nf">geom_col</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s">&#34;stack&#34;</span><span class="p">)</span> <span class="c1">#堆叠</span>
+</span></span><span class="line"><span class="cl"> <span class="o">+</span><span class="nf">facet_grid</span><span class="p">(</span><span class="n">A</span> <span class="o">~</span> <span class="n">B</span><span class="p">)</span> <span class="c1">#切片分组</span>
+</span></span><span class="line"><span class="cl">   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>内部再分组的条形图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">df3</span> <span class="o">&lt;-</span> <span class="n">gss_sm</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">bigregion</span><span class="p">,</span> <span class="n">religion</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">bigregion</span><span class="p">,</span> <span class="n">religion</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarise</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">(),</span> <span class="n">.groups</span><span class="o">=</span><span class="s">&#34;drop_last&#34;</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">ratio</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">bigregion</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fill</span> <span class="o">=</span> <span class="n">religion</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_col</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp" title="内部再分组的直方图" data-thumbnail="/img/R语言基础2.zh-cn-20240523131606940.webp" data-sub-html="<h2> </h2><p>内部再分组的直方图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131606940.webp" />
+    </a><figcaption class="image-caption">内部再分组的直方图</figcaption>
+    </figure></p>
+<h3 id="直方图">直方图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># midwest是ggplot自带数据库</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 直方图</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">midwest</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">area</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_histogram</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 核密度图</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">midwest</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">x</span> <span class="o">=</span> <span class="n">area</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">color</span> <span class="o">=</span> <span class="n">state</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fill</span> <span class="o">=</span> <span class="n">state</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_density</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.3</span><span class="p">)</span> <span class="c1">#alpha = 0.3设置透明度</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#直方图加核密度</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">midwest</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">area</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_histogram</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">..density..</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_density</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">1.1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp" title="加上核密度线后的直方图" data-thumbnail="/img/R语言基础2.zh-cn-20240523131624349.webp" data-sub-html="<h2> </h2><p>加上核密度线后的直方图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131624349.webp" />
+    </a><figcaption class="image-caption">加上核密度线后的直方图</figcaption>
+    </figure></p>
+<h3 id="箱型图">箱型图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 只用更换 ggplot(数据库,aes(分类x,目标y))</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">midwest</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="n">area</span><span class="p">))</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stat_boxplot</span><span class="p">(</span><span class="n">geom</span> <span class="o">=</span> <span class="s">&#39;errorbar&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span><span class="n">cex</span><span class="o">=</span><span class="m">1</span><span class="p">)</span><span class="o">+</span> <span class="c1">#errorbar</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">cex</span><span class="o">=</span><span class="m">1</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">NULL</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_classic</span><span class="p">(</span><span class="n">base_size</span> <span class="o">=</span> <span class="m">18</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">panel.border</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span><span class="n">fill</span> <span class="o">=</span> <span class="s">&#39;transparent&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">axis.text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s">&#39;black&#39;</span><span class="p">))</span> <span class="c1">#主题调整</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp" title="midwest是自带数据库" data-thumbnail="/img/R语言基础2.zh-cn-20240523131646647.webp" data-sub-html="<h2> </h2><p>midwest是自带数据库</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131646647.webp" />
+    </a><figcaption class="image-caption">midwest是自带数据库</figcaption>
+    </figure></p>
+<h3 id="词云">词云</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">wordcloud2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">wordcloud2</span><span class="p">(</span><span class="n">demoFreq</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp" title="wordcloud2包自带的数据库" data-thumbnail="/img/R语言基础2.zh-cn-20240523131701808.webp" data-sub-html="<h2> </h2><p>wordcloud2包自带的数据库</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131701808.webp" />
+    </a><figcaption class="image-caption">wordcloud2包自带的数据库</figcaption>
+    </figure></p>
+<h3 id="相关系数热力图">相关系数热力图</h3>
+<p>参考 <a href="https://zhuanlan.zhihu.com/p/458889477" target="_blank" rel="noopener noreffer ">R语言绘制相关性热图</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 加载包      </span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggcorrplot</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl"><span class="n">cormtcars</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">mtcars</span><span class="p">),</span> <span class="m">3</span><span class="p">)</span> <span class="c1">#round()函数自定义小数点后位数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggcorrplot</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">cormtcars</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认是方形，修改为圆形显示，并标上相关系数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggcorrplot</span><span class="p">(</span><span class="n">cormtcars</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="s">&#34;circle&#34;</span><span class="p">,</span><span class="n">lab</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用ggcorrplot包的cor_pmat()函数计算p值：</span>
+</span></span><span class="line"><span class="cl"><span class="n">pmtcars</span> <span class="o">&lt;-</span> <span class="nf">cor_pmat</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggcorrplot</span><span class="p">(</span><span class="n">cormtcars</span><span class="p">,</span><span class="n">hc.order</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>  <span class="c1">#分等级聚类重排矩阵</span>
+</span></span><span class="line"><span class="cl">           <span class="n">ggtheme</span> <span class="o">=</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">theme_void</span><span class="p">(</span><span class="n">base_size</span> <span class="o">=</span> <span class="m">15</span><span class="p">),</span> <span class="c1">#主题修改</span>
+</span></span><span class="line"><span class="cl">           <span class="n">colors</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;CornflowerBlue&#34;</span><span class="p">,</span><span class="s">&#34;white&#34;</span><span class="p">,</span><span class="s">&#34;Salmon&#34;</span><span class="p">),</span> <span class="c1">#自定义颜色，看自己喜欢，或是参考好看的文献Figure用法。</span>
+</span></span><span class="line"><span class="cl">           <span class="n">lab</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span><span class="n">lab_size</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span>    <span class="c1">#相关系数文本字体大小</span>
+</span></span><span class="line"><span class="cl">           <span class="n">tl.cex</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span>             <span class="c1">#坐标轴字体大小</span>
+</span></span><span class="line"><span class="cl">           <span class="n">p.mat</span> <span class="o">=</span> <span class="n">pmtcars</span><span class="p">,</span>         <span class="c1">#添加显著性信息</span>
+</span></span><span class="line"><span class="cl">           <span class="n">sig.level</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">,</span>        <span class="c1">#显著性水平</span>
+</span></span><span class="line"><span class="cl">           <span class="n">pch</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>                 <span class="c1">#不够显著的色块进行标记，pch表示选择不同的标记方法，可以尝试其他数字表示什么标记方法</span>
+</span></span><span class="line"><span class="cl">           <span class="n">pch.cex</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>            <span class="c1">#不显著标记的大小，使用insig = &#34;blank&#34;将不显著的空白处理</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp" title="相关系数热力图" data-thumbnail="/img/R语言基础2.zh-cn-20240523131720601.webp" data-sub-html="<h2> </h2><p>相关系数热力图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131720601.webp" />
+    </a><figcaption class="image-caption">相关系数热力图</figcaption>
+    </figure></p>
+<h3 id="气泡图">气泡图</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 设置工作环境</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面/R&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">中国城市数据库 <span class="o">&lt;-</span> <span class="n">readxl</span><span class="o">::</span><span class="nf">read_excel</span><span class="p">(</span><span class="s">&#34;中国城市数据库.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载包</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改数据库名字</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span>中国城市数据库<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span>中国城市数据库<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="o">&lt;-</span><span class="nf">rename</span><span class="p">(</span>中国城市数据库<span class="p">,</span><span class="n">year</span> <span class="o">=</span> 年份 <span class="p">,</span><span class="n">GDP</span> <span class="o">=</span> <span class="nf">`地区生产总值</span><span class="p">(</span>万元<span class="p">)</span><span class="n">` ,one = `</span>第一产业增加值<span class="p">(</span>万元<span class="p">)</span><span class="n">` ,id=`</span>行政区划代码<span class="n">`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="n">pro</span> <span class="o">=</span> <span class="nf">substr</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="c1">#拆卸字符，cityid前两位代表省份</span>
+</span></span><span class="line"><span class="cl">             <span class="n">lgone</span><span class="o">=</span><span class="nf">log</span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>  <span class="c1">#对数化</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 画图</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data[1</span><span class="o">:</span><span class="m">400</span><span class="p">,</span><span class="n">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">mapping</span> <span class="o">=</span><span class="nf">aes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">              <span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">y</span><span class="o">=</span><span class="n">GDP</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">size</span><span class="o">=</span><span class="n">lgone</span><span class="p">,</span> <span class="c1">#气泡大小权重</span>
+</span></span><span class="line"><span class="cl">              <span class="n">color</span> <span class="o">=</span> <span class="n">pro</span><span class="p">,</span><span class="c1">#线条颜色分组，根据省份分组</span>
+</span></span><span class="line"><span class="cl">              <span class="n">fill</span> <span class="o">=</span> <span class="n">pro</span><span class="p">))</span><span class="c1">#填充颜色分组，根据省份分组</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="m">21</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">.5</span><span class="p">)</span><span class="o">+</span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="n">pro</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp" title="气泡图" data-thumbnail="/img/R语言基础2.zh-cn-20240523131735035.webp" data-sub-html="<h2> </h2><p>气泡图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131735035.webp" />
+    </a><figcaption class="image-caption">气泡图</figcaption>
+    </figure></p>
+<h3 id="图片合并">图片合并</h3>
+<p>推荐阅读<a href="https://cloud.tencent.com/developer/article/1515198" target="_blank" rel="noopener noreffer ">目前最全的R语言-图片的组合与拼接</a></p>
+<h4 id="加载包和绘图">加载包和绘图</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1">#加载绘图包</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggprism</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">reshape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggpubr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">13</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">B</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">8</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">C</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">13</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">D</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df1</span><span class="o">=</span><span class="nf">melt</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;group&#34;</span><span class="p">,</span><span class="s">&#34;value&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fig.1</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">group</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">value</span><span class="p">))</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stat_boxplot</span><span class="p">(</span><span class="n">geom</span> <span class="o">=</span> <span class="s">&#34;errorbar&#34;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">group</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">               <span class="n">outlier.colour</span><span class="o">=</span><span class="s">&#34;white&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_jitter</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;candy_bright&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_fontface</span> <span class="o">=</span> <span class="s">&#34;plain&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_family</span> <span class="o">=</span> <span class="s">&#34;serif&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_size</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_line_size</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">axis_text_angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_fill_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;candy_bright&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="o">=</span><span class="s">&#34;none&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fig.2</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span> <span class="n">df1</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">group</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">value</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">group</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="n">group</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&#34;summary&#34;</span><span class="p">,</span><span class="n">fun</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s">&#34;dodge&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun.data</span> <span class="o">=</span> <span class="s">&#39;mean_sd&#39;</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s">&#34;errorbar&#34;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">0.3</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#34;Samples&#34;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="kc">NULL</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;candy_bright&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_fontface</span> <span class="o">=</span> <span class="s">&#34;plain&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_family</span> <span class="o">=</span> <span class="s">&#34;serif&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_size</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_line_size</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">axis_text_angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_fill_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;candy_bright&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="o">=</span><span class="s">&#34;none&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fig.3</span>
+</span></span><span class="line"><span class="cl"><span class="n">p3</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">group</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">value</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="n">group</span><span class="p">))</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_violin</span><span class="p">(</span><span class="n">trim</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span><span class="n">position</span> <span class="o">=</span> <span class="nf">position_dodge</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">))</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">outlier.size</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s">&#34;white&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun</span><span class="o">=</span><span class="s">&#34;mean&#34;</span><span class="p">,</span><span class="n">geom</span><span class="o">=</span><span class="s">&#34;point&#34;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#34;Samples&#34;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="kc">NULL</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;flames&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_fontface</span> <span class="o">=</span> <span class="s">&#34;plain&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_family</span> <span class="o">=</span> <span class="s">&#34;serif&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_size</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">base_line_size</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis_text_angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_fill_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;candy_bright&#34;</span><span class="p">)</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fig.4</span>
+</span></span><span class="line"><span class="cl"><span class="n">p4</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_segment</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">xend</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">yend</span><span class="o">=</span><span class="n">B</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">&#34;grey&#34;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_point</span><span class="p">(</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">B</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">A</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">4</span> <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_prism</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s">&#34;pearl&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_fontface</span> <span class="o">=</span> <span class="s">&#34;plain&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">base_family</span> <span class="o">=</span> <span class="s">&#34;serif&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_size</span> <span class="o">=</span> <span class="m">14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">base_line_size</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">axis_text_angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;Lollipop Chart&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="组合图片">组合图片</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># cowplot包</span>
+</span></span><span class="line"><span class="cl"><span class="n">cowplot</span><span class="o">::</span><span class="nf">plot_grid</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span><span class="p">,</span><span class="n">ncol</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># gridExtra包</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gridExtra</span><span class="o">::</span><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span><span class="p">,</span>                        <span class="n">layout_matrix</span><span class="o">=</span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)))</span><span class="c1">#将图形分割为4个区域，上面两个放置图1与图2，下面两个区域则放置图3与图4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gridExtra</span><span class="o">::</span><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span><span class="p">,</span>                      <span class="n">layout_matrix</span><span class="o">=</span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)))</span><span class="c1">#横向排列</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gridExtra</span><span class="o">::</span><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span><span class="p">,</span>                    <span class="n">layout_matrix</span><span class="o">=</span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">)))</span><span class="c1">#纵向排列</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp" title="2*2的分割" data-thumbnail="/img/R语言基础2.zh-cn-20240523131750366.webp" data-sub-html="<h2> </h2><p>2*2的分割</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131750366.webp" />
+    </a><figcaption class="image-caption">2*2的分割</figcaption>
+    </figure></p>
+<h2 id="计量">计量</h2>
+<p>推荐包，知乎大佬@ <a href="https://zhuanlan.zhihu.com/p/281150493" target="_blank" rel="noopener noreffer ">包寒吴霜</a>开发的 <code>bruceR</code> 包，开发目的还是为了取代 spss !我经常看大佬关于回归的文章分享，在大佬看来，经济学的回归只是一般/广义/多层线性模型的特殊变形。</p>
+<blockquote>
+<p>由于 R 语言主要是生物医学统计在用，主流的 R 包三线表和经济学的三线表要求并不相同。</p>
+</blockquote>
+<h3 id="描述性统计和输出">描述性统计和输出</h3>
+<h4 id="描述统计">描述统计</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">bruceR</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span> <span class="c1">#R自带数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">mtcarsdemo</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;mpg&#34;</span><span class="p">,</span> <span class="s">&#34;disp&#34;</span><span class="p">,</span> <span class="s">&#34;hp&#34;</span><span class="p">,</span> <span class="s">&#34;drat&#34;</span><span class="p">,</span> <span class="s">&#34;wt&#34;</span><span class="p">,</span> <span class="s">&#34;qsec&#34;</span><span class="p">)</span><span class="n">]</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">Describe</span><span class="p">(</span><span class="n">mtcarsdemo</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&#34;describe&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="c1"># digits表示小数点保留位数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将结果输出到word</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp" title="输出效果" data-thumbnail="/img/R语言基础2.zh-cn-20240523131811114.webp" data-sub-html="<h2> </h2><p>输出效果</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131811114.webp" />
+    </a><figcaption class="image-caption">输出效果</figcaption>
+    </figure></p>
+<h4 id="相关性分析">相关性分析</h4>
+<p>大佬开发的包真是恐怖如斯！简短优雅还高效！</p>
+<p>还是继续用 <code>Describe</code> 命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">bruceR</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">Describe</span><span class="p">(</span><span class="n">mtcarsdemo</span><span class="p">,</span> <span class="c1">#数据集</span>
+</span></span><span class="line"><span class="cl">	<span class="n">digits</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 	 <span class="c1">#小数点</span>
+</span></span><span class="line"><span class="cl">	<span class="n">plot</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> 		 <span class="c1">#画图功能</span>
+</span></span><span class="line"><span class="cl">	<span class="n">upper.triangle</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="c1">#右上角的散点图</span>
+</span></span><span class="line"><span class="cl">	<span class="n">upper.smooth</span> <span class="o">=</span> <span class="s">&#34;loess&#34;</span><span class="p">)</span> <span class="c1">#拟合线，如果是lm为一次，loesss是二次</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp" title="bruceR的相关性分析，第一次使用时我惊呆了！" data-thumbnail="/img/R语言基础2.zh-cn-20240523131825614.webp" data-sub-html="<h2> </h2><p>bruceR的相关性分析，第一次使用时我惊呆了！</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131825614.webp" />
+    </a><figcaption class="image-caption">bruceR的相关性分析，第一次使用时我惊呆了！</figcaption>
+    </figure></p>
+<h3 id="回归和-word-输出">回归和 word 输出</h3>
+<h4 id="回归">回归</h4>
+<ul>
+<li><code>robust=&quot;HC1&quot;</code>: 稳健性模式设置，HC 1 就是 stata 中的 <code>reg y x,r</code></li>
+<li><code>cluster=&quot;stratum&quot;</code>: 和 stata 相同， cluster 是层次聚类解决自相关</li>
+<li><code>family=binomial</code>: 是否二项回归</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">regress</span><span class="p">(</span><span class="n">Temp</span> <span class="o">~</span> <span class="n">Month</span> <span class="o">+</span> <span class="n">Day</span> <span class="o">+</span> <span class="n">Wind</span> <span class="o">+</span> <span class="n">Solar.R</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">airquality</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">regress</span><span class="p">(</span><span class="n">case</span> <span class="o">~</span> <span class="n">age</span> <span class="o">+</span> <span class="n">parity</span> <span class="o">+</span> <span class="n">education</span> <span class="o">+</span> <span class="n">spontaneous</span> <span class="o">+</span> <span class="n">induced</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="n">infert</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">binomial</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="s">&#34;HC1&#34;</span><span class="p">,</span> <span class="n">cluster</span><span class="o">=</span><span class="s">&#34;stratum&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="回归输出">回归输出</h4>
+<p><code>bruceR</code> 包是将 reg 的三线表输出并入到了广义多层次回归中，</p>
+<p>下面两个回归代码是等价的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 代码一：</span>
+</span></span><span class="line"><span class="cl"><span class="n">lm2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">Temp</span> <span class="o">~</span> <span class="n">Month</span> <span class="o">+</span> <span class="n">Day</span> <span class="o">+</span> <span class="n">Wind</span> <span class="o">+</span> <span class="n">Solar.R</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">airquality</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">model_summary</span><span class="p">(</span><span class="n">lm2</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="s">&#34;HC1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 代码二：</span>
+</span></span><span class="line"><span class="cl"><span class="nf">regress</span><span class="p">(</span><span class="n">Temp</span> <span class="o">~</span> <span class="n">Month</span> <span class="o">+</span> <span class="n">Day</span> <span class="o">+</span> <span class="n">Wind</span> <span class="o">+</span> <span class="n">Solar.R</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">airquality</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>所以通过 <code>lm</code> 模型来输出回归结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">bruceR</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span> <span class="c1">#自带数据库</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lm1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">Temp</span> <span class="o">~</span> <span class="n">Month</span> <span class="o">+</span> <span class="n">Day</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">airquality</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lm2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">Temp</span> <span class="o">~</span> <span class="n">Month</span> <span class="o">+</span> <span class="n">Day</span> <span class="o">+</span> <span class="n">Wind</span> <span class="o">+</span> <span class="n">Solar.R</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">airquality</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">model_summary</span><span class="p">(</span><span class="n">lm1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">model_summary</span><span class="p">(</span><span class="n">lm2</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="s">&#34;HC1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">model_summary</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">lm1</span><span class="p">,</span> <span class="n">lm2</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;OLS Models.doc&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp" title="回归结果" data-thumbnail="/img/R语言基础2.zh-cn-20240523131847113.webp" data-sub-html="<h2> </h2><p>回归结果</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础2.zh-cn-20240523131847113.webp" />
+    </a><figcaption class="image-caption">回归结果</figcaption>
+    </figure></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-04-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/r2/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r2/" data-title="R 语言笔记 2 : 数据清洗、绘图与计量" data-hashtags="R"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r2/" data-hashtag="R"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r2/" data-title="R 语言笔记 2 : 数据清洗、绘图与计量"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r2/" data-title="R 语言笔记 2 : 数据清洗、绘图与计量"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r2/" data-title="R 语言笔记 2 : 数据清洗、绘图与计量" data-image="/img/R语言基础.zh-cn-20240523130853495.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/r/">R</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/r1/" class="prev" rel="prev" title="R 语言基础 1：界面介绍与语法结构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>R 语言基础 1：界面介绍与语法结构</a>
+            <a href="/zh-cn/posts/zoteronote/" class="next" rel="next" title="Zotero 7 Better note 实证经济学笔记模板">Zotero 7 Better note 实证经济学笔记模板<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

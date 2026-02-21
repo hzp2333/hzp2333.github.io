@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Microeconomics: Roy Hotelling Shephard - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Microeconomics: Roy Hotelling Shephard" />
+<meta property="og:description" content="This document explores the economic formulas associated with Roy, Hotelling, and Shephard. These theories are utilized as methods for solving problems in a textbook but are not covered in another reference book, hence they are documented here as supplementary material." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-13T17:23:04+08:00" />
+<meta property="article:modified_time" content="2023-09-13T17:23:04+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Microeconomics: Roy Hotelling Shephard"/>
+<meta name="twitter:description" content="This document explores the economic formulas associated with Roy, Hotelling, and Shephard. These theories are utilized as methods for solving problems in a textbook but are not covered in another reference book, hence they are documented here as supplementary material."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/zjhl/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/shounian/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Microeconomics: Roy Hotelling Shephard",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7\/"
+        },"genre": "posts","keywords": "microeconomics","wordcount":  784 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7\/","datePublished": "2023-09-13T17:23:04+08:00","dateModified": "2023-09-13T17:23:04+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/flapxq/">简体中文</option><option value="/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/flapxq/">简体中文</option><option value="/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Microeconomics: Roy Hotelling Shephard</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Learning</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-13">2023-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;784 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp"
+        data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112059878.webp 2x"
+        data-sizes="auto"
+        alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp"
+        title="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overall-understanding-framework">Overall Understanding Framework</a></li>
+    <li><a href="#i-shepards-lemma">I. Shepard&rsquo;s Lemma</a>
+      <ul>
+        <li><a href="#production-theory-cost-minimization">Production Theory, Cost Minimization</a></li>
+        <li><a href="#proof-process">Proof Process:</a></li>
+        <li><a href="#application-example">Application Example:</a></li>
+      </ul>
+    </li>
+    <li><a href="#ii-roys-identity">II. Roy&rsquo;s Identity</a>
+      <ul>
+        <li><a href="#consumption-theory-utility-maximization">Consumption Theory, Utility Maximization</a></li>
+        <li><a href="#proof-process-1">Proof Process:</a></li>
+        <li><a href="#application-example-1">Application Example:</a></li>
+      </ul>
+    </li>
+    <li><a href="#iii-hotellings-lemma">III. Hotelling&rsquo;s Lemma</a>
+      <ul>
+        <li><a href="#production-theory-profit-maximization">Production Theory, Profit Maximization</a></li>
+        <li><a href="#proof-process-2">Proof Process:</a></li>
+        <li><a href="#application-example-2">Application Example:</a></li>
+      </ul>
+    </li>
+    <li><a href="#iv-supplement">IV. Supplement</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="microeconomics-roys-identity-hotellings-lemma-and-shephards-lemma">Microeconomics: Roy&rsquo;s Identity, Hotelling&rsquo;s Lemma, and Shephard&rsquo;s Lemma</h1>
+<blockquote>
+<p>&ldquo;Microeconomic Theory: Eighteen Lectures by Ping Xinqiao&rdquo; directly uses the above three as calculation methods for post-class exercises, but &ldquo;Microeconomics: A Modern Approach&rdquo; (Varian) does not mention this part of the knowledge (the mathematics in Ping Xinqiao feels quite challenging), so this is a supplementary record. &gt; &ldquo;Microeconomic Theory: Eighteen Lectures&rdquo; (Ping Xinqiao) is available in the attachment (from Z-Library).</p>
+</blockquote>
+<p><a href="https://pan.baidu.com/link/zhihu/7ph3zMubh4iTezc0RkMtMyxEOaXyQ1RQUZZz==" target="_blank" rel="noopener noreffer ">Microeconomic Theory: Eighteen Lectures (Ping Xinqiao) (Z-Library).pdf</a></p>
+<h2 id="overall-understanding-framework">Overall Understanding Framework</h2>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp" title="A Hicksian demand function spanning various knowledge points" data-thumbnail="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112139178.webp" data-sub-html="<h2> </h2><p>A Hicksian demand function spanning various knowledge points</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp"
+            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 2x"
+            data-sizes="auto"
+            alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112139178.webp" />
+    </a><figcaption class="image-caption">A Hicksian demand function spanning various knowledge points</figcaption>
+    </figure></p>
+<ul>
+<li>Shepard&rsquo;s lemma, given production functions, minimizes costs;</li>
+<li>Roy&rsquo;s identity, given budget constraints, maximizes utility;</li>
+<li>Hotelling&rsquo;s lemma is about unconstrained profit functions.</li>
+</ul>
+<blockquote>
+<p>They are all analyses of envelope problems.</p>
+</blockquote>
+<h2 id="i-shepards-lemma">I. Shepard&rsquo;s Lemma</h2>
+<h3 id="production-theory-cost-minimization">Production Theory, Cost Minimization</h3>
+<p>Given the production function, minimize cost:
+$$
+\min \sum_{i=1}^{n} w_i x_i \\
+\text{subject to } \bar{y} = f(x_1, x_2, \ldots, x_n)
+$$</p>
+<p>We construct the Lagrangian function to solve:
+$$
+\mathcal{L} = \sum_{i=1}^{n} w_i x_i - \lambda (\bar{y} - f(x_1, x_2, \ldots, x_n))
+$$</p>
+<p>Taking partial derivatives with respect to $x_i$ and $\lambda$ and setting them to zero, we solve for the optimal input $x_i^*$ and substitute it into the cost function to obtain the minimum cost $\sum_{i=1}^{n} w_i x_i^*$.</p>
+<p>Varian&rsquo;s textbook often uses geometric methods:
+$$
+\large \bbox[#def,10px,border: 5px solid]{\frac{\Delta x_2}{\Delta x_1} = -\frac{MP_1(x_1^*, x_2^*)}{MP_2(x_1^*, x_2^*)} = -\frac{w_1}{w_2}}
+$$</p>
+<h3 id="proof-process">Proof Process:</h3>
+<p>$$
+\begin{align}
+x_j(\mathbf{w}, y) &amp;= \frac{\partial c(\mathbf{w}, y)}{\partial w_j} \\
+&amp;= \frac{\partial \sum_{i=1}^{n} w_i x_i}{\partial w_j} \\
+&amp;= x_j + \sum_{i=1}^{n} w_i \frac{\partial x_i}{\partial w_j}
+\end{align}
+$$</p>
+<p>Given the first-order condition from the Lagrangian:
+$$
+\frac{\partial \mathcal{L}}{\partial x_i} = w_i - \lambda f(x_1, \ldots, x_n) = 0 \\
+\Rightarrow w_i = \lambda f(x_1, \ldots, x_n)
+$$</p>
+<p>Substituting back, we get:
+$$
+x_j + \lambda \sum_{i=1}^{n} f(x, \ldots, x) \frac{\partial x_i}{\partial w_j}
+$$</p>
+<p>Given the production function constraint:
+$$
+\bar{y} = f(x_1, x_2, \ldots, x_n)
+$$</p>
+<p>Thus, the derivative with respect to $w_j$ is zero:
+$$
+\frac{\partial \bar{y}}{\partial w_j} = \frac{\partial f(x_1, x_2, \ldots, x_n)}{\partial w_j} = 0
+$$</p>
+<h3 id="application-example">Application Example:</h3>
+<blockquote>
+<p>Total cost function: $C = qv^{2/3}v^{1/3}$</p>
+</blockquote>
+<p>(1) Use Shepard&rsquo;s lemma to calculate the factor demand functions for kk and ll.</p>
+<p>(2) Derive the potential production function based on the results from (1).</p>
+<p>(1)
+$$
+\begin{aligned}
+l &amp;= \frac{\partial C}{\partial w} = \frac{2}{3} q \left(\frac{v}{w}\right)^{1/3} \\
+k &amp;= \frac{\partial C}{\partial v} = \frac{1}{3} q \left(\frac{w}{v}\right)^{2/3}
+\end{aligned}
+$$</p>
+<p>(2) Eliminate $\frac{v}{w}$ from (1):
+$$
+q = \left(\frac{3}{2}\right)^{2/3} 3^{1/3} l^{2/3} k^{1/3} = B l^{2/3} k^{1/3}
+$$
+where $B = \left(\frac{3}{2}\right)^{2/3} 3^{1/3}$.</p>
+<h2 id="ii-roys-identity">II. Roy&rsquo;s Identity</h2>
+<h3 id="consumption-theory-utility-maximization">Consumption Theory, Utility Maximization</h3>
+<p>Given budget constraints, maximize utility:
+$$
+\max u = f(x_1, x_2, \ldots, x_n) \\
+\text{subject to } \sum_{i=1}^{n} x_i p_i = m
+$$</p>
+<p>Varian often uses geometric methods:
+$$
+\large \bbox[#def,10px,border: 5px solid]{\frac{\Delta x_2}{\Delta x_1} = -\frac{MU_1(x_1^*, x_2^*)}{MU_2(x_1^*, x_2^*)} = -\frac{p_1}{p_2}}
+$$</p>
+<h3 id="proof-process-1">Proof Process:</h3>
+<p>The Lagrangian function is:
+$$
+\mathcal{L} = u(\mathbf{x}) - \lambda (\mathbf{p} \cdot \mathbf{x} - m)
+$$</p>
+<p>Taking partial derivatives with respect to $x_i$:
+$$
+\frac{\partial \mathcal{L}(\mathbf{x}^f, \lambda^f)}{\partial x_i} = \frac{\partial u(\mathbf{x}^f)}{\partial x_i} - \lambda^f p_i = 0
+$$</p>
+<p>The shadow price $\lambda$ is:
+$$
+\lambda = \frac{\partial v(\mathbf{p}, m)}{\partial m}
+$$</p>
+<p>Using Roy&rsquo;s identity:
+$$
+x_i^m = -\frac{\partial v / \partial p_i}{\partial v / \partial m}
+$$</p>
+<h3 id="application-example-1">Application Example:</h3>
+<blockquote>
+<p>Ping Xinqiao&rsquo;s &ldquo;Microeconomic Theory: Eighteen Lectures,&rdquo; Lecture 16, &ldquo;General Equilibrium and Two Fundamental Principles of Welfare Economics&rdquo;</p>
+</blockquote>
+<p>Given:
+$$
+\begin{aligned}
+u^1(x_1, x_2) &amp;= \min{x_1, x_2} &amp; e^1 = (30, 0) \\
+v^2(p, y) &amp;= \frac{y}{2 \sqrt{p_1 p_2}} &amp; e^2 = (0, 20)
+\end{aligned}
+$$</p>
+<p>Find the Walrasian equilibrium.</p>
+<h2 id="iii-hotellings-lemma">III. Hotelling&rsquo;s Lemma</h2>
+<p>Hotelling&rsquo;s lemma is about unconstrained profit functions.</p>
+<h3 id="production-theory-profit-maximization">Production Theory, Profit Maximization</h3>
+<p>Given the profit function:
+$$
+\pi(p) = \max_x p \cdot f(x(p, w)) - w \cdot x(p, w)
+$$</p>
+<p>Hotelling&rsquo;s lemma:
+$$
+\large \bbox[#def,10px,border: 5px solid]{y^*(p) = \frac{d \pi(p)}{dp}}
+$$</p>
+<h3 id="proof-process-2">Proof Process:</h3>
+<p>Given:
+$$
+\pi(p) = \max_x p \cdot f(x(p, w)) - w \cdot x(p, w)
+$$</p>
+<p>First-order condition:
+$$
+p \frac{\partial f(x(p, w))}{\partial x} - w = 0
+$$</p>
+<p>Differentiating the profit function with respect to $p$:
+$$
+\frac{\partial \pi(p, w)}{\partial p} = f(x(p, w)) + p \frac{d f(x(p, w))}{dx} \cdot \frac{\partial x(p, w)}{\partial p} - w \frac{\partial x(p, w)}{\partial p}
+$$</p>
+<p>The blue part equals zero:
+$$
+(p \frac{\partial f(x(p, w))}{\partial x} - w) \frac{\partial x(p, w)}{\partial p} = 0
+$$</p>
+<h3 id="application-example-2">Application Example:</h3>
+<blockquote>
+<p>Ping Xinqiao&rsquo;s &ldquo;Microeconomic Theory: Eighteen Lectures,&rdquo; Lecture 7, &ldquo;Factor Demand Functions, Cost Functions, Profit Functions, and Supply Functions&rdquo;</p>
+</blockquote>
+<p>Given production function:
+$$
+f(x_1, x_2) = 0.5 \ln x_1 + 0.5 \ln x_2
+$$</p>
+<p>Find the profit function $\pi(w_1, w_2, p)$ and derive the supply function using two methods.</p>
+<h2 id="iv-supplement">IV. Supplement</h2>
+<p>These lemmas are based on envelope analysis in mathematical economics. The dual problems of cost minimization and profit maximization are dual problems, with parameters $\lambda$ being reciprocals.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-09-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" data-title="Microeconomics: Roy Hotelling Shephard" data-via="ygVNLSZ1omFBCeB" data-hashtags="microeconomics"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" data-hashtag="microeconomics"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" data-title="Microeconomics: Roy Hotelling Shephard"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" data-title="Microeconomics: Roy Hotelling Shephard"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" data-title="Microeconomics: Roy Hotelling Shephard" data-image="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112059878.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/microeconomics/">microeconomics</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/zjhl/" class="prev" rel="prev" title="Goodbye, Eri: Not Remembering Others, but Knowing Oneself"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Goodbye, Eri: Not Remembering Others, but Knowing Oneself</a>
+            <a href="/en/posts/shounian/" class="next" rel="next" title="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;">Convergence: From "The Limit of Equations" to "The Limit of Growth"<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

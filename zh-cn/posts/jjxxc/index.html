@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>经济学的修辞 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="经济学的修辞" />
+<meta property="og:description" content="《经济学的修辞》从文学批评的角度谈论了经济学著作甚至是数学模型内涵的文学性，视角非常独到。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-16T07:52:19+08:00" />
+<meta property="article:modified_time" content="2024-10-16T07:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="经济学的修辞"/>
+<meta name="twitter:description" content="《经济学的修辞》从文学批评的角度谈论了经济学著作甚至是数学模型内涵的文学性，视角非常独到。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/gis/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/event3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "经济学的修辞",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/jjxxc\/"
+        },"genre": "posts","keywords": "阅读, 文学","wordcount":  3951 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/jjxxc\/","datePublished": "2024-10-16T07:52:19+08:00","dateModified": "2024-10-16T07:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/jjxxc/" selected>简体中文</option><option value="/en/posts/jjxxc/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/jjxxc/" selected>简体中文</option><option value="/en/posts/jjxxc/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">经济学的修辞</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-10-16">2024-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3951 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016140628354.webp"
+        data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016140628354.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016140628354.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016140628354.webp 2x"
+        data-sizes="auto"
+        alt="/img/经济学修辞.zh-cn-20241016140628354.webp"
+        title="/img/经济学修辞.zh-cn-20241016140628354.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#何为修辞如何去做">何为修辞，如何去做？</a>
+      <ul>
+        <li><a href="#权威的匿名发言代理人">权威的匿名发言代理人。</a></li>
+        <li><a href="#创作者技巧">创作者技巧。</a></li>
+        <li><a href="#表演">表演。</a></li>
+      </ul>
+    </li>
+    <li><a href="#经济学的文学特点科学文学艺术">经济学的文学特点：科学、文学、艺术</a></li>
+    <li><a href="#经济学的修辞手法">经济学的修辞手法</a></li>
+    <li><a href="#量化需要修辞吗">量化需要修辞吗？</a>
+      <ul>
+        <li><a href="#关于多大算大">关于“多大算大”</a></li>
+        <li><a href="#关于那又怎样">关于“那又怎样”</a></li>
+        <li><a href="#计量需要注意的地方">计量需要注意的地方</a></li>
+      </ul>
+    </li>
+    <li><a href="#修辞会是未来的学科吗">修辞会是未来的学科吗？</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>作者的经济学修辞学三部曲：《如果你那么聪明》、《经济学的修辞》、《经济学家的恶习》都是谈论经济学的文学批评。极不推荐第一部作品，流水账般细碎的文学批评让人生厌，华丽的辞藻掩盖不了谋篇布局的苍白，从第二部开始则好了很多。本文是对第二部的总结。</p>
+</blockquote>
+<p>修辞，也就是<strong>带着目的去说服</strong>。古希腊使用论点，构建，风格建立修辞的框架，当代的经济学修辞则有了更饱满的血肉——事实，故事，逻辑，隐喻。不同于抽象的，只为描述而建立的自然语言，混合而成的社会科学文章其实是“<font color="#ff0000">带着意图去写作</font>”，从而让经济学具有了修辞的人文特色。</p>
+<blockquote>
+<p>在本博客中，“作者”全部代指《经济学的修辞》的作者 <a href="https://www.deirdremccloskey.com/" target="_blank" rel="noopener noreffer ">Deirdre N. McCloskey</a>。</p>
+</blockquote>
+<p><strong>修辞分析结构表格图：</strong></p>
+<p>四个修辞角度：事实、故事、逻辑、隐喻。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">非人格化</th>
+<th style="text-align:left">坐标轴</th>
+<th style="text-align:left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">事实</td>
+<td style="text-align:left">故事</td>
+<td style="text-align:left">特殊</td>
+<td><strong>特殊性</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">逻辑</td>
+<td style="text-align:left">隐喻</td>
+<td style="text-align:left">普遍</td>
+<td><strong>坐标轴</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">非人格化</td>
+<td style="text-align:left">人格化</td>
+<td style="text-align:left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="何为修辞如何去做">何为修辞，如何去做？</h2>
+<h3 id="权威的匿名发言代理人">权威的匿名发言代理人。</h3>
+<p>经济学并非上帝之声，而是人用语言去说服别人相信某个道理。虽然是人的语言，却要<strong>假装自己是历史规律的代言人</strong>，将自己匿名隐喻成科学本身。</p>
+<blockquote>
+<p>不必为我鼓掌，观众们，今天发言的是历史之声。</p>
+</blockquote>
+<p>因此经济学总是使用永恒的<strong>现在进行时</strong>讲述工厂生产，利润回报公式，即便这些组织形式理应在历史环境中分析。</p>
+<h3 id="创作者技巧">创作者技巧。</h3>
+<p>一为<strong>诗人与隐喻</strong>。</p>
+<p>将博弈论延伸到国家上，市场成为竞争的舞台，经济学家会对自己的国家喊话“我们将要输掉比赛，因为我们有 xx 问题”。隐喻为模型的必要性增加了说服力。以网状比喻关系，以小公司比喻家庭，以耐用品比喻子女&hellip;&hellip;</p>
+<p>二是<strong>小说家</strong>。</p>
+<p>经济学要学会组合故事。</p>
+<p>xx 原本很穷，但后来去搞了资本主义，于是 xx 就变富有了。故事组合就是将彼此关联的事件，按照状态描述，动作实施，内在关联（引发，时间关系）进行组合（正面与反面）。</p>
+<p>每一次故事的结尾意味着<strong>新的状态</strong>，在经济学中，完美与不完美的结局就是均衡与非均衡。完美的故事需要一个谢幕，也就是结局状态的预言而非仅仅只是过去总结，这一点是可以画上延长线的。</p>
+<p>缺少动作、状态的文本不属于故事。</p>
+<p>经济学家如此强调从外生变量开始讲述，是因为在故事系统里，这能成为开始。如果是从内生变量讲述，故事就像从中间开始讲述一样。</p>
+<p>这也是出于思辨的考虑，如果把历史的坏账全部怪到显而易见的角色上，结尾是非常没有启发性的。</p>
+<h3 id="表演">表演。</h3>
+<p>小说并不模仿现实，小说创造现实。好的经济学论文影响深远的往往是拗口晦涩的句子，凯恩斯的《就业利息货币通论》便是例子。写论文时请尝试创造“作者的听众”（知道故事是虚构的）和“叙述的听众”（不知道故事是虚构的）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<p>因为经济学家自身需要意识到，自身并非一定在陈述事实，而是在创造听众。</p>
+<p><font color="#ff0000"><strong>文章都有隐含的作者，隐含的读者，一段历史，一种形式。</strong></font></p>
+<h2 id="经济学的文学特点科学文学艺术">经济学的文学特点：科学、文学、艺术</h2>
+<p>作者写这本书的目的是为了探讨经济学、科学、文本的界限。在作者看来，<strong>科学只是一种讲话方式而非真理的一个领域</strong>。</p>
+<ul>
+<li>科学都需要文本来表达。</li>
+<li>科学的实验资源又有限，很多时候人们根据理论的美感来判断理论的检验价值。</li>
+<li>文本说服人的方法如同文学与演讲。</li>
+</ul>
+<p>因此科学、文学、艺术具有交叉性而非传统语境的对立。</p>
+<blockquote>
+<p>对此，我个人持保留意见。</p>
+</blockquote>
+<p>经济学的论证有以下<strong>论证方法</strong>：</p>
+<blockquote>
+<p>前三点是英国科学论证的三点，从文学的角度，作者把这几点扩充到了更多。</p>
+</blockquote>
+<p>统计检验、特定市场分析、对于理论的实验、自省（如果发生了 xx，我会怎么做？）、思想实验（基于经验，设想他人面临 xx 情况会怎么做？）、案例、民间智慧（商人）、学院派的传统知识、定律的对称性（例如定义辉煌时期和垃圾时期）、单纯的定义、类比&hellip;&hellip;</p>
+<p>例如经济学论文不能描述物体的运动，而是刻画人的行为，这和文学塑造具有想通之处。即便经济学论文作者刻画的是一类人，读者在阅读经济学论文时虚构的也是具体的人而非抽象的物体运动，这种角色刻画和文学具有共通性。</p>
+<p>取名是修辞的一部分，也是刻画形象的一部分。例如“偏好”一词有很强烈的文学欲望的象征感，大部分经济学名词都有这种色彩，例如哈耶克的内生秩序，亚当斯密的动物精神&hellip;&hellip;</p>
+<h2 id="经济学的修辞手法">经济学的修辞手法</h2>
+<p>以萨缪尔森运用数学的方法举例——使用统计学和数学模型时用的是<font color="#ff0000">我们</font>，而讨论经济学命题时用的是<font color="#ff0000">我</font>。</p>
+<p>因为萨缪尔森在前言声明了“<strong>经济学命题是可讨论的，可推翻的</strong>”，&quot;<font color="#ff0000">我</font>&ldquo;更能展现一种讨论姿态，而&rdquo;<font color="#ff0000">我们</font>&ldquo;则是一种权威体现（默认这里的阐述是共识）。</p>
+<p>如果我们做一个实验，就会发现大部分人并不关心数学证明和统计细节，但数学存在本身就能增强说服力。</p>
+<p>约翰·穆勒谈论预期问题的论文强调了经济学教授的定位——以经济学研究者的角色批评人们对市场预期的迟缓。</p>
+<blockquote>
+<p>作者对于经济学预测功能的批评很有意思——经济学的预测都是条件预测，而条件预测在含义上总是符合经验的，又怎么可能得到真正意义上的超出预期呢？</p>
+<p>我也从其他人口中听过类似的观点——计量通过外生性进行因果分析，那怎么能指望计量来预测外生事件呢？</p>
+</blockquote>
+<p>福格尔使用了舍小求大的方法, 因为他在反驳主流结论“铁路建设促进了美国经济增长”。关于 x、y、系数——可能 y 很小；x 很大；我们高估了系数才导致了今天的结论。他的论文通过不确定性的暗示来进行理论怀疑。</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>福格尔<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Fogel 在铁路贡献中率先与河运比较，运用了历史量化测算和反事实的思想，启发了反事实因果推断。认为过去的观点高估了铁路的贡献。</p>
+<p>自他报告以后，经济学也开始利用量化史革新了经济史范式</p>
+<p>Dave 则受到启发，基于铁路扩张测量了市场可达性，进而建立了铁路，市场可入性的一般均衡，让比较优势能够被实证测量，于是获得了 2017 年的克拉克奖。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241024233711565.webp" title="Fogel" data-thumbnail="/img/经济学修辞.zh-cn-20241024233711565.webp" data-sub-html="<h2> </h2><p>Fogel</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241024233711565.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241024233711565.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241024233711565.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241024233711565.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学修辞.zh-cn-20241024233711565.webp" />
+    </a><figcaption class="image-caption">Fogel</figcaption>
+    </figure></p>
+</div>
+        </div>
+    </div>
+<p>科斯<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>的论文是律师的口吻，提出各种理论可能性后再一一反驳。科斯的论文就像古希腊雄辩的结构——绪论、叙述（事实）、分类详述（有争议的主张和没争议的主张）、举证、反驳、结语。因此企业的性质这篇经典论文充满了对抗性措辞。</p>
+<p>其他修辞法还有——诉诸权威、言语暗示（比喻竞争关系）、隐喻<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>（零合博弈、孩子是耐用品）、寓言（隐喻+故事）&hellip;&hellip;</p>
+<blockquote>
+<p>文学上的理解是如此宽泛&hellip;&hellip;</p>
+</blockquote>
+<h2 id="量化需要修辞吗">量化需要修辞吗？</h2>
+<p>两个问题——多大算大？那又怎样？</p>
+<h3 id="关于多大算大">关于“多大算大”</h3>
+<p>有些观点认为经济学将问题数学化后，纯数学的思考能够把人力所能及的范畴分离出去。但事实真是如此吗？</p>
+<p>数字多大算大？多大算大，多小算小，依旧是一个尝试说服别人的过程，这也依旧需要人去对比得到结论。于是过程依旧是包含修辞的。</p>
+<blockquote>
+<p>当然，如果大家学了高级计量<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>，就会发现假设检验原理是构造小概率事件——“第一类错误”“第二类错误”来检验显著性，这种做法虽然被公认为基本操作，但依旧是一个相对标准。</p>
+<p>我赞同<a href="https://zhentaoshi.github.io/" target="_blank" rel="noopener noreffer ">史震涛</a>老师对计量教学的看法—— “多大才可信”不但是统计学问题，更是哲学问题。高级计量只是让人开始思考这个问题。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016152827042.webp" title="史震涛老师的知乎回答" data-thumbnail="/img/经济学修辞.zh-cn-20241016152827042.webp" data-sub-html="<h2> </h2><p>史震涛老师的知乎回答</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016152827042.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016152827042.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016152827042.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%bf%ae%e8%be%9e.zh-cn-20241016152827042.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学修辞.zh-cn-20241016152827042.webp" />
+    </a><figcaption class="image-caption">史震涛老师的知乎回答</figcaption>
+    </figure>
+比如贝叶斯和频率学派就一直在争论，贝叶斯学派自己又分为主观学派和客观学派。看起来都是数学推导，但可信度度量的基本量构建始终离不开世界观。万物皆可哲学确实名不虚传。</p>
+<p>比如经典的例子——<strong>统计显著和经济显著应当是有所区分的</strong>。</p>
+</blockquote>
+<h3 id="关于那又怎样">关于“那又怎样”</h3>
+<p>经济学论文需要陈述给特定对象，你讲述是也是虚构的社会。而不同群体眼中的世界又有着不同的面貌，如果想要得到他们的承认，就需要去呼应这部分“共识”——那才是更容易引起人们关注的话题。</p>
+<h3 id="计量需要注意的地方">计量需要注意的地方</h3>
+<p>区分统计显著和经济显著。</p>
+<p>简而言之，论文论证不能只依赖统计显著。</p>
+<p>需要明确样本分布假设、系数的现实含义和形式（例如是否是弹性）、加入现实共识分析、显著性的严格界定、统计显著到现实影响的过度需要足够自然、统计意义、政策意义、科学意义、经济意义是不同的。（这部分取自 20 世纪 80 年代 AER 的统计显著错误应用记录）</p>
+<p>作者在后面对数学统计代表的现代主义攻击又千千万万，其实原则就一条：</p>
+<p>很多人把证伪视为科学，但证伪是一个任意性问题，现实的证据太多也不能保证概括了全部。而一个理论受到检验，在经济学中总是表现为大部分人对其感兴趣。于是作者在最后呼吁任何有规则的方法论都可能是错的<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。于是我们应该反反修辞，反现代主义。</p>
+<h2 id="修辞会是未来的学科吗">修辞会是未来的学科吗？</h2>
+<p>现在有两种趋势在经济学上显而易见。</p>
+<p>1、数学统计的基本功正在受到追捧。我在高级计量的课程上看到了历史学院的同学来选修，而经济学的前辈们又在向数学课迈进。数学与经济学的深入交叉正在成为一个常态。数理经济学学者在不断加入，标准也在被不断抬高。</p>
+<p>2、另一方面，当数学统计被广泛运用到一定地步，其合理性逐渐被质疑，数学的工具性确实有让步于修辞性的趋势。论文的立意、故事和启发性正在成为大家更感兴趣的存在。</p>
+<p>这种权衡正如“正确地得到结论”和“得到正确的结论”一样让人不知如何选择，也不知道最后哪个方向会占据主流。</p>
+<p>如果基于“说服”这唯一一点去审视科学，那么一切方法论规则都不再重要。按照作者如此自由的定义，世界观可能会变成<strong>功能导向</strong>的功利主义思维。</p>
+<p>但修辞学站在现代主义的对立面，无疑提供了一个崭新的视角去审视科学。<strong>创新需要天马行空，无所顾忌为此提供了跳板，因此我认为《经济学的修辞》绝对值得一看。</strong></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>确实，很多人连通知都发不好，就是不擅长自我虚构读者。个人推荐通过写博客来锻炼这种虚构能力。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>科斯是法律专业出身&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>作者甚至认为客观性是一种隐喻，隐喻需要利用词汇构建来影响人的判断。不过在我个人看来这一点定义可太宽泛了，几乎和修辞学本身重合。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>本科基本都概率论与数理统计已经说明了这一点，但我想大部分经济学专业的人要学到了高级计量才能真正体会到其中的思想&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>这个观点有点太自由了（&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-10-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/jjxxc/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" data-title="经济学的修辞" data-hashtags="阅读,文学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" data-hashtag="阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" data-title="经济学的修辞"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" data-title="经济学的修辞"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" data-title="经济学的修辞" data-image="/img/经济学修辞.zh-cn-20241016140628354.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E5%AD%A6/">文学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/gis/" class="prev" rel="prev" title=" arcGIS 批量转化 tif 为 excel"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> arcGIS 批量转化 tif 为 excel</a>
+            <a href="/zh-cn/posts/event3/" class="next" rel="next" title=" 计量：事件研究法 3"> 计量：事件研究法 3<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Stata: 爬虫学习 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Stata: 爬虫学习" />
+<meta property="og:description" content="GPT 总结: 这篇文章介绍了使用 Stata 进行网页爬取的方法和流程。首先，文章解释了什么是网页爬虫以及为什么爬取网页源代码是关键的步骤。然后，通过一个实例，详细介绍了如何使用 Stata 从网页中提取数据，并进行初步的清洗和处理。文章还提到了爬取多页数据的方法，并附上了一些参考资料和论文。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-06T13:19:39+08:00" />
+<meta property="article:modified_time" content="2024-03-06T13:19:39+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Stata: 爬虫学习"/>
+<meta name="twitter:description" content="GPT 总结: 这篇文章介绍了使用 Stata 进行网页爬取的方法和流程。首先，文章解释了什么是网页爬虫以及为什么爬取网页源代码是关键的步骤。然后，通过一个实例，详细介绍了如何使用 Stata 从网页中提取数据，并进行初步的清洗和处理。文章还提到了爬取多页数据的方法，并附上了一些参考资料和论文。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/font/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/kj_2024/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Stata: 爬虫学习",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/pachong\/"
+        },"genre": "posts","keywords": "爬虫, Stata","wordcount":  4307 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/pachong\/","datePublished": "2024-03-06T13:19:39+08:00","dateModified": "2024-03-06T13:19:39+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/pachong/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/pachong/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Stata: 爬虫学习</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-06">2024-03-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4307 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20241215155452334.webp"
+        data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20241215155452334.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20241215155452334.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20241215155452334.webp 2x"
+        data-sizes="auto"
+        alt="/img/stata爬虫学习.zh-cn-20241215155452334.webp"
+        title="/img/stata爬虫学习.zh-cn-20241215155452334.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#引入">引入</a></li>
+    <li><a href="#一抓取网页源代码">一、抓取网页源代码</a></li>
+    <li><a href="#二stata-爬虫">二、stata 爬虫</a>
+      <ul>
+        <li><a href="#1网站导入">1、网站导入</a></li>
+        <li><a href="#2初步切割">2、初步切割</a></li>
+        <li><a href="#3进一步切割">3、进一步切割</a></li>
+        <li><a href="#4整理保存">4、整理保存</a></li>
+        <li><a href="#5多页爬取">5、多页爬取</a></li>
+      </ul>
+    </li>
+    <li><a href="#三附件和参考资料">三、附件和参考资料：</a>
+      <ul>
+        <li><a href="#1参考资料">1、参考资料</a></li>
+        <li><a href="#2一些论文">2、一些论文</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="引入">引入</h2>
+<p>何谓爬虫？即“可见即可得”的抓取。每一个网站都有源代码，源代码中自然就包含了网站显示的信息。抓取源代码时，数据和代码混杂在一起，我们再进行清洗就可以得到干净的数据。 <strong>stata 代码附件放在结尾。爬虫代码复用性并不高，本文主要是记录爬虫学习过程。</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp" title="爬虫流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132508772.webp" data-sub-html="<h2> </h2><p>爬虫流程</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523132508772.webp" />
+    </a><figcaption class="image-caption">爬虫流程</figcaption>
+    </figure></p>
+<p>从整个爬虫过程来说，<strong>获取网站源代码是最关键的一步</strong>。对于严格加密的网站（例如&quot;中国裁判文书网&quot;），还要伪装 ip，进行多账号切换，突破文字加密等，遗憾的是这些 stata 都做不到。Stata 擅长的是对没有防备的网站爬取然后快速清洗，处理数据。虽然 stata 擅长的这部分——&ldquo;切分代码和数据&quot;只是熟练度的问题，不过对于个人来说，使用 stata 进行爬虫的初步学习还是挺友好的。</p>
+<h2 id="一抓取网页源代码">一、抓取网页源代码</h2>
+<p>数据网站：国信房地产信息网-土地市场库网站页面如下：</p>
+<blockquote>
+<p>部分学校购买了该数据库，可以看看能否 ip 登陆。</p>
+<p>使用 python 能伪装 ip 登陆，stata 目前似乎不行，本文只做学习分享。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp" title="网站" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132529559.webp" data-sub-html="<h2> </h2><p>网站</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523132529559.webp" />
+    </a><figcaption class="image-caption">网站</figcaption>
+    </figure></p>
+<p>右键——检查——右侧网站查看界面——点击进入“Network”</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp" title="如图" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132608238.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523132608238.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>之后我们切换网站的页数，这时候网站自然会更新数据，于是我们在右侧得到对应的数据变化源代码</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp" title="源代码" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132637510.webp" data-sub-html="<h2> </h2><p>源代码</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523132637510.webp" />
+    </a><figcaption class="image-caption">源代码</figcaption>
+    </figure>
+对于该网站的数据切换源代码，多切换几次可以发现控制<strong>页面变化的是代码是 p=2</strong>。同理，当 p=1 时，对应的是第一页的数据页面。遇上加密网站时，这个工作会很困难。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://www.crei.cn/tudi/tudibr1.aspx?p=2<span class="err">&amp;</span>x=a0f010000<span class="err">&amp;</span>k=<span class="err">&amp;</span>k1=<span class="err">&amp;</span>k2=<span class="err">&amp;</span>k3=<span class="err">&amp;</span>k4=<span class="err">&amp;</span>c=<span class="err">&amp;</span>j1=0<span class="err">&amp;</span>j2=0<span class="err">&amp;</span>m1=0<span class="err">&amp;</span>m2=0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="二stata-爬虫">二、stata 爬虫</h2>
+<h3 id="1网站导入">1、网站导入</h3>
+<p>先设定工作路径：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">  *-网站：国信房地产交易网：http://www<span class="m">.</span>crei<span class="m">.</span>cn/tudi/<span class="k">index</span><span class="m">.</span>aspx
+</span></span><span class="line"><span class="cl">  *-时间：2024年2月
+</span></span><span class="line"><span class="cl">  *-设置工作路径
+</span></span><span class="line"><span class="cl">	clear all
+</span></span><span class="line"><span class="cl">	global path <span class="s">&#34;F:\桌面\stata土地网爬虫&#34;</span>
+</span></span><span class="line"><span class="cl">	global prcs <span class="s">&#34;$path\process&#34;</span> 
+</span></span><span class="line"><span class="cl">	cd <span class="s">&#34;$D&#34;</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">set</span> scheme s2color   //绘图风格
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再导入网站，使用 stata 的 copy 命令将源代码导入。</p>
+<blockquote>
+<p>看情况使用 unicode 进行编码防止乱码。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">  *-[<span class="m">1</span>]url导入
+</span></span><span class="line"><span class="cl">    copy <span class="s">&#34;http://www.crei.cn/tudi/tudibr1.aspx?p=1</span><span class="nv">&amp;x</span><span class="s">=a0f000000</span><span class="nv">&amp;k</span><span class="s">=</span><span class="nv">&amp;k1</span><span class="s">=</span><span class="nv">&amp;k2</span><span class="s">=</span><span class="nv">&amp;k3</span><span class="s">=</span><span class="nv">&amp;k4</span><span class="s">=</span><span class="nv">&amp;c</span><span class="s">=</span><span class="nv">&amp;j1</span><span class="s">=0</span><span class="nv">&amp;j2</span><span class="s">=0</span><span class="nv">&amp;m1</span><span class="s">=0</span><span class="nv">&amp;m2</span><span class="s">=0 &#34;</span> <span class="s">&#34;test.txt&#34;</span>, <span class="k">replace</span>	
+</span></span><span class="line"><span class="cl">  *-Note：设置字体格式防止乱码，最后强制删除备份文件
+</span></span><span class="line"><span class="cl">  *-Note：储存1到第200000个字符并标记为变量v 
+</span></span><span class="line"><span class="cl">    local <span class="k">file</span> = <span class="s">&#34;test.txt&#34;</span>
+</span></span><span class="line"><span class="cl">    unicode analyze <span class="s">&#34;`file&#39;&#34;</span>
+</span></span><span class="line"><span class="cl">    unicode encoding <span class="k">set</span> gb18030
+</span></span><span class="line"><span class="cl">    local <span class="k">file</span> = <span class="s">&#34;test.txt&#34;</span>
+</span></span><span class="line"><span class="cl">    unicode translate <span class="s">&#34;`file&#39;&#34;</span>, transutf8
+</span></span><span class="line"><span class="cl">    unicode erasebackups, badidea
+</span></span><span class="line"><span class="cl">    local <span class="k">file</span> = <span class="s">&#34;test.txt&#34;</span>
+</span></span><span class="line"><span class="cl">    infix strL v <span class="m">1-200000</span> using <span class="s">&#34;`file&#39;&#34;</span>,clear
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可在 stata 里面对比网页源代码（进入对应网站后，右键查看网页源代码即可） ，可见下图：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp" title="stata" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523132656233.webp" data-sub-html="<h2> </h2><p>stata</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523132656233.webp" />
+    </a><figcaption class="image-caption">stata</figcaption>
+    </figure></p>
+<h3 id="2初步切割">2、初步切割</h3>
+<ul>
+<li><strong>keep 命令：</strong> 保留 stata 数据的哪些行</li>
+<li><strong>split 命令:</strong> 将表格的内容按照某个符号进行切割，分为多个单元格。</li>
+<li><strong>sxpose 命令：</strong> 数据转置重排</li>
+</ul>
+<blockquote>
+<p>结合网页源代码可以发现我们要的数据都在<code>&lt;font face=&quot;宋体&quot;&gt;</code>那一行。地产信息间有<code>&lt;tr onmouseover=this....</code>分割。结尾代码<code>&lt;/table&gt;&lt;br&gt;&lt;center&gt;</code>也应删掉。切割后转置一下。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">  *-[2]初步数据切割
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：使用 spit 函数对保留后的数据进行切割，这部分需要了解正则表达式
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：观察网页源代码，保留所需数据所在的行，这里注意到数据使用了宋体
+</span></span></span><span class="line"><span class="cl"><span class="cm">    keep if index (v,`&#34;&lt;span id=&#34;bra1&#34;&gt;&lt;font face=&#34;宋体&#34;&gt;&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">    split v ,p(`&#34;&lt;tr onmouseover=this.style.background=&#39;#BDDFFF&#39; onmouseout=this.style.background=&#39;#ffffff&#39;  style=&#39;background:#ffffff&#39; &gt;&lt;td style=&#39;height:35px&#39;&gt;&lt;div class=td1 style=&#39;width:42px;</span>text-align:center<span class="s">&#39;&gt;&#34;&#39;</span>)
+</span></span><span class="line"><span class="cl">  *-Note：额外去除下这段代码结尾的多余部分 v <span class="m">211</span> v <span class="m">212</span>
+</span></span><span class="line"><span class="cl">    split v <span class="m">21</span> ,p(`<span class="s">&#34; &lt;/table&gt;&lt;br&gt;&lt;center&gt;　&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">	*&lt;/table&gt;&lt;p align=left&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">	Drop v v 1 v 212 v 21
+</span></span></span><span class="line"><span class="cl"><span class="s">	Rename v 211 v 21
+</span></span></span><span class="line"><span class="cl"><span class="s">	Sxpose ,clear
+</span></span></span><span class="line"><span class="cl"><span class="s">  *-Note：sxpose 数据转置重排
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如图，到目前位置，第一页前 20 条数据已经被爬取下来并且进行了初步切割。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp" title="切割" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133224742.webp" data-sub-html="<h2> </h2><p>切割</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523133224742.webp" />
+    </a><figcaption class="image-caption">切割</figcaption>
+    </figure></p>
+<h3 id="3进一步切割">3、进一步切割</h3>
+<ul>
+<li><strong>replace:</strong> 将要切割的代码换成“滑翔闪”或者&quot;&ldquo;表示删除，然后一次性切割。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">  *-[3]进一步切割数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：把不要的中间字符换成知乎用户“滑翔闪”吧！
+</span></span></span><span class="line"><span class="cl"><span class="cm">	replace _var = subinstr (_var,`&#34;&lt;/div&gt;&lt;td title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="cm">	replace _var = subinstr (_var,`&#34;&#39;&gt;&lt;div class=td1 style=&#39;width:45px;</span>text-align:center<span class="s">&#39;&gt;&#34;&#39;</span>,<span class="s">&#34;滑翔闪&#34;</span>,.)
+</span></span><span class="line"><span class="cl">	<span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&lt;/div&gt;&lt;td align=left style=&#39;height: 26 px&#39;title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Replace _var = subinstr (_var, `&#34;//&#34;&#39;</span> ,<span class="s">&#34;&#34;</span>, .)
+</span></span><span class="line"><span class="cl">	<span class="k">replace</span> _var = subinstr (_var, `<span class="s">&#34;&#39;&gt;&lt;div class=td1 style=&#39;width:220px&#39;&gt;&lt;a href=http:www.crei.cn/tudi/tdbr.aspx?id=&#34;&#39; ,&#34;滑翔闪&#34;, .)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Replace _var = subinstr (_var, `&#34; target=_blank  class=tdbrw&gt;&#34;&#39;</span> ,<span class="s">&#34;滑翔闪&#34;</span>, .)
+</span></span><span class="line"><span class="cl">	<span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td title=&#39;&#34;&#39;, &#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;&#39;</span>&gt;&lt;div class=td1 style=<span class="s">&#39;width:40px;text-align:center&#39;</span>&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;</span>&lt;/div&gt;&lt;td width=<span class="m">40</span>&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;</span>&lt;/td&gt;&lt;td align=right&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Replace _var = subinstr (_var,`&#34;</span>&lt;td align=right <span class="k">title</span>=<span class="s">&#39;&#34;&#39;</span>,<span class="s">&#34;滑翔闪&#34;</span>,.)
+</span></span><span class="line"><span class="cl">	<span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&#39;&gt; *** &lt;/td&gt;&lt;td align=right title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;&#39;</span>&gt; *** &lt;/td&gt;&lt;td nowrap&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;</span>&lt;td nowrap&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	replace _var = subinstr (_var,`&#34;&#39;&gt; *** &lt;/td&gt;&#34;&#39;</span>,<span class="s">&#34;&#34;</span>,.)
+</span></span><span class="line"><span class="cl">  *-Note：就当是为了我，对字符“滑翔闪”使用炎拳吧！
+</span></span><span class="line"><span class="cl">	Split _var ,p(`<span class="s">&#34;滑翔闪&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Drop _var 1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4整理保存">4、整理保存</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">  *-[<span class="m">4</span>]添加变量标签
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">11</span> 城市
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">12</span> ID
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">13</span> ID <span class="m">2</span>
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">14</span> 地块
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">15</span> 代码
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">16</span> 地块 <span class="m">2</span>
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">17</span> 类型
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">18</span> 用途
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">19</span> 结果
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">110</span> 编码
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">111</span> 起始价
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">112</span> 成交价
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">113</span> 出让日期
+</span></span><span class="line"><span class="cl">	Ren _var <span class="m">114</span> 成交日期
+</span></span><span class="line"><span class="cl">  *-[<span class="m">5</span>]保存数据
+</span></span><span class="line"><span class="cl">        Save <span class="s">&#34;$path\爬虫土地. Dta&#34;</span>, <span class="k">replace</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>起始价和交易价部分使用的 js 进行加密，所以无法爬取，本文主要是记录爬虫原理和流程。</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp" title="起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程" data-thumbnail="/img/stata爬虫学习.zh-cn-20240523133244093.webp" data-sub-html="<h2> </h2><p>起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata爬虫学习.zh-cn-20240523133244093.webp" />
+    </a><figcaption class="image-caption">起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</figcaption>
+    </figure></p>
+<p>Stata 无法使用 ip 和账号登入，所以无法爬取价格</p>
+<h3 id="5多页爬取">5、多页爬取</h3>
+<p>Forvalues：stata 循环函数，我们将源代码的<strong>p=1</strong>换成 <strong>p=`i&rsquo;</strong> 即可实现循环爬取。</p>
+<blockquote>
+<p>注意很多时候第一页和第二页以后爬取情况不同，例如本网站中结尾页码代码不同。由于土地市场网实行了加密，所以 stata 只能爬取第一页和第二页。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">*======================================
+</span></span></span><span class="line"><span class="cl"><span class="cm">* Part 2 爬取多页 (共 133 页)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 数据来源：国信房地产交易网-土地市场数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">*======================================
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Forvalues i = 2/133{  //利用循环爬取 2-133 页并与第 1 页合并
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Di `i&#39;
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Clear
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-[1]url 导入
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui copy &#34;http://www.crei.cn/tudi/tudibr1.aspx?p=`i&#39;&amp;x=a 00000000&amp;k=&amp;k 1=&amp;k 2=&amp;k 3=&amp;k 4=&amp;c=&amp;j 1=0&amp;j 2=0&amp;m 1=0&amp;m 2=0&#34; &#34;test`i&#39;. Txt&#34;, replace
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：设置字体格式防止乱码，最后强制删除备份文件
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：储存 1 到第 200000 个字符并标记为变量 v
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui local file`i&#39; = &#34;test`i&#39;. Txt&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui unicode analyze &#34;`file`i&#39;&#39;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui unicode encoding set gb 18030
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui unicode translate &#34;`file`i&#39;&#39;&#34;, transutf 8
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui unicode erasebackups, badidea
+</span></span></span><span class="line"><span class="cl"><span class="cm">    Qui infix strL v 1-200000 using &#34;test`i&#39;. Txt&#34;, clear
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-[2]初步数据切割
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：使用 spit 函数对保留后的数据进行切割，这部分需要了解正则表达式
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：观察网页源代码，保留所需数据所在的行，这里注意到数据使用了宋体
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui keep if index (v,`&#34;&lt;span id=&#34;bra1&#34;&gt;&lt;font face=&#34;宋体&#34;&gt;&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui split v ,p(`&#34;&lt;tr onmouseover=this.style.background=&#39;#BDDFFF&#39; onmouseout=this.style.background=&#39;#ffffff&#39;  style=&#39;background:#ffffff&#39; &gt;&lt;td style=&#39;height:35px&#39;&gt;&lt;div class=td1 style=&#39;width:42px;</span>text-align:center<span class="s">&#39;&gt;&#34;&#39;</span>)
+</span></span><span class="line"><span class="cl"><span class="cm">  *-Note：额外去除下这段代码结尾的多余部分 v 211 v 212
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui split v 21 ,p(`&#34;&lt;/table&gt;&lt;p align=left&gt;&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Qui drop v v 1  v 21
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Qui rename v 211 v 21 ylyih
+</span></span></span><span class="line"><span class="cl"><span class="cm">	Qui sxpose ,clear
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：sxpose 数据转置重排
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-[3]进一步切割数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">  *-Note：把不要的中间字符换成知乎用户&#34;滑翔闪&#34;吧！
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui replace _var = subinstr (_var,`&#34;&lt;/div&gt;&lt;td title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="cm">	qui replace _var = subinstr (_var,`&#34;&#39;&gt;&lt;div class=td1 style=&#39;width:45px;</span>text-align:center<span class="s">&#39;&gt;&#34;&#39;</span>,<span class="s">&#34;滑翔闪&#34;</span>,.)
+</span></span><span class="line"><span class="cl">	qui <span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&lt;/div&gt;&lt;td align=left style=&#39;height: 26 px&#39;title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui replace _var = subinstr (_var, `&#34;//&#34;&#39;</span> ,<span class="s">&#34;&#34;</span>, .)
+</span></span><span class="line"><span class="cl">	qui <span class="k">replace</span> _var = subinstr (_var, `<span class="s">&#34;&#39;&gt;&lt;div class=td1 style=&#39;width:220px&#39;&gt;&lt;a href=http:www.crei.cn/tudi/tdbr.aspx?id=&#34;&#39; ,&#34;滑翔闪&#34;, .)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui replace _var = subinstr (_var, `&#34; target=_blank  class=tdbrw&gt;&#34;&#39;</span> ,<span class="s">&#34;滑翔闪&#34;</span>, .)
+</span></span><span class="line"><span class="cl">	qui <span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td title=&#39;&#34;&#39;, &#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;&#39;</span>&gt;&lt;div class=td1 style=<span class="s">&#39;width:40px;text-align:center&#39;</span>&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;</span>&lt;/div&gt;&lt;td width=<span class="m">40</span>&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;</span>&lt;/td&gt;&lt;td align=right&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui replace _var = subinstr (_var,`&#34;</span>&lt;td align=right <span class="k">title</span>=<span class="s">&#39;&#34;&#39;</span>,<span class="s">&#34;滑翔闪&#34;</span>,.)
+</span></span><span class="line"><span class="cl">	qui <span class="k">replace</span> _var = subinstr (_var,`<span class="s">&#34;&#39;&gt; *** &lt;/td&gt;&lt;td align=right title=&#39;&#34;&#39;,&#34;滑翔闪&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;&#39;</span>&gt; *** &lt;/td&gt;&lt;td nowrap&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;</span>&lt;td nowrap&gt;<span class="s">&#34;&#39;,&#34;</span>滑翔闪<span class="s">&#34;,.)
+</span></span></span><span class="line"><span class="cl"><span class="s">	qui replace _var = subinstr (_var,`&#34;&#39;&gt; *** &lt;/td&gt;&#34;&#39;</span>,<span class="s">&#34;&#34;</span>,.)
+</span></span><span class="line"><span class="cl">  *-Note：就当是为了我，对字符<span class="s">&#34;滑翔闪&#34;</span>使用炎拳吧！
+</span></span><span class="line"><span class="cl">	Qui split _var ,p(`<span class="s">&#34;滑翔闪&#34;&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui drop _var 1
+</span></span></span><span class="line"><span class="cl"><span class="s">  *-[4]添加变量标签
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 11 城市
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 12 ID
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 13 ID 2
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 14 地块
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 15 代码
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 16 地块 2
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 17 类型
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 18 用途
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 19 结果
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 110 编码
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 111 起始价
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 112 成交价
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 113 出让日期
+</span></span></span><span class="line"><span class="cl"><span class="s">	Qui ren _var 114 成交日期
+</span></span></span><span class="line"><span class="cl"><span class="s"> *-[5]保存数据
+</span></span></span><span class="line"><span class="cl"><span class="s">   Qui append using &#34;$path\爬虫土地. Dta&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">   Qui save &#34;$path\爬虫土地. Dta&#34;, replace
+</span></span></span><span class="line"><span class="cl"><span class="s">   }
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三附件和参考资料">三、附件和参考资料：</h2>
+<h3 id="1参考资料">1、参考资料</h3>
+<p><a href="https://pan.baidu.com/link/zhihu/7QhzzcuOh5iVbwgV5mUZdRF1TFRxcjRQU39W==" target="_blank" rel="noopener noreffer ">百度网盘</a></p>
+<p>进阶就是了解 R、python、CURL 的爬虫命令，流程和原理都类似。Python 好处是多线并进，同时有灵活的轮子可以使用。</p>
+<p>本文爬取的土地交易网由于使用了 js 加密无法爬取，但是他们没有关掉旧版源码入口，于是<strong>旧版依旧毫无防备</strong>——可以参考下面这篇文章的代码爬取旧源码的数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">http://www.crei.cn/tudi/lawbr.aspx?p=1<span class="err">&amp;</span>a=1<span class="err">&amp;</span>jyzt=<span class="err">&amp;</span>crfs=<span class="err">&amp;</span>tdlx=<span class="err">&amp;</span>rq1=<span class="err">&amp;</span>rq2=<span class="err">&amp;</span>rq3=<span class="err">&amp;</span>rq4=<span class="err">&amp;</span>key=<span class="err">&amp;</span>ren=<span class="err">&amp;</span>cs=%C8%AB%B2%BF
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://mp.weixin.qq.com/s/82TzbLJH24YLEZGvlqJfiw" target="_blank" rel="noopener noreffer ">教你用 Stata 抓取全国土地交易数据</a></p>
+<p><a href="https://www.lianxh.cn/details/572.html" target="_blank" rel="noopener noreffer ">Stata：批量获取经纬度数据-空间计量</a></p>
+<p><a href="https://www.lianxh.cn/details/684.html" target="_blank" rel="noopener noreffer ">Stata爬虫：爬取地区宏观数据</a></p>
+<p><a href="https://www.stata.com/meeting/china17/slides/china17_Yuan2.pdf" target="_blank" rel="noopener noreffer ">正则表达式</a></p>
+<h3 id="2一些论文">2、一些论文</h3>
+<blockquote>
+<p><strong>工业用地价格与企业产能利用率：</strong> 爬取土地数据，发现工业土地交易聚集和产能过剩的关系 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>;</p>
+<p><strong>最低工资与异质性人力资本需求：基于招聘网站数据的研究：</strong> 爬取招聘信息，研究劳动力需求侧特征 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>；</p>
+<p><strong>工业机器人应用与劳动关系：基于司法诉讼的实证研究</strong> ——爬取法律文书，研究机器人应用与劳工纠纷 <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+</blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>刘若鸿, 许晏君. 工业用地价格与企业产能利用率[J]. 世界经济,2023,46 (11): 103-127. DOI: 10.19985/j.cnki. Cassjwe. 2023.11.004.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>马双, 肖翰, 李丁等. 最低工资与异质性人力资本需求：基于招聘网站数据的研究[J]. 世界经济,2023,46 (12): 92-114. DOI: 10.19985/j.cnki. Cassjwe. 2023.12.003.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>张军, 闫雪凌, 余沭乐等. 工业机器人应用与劳动关系：基于司法诉讼的实证研究[J]. 管理世界,2023,39 (12): 90-112. DOI: 10.19744/j.cnki. 11-1235/f.2023.0146.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/pachong/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" data-title="Stata: 爬虫学习" data-hashtags="爬虫,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" data-hashtag="爬虫"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" data-title="Stata: 爬虫学习"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" data-title="Stata: 爬虫学习"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/pachong/" data-title="Stata: 爬虫学习" data-image="/img/stata爬虫学习.zh-cn-20241215155452334.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E7%88%AC%E8%99%AB/">爬虫</a>,&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/font/" class="prev" rel="prev" title="Hugo 美化 1 ：自定义字体"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hugo 美化 1 ：自定义字体</a>
+            <a href="/zh-cn/posts/kj_2024/" class="next" rel="next" title="2024 观剧总结: 和“命运”相处的几种方式">2024 观剧总结: 和“命运”相处的几种方式<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

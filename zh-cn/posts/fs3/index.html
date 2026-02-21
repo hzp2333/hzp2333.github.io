@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>经济学的自负：最近的一些想法 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="经济学的自负：最近的一些想法" />
+<meta property="og:description" content="这里记录下最近的学习感想。这些感想来自课堂、互联网、老师、同学、学长学姐交流。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-11-14T03:52:02+08:00" />
+<meta property="article:modified_time" content="2025-01-16T14:59:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="经济学的自负：最近的一些想法"/>
+<meta name="twitter:description" content="这里记录下最近的学习感想。这些感想来自课堂、互联网、老师、同学、学长学姐交流。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/event3/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/shxz/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "经济学的自负：最近的一些想法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fs3\/"
+        },"genre": "posts","keywords": "反思","wordcount":  7067 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/fs3\/","datePublished": "2024-11-14T03:52:02+08:00","dateModified": "2025-01-16T14:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/fs3/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/fs3/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">经济学的自负：最近的一些想法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-11-14">2024-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7067 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e9%9c%80%e8%a6%81%e5%a4%9a%e5%b0%91%e6%95%b0%e5%ad%a6%e4%b8%8e%e5%88%9b%e6%96%b0.zh-cn-20241114025347573.webp"
+        data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e9%9c%80%e8%a6%81%e5%a4%9a%e5%b0%91%e6%95%b0%e5%ad%a6%e4%b8%8e%e5%88%9b%e6%96%b0.zh-cn-20241114025347573.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e9%9c%80%e8%a6%81%e5%a4%9a%e5%b0%91%e6%95%b0%e5%ad%a6%e4%b8%8e%e5%88%9b%e6%96%b0.zh-cn-20241114025347573.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e9%9c%80%e8%a6%81%e5%a4%9a%e5%b0%91%e6%95%b0%e5%ad%a6%e4%b8%8e%e5%88%9b%e6%96%b0.zh-cn-20241114025347573.webp 2x"
+        data-sizes="auto"
+        alt="/img/经济学需要多少数学与创新.zh-cn-20241114025347573.webp"
+        title="/img/经济学需要多少数学与创新.zh-cn-20241114025347573.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#center-预测还是寓言-center"><center> ❓预测还是寓言❓ </center></a></li>
+        <li><a href="#center数理方法还是思想洞见center"><center>❓数理方法还是思想洞见❓</center></a></li>
+        <li><a href="#center数学学多少center"><center>❓数学学多少❓</center></a></li>
+        <li><a href="#center关于论文创新center"><center>❓关于论文创新❓</center></a></li>
+        <li><a href="#center关于项目管理center"><center>❓关于项目管理❓</center></a></li>
+        <li><a href="#center个人感想center"><center>❓个人感想❓</center></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>最近的学习感想。这些感想来自课堂、互联网、老师、同学、学长学姐交流。感谢这段时间和 lw 同学的交流，像回到了初中的日子😀。</p>
+<p>以下总结虽来自课堂、老师、学长学姐、互联网，但都凭借个人喜好有所裁剪、整合、评论，并不反映每一个人的真实看法，如有错误，责任在我。</p>
+</blockquote>
+<p><font color="#ff0000">强调：数据、方法、思想相辅相成，其实不存在矛盾，只是同时达到好的标准的可能性很低。</font></p>
+<h1 id="center经济学的自负center"><center>经济学的自负</center></h1>
+<p>我非常赞同小学同学 cj 的看法——对于任何一门学科，<strong>不是因为我们喜欢而选择了这门专业，而是深入学习后自然会找到奥妙之处，然后爱上</strong> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。学科深处皆有奥妙而非生来吸引，只是学习让我们有了更强的价值基底，看到的世界变得些许不同罢了。</p>
+<p>不过，个人还是比较庆幸选择了经济学专业。人文社科中，经济学学术训练相对更完整。分析上，经济学论文是 <code>社会学理论分析</code> + <code>数学仿真建模</code> + <code>统计数据实证检验</code> 的三合一。思想洞见试图靠近政史、逻辑严密表现为数学公式，观点论证经过统计打磨。</p>
+<p>即便曾是文科生，借助经济学，也可相对连贯地接触到以下知识：</p>
+<ul>
+<li>数学：测度论、泛函、实分析&hellip;&hellip;</li>
+<li>计算机：文本处理、图像识别&hellip;&hellip;</li>
+<li>统计学：计量因果推断</li>
+<li>其他人文：哲学、历史、文学、社会学、政治学&hellip;&hellip;</li>
+</ul>
+<p>如今，实证主义成为科学范式潮流，除去理论霸权外，经济学通过计量方法论构建起了更为坚固的帝国主义。例如量化史学、量化社会学（最主要的是人口学问题）、经济人类学&hellip;&hellip;</p>
+<p>这也带来了许多问题——滥用数理、理论思想相对匮乏、学科界限模糊、培养方案参差不次、缺乏实用&hellip;&hellip;</p>
+<p>现在有些<strong>尴尬的趋势</strong>——</p>
+<h3 id="center-预测还是寓言-center"><center> ❓预测还是寓言❓ </center></h3>
+<p>经济学曾以预测为己任，但计量经济学的因果推断范式基于条件期望，希望通过外生事件检验因果关系，很难实现真正的预测。</p>
+<p>宗教能做到预测吗？经验事实能做到预测吗？他们诞生自经济学之前，只负责解释而非预测。</p>
+<p>退一步来说，大家希望理清变量间的因果关系，然后结合现实达成预测。由于现实的复杂性和模型的抽象性（或者说简洁性），其实计量实证无法真正终结理论的争议。</p>
+<p>我还听说过另外一种观点，所有的计量都在为世界大模型做准备，计量都是独立分析一个微小变量，但是无数文章加起来能描述整个世界。</p>
+<p>即便一个理论被暂时证伪，我们可以说是<strong>数据的局限，统计方法的局限，历史环境的局限</strong>。</p>
+<p>于是，经济学因果分析的主题来到了另外一个层面——寓言。既然我们都不知道一个理论对还是错，那么标准便成了启发性。例如政府起源是什么？社会契约、集体演化趋势、代理人、公共物品提供者&hellip;&hellip; 理论数不胜数甚至互相矛盾，但不影响每个观点影响深远，因为启发性足够高。</p>
+<p>经济思想史老师就曾在课上强调——<strong>经济学是一片混沌，对和错并不是最重要的</strong>。</p>
+<p>关于经济学本质或许是说服人的学科——可参见另一篇博客《<a href="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" target="_blank" rel="noopener noreffer ">经济学的修辞</a>》读后感。</p>
+<h3 id="center数理方法还是思想洞见center"><center>❓数理方法还是思想洞见❓</center></h3>
+<p>大部分人写的经济学论文都是计量实证论文。低层次实证论文一个尴尬的点在于——代码操作和数理理解是可以分开的。</p>
+<p><strong>我们可以在对深层数理一无所知的情况下直接调用代码</strong>（前提是至少掌握模型适合用在什么地方）。如此一来，一个尴尬的问题是，如果我们不把数理统计原理学到极致，产出差距微乎其微。一个学了 60% 数理统计底层逻辑的研究生和只学了 30% 的本科生，论文技术差距几乎没有。</p>
+<blockquote>
+<p>所以很多人会怀疑三高的课程作用。学习到运用的路太过漫长。</p>
+</blockquote>
+<p>故而，大家总自嘲 reg monkey。</p>
+<p>高计课程老师说学科前沿不在简约式而在结构式和机器学习（回归预测的学科追求）<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，他在会议上看到大部分人的文章几乎没有差别。OLS 的普及已经非常可怕，2023 年的丘成桐高中学科竞赛就很多人做 DID 了，甚至有高中生用 OLG 模型。</p>
+<p>那我们不卷数理统计，卷思想洞见吗？当然有很多人只用 OLS 就写出了天才之作，但现在已经远远不够。例如 2024 年诺奖得主 Daron 的代表作《<a href="https://www.aeaweb.org/articles?id=10.1257/aer.91.5.1369" target="_blank" rel="noopener noreffer ">比较发展的殖民起源：实证调查</a>》，简单 OLS+IV 论证殖民的贡献，思想深刻，启发性高，但如今也备受质疑。同时，简单方法绝妙结果的文章选题需要天赋<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<blockquote>
+<p>这里的天赋是指偶然性太多，尚没有系统性的，可重复的路径。</p>
+</blockquote>
+<p>于是经济学关于选题立意（黑话是 idea ）有了大量中英夹杂的黑话：</p>
+<p>学术名词还好，来点学术交流的黑话——</p>
+<blockquote>
+<p>培养学术 taste、这个地方可以 argue 一下、强调 intuition、不够 noval、contribution 在哪里、工作不够 clean、你的问题有点 toxic 了、讲好 story 最重要&hellip;&hellip;</p>
+<p>个人看法是，过度使用中英夹杂（术语简称除外，例如 GPT、EVA、DID）并未让对话更简洁明了，标签化的词语实际上减弱了可读性和具体性。</p>
+</blockquote>
+<p>所以就<strong>三条路</strong>：</p>
+<ul>
+<li>卷思想洞见：玄学。如果别人一句 taste 评价完毕，则毫无交流空间。</li>
+<li>卷数理方法：不鸣则已，一鸣惊人，但易半道崩殂。</li>
+<li>卷数据：大家把自己的数据藏着掖着，失去开源共享的精神，背后是无数数据收集和清理的血汗。但这是目前最实际的路。</li>
+</ul>
+<p>看过一个绝妙的<strong>比喻</strong>：</p>
+<ul>
+<li>数理方法+思想洞见：内功之法，漫漫苦修，积累门槛，结果未知。</li>
+<li>数据速成+代码能力：剑宗之法，可速成，门槛低，看机缘。</li>
+</ul>
+<h3 id="center数学学多少center"><center>❓数学学多少❓</center></h3>
+<p>几个问题？经济学需要哪些数学？如何学习数学？数学在经济学中的定位是什么？我问过很多学长、老师。他们的回答都相当类似。</p>
+<p><strong>学多少？</strong></p>
+<p>这里先划一个尽量大的范围，并不是说必须学，是取国际上最顶尖的学者们数学基础的并集。</p>
+<p>看自己的领域，最好尽早确定方向。主流大致上分为微观、计量、宏观，不同方向需要的数学厚度不同（思想史和经典马政经除外）。本科数理三件套无论哪个方向都得学扎实了，深了的包含：测度论、实分析、偏微分、凸优化、动力系统、离散数学&hellip;&hellip;</p>
+<p>更细一点的排序<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>：</p>
+<p>微观理论 = 计量经济学理论 &gt; 宏观理论 &gt; 贸易 &gt; 劳动 = 发展 &gt;= 其他应用领域，如健康、环境&hellip;&hellip;</p>
+<p><strong>如何学？</strong></p>
+<p>很多人为理解一个小概念而系统地补数学，这不现实<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。考虑到申博、发表、教职压力越来越大，最务实的方法是：</p>
+<ul>
+<li><strong>干中学</strong>。借助代码学习计量；借助论文学习模型。</li>
+<li><strong>边学边补</strong>。不要试图系统地啃完数理体系，而是边看边补。</li>
+<li><strong>对比领悟</strong>。无论是代码软件还是数学领域，其实很多地方都有交叉之处，要学会对比交叉，举一反三，加快学习节奏。</li>
+</ul>
+<p>老师前辈们的分享非常真诚，但个人认为这个观点存在选择偏差。所有的前辈学长都是在经历过严格优质的课堂教育后，才觉得可以干中学与自学。从因果推断的角度上讲，他们的反事实能否用来衡量我们的处境呢？如果一个学校没有这种培养方案呢？<strong>个人感觉即便课程质量不佳，但学校系统性的课程是我们自学的启蒙课</strong>。</p>
+<p>以下是个人看法：</p>
+<blockquote>
+<center>别忽视学科史和教材目录！</center>
+<p>就我个人体会来说，系统补其实是最好的路。知识点太散，会不成体系，即便干中学补完也无法联系起来。就像数理基础不扎实，即便学了三高也是机械背题，做完题，却无法领悟思想，更无法用来分析现实，其实是本末倒置。</p>
+<p>只是人生苦短，系统补完效率实在太低。</p>
+<p>个人目前想法是——<strong>学科史是知识的脊梁骨</strong>。一定要把学科史（理论史和方法史）了解完善，这样我们才有机会把干中学的点连成片，清楚地知道自己学了哪些，不知道哪些，未来需要攻克哪些。</p>
+<p>举个例子——我们学计量经济学，去图书馆，看归类好的教材，我们首先要理解的不是教材，而是前言和目录，去理解教材组织者为什么这样排序。</p>
+<ul>
+<li>Green 版本的计量目录顺序是模型假设的严格程度。</li>
+<li>Wooldridge 的计量目录是数据结构。</li>
+<li>Angrist 的计量目录是反事实推断的引入顺序。</li>
+<li>Hayashi 的计量统一在了 GMM 框架之下。</li>
+</ul>
+<p>目录和前言包含了这些大师对计量发展史的理解。</p>
+<p>我感受最深的地方是——<font color="#ff0000">学科史的知识储备决定了自己对学科的认识程度</font>。</p>
+<p>就我个人学习计量的理解路程来说：</p>
+<p>初级计量时以为计量就是最小二乘；看了《the book of why》后觉得计量的机制设计代表了因果推断，计量的浅层理解是拟合，深层理解是反事实的对照实验。</p>
+<p>然而，直到学了高级计量，我才发现，真正的学科发展是一段漫长的史诗：</p>
+<p>因果推断是哲学（怎样构造证据让我们觉得结果是可信的）——如何认识概率（频率学派 vs 贝叶斯（主观\客观））——统计方法—— 计量只是一种流派——计量不只是 OLS（还有参数估计的 GMM，MLE 和非参数估计）。核心也不是所谓的拟合，而是样本和总体之间的偏差推断。LR LM WALD 三大检验也不只是方法，还是检验思想！</p>
+<p>同样，了解经济从价值分析转价格分析；从预测任务<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>转因果分析小故事也会影响我们的学科价值判断。</p>
+<p>本科学数学研究生学经济，对比本科学经济研究生学经济，大家对经济学的学科本质认识其实是非常不同的，学科史的储备会影响我们对学科的看法。</p>
+<p>国外的大师会把这些学科认识融入课堂，但是在国内，不照本宣科已经是顶尖学校才有的待遇了。</p>
+<p>比如 Daron 的《微观经济学》——虽然是初级级别，但前言并非强调经济学是最优化，而是假设人们总是在<font color="#ff0000">试图</font>最优化！而最优化受限于当前的认知和方法，因此他在微观经济学的介绍中无缝引入了因果推断！</p>
+</blockquote>
+<p>数理化趋势明显，国内政治经济学<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>却没啥发展。从学科史角度看，个人认为国际上经济学是学科概念、思想、方法革命三头齐头并进，而国内政治经济学只有思想革命<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>，没有学科概念革命、方法革命。</p>
+<p>就像王小波讨论过的例子——一些人总认为红楼梦包容了万象，甚至到未来出现的新事物也要用这一套。他们一辈子钻进去不出来，这也就算了，后面还闹起来，说要指导科学，这就不妥了！（<strong>此处完全来自个人解读，只例子借用王小波评红学与国学</strong>）</p>
+<p>数理方面经济学的学习讨论太多了，每个经济硕博生几乎都会在社交媒体分享自己学三高的一些心路历程，但是对于人文社科阅读厚度的训练，却少有人谈论。<strong>时刻警醒——不要忽视阅读厚度的培养</strong>。</p>
+<ul>
+<li>如果是经典马政经，和马院相比，比较优势何在？</li>
+<li>如果是纯数理狂魔，和数院相比，比较优势何在？</li>
+<li>如果是纯历史分析，和史院相比，比较优势何在？</li>
+<li>如果是纯统计分析，和统计学相比，比较优势何在？</li>
+</ul>
+<p>以上问题是理解统计、数学、纯理论结合的一种思考角度。</p>
+<p>数学是经济学比较优势的工具，应从经济现象的直觉描述和分析工具去积极使用和把握，应该重视，但不可盲目迷信。</p>
+<p>实际上作为学生，应该逐渐摸索适合自己的结合风格，规划学习路径，而不是盲目地求全部掌握。</p>
+<h3 id="center关于论文创新center"><center>❓关于论文创新❓</center></h3>
+<p>从这几年的诺奖（不只是经济学，自然科学也是）可以看出，现在基本没有开宗立派的大师了<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>，大家都是边际贡献。确实如计量老师所言：没人做大圈子，生存也就越来越困难<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>。</p>
+<p>那么三高呢？其实只是研究的入场券，真正的理论需要在三高的基础上追赶学界。为什么聊三高呢？看到过知乎上激烈的讨论：</p>
+<p><a href="https://www.zhihu.com/question/328665578" target="_blank" rel="noopener noreffer ">做学术需要搞清楚高级计量经济学里全部的数学原理吗？ - 知乎</a></p>
+<p>领域顶刊，虽然困难，但能做到只靠数据和选题成功发表。</p>
+<p>五大顶刊——不懂深层理论不可能发表<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>。</p>
+<p>论文的边际创新主要来源哪些？</p>
+<p>个人认为的边际贡献可以归结为：</p>
+<ol>
+<li>
+<p><strong>计量理论</strong>（简约模型）</p>
+</li>
+<li>
+<p><strong>数理模型</strong>（结构模型）</p>
+</li>
+<li>
+<p><strong>数据整理挖掘</strong></p>
+</li>
+<li>
+<p><strong>研究对象的扩展</strong>：老师跟我反复强调，<strong>就事论事是相对低级的论文选题，因为文章仅仅是把个例说清了</strong>。不过此处我将其归结为研究对象的一种低级扩展。扩展研究对象也有层次之分。劳动经济学从个体扩展到家庭；交叉学科（复杂经济学非均衡、行为经济学非理性、数字经济非实体），其实都可以看作研究对象的扩展。如果能发现一个现象，其实也是一件相当了不起的事情！虽然争议很大，但数字经济这类概念无疑养活了很多人的。活下去，很重要。</p>
+</li>
+<li>
+<p><strong>现象解释</strong>（规律性理论）：</p>
+<p><strong>其一，发现规律。</strong> 听讲座时，《世界经济》编辑强调现象解释，而老师也强调论文重要的是规律提炼，例如《<a href="https://mp.weixin.qq.com/s/FqgNMMD-HI0qkfrCBCMbfg" target="_blank" rel="noopener noreffer ">【什么样的文章是好文章？】标准一：借事说理v.s就事论事</a>》。也有说法是大家的选题其实一样烂，只是好教授能包装选题，升华视角——其实就是发现现象背后规律的眼睛。越是以小见大，越是窥天之才。</p>
+<p><strong>其二，检验规律。</strong> 使用数据检验两种<strong>相互矛盾</strong>的理论。这部分是为了凸显自己文章的现实意义和趣味性。</p>
+</li>
+</ol>
+<div class="details admonition abstract">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-list-ul fa-fw" aria-hidden="true"></i>社会科学与科学<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>一个科学问题——<strong>理论科学究竟是发明还是发现</strong>。</p>
+<p>就理论而言，自然科学和社会科学的最开始的环节似乎都是认识规律。</p>
+<p>从什么现象，认识到了什么规律，才是关键。</p>
+<p>我可以从一个现象认识到不同的规律，也可以从不同的现象提炼出同样的规律。</p>
+</div>
+        </div>
+    </div>
+<ol start="6">
+<li><strong>识别策略</strong>（回归设计的思想）：这个是巧妙地回归设计，通过巧妙的对照实验识别出不可测要素，为更多人提供回归设计思路。比如联系专利数据与创新、灯光数据与发展、还有使用遥远的历史因素作为工具变量。</li>
+</ol>
+<p>我非常喜欢《<a href="https://www.yimingcao.com/uploads/6/5/6/3/65630513/earthquake4.pdf" target="_blank" rel="noopener noreffer ">上帝的审计: 四川地震中的家园联系和建筑物损坏</a>》这篇论文。使用地震中的数据，发现当地官员与他们的上司有家乡联系的时候，建造的建筑比没有这种联系建筑倒塌可能性高 75%<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup> 。这启发了我们可以<strong>通过自然灾害来测量工程腐败</strong>。</p>
+<p>其他例子，参见：</p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/fs2/" target="_blank" rel="noopener noreffer ">实证经济学：符合直觉≠显而易见</a></p>
+<p>1、2 考验数理基础；3 考验工作量；4、5、6 考验经济直觉。五大顶刊的论文需要在基础、工作量、直觉三方面经历考验。</p>
+<p>这部分感悟来自《<a href="https://blog.huaxiangshan.com/zh-cn/posts/sg/" target="_blank" rel="noopener noreffer ">实证经济学：审稿经验</a>》</p>
+<p>对于大师的文章趋势，我越发觉得现在的论文和学科发展一定是有趋同趋势的。从古典到新古典综合，其实宏观和微观是相互结合的过程，论文同样。宏观研究要有微观基础，微观研究要有宏观背景。所以我完全赞同计量老师的话——研究从大处着眼，从小处着手。</p>
+<h3 id="center关于项目管理center"><center>❓关于项目管理❓</center></h3>
+<p>现在都讲究团队作战，我的几位老师都劝告大家多社交、多找合作者。</p>
+<p>不过团队有大有小，我想说的是自己的小项目也需要项目管理。一个业界谜题——为什么郭帆能从《同桌的你》到《流浪地球》，主流看法是项目管理；中国资金充足，为什么以前没有做出 3A 大作，主流见解是市场规模和项目管理。</p>
+<p>思考如何优化自己的代码，让清洗代码可复用性增多。其实有了 program、local、global、forvalues 命令后，stata 花活也很多。</p>
+<p>处理大数据，分割-合并-传递，里面的项目管理的坑其实非常多。如果团队没有成熟的管理经验和流程管理，沟通和信息传递有时非常低效，如果团队曾做过大数据项目，这些经验其实非常宝贵！这大概就是业界标准吧。</p>
+<h3 id="center个人感想center"><center>❓个人感想❓</center></h3>
+<p>高山仰止,景行行止,虽不能至,然心向往之。</p>
+<p>现在这个环境，越向上看越会让人绝望。分层越来越明显，年龄限制越来越狠，国际上的同龄人成长越来越快，虽然有互联网，但很多思想不面对面沟通很难真正领悟，知识以外的经验也应被重视传递，不然差距越来越大。</p>
+<p>最后，作为坚定的存在主义者——滑翔闪有云：</p>
+<ol>
+<li>好好活着，比什么都重要。我相信当代有志于学术的同学，都是自我 pua 和拼命的高手，互联网渲染下，形式多紧张，大家都清楚，所以在这种环境下，我们需要减轻焦虑。反正没谁有开宗立派的机会了😆（诺奖贡献就可以看出），不如享受学习的过程，比如好好感受被因果分析更改世界观那一刹那的欣喜。</li>
+</ol>
+<blockquote>
+<p>之前颈椎出过问题，我才发现人体有多脆弱&hellip;&hellip; 也见过膝盖、腰出问题的学长或同学，请一定一定要珍惜身体健康！个人建议是<strong>把了解世界的的成就感放在创造价值的成就感之上</strong>，这样就不会过于焦虑缺少成果的正反馈。</p>
+<p>滑翔闪有云：</p>
+<ul>
+<li>要知道，目前大部分创新乃生活所迫而非本心也。</li>
+<li>不妨再想想，自己是否把幸福标准建立在规则制定者的阴影中了？</li>
+<li>为自己的生存努力时，代价绝不能是自己的生命本身（自相矛盾）。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>一件遗憾的事情，创新的欲望不等于创新的能力。我很渴望一下子憋出来一个大活儿，实际上不可能。好论文极有可能是基于坏论文修改过来的，既然最重要的是挖掘现象背后的规律，那么想到的现象好坏不代表论文理论的好坏。行动和尝试是第一要义，主动沟通<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>是第二要义，第三要义是乐观积极，养我浩然之气。如果产生冲突，<font color="#ff0000">我们无理由遵循第三条</font>🥰。社会科学就是要保持自己具有前瞻性的道德观！</li>
+<li>保持对世界的好奇是一切研究的开始，别把人生 100%地寄托在一片狭小的纸面上。<strong>对世界好奇是科学的动机，在此之上，是对世界的一种热爱和肯定。因为热爱，所以愿意去了解。因为了解，所以更加热爱。</strong></li>
+</ol>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>大部分人都是在对学科了解不透彻的情况下做到选择。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>个人其实更相信经济学依旧需要&quot;可解释性&quot;而不是机器学习的黑箱子，个人也更认同经济学是尝试分析现象而不是预测事件。预测只是分析现象的附加结果。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>整活不也是一种天赋吗？想想 b 站爆款视频，大家都会玩的梗，但总有人用简单的素材组合出让人眼前一亮的抽象视频。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>此处排序来自史震涛老师的知乎回答&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>个人认为只是在国内不现实。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>个人觉得预测太复杂，不应由经济学独立承担。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>这里指社会主义理论&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>个人认为邓小平之后没有很大的思想革命了。邓小平是突破了公有制＋计划的发展路线，把公有制和市场经济结合在一起，而之后的社会主义本质理论都建立在其本质概括之上。&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>感慨高级计量课上老师的观点——现在没人去把蛋糕做大了。&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>要么来一个大师做大学界的圈子，要么来技术爆炸做大生活的圈子。&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>里面血汗也不少，顶刊一个稳健性的工作量不知道多少的工作量。&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>这种文章造假总是比较昂贵的&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p>并非全然是学术交流，和好朋友谈心也是保持心理健康的良药。&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-01-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/fs3/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" data-title="经济学的自负：最近的一些想法" data-hashtags="反思"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" data-hashtag="反思"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" data-title="经济学的自负：最近的一些想法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" data-title="经济学的自负：最近的一些想法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/fs3/" data-title="经济学的自负：最近的一些想法" data-image="/img/经济学需要多少数学与创新.zh-cn-20241114025347573.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8F%8D%E6%80%9D/">反思</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/event3/" class="prev" rel="prev" title=" 计量：事件研究法 3"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 计量：事件研究法 3</a>
+            <a href="/zh-cn/posts/shxz/" class="next" rel="next" title="制度、政治、民主与阿罗不可能定理">制度、政治、民主与阿罗不可能定理<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

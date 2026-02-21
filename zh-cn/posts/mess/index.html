@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 马尔萨斯两部门模型 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 马尔萨斯两部门模型" />
+<meta property="og:description" content="课堂展示使用，《富种起源》部分数理推导细节" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/mess/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-25T16:52:19+08:00" />
+<meta property="article:modified_time" content="2025-03-25T16:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 马尔萨斯两部门模型"/>
+<meta name="twitter:description" content="课堂展示使用，《富种起源》部分数理推导细节"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/mess/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/zcpg/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 马尔萨斯两部门模型",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/mess\/"
+        },"genre": "posts","keywords": "阅读, 微观历史, 宏观经济学","wordcount":  2685 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/mess\/","datePublished": "2025-03-25T16:52:19+08:00","dateModified": "2025-03-25T16:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/mess/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/mess/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 马尔萨斯两部门模型</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-03-25">2025-03-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2685 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp"
+        data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 2x"
+        data-sizes="auto"
+        alt="/img/富种起源-20250118161832879.webp"
+        title="/img/富种起源-20250118161832879.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题的悬赏">问题的悬赏</a></li>
+    <li><a href="#马尔萨斯叙事">马尔萨斯叙事</a>
+      <ul>
+        <li><a href="#马尔萨斯是人资环学科的鼻祖">马尔萨斯是人资环学科的鼻祖。</a></li>
+        <li><a href="#一种经济增长叙事">一种经济增长叙事</a></li>
+      </ul>
+    </li>
+    <li><a href="#两部门模型">两部门模型</a></li>
+    <li><a href="#模型代数证明简单情况">模型代数证明（简单情况）</a>
+      <ul>
+        <li><a href="#假设-1gamma_agamma_bequivgamma1如果放松">假设 1：$\gamma_A=\gamma_B\equiv\gamma&lt;1$（如果放松）</a></li>
+        <li><a href="#假设-2-g_hequivfracdothhndeltaleftln-x-lnbarxright">假设 2： $g_H\equiv\frac{\dot{H}}{H}=n=\delta\left(\ln x-\ln\bar{x}\right)$</a></li>
+        <li><a href="#结论一">结论一</a></li>
+        <li><a href="#引理-g_a-1-gammag_hto0">引理 ：$g_A-(1-\gamma)g_H\to0$</a></li>
+        <li><a href="#定理三人均效用增长率和两个部门的增长率">定理三：人均效用增长率和两个部门的增长率</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>课堂展示使用，《富种起源》部分数理推导细节。</p>
+</blockquote>
+<h2 id="问题的悬赏">问题的悬赏</h2>
+<p>《富种起源》作者的博士论文，希望高中生也能阅读，这里只介绍简化版的古典模型。</p>
+<p>这本书是为了反驳主流马尔萨斯机制而写的书。宏观的经济史、经济增长的魅力在于——通过简洁的模型塑造一种 <strong>史观</strong> 。</p>
+<p><a href="https://www.zhihu.com/question/585741754/answer/2916018611" target="_blank" rel="noopener noreffer ">吴乐旻的《富种起源》论证说马尔萨斯对马尔萨斯陷阱的解释是错误的，那么马尔萨斯陷阱真正的原因是什么？</a></p>
+<p>反驳的悬赏如下：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170526413.webp" title="如图，合理的质疑、反驳、改进有奖金拿" data-thumbnail="/img/课堂展示.zh-cn-20250325170526413.webp" data-sub-html="<h2> </h2><p>如图，合理的质疑、反驳、改进有奖金拿</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170526413.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170526413.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170526413.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170526413.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325170526413.webp" />
+    </a><figcaption class="image-caption">如图，合理的质疑、反驳、改进有奖金拿</figcaption>
+    </figure></p>
+<h2 id="马尔萨斯叙事">马尔萨斯叙事</h2>
+<h3 id="马尔萨斯是人资环学科的鼻祖">马尔萨斯是人资环学科的鼻祖。</h3>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>马尔萨斯陷阱<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>社会富有了，人就会增加生育；</li>
+<li>社会贫穷了，人就会减少生育。</li>
+<li>最终人均收入就会稳定在一个水平上。</li>
+<li>同理，生产增长的速度无法追赶人口增长的速度就会带来灾难。</li>
+</ul>
+</div>
+        </div>
+    </div>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325171253054.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325171253054.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h3 id="一种经济增长叙事">一种经济增长叙事</h3>
+<blockquote>
+<p>在漫长的经济增长史中，似乎只发生了一件事——工业革命。
+——格里高利·克拉格（<a href="https://en.wikipedia.org/wiki/Gregory_Clark_" title="economist" target="_blank" rel="noopener noreffer ">Gregory Clark</a>）</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170839797.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325170839797.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170839797.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170839797.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170839797.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170839797.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325170839797.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170858781.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325170858781.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170858781.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170858781.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170858781.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170858781.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325170858781.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170915846.webp" title="如图，来源wiki百科，大分流、李约瑟之谜、韦伯之问。" data-thumbnail="/img/课堂展示.zh-cn-20250325170915846.webp" data-sub-html="<h2> </h2><p>如图，来源wiki百科，大分流、李约瑟之谜、韦伯之问。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170915846.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170915846.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170915846.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325170915846.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325170915846.webp" />
+    </a><figcaption class="image-caption">如图，来源wiki百科，大分流、李约瑟之谜、韦伯之问。</figcaption>
+    </figure></p>
+<ul>
+<li>明朝的人均实际收入和宋朝的实际收入难道一样?</li>
+<li>繁荣如果完美，为何不能持续？</li>
+<li>为何历史总在民主和不民主间摇摆。</li>
+<li>为何工业革命能破坏马尔萨斯陷阱？</li>
+<li>能不能用一个大一统模型描述整个经济增长史？</li>
+</ul>
+<h2 id="两部门模型">两部门模型</h2>
+<p>先分析部门进步和社会福利。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325171253054.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171253054.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325171253054.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>为什么作者把人口平衡线定义为这个形状<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>只考虑生存。</p>
+<p>人生存必须需要农产品，但不一定需要工业品。</p>
+</div>
+        </div>
+    </div>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>如果人口平衡线是一条垂线呢？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">也就是单部门马尔萨斯的情况，因此不同部门的特性是这个模型推广的核心思路。</div>
+        </div>
+    </div>
+<p>两个部门同时进步的情况：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171552097.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325171552097.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171552097.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171552097.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171552097.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171552097.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325171552097.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>只有工业部门进步的情况：</p>
+<p><strong>只扩张工业部门，等比例萎缩。</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171801620.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325171801620.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171801620.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171801620.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171801620.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325171801620.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325171801620.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p><strong>只扩张工业部门，等比例萎缩。</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172113833.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325172113833.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172113833.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172113833.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172113833.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172113833.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325172113833.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p><strong>改变偏好</strong></p>
+<p>类比月亮和六便士，接下来把工业、农业转化成效用、生存两个部门。</p>
+<ul>
+<li>效用部门：艺术、文学、玫瑰&hellip;&hellip;</li>
+<li>生存部门：国防、工科、大米&hellip;&hellip;</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172317267.webp" title="如图" data-thumbnail="/img/课堂展示.zh-cn-20250325172317267.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172317267.webp"
+            data-srcset="/img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172317267.webp, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172317267.webp 1.5x, /img/%e8%af%be%e5%a0%82%e5%b1%95%e7%a4%ba.zh-cn-20250325172317267.webp 2x"
+            data-sizes="auto"
+            alt="/img/课堂展示.zh-cn-20250325172317267.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>人们更偏好效用品，生育率暂时偏离（减少侧），提升社会福利。</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>个人感想<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>我个人很欣赏这个两部门的改进。其结论也符合历史趋势，随着历史发展，艺术、美、精神的追求都可以看作效用品，实际上人类文明对生存以外的效用品重视程度一直在增加。</p>
+<p>与此同时，<strong>对效用品的追求可能与文明的繁衍自相矛盾</strong>。例如追求梦想而放弃婚姻，为了天上的月亮而放弃生存的五便士，为了容貌而亏待自己的身体。</p>
+<p>《富种起源》对繁衍的 <strong>假设</strong> 和《自私的基因》一样：基因会促使我们关心基因的延续，但我们并不会特意去计算繁衍的概率。</p>
+</div>
+        </div>
+    </div>
+<p>社会福利增加影响因素；</p>
+<ul>
+<li>效用品和生存品部门进步率。</li>
+<li>偏好结构。</li>
+<li>人均消费（人口平衡线）</li>
+</ul>
+<h2 id="模型代数证明简单情况">模型代数证明（简单情况）</h2>
+<p>$$
+\max U(x,y)=x^{1-\beta}y^\beta
+$$</p>
+<p>$$
+\begin{cases}
+\text{生存部门:}X=AL_A^{1-\gamma_A}H_A^{\gamma_A} \\
+\text{效用部门:}Y=BL_B^{1-\gamma_B}H_B^{\gamma_B}
+\end{cases}
+$$</p>
+<h3 id="假设-1gamma_agamma_bequivgamma1如果放松">假设 1：$\gamma_A=\gamma_B\equiv\gamma&lt;1$（如果放松）</h3>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>假设意义<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>小于 1 是为了边际递减。</p>
+<p>相等是人口萎缩对两个部门产生的冲击是相同（要素贡献率）。</p>
+</div>
+        </div>
+    </div>
+<p>$$
+\max U(x,y)=x^{1-\beta}y^\beta
+$$</p>
+<p>$$
+\begin{cases}
+\text{生存部门:}&amp;X=AL_1^{1-\gamma}H_1^\gamma\\
+\text{效用部门:}&amp;Y=BL_2^{1-\gamma}H_2^\gamma\\
+\text{土地:}&amp;L_1+L_2=L\\
+\text{劳动:}&amp;H_1+H_2=H&amp;
+\end{cases}
+$$</p>
+<p>接下来求解：<code>逆向归纳</code>——<code>社会决策</code>—— <code>效用</code> —— <code>产品</code> —— <code>要素</code>。</p>
+<p>需要决定的要素是为每个产品消耗多少要素。</p>
+<p>$$L_2=L-L_1,\quad H_2=H-H_1$$</p>
+<p>$$
+U=(AL_1^{1-\gamma}H_1^{\gamma})^{1-\beta}[B(L-L_1)^{1-\gamma}(H-H_1)^{\gamma}]^{\beta}
+$$</p>
+<p>取对数后处理更简单一些：</p>
+<p>$$
+V=(1-\beta)\left[\ln A+(1-\gamma)\ln L_1+\gamma\ln H_1\right]+\beta\left[\ln B+(1-\gamma)\ln\left(L-L_1\right)+\gamma\ln\left(H-H_1\right)\right]
+$$</p>
+<p>最优化即偏导为 0。
+$$
+\frac{\partial V}{\partial L_1}=\frac{(1-\gamma)(1-\beta)}{L_1}-\frac{(1-\gamma)\beta}{L-L_1}=0
+$$
+$$
+L_1^*=(1-\beta)L,\quad L_2^*=\beta L
+$$
+同理，</p>
+<p>$$
+\frac{\partial V}{\partial H_1}=\frac{\gamma(1-\beta)}{H_1}-\frac{\gamma\beta}{H-H_1}=0
+$$
+$$H_1^*=(1-\beta)H,\quad H_2^*=\beta H$$
+要素决策后，接下来代入产品决策 $X=AL_1^{1-\gamma}H_1^\gamma$。</p>
+<p>$$
+\begin{aligned}X^{*}&amp;=A\left(L_{1}^{*}\right)^{1-\gamma}(H_{1}^{*})^{\gamma}=A[(1-\beta)L]^{1-\gamma}[(1-\beta)H]^{\gamma}\\&amp;=A\left(1-\beta\right)L^{1-\gamma}H^{\gamma}\end{aligned}
+$$ 人均水平再除以 H,</p>
+<p>$$
+\begin{cases}x=A(1-\beta)\left(\frac{H}{L}\right)^{\gamma-1}\\y=B\beta\left(\frac{H}{L}\right)^{\gamma-1}&amp;\end{cases}
+$$
+产品决策后，代入效用 $U=x^{1-\beta}y^{\beta}$，</p>
+<p>$$
+\begin{aligned}\mathrm{U}&amp;=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^\beta(1-\beta)^{1-\beta}\beta^\beta\\&amp;=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
+$$</p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>为什么提取x<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">为什么提取出来 x ? 马尔萨斯的假设是从人均粮食出发的，也就是人均生产品的均衡。</div>
+        </div>
+    </div>
+<h3 id="假设-2-g_hequivfracdothhndeltaleftln-x-lnbarxright">假设 2： $g_H\equiv\frac{\dot{H}}{H}=n=\delta\left(\ln x-\ln\bar{x}\right)$</h3>
+<p>马尔萨斯陷阱的描述。</p>
+<p>微分方程——导数与数值的关系——增量和存量的关系——动态方程。</p>
+<p>$\bar{x}$ 是使人口保持不变的平均生存品消费水平。</p>
+<h3 id="结论一">结论一</h3>
+<p>均衡效用的表示：</p>
+<p>$$
+U^E=\bar{x}\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta
+$$</p>
+<p>均衡人均效用随着产出结构效用品化程度（$\frac{B}{A}$ ）、对效用品的相对偏好（ $\beta$）和维持人口平衡所需的人均生存品消费（$\bar{x}$ ）的增长而增长。</p>
+<p>尚未证明的图示情况：</p>
+<p>不同部门增长速度与社会福利的关系。</p>
+<p>为保持模型简单，只考虑封闭的社会，不存在对外贸易。</p>
+<p>生存产品的增长速度为 $g_A$ ；效用产品的增长速度为 $g_B$ 。</p>
+<h3 id="引理-g_a-1-gammag_hto0">引理 ：$g_A-(1-\gamma)g_H\to0$</h3>
+<p>马尔萨斯人口增长的假设：$g_H\equiv\frac{\dot{H}}{H}=n=\delta\left(\ln x-\ln \bar{x}\right)$</p>
+<blockquote>
+<p>含义：人口增长取决于人均生存消费品水平。</p>
+</blockquote>
+<p>均衡人均消费的情况：$x=A(1-\beta)\left(\frac{H}{L}\right)^{\gamma-1}$</p>
+<p>土地资源简化为 1，得到 $x=A(1-\beta)^{\gamma}H^{\gamma-1}$，代入 $g_H$:</p>
+<p>$$
+g_H=\delta\left[\ln A+\gamma\ln(1-\beta)+(\gamma-1)\ln H-\ln x\right]
+$$</p>
+<p>使用 M 指代 $\ln A+\gamma\ln(1-\beta)$，简化为：</p>
+<p>$$g_H=\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]$$</p>
+<p>对 M 进行微分，</p>
+<p>$$
+\mathrm{d}M=g_A+(\gamma-1)g_H=g_A+(\gamma-1)\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]
+$$
+稳态时，$dM=0$, 代入求解，</p>
+<p>$$
+M^*=\frac{g_A}{(1-\gamma)\delta}-\gamma\ln(1-\beta)+\ln\bar{x}
+$$</p>
+<p>而此时又有：$\mathrm{d}M=g_A+(\gamma-1)g_H=0$</p>
+<blockquote>
+<p>$M$ 趋于均衡的 $M^*$ 的过程就是 $dM$ 靠近 0 的过程。</p>
+</blockquote>
+<h3 id="定理三人均效用增长率和两个部门的增长率">定理三：人均效用增长率和两个部门的增长率</h3>
+<p>研究人均效用增长率（也可以看作人均收入），和两个部门增长的关系。</p>
+<blockquote>
+<p>宏观的平衡增长路径，相图分析就是这种。</p>
+</blockquote>
+<p>在偏离稳态的地方（$\bar{x} \neq x$）,</p>
+<p>效用为:</p>
+<p>$$
+U=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^{\beta}(1-\beta)^{1-\beta}\beta^{\beta}
+$$</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>取对数，求导就可转化为增长率。<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>对于要素 X ，宏观要素 X 随事件变化（X(t)）。</p>
+<p>对 ln (X) 的 t 求导。</p>
+<p>$$
+\begin{aligned}&amp;\frac{d\ln X(t)}{dt}=\frac{d\ln X(t)}{dX(t)}\frac{dX(t)}{dt}\\&amp;=\frac{\frac{dX(t)}{X(t)}}{dt}=\frac{\dot{X}(t)}{X(t)}=g(\text{增长速率})\end{aligned}
+$$</p>
+</div>
+        </div>
+    </div>
+<p>取对数求导线性化，即可得到：</p>
+<p>$$g_U=\beta\left(g_B-g_A\right)+g_A-(1-\gamma)g_H$$
+后面即为引理部分，已经证明了趋于 0。</p>
+<p>于是得到了人均福利（收入）与生存品和效用品的关系。</p>
+<p>$$
+g_U=\beta\left(g_B-g_A\right)
+$$
+按照这个结论，人均收入长期停滞的原因应该只有一个，</p>
+<p>效用品的增长速度总是无法高于生存品的增长速度。</p>
+<p>更复杂的情况会引入人口迁移与贸易（通过设定人口迁移率来满足人口平衡线）、技术竞争（需要一些随机过程的数学），直觉上通过多层次博弈(《三体：黑暗森林》)理解即可，这里不再展开具体的数理模型。</p>
+<p><strong>后半部分简单解读</strong>参见：</p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/fzqy/#%E7%AB%9E%E6%8B%A9" target="_blank" rel="noopener noreffer ">竞择理论</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-03-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/mess/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/mess/" data-title=" 马尔萨斯两部门模型" data-hashtags="阅读,微观历史,宏观经济学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/mess/" data-hashtag="阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/mess/" data-title=" 马尔萨斯两部门模型"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/mess/" data-title=" 马尔萨斯两部门模型"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/mess/" data-title=" 马尔萨斯两部门模型" data-image="/img/富种起源-20250118161832879.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E5%8E%86%E5%8F%B2/">微观历史</a>,&nbsp;<a href="/zh-cn/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">宏观经济学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/zcpg/" class="prev" rel="prev" title="扭曲 or 意外：让政策评估变得有趣"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>扭曲 or 意外：让政策评估变得有趣</a>
+            <a href="/zh-cn/posts/judge_iv/" class="next" rel="next" title=" 审查员设计（Judge IV）：一种随机分配的因果推断"> 审查员设计（Judge IV）：一种随机分配的因果推断<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

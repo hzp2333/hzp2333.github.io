@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Obsidian 管理文献阅读和博客文档 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Obsidian 管理文献阅读和博客文档" />
+<meta property="og:description" content="介绍个人使用 Obsidian 的体验，这里结合 Hugo 博客文档管理和 Zotero 文献阅读谈论使用体验" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/ob/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-24T15:52:19+08:00" />
+<meta property="article:modified_time" content="2024-05-24T15:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Obsidian 管理文献阅读和博客文档"/>
+<meta name="twitter:description" content="介绍个人使用 Obsidian 的体验，这里结合 Hugo 博客文档管理和 Zotero 文献阅读谈论使用体验"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/ob/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/mycc/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Obsidian 管理文献阅读和博客文档",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ob\/"
+        },"genre": "posts","keywords": "Zotero, Hugo, Obsdian","wordcount":  3423 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ob\/","datePublished": "2024-05-24T15:52:19+08:00","dateModified": "2024-05-24T15:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/ob/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/ob/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Obsidian 管理文献阅读和博客文档</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-24">2024-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3423 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524181754745.webp"
+        data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524181754745.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524181754745.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524181754745.webp 2x"
+        data-sizes="auto"
+        alt="/img/Obsidian配合文献阅读和博客-20240524181754745.webp"
+        title="/img/Obsidian配合文献阅读和博客-20240524181754745.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#obsidian-和插件使用">Obsidian 和插件使用</a>
+      <ul>
+        <li><a href="#软件下载">软件下载</a></li>
+        <li><a href="#界面字体">界面字体</a></li>
+        <li><a href="#双链相关">双链相关</a></li>
+      </ul>
+    </li>
+    <li><a href="#插件使用">插件使用</a>
+      <ul>
+        <li><a href="#command">Command</a></li>
+        <li><a href="#pandoc">Pandoc</a></li>
+        <li><a href="#easy-typing">Easy typing</a></li>
+        <li><a href="#annotator">Annotator</a></li>
+        <li><a href="#copilot-chat">Copilot chat</a></li>
+        <li><a href="#其他插件">其他插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#obsidian-与移动端">Obsidian 与移动端</a>
+      <ul>
+        <li><a href="#全平台同步方案-remotely-save">全平台同步方案 ：Remotely save </a></li>
+        <li><a href="#pc和安卓同步">PC和安卓同步 </a></li>
+        <li><a href="#mac和ios同步">Mac和iOS同步</a></li>
+        <li><a href="#仅电脑之间同步">仅电脑之间同步</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo-与-obsidian">Hugo 与 obsidian</a></li>
+    <li><a href="#zotero-与-obsidian">Zotero 与 obsidian</a></li>
+    <li><a href="#笔记软件之争">笔记软件之争</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>最近开始接触 Obsidian，在此记录使用流程。</p>
+<p>个人主要用 ob 编写管理博客文档和文献阅读笔记。</p>
+<h2 id="obsidian-和插件使用">Obsidian 和插件使用</h2>
+<ul>
+<li>
+<p>论坛： <a href="https://forum-zh.obsidian.md/" target="_blank" rel="noopener noreffer ">https://forum-zh.obsidian.md/</a></p>
+</li>
+<li>
+<p>推荐教程：<a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/obsidian%E6%96%B0%E6%89%8B%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97&#43;by&#43;windily" target="_blank" rel="noopener noreffer ">obsidian新手不完全指南</a></p>
+</li>
+</ul>
+<p>Obsidian 代表<font color="#ff0000">双链</font>笔记理念——<strong>让笔记文件能相互联系，进而构建知识网络</strong>。对我而言，使用 obsidian 的唯一理由是它的无数神级插件，让笔记编写和整理成为一种享受！</p>
+<p>提示：最基本的使用门槛是掌握 markdown 语法。</p>
+<h3 id="软件下载">软件下载</h3>
+<p>在官网下载软件： <a href="https://obsidian.md/" target="_blank" rel="noopener noreffer ">https://obsidian.md/</a></p>
+<p>下载后打开界面如下，仓库就是笔记存储文件夹。例如我的两个仓库就是博客文档和文献笔记的存储位置。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp" title="打开页面" data-thumbnail="/img/Obsidian配合文献阅读和博客-20240524184612776.webp" data-sub-html="<h2> </h2><p>打开页面</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客-20240524184612776.webp" />
+    </a><figcaption class="image-caption">打开页面</figcaption>
+    </figure>
+选择完仓库地址后，文件夹里会多出一个 <code>.obsidian</code> 文件，对应的就是软件设置——包含插件、界面样式等设置文件。</p>
+<p>个人页面设置如下：
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp" title="页面如下" data-thumbnail="/img/Obsidian配合文献阅读和博客-20240524191650737.webp" data-sub-html="<h2> </h2><p>页面如下</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客-20240524191650737.webp" />
+    </a><figcaption class="image-caption">页面如下</figcaption>
+    </figure></p>
+<p>富人分屏（副屏），穷人分屏（复屏）😤</p>
+<blockquote>
+<p>Obsidian 文件设置：</p>
+<p>替换仓库中 <code>.obsidian</code> 文件即可。</p>
+<p>可在 github 仓库下载<a href="https://github.com/hzp2333/hzp2333.github.io/blob/master/.obsidian" target="_blank" rel="noopener noreffer ">我的<code>.obsidian</code>配置</a></p>
+<p>下载后注意把其中 <code>themes.zip </code> 解压一下。</p>
+</blockquote>
+<p>每一个仓库设置是独立的！也就是说每个仓库可以设置完全不同的主题风格和插件！这一点很棒，比如编写博客文档和编写笔记文档的功能诉求是存在矛盾的，仓库的独立设置显得非常必要👍。</p>
+<h3 id="界面字体">界面字体</h3>
+<p>调整页面字体，在左下角设置-外观-字体里面即可调整。</p>
+<h3 id="双链相关">双链相关</h3>
+<ul>
+<li><strong>文档属性</strong>：在空白第一行连续输入三次短横线 <code>---</code> 即可添加文档属性。非空白第一行时 <code>---</code> 作用是添加<strong>分界线</strong>。</li>
+<li><strong>标签添加</strong>： <code>#标签1</code>、 <code>#标签2</code></li>
+<li><strong>链接</strong>：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">链接到某一篇笔记：[[文件名]]
+</span></span><span class="line"><span class="cl">链接到某一篇笔记中的某个标题：[[ # ]]
+</span></span><span class="line"><span class="cl">链接到某一篇笔记中的某个段落（块）：[[ # ^ ]]
+</span></span><span class="line"><span class="cl">为链接创建定义（关键词）：[[ | 关键词]]
+</span></span><span class="line"><span class="cl">链接到外部文件如印象笔记：[关键词]（链接）
+</span></span><span class="line"><span class="cl">图片添加：![[]] 或者![图片标题](图片引用路径)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="插件使用">插件使用</h2>
+<p>替换 <code>.obsidian</code> 文件后打开仓库，点击信任对方并关闭安全模式。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp" title="设置页面，外观部分可以更换主题，第三方插件设置安装和开启" data-thumbnail="/img/Obsidian配合文献阅读和博客-20240524194922250.webp" data-sub-html="<h2> </h2><p>设置页面，外观部分可以更换主题，第三方插件设置安装和开启</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客-20240524194922250.webp" />
+    </a><figcaption class="image-caption">设置页面，外观部分可以更换主题，第三方插件设置安装和开启</figcaption>
+    </figure>
+左下角齿轮图案 <code>设置</code> ，打开所有已安装插件。
+可以检查插件更新和浏览第三方插件市场（<strong>需要梯子</strong>）。</p>
+<h3 id="command">Command</h3>
+<p>大部分插件在界面显示后应该能直接上手，剩余插件则是通过<strong>快捷键命令</strong>驱动。</p>
+<p>点击最左侧竖条的 <code>&gt;_</code> 符号（快捷键为 <code>ctrl+p</code>），在弹窗里输入对应命令，然后执行插件功能。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp" title="一些插件需要命令调用" data-thumbnail="/img/Obsidian配合文献阅读和博客-20240524200110588.webp" data-sub-html="<h2> </h2><p>一些插件需要命令调用</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客-20240524200110588.webp" />
+    </a><figcaption class="image-caption">一些插件需要命令调用</figcaption>
+    </figure></p>
+<p>Command 插件能帮我们添加命令快捷运行按钮。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp" title="出现添加命令的地方" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240525005836916.webp" data-sub-html="<h2> </h2><p>出现添加命令的地方</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525005836916.webp" />
+    </a><figcaption class="image-caption">出现添加命令的地方</figcaption>
+    </figure></p>
+<p>打开鼠标右键菜单，或者笔记栏顶部右侧的三点符号，点击添加命令，经过 <code>选择指令-选择栏目符号-选择栏目名称</code> 三次选择后，快捷按钮完成添加。</p>
+<h3 id="pandoc">Pandoc</h3>
+<p>不是只下载好插件就行！</p>
+<p>Obsidian 笔记语法为 markdown 语法，支持输出 pdf 格式。Pandoc 能帮助我们输出更多格式（例如 latex、equb、html&hellip;&hellip;）</p>
+<p>使用分为两步：</p>
+<p>去<a href="https://www.pandoc.org/installing.html" target="_blank" rel="noopener noreffer ">官网</a>下载 Pandoc 软件本体。</p>
+<p>安装并启动 Pandoc 插件、Enhancing export 插件。在两个插件的设置中填写好 Pandoc 文件路径，设置好输出地址。</p>
+<p>此时笔记栏右上角三点中会多出来 <code>导出为...</code> 选项，完成设置。</p>
+<h3 id="easy-typing">Easy typing</h3>
+<p>吸引我使用 obsidian 的主要插件！中英文混杂的文档编写有很多规范需要注意，例如：</p>
+<ul>
+<li>中文间夹杂数字和英文，应该用空格隔开；</li>
+<li>中英文输入法切换也麻烦；</li>
+<li>英文句子开头需要大写。</li>
+</ul>
+<p>有了 easy typing 后，中文环境的数字和英文会自动空格；中文符号重复输入一次就会变成英文符号；首句英文单词字母自动大写&hellip;&hellip;</p>
+<h3 id="annotator">Annotator</h3>
+<p>Obsidian 自身并不能阅读 pdf 文件，一般使用 annotator 插件阅读。</p>
+<p>在新建笔记第一行输入 <code>---</code> 添加文档属性 <code>annotation-target</code> 再在之后的格子中点击自己要读取的 pdf 文件，然后关闭再打开笔记页面，就变成了 pdf 阅读界面了，并且<strong>支持批注添加</strong>！
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp" title="文档属性例子" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240524205940959.webp" data-sub-html="<h2> </h2><p>文档属性例子</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524205940959.webp" />
+    </a><figcaption class="image-caption">文档属性例子</figcaption>
+    </figure></p>
+<h3 id="copilot-chat">Copilot chat</h3>
+<p>Obsidian 嵌入 ai 有三种流派，一种是直接嵌入，通过命令根据上下文续写笔记；一种是内置管理搜索文件和笔记样式。</p>
+<p>一种是保持侧边栏对话。个人推荐第三种的代表插件：Copilot chat。</p>
+<p>安装完成后，进入界面设置。</p>
+<p>Default model 设置，我推荐选择 OPEENROUTER. AI。这是一个 ai 中介商，能通过它调用各自 ai 模型。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp" title="往下找到模型设置，选择自己想要的模型，我推荐选择 OPEENROUTER. AI" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165250508.webp" data-sub-html="<h2> </h2><p>往下找到模型设置，选择自己想要的模型，我推荐选择 OPEENROUTER. AI</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165250508.webp" />
+    </a><figcaption class="image-caption">往下找到模型设置，选择自己想要的模型，我推荐选择 OPEENROUTER. AI</figcaption>
+    </figure></p>
+<p>再往下滑找到 OPEENROUTER 的 api 输入处。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp" title="往下找到模型设置，选择自己想要的模型" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165713463.webp" data-sub-html="<h2> </h2><p>往下找到模型设置，选择自己想要的模型</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165713463.webp" />
+    </a><figcaption class="image-caption">往下找到模型设置，选择自己想要的模型</figcaption>
+    </figure>
+Openrouter. Ai 的 api key <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreffer ">生成处</a></p>
+<p>模型选择网站在<a href="https://openrouter.ai/models?q=free" target="_blank" rel="noopener noreffer ">这里</a>：</p>
+<p>也不局限于 gpt3.5，可以直接搜索关键词 free, 显示的 ai 都免费调用</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp" title="选择自己想要的free模型名称" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240526170748976.webp" data-sub-html="<h2> </h2><p>选择自己想要的free模型名称</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526170748976.webp" />
+    </a><figcaption class="image-caption">选择自己想要的free模型名称</figcaption>
+    </figure></p>
+<p>例如将以下模型名称选一个复制到 <code>openrouter model</code> 处即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openchat/openchat-7b:free
+</span></span><span class="line"><span class="cl">meta-llama/llama-3-8b-instruct:free
+</span></span><span class="line"><span class="cl">google/gemma-7b-it:free
+</span></span><span class="line"><span class="cl">gryphe/mythomist-7b:free
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>点击左侧竖条中的 copilot chat，右侧就会增加一个 ai 聊天框。而且自带读取笔记功能。</p>
+<h3 id="其他插件">其他插件</h3>
+<p>Better word count 插件：更好地统计中文字数（obsidian 右下角有字数统计）。</p>
+<p>Footnote shortcut 插件：更好的脚注编辑体验，使用命令自动添加脚注。在编好的脚注上再次使用脚注命令就能实现文章尾部脚注内容和脚注位置的跳转。</p>
+<p>Word Splitting for Simplified Chinese in Edit Mode and Vim Mode 插件：双击句子自动选择词语，这个插件能更好地识别中文分词。</p>
+<h2 id="obsidian-与移动端">Obsidian 与移动端</h2>
+<p><a href="https://publish.obsidian.md/chinesehelp/03&#43;%E6%95%99%E7%A8%8B/2022%E5%B9%B43%E6%9C%88%E5%A6%82%E4%BD%95%E5%90%8C%E6%AD%A5obsidian%E6%96%87%E4%BB%B6%EF%BC%88%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93%EF%BC%89" target="_blank" rel="noopener noreffer ">2022年3月如何同步obsidian文件（阶段性总结）</a></p>
+<p>Obsdidian 的缺点之一就是麻烦且不稳定的多端互通（有钱上官方服务是最好的）</p>
+<p>省流总结：</p>
+<h3 id="全平台同步方案-remotely-save">全平台同步方案 ：Remotely save </h3>
+<p><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Remotely&#43;save%EF%BC%88%E5%90%8C%E6%AD%A5%E6%8F%92%E4%BB%B6%EF%BC%89" target="_blank" rel="noopener noreffer ">Remotely save（同步插件）</a>是本周讨论最火的插件，教程中已经收录了许多内容：</p>
+<ul>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian&#43;%E5%90%8C%E6%AD%A5&#43;Remotely&#43;Save&#43;S3&#43;%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97&#43;by&#43;%E6%81%90%E5%92%96%E5%85%B5%E7%B3%96" target="_blank" rel="noopener noreffer ">Obsidian 同步 Remotely Save S3 配置指南 by 恐咖兵糖</a></li>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%90%8C%E6%AD%A5%E6%8F%92%E4%BB%B6%EF%BC%88Remotely&#43;save%E4%BB%8B%E7%BB%8D%EF%BC%89&#43;by&#43;%E8%BD%AF%E9%80%9A%E8%BE%BE" target="_blank" rel="noopener noreffer ">第三方同步插件（Remotely save介绍） by 软通达</a>:Dropbox</li>
+<li><del><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian&#43;Remotely&#43;Save&#43;%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E7%94%B5%E8%84%91%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%90%8C%E6%AD%A5&#43;by&#43;yaozhuwa" target="_blank" rel="noopener noreffer ">Obsidian Remotely Save 插件实现电脑和移动端同步 by yaozhuwa</a>:onedrive方式</del></li>
+</ul>
+<p>（个人测试时发现纯 Remotely save+ondrive 方案已经挂掉了，安卓端 ondrive 文件夹识别有问题，需要 foldersync 这类第三方转移软件作为 onedrve 中介，还得手动启动同步）</p>
+<ul>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/%E6%9C%80%E8%88%92%E6%9C%8D%E7%9A%84Obsidian%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5&#43;by&#43;%E7%BB%B4%E5%AE%A2%E7%AC%94%E8%AE%B0" target="_blank" rel="noopener noreffer ">最舒服的Obsidian第三方多端同步 by 维客笔记</a>：Dropbox</li>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/remotely%E6%8F%92%E4%BB%B6%E6%90%AD%E9%85%8D%E8%85%BE%E8%AE%AF%E4%BA%91cos%E6%95%99%E7%A8%8B&#43;by&#43;%E5%85%AB%E5%AE%9D%E5%91%A8" target="_blank" rel="noopener noreffer ">remotely插件搭配腾讯云cos教程 by 八宝周</a>：腾讯云，S3</li>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E9%80%9A%E8%BF%87Remotely&#43;save%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%9D%9A%E6%9E%9C%E4%BA%91%E5%90%8C%E6%AD%A5&#43;by&#43;BCS" target="_blank" rel="noopener noreffer ">Obsidian通过Remotely save插件实现坚果云同步 by BCS</a>：坚果云，webdav</li>
+<li><a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E4%BD%BF%E7%94%A8Remotely&#43;Save&#43;%E5%92%8C%E9%98%BF%E9%87%8C%E4%BA%91&#43;OSS&#43;%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5&#43;by&#43;zm" target="_blank" rel="noopener noreffer ">Obsidian使用Remotely Save 和阿里云 OSS 实现多平台同步 by zm</a>：阿里云oss，S3</li>
+</ul>
+<h3 id="pc和安卓同步">PC和安卓同步 </h3>
+<p>Win和安卓可以考虑 <a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/Syncthing%EF%BC%88%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6%EF%BC%89" target="_blank" rel="noopener noreffer ">Syncthing（同步软件）</a>或者类似的<a href="https://publish.obsidian.md/chinesehelp/03&#43;%E6%95%99%E7%A8%8B/%E5%BE%AE%E5%8A%9B%E5%90%8C%E6%AD%A5" target="_blank" rel="noopener noreffer ">微力同步</a>。可见<a href="https://publish.obsidian.md/chinesehelp/03&#43;%E6%95%99%E7%A8%8B/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E6%90%AD%E5%BB%BASyncthing%E6%9D%A5%E5%90%8C%E6%AD%A5obsidian&#43;by&#43;%E8%BD%AF%E9%80%9A%E8%BE%BE" target="_blank" rel="noopener noreffer ">使用腾讯云搭建Syncthing来同步obsidian by 软通达</a>。</p>
+<h3 id="mac和ios同步">Mac和iOS同步</h3>
+<p>可以考虑<a href="https://publish.obsidian.md/chinesehelp/03&#43;%E6%95%99%E7%A8%8B/iCloud" target="_blank" rel="noopener noreffer ">iCloud</a>，没有设备，没有尝试。</p>
+<h3 id="仅电脑之间同步">仅电脑之间同步</h3>
+<p>推荐使用<a href="https://publish.obsidian.md/chinesehelp/01&#43;2021%E6%96%B0%E6%95%99%E7%A8%8B/%E5%9D%9A%E6%9E%9C%E4%BA%91" target="_blank" rel="noopener noreffer ">坚果云</a>等同步软件。这里注意2点：</p>
+<ol>
+<li>不要两台机同时开着ob和同步软件，这样会导致保存出错。</li>
+<li>注意分辨同步盘和储存盘（网盘）的区别。</li>
+</ol>
+<h2 id="hugo-与-obsidian">Hugo 与 obsidian</h2>
+<p>推荐参考：</p>
+<ul>
+<li><a href="https://blog.zhangyingwei.com/posts/2022m4d11h19m42s28/" target="_blank" rel="noopener noreffer ">Hugo 博客写作最佳实践</a></li>
+<li><a href="https://yaofun.top/posts/2024/03/%E4%BD%BF%E7%94%A8-obsidian-%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener noreffer ">使用 Obsidian 一键发布博客</a></li>
+<li><a href="https://lillianwho.com/posts/obsidian-hugo-cloudflare/" target="_blank" rel="noopener noreffer ">obsidian 配合 hugo、cloudflare：让发布博客简单到不可思议</a></li>
+</ul>
+<p>个人额外推荐 hugo preview 这个插件——相当于加载一个在线博客预览页面。启动插件后点击右下角的<font color="#00b0f0">蓝色方块</font>即可打开页面。其实就是把特定网页导入 obsidian 预览。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp" title="左右开弓！" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240524211004569.webp" data-sub-html="<h2> </h2><p>左右开弓！</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524211004569.webp" />
+    </a><figcaption class="image-caption">左右开弓！</figcaption>
+    </figure></p>
+<p>值得一提的还有 mermaid 插件。Loveit 主题的 hugo 博客支持流程图渲染，有些流程图的细节命令我记不住可以使用这个插件辅助。</p>
+<p>我目前还是本地图片引用（就是喜欢本地管理😀），</p>
+<ul>
+<li><strong>imge converter</strong> 能自动压缩、重命名并转化图片格式；</li>
+<li><strong>clear unsed images</strong> 插件能帮助清理未被引用的本地图片。</li>
+</ul>
+<p>至于<strong>图片引用路径</strong>的修改（post/img 复制到 static/img），和博客上传到 git，我没有使用 obsidian 的 git 插件，都使用的 <code>.bat</code> 脚本代劳（让 gpt 写就完了！），也简单。如此一来专注写作就行了。</p>
+<p>至于新建博客模板，用不着设置 quick 插件，obsidian 自带模板设置，新建一个模板文件夹放入 markdown 模板文件，每次新建文章时在左侧竖条点击对应模板导入的图标即可。</p>
+<h2 id="zotero-与-obsidian">Zotero 与 obsidian</h2>
+<p>推荐参考：<a href="https://zhuanlan.zhihu.com/p/651144180" target="_blank" rel="noopener noreffer ">Zotero + Obsidian联动方案汇总盘点 - 2023最全</a></p>
+<p>悲伤的是——最好用的都是有付费的🤧。</p>
+<p>在 zotero7 刚刚更新的时候，个人上了青柠学术付费插件的车，采用他的插件能实现 zotero 文献注释笔记和 obsidian 无缝传递。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp" title="青柠学术的插件对接。想要图片丝滑无缝传递，无论如何都得搭建图床" data-thumbnail="/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp" data-sub-html="<h2> </h2><p>青柠学术的插件对接。想要图片丝滑无缝传递，无论如何都得搭建图床</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 2x"
+            data-sizes="auto"
+            alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp" />
+    </a><figcaption class="image-caption">青柠学术的插件对接。想要图片丝滑无缝传递，无论如何都得搭建图床</figcaption>
+    </figure></p>
+<p>到 2024 年，zotero 分为了 zotero6 和 zotero7 版本，且 zotero 插件 mdnote 的作者明确表态不会完善插件适配 zotero7。所以可选的方案更少了。</p>
+<p>个人目前也在用的其他免费方案是—— zotero 的 better note 插件加 obsidian 的 zotero integration 插件方案。</p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" target="_blank" rel="noopener noreffer ">个人的 zotero better note 模板和教程</a></p>
+<p>在 zotero 中使用 better note 建立文献笔记，然后通过 zotero integration 插件将文献笔记导入 obsidian 进行归纳整理。</p>
+<h2 id="笔记软件之争">笔记软件之争</h2>
+<p>网上很多人在比较 notion、obsidian 和其他笔记软件。个人选择 obsidian 的原因主要是丰富的开源插件和安全感满满的本地储存。</p>
+<p>不过 obsidian 被吐槽的点是——插件太多，功能太花哨，上手门槛也比较高，于是显得主次不分。不过到目前为止，我尚未用 obsidian 建立知识图谱，光是使用他来编辑文档就已经很舒服了。</p>
+<p>除此之外，obsidian 的初衷是构建知识体系。对于他人的使用分享，我受到启发的并不是他们的笔记美观程度，而是他们如何让利用 obsidian 贯彻自己的资料整理理念🦾。利用插件建立周期笔记轮替复习；建立关键词分块不断扩展；利用 obsidiana 联动工具完善自己的工作流程；笔记分块逻辑与设计结合&hellip;&hellip;</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-05-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/ob/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ob/" data-title="Obsidian 管理文献阅读和博客文档" data-hashtags="Zotero,Hugo,Obsdian"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ob/" data-hashtag="Zotero"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ob/" data-title="Obsidian 管理文献阅读和博客文档"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ob/" data-title="Obsidian 管理文献阅读和博客文档"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ob/" data-title="Obsidian 管理文献阅读和博客文档" data-image="/img/Obsidian配合文献阅读和博客-20240524181754745.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/zotero/">Zotero</a>,&nbsp;<a href="/zh-cn/tags/hugo/">Hugo</a>,&nbsp;<a href="/zh-cn/tags/obsdian/">Obsdian</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/todesk/" class="prev" rel="prev" title="Todesk 平板远程控制电脑的声音问题"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Todesk 平板远程控制电脑的声音问题</a>
+            <a href="/zh-cn/posts/mycc/" class="next" rel="next" title=" 调研小记 2：密云野长城"> 调研小记 2：密云野长城<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

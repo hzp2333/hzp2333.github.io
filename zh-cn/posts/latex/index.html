@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 如何在1小时内快速入手LaTeX？ - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 如何在1小时内快速入手LaTeX？" />
+<meta property="og:description" content="LaTeX 论文排版快速入门。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/latex/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-09T18:52:19+08:00" />
+<meta property="article:modified_time" content="2022-10-09T18:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 如何在1小时内快速入手LaTeX？"/>
+<meta name="twitter:description" content="LaTeX 论文排版快速入门。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/latex/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/ynzt/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 如何在1小时内快速入手LaTeX？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/latex\/"
+        },"genre": "posts","keywords": "LaTeX","wordcount":  4707 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/latex\/","datePublished": "2022-10-09T18:52:19+08:00","dateModified": "2022-10-09T18:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/latex/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/latex/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 如何在1小时内快速入手LaTeX？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-09">2022-10-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4707 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804124412617.webp"
+        data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804124412617.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804124412617.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804124412617.webp 2x"
+        data-sizes="auto"
+        alt="/img/LaTeX入门-20240804124412617.webp"
+        title="/img/LaTeX入门-20240804124412617.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#latex-何方神圣">LaTeX 何方神圣</a></li>
+    <li><a href="#下载和安装">下载和安装</a></li>
+    <li><a href="#快速上手-两个小时以内">快速上手 （两个小时以内）</a></li>
+    <li><a href="#进阶教程论文需要的">进阶教程（论文需要的）</a>
+      <ul>
+        <li><a href="#引用有两种方法">引用有两种方法</a></li>
+        <li><a href="#补充知网文献如何转化为-bib-格式">补充，知网文献如何转化为 BIB 格式？</a></li>
+        <li><a href="#emoji-卖萌">Emoji 卖萌</a></li>
+        <li><a href="#有趣的宏包">有趣的宏包</a></li>
+        <li><a href="#进阶道路来自学长的补充">进阶道路（来自学长的补充）</a></li>
+      </ul>
+    </li>
+    <li><a href="#latex-网站">LaTeX 网站</a>
+      <ul>
+        <li><a href="#在线-latex-编辑网站">在线 LaTeX 编辑网站</a></li>
+        <li><a href="#数学公式识别网站">数学公式识别网站</a></li>
+        <li><a href="#latex-表格生成">LaTeX 表格生成</a></li>
+        <li><a href="#pdf-处理网站">PDF 处理网站</a></li>
+      </ul>
+    </li>
+    <li><a href="#个人入门代码">个人入门代码</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>因为学长发的朋友圈接触了 LaTeX ，在这里记录下学习过程，顺便整合下这段时间看的实用帖子。</p>
+<h2 id="latex-何方神圣">LaTeX 何方神圣</h2>
+<blockquote>
+<p>LaTeX（/ˈlɑːtɛx/，常被读作/ˈlɑːtɛk/或/ˈleɪtɛk/） 是一种基于 TeX 的高品质排版系统，由美国计算机科学家莱斯利·兰伯特在 20 世纪 80 年代初期开发，非常适用于生成高印刷质量的科技和数学、物理文档，尤其擅长于复杂表格和数学公式的排版。LaTeX 是科学文献交流和出版的事实标准。 （维基百科）</p>
+</blockquote>
+<ul>
+<li>Word：所见即所得</li>
+<li>LaTeX：排版格式和文字内容是分开的</li>
+</ul>
+<p>（排版是通过代码调整，里面最棒的是各种宏包，调用来各可以做何种事情，比如在文章中加几个 emoji~）</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp" title="插入emoji，Word就不会插入的这么自然啦~" data-thumbnail="/img/LaTeX入门-20240804115505904.webp" data-sub-html="<h2> </h2><p>插入emoji，Word就不会插入的这么自然啦~</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门-20240804115505904.webp" />
+    </a><figcaption class="image-caption">插入emoji，Word就不会插入的这么自然啦~</figcaption>
+    </figure></p>
+<p>对我而言，LaTeX 的排版是真的美，排除舒服的版面很有成就感。如果你的文章里会出现<strong>大量的数学公式和图文表格</strong>，那么 LaTeX 一定是比较好的选择~</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp" title="word排版" data-thumbnail="/img/LaTeX入门-20240804115702301.webp" data-sub-html="<h2> </h2><p>word排版</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门-20240804115702301.webp" />
+    </a><figcaption class="image-caption">word排版</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp" title="LaTeX排版" data-thumbnail="/img/LaTeX入门-20240804115745943.webp" data-sub-html="<h2> </h2><p>LaTeX排版</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门-20240804115745943.webp" />
+    </a><figcaption class="image-caption">LaTeX排版</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp" title="我们队在一次数学建模比赛中描写排队模型，LaTeX排" data-thumbnail="/img/LaTeX入门-20240804115849727.webp" data-sub-html="<h2> </h2><p>我们队在一次数学建模比赛中描写排队模型，LaTeX排</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门-20240804115849727.webp" />
+    </a><figcaption class="image-caption">我们队在一次数学建模比赛中描写排队模型，LaTeX排</figcaption>
+    </figure></p>
+<h2 id="下载和安装">下载和安装</h2>
+<p>不下载也行，有在线编辑的 LaTeX 网站，可以跳过这里，先看后面的 LaTeX 网站。</p>
+<p>LaTeX 有很多版本：LaTeX 、Ctex&hellip;&hellip;. 对应的编码环境配置也有很多版本 winedit，studio&hellip;&hellip;</p>
+<p>个人推荐以下配置（针对 Windows 系统）: <code>texlive</code> + <code>texstudio</code></p>
+<p>原因：对新手友好，支持中文页面（winedit 页面是英文的）</p>
+<p><a href="https://blog.csdn.net/SevenBerry/article/details/126692374" target="_blank" rel="noopener noreffer ">LaTeX 下载教程</a>：随便找的，可以自己找最新的。</p>
+<blockquote>
+<p>当初我找的教程是 2018 版本的，结果 2021 安装有点不同，这里放的是 2022 版本</p>
+</blockquote>
+<h2 id="快速上手-两个小时以内">快速上手 （两个小时以内）</h2>
+<blockquote>
+<p>打开链接之前的 tips:</p>
+<p>里面有个地方在 Windows 更新后已经不行了，那就是“如何让 LaTeX 支持中文正文”，代码修正放在链接下面的代码块里：</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV11h41127FD&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\usepackage[fontset=windows]{ctex} 
+</span></span><span class="line"><span class="cl">%百分号就是注释的意思 
+</span></span><span class="line"><span class="cl">%usepackage就相当于添加宏包，比如给手机下载应用，个浏览器下载插件，有了宏包能做更多事 
+</span></span><span class="line"><span class="cl">%window升级后用这个才方便输出中文或者识别
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果内置 PDF 无法预览显示，可能是 PDF 阅读器的锅。</p>
+<h2 id="进阶教程论文需要的">进阶教程（论文需要的）</h2>
+<p>基于上个链接视频没有的内容进行补充</p>
+<h3 id="引用有两种方法">引用有两种方法</h3>
+<p><a href="https://blog.csdn.net/weixin_44378800/article/details/109905695?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&amp;utm_relevant_index=1" target="_blank" rel="noopener noreffer ">LaTeX 插入参考文献的方法（两种全）</a></p>
+<p>其中第一种方法（BiB 格式）如果编码不成功：</p>
+<ol>
+<li>验 bib 格式或者引用文献那里有没有打了什么奇怪的符号</li>
+<li>编码顺序和编码次数不对</li>
+<li>重启然后再来</li>
+</ol>
+<h3 id="补充知网文献如何转化为-bib-格式">补充，知网文献如何转化为 BIB 格式？</h3>
+<p>我采用的方案是油猴插件（大学生的网课利器！）。
+目前火狐，QQ 浏览器，edge，谷歌浏览器都支持油猴插件。</p>
+<ul>
+<li><a href="https://www.tampermonkey.net/index.php?browser=chrome&amp;locale=zh" target="_blank" rel="noopener noreffer ">油猴插件下载</a></li>
+<li><a href="https://greasyfork.org/zh-CN/scripts?page=2" target="_blank" rel="noopener noreffer ">插件脚本下载</a></li>
+<li><a href="https://greasyfork.org/zh-CN/scripts/393305-%E7%9F%A5%E7%BD%91-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE-bibtex" target="_blank" rel="noopener noreffer "> 知网参考文献 bibtex</a></li>
+</ul>
+<h3 id="emoji-卖萌">Emoji 卖萌</h3>
+<p>我推荐宏包的方式插入 emoji，
+详细可以看看对应的手册。</p>
+<p>举个例子：</p>
+<pre><code>\emoji{grinning}	
+\emoji{sweat-smile}	
+\emoji{rofl}	
+\emoji{joy}	
+\emoji{smiling-face-with-hearts}	
+\emoji{face-savoring-food}
+</code></pre>
+<p><a href="https://zhuanlan.zhihu.com/p/109158588" target="_blank" rel="noopener noreffer ">在 LaTeX 中使用 Emoji ✌️</a></p>
+<p>LaTeX 有很多个编译器，适用于 emoji 宏包的是 luaLaTeX</p>
+<blockquote>
+<p>但如果一开始就这样似乎无法产生 PDF 文件。我的建议是，先不用 emoji 宏包，用 pdfLaTeX 编译，产生 PDF 后，再加入 emoji 命令使用 luaLaTeX 编译。</p>
+</blockquote>
+<h3 id="有趣的宏包">有趣的宏包</h3>
+<p>下棋宏包，围棋，中国象棋，国际象棋，乐谱</p>
+<p><a href="https://www.LaTeXstudio.net/huLaTeX/templet/musicBook.htm" target="_blank" rel="noopener noreffer ">LaTeX 编辑部</a></p>
+<h3 id="进阶道路来自学长的补充">进阶道路（来自学长的补充）</h3>
+<blockquote>
+<p>LaTeX 进阶还可以学一下：</p>
+<ol>
+<li>Tikz package 绘图</li>
+<li>Beamer document class 做 ppt</li>
+<li>自己开发 package/class document</li>
+</ol>
+<p>感觉这样作为 LaTeX 的使用者来讲，几乎就到头了。</p>
+</blockquote>
+<h2 id="latex-网站">LaTeX 网站</h2>
+<h3 id="在线-latex-编辑网站">在线 LaTeX 编辑网站</h3>
+<ul>
+<li>国外：<a href="https://www.overleaf.com/" target="_blank" rel="noopener noreffer ">overleaf</a></li>
+<li>国内：<a href="https://www.texpage.com/" target="_blank" rel="noopener noreffer ">texpage</a> 、<a href="https://www.slager.link/#/home" target="_blank" rel="noopener noreffer ">slager</a></li>
+<li>LaTeX 模板：<a href="https://www.LaTeXstudio.net/category/5.html" target="_blank" rel="noopener noreffer ">TeX 工作室</a>、<a href="https://www.shareLaTeX.com/" target="_blank" rel="noopener noreffer ">shareLaTeX</a></li>
+</ul>
+<h3 id="数学公式识别网站">数学公式识别网站</h3>
+<ul>
+<li><a href="https://simpletex.cn/" target="_blank" rel="noopener noreffer ">SimpleLaTeX</a></li>
+<li><a href="https://web.baimiaoapp.com/image-to-LaTeX" target="_blank" rel="noopener noreffer ">白描</a></li>
+<li><a href="https://www.LaTeXlive.com/" target="_blank" rel="noopener noreffer ">LaTeX 公式编辑器</a></li>
+<li><a href="https://mathpix.com/" target="_blank" rel="noopener noreffer ">Mathpix</a></li>
+</ul>
+<h3 id="latex-表格生成">LaTeX 表格生成</h3>
+<ul>
+<li><a href="https://www.tablesgenerator.com/" target="_blank" rel="noopener noreffer ">LaTeX 表格</a></li>
+<li><a href="https://tableconvert.com/zh-cn/LaTeX-generator#google_vignette" target="_blank" rel="noopener noreffer ">表格转换工具</a></li>
+</ul>
+<h3 id="pdf-处理网站">PDF 处理网站</h3>
+<blockquote>
+<p>为什么把这个放在 LaTeX 这里？因为 LaTeX 的效果是生成 PDF ，有时候一些比赛，论文场合只给 PDF 的封面。大家 LaTeX 协作时，我们也需要把几个 PDF 进行整合。</p>
+</blockquote>
+<p><a href="https://www.ilovepdf.com/zh-cn/merge_pdf" target="_blank" rel="noopener noreffer ">PDF 处理网站</a></p>
+<h2 id="个人入门代码">个人入门代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span><span class="lnt">300
+</span><span class="lnt">301
+</span><span class="lnt">302
+</span><span class="lnt">303
+</span><span class="lnt">304
+</span><span class="lnt">305
+</span><span class="lnt">306
+</span><span class="lnt">307
+</span><span class="lnt">308
+</span><span class="lnt">309
+</span><span class="lnt">310
+</span><span class="lnt">311
+</span><span class="lnt">312
+</span><span class="lnt">313
+</span><span class="lnt">314
+</span><span class="lnt">315
+</span><span class="lnt">316
+</span><span class="lnt">317
+</span><span class="lnt">318
+</span><span class="lnt">319
+</span><span class="lnt">320
+</span><span class="lnt">321
+</span><span class="lnt">322
+</span><span class="lnt">323
+</span><span class="lnt">324
+</span><span class="lnt">325
+</span><span class="lnt">326
+</span><span class="lnt">327
+</span><span class="lnt">328
+</span><span class="lnt">329
+</span><span class="lnt">330
+</span><span class="lnt">331
+</span><span class="lnt">332
+</span><span class="lnt">333
+</span><span class="lnt">334
+</span><span class="lnt">335
+</span><span class="lnt">336
+</span><span class="lnt">337
+</span><span class="lnt">338
+</span><span class="lnt">339
+</span><span class="lnt">340
+</span><span class="lnt">341
+</span><span class="lnt">342
+</span><span class="lnt">343
+</span><span class="lnt">344
+</span><span class="lnt">345
+</span><span class="lnt">346
+</span><span class="lnt">347
+</span><span class="lnt">348
+</span><span class="lnt">349
+</span><span class="lnt">350
+</span><span class="lnt">351
+</span><span class="lnt">352
+</span><span class="lnt">353
+</span><span class="lnt">354
+</span><span class="lnt">355
+</span><span class="lnt">356
+</span><span class="lnt">357
+</span><span class="lnt">358
+</span><span class="lnt">359
+</span><span class="lnt">360
+</span><span class="lnt">361
+</span><span class="lnt">362
+</span><span class="lnt">363
+</span><span class="lnt">364
+</span><span class="lnt">365
+</span><span class="lnt">366
+</span><span class="lnt">367
+</span><span class="lnt">368
+</span><span class="lnt">369
+</span><span class="lnt">370
+</span><span class="lnt">371
+</span><span class="lnt">372
+</span><span class="lnt">373
+</span><span class="lnt">374
+</span><span class="lnt">375
+</span><span class="lnt">376
+</span><span class="lnt">377
+</span><span class="lnt">378
+</span><span class="lnt">379
+</span><span class="lnt">380
+</span><span class="lnt">381
+</span><span class="lnt">382
+</span><span class="lnt">383
+</span><span class="lnt">384
+</span><span class="lnt">385
+</span><span class="lnt">386
+</span><span class="lnt">387
+</span><span class="lnt">388
+</span><span class="lnt">389
+</span><span class="lnt">390
+</span><span class="lnt">391
+</span><span class="lnt">392
+</span><span class="lnt">393
+</span><span class="lnt">394
+</span><span class="lnt">395
+</span><span class="lnt">396
+</span><span class="lnt">397
+</span><span class="lnt">398
+</span><span class="lnt">399
+</span><span class="lnt">400
+</span><span class="lnt">401
+</span><span class="lnt">402
+</span><span class="lnt">403
+</span><span class="lnt">404
+</span><span class="lnt">405
+</span><span class="lnt">406
+</span><span class="lnt">407
+</span><span class="lnt">408
+</span><span class="lnt">409
+</span><span class="lnt">410
+</span><span class="lnt">411
+</span><span class="lnt">412
+</span><span class="lnt">413
+</span><span class="lnt">414
+</span><span class="lnt">415
+</span><span class="lnt">416
+</span><span class="lnt">417
+</span><span class="lnt">418
+</span><span class="lnt">419
+</span><span class="lnt">420
+</span><span class="lnt">421
+</span><span class="lnt">422
+</span><span class="lnt">423
+</span><span class="lnt">424
+</span><span class="lnt">425
+</span><span class="lnt">426
+</span><span class="lnt">427
+</span><span class="lnt">428
+</span><span class="lnt">429
+</span><span class="lnt">430
+</span><span class="lnt">431
+</span><span class="lnt">432
+</span><span class="lnt">433
+</span><span class="lnt">434
+</span><span class="lnt">435
+</span><span class="lnt">436
+</span><span class="lnt">437
+</span><span class="lnt">438
+</span><span class="lnt">439
+</span><span class="lnt">440
+</span><span class="lnt">441
+</span><span class="lnt">442
+</span><span class="lnt">443
+</span><span class="lnt">444
+</span><span class="lnt">445
+</span><span class="lnt">446
+</span><span class="lnt">447
+</span><span class="lnt">448
+</span><span class="lnt">449
+</span><span class="lnt">450
+</span><span class="lnt">451
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="na">[fontset=windows]</span><span class="nb">{</span>ctex<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%window升级后用这个才方便输出中文或者识别
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span><span class="c">%图片插入
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>emoji<span class="nb">}</span><span class="c">%表情
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"> <span class="k">\usepackage</span><span class="nb">{</span>cite<span class="nb">}</span><span class="c">%引用
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span><span class="c">%数学符号
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>indentfirst<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>pdfpages<span class="nb">}</span> <span class="c">%插入PDF
+</span></span></span><span class="line"><span class="cl"><span class="c">%\pagestyle{myheadings}%设置页面格式
+</span></span></span><span class="line"><span class="cl"><span class="c">%arabic 阿拉伯数字
+</span></span></span><span class="line"><span class="cl"><span class="c">%roman l小写的罗马数字
+</span></span></span><span class="line"><span class="cl"><span class="c">%Roman 大写的罗马数字
+</span></span></span><span class="line"><span class="cl"><span class="c">%alph 小写字母
+</span></span></span><span class="line"><span class="cl"><span class="c">%Alph 大写字母
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\pagenumbering</span><span class="nb">{</span>arabic<span class="nb">}</span><span class="c">%设置页码格式
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span><span class="c">%导入fancyhdr包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\pagestyle</span><span class="nb">{</span>fancy<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyhead</span><span class="na">[L]</span><span class="nb">{</span>左页眉<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyhead</span><span class="na">[R]</span><span class="nb">{</span>右页眉<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyhead</span><span class="na">[c]</span><span class="nb">{</span>中间页眉<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyfoot</span><span class="na">[L]</span><span class="nb">{</span>左页脚<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyfoot</span><span class="na">[C]</span><span class="nb">{</span><span class="k">\thepage</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\fancyfoot</span><span class="na">[R]</span><span class="nb">{</span>右页脚<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%-------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c">%\fancyfoot[LO]{奇数页左页脚}
+</span></span></span><span class="line"><span class="cl"><span class="c">%\fancyfoot[LE]{偶数页左页脚}
+</span></span></span><span class="line"><span class="cl"><span class="c">%\fancyfoot[RO]{奇数页右页脚}
+</span></span></span><span class="line"><span class="cl"><span class="c">%\fancyfoot[RE]{偶数页右页脚}
+</span></span></span><span class="line"><span class="cl"><span class="c">%------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\headrulewidth</span><span class="nb">}{</span>4pt<span class="nb">}</span><span class="c">%分隔线宽度4磅
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\footrulewidth</span><span class="nb">}{</span>4pt<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%以上是导入的各种数据包，就像浏览器的插件一样，有了这些包才方便生效一些好用的代码
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\title</span><span class="nb">{</span><span class="k">\heiti</span> 我的<span class="k">\LaTeX</span>
+</span></span><span class="line"><span class="cl">的上路操作记录<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\author</span><span class="nb">{</span><span class="k">\kaishu</span> 胡昂<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\abstractname</span><span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span><span class="k">\zihao</span><span class="nb">{</span>4<span class="nb">}</span>摘<span class="k">\quad</span> 要<span class="nb">}}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%摘要字体：4号，加粗，中间有空格
+</span></span></span><span class="line"><span class="cl"><span class="c">%以上部分属于是前言
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="c">%————————————————————————%
+</span></span></span><span class="line"><span class="cl"><span class="c">%接下来就是正文了
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>tikzit<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\maketitle</span><span class="c">%取标题
+</span></span></span><span class="line"><span class="cl"><span class="c">%%就是注释的意思
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\newpage</span><span class="c">%另起一页
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\tableofcontents</span><span class="c">%命令输出论文目录
+</span></span></span><span class="line"><span class="cl"><span class="c">%\listoffigures   插图目录
+</span></span></span><span class="line"><span class="cl"><span class="c">%\listoftables    表格目录
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\newpage</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>abstract<span class="nb">}</span><span class="c">%摘要
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl">这里就是摘要环节了。对于三种文档类article，report，book，前两种是有摘要环境的，用法环节就和这部分一样。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\noindent</span><span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>关键词：<span class="nb">}</span> 摘要;<span class="k">\LaTeX</span>;论文格式;操作记录<span class="nb">}</span><span class="k">\centering</span><span class="c">%关键词居中
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>abstract<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>grinning<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>sweat-smile<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>rofl<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>joy<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>smiling-face-with-hearts<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>face-savoring-food<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>标题的层次<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">但chapter一般在report里用
+</span></span><span class="line"><span class="cl"><span class="nb">{</span>比section更大的是chapter<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>第一个章节<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">直接在章节标题下面写点东西？<span class="k">\emoji</span><span class="nb">{</span>+1<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">这里描述下字体处理<span class="k">\emoji</span><span class="nb">{</span>joy<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>第一个章节下的第一个子章节<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\subsubsection</span><span class="nb">{</span>我已经可以开始套娃了<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">我直接开始胡言乱语并且开始写点东西
+</span></span><span class="line"><span class="cl">哈哈哈哈<span class="k">\footnote</span><span class="nb">{</span>这个是添加脚注的命令<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsubsection</span><span class="nb">{</span>子章节用无限sub描述<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>第二个章节<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>第三个章节<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">这里说明的是列表
+</span></span><span class="line"><span class="cl">的begin end 对应的是列表环境域，其中的所有内容共享一个文字格式
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 无序列表一 
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 无序列表二
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 无序列表三
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 有序列表一 
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 有序列表二
+</span></span><span class="line"><span class="cl"><span class="k">\item</span> 有序列表三
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>文字特效<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\textbf</span><span class="nb">{</span>加粗<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\textit</span><span class="nb">{</span>斜体<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\underline</span><span class="nb">{</span>下划线<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>数字工具排版<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>公式环境<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LaTeX支持直接输入，不过需要特定的符号：<span class="s">$</span><span class="nb">E</span><span class="o">=</span><span class="nb">C^</span><span class="m">2</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl">写成单独一行也是可以打，加上符号
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">E=MC<span class="nb">^</span>2
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    也可以缩写： 
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="sb">\[</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">x^{</span><span class="m">4</span><span class="nb">}</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{x}{y}</span><span class="o">=</span><span class="nb">x^</span><span class="m">3</span><span class="o">-</span><span class="m">23</span><span class="nb">y{</span><span class="m">7</span><span class="nb">}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">\]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="sb">\[</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">    d</span><span class="o">=</span><span class="nb">{k </span><span class="nv">\varphi</span><span class="o">(</span><span class="nb">n</span><span class="o">)+</span><span class="m">1</span><span class="nb">} </span><span class="nv">\over</span><span class="nb"> e   
+</span></span></span><span class="line"><span class="cl"><span class="nb">    </span><span class="s">\]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="sb">\[</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\mathrm</span><span class="nb">{func}</span><span class="o">(</span><span class="nb">x, y</span><span class="o">)</span><span class="nv">\triangleq</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb"> </span><span class="nv">\left</span><span class="o">(</span><span class="nb">{x^{</span><span class="m">100</span><span class="nb">}}</span><span class="nv">\right</span><span class="o">)</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">    </span><span class="s">\]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>加减号<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">数学符号：变量
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">大于号：<span class="k">\textgreater</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">小于号： <span class="k">\textless</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">下面的后面要加空格，否则会识别错误
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">大于等于：<span class="k">\geq</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">小于等于：<span class="k">\leq</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>大括号<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">方法一：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb"> f</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="nv">\left\{</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\begin</span><span class="nb">{aligned}
+</span></span></span><span class="line"><span class="cl"><span class="nb">x &amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\cos</span><span class="o">(</span><span class="nb">t</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">y &amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\sin</span><span class="o">(</span><span class="nb">t</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">z &amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb"> xy
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{aligned}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\right</span><span class="nb">.
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">方法二：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb"> F^{HLLC}</span><span class="o">=</span><span class="nv">\left\{</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\begin</span><span class="nb">{array}{rcl}
+</span></span></span><span class="line"><span class="cl"><span class="nb">F_L       &amp;      &amp; {</span><span class="m">0</span><span class="nb">      &lt;      S_L}</span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">F^</span><span class="o">*</span><span class="nb">_L     &amp;      &amp; {S_L </span><span class="nv">\leq</span><span class="nb"> </span><span class="m">0</span><span class="nb"> &lt; S_M}</span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">F^</span><span class="o">*</span><span class="nb">_R     &amp;      &amp; {S_M </span><span class="nv">\leq</span><span class="nb"> </span><span class="m">0</span><span class="nb"> &lt; S_R}</span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">F_R       &amp;      &amp; {S_R </span><span class="nv">\leq</span><span class="nb"> </span><span class="m">0</span><span class="nb">}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{array} </span><span class="nv">\right</span><span class="nb">. </span><span class="s">$$</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">方法三：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">f</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\begin</span><span class="nb">{cases}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="m">0</span><span class="nb">&amp; </span><span class="nv">\text</span><span class="nb">{x</span><span class="o">=</span><span class="m">0</span><span class="nb">}</span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="m">1</span><span class="nb">&amp; </span><span class="nv">\text</span><span class="nb">{x</span><span class="o">!=</span><span class="m">0</span><span class="nb">}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{cases}</span><span class="s">$$</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">$</span><span class="nv">\longleftrightarrow</span><span class="s">$</span> <span class="k">\\</span>箭头
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>表格怎么打<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">随意写点东西？
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>||p<span class="nb">{</span>2cm<span class="nb">}</span>|r|c|l||<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hline\hline</span> 
+</span></span><span class="line"><span class="cl">单元格1<span class="nb">&amp;</span>单元格2<span class="nb">&amp;</span>单元格3<span class="nb">&amp;</span>单元格<span class="k">\\</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hline</span>
+</span></span><span class="line"><span class="cl">单元格4<span class="nb">&amp;</span>单元格5<span class="nb">&amp;</span>单元格6<span class="nb">&amp;</span>单元格<span class="k">\\</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hline</span>
+</span></span><span class="line"><span class="cl">单元格7<span class="nb">&amp;</span>单元格8<span class="nb">&amp;</span>单元格9<span class="nb">&amp;</span>单元格<span class="k">\\</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hline\hline</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>表格的标题<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这下面是很秀的三线格
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[h]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>ccc<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hline</span>
+</span></span><span class="line"><span class="cl">变化部分  <span class="nb">&amp;</span> 所有（容易变化） <span class="nb">&amp;</span> 国有（不易变化） <span class="k">\\</span> <span class="k">\hline</span>
+</span></span><span class="line"><span class="cl">耕地    <span class="nb">&amp;</span> 自种；荒废；外包 <span class="nb">&amp;</span> 一般不变     <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">未利用荒地 <span class="nb">&amp;</span> 转变为耕地    <span class="nb">&amp;</span> 转变为耕地    <span class="k">\\</span> <span class="k">\hline</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>关系图<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](a)at(0,0)<span class="nb">{</span>concat<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](b)at(0,-1)<span class="nb">{</span>relation<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](c)at(-2,-1)<span class="nb">{</span>relation<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (d)at(1,-1)<span class="nb">{</span>...<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](e)at(2,-1)<span class="nb">{</span>relation<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,circle](f)at(-3.5,2)<span class="nb">{</span>+<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (g)at(-3.5,3)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_A^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (h)at(-3.5,-3)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_A^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (i)at(-2,-3)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_G^m,f_G^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](j)at(4.3,2.5)<span class="nb">{</span>mat multiply<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](k)at(6,1.5)<span class="nb">{</span>weight eq.(3)<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](l)at(6.5,0.5)<span class="nb">{</span>ReLU<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](m)at(5,-0.5)<span class="nb">{</span>scaled dot<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](n)at(3.5,-1.5)<span class="nb">{</span><span class="s">$</span><span class="nb">W_V</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](o)at(4.6,-1.5)<span class="nb">{</span><span class="s">$</span><span class="nb">W_Q</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](p)at(5.6,-1.5)<span class="nb">{</span><span class="s">$</span><span class="nb">W_K</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](q)at(6.5,-0.5)<span class="nb">{</span><span class="s">$</span><span class="nb">W_G</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [draw,rectangle](r)at(6.7,-1.5)<span class="nb">{</span><span class="s">$</span><span class="nv">\epsilon</span><span class="nb">_G</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (s)at(6.7,2.5)<span class="nb">{</span>relation<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (t)at(4.3,3.5)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_R^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (u)at(4.6,-2.5)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_A^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> (v)at(6.7,-2.5)<span class="nb">{</span><span class="s">$</span><span class="nv">\{</span><span class="nb">f_G^m,f_G^n</span><span class="nv">\}</span><span class="s">$</span><span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [dashed](3,3) rectangle (7.5,-2);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [dashed](2.5,-0.7)--(3,3);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [dashed](2.5,-1.25)--(3,-2);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=a,angle=90)|-(f);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=b,angle=90)--(a);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=c,angle=90)|-(a);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=e,angle=90)|-(a);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=f)--(g);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](node cs:name=h)--(f);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span>(node cs:name=i,angle=90)--(c);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](-3.5,-2) -|(-2.3,-1.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](-3.5,-2) -|(-0.3,-1.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](-3.5,-2) -|(1.7,-1.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](-2,-2.3) -|(0.3,-1.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](-2,-2.3) -|(2.3,-1.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](3.5,-1.25)--(3.5,2.25);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](4.6,-1.25)--(4.6,-0.75);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](5.6,-1.25)--(5.6,-0.75);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](6.6,-1.25)--(6.6,-0.75);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](q)--(l);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](6.5,0.7)--(6.5,1.2);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](k)|-(j);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](j)--(t);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](u)-|(n);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](u)--(o);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](u)-|(p);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [-&gt;](v)--(r);
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[node distance=10pt]
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, rounded corners]</span>                        (start)   <span class="nb">{</span>Start<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, below=of start]</span>                         (step 1)  <span class="nb">{</span>Step 1<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, below=of step 1]</span>                        (step 2)  <span class="nb">{</span>Step 2<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, diamond, aspect=2, below=of step 2]</span>     (choice)  <span class="nb">{</span>Choice<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, right=30pt of choice]</span>                   (step x)  <span class="nb">{</span>Step X<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span><span class="na">[draw, rounded corners, below=20pt of choice]</span>  (end)     <span class="nb">{</span>End<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (start)  -- (step 1);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (step 1) -- (step 2);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (step 2) -- (choice);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (choice) -- node[left]  <span class="nb">{</span>Yes<span class="nb">}</span> (end);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (choice) -- node[above] <span class="nb">{</span>No<span class="nb">}</span>  (step x);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span><span class="na">[-&gt;]</span> (step x) -- (step x|-step 1) -&gt; (step 1);
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[tikzfig]
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>nodelayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (5) at (-9.5, -0.5) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (7) at (-9.5, 0) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>nodelayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (0) at (-5.75, 1) <span class="nb">{</span>Y<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (2) at (-2, 0.75) <span class="nb">{</span>无差异曲线<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (3) at (-4, 4) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (4) at (2.25, -1) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (5) at (-5, 3.75) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (6) at (-5, -1.5) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (7) at (2.75, -1.5) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\node</span> [style=none] (8) at (-1, -2.25) <span class="nb">{</span>X<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>edgelayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> [bend right=45, looseness=1.50] (3.center) to (4.center);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> (6.center) to (7.center);
+</span></span><span class="line"><span class="cl"><span class="k">\draw</span> (6.center) to (5.center);
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>图片如何插入<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>本地图片插入，放入对应文件夹<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[htbp] 为调整图片排版位置选项，说明如下：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[h]当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩的页面不够，这一参数将不起作用。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[t]顶部。将图形放置在页面的顶部。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[b]底部。将图形放置在页面的底部。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[p]浮动页。将图形放置在一只允许有浮动对象的页面上。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% centering是图片居中显示的意思
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\includegraphics</span><span class="na">[width=0.2\textwidth]</span><span class="nb">{</span>薇尔莉特<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>薇尔莉特<span class="nb">}</span><span class="k">\emoji</span><span class="nb">{</span>innocent<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=0.2\textwidth]</span><span class="nb">{</span>我自己<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>黄某人<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">textwidth是文本区域宽度
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>插入emoji图片<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>grinning<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>sweat-smile<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>rofl<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>joy<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>smiling-face-with-hearts<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\emoji</span><span class="nb">{</span>face-savoring-food<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>插入PDF<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=0.8\textwidth,height=0.5\textwidth]</span><span class="nb">{</span>实践时间是.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\\</span>中括号是控制PDF大小长宽；大括号是PDF的名字
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>标题<span class="nb">}</span> 
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%\includepdf{实践时间是.pdf} 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>两个图并排<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}{</span>.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=.8\linewidth]</span><span class="nb">{</span>截面PSM 平衡性检验.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span><span class="k">\heiti</span> 截面PSM 平衡性检验<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span><span class="c">%
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}{</span>.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=.8\linewidth]</span><span class="nb">{</span>support.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span><span class="k">\heiti</span> 满足共同支撑假设样本的分布情况 <span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>四个图2*2<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>figure*<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}</span>[t]<span class="nb">{</span>0.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=3.2in]</span><span class="nb">{</span>1.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>fig1<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\label</span><span class="nb">{</span>fig:side:a<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span><span class="c">%
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}</span>[t]<span class="nb">{</span>0.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=3.2in]</span><span class="nb">{</span>2.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>fig2<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\label</span><span class="nb">{</span>fig:side:b<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}</span>[t]<span class="nb">{</span>0.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=3.2in]</span><span class="nb">{</span>3.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>fig3<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\label</span><span class="nb">{</span>fig:side:a<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span><span class="c">%
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>minipage<span class="nb">}</span>[t]<span class="nb">{</span>0.5<span class="k">\textwidth</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\centering</span>
+</span></span><span class="line"><span class="cl"><span class="k">\includegraphics</span><span class="na">[width=3.2in]</span><span class="nb">{</span>4.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\caption</span><span class="nb">{</span>fig4<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\label</span><span class="nb">{</span>fig:side:b<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>minipage<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>figure*<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>引用文献<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>简单引用<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>文件的引用<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%不同数据库用，分割
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section*</span><span class="nb">{</span>参考文献<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>99<span class="nb">}</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\bibitem</span><span class="na">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>thebibliography<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="结语">结语</h2>
+<p>恭喜你成功成为 LaTeX 大军中的一员。
+接下来展开精致的排版生活吧！</p>
+<p>最后来点 LaTeX 笑话：</p>
+<p>有什么只有 Word 能做，LaTeX 做不到呢？那就是在图片背后写大段文字水字数！（笑~）</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-10-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/latex/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex/" data-title=" 如何在1小时内快速入手LaTeX？" data-hashtags="LaTeX"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex/" data-hashtag="LaTeX"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex/" data-title=" 如何在1小时内快速入手LaTeX？"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex/" data-title=" 如何在1小时内快速入手LaTeX？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex/" data-title=" 如何在1小时内快速入手LaTeX？" data-image="/img/LaTeX入门-20240804124412617.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/latex/">LaTeX</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/ynzt/" class="prev" rel="prev" title=" 调研小记 1：云南昭通"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 调研小记 1：云南昭通</a>
+            <a href="/zh-cn/posts/latex2/" class="next" rel="next" title=" LaTeX 与绘图"> LaTeX 与绘图<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

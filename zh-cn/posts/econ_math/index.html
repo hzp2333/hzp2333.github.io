@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>经济学的数学史 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="经济学的数学史" />
+<meta property="og:description" content="一本书的读书笔记《数学与经济》（史树中）, 介绍了经济学中数学工具的发展。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-02T08:52:19+08:00" />
+<meta property="article:modified_time" content="2025-01-11T20:46:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="经济学的数学史"/>
+<meta name="twitter:description" content="一本书的读书笔记《数学与经济》（史树中）, 介绍了经济学中数学工具的发展。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/zftz/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/cpws_stata/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "经济学的数学史",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/econ_math\/"
+        },"genre": "posts","keywords": "阅读, 微观经济学, 宏观经济学","wordcount":  3783 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/econ_math\/","datePublished": "2025-01-02T08:52:19+08:00","dateModified": "2025-01-11T20:46:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/econ_math/" selected>简体中文</option><option value="/en/posts/econ_math/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/econ_math/" selected>简体中文</option><option value="/en/posts/econ_math/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">经济学的数学史</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-02">2025-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3783 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp"
+        data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102145434783.webp 2x"
+        data-sizes="auto"
+        alt="/img/经济学与数学-20250102145434783.webp"
+        title="/img/经济学与数学-20250102145434783.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#推荐理由">推荐理由</a></li>
+    <li><a href="#历史回顾">历史回顾</a></li>
+    <li><a href="#可用数学研究的经济学和经济研究中的数学">可用数学研究的经济学和经济研究中的数学</a></li>
+    <li><a href="#有趣的数理经济学思维">有趣的数理经济学思维</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>如果让经济学和数学再共生上一个半世纪，那谁能想象它将产生什么样的变化。——史树中</p>
+</blockquote>
+<h2 id="推荐理由">推荐理由</h2>
+<ul>
+<li><strong>视角</strong>：史树中老师是纯数学背景出生。本书其实是面向数学专业的经济学数学科普。有趣的学科立场在于——你会发现数学家一般会尽力回避社会科学的规范分析，非数理的名词的解释。</li>
+<li><strong>阅读门槛</strong>：中级微观经济学难度，但是由于是面向数学学生群体，部分数学超过中级。例如中级微观一般是用拉表格的形式介绍阿罗不可能定理，而本书直接使用的泛函。</li>
+<li><strong>学科史</strong>：本书可以看作数学在经济学中的发展史，很多人虽然学完了微观却不一定能理顺其中数学工具的发展关系。例如很多人对古诺、瓦尔拉斯、阿罗的贡献，只是知道教材上的一两道例题而已。学科史能弥补中间的空白，了解大师们的传承过程。</li>
+</ul>
+<blockquote>
+<p>正如我在 <a href="https://blog.huaxiangshan.com/zh-cn/posts/fs3/#center%E6%95%B0%E5%AD%A6%E5%AD%A6%E5%A4%9A%E5%B0%91center" target="_blank" rel="noopener noreffer ">《经济学的自负：最近的一些想法 》</a>中提到的那样——我认为学科史的学习非常重要。了解数学与经济结合的历史也很重要。</p>
+<p>如果连中级的美感都没去感受，就沉浸在高级的数学技巧中，我觉得很难走得远。因为经济思想早在中级就渗透完了，高级是中级的精准表达和模型的一般化推广。</p>
+<p>回顾经济学家的生平其实是很有意思的事。就像大家沉迷于锐评当代的经济学家，八卦学术新星的教职去向，在数理经济史中，你也可以看到如此多耳熟能详的名字，都曾在论文中默默无闻，直到被后继者挖出来，心血才得到回报。</p>
+</blockquote>
+<ul>
+<li><strong>意识形态</strong>：在那个年代，使用数理工具分析经济学被认为带有资本主义色彩。全书充满这种时代特色，作者必须强调我们是批判性地看待，并且插入苏联社会主义数理经济学的相关论述。这种时代气息让我感觉很新奇😂。</li>
+</ul>
+<h2 id="历史回顾">历史回顾</h2>
+<blockquote>
+<p>数学和经济学融合是一个曲折的过程，大量的天才因为数学太好，在世时没有被同时代的人所重视。</p>
+</blockquote>
+<p>17 世纪。<a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E9%85%8D%E7%AC%AC" target="_blank" rel="noopener noreffer ">威廉配第</a>（William Petty）《政治算术》。此时刚开始运用数字。</p>
+<p>19 世纪。</p>
+<p><strong>函数的使用</strong>：<a href="https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%B0%94%C2%B7%E5%8F%A4%E8%AF%BA" target="_blank" rel="noopener noreffer ">古诺</a>（Charles-François Gounod）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (巴黎师高的学生，拉普拉斯和泊松的学生)《财富理论的数学原理》。很多人不能接受书中价格需求函数的数学表达，因此古诺又写了一个回避数学的版本（但依旧不火）。其去世 80 年后贡献才被肯定。</p>
+<p><strong>边际分析的先驱</strong>：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E6%B5%B7%E5%9B%A0%E9%87%8C%E5%B8%8C%C2%B7%E6%88%88%E6%A3%AE" target="_blank" rel="noopener noreffer ">戈森</a>（Hermann Heinrich Gossen）<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>因为数学太好结果其分析在当世没有被接受。奥地利学派创始人<a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%C2%B7%E9%96%80%E6%A0%BC%E7%88%BE" target="_blank" rel="noopener noreffer ">门格尔</a>（Carl Menger）由于不会微积分，自己用感觉描述边际分析，结果影响力很大。奥地利学派之后基本没有什么积极运用数学的经济学家了。</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E6%96%AF%E5%9D%A6%E5%88%A9%C2%B7%E6%9D%B0%E6%96%87%E6%96%AF" target="_blank" rel="noopener noreffer ">杰文斯</a>（William Stanley Jevons）《政治经济学的一般数学原理的注记》（1862）、瓦尔拉斯（Léon Walras）（洛桑学派开创者）《交换的一种数学原理》。他们都会微积分，<a href="https://zh.wikipedia.org/wiki/%E8%8E%B1%E6%98%82%C2%B7%E7%93%A6%E5%B0%94%E6%8B%89%E6%96%AF" target="_blank" rel="noopener noreffer ">瓦尔拉斯</a>数学比杰文斯更好。</p>
+<blockquote>
+<p>门格尔、杰文斯、瓦尔拉斯都是各自独立思考起了边际分析，不过最后他们发现戈森是最早的，只是一直没被重视。</p>
+</blockquote>
+<p><strong>数理模式的扩张</strong>：瓦尔拉斯的一般均衡横空出世。证明存在价格使得市场供求平衡。不过瓦尔拉斯数学还不够好，他认为变量数等于方程数就有解，没有考虑方程组的秩。虽然证明不严谨，但思想的影响依旧深远。冯诺依曼也是基于一般均衡思考起了博弈论。</p>
+<p>瓦尔拉斯提出一般均衡理论 80 年后，<a href="https://zh.wikipedia.org/wiki/%E5%82%91%E6%8B%89%E5%BE%B7%C2%B7%E5%BE%B7%E5%B8%83%E9%AD%AF" target="_blank" rel="noopener noreffer ">德布罗</a> (Gérard Debreu)《价值理论，经济均衡的一种公理化分析》（1959）才严格证明了一般均衡存在性。其和布劳威不动点是充要条件。</p>
+<p><strong>边际效用学派二代</strong>：<a href="https://zh.wikipedia.org/wiki/%E5%BC%97%E6%9C%97%E8%A5%BF%E6%96%AF%C2%B7%E4%BC%8A%E8%A5%BF%E5%BE%B7%E7%BD%97%C2%B7%E5%9F%83%E5%A5%87%E6%B2%83%E6%80%9D" target="_blank" rel="noopener noreffer ">埃奇沃思</a> 《数学心理学》、马歇尔《经济学原理》（<a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E5%BC%97%E9%9B%B7%E5%BE%B7%C2%B7%E9%A9%AC%E6%AD%87%E5%B0%94" target="_blank" rel="noopener noreffer ">马歇尔</a> (Alfred Marshall)<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>也是数学出身，是剑桥学派代表）。<a href="https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E5%87%AF%E6%81%A9%E6%96%AF" target="_blank" rel="noopener noreffer ">凯恩斯</a> (John Maynard Keynes)<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>是马歇尔的学生。</p>
+<p><strong>洛桑学派二代</strong>：<a href="https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%B0%94%E5%BC%97%E9%9B%B7%E5%A4%9A%C2%B7%E5%B8%95%E7%B4%AF%E6%89%98" target="_blank" rel="noopener noreffer ">帕累托</a> (Vilfredo Federico Damaso Pareto)（做了 20 年铁路采矿工程师）</p>
+<p><strong>美国边际学派</strong>： <a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%96%87%C2%B7%E8%B4%B9%E9%9B%AA" target="_blank" rel="noopener noreffer ">费雪</a><sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>（Irving Fisher） 启发了凯恩斯。</p>
+<p><strong>奥地利学派后续</strong>：门格尔的儿子成为了数学家，带出来两个重要人物，一个是哥德尔不完备猜想的<a href="https://zh.wikipedia.org/wiki/%E5%BA%93%E5%B0%94%E7%89%B9%C2%B7%E5%93%A5%E5%BE%B7%E5%B0%94" target="_blank" rel="noopener noreffer ">哥德尔</a> (Gödel)，另外一个是统计学家沃尔德（wald）<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>（计量 wald 检验）。<a href="https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9" target="_blank" rel="noopener noreffer ">熊彼特</a>（Joseph Alois Schumpeter）虽然是奥派出生，但其理论影响几乎独领风骚。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp" title="2018年全国2卷的作文题目，主角正是 wald 。遗憾的是，wald 最后死于飞机事故。" data-thumbnail="/img/经济学与数学-20250102155048117.webp" data-sub-html="<h2> </h2><p>2018年全国2卷的作文题目，主角正是 wald 。遗憾的是，wald 最后死于飞机事故。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学与数学-20250102155048117.webp" />
+    </a><figcaption class="image-caption">2018年全国2卷的作文题目，主角正是 wald 。遗憾的是，wald 最后死于飞机事故。</figcaption>
+    </figure></p>
+<p>宏观中最著名的数理方法是控制论<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>，是维也纳一群无拘无束的科学家一起讨论形成的方法，其中就有冯诺依曼。最早将控制论认真引入经济学的是<a href="https://en.wikipedia.org/wiki/Alan_Blinder" target="_blank" rel="noopener noreffer ">艾伦</a>（Alan Stuart Blinder）。早期引入控制论，大家更了解的可能是<a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_" title="%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6" target="_blank" rel="noopener noreffer ">菲利普斯</a>（Phillips）
+<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>。</p>
+<blockquote>
+<p>史树中老师将宏观模型粗暴地理解为控制论，是本书招致批评的主要原因之一。</p>
+</blockquote>
+<h2 id="可用数学研究的经济学和经济研究中的数学">可用数学研究的经济学和经济研究中的数学</h2>
+<p>国内马政经曾经为研究对象是什么产生过激烈争辩，史树中老师的话很发人深省——<strong>研究对象的选择意义是由研究成果决定的</strong>，而不是和他人争辩过来的，自己想研究什么对象就研究什么对象，最后能接受检验即可。选择研究对象这件事不应该被约束，更不要被 xx 主义，xx 流派，xx 需要，xx 实践这种说法过度约束。</p>
+<p>经济学中经常使用数学的部分是实证经济学。但要区分数学运用的目标，因为很多人寄托经济学通过数学达成和物理学一样的力量——预测对象的运行。以生理学为例子，生理已经能解剖心脏了，却没人会要求它预测心脏的跳动。</p>
+<p>经济学的作用应当是配合实证分析的部分，形成清晰的公理表述。</p>
+<h2 id="有趣的数理经济学思维">有趣的数理经济学思维</h2>
+<blockquote>
+<p>这里我就只概括点我觉得值得提炼的信息了。</p>
+</blockquote>
+<p>对偶问题。利润最大化和成本最小化是一个对偶问题。不断迭代和微积分可能得到一些更重要的变形。</p>
+<p>基数效应论很难推广，序数效应论更容易，同时能证明基数效应论有对应的合适的序数效应。</p>
+<p>囚徒困境启发：局部最优不等于整体最优，关键是不要过于分散，不然容易内斗。</p>
+<p>《<a href="https://blog.huaxiangshan.com/zh-cn/posts/shxz/" target="_blank" rel="noopener noreffer ">阿罗不可能定理</a>》是一个网红定理，很多人喜欢挂个标题——数学证明民主不可能实现。布坎南基于此发展了公共选择理论，抨击集体决策的有效性。不过理论贡献者阿罗自己倒是非常谨慎：</p>
+<blockquote>
+<p>社会选择矛盾的哲学和分配的含义还不清楚，肯定没有简单的方式可以解决。——阿罗</p>
+</blockquote>
+<p>埃奇沃思盒：<strong>交换过程不一定是平等的，这是一种机会均等</strong>，在每一个帕累托最优点上，双方的分配很容易不平均，但达成怎样的结果的机会是均等的。这体现了过程正义比结果正义可能更重要。</p>
+<p>不确定性环境可以帮助我们确定基数效用论。</p>
+<p>史树中老师是从工程控制的角度探讨宏观部分。</p>
+<p>博主 <span class="h-card person-mention"><a href="https://www.sungyinieh.com/" class="u-url url" title="博友"><i class="far fa-user-circle" aria-hidden="true"></i>&#8201;<span class="p-name fn">松易涅</span></a></span> 向我推荐过《控制论与科学方法论》。其实国外一些宏观方向的高校也会要求学生学习控制论、动力系统。瓦尔拉斯、帕累托也接受过这方面的训练。</p>
+<p>宏观系统需要考虑输入、输出、传递、反馈、目标实现、最优路径。常微分方程组和控制论结合比较紧密。将社会看作一个系统，那么市场就是一个调节器。</p>
+<p>例如下面这种微分方程组, 其实就体现了工资产量-产出比和就业率的关系。</p>
+<p>$$
+\begin{cases}
+\dot{\varepsilon}=-{\varepsilon }h\left( \theta \right)\\
+\dot{\theta}=-{\theta }g\left( \varepsilon \right)
+\end{cases}
+$$</p>
+<p>在数学上，它其实是非线性的伏尔特拉方程组。最开始是描述的湖底生态系统，大鱼吃小鱼，但小鱼被吃干净了大鱼也会变得生存艰难，最终达到一种均衡。（因此新剑桥学派认为这个式子就像阶级斗争）</p>
+<h2 id="总结">总结</h2>
+<p>关于现在的经济学与数学的关系。</p>
+<p>我感觉争议在于所谓经济学的直觉是什么？例如国外的这道考试题，先让你自己算，算出来后再自己看，算完后再用直觉去思考。此时数学和经济学推理是相辅相成的。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp" title="题目出处为https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view" data-thumbnail="/img/经济学与数学-20250111203831787.webp" data-sub-html="<h2> </h2><p>题目出处为https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 2x"
+            data-sizes="auto"
+            alt="/img/经济学与数学-20250111203831787.webp" />
+    </a><figcaption class="image-caption">题目出处为https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view</figcaption>
+    </figure></p>
+<p>经济学直觉是什么？  真的有所谓反直觉的研究吗？</p>
+<blockquote>
+<p>我目前感觉是——直觉是对要素变化趋势的把握。大致上能知道一个要素在市场体系中的影响方向和权重地位。</p>
+<p>我也赞同《富种起源》中的一句话，科学最美妙的地方在于看前觉得不可思议，分析完后却觉得不得不如此。</p>
+</blockquote>
+<p>许多人会引用马克思的一句话——一种科学只有成功地运用数学时，才算达到了真正完善的地步。</p>
+<p>其实这句话是在拉法格的回忆录中出现的，是拉法格说马克思说过这句话。马克思并未在自己的著作中表达过相关的观点。不过马克思的数学至少是学到了泰勒展开的。有趣的是，马克思虽然学了一部分微积分，但他没有意识到自己的极差地租有边际分析的思想。马克思也认为数学的神秘化倾向是推动其发展的原因之一。这些可以在《马克思的数学手稿》中找到证据。</p>
+<p>经济学成功的数学其实是现象本质的一种抽象。通过科学的抽象揭示事物的内在机理。能做到离开定量的定性吗？虽然亚当斯密直接定性了，但是数学化后，大家对亚当斯密的定性才了解地更为清晰，从模糊的文字到严谨的数学描述其实是一条漫长的路，时间以世纪为单位。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>微观经济学经典的古诺模型，讨论了双寡头的一种博弈。例如可口可乐和百事可乐为何能竞争到现在。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>戈森的两个定律：边际递减和均衡时边际效用相等。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>《经济学原理》作者&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>凯恩斯 1921 年还写过一本《概率论》。不过凯恩斯对自己的模型被数学化这件事并不是很乐观。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>金融与货币学需要知道的——费雪方程。其中包含着二分法的思想，名义和实际。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>他比较出名的故事书美军幸存者偏差，这个还是 2017 年高考二卷的选择题。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>本书将宏观机械地看作控制论，个人认为是不合适的。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>菲利普斯曲线，通货膨胀和失业二选一。&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-01-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/econ_math/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" data-title="经济学的数学史" data-hashtags="阅读,微观经济学,宏观经济学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" data-hashtag="阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" data-title="经济学的数学史"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" data-title="经济学的数学史"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/econ_math/" data-title="经济学的数学史" data-image="/img/经济学与数学-20250102145434783.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">微观经济学</a>,&nbsp;<a href="/zh-cn/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">宏观经济学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/zftz/" class="prev" rel="prev" title="政府一次性投资与产业长期发展"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>政府一次性投资与产业长期发展</a>
+            <a href="/zh-cn/posts/cpws_stata/" class="next" rel="next" title="裁判文书清洗指南">裁判文书清洗指南<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

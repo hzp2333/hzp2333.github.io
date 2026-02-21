@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>再见绘梨：不是回忆别人，而是认识自己 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="再见绘梨：不是回忆别人，而是认识自己" />
+<meta property="og:description" content="所有疯狂之举的背后，藏着一颗坚韧而纯粹的心脏。理解《再见绘梨》的关键不是明白回忆他人，而是意识到优太在拍摄自己。难以言明，世人不知道我为爱上这个世界倾注了多少努力。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-12T17:59:49+08:00" />
+<meta property="article:modified_time" content="2024-12-25T17:59:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="再见绘梨：不是回忆别人，而是认识自己"/>
+<meta name="twitter:description" content="所有疯狂之举的背后，藏着一颗坚韧而纯粹的心脏。理解《再见绘梨》的关键不是明白回忆他人，而是意识到优太在拍摄自己。难以言明，世人不知道我为爱上这个世界倾注了多少努力。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/citespace/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "再见绘梨：不是回忆别人，而是认识自己",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zjhl\/"
+        },"genre": "posts","keywords": "二次元","wordcount":  2542 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zjhl\/","datePublished": "2023-09-12T17:59:49+08:00","dateModified": "2024-12-25T17:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/zjhl/" selected>简体中文</option><option value="/en/posts/zjhl/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/zjhl/" selected>简体中文</option><option value="/en/posts/zjhl/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">再见绘梨：不是回忆别人，而是认识自己</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-12">2023-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2542 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115642869.webp"
+        data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115642869.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115642869.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115642869.webp 2x"
+        data-sizes="auto"
+        alt="/img/再见绘梨.zh-cn-20240523115642869.webp"
+        title="/img/再见绘梨.zh-cn-20240523115642869.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一层电影妈妈的电影">第一层电影：妈妈的电影</a></li>
+    <li><a href="#第二层电影绘梨的电影">第二层电影：绘梨的电影</a>
+      <ul>
+        <li><a href="#情节颠覆">情节颠覆</a></li>
+        <li><a href="#伏笔呼应">伏笔呼应</a></li>
+        <li><a href="#道理升华">道理升华</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三层电影优太的电影">第三层电影：优太的电影</a>
+      <ul>
+        <li><a href="#情节颠覆-1">情节颠覆</a></li>
+        <li><a href="#伏笔呼应-1">伏笔呼应</a></li>
+      </ul>
+    </li>
+    <li><a href="#优太的电影-我的奇幻是什么">优太的电影 ：我的奇幻是什么</a></li>
+    <li><a href="#藤本树为什么是疯子-">藤本树为什么是疯子 ？</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E8%90%BD%E5%B1%B1-%E9%99%88%E8%B6%8A%E9%BE%99.mp3" name="落山" artist="陈越龙" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
+<blockquote>
+<p>所有疯狂之举的背后，藏着一颗坚韧而纯粹的心脏。</p>
+<p>理解《再见绘梨》的关键不是看见优太创造回忆，而是意识到优太一直在拍摄自己。</p>
+<p>正如本文的标题一样——<strong>难以言明，世人不知道我为爱上这个世界倾注了多少努力</strong>。</p>
+</blockquote>
+<p>藤本树在一个短篇里拍摄了四部电影，每一部电影都会颠覆上一部电影的立意，进而达成虚实结合的效果。其实就是用一个故事推翻另外一个故事，最后全部反转组成完整的故事。</p>
+<p>对于本篇——我爱藤本树的价值观胜过叙事技巧（包括漫画的电影拍摄风格）。</p>
+<p>本文将按照 <code>电影划分-颠覆-伏笔呼应</code> 的顺序介绍几个故事的串联。</p>
+<h2 id="第一层电影妈妈的电影">第一层电影：妈妈的电影</h2>
+<p>第一个电影是属于妈妈的电影。</p>
+<p>男主（忧太）妈妈得了癌症，请求儿子将自己拍下。母亲的最后一刻，男主拒绝探望，并炸掉了医院。</p>
+<ul>
+<li>拍出这个故事的男主被同学们当作疯子。</li>
+<li>经典女孩遇见男孩展开叙述——</li>
+<li>男主在想要自尽时遇见了女主，女主（绘梨）很喜欢这个电影，带着男主看电影希望他未来拍出所有人都认可的属于他自己的电影。</li>
+</ul>
+<h2 id="第二层电影绘梨的电影">第二层电影：绘梨的电影</h2>
+<h3 id="情节颠覆">情节颠覆</h3>
+<p>在第一个电影里面，妈妈是正面形象，而第二部电影开始揭露妈妈的全部面貌。</p>
+<p>从此处，藤本树的逆转开始了——他将扭转所有角色。</p>
+<p>绘梨为什么喜欢忧太的电影：</p>
+<blockquote>
+<p>绘梨：&ldquo;让刚上初中的儿子拍摄自己临终的电影纪录片，你不觉得这样的母亲很过分吗？但你的电影里，她依旧很漂亮。&rdquo;</p>
+</blockquote>
+<p>忧太爸爸为什么喜欢忧太的剧情：</p>
+<blockquote>
+<p>忧太爸爸：“忧太，你的妈妈脾气很差，你最后没去看她，她还埋怨你直到最后还没用，但你把他拍得很漂亮，你拥有创造回忆的能力。”</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp" title="忧太爸爸：“忧太，你的妈妈脾气很差，你最后没去看她，她还埋怨你直到最后还没用，但你把他拍得很漂亮，你拥有创造回忆的能力。”" data-thumbnail="/img/再见绘梨.zh-cn-20240523115422923.webp" data-sub-html="<h2> </h2><p>忧太爸爸：“忧太，你的妈妈脾气很差，你最后没去看她，她还埋怨你直到最后还没用，但你把他拍得很漂亮，你拥有创造回忆的能力。”</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20240523115422923.webp" />
+    </a><figcaption class="image-caption">忧太爸爸：“忧太，你的妈妈脾气很差，你最后没去看她，她还埋怨你直到最后还没用，但你把他拍得很漂亮，你拥有创造回忆的能力。”</figcaption>
+    </figure></p>
+<h3 id="伏笔呼应">伏笔呼应</h3>
+<p>再看接着第一层故事的伏笔——为什么<strong>优太不敢去看望妈妈</strong>？</p>
+<p>因为他也无法承受这份压力，他想用爆炸来逃避现实。我们看不起的逆天剧情居然就这样完成了第一次反转，同时上升到人生的探讨——人如何逃离痛苦？那就是塑造自己的回忆。</p>
+<h3 id="道理升华">道理升华</h3>
+<p>绘梨死掉了，优太拍摄的绘梨的电影大受欢迎。</p>
+<p>绘梨的朋友：“绘梨平时都戴着眼镜吧，而且脾气没这么好，你美化过度了，但还是感谢你，那将是我以后记住的绘梨”。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp" title="绘梨的朋友：“绘梨平时都戴着眼镜吧，而且脾气没这么好，你美化过度了，但还是感谢你，那将是我以后记住的绘梨”" data-thumbnail="/img/再见绘梨.zh-cn-20240523115442574.webp" data-sub-html="<h2> </h2><p>绘梨的朋友：“绘梨平时都戴着眼镜吧，而且脾气没这么好，你美化过度了，但还是感谢你，那将是我以后记住的绘梨”</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20240523115442574.webp" />
+    </a><figcaption class="image-caption">绘梨的朋友：“绘梨平时都戴着眼镜吧，而且脾气没这么好，你美化过度了，但还是感谢你，那将是我以后记住的绘梨”</figcaption>
+    </figure></p>
+<p>奇幻是天赋，也是痛苦。</p>
+<h2 id="第三层电影优太的电影">第三层电影：优太的电影</h2>
+<h3 id="情节颠覆-1">情节颠覆</h3>
+<p>优太说前面的其实都是电影。</p>
+<p>多年以后，成年的优太家庭不幸，来到以前和绘梨一起看电影的地方<strong>想要自尽</strong>，发现她居然在那里！原来她是吸血鬼。于是优太完成告别后，<strong>炸掉了大楼</strong>。</p>
+<h3 id="伏笔呼应-1">伏笔呼应</h3>
+<ul>
+<li>第一层母亲的电影，是优太拍摄自己眼中的母亲</li>
+<li>第二层绘梨的电影，是优太拍摄自己眼中的绘梨</li>
+<li><font color="#ff0000">答案呼之欲出，从始至终，是优太在拍摄自己</font></li>
+<li>更重要的，从头到尾都是优太拍摄着自己眼中的自己</li>
+</ul>
+<p>第二层故事中，绘梨曾说过——“<strong>我想让你拍摄的，是属于优太你自己的电影</strong>”。</p>
+<blockquote>
+<p>因此我们可以认为第三幕的电影史优太爸爸扮演的——因为现实不可能存在吸血鬼。</p>
+</blockquote>
+<h2 id="优太的电影-我的奇幻是什么">优太的电影 ：我的奇幻是什么</h2>
+<blockquote>
+<p>理解《再见绘梨》的关键不是看见优太如何回忆他人，而是意识到——优太从头到尾都在拍摄着自己🤧。</p>
+</blockquote>
+<p>前三个电影泾渭分明，只通过一些相同的要素（角色、爆炸、死亡）串联在一起。本漫画的分镜设计，也特意做成了胶片摄影风格来呼应主题表达。</p>
+<p><strong>每一个后面的电影都会推翻前面的电影，最后三个电影构成了一个完整的故事。</strong> 技巧也着实简单：借着拍电影的设定把人物形象拆分到不同片段、镜头内外去，最终让展现拍摄本身的故事。</p>
+<p>妈妈的电影：优太只拍出来妈妈美好的样子，因为恐惧妈妈的死亡不自觉地加入了爆炸作为结尾。</p>
+<blockquote>
+<p>此时，优太自己也无法理解自己的决定，为什么会有爆炸呢？</p>
+</blockquote>
+<p>绘梨的电影：优太只拍出了绘梨美好的样子，他没有加入任何爆炸元素。</p>
+<blockquote>
+<p>奇幻是优太的天赋，也是他痛苦的来源。优太在抗拒奇幻。没必要给电影加上爆炸吧？</p>
+</blockquote>
+<p>优太的电影：加入吸血鬼、爆炸作为最后的结尾。</p>
+<blockquote>
+<p>这时优太终于理解了自己，电影确实不需要爆炸。是优太自己选择了加入爆炸，正如优太选择只给朋友家人留下他们美好的一面。</p>
+</blockquote>
+<p>三幕电影爆炸要素的反复，就是优太自己成长的体现。</p>
+<h2 id="藤本树为什么是疯子-">藤本树为什么是疯子 ？</h2>
+<ul>
+<li>他告诉你，展现离别的悲伤不用特意展现病床前的撕心裂肺，害怕到逃避也是爱。</li>
+<li>他告诉你，镜头都是骗局，你的记忆不是客观的储存而是主观的欺骗。</li>
+<li>他告诉你，镜头以外，这个世界布满了死亡，不存在奇幻。世界上的人无非是脾气又臭又爱闹别扭的小鬼。</li>
+</ul>
+<p><strong>举例子，绘梨刚出场时在抽烟，但是被 P 掉了。这就在暗示从头到尾都是优太在拍摄绘梨。</strong>
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp" title="如图" data-thumbnail="/img/再见绘梨.zh-cn-20250519155833983.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20250519155833983.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp" title="细节被p掉的抽烟" data-thumbnail="/img/再见绘梨.zh-cn-20250519155837196.webp" data-sub-html="<h2> </h2><p>细节被p掉的抽烟</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20250519155837196.webp" />
+    </a><figcaption class="image-caption">细节被p掉的抽烟</figcaption>
+    </figure></p>
+<p><a href="https://www.zhihu.com/question/3595119122/answer/49329014862" target="_blank" rel="noopener noreffer ">关于《再见绘梨》一个不解，绘梨为什么她在一开始出现的形象是美少女呢？</a></p>
+<p>在你最痛苦的时候，一层一层揭开母亲、绘梨的真实之后，</p>
+<p>你也见到了优太的真实——</p>
+<ul>
+<li>母亲从逼迫小孩的臭脾气母亲变成了温柔贤惠的母亲</li>
+<li>绘梨从带着眼镜的臭脾气小姐变成了善解人意的女孩</li>
+<li>优太害怕母亲的离去，所以爆炸吧</li>
+<li>优太害怕绘梨的离去，所以变成吸血鬼吧</li>
+</ul>
+<p>现实没有爆炸，现实也没有吸血鬼。所有的故事嵌套起来形成了叙述性诡计——形成了<strong>优太自己眼中的自己，他的成长，他的价值观</strong> 。</p>
+<blockquote>
+<p>人生是场注定徒劳的抵抗，奇幻色彩的自我添加是我们为数不多且极具安慰力量的选择。所以即便不存在也尝试去追求那一抹奇幻，这不是一件非常美妙的事情吗？</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp" title="不真实就不值得追求吗？这不是一件非常美妙的事情吗？" data-thumbnail="/img/再见绘梨.zh-cn-20240523115506321.webp" data-sub-html="<h2> </h2><p>不真实就不值得追求吗？这不是一件非常美妙的事情吗？</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20240523115506321.webp" />
+    </a><figcaption class="image-caption">不真实就不值得追求吗？这不是一件非常美妙的事情吗？</figcaption>
+    </figure></p>
+<p>但是，<strong>我不会因为一个人选择奇幻就感动，也不会因为一个人表达要坚持理想主义就感动。</strong></p>
+<p>在经济停滞的当下，人人都在为活着找理由，那和追求奇幻并无不同。</p>
+<ul>
+<li>我不需要别人劝我去追求奇幻。</li>
+<li>我需要的是理解自己在干什么。</li>
+</ul>
+<p>藤本树正是通过这个故事将一个人内心的自我探寻娓娓道来。</p>
+<blockquote>
+<p>心理老师会选择温暖故事让你去追求现实。</p>
+<p>而疯子只会踢开大门直直地闯进来，在用黑暗现实将人搞崩溃后进行诈骗，这就是疯子一样的创作者——藤本树。</p>
+<p>无论世界怎样残酷，即便是用自我催眠的奇幻色彩添加，也请不择手段地爱上这个世界，这是奇幻电影推销员藤本树对所有读者的一场催眠诈骗。</p>
+</blockquote>
+<p>人为了生存会寻找不存在现实中的奇幻——请不要抗拒这种被动。</p>
+<p>正因如此———优太眼中的自己是：</p>
+<p><font color="#ff0000">无法言明，我已为爱上这个世界付出了多少努力。也请你理解你自己。</font></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp" title="现在，你能理解吗？一个人愿意活在世上，是因为他建立起了一种心态。所谓奇幻和电影只是其中一种外显。希望你能认识这种奇幻，不是塑造他人，而是认识你自己。" data-thumbnail="/img/再见绘梨.zh-cn-20240523115526326.webp" data-sub-html="<h2> </h2><p>现在，你能理解吗？一个人愿意活在世上，是因为他建立起了一种心态。所谓奇幻和电影只是其中一种外显。希望你能认识这种奇幻，不是塑造他人，而是认识你自己。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp 2x"
+            data-sizes="auto"
+            alt="/img/再见绘梨.zh-cn-20240523115526326.webp" />
+    </a><figcaption class="image-caption">现在，你能理解吗？一个人愿意活在世上，是因为他建立起了一种心态。所谓奇幻和电影只是其中一种外显。希望你能认识这种奇幻，不是塑造他人，而是认识你自己。</figcaption>
+    </figure></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-12-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/zjhl/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" data-title="再见绘梨：不是回忆别人，而是认识自己" data-hashtags="二次元"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" data-hashtag="二次元"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" data-title="再见绘梨：不是回忆别人，而是认识自己"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" data-title="再见绘梨：不是回忆别人，而是认识自己"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zjhl/" data-title="再见绘梨：不是回忆别人，而是认识自己" data-image="/img/再见绘梨.zh-cn-20240523115642869.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/">二次元</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/citespace/" class="prev" rel="prev" title="Citespace 文献可视化"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Citespace 文献可视化</a>
+            <a href="/zh-cn/posts/flapxq/" class="next" rel="next" title="微观经济：罗伊、霍太林、谢泼德 ">微观经济：罗伊、霍太林、谢泼德 <i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

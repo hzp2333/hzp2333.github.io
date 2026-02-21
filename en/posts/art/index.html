@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Faces of Time - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Faces of Time" />
+<meta property="og:description" content="The process of stylistic evolution in character portrayal is akin to the process of human self-awareness. The thematic exhibition titled &ldquo;Faces of Time&rdquo; encapsulates this sentiment aptly. Whether it is the subject matter or the techniques employed in painting, they are essentially products of human quest for understanding in the waves of time" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/art/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-20T01:07:44+08:00" />
+<meta property="article:modified_time" content="2023-08-20T01:07:44+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Faces of Time"/>
+<meta name="twitter:description" content="The process of stylistic evolution in character portrayal is akin to the process of human self-awareness. The thematic exhibition titled &ldquo;Faces of Time&rdquo; encapsulates this sentiment aptly. Whether it is the subject matter or the techniques employed in painting, they are essentially products of human quest for understanding in the waves of time"/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/art/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/tl/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/selfishgene/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Faces of Time",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/art\/"
+        },"genre": "posts","keywords": "Art","wordcount":  750 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/art\/","datePublished": "2023-08-20T01:07:44+08:00","dateModified": "2023-08-20T01:07:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/art/">简体中文</option><option value="/en/posts/art/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/art/">简体中文</option><option value="/en/posts/art/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Faces of Time</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/travel/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Travel</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-20">2023-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;750 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp"
+        data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 2x"
+        data-sizes="auto"
+        alt="/img/看展：时代的容颜.zh-cn-20240523105140425.webp"
+        title="/img/看展：时代的容颜.zh-cn-20240523105140425.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#on-the-subject">On the Subject:</a></li>
+        <li><a href="#on-painting-techniques">On Painting Techniques:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="2144069358" theme="#448aff"></meting-js>
+<p>The process of stylistic evolution in character portrayal is akin to the process of human self-awareness. The thematic exhibition titled &ldquo;Faces of Time&rdquo; encapsulates this sentiment aptly. Whether it&rsquo;s the subject matter or the techniques employed in painting, they are essentially products of human quest for understanding in the waves of time.</p>
+<h3 id="on-the-subject">On the Subject:</h3>
+<p>Initially, only the divine could be depicted in art. Painting served as a medium for the dissemination of religious and mythological stories.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp" title="Painting as a Medium for the Dissemination of Religious and Mythological Stories" data-thumbnail="/img/看展：时代的容颜.zh-cn-20240523104952423.webp" data-sub-html="<h2> </h2><p>Painting as a Medium for the Dissemination of Religious and Mythological Stories</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp 2x"
+            data-sizes="auto"
+            alt="/img/看展：时代的容颜.zh-cn-20240523104952423.webp" />
+    </a><figcaption class="image-caption">Painting as a Medium for the Dissemination of Religious and Mythological Stories</figcaption>
+    </figure></p>
+<p>During the era of humanism, divinities acquired human features. The boundary between humans and gods gradually blurred under the artist&rsquo;s brush.</p>
+<p>Later on, courtly elites also became subjects of paintings. Rather than realism, the nobility sought to showcase the refinement of their spirits. Consequently, artists began retouching their works, with one of the most famous examples being Napoleon Crossing the Alps. In the composition, the French flag is positioned behind Napoleon, faintly revealing advanced artillery, while cleverly concealing Napoleon&rsquo;s actual height.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp" title="The reality is that he rode a donkey" data-thumbnail="/img/看展：时代的容颜.zh-cn-20240523105040117.webp" data-sub-html="<h2> </h2><p>The reality is that he rode a donkey</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp 2x"
+            data-sizes="auto"
+            alt="/img/看展：时代的容颜.zh-cn-20240523105040117.webp" />
+    </a><figcaption class="image-caption">The reality is that he rode a donkey</figcaption>
+    </figure></p>
+<h3 id="on-painting-techniques">On Painting Techniques:</h3>
+<p>The techniques employed in painting showcase the artist&rsquo;s perception of the world. Before the advent of the camera, painters pursued realism. Correspondingly, the Romanticism of the Renaissance was a style characterized by exaggerated creativity. Romanticism isn&rsquo;t just a genre; it&rsquo;s an impulse! Any work can have a touch of romanticism.</p>
+<p>With the emergence of the camera, painters began to contemplate the differences between painting and photography. People started to deliberately emphasize rough brushstrokes and &ldquo;mental tones.&rdquo;</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp" title="Among them is a unique brushstroke" data-thumbnail="/img/看展：时代的容颜.zh-cn-20240523105110495.webp" data-sub-html="<h2> </h2><p>Among them is a unique brushstroke</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp 2x"
+            data-sizes="auto"
+            alt="/img/看展：时代的容颜.zh-cn-20240523105110495.webp" />
+    </a><figcaption class="image-caption">Among them is a unique brushstroke</figcaption>
+    </figure></p>
+<p>Most styles of painting in the modern era are essentially &ldquo;reconstructions&rdquo; of the real world, combining brushstrokes with the artist&rsquo;s understanding of the world&rsquo;s essence.</p>
+<p><strong>Futurists:</strong>  Science can explain everything; it&rsquo;s a symbol of order. We should use orderly geometric shapes to compose our works and showcase the beauty of rationality.</p>
+<p><strong>Symbolists:</strong>  All cognition is a product of society. To stimulate people&rsquo;s thinking on a topic, we need to transfer the same object to different scenarios. For example, moving a spoon from a table to the ceiling, or replacing actors in a stage play with wooden stakes in an open-air mine. Our inexplicability is precisely to alienate things, thus provoking people&rsquo;s reflection (classic anthropological alienation).</p>
+<p><strong>Impressionists:</strong> Colors, light, and time are constantly changing. What we paint is just the light atmosphere at a specific moment in time. We need to learn to observe, to observe the changes in color and light of an object under various conditions. (That&rsquo;s why Monet painted over 300 versions of &ldquo;Water Lilies&rdquo;).</p>
+<p><strong>Pointillists:</strong>  The colors of light can be expressed by the three primary colors. By letting the three primary colors form dots that overlap and eventually create an image.</p>
+<p><strong>Collage Art:</strong>  Reassemble everyday objects to express ideas, and materials such as newspapers and posters can also be reassembled into a new work.</p>
+<p><strong>Dada Art:</strong>  Gradually entering the realm of conceptual deconstruction and reflection. All concepts should be deconstructed and reexamined. So, in the eyes of Dadaists, a toilet becomes a fountain, and a clothes hanger becomes an octopus.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp" title="apple man" data-thumbnail="/img/看展：时代的容颜.zh-cn-20240523105140425.webp" data-sub-html="<h2> </h2><p>apple man</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 2x"
+            data-sizes="auto"
+            alt="/img/看展：时代的容颜.zh-cn-20240523105140425.webp" />
+    </a><figcaption class="image-caption">apple man</figcaption>
+    </figure></p>
+<p>Once we understand the artists&rsquo; principles and backgrounds, previously perplexing images seem to become more understandable. Nowadays, many &ldquo;performance art&rdquo; pieces and inexplicable paintings may make people feel that art is just empty boasting. I think, in fact, discussions about painting concepts ultimately lead to abstraction. Just like some branches of mathematics, when taken to certain depths, lose the concept of numbers. Painters abstract concepts and expressions themselves, and then use incomprehensible actions to express themselves. It seems that abstraction through paintings is a trend in the so-called avant-garde.</p>
+<ul>
+<li>First-class art is intoxicating in appearance, or concise and easy to understand, and the icing on the cake is understanding the connotation.</li>
+<li>Second-rate art is incomprehensible in appearance, but once you understand the connotation, you can see the light.</li>
+<li>Third-rate art is boring in appearance and pretends to be sophisticated.</li>
+</ul>
+<p>I believe that aesthetic appreciation in art is also a process of interaction between knowledge and images. Therefore, interpreting the same painting with the background of the times can lead to different personal perceptions. Perhaps, the reader&rsquo;s perspective on the appreciation of the work itself becomes an art alongside the era.</p>
+<p>The main benefit an artist or authority brings is simply that their status allows us to have the patience to think about and try to understand their actions. Therefore, when facing artists, we choose to think rather than blindly follow them.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/art/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/art/" data-title="Faces of Time" data-via="ygVNLSZ1omFBCeB" data-hashtags="Art"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/art/" data-hashtag="Art"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/art/" data-title="Faces of Time"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/art/" data-title="Faces of Time"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/art/" data-title="Faces of Time" data-image="/img/看展：时代的容颜.zh-cn-20240523105140425.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/art/">Art</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/tl/" class="prev" rel="prev" title="HOW TO SLAY A DRAGON"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>HOW TO SLAY A DRAGON</a>
+            <a href="/en/posts/selfishgene/" class="next" rel="next" title="The Selfish Gene: The Question of Altruistic Morality">The Selfish Gene: The Question of Altruistic Morality<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

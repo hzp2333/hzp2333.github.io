@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition) - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)" />
+<meta property="og:description" content="note about &ldquo;Probability Theory(Mao Shisong )" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/probability/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-01T20:27:53+08:00" />
+<meta property="article:modified_time" content="2023-08-01T20:27:53+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)"/>
+<meta name="twitter:description" content="note about &ldquo;Probability Theory(Mao Shisong )"/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/probability/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/hw/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/tl/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/probability\/"
+        },"genre": "posts","keywords": "Probability Theory","wordcount":  1561 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/probability\/","datePublished": "2023-08-01T20:27:53+08:00","dateModified": "2023-08-01T20:27:53+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/probability/">简体中文</option><option value="/en/posts/probability/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/probability/">简体中文</option><option value="/en/posts/probability/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-01">2023-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1561 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp"
+        data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 2x"
+        data-sizes="auto"
+        alt="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp"
+        title="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-estimating-π-with-a-needle"><strong>1. Estimating π with a Needle?</strong></a>
+      <ul>
+        <li><a href="#11-introduction-geometric-probability"><strong>1.1 Introduction: Geometric Probability</strong></a></li>
+        <li><a href="#12-estimating-pi-with-a-needle">1.2 Estimating $\pi$ with a Needle</a></li>
+        <li><a href="#13-supplement-how-to-determine-probability">1.3 Supplement: How to Determine Probability</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-estimating-the-truth-in-sensitive-questionnaire-questions">2. Estimating the Truth in Sensitive Questionnaire Questions</a>
+      <ul>
+        <li><a href="#21-introduction-conditional-probability">2.1 Introduction: Conditional Probability</a></li>
+        <li><a href="#22-how-to-operate">2.2 How to Operate</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-the-fable-of-the-boy-who-cried-wolf-and-bayes-formula"><strong>3. The Fable of &ldquo;The Boy Who Cried Wolf&rdquo; and Bayes&rsquo; Formula</strong></a>
+      <ul>
+        <li><a href="#31-introduction-bayes-formula"><strong>3.1 Introduction: Bayes&rsquo; Formula</strong></a></li>
+        <li><a href="#32-the-fable-of-the-boy-who-cried-wolf">3.2 The Fable of &ldquo;The Boy Who Cried Wolf&rdquo;</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>I have been reading Mao Shisong&rsquo;s &ldquo;Probability Theory and Mathematical Statistics&rdquo; these days. Initially, I read the electronic version, but after finishing it, I was so impressed that I immediately bought the physical book. The book truly lives up to its preface in the first edition: the examples are vivid and interesting, and it skillfully explains the tricky variations of each exam point, leaving a deep impression.</p>
+<p>Special thanks to the <strong><a href="https://github.com/re-book/ptmst" target="_blank" rel="noopener noreffer ">github re-book project team</a></strong> (2019) for the $\LaTeX$ typesetting of the book.</p>
+<blockquote>
+<p>As an introductory book on probability theory and mathematical statistics, we do not want to lead students directly into the mathematical paradise. Instead, we first explore the various landscapes of probability and statistics in the &ldquo;wild,&rdquo; and then enter the mathematical paradise, making various concepts and theorems well-grounded and meaningful. This approach allows students to find the book interesting and feel that it is different from reading a typical mathematics textbook. Of course, we also pay great attention to the proofs and discussions of some regularities extracted from randomness, as only by understanding these can one feel them more profoundly.</p>
+<p><strong>(First Edition Preface)</strong></p>
+</blockquote>
+<p><strong>Because it is so fascinating, I couldn&rsquo;t help but record some of the excellent examples from the book on Zhihu.</strong></p>
+<h2 id="1-estimating-π-with-a-needle"><strong>1. Estimating π with a Needle?</strong></h2>
+<h3 id="11-introduction-geometric-probability"><strong>1.1 Introduction: Geometric Probability</strong></h3>
+<p>For basic notes on classical probability, you can refer to my <a href="https://zhuanlan.zhihu.com/p/645540951" target="_blank" rel="noopener noreffer ">other answer</a>:</p>
+<p>The formula for classical probability is as follows:
+$$
+P(A)=\frac{\text{Number of sample points in event A}}{\text{Total number of sample points in } \Omega}=\frac{k}{n}
+$$
+Geometric probability transforms algebraic formulas into areas (similar to high school linear programming):
+$$
+P=\frac{S_{\text{Area }k}}{S_{\text{Area }n}}
+$$
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Example of Geometric Probability<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><blockquote>
+<p>Divide a line segment of length $a$ into three parts by randomly selecting two points. What is the probability that these three parts can form a triangle?</p>
+</blockquote>
+<p>First, divide the line segment into three parts with lengths $x$, $y$, and $a-x-y$.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp" title="Divide the line segment into three parts" data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114257162.webp" data-sub-html="<h2> </h2><p>Divide the line segment into three parts</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114257162.webp" />
+    </a><figcaption class="image-caption">Divide the line segment into three parts</figcaption>
+    </figure></p>
+<p>The necessary and sufficient condition for forming a triangle is that the sum of any two sides is greater than the third side, and the difference of any two sides is less than the third side.</p>
+<p>Thus, we get the inequality constraints:
+$$
+\begin{cases} 0&lt;a-x-y&lt;x+y\\ 0&lt;x&lt;a-x-y\\ 0&lt;y&lt;x+(a-x-y) \end{cases} \stackrel{\text{Simplified}}{\longrightarrow}  \begin{cases} \frac{a}{2}&lt;x+y&lt;a\\ 0&lt;x&lt;\frac{a}{2}\\ 0&lt;y&lt;\frac{a}{2} \end{cases}
+$$
+Now, use $x$ and $y$ to establish a coordinate system and look at the area (similar to linear programming).</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp" title="Similar to linear programming" data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114320984.webp" data-sub-html="<h2> </h2><p>Similar to linear programming</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114320984.webp" />
+    </a><figcaption class="image-caption">Similar to linear programming</figcaption>
+    </figure></p>
+<p>$$
+P=\frac{\frac{a^2}{8}}{\frac{a}{2}^2}=\frac{1}{4}
+$$</p>
+</div>
+        </div>
+    </div></p>
+<h3 id="12-estimating-pi-with-a-needle">1.2 Estimating $\pi$ with a Needle</h3>
+<blockquote>
+<p><strong>Buffon&rsquo;s Needle Problem (famous because the answer is related to $\pi$):</strong> On a plane with parallel lines spaced $d(d&gt;0)$ apart, a needle of length $l(l&lt;d)$ is randomly dropped. What is the probability that the needle will intersect one of the parallel lines?</p>
+</blockquote>
+<p>As shown in the figure, the red line represents the needle, and its angle with the horizontal line is $\alpha$.</p>
+<p>When the needle intersects a parallel line, take the midpoint of the needle and project it vertically. The projected vertical line segment is divided into two parts.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp" title="When the needle intersects a parallel line, take the midpoint of the needle and project it vertically. The projected vertical line segment is divided into two parts." data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114343772.webp" data-sub-html="<h2> </h2><p>When the needle intersects a parallel line, take the midpoint of the needle and project it vertically. The projected vertical line segment is divided into two parts.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114343772.webp" />
+    </a><figcaption class="image-caption">When the needle intersects a parallel line, take the midpoint of the needle and project it vertically. The projected vertical line segment is divided into two parts.</figcaption>
+    </figure></p>
+<p><strong>The necessary and sufficient condition for intersection</strong> becomes: $x\leq\frac{1}{2}l !sin\alpha$, where the unknown parameters are $x$ and $\alpha$.</p>
+<p>The constraints for the parameters are:</p>
+<p>$$
+\begin{cases}  0 \le x \le d/2\\ 0 \le \alpha \le \pi \end{cases}
+$$
+Establish a coordinate system using these two parameters.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp" title="Establish a coordinate system using these two parameters." data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114404674.webp" data-sub-html="<h2> </h2><p>Establish a coordinate system using these two parameters.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114404674.webp" />
+    </a><figcaption class="image-caption">Establish a coordinate system using these two parameters.</figcaption>
+    </figure></p>
+<p>Then, use calculus to find the area of the shaded region and divide it by the area of the rectangle to get the corresponding probability.</p>
+<p>$$
+P (A) = \frac{S_A}{S_\Omega}     = \frac{\int_0^\pi \frac{l}{2} !sin \alpha , \mathrm{d} \alpha}{\frac{d}{2} \pi}     = \frac{2l}{d\pi}\\
+$$
+When $2l=d$, $P (A) =\frac{1}{\pi}$.</p>
+<p>Therefore, by conducting more and more experiments and dividing the results, we can estimate $\pi$.</p>
+<h3 id="13-supplement-how-to-determine-probability">1.3 Supplement: How to Determine Probability</h3>
+<blockquote>
+<p>The so-called <strong>&ldquo;Monte Carlo simulation&rdquo;</strong> is a sampling model designed in a computer, where many random values are input and output, and the final frequency is used to approximate the probability.</p>
+</blockquote>
+<p>In Mao Shisong&rsquo;s textbook, a section is dedicated to discussing methods for determining probability:</p>
+<ul>
+<li>Frequency statistics approximating probability</li>
+<li>Classical methods (permutations, combinations, addition and multiplication principles, etc.)</li>
+<li>Geometric methods</li>
+<li>Subjective methods (e.g., it seems like there&rsquo;s a 50% chance of rain tomorrow, but the weather forecast says there&rsquo;s an 85% chance; or saying you have a 60% chance of succeeding at something&hellip; these are subjective probabilities)</li>
+</ul>
+<h2 id="2-estimating-the-truth-in-sensitive-questionnaire-questions">2. Estimating the Truth in Sensitive Questionnaire Questions</h2>
+<p>One of the challenges in designing questionnaires is that some questions people are unwilling to answer or provide truthful answers to.</p>
+<p>For example, &ldquo;How often do couples argue?&rdquo;, &ldquo;Have you visited inappropriate websites?&rdquo;, &ldquo;What is your household income?&rdquo;&hellip; Due to &ldquo;answers damaging dignity&rdquo; or &ldquo;dishonest answers&rdquo; being beneficial for free-riding (thinking that reporting lower income will result in more government assistance), it is difficult to obtain accurate answers.</p>
+<p>Mao Shisong&rsquo;s probability textbook provides an example when explaining conditional probability, which might make respondents&rsquo; answers more effective.</p>
+<p>(Although constrained by efficiency, it is probably impractical, but using conditional probability in questionnaire design is an impressive approach.)</p>
+<h3 id="21-introduction-conditional-probability">2.1 Introduction: Conditional Probability</h3>
+<p>$$
+P(A|B)=\frac{P(AB)}{P(B)}\stackrel{\text{Multiplication Formula}}{\longrightarrow}  P(AB) = P(B) P(A|B)\\
+$$</p>
+<p>$$
+\text{Total Probability Formula: } P(A) = \sum_{i=1}^n P(B_i) P(A | B_i)\\
+$$</p>
+<p>$$
+\text{Bayes&rsquo; Formula: }    P (B_i | A) = \frac{P(B_i) P(A|B_i)}{\sum_{j=1}^n P(B_j) P(A|B_j)} \newline
+$$</p>
+<p>$$
+i = 12,\dotsc,n
+$$</p>
+<p>Among the three formulas of conditional probability:</p>
+<ul>
+<li><strong>Multiplication Formula</strong> is used to find the probability of the intersection of events.</li>
+<li><strong>Total Probability Formula</strong> is used to find the probability of a complex event.</li>
+<li><strong>Bayes&rsquo; Formula</strong> is used to find a conditional probability.</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp" title="Venn diagram, left: ordinary conditional probability, right: total probability formula (drawn using LaTeX&amp;rsquo;s tikz)" data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp" data-sub-html="<h2> </h2><p>Venn diagram, left: ordinary conditional probability, right: total probability formula (drawn using LaTeX&amp;rsquo;s tikz)</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp" />
+    </a><figcaption class="image-caption">Venn diagram, left: ordinary conditional probability, right: total probability formula (drawn using LaTeX&rsquo;s tikz)</figcaption>
+    </figure></p>
+<h3 id="22-how-to-operate">2.2 How to Operate</h3>
+<p>The respondent only needs to answer one of the following two questions, with options being &ldquo;Yes&rdquo; or &ldquo;No.&rdquo;</p>
+<ul>
+<li>Question A: Is your birthday before July 1st?</li>
+<li>Question B: Have you visited inappropriate websites?</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp" title="The respondent only needs to answer one of the following two questions." data-thumbnail="/img/概率论茆诗松笔记.zh-cn-20240523114455242.webp" data-sub-html="<h2> </h2><p>The respondent only needs to answer one of the following two questions.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp 2x"
+            data-sizes="auto"
+            alt="/img/概率论茆诗松笔记.zh-cn-20240523114455242.webp" />
+    </a><figcaption class="image-caption">The respondent only needs to answer one of the following two questions.</figcaption>
+    </figure></p>
+<p>(1) The respondent is in a closed room with no other observers, operating and answering questions alone.</p>
+<p>(2) The respondent draws a blind box, answering A if a red ball is drawn, and B if a white ball is drawn.</p>
+<p>First, we can roughly estimate the probability of &ldquo;a randomly selected person&rsquo;s birthday being before July 1st,&rdquo; which we assume to be 0.5.</p>
+<p>Now, with $n$ questionnaires, we have $k$ responses with &ldquo;Yes,&rdquo; and the probability of drawing a red ball in the blind box is $\pi$.</p>
+<p>That is, we have <strong>four data points</strong> ($n$, $k$, $\pi$, 0.5).</p>
+<p>Now, using the total probability formula:</p>
+<p>$$
+P(\text{Yes})P(\text{White Ball})P(\text{Yes}|\text{White Ball})+P(\text{Red Ball})P(\text{Yes}|\text{Red Ball}) \stackrel{\text{Substitute Values}}{\longrightarrow}
+$$</p>
+<p>$$
+\frac{k}{n}=0.5(1-\pi)+{p_{\text{Yes}|\text{Red Ball}}}\pi \stackrel{\text{Solve}}{\longrightarrow}
+$$</p>
+<p>$$
+{p_{\text{Yes}|\text{Red Ball}}}=\frac{\frac{n}{k}-0.5(1-\pi)}{\pi}
+$$</p>
+<p><strong>A cross-disciplinary design of psychology and statistics! A beautiful deception ends here!</strong></p>
+<h2 id="3-the-fable-of-the-boy-who-cried-wolf-and-bayes-formula"><strong>3. The Fable of &ldquo;The Boy Who Cried Wolf&rdquo; and Bayes&rsquo; Formula</strong></h2>
+<h3 id="31-introduction-bayes-formula"><strong>3.1 Introduction: Bayes&rsquo; Formula</strong></h3>
+<p>Bayes&rsquo; Formula:
+$$
+\text{Bayes&rsquo; Formula: }    P (B_i | A) = \frac{P(B_i) P(A|B_i)}{\sum_{j=1}^n P(B_j) P(A|B_j)} <br>
+$$</p>
+<p>$$
+i = 1,2,\dotsc,n
+$$</p>
+<p>In Bayes&rsquo; formula, if $ P (B_i)$ is called the <strong>prior probability</strong> of $B_i$, and $P (B_i |A) $ is called the <strong>posterior probability</strong> of $B_i$, then Bayes&rsquo; formula is specifically used to calculate the posterior probability, which is the correction of the probability of $B_i$ based on the new information that $A$ has occurred.</p>
+<blockquote>
+<p>For example, in the story of &ldquo;The Boy Who Cried Wolf,&rdquo; the villagers have an initial level of trust in the boy, but after repeated lies, their trust decreases, leading them to not believe the boy even when he tells the truth.</p>
+</blockquote>
+<h3 id="32-the-fable-of-the-boy-who-cried-wolf">3.2 The Fable of &ldquo;The Boy Who Cried Wolf&rdquo;</h3>
+<p>Let event $A$ be &ldquo;<strong>the boy lies</strong>,&rdquo; and event $B$ be &ldquo;<strong>the boy is trustworthy</strong>.&rdquo;</p>
+<p>Assume the villagers&rsquo; initial impression of the boy is $P(B)=0.8$, $P(\overline{B})=0.2$.</p>
+<p>First, substitute the villagers&rsquo; perspective of conditional probability, and assume initial values:</p>
+<p>$$
+\begin{cases} \text{The boy is trustworthy and lies: } P(A|B)=0.1\\ \text{The boy is untrustworthy and lies: } P(A|\overline{B})=0.5 \end{cases}\
+$$
+After the boy lies, the villagers will reassess their trust in the boy, so the premise is that the boy has lied, and trust is represented as $P(B|A)$.</p>
+<p>After <strong>the first lie</strong>, substitute into Bayes&rsquo; equation:</p>
+<p>$$
+\begin{align*}<br>
+P(B|A) &amp; = \frac{P(B)P(A|B)}{P(B)P(A|B) + P(\bar B)P(A|\bar B) } \\<br>
+&amp; = \frac{0.8\times0.1}{0.8\times0.1 + 0.2\times0.5} = 0.444
+\end{align*}
+$$
+That is, the villagers&rsquo; trust in the boy changes as follows:</p>
+<p>$$
+\text{Prior Probability}
+\begin{cases} P(B)=0.8\\
+P(\overline{B})=0.2
+\end{cases}
+\stackrel{\text{After one lie}}{\longrightarrow}\text{Posterior Probability}
+\begin{cases} P(B|A)=0.444\\
+P(\overline{B}|A)=0.556
+\end{cases}
+$$
+That is, <strong>after one lie, the villagers&rsquo; trust in the boy</strong> becomes $P({B})=0.444$ and $P({B})=0.556$.</p>
+<p>Similarly, after the second lie, trust becomes:</p>
+<p>$$
+P(B|A) = \frac{0.444\times0.1}{0.444\times0.1 + 0.556\times0.5} = 0.138
+$$
+In summary, after <strong>two lies</strong>, the villagers&rsquo; trust in the boy changes from $P(B)=0.8$ to $P(B)=0.138$.</p>
+<p>This is how repeated lies lead to a loss of trust.</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Why Bayesian Estimation is Great<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>The meaning of Bayesian estimation is to adjust probability values based on parameters at any time. Like Sherlock Holmes&rsquo; reasoning, first list all possibilities, and as evidence increases, update the belief values for each possibility.</p>
+<p>Another school of thought is the frequentist approach, where the real parameters are fixed, and a large amount of data is used to estimate the real parameters.</p>
+<p>From this perspective, Bayesian estimation is even a worldview.</p>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/probability/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/probability/" data-title="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)" data-via="ygVNLSZ1omFBCeB" data-hashtags="Probability Theory"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/probability/" data-hashtag="Probability Theory"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/probability/" data-title="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/probability/" data-title="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/probability/" data-title="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)" data-image="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/probability-theory/">Probability Theory</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/hw/" class="prev" rel="prev" title="Everything You Need to Know About Huawei Member Day"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Everything You Need to Know About Huawei Member Day</a>
+            <a href="/en/posts/tl/" class="next" rel="next" title="HOW TO SLAY A DRAGON">HOW TO SLAY A DRAGON<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Stata 输出 Word 表格 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Stata 输出 Word 表格" />
+<meta property="og:description" content="GPT 总结: 本文介绍了经济实证论文中常用的表格输出命令，包括 estout、asdoc、logout、outreg 2、putdocx 系列和 etable。每种命令都有其特点和适用场景，如 estout 适用于全能的自定义效果和 LaTeX 输出，asdoc 主要用于描述性统计，logout 支持多种统计结果输出，outreg 2 适用于美观的回归结果输出，putdocx 系列方便将多个表格输出到一个 Word 文件中，而 etable 在 Stata 17 中自带，支持中文编码。通过示例代码展示了每种命令的基本用法和输出效果，有助于读者选择合适的命令进行表格输出。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/regout/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-13T17:33:02+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:33:02+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Stata 输出 Word 表格"/>
+<meta name="twitter:description" content="GPT 总结: 本文介绍了经济实证论文中常用的表格输出命令，包括 estout、asdoc、logout、outreg 2、putdocx 系列和 etable。每种命令都有其特点和适用场景，如 estout 适用于全能的自定义效果和 LaTeX 输出，asdoc 主要用于描述性统计，logout 支持多种统计结果输出，outreg 2 适用于美观的回归结果输出，putdocx 系列方便将多个表格输出到一个 Word 文件中，而 etable 在 Stata 17 中自带，支持中文编码。通过示例代码展示了每种命令的基本用法和输出效果，有助于读者选择合适的命令进行表格输出。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/regout/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/anaconda/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/toc/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Stata 输出 Word 表格",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/regout\/"
+        },"genre": "posts","keywords": "Stata","wordcount":  2737 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/regout\/","datePublished": "2024-03-13T17:33:02+08:00","dateModified": "2024-03-13T17:33:02+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/regout/" selected>简体中文</option><option value="/en/posts/regout/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/regout/" selected>简体中文</option><option value="/en/posts/regout/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Stata 输出 Word 表格</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a>&nbsp;<a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-13">2024-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2737 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp"
+        data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523134135371.webp 2x"
+        data-sizes="auto"
+        alt="/img/stata输出Word表格.zh-cn-20240523134135371.webp"
+        title="/img/stata输出Word表格.zh-cn-20240523134135371.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#estout-全能latex-输出">Estout: 全能，latex 输出</a></li>
+        <li><a href="#asdoc描述统计">Asdoc：描述统计</a></li>
+        <li><a href="#sum2doc描述统计"> Sum2doc：描述统计</a></li>
+        <li><a href="#logout均值差异相关系数检验">Logout：均值差异、相关系数检验</a></li>
+        <li><a href="#outreg-2-回归输出">Outreg 2: 回归输出</a></li>
+        <li><a href="#putdocx-系列万法归一">Putdocx 系列：万法归一</a></li>
+        <li><a href="#etable-支持中文">Etable: 支持中文</a></li>
+        <li><a href="#本文插图的代码">本文插图的代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>写经济实证论文时，经常输出大量的表格（主要是描述性统计和回归结果）。掌握了表格输出瞬发技巧，就像使用魔法不需要吟唱！
+
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp" title="当你和别人讨论便变量选择时，直接秒回，就是这种感觉！" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133530444.webp" data-sub-html="<h2> </h2><p>当你和别人讨论便变量选择时，直接秒回，就是这种感觉！</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133530444.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133530444.webp" />
+    </a><figcaption class="image-caption">当你和别人讨论便变量选择时，直接秒回，就是这种感觉！</figcaption>
+    </figure></p>
+<p>目前 stata 相应的命令五花八门—— <code>asdoc</code>、<code>outreg2</code>、<code>logout</code>、<code>estout</code>。这里简单概括下各个命令常用在哪，又有何特点。</p>
+<h3 id="estout-全能latex-输出">Estout: 全能，latex 输出</h3>
+<p><code>estout</code> 由瑞士<strong>伯尔尼大学</strong>社会学研究所（University of Bern, Institute of Sociology）的 Ben Jann 教授编写。（<a href="https://repec.sowi.unibe.ch/stata/" target="_blank" rel="noopener noreffer "><code>coefplot</code>命令</a>也是大佬开发的）。</p>
+<p>自定义效果好，是输出结果的主流命令。最强大之处是支持 <a href="https://www.lianxh.cn/details/948.html" target="_blank" rel="noopener noreffer ">latex导出</a>。</p>
+<h3 id="asdoc描述统计">Asdoc：描述统计</h3>
+<p>在自己的操作中加入 <code>asdoc</code> 即可保存相应文件。</p>
+<p>坏处是回归表格自定义效果差，且不符合一般期刊要求。<strong>大家默认只用来展现描述性统计。</strong></p>
+<blockquote>
+<p><code>tabout</code> 支持强大的描述性统计自定义表格，新版安装详见：https://tabout.net.au/docs/home.php<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="w"> </span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">asdoc</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="o">//</span><span class="err">下载命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="err">使用</span><span class="n">stata自带的样本数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">asdoc</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">dec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="err">表</span><span class="mi">1</span><span class="err">描述性统计</span><span class="mi">1</span><span class="p">.</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表1描述性统计1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">asdoc</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="n">save</span><span class="p">(</span><span class="err">表</span><span class="mi">2</span><span class="err">基本回归</span><span class="p">.</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表2基本回归&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp" title="asdoc描述性统计" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133544872.webp" data-sub-html="<h2> </h2><p>asdoc描述性统计</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133544872.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133544872.webp" />
+    </a><figcaption class="image-caption">asdoc描述性统计</figcaption>
+    </figure>
+
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp" title="asdoc回归统计" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133602158.webp" data-sub-html="<h2> </h2><p>asdoc回归统计</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133602158.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133602158.webp" />
+    </a><figcaption class="image-caption">asdoc回归统计</figcaption>
+    </figure></p>
+<h3 id="sum2doc描述统计"> Sum2doc：描述统计</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">local</span> <span class="n">varlist</span> <span class="s2">&#34;wage age race married grade collgrad south union occupation&#34;</span> <span class="n">sum2docx</span> <span class="err">`</span><span class="n">varlist</span><span class="s1">&#39; using Myfile.docx,replace /// stats(N mean(</span><span class="si">%9.2f</span><span class="s1">) sd(</span><span class="si">%9.3f</span><span class="s1">) min(</span><span class="si">%9.2f</span><span class="s1">) median(</span><span class="si">%9.2f</span><span class="s1">) max(</span><span class="si">%9.2f</span><span class="s1">)) /// title(sum2docx_Table: Descriptive statistics)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="logout均值差异相关系数检验">Logout：均值差异、相关系数检验</h3>
+<p><code>logout</code> 好处是在描述统计、回归结果之外，还能输出均值差异检验、相关系数检验<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="o">//</span><span class="err">下载命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">描述性统计</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="err">使用</span><span class="n">stata自带的样本数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="err">输出至</span><span class="n">word</span><span class="p">(</span><span class="n">rtf格式</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="w"> </span><span class="p">,</span><span class="n">save</span><span class="p">(</span><span class="err">文件名</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">tabstat</span><span class="w">  </span><span class="n">price</span><span class="w"> </span><span class="n">wei</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">stats</span><span class="p">(</span><span class="n">mean</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">p50</span><span class="w"> </span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="k">c</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="o">%</span><span class="mi">6</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="err">输出至</span><span class="n">excel</span><span class="p">(</span><span class="n">xml格式</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="w"> </span><span class="p">,</span><span class="n">save</span><span class="p">(</span><span class="err">文件名</span><span class="p">)</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">tabstat</span><span class="w">  </span><span class="n">price</span><span class="w"> </span><span class="n">wei</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">rep78</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">均值差异检验</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">ttable2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">均值</span><span class="n">t检验由中南财经政法大学的李春涛教授和张璇老师完成</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="w"> </span><span class="n">save</span><span class="p">(</span><span class="err">文件名</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">ttable2</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="n">headroom</span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">by</span><span class="p">(</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="o">%</span><span class="mi">12</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">相关系数检验</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">logout</span><span class="p">,</span><span class="n">save</span><span class="p">(</span><span class="err">相关系数文件名</span><span class="p">)</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">excel</span><span class="w"> </span><span class="k">replace</span><span class="p">:</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">pwcorr_a</span><span class="w"> </span><span class="n">rep78</span><span class="w"> </span><span class="n">headroom</span><span class="w"> </span><span class="n">trunk</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">star1</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="p">)</span><span class="w"> </span><span class="n">star5</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">)</span><span class="w"> </span><span class="n">star10</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="err">加入</span><span class="o">*</span><span class="err">标注</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp" title="logout相关系数输出" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133647133.webp" data-sub-html="<h2> </h2><p>logout相关系数输出</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133647133.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133647133.webp" />
+    </a><figcaption class="image-caption">logout相关系数输出</figcaption>
+    </figure></p>
+<h3 id="outreg-2-回归输出">Outreg 2: 回归输出</h3>
+<p>表格输出，我选 <code>outreg2</code>! 表格美观，支持 word，导出便利。</p>
+<p><code>ssc hot, n(10)</code> 命令会展现 stata 热度前 10 的命令。<code>outreg</code> 排名第一！</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp" title="stata外部命令排行榜" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133727402.webp" data-sub-html="<h2> </h2><p>stata外部命令排行榜</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133727402.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133727402.webp" />
+    </a><figcaption class="image-caption">stata外部命令排行榜</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">outreg2</span><span class="w"> </span><span class="o">//</span><span class="err">下载命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">webuse</span><span class="w"> </span><span class="n">grunfeld</span><span class="p">,</span><span class="n">clear</span><span class="w"> </span><span class="o">//</span><span class="err">使用默认数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtset</span><span class="w"> </span><span class="n">company</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">//</span><span class="err">定义面板数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">描述性统计</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">文件名</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">log</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">company</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"> </span><span class="n">eqkeep</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">mix</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="n">Decriptive</span><span class="w"> </span><span class="k">statistics</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">************</span><span class="err">回归结果输出</span><span class="o">*****************</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">分别使用随机效应、固定效应、混合效应回归然后合并</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">开始新表格还是合并上去对应的是</span><span class="n">replace和append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="p">,</span><span class="n">re</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">文件名</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="k">replace</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">RE</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">,</span><span class="k">Year</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xtreg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="p">,</span><span class="n">fe</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">文件名</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="n">append</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">FE</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="w">  </span><span class="n">mvalue</span><span class="w"> </span><span class="n">kstock</span><span class="p">)</span><span class="w">  </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">,</span><span class="k">Year</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">invest</span><span class="w"> </span><span class="n">mvalue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outreg2</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">文件名</span><span class="p">.</span><span class="n">doc</span><span class="p">,</span><span class="n">append</span><span class="w"> </span><span class="n">tstat</span><span class="w"> </span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">ctitle</span><span class="p">(</span><span class="n">OLS</span><span class="p">)</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="w"> </span><span class="n">mvalue</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="n">e</span><span class="p">(</span><span class="n">r2_a</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"> </span><span class="n">addstat</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">test</span><span class="p">,</span><span class="n">e</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">addtext</span><span class="p">(</span><span class="n">Company</span><span class="w"> </span><span class="n">FE</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="p">,</span><span class="k">Year</span><span class="w"> </span><span class="k">NO</span><span class="p">,</span><span class="w"> </span><span class="k">NO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">bdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">tdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">rdec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="err">分别代表着系数、</span><span class="n">t检验</span><span class="err">、</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="err">的小数位</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">addstat和addtext对应的添加统计量和表格内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="n">keep</span><span class="p">(</span><span class="n">var1</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="n">var3</span><span class="p">)</span><span class="err">选择自己要保留的输出系数</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp" title="outreg2回归输出" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133746623.webp" data-sub-html="<h2> </h2><p>outreg2回归输出</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133746623.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133746623.webp" />
+    </a><figcaption class="image-caption">outreg2回归输出</figcaption>
+    </figure></p>
+<h3 id="putdocx-系列万法归一">Putdocx 系列：万法归一</h3>
+<p><code>docx</code> 系列命令来自<a href="https://stata-club.github.io/" target="_blank" rel="noopener noreffer ">爬虫俱乐部</a>开发。以上大部分命令（asdoc 不是）都意味着一个输出表格要单独占用一个 word 文件。<code>docx</code> 改进后就可以重复使用一个文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">sum2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">corr2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">t2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">reg2docx</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>以下示例代码来自“<a href="https://www.lianxh.cn/details/264.html" target="_blank" rel="noopener noreffer ">君生我未生！Stata结果输出：论文四表一键出-reg2docx-corr2docx</a>”。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w"> </span><span class="k">all</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="k">more</span><span class="w"> </span><span class="k">off</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">                     </span><span class="o">//</span><span class="err">新建</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="err">文档</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">paragraph</span><span class="p">,</span><span class="w"> </span><span class="n">halign</span><span class="p">(</span><span class="n">center</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="err">段落居中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="err">定义字体、大小等基本设置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="p">(</span><span class="s2">&#34;附：文中待插入表格&#34;</span><span class="p">),</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">font</span><span class="p">(</span><span class="s2">&#34;华为楷体&#34;</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="n">black</span><span class="p">)</span><span class="w"> </span><span class="n">bold</span><span class="w"> </span><span class="n">linebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="err">保存名为</span><span class="w"> </span><span class="n">My_Table</span><span class="p">.</span><span class="n">docx</span><span class="w"> </span><span class="err">的</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="err">文档</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="err">调入数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sysuse</span><span class="w"> </span><span class="s2">&#34;auto.dta&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 1-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sum2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">obs</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="n">median</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="k">g</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表 1: 描述性统计&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="n">Note</span><span class="p">:</span><span class="w"> </span><span class="err">选项</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="err">的作用是将这张新表追加到</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="w"> </span><span class="err">尾部</span><span class="p">,</span><span class="w"> </span><span class="err">下同</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 2-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">corr2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">star</span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">)</span><span class="w"> </span><span class="n">fmt</span><span class="p">(</span><span class="o">%</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表 2：相关系数矩阵&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 3-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">t2docx</span><span class="w"> </span><span class="n">price</span><span class="o">-</span><span class="k">length</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">by</span><span class="p">(</span><span class="k">foreign</span><span class="p">)</span><span class="w"> </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表 3：组间均值差异 t 检验&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="c1">-----Table 4-----
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">putdocx</span><span class="w"> </span><span class="k">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">pagebreak</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">putdocx</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">mpg</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w"> </span><span class="k">foreign</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">probit</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="k">length</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">m3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg2docx</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">r2</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">ar2</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="o">%</span><span class="mi">7</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表4: 回归结果&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">shellout</span><span class="w"> </span><span class="s2">&#34;My_Table.docx&#34;</span><span class="w">  </span><span class="o">//</span><span class="err">大功告成！打开生成的</span><span class="w"> </span><span class="n">Word</span><span class="w"> </span><span class="err">文档</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="etable-支持中文">Etable: 支持中文</h3>
+<p>Stata 17 自带的输出命令, 虽然用起来不怎么便利，但它似乎是唯一一个<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>支持中文编码的命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">input</span><span class="w"> </span><span class="n">str6</span><span class="w"> </span><span class="err">性别</span><span class="w"> </span><span class="err">收入</span><span class="w"> </span><span class="err">消费</span><span class="w"> </span><span class="err">其他</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;男&#34;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">90</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;女&#34;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">21</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;女&#34;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;男&#34;</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">31</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;男&#34;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">49</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;女&#34;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">95</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;女&#34;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">86</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;男&#34;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="err">消费</span><span class="w">  </span><span class="err">收入</span><span class="w"> </span><span class="err">其他</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="err">性别</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&#34;男&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="err">男性回归</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="err">消费</span><span class="w">  </span><span class="err">收入</span><span class="w"> </span><span class="err">其他</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="err">性别</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&#34;女&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="err">女性回归</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="err">消费</span><span class="w">  </span><span class="err">收入</span><span class="w"> </span><span class="err">其他</span><span class="w"> </span><span class="p">,</span><span class="n">robust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">est</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="err">全部回归</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">etable</span><span class="p">,</span><span class="w"> </span><span class="n">estimates</span><span class="p">(</span><span class="err">男性回归</span><span class="w"> </span><span class="err">女性回归</span><span class="w">  </span><span class="err">全部回归</span><span class="p">)</span><span class="w"> </span><span class="k">column</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span><span class="w">  </span><span class="n">keep</span><span class="p">(</span><span class="w"> </span><span class="err">收入</span><span class="w"> </span><span class="err">其他</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cstat</span><span class="p">(</span><span class="n">_r_b</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cstat</span><span class="p">(</span><span class="n">_r_se</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">mstat</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">))</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">mstat</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="n">nformat</span><span class="p">(</span><span class="o">%</span><span class="mi">9</span><span class="p">.</span><span class="mi">3</span><span class="k">g</span><span class="p">))</span><span class="w">  </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">stars</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">10</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w"> </span><span class="p">.</span><span class="mi">05</span><span class="w"> </span><span class="s2">&#34;**&#34;</span><span class="w"> </span><span class="p">.</span><span class="mi">01</span><span class="w"> </span><span class="s2">&#34;***&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">attach</span><span class="p">(</span><span class="n">_r_b</span><span class="p">))</span><span class="w">   </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">showstars</span><span class="w"> </span><span class="n">showstarsnote</span><span class="w">   </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;表1 etable回归结果&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="p">(</span><span class="s2">&#34;数据来源：自设&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">export</span><span class="p">(</span><span class="s2">&#34;文件名称.docx&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp" title="etable回归命令" data-thumbnail="/img/stata输出Word表格.zh-cn-20240523133808475.webp" data-sub-html="<h2> </h2><p>etable回归命令</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp"
+            data-srcset="/img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp 1.5x, /img/stata%e8%be%93%e5%87%baWord%e8%a1%a8%e6%a0%bc.zh-cn-20240523133808475.webp 2x"
+            data-sizes="auto"
+            alt="/img/stata输出Word表格.zh-cn-20240523133808475.webp" />
+    </a><figcaption class="image-caption">etable回归命令</figcaption>
+    </figure></p>
+<h3 id="本文插图的代码">本文插图的代码</h3>
+<p>来自<a href="https://stata-club.github.io/stata_article/2017-09-29.html" target="_blank" rel="noopener noreffer ">爬虫俱乐部公众号</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">set</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_n</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uniform</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f400&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f430&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f439&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f411&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f410&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f404&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f408&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f412&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f434&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f437&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f418&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">emoji</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ustrunescape</span><span class="p">(</span><span class="s2">&#34;\U0001f43a&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">scatter</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">msymbol</span><span class="p">(</span><span class="k">none</span><span class="p">)</span><span class="w"> </span><span class="n">mlabel</span><span class="p">(</span><span class="n">emoji</span><span class="p">)</span><span class="w"> </span><span class="n">mlabposition</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">mlabsize</span><span class="p">(</span><span class="n">huge</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graph</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">animals</span><span class="p">.</span><span class="n">svg</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">shellout</span><span class="w"> </span><span class="n">animals</span><span class="p">.</span><span class="n">svg</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>久闻大名，但没用过，我也不了解相关命令&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>相关系数似乎只有 logout 能做到输出&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>之前的所有命令在加载中文变量名称时都会出现乱码&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/regout/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/regout/" data-title="Stata 输出 Word 表格" data-hashtags="Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/regout/" data-hashtag="Stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/regout/" data-title="Stata 输出 Word 表格"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/regout/" data-title="Stata 输出 Word 表格"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/regout/" data-title="Stata 输出 Word 表格" data-image="/img/stata输出Word表格.zh-cn-20240523134135371.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/anaconda/" class="prev" rel="prev" title="[anaconda 报错解决]anaconda bytes object has no attribute get"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[anaconda 报错解决]anaconda bytes object has no attribute get</a>
+            <a href="/zh-cn/posts/toc/" class="next" rel="next" title="中文博客目录跳转失败">中文博客目录跳转失败<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

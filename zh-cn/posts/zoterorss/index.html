@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Zotero：RSS 聚合订阅 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Zotero：RSS 聚合订阅" />
+<meta property="og:description" content="GPT 总结: 对于经济期刊的 RSS 订阅方法进行了介绍，包括了如何在 Zotero 中导入订阅以及国内外期刊的不同订阅类型。提供了许多知名期刊的直接订阅链接，并提及了一些间接订阅方式。此外，还列举了一些有趣的 RSS 源，如知乎每日精选、陶哲轩的博客和 Greg Mankiw 的博客。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-27T20:09:27+08:00" />
+<meta property="article:modified_time" content="2023-12-27T20:09:27+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Zotero：RSS 聚合订阅"/>
+<meta name="twitter:description" content="GPT 总结: 对于经济期刊的 RSS 订阅方法进行了介绍，包括了如何在 Zotero 中导入订阅以及国内外期刊的不同订阅类型。提供了许多知名期刊的直接订阅链接，并提及了一些间接订阅方式。此外，还列举了一些有趣的 RSS 源，如知乎每日精选、陶哲轩的博客和 Greg Mankiw 的博客。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/hlt/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zotero：RSS 聚合订阅",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zoterorss\/"
+        },"genre": "posts","keywords": "Zotero, 文献阅读, RSS","wordcount":  1549 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zoterorss\/","datePublished": "2023-12-27T20:09:27+08:00","dateModified": "2023-12-27T20:09:27+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/zoterorss/" selected>简体中文</option><option value="/en/posts/zoterorss/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/zoterorss/" selected>简体中文</option><option value="/en/posts/zoterorss/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Zotero：RSS 聚合订阅</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-27">2023-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1549 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135411696.webp"
+        data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135411696.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135411696.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135411696.webp 2x"
+        data-sizes="auto"
+        alt="/img/Zotero：RSS聚合订阅.en-20240523135411696.webp"
+        title="/img/Zotero：RSS聚合订阅.en-20240523135411696.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#zotero-如何导入-rss-订阅">Zotero 如何导入 RSS 订阅</a></li>
+    <li><a href="#期刊-rss-订阅区别">期刊 RSS 订阅区别</a></li>
+    <li><a href="#国外经济期刊-rss">国外经济期刊 RSS</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#省流列表">省流列表：</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#american-economic-review">American Economic Review</a></li>
+                    <li><a href="#econometrica">Econometrica</a></li>
+                    <li><a href="#journal-of-political-economy">Journal of Political Economy</a></li>
+                    <li><a href="#the-quarterly-journal-of-economics">The Quarterly Journal of Economics</a></li>
+                    <li><a href="#review-of-economic-studies">Review of economic studies</a></li>
+                    <li><a href="#bank-for-international-settlements">Bank for international settlements</a></li>
+                    <li><a href="#top-5-之外的子领域好刊物">Top 5 之外的子领域好刊物</a></li>
+                    <li><a href="#national-bureau-of-economic-research">National Bureau of Economic Research</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#国外期刊间接-rss">国外期刊间接 rss</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#国内期刊订阅方式">国内期刊订阅方式</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#如何查找国内-rss">如何查找国内 RSS</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#注意zotero7需要手动更改订阅地址">注意！zotero7需要手动更改订阅地址</a></li>
+                    <li><a href="#省流列表-1">省流列表</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#其他有趣的-rss">其他有趣的 RSS</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E7%A9%BA-%E5%A4%A7.mp3" name="空" artist="大黒摩季" cover="/images/%E9%BB%98%E8%AE%A4.jpg" theme="#448aff"></meting-js>
+<p><strong>RSS</strong>: 电子摘要聚合，用来提醒我们网站更新，并且显示部分信息。基本上期刊网站和著名博客都带有 RSS 订阅地址，这里主要是列举下可以订阅的经济期刊。</p>
+<h2 id="zotero-如何导入-rss-订阅">Zotero 如何导入 RSS 订阅</h2>
+<p><a href="https://zotero-chinese.com/user-guide/feed" target="_blank" rel="noopener noreffer ">推荐参考：Feed RSS</a></p>
+<p><strong>zotero 6 载入订阅：文库选项-新建订阅-从网址导入-输入网站</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp" title="zotero6如何导入rss订阅" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523134830568.webp" data-sub-html="<h2> </h2><p>zotero6如何导入rss订阅</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523134830568.webp" />
+    </a><figcaption class="image-caption">zotero6如何导入rss订阅</figcaption>
+    </figure> 
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp" title="输入后就可以识别编辑名称了" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523134843505.webp" data-sub-html="<h2> </h2><p>输入后就可以识别编辑名称了</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523134843505.webp" />
+    </a><figcaption class="image-caption">输入后就可以识别编辑名称了</figcaption>
+    </figure></p>
+<p>Zotero 7 (也就是 zotero beta) 载入订阅: 右键订阅</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp" title="右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523134857161.webp" data-sub-html="<h2> </h2><p>右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523134857161.webp" />
+    </a><figcaption class="image-caption">右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里</figcaption>
+    </figure></p>
+<h2 id="期刊-rss-订阅区别">期刊 RSS 订阅区别</h2>
+<p>同一期刊 RSS 订阅类型也有不同分类：</p>
+<blockquote>
+<ul>
+<li><strong>RSS Feed-Latest/Recent</strong>: 只包含最新一期的推送。</li>
+<li><strong>RSS Feed-Advance Articles</strong>: 预录取。没正式见刊，但即将录取。最后见刊时内容可能还有修改。</li>
+<li><strong>RSS Feed-Open Access</strong>: 公开获取。期刊内容都要付费解锁，open access 指完全免费开放的文章。</li>
+<li><strong>RSS Feed-Most cited</strong> : 最多引用。</li>
+<li><strong>RSS Feed-Editor&rsquo;s Choice</strong>  : 编辑推荐。基本上也是完全免费开放，用来打样的。</li>
+</ul>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp" title="图片截图于期刊《The Quarterly Journal of Economics》" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523134914916.webp" data-sub-html="<h2> </h2><p>图片截图于期刊《The Quarterly Journal of Economics》</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523134914916.webp" />
+    </a><figcaption class="image-caption">图片截图于期刊《The Quarterly Journal of Economics》</figcaption>
+    </figure></p>
+<h2 id="国外经济期刊-rss">国外经济期刊 RSS</h2>
+<h4 id="省流列表">省流列表：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">AEA精彩集锦</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">aeaweb</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">research</span><span class="o">/</span><span class="nt">rss-feed</span>
+</span></span><span class="line"><span class="cl"><span class="nt">Econometrica最新一期</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">onlinelibrary</span><span class="p">.</span><span class="nc">wiley</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">feed</span><span class="o">/</span><span class="nt">14680262</span><span class="o">/</span><span class="nt">most-recent</span>
+</span></span><span class="line"><span class="cl"><span class="nt">Econometrica最多引用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">onlinelibrary</span><span class="p">.</span><span class="nc">wiley</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">feed</span><span class="o">/</span><span class="nt">14680262</span><span class="o">/</span><span class="nt">most-cited</span>
+</span></span><span class="line"><span class="cl"><span class="nt">JPE最新一期</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">journals</span><span class="p">.</span><span class="nc">uchicago</span><span class="p">.</span><span class="nc">edu</span><span class="o">/</span><span class="nt">action</span><span class="o">/</span><span class="nt">showFeed</span><span class="o">?</span><span class="nt">type</span><span class="o">=</span><span class="nt">etoc</span><span class="o">&amp;</span><span class="nt">feed</span><span class="o">=</span><span class="nt">rss</span><span class="o">&amp;</span><span class="nt">jc</span><span class="o">=</span><span class="nt">jpe</span>
+</span></span><span class="line"><span class="cl"><span class="nt">QJE最新一期</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5504</span><span class="o">/</span><span class="nt">3365</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">QJE预备录取</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5504</span><span class="o">/</span><span class="nt">advanceAccess_3365</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">QJE开放获取</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5504</span><span class="o">/</span><span class="nt">OpenAccess</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">QJE编辑推荐</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5504</span><span class="o">/</span><span class="nt">3365_56068</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">RES最新一期</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5508</span><span class="o">/</span><span class="nt">3369</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">RES预备录取</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5508</span><span class="o">/</span><span class="nt">advanceAccess_3369</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">RES开放获取</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">academic</span><span class="p">.</span><span class="nc">oup</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">site_5508</span><span class="o">/</span><span class="nt">OpenAccess</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">BIS研究论文</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">bis</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">doclist</span><span class="o">/</span><span class="nt">bis_fsi_publs</span><span class="p">.</span><span class="nc">rss</span>
+</span></span><span class="line"><span class="cl"><span class="nt">BIS数据集</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">bis</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">doclist</span><span class="o">/</span><span class="nt">all_statistics</span><span class="p">.</span><span class="nc">rss</span>
+</span></span><span class="line"><span class="cl"><span class="nt">JAE最新一期</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">onlinelibrary</span><span class="p">.</span><span class="nc">wiley</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">feed</span><span class="o">/</span><span class="nt">10991255</span><span class="o">/</span><span class="nt">most-recent</span>
+</span></span><span class="line"><span class="cl"><span class="nt">JAE最多引用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">onlinelibrary</span><span class="p">.</span><span class="nc">wiley</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">feed</span><span class="o">/</span><span class="nt">10991255</span><span class="o">/</span><span class="nt">most-cited</span>
+</span></span><span class="line"><span class="cl"><span class="nt">JLE最新一期</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">journals</span><span class="p">.</span><span class="nc">uchicago</span><span class="p">.</span><span class="nc">edu</span><span class="o">/</span><span class="nt">action</span><span class="o">/</span><span class="nt">showFeed</span><span class="o">?</span><span class="nt">type</span><span class="o">=</span><span class="nt">etoc</span><span class="o">&amp;</span><span class="nt">feed</span><span class="o">=</span><span class="nt">rss</span><span class="o">&amp;</span><span class="nt">jc</span><span class="o">=</span><span class="nt">jole</span>
+</span></span><span class="line"><span class="cl"><span class="o">***********************************************</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="nt">下面两个期刊是通过间接创建rss的方式进行的订阅</span><span class="err">，</span><span class="nt">因此只显示标题</span>
+</span></span><span class="line"><span class="cl"><span class="nt">NBER最近工作论文推送</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">back</span><span class="p">.</span><span class="nc">nber</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">new</span><span class="p">.</span><span class="nc">xml</span>
+</span></span><span class="line"><span class="cl"><span class="nt">CER最新一期</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">sciencedirect</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">publication</span><span class="o">/</span><span class="nt">science</span><span class="o">/</span><span class="nt">1043951X</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="american-economic-review">American Economic Review</h6>
+<p>《American Economic Review》（简称 AER）期刊网没有自己的 RSS 源，但是它归“American economic association”（简称 AEA) 管理。AEA 会定期更新旗下期刊的研究亮点（Highlight) 总结。</p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.aeaweb.org/research/rss-feed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="econometrica">Econometrica</h6>
+<p>偏向统计学计量分析</p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">最新一期：
+</span></span><span class="line"><span class="cl">https://onlinelibrary.wiley.com/feed/14680262/most-recent
+</span></span><span class="line"><span class="cl">最多引用：
+</span></span><span class="line"><span class="cl">https://onlinelibrary.wiley.com/feed/14680262/most-cited
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="journal-of-political-economy">Journal of Political Economy</h6>
+<p>Journal of Political Economy (简称 JPE）归芝加哥大学管，芝加哥大学旗下全部期刊的 RSS 源可以参见如下 PDF 链接—— <a href="https://www.journals.uchicago.edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf" target="_blank" rel="noopener noreffer ">芝加哥大学期刊RSS源</a></p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.journals.uchicago.edu/action/showFeed?type=etoc&amp;feed=rss&amp;jc=jpe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="the-quarterly-journal-of-economics">The Quarterly Journal of Economics</h6>
+<p>The Quarterly Journal of Economics（简称 QJE）</p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">最新一期：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5504/3365.xml
+</span></span><span class="line"><span class="cl">预录取：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5504/advanceAccess_3365.xml
+</span></span><span class="line"><span class="cl">开放获取：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5504/OpenAccess.xml
+</span></span><span class="line"><span class="cl">编辑推荐：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5504/3365_56068.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="review-of-economic-studies">Review of economic studies</h6>
+<p>Review of economic studies (简称 RES）</p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">最新一期：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5508/3369.xml
+</span></span><span class="line"><span class="cl">预备录取：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5508/advanceAccess_3369.xml
+</span></span><span class="line"><span class="cl">开放获取：
+</span></span><span class="line"><span class="cl">https://academic.oup.com/rss/site_5508/OpenAccess.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="bank-for-international-settlements">Bank for international settlements</h6>
+<p>Bank for international settlements（简称 BIS），世界清算银行。既提供工作论文，又提供数据。</p>
+<p>RSS 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">研究论文
+</span></span><span class="line"><span class="cl">https://www.bis.org/doclist/bis_fsi_publs.rss
+</span></span><span class="line"><span class="cl">数据集：
+</span></span><span class="line"><span class="cl">https://www.bis.org/doclist/all_statistics.rss
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="top-5-之外的子领域好刊物">Top 5 之外的子领域好刊物</h6>
+<p>Journal of Applied Econometrics（简称 JAE）发展经济学领域</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">最新一期：
+</span></span><span class="line"><span class="cl">https://onlinelibrary.wiley.com/feed/10991255/most-recent
+</span></span><span class="line"><span class="cl">最多引用：
+</span></span><span class="line"><span class="cl">https://onlinelibrary.wiley.com/feed/10991255/most-cited
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Journal of Labor Economics (简称 JLE）劳动经济学领域</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">最新一期
+</span></span><span class="line"><span class="cl">https://www.journals.uchicago.edu/action/showFeed?type=etoc&amp;feed=rss&amp;jc=jole
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="national-bureau-of-economic-research">National Bureau of Economic Research</h6>
+<p>著名的经济研究组织机构，发表的论文不少后来都登上了顶级刊物。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NBER最近工作论文推送
+</span></span><span class="line"><span class="cl">https://back.nber.org/rss/new.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="国外期刊间接-rss">国外期刊间接 rss</h4>
+<p>有时候一些期刊官网不提供 rss 但想要看，可以通过论文平台抓取他们的 rss。可以进入爱思唯尔的期刊导航找到我们想要的期刊进行订阅。</p>
+<p><a href="https://www.sciencedirect.com/" target="_blank" rel="noopener noreffer ">爱思唯尔的期刊导航</a></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp" title="Elsevier" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523134939027.webp" data-sub-html="<h2> </h2><p>Elsevier</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523134939027.webp" />
+    </a><figcaption class="image-caption">Elsevier</figcaption>
+    </figure></p>
+<p><strong>不过这种间接订阅的坏处是只有标题，没有摘要、日期、作者</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp" title="订阅效果" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523135000418.webp" data-sub-html="<h2> </h2><p>订阅效果</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523135000418.webp" />
+    </a><figcaption class="image-caption">订阅效果</figcaption>
+    </figure></p>
+<h2 id="国内期刊订阅方式">国内期刊订阅方式</h2>
+<h4 id="如何查找国内-rss">如何查找国内 RSS</h4>
+<blockquote>
+<p>国内一般通过知网查找即可</p>
+</blockquote>
+<p><a href="https://navi.cnki.net/knavi/" target="_blank" rel="noopener noreffer ">知网出版来源导航</a></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp" title="点击想要的期刊" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523135019212.webp" data-sub-html="<h2> </h2><p>点击想要的期刊</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523135019212.webp" />
+    </a><figcaption class="image-caption">点击想要的期刊</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp" title="rss" data-thumbnail="/img/Zotero：RSS聚合订阅.en-20240523135034567.webp" data-sub-html="<h2> </h2><p>rss</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero：RSS聚合订阅.en-20240523135034567.webp" />
+    </a><figcaption class="image-caption">rss</figcaption>
+    </figure></p>
+<h6 id="注意zotero7需要手动更改订阅地址">注意！zotero7需要手动更改订阅地址</h6>
+<p>将 navi 修改为 rss</p>
+<p>例如：navi.cnki.net/knavi/rss</p>
+<p>更改为：https://rss.cnki.net/knavi/rss/GGYY</p>
+<h6 id="省流列表-1">省流列表</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">经济研究</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">JJYJ</span>
+</span></span><span class="line"><span class="cl"><span class="nt">经济学</span><span class="err">（</span><span class="nt">季刊</span><span class="err">）：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">JJXU</span>
+</span></span><span class="line"><span class="cl"><span class="nt">世界经济</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">SJJJ</span>
+</span></span><span class="line"><span class="cl"><span class="nt">中国工业经济</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">GGYY</span>
+</span></span><span class="line"><span class="cl"><span class="nt">管理世界</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">GLSJ</span>
+</span></span><span class="line"><span class="cl"><span class="nt">数量经济技术经济研究</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="nt">https</span><span class="o">://</span><span class="nt">rss</span><span class="p">.</span><span class="nc">cnki</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">knavi</span><span class="o">/</span><span class="nt">rss</span><span class="o">/</span><span class="nt">SLJY</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="其他有趣的-rss">其他有趣的 RSS</h2>
+<p><strong>知乎每日精选</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.zhihu.com/rss
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>陶哲轩的博客</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://terrytao.wordpress.com/feed/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当时关注，主要好奇的是陶哲轩如何在数学研究中使用 GPT，那时候美国在发布管理 AI 的意见征集。</p>
+<p><a href="https://terrytao.wordpress.com/2023/05/13/pcast-working-group-on-generative-ai-invites-public-input/" target="_blank" rel="noopener noreffer ">博客原帖</a></p>
+<p><strong>Greg Mankiw 的博客</strong>：没错，就是出《宏观经济学》《经济学原理》教材那位。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://gregmankiw.blogspot.com/feeds/posts/default
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/zoterorss/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" data-title="Zotero：RSS 聚合订阅" data-hashtags="Zotero,文献阅读,RSS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" data-hashtag="Zotero"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" data-title="Zotero：RSS 聚合订阅"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" data-title="Zotero：RSS 聚合订阅"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" data-title="Zotero：RSS 聚合订阅" data-image="/img/Zotero：RSS聚合订阅.en-20240523135411696.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/zotero/">Zotero</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/rss/">RSS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/ji_sata/" class="prev" rel="prev" title="计量数据的分组与测度（STATA 版）"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计量数据的分组与测度（STATA 版）</a>
+            <a href="/zh-cn/posts/hlt/" class="next" rel="next" title="HLT: 生命周期与工资分解">HLT: 生命周期与工资分解<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

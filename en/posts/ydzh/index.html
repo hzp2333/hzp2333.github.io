@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting" />
+<meta property="og:description" content="An analysis of &ldquo;The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting&rdquo;. The theme of the movie is not just about maternal love; maternal love is merely one aspect of parting." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/ydzh/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-02-19T20:52:19+08:00" />
+<meta property="article:modified_time" content="2021-02-19T20:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting"/>
+<meta name="twitter:description" content="An analysis of &ldquo;The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting&rdquo;. The theme of the movie is not just about maternal love; maternal love is merely one aspect of parting."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/ydzh/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/penguin/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/wedh/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ydzh\/"
+        },"genre": "posts","keywords": "Movie, Anime","wordcount":  2109 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ydzh\/","datePublished": "2021-02-19T20:52:19+08:00","dateModified": "2021-02-19T20:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/ydzh/">简体中文</option><option value="/en/posts/ydzh/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/ydzh/">简体中文</option><option value="/en/posts/ydzh/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/film-and-tv/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Film and TV</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-19">2021-02-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2109 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
+        data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+        data-sizes="auto"
+        alt="/img/朝花夕誓.zh-cn-20250119002110402.webp"
+        title="/img/朝花夕誓.zh-cn-20250119002110402.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#preface">Preface</a></li>
+    <li><a href="#plotlines">Plotlines:</a></li>
+    <li><a href="#symbolism-interpretation">Symbolism Interpretation</a>
+      <ul>
+        <li><a href="#parting">Parting</a></li>
+        <li><a href="#hibiol">Hibiol</a></li>
+        <li><a href="#ancient-dragons">Ancient Dragons</a></li>
+        <li><a href="#red-eye-disease">Red-Eye Disease</a></li>
+      </ul>
+    </li>
+    <li><a href="#children-and-encounters">Children and Encounters</a></li>
+    <li><a href="#encounters-and-weaving-are-the-curses-of-happiness-and-freedom">Encounters and Weaving are the Curses of Happiness and Freedom</a></li>
+    <li><a href="#solving-the-title-binding-the-flower-of-promises-on-the-morning-of-parting">Solving the Title: <em>Binding the Flower of Promises on the Morning of Parting</em></a></li>
+    <li><a href="#beyond-anime">Beyond Anime</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E6%88%91%E7%9A%84%E7%BE%8E%E4%B8%BD%20%28feat.PO8%29-%E5%B0%8F%E9%9C%9E%E3%80%81PO8.mp3" name="我的美丽" artist="小霞、PO8" cover="/images/%E6%9C%9D%E8%8A%B1%E5%A4%95%E8%AA%93.png" theme="#448aff"></meting-js>
+<blockquote>
+<p>My earliest serious film review, archived here.</p>
+</blockquote>
+<h2 id="preface">Preface</h2>
+<blockquote>
+<p>This work contains almost none of the traditional elements such as harems, large breasts, long legs, tsunderes, high school romance, or passionate. I can only say that the world needs more anime works like this. This work expresses a <strong>core spirit of life</strong> through its unique setting. We need such works to prove that anime is not just a plaything for otakus but a poetic form of expression.</p>
+<p>——Preface</p>
+</blockquote>
+<p>Have you ever seen the boundless sea? The refreshing sea breeze brushes against your face, and the calm sea is accompanied by the occasional chirping of birds. Yet, I know deep down that beneath the surface lies a profound vortex, but what I see is a faint veil. This is the feeling this movie gives me.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002041245.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002041245.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<p>The entire movie revolves around the growth of &ldquo;Maquia&rdquo; as a mother, with a significant portion dedicated to the narrative of maternal love. However, there are also other character arcs, such as the <strong>Iorph</strong>, the <strong>Ancient Dragons</strong>, and the changing world from the <strong>Middle Ages to the Industrial Revolution</strong>.</p>
+<p>These various symbols indicate that <strong>&ldquo;maternal love&rdquo; is not the sole theme of the movie</strong>. I even believe that maternal love is not the primary theme. The <strong>fate of the Iorph</strong> is the revelation. This movie discusses a &ldquo;life value&rdquo;——</p>
+<center><font color="#ff0000">Should we, who fear parting, refuse to encounter?</font></center>
+<center></center>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp" title="Mother and child gaze, mutual redemption" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002110402.webp" data-sub-html="<h2> </h2><p>Mother and child gaze, mutual redemption</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002110402.webp" />
+    </a><figcaption class="image-caption">Mother and child gaze, mutual redemption</figcaption>
+    </figure></p>
+<h2 id="plotlines">Plotlines:</h2>
+<ul>
+<li><strong>Background</strong>: Under the strife of kingdoms, the powerful human kingdom of Mezarte captures the Iorph, a race with longevity genes, to further strengthen their power.</li>
+<li><strong>Main Plot</strong>: Maquia, a young Iorph girl who narrowly escapes, adopts an orphan from an ordinary family and strives to be a good mother.</li>
+<li><strong>Subplots</strong>: The Iorph, the resistance of other nations, the changing world, and the captured Iorph.</li>
+</ul>
+<h2 id="symbolism-interpretation">Symbolism Interpretation</h2>
+<p>Iorph (also known as the Clan of Parting): Possesses nearly infinite lifespans and the unique ability to weave language into cloth. The cloth they weave is called <strong>&ldquo;Hibiol.&rdquo;</strong></p>
+<h3 id="parting">Parting</h3>
+<p>Due to their longevity, their interactions with ordinary people only lead to constant parting, increasing their pain. Rather than endure such sorrow, it is better to live in seclusion. This should be the attitude hinted at by the &ldquo;Elder&rdquo; at the beginning.</p>
+<p>When Maquia says she feels lonely, the Elder responds, &ldquo;Do you still feel lonely with me here?&rdquo; and advises against loving in the mortal world, as it only brings pain. When attacked by human knights, the Elder says,</p>
+<blockquote>
+<p>&ldquo;We have no connection with the mortal world.&rdquo;</p>
+</blockquote>
+<p>From this, we can see the Elder&rsquo;s attitude:</p>
+<p>Avoid contact with ordinary people to prevent future sorrow from parting. However, due to human desires, they are forced into contact with humans.</p>
+<h3 id="hibiol">Hibiol</h3>
+<blockquote>
+<p>The warp is the flowing years, guiding the change of seasons and the shifting sky. The weft is the livelihood of people, intricately woven on the land, plucking the heartstrings of all.</p>
+</blockquote>
+<p>This is the opening line of the movie. From the entire film, I believe this is an interpretation of life.</p>
+<ul>
+<li>The warp, representing time, is like the lifespan of a person.</li>
+<li>The weft, representing space, is the encounters of people.</li>
+</ul>
+<p><strong>Even if the warp is infinitely long, it is still necessary to weave the weft. Weaving memories into cloth, this metaphor of turning the abstract into the concrete, is an expression of giving life meaning.</strong></p>
+<p>This setting reminds me of <em>Your Name</em>, which is essentially a form of <strong>pantheism</strong>:</p>
+<blockquote>
+<p>We do not worship a specific god, but the deity represented by connections—the red thread of human connections is the deity we worship (paraphrased).</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002219425.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002219425.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<p>Hibiol, as the cloth woven by the Clan of Parting, holds significant meaning. It can be said to be the faith of their existence.</p>
+<h3 id="ancient-dragons">Ancient Dragons</h3>
+<p>As one of the two oldest races in the setting, both the Ancient Dragons and the Iorph have been conquered by human kingdoms, forming a parallel with the Iorph, given their similarly tragic fates.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp" title="Ancient Dragons and Red-Eye Disease" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002233055.webp" data-sub-html="<h2> </h2><p>Ancient Dragons and Red-Eye Disease</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002233055.webp" />
+    </a><figcaption class="image-caption">Ancient Dragons and Red-Eye Disease</figcaption>
+    </figure></p>
+<h3 id="red-eye-disease">Red-Eye Disease</h3>
+<p>Caused by the accumulation of madness from being enslaved and not daring to fight for freedom. This can be seen from the dialogue between the enslaved Leilia and the dragon. She scolds the dragon for being able to fly but not fighting for freedom.</p>
+<p>In fact, the enslaved Leilia is similar to the dragon. She claims to &ldquo;<strong>be able to fly</strong>&rdquo; but does not fight for freedom. Is there a connection between this and the symbolism of the Clan of Parting? I haven&rsquo;t figured this out yet. But one reason is that she is pregnant with the child of her enemy (the prince of the human kingdom). To protect the girl, she even gives up the chance to be rescued by her true love, leading to his &ldquo;darkening.&rdquo;</p>
+<p>At this point, the darkened character is also confused:</p>
+<p>He wants to remain unchanged, but both Maquia and Leilia, who have children, have changed. Why?</p>
+<p>This also leads to the ultimate question of the movie:</p>
+<center><font color="#ff0000">Is encountering worth it?</font></center>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002355317.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002355317.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002408787.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002408787.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<h2 id="children-and-encounters">Children and Encounters</h2>
+<p>In <em>The Dawn of Farewell</em>, children represent &ldquo;encounters&rdquo;! Therefore, I believe maternal love is merely a representation, not the theme.</p>
+<p>The process of a mother interacting with her child is the best example of encounters and change.</p>
+<p>A mother&rsquo;s encounter with her child is often not entirely voluntary, and the encounter with a child is the most magical. The parting between a mother and her child is inevitable.</p>
+<p>The Clan of Parting does not want to face parting, but when they are forced to face the world and become ordinary mothers, encountering children who will eventually leave them, experiencing joy or tears,</p>
+<p>They come to understand:</p>
+<p>&ldquo;Iorph&rdquo; is a curse of continuity.</p>
+<p><strong>Whether this curse is a blessing or a misfortune is something they can only answer after experiencing it.</strong></p>
+<h2 id="encounters-and-weaving-are-the-curses-of-happiness-and-freedom">Encounters and Weaving are the Curses of Happiness and Freedom</h2>
+<p>Let&rsquo;s start with the two mothers, one active, one passive, contrasting yet ending the same.</p>
+<p><strong>Protagonist Maquia</strong>: Escapes from disaster, adopts a child from an ordinary family, experiences everything a mother does, and witnesses the child&rsquo;s departure (in the end, Maquia still looks 15 years old).</p>
+<p>Being a single mother is not easy (finding work, raising a family, dealing with a rebellious child, and the child&rsquo;s various &ldquo;childish promises and comforts&rdquo;);</p>
+<p>She actively raises this child because she fears loneliness and wants to share her life, unknowingly developing genuine maternal love. In this segment, pay attention to the changes in Maquia&rsquo;s hair color and length, as well as her overall appearance.</p>
+<p><strong>Maquia&rsquo;s friend Leilia</strong>: Forced to bear the child of her enemy and never able to see her again, she meets her daughter after the fall of Mezarte and escapes the kingdom.</p>
+<p>Leilia is eventually rescued by the last remaining Ancient Dragon and says two lines that caught my attention.</p>
+<blockquote>
+<p>A. I can fly.</p>
+</blockquote>
+<p>The dragon should be a reflection of her. The dragon finally takes flight to fight for freedom, and she meets her long-lost daughter, then decides to leave.</p>
+<blockquote>
+<p>B. &ldquo;I will forget everything here; you are just a tangled thread in the Hibiol.&rdquo;</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp" title="Image|344" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002429514.webp" data-sub-html="<h2> </h2><p>Image|344</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002429514.webp" />
+    </a><figcaption class="image-caption">Image|344</figcaption>
+    </figure></p>
+<p>Even if it&rsquo;s a tangled thread, it holds unique emotional significance, but Leilia has indeed had a tough life.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002441836.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002441836.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<p>But can she really forget?</p>
+<p><strong>For a mother, her child is her parting.</strong></p>
+<p>The Clan of Parting, untouched by the mortal world, is forced to experience the pain of parting, but this parting seems like a shackle. Mothers lose much for their children—freedom, ideals, and endure unnecessary fears and their children&rsquo;s anger. Once genuine love is formed, the long-lived mothers can only watch their children grow old.</p>
+<center><font color="#ff0000">What is the meaning of encountering?</font></center>
+<p>Would abandoning encounters also eliminate the pain of parting?</p>
+<blockquote>
+<p>Later, Maquia responds to her, &ldquo;You will never forget.&rdquo;</p>
+</blockquote>
+<p>Indeed, through tears, Leilia says the crucial line:</p>
+<blockquote>
+<p>&ldquo;It&rsquo;s sad and painful, but how could I forget such a beautiful world?&rdquo;</p>
+</blockquote>
+<p>Because once an encounter happens, the spark cannot be suppressed. Hibiol will record everything. Mothers develop love in the process of raising their children.</p>
+<p>Like <strong>fireworks that eventually fade, the beautiful scene remains in our tender hearts.</strong></p>
+<p>Now, what does Hibiol truly mean? As the duty and characteristic of the Clan of Parting,</p>
+<p>I interpret it as &ldquo;<strong>human duty, human characteristics</strong>.&rdquo;</p>
+<p>The Clan of Parting is just a hypothetical race. Aren&rsquo;t we just like them, afraid of loss, afraid of parting?</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002457820.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002457820.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<p>Parting seems painful, but it also corresponds to an encounter, a shining moment. Buddhism teaches us to let go of everything, to see it as &ldquo;empty,&rdquo; to treat everything as fleeting as dew. But would we still be human if we did that? Should we discard the meaning and happiness of the process just because of a little pain?</p>
+<p>We fear encounters, lamenting life as fleeting as morning dew; we dread parting, exclaiming life as an illusion, as if life is short and illusory.</p>
+<p>Thus, the movie creates the nearly immortal Clan of Parting to tell us:</p>
+<ul>
+<li>Facing encounters and life, bravely loving is unrelated to the length of time or superficial results.</li>
+<li>Binding the flower of promises at the moment of parting.</li>
+<li>At the moment of parting, we also pick up those precious memories.</li>
+<li>That is enough.</li>
+</ul>
+<h2 id="solving-the-title-binding-the-flower-of-promises-on-the-morning-of-parting">Solving the Title: <em>Binding the Flower of Promises on the Morning of Parting</em></h2>
+<p>On the surface, it is about a long-lived mother sending off her aging son, recalling past vows and times at the moment of parting.</p>
+<p>In essence:</p>
+<ol>
+<li>The moment of parting: Once an encounter happens, parting is inevitable.</li>
+<li>The flower of promises: When Maquia, still looking 15, faces the reality of her son growing old:</li>
+</ol>
+<blockquote>
+<p>&ldquo;Mothers don&rsquo;t cry, but I&rsquo;m sorry, I can&rsquo;t keep the promise. Loving you was truly happy.&rdquo;</p>
+</blockquote>
+<p>Breaking the promise in this way is the flower of promises. As long as Maquia lives, her child&rsquo;s Hibiol will continue. This is the true flower of promises.</p>
+<p><strong>No one is immortal, but people will continue to encounter each other.</strong></p>
+<p>Before and after parting, emotions and meanings are bestowed. Parting is not just pain, so please gather the courage to meet new partings!</p>
+<p>Anime that calmly explores seemingly ethereal themes is truly remarkable.</p>
+<p>I sincerely hope this movie helps people understand:</p>
+<p>The feeling of love is wonderful.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp" title="Image" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002516733.webp" data-sub-html="<h2> </h2><p>Image</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002516733.webp" />
+    </a><figcaption class="image-caption">Image</figcaption>
+    </figure></p>
+<h2 id="beyond-anime">Beyond Anime</h2>
+<p><em>Hi, Mom</em> is a hymn to mothers.</p>
+<p><em>The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting</em> is more like an epic of mothers, a history of maternal growth.</p>
+<blockquote>
+<p>The theme of the movie is not maternal love; maternal love is just one element of the core proposition.</p>
+</blockquote>
+<p>Mothers are always mothers, transcending race and time. These settings cannot be expressed without the anime format, a fairy-tale-like medium. This is why I highly recommend it:</p>
+<blockquote>
+<p>This is a work that can only be expressed through anime settings. And this expression transcends anime itself, using a form to write the meaning of encounters.</p>
+</blockquote>
+<p>Anime is not just a style; it is a form of expression. Considering the term &ldquo;anime&rdquo; itself, isn&rsquo;t it a form of two-dimensional artistic expression?</p>
+<p><em>Hi, Mom</em>, as Jia Ling&rsquo;s directorial debut, has been critiqued for its technical shortcomings, but that doesn&rsquo;t hinder its 8.3 rating on Douban (which is quite high for Douban).</p>
+<p>Through these two works, I truly understand:</p>
+<p>Childishness and naivety must not be confused, and the emotional core is the essence, regardless of the external form.</p>
+<p>In the end, <strong>the highest emotional intelligence is often sincerity</strong>.</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Other Thoughts<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>
+<p>Freedom and happiness are born from restraints. Is the life of a leaf meant to fall, or to nourish?</p>
+</li>
+<li>
+<p>The fate of the Clan of Parting is linked to their hair; they cannot form bonds with freedom mothers. Maternal love.</p>
+</li>
+<li>
+<p>Single mothers don&rsquo;t cry; the significance of children to mothers is life.</p>
+</li>
+<li>
+<p>The middle section&rsquo;s grand battle and childbirth scenes are breathtaking. Destruction and rebirth are captured in the lenses.</p>
+</li>
+<li>
+<p>A world of sadness and pain; love is a curse, encounters are a curse that makes one lonely. Buddhism teaches us to let go of everything, but only by experiencing can we truly let go.</p>
+</li>
+<li>
+<p>In the middle, a knight says, &ldquo;Ancient creatures are destined to perish.&rdquo;</p>
+</li>
+</ol>
+<p>I believe this represents the outdated ideas (notions) of the Clan of Parting will disappear. They have truly experienced the parting of the mortal world, understood the pain, and also felt happiness.</p>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/ydzh/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/ydzh/" data-title="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting" data-via="ygVNLSZ1omFBCeB" data-hashtags="Movie,Anime"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/ydzh/" data-hashtag="Movie"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/ydzh/" data-title="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/ydzh/" data-title="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/ydzh/" data-title="The Dawn of Farewell - Binding the Flower of Promises on the Morning of Parting" data-image="/img/朝花夕誓.zh-cn-20250119002110402.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/movie/">Movie</a>,&nbsp;<a href="/en/tags/anime/">Anime</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/penguin/" class="prev" rel="prev" title="Penguin Highway: The Journey of a Boy Growing Up"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Penguin Highway: The Journey of a Boy Growing Up</a>
+            <a href="/en/posts/wedh/" class="next" rel="next" title="Reflections on Walden">Reflections on Walden<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

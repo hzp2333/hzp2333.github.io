@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>HOW TO SLAY A DRAGON - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="HOW TO SLAY A DRAGON" />
+<meta property="og:description" content="GPT: In the realm of medieval fantasy, &ldquo;How to Slay a Dragon&rdquo; offers a whimsical journey through the Middle Ages, blending history with humor and adventure. While it may lack in-depth historical analysis, the book captivates readers with witty anecdotes and everyday insights into medieval life. Through its quirky storytelling and playful tone, it invites readers to explore the fascinating world of history through a fantastical lens." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/tl/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-05T00:00:36+08:00" />
+<meta property="article:modified_time" content="2023-08-05T00:00:36+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="HOW TO SLAY A DRAGON"/>
+<meta name="twitter:description" content="GPT: In the realm of medieval fantasy, &ldquo;How to Slay a Dragon&rdquo; offers a whimsical journey through the Middle Ages, blending history with humor and adventure. While it may lack in-depth historical analysis, the book captivates readers with witty anecdotes and everyday insights into medieval life. Through its quirky storytelling and playful tone, it invites readers to explore the fascinating world of history through a fantastical lens."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/tl/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/probability/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/art/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HOW TO SLAY A DRAGON",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/tl\/"
+        },"genre": "posts","keywords": "Microhistory, Reading","wordcount":  1035 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/tl\/","datePublished": "2023-08-05T00:00:36+08:00","dateModified": "2023-08-05T00:00:36+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/tl/">简体中文</option><option value="/en/posts/tl/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/tl/">简体中文</option><option value="/en/posts/tl/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HOW TO SLAY A DRAGON</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/book/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Book</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-05">2023-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1035 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp"
+        data-srcset="/img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp, /img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp 1.5x, /img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp 2x"
+        data-sizes="auto"
+        alt="/img/奇葩而通俗的中世纪指南《如何屠龙》.en-20240523110251979.webp"
+        title="/img/奇葩而通俗的中世纪指南《如何屠龙》.en-20240523110251979.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="865857523" theme="#448aff"></meting-js>
+<p>#　HOW TO SLAY A DRAGON: A Fantasy Hero&rsquo;s Guide to the Real Middle Ages</p>
+<p>In the medieval era, where swords and sorcery once reigned supreme, tales of dragons and warriors have captured the imagination. People yearn for the medieval times much like they long for the idyllic countryside—a utopia that exists solely in the realm of imagination.</p>
+<p>Strangely enough, there are those who find solace in pursuing a different path, even if it leads them astray—people like myself, who revel in the unconventional. Such individuals find joy in this &ldquo;quirky&rdquo; compendium.</p>
+<p>What I mean to say is, if you&rsquo;re not the type to delve into &ldquo;strict history&rdquo; or merely a gamer seeking entertainment, then perhaps you&rsquo;re the kind to seek philosophy in games and dark humor in history. Well, congratulations, you&rsquo;re ready to embark on your journey through the medieval world.</p>
+<p><a href="https://shop.harvard.com/book/9798200850594" target="_blank" rel="noopener noreffer ">This book</a> is not suited for those seeking a detailed understanding of the medieval period. It follows the main theme of &ldquo;heroic dragon-slaying role-playing,&rdquo; presenting popular medieval tales and literature in a digestible format. This implies that there&rsquo;s no obligation to provide a comprehensive educational framework covering the economic, cultural, and political aspects of the era.</p>
+<p>Unlike traditional history books that offer analytical viewpoints, this book occasionally offers the author&rsquo;s perspective on the use of historical sources. Are laws reliable? People of that time didn&rsquo;t necessarily follow them; the focus lies more on exploring the motives behind lawmaking. Are diaries sincere? Many medieval individuals clandestinely recorded their mastery of magic or their various exploits, yet some narratives and their subsequent personal records harbor hidden contradictions.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp" title="HOW TO SLAY A DRAGON: A Fantasy Hero&amp;rsquo;s Guide to the Real Middle Ages" data-thumbnail="/img/奇葩而通俗的中世纪指南《如何屠龙》.en-20240523110251979.webp" data-sub-html="<h2> </h2><p>HOW TO SLAY A DRAGON: A Fantasy Hero&amp;rsquo;s Guide to the Real Middle Ages</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp"
+            data-srcset="/img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp, /img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp 1.5x, /img/%e5%a5%87%e8%91%a9%e8%80%8c%e9%80%9a%e4%bf%97%e7%9a%84%e4%b8%ad%e4%b8%96%e7%ba%aa%e6%8c%87%e5%8d%97%e3%80%8a%e5%a6%82%e4%bd%95%e5%b1%a0%e9%be%99%e3%80%8b.en-20240523110251979.webp 2x"
+            data-sizes="auto"
+            alt="/img/奇葩而通俗的中世纪指南《如何屠龙》.en-20240523110251979.webp" />
+    </a><figcaption class="image-caption">HOW TO SLAY A DRAGON: A Fantasy Hero&rsquo;s Guide to the Real Middle Ages</figcaption>
+    </figure></p>
+<p>This book primarily focuses on elucidating the everyday aspects of life during the medieval period:</p>
+<ul>
+<li>From unicorns to the fantastical creatures of the time,</li>
+<li>From troubadours to the ballads of the era,</li>
+<li>From cursed marshes to poorly managed latrines,</li>
+<li>From courtship to the moral codes of the time.</li>
+</ul>
+<p>It delves into topics such as medieval bathroom practices, dental hygiene, road systems, inns, and even rustic romance. What captivates the reader is the contrast between the titles and the content, drawing them into the next intriguing chapter.</p>
+<p>The examples provided by the author are remarkably close to life and imbued with humor. For instance, were there really records of religious miracles and magical occurrences in the medieval period? Indeed, there are documented instances of individuals keeping diaries (in the form of autobiographies) detailing their studies in magic, which were later studied by others—resulting in a profound sense of shame. As for the various daily occurrences in medieval life, the author doesn&rsquo;t shy away from employing witty and satirical language. Take, for instance, the scenario of the three individuals in a duel, where the one who initially arrived naked ends up surviving—a lesson for all: &ldquo;In the medieval times, always carry a weapon in secret.&rdquo;</p>
+<p>Regarding unclean neighbors, the sentiment is expressed as &ldquo;Neighbors will be neighbors; they&rsquo;re not cursed until their excrement blocks the streets, at which point perhaps they do become cursed—curses may be false, but filth is real.&rdquo; And in the Byzantine Empire, where bizarre tragedies are anything but unusual, nothing seems out of the ordinary.</p>
+<p>As the author doubles as a narrator and a guide through the adventures of the hero, these humorous remarks infuse the book with a strong sense of interactivity. Moreover, the titles themselves carry a distinct flavor reminiscent of Japanese anime RPGs.</p>
+<p>While microhistory books like &ldquo;<a href="https://www.hup.harvard.edu/books/9780674821521" target="_blank" rel="noopener noreffer ">Soulstealers: The Chinese Sorcery Scare of 1768</a>&rdquo; and &ldquo;<a href="https://en.wikipedia.org/wiki/1587,_a_Year_of_No_Significance" target="_blank" rel="noopener noreffer ">1587, a Year of No Significance: The Ming Dynasty in Decline</a>&rdquo; meticulously analyze individual historical records to support overarching themes, this book takes a different approach. Although the main storyline revolves around the adventures of dragon-slaying heroes, is there really a clear distinction between daily life and the grand narrative? This results in a somewhat vague understanding of the historical characteristics of the medieval period upon finishing the book, and the attempts at clarification seem more like gathering materials to fit preconceived notions.</p>
+<p>Furthermore, I agree that the book comprises concise summaries of historical anecdotes, often densely packed with terminology, making the reading experience less than fluid.</p>
+<p>For example, &ldquo;He doesn&rsquo;t proudly proclaim in the book how he transported these molds from Beirut to Damascus, then traveled north through Syria, crossed Anatolia to reach Constantinople, traversed the Balkan Peninsula to arrive in Vienna, and finally departed from Vienna, crossing the Holy Roman Empire to deliver them to the French king.&rdquo; (This passage actually emphasizes the low reliability of the historical sources, doesn&rsquo;t it?)</p>
+<p>This book may indeed be overflowing with humor but lacks the element of astonishment when it comes to knowledge. When discussing the book&rsquo;s content, all one can think of are the everyday adventures of characters like Little Shuai, Little Hei, and Buddha Bo Le—hardly a comprehensive exploration of medieval history!</p>
+<p>However, rather than focusing solely on understanding medieval history, I appreciate the author&rsquo;s enthusiasm conveyed through this approach. The author earnestly extends an invitation, expressing a genuine passion—inviting readers to see that the medieval era is an intriguing period, and history is a fascinating subject. It&rsquo;s through this lens that patterns can be deduced and interpreted from seemingly trivial details, enticing people to delve into the realm of human knowledge.</p>
+<p>Even in a medieval era devoid of dragons and swords and sorcery, one can still employ a framework of imagination to construct a historical perspective—from passion to creativity, and ultimately to history itself. In a medieval world without dragons, the stories brought back by triumphant warriors are rich with intriguing historical anecdotes.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/tl/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/tl/" data-title="HOW TO SLAY A DRAGON" data-via="ygVNLSZ1omFBCeB" data-hashtags="Microhistory,Reading"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/tl/" data-hashtag="Microhistory"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/tl/" data-title="HOW TO SLAY A DRAGON"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/tl/" data-title="HOW TO SLAY A DRAGON"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/tl/" data-title="HOW TO SLAY A DRAGON" data-image="/img/奇葩而通俗的中世纪指南《如何屠龙》.en-20240523110251979.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/microhistory/">Microhistory</a>,&nbsp;<a href="/en/tags/reading/">Reading</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/probability/" class="prev" rel="prev" title="Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Estimating π with a Needle? Notes on Probability Theory (Mao Shisong Edition)</a>
+            <a href="/en/posts/art/" class="next" rel="next" title="Faces of Time">Faces of Time<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

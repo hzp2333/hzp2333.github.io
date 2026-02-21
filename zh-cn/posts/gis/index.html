@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> arcGIS 批量转化 tif 为 excel - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" arcGIS 批量转化 tif 为 excel" />
+<meta property="og:description" content="介绍批量操作将 GIS 的 tif 文件转化为 excel 文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/gis/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-09-25T12:00:19+08:00" />
+<meta property="article:modified_time" content="2024-09-25T12:00:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" arcGIS 批量转化 tif 为 excel"/>
+<meta name="twitter:description" content="介绍批量操作将 GIS 的 tif 文件转化为 excel 文件"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/gis/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/sqzl/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " arcGIS 批量转化 tif 为 excel",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis\/"
+        },"genre": "posts","keywords": "GIS","wordcount":  1815 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis\/","datePublished": "2024-09-25T12:00:19+08:00","dateModified": "2024-09-25T12:00:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/gis/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-3" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/gis/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> arcGIS 批量转化 tif 为 excel</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-09-25">2024-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1815 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/arcGIS.zh-cn-20240925121457983.webp"
+        data-srcset="/img/arcGIS.zh-cn-20240925121457983.webp, /img/arcGIS.zh-cn-20240925121457983.webp 1.5x, /img/arcGIS.zh-cn-20240925121457983.webp 2x"
+        data-sizes="auto"
+        alt="/img/arcGIS.zh-cn-20240925121457983.webp"
+        title="/img/arcGIS.zh-cn-20240925121457983.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#点数据到面数据">点数据到面数据</a></li>
+    <li><a href="#虚假的批处理">虚假的批处理</a></li>
+    <li><a href="#真正的批处理">真正的批处理</a>
+      <ul>
+        <li><a href="#导入-tif-文件">导入 tif 文件</a></li>
+        <li><a href="#找到-shp-文件">找到 shp 文件</a></li>
+        <li><a href="#指定流程图">指定流程图</a></li>
+        <li><a href="#tif-批量转表格">Tif 批量转表格</a></li>
+        <li><a href="#表格批量转-excel">表格批量转 excel</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他提示">其他提示</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>本文记录详细操作步骤，便于自己以后重复查看。</p>
+<p>不过速通完后才发现时代似乎已经从 arcmap 转向 pro 了&hellip;&hellip;</p>
+<p>生命的大风吹出世界的精神，唯有老人能看出这其中的摧毁&hellip;&hellip;</p>
+</blockquote>
+<p>我在 <a href="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" target="_blank" rel="noopener noreffer "> Stata 绘制 Gis 着色图</a>中介绍了 GIS 常用的 shp 类型文件。简单来说，GIS 的数据基本结构需要包含坐标、独特标识、测量值三个要素。这里介绍如何通过行政区划地图文件和 tif 地图文件提取出行政区的截面 excel 数据文件。</p>
+<div class="mermaid" id="id-1"></div>
+<h1 id="gis-简易上手指南">GIS 简易上手指南</h1>
+<p>官网教程：<a href="https://pro.arcgis.com/zh-cn/pro-app/latest/help/main/welcome-to-the-arcgis-pro-app-help.htm" target="_blank" rel="noopener noreffer ">arcGIS 帮助</a></p>
+<p>ArcGIS 作为商业软件，其实非常好上手。和 excel 一样，了解完布局后就看懂基础使用了。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240923153250443.webp" title="软件示意图" data-thumbnail="/img/arcGIS.zh-cn-20240923153250443.webp" data-sub-html="<h2> </h2><p>软件示意图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240923153250443.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240923153250443.webp, /img/arcGIS.zh-cn-20240923153250443.webp 1.5x, /img/arcGIS.zh-cn-20240923153250443.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240923153250443.webp" />
+    </a><figcaption class="image-caption">软件示意图</figcaption>
+    </figure></p>
+<ul>
+<li>如图，最左侧是文件区域，用于查看工作文件。</li>
+<li>再往右工具列表，有各种工具函数帮助我们处理数据文件，所以根据提示操作就行。</li>
+<li>再右侧是图层管理。</li>
+<li>最右侧是绘图预览区域，把 gis 文件放进去就能看到图像情况。</li>
+</ul>
+<h1 id="gis-批处理">GIS 批处理</h1>
+<h2 id="点数据到面数据">点数据到面数据</h2>
+<p>经济学的数据分析一般为省、市、县面板数据。GIS 文件是图像文件，可以看作点集数据，而行政面板是块状的，是面数据，所以我们处理思路就是计算行政面积的点数据平均值，然后导出。</p>
+<p>通过行政区划 shp 进行分区。
+通过 <code>Apatial Analyst</code> - <code>区域分析</code> - <code>以表格显示分区统计</code> 这个函数方法对接数据地图和行政区划地图，计算行政面积里的均值。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240923154317568.webp" title="img" data-thumbnail="/img/arcGIS.zh-cn-20240923154317568.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240923154317568.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240923154317568.webp, /img/arcGIS.zh-cn-20240923154317568.webp 1.5x, /img/arcGIS.zh-cn-20240923154317568.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240923154317568.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<h2 id="虚假的批处理">虚假的批处理</h2>
+<p>对于每个方法函数，右键-批处理，就会弹出一个自定义动作的 excel 表格，似乎在里面通过 excel 行设定我们的重复动作就可以快速批处理，但如果使用者真的用了就会发现问题。</p>
+<p>使用这个方法定义了 n 个重复动作后，只会保留最后一行定义的动作。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240923155140485.webp" title="批处理" data-thumbnail="/img/arcGIS.zh-cn-20240923155140485.webp" data-sub-html="<h2> </h2><p>批处理</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240923155140485.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240923155140485.webp, /img/arcGIS.zh-cn-20240923155140485.webp 1.5x, /img/arcGIS.zh-cn-20240923155140485.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240923155140485.webp" />
+    </a><figcaption class="image-caption">批处理</figcaption>
+    </figure></p>
+<h2 id="真正的批处理">真正的批处理</h2>
+<h3 id="导入-tif-文件">导入 tif 文件</h3>
+<p>真正的批处理是手动设计流程图！以 2024 年华为数学建模大赛提供的 tif 数据为例，将 tif 集中在一个文件夹下 (最好命名为英文，且为 tif，便于后面对接操作)。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925111328464.webp" title="人口数据tif文件" data-thumbnail="/img/arcGIS.zh-cn-20240925111328464.webp" data-sub-html="<h2> </h2><p>人口数据tif文件</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925111328464.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925111328464.webp, /img/arcGIS.zh-cn-20240925111328464.webp 1.5x, /img/arcGIS.zh-cn-20240925111328464.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925111328464.webp" />
+    </a><figcaption class="image-caption">人口数据tif文件</figcaption>
+    </figure></p>
+<h3 id="找到-shp-文件">找到 shp 文件</h3>
+<p>前文提到了原理——我们想要将 gis 点数据集转化为行政区划的面板数据，为此需要行政区划的 shp 地图。</p>
+<p>github 上很多资源，也可以在“<a href="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" target="_blank" rel="noopener noreffer "> Stata 绘制 Gis 着色图</a>”处看资源。</p>
+<h3 id="指定流程图">指定流程图</h3>
+<p>ArcGIS 真正的批处理是自己绘制流程图。</p>
+<h3 id="tif-批量转表格">Tif 批量转表格</h3>
+<p>首先在链接好的文件夹下右键新建工具箱。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925112642775.webp" title="新建工具箱" data-thumbnail="/img/arcGIS.zh-cn-20240925112642775.webp" data-sub-html="<h2> </h2><p>新建工具箱</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925112642775.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925112642775.webp, /img/arcGIS.zh-cn-20240925112642775.webp 1.5x, /img/arcGIS.zh-cn-20240925112642775.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925112642775.webp" />
+    </a><figcaption class="image-caption">新建工具箱</figcaption>
+    </figure></p>
+<p>然后在工具箱下面右键新建模型。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925112729074.webp" title="新建模型" data-thumbnail="/img/arcGIS.zh-cn-20240925112729074.webp" data-sub-html="<h2> </h2><p>新建模型</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925112729074.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925112729074.webp, /img/arcGIS.zh-cn-20240925112729074.webp 1.5x, /img/arcGIS.zh-cn-20240925112729074.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925112729074.webp" />
+    </a><figcaption class="image-caption">新建模型</figcaption>
+    </figure></p>
+<p>打开模型进行编辑，将工具栏中想要的函数拖入。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113051718.webp" title="拖入工具箱" data-thumbnail="/img/arcGIS.zh-cn-20240925113051718.webp" data-sub-html="<h2> </h2><p>拖入工具箱</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113051718.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113051718.webp, /img/arcGIS.zh-cn-20240925113051718.webp 1.5x, /img/arcGIS.zh-cn-20240925113051718.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113051718.webp" />
+    </a><figcaption class="image-caption">拖入工具箱</figcaption>
+    </figure></p>
+<p>Tif 属于栅格数据，插入-迭代器-栅格</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113609908.webp" title="插入-迭代器-栅格" data-thumbnail="/img/arcGIS.zh-cn-20240925113609908.webp" data-sub-html="<h2> </h2><p>插入-迭代器-栅格</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113609908.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113609908.webp, /img/arcGIS.zh-cn-20240925113609908.webp 1.5x, /img/arcGIS.zh-cn-20240925113609908.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113609908.webp" />
+    </a><figcaption class="image-caption">插入-迭代器-栅格</figcaption>
+    </figure></p>
+<p>双击“迭代栅格数据”。工作空间或栅格目录选择数据文件夹中的tif 文件夹，栅格数据格式选择 TIF。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113808126.webp" title="栅格数据格式选择 TIF" data-thumbnail="/img/arcGIS.zh-cn-20240925113808126.webp" data-sub-html="<h2> </h2><p>栅格数据格式选择 TIF</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113808126.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113808126.webp, /img/arcGIS.zh-cn-20240925113808126.webp 1.5x, /img/arcGIS.zh-cn-20240925113808126.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113808126.webp" />
+    </a><figcaption class="image-caption">栅格数据格式选择 TIF</figcaption>
+    </figure></p>
+<p>插入-仅模型工具-解析路径</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925113904528.webp" title="解析路径" data-thumbnail="/img/arcGIS.zh-cn-20240925113904528.webp" data-sub-html="<h2> </h2><p>解析路径</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925113904528.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925113904528.webp, /img/arcGIS.zh-cn-20240925113904528.webp 1.5x, /img/arcGIS.zh-cn-20240925113904528.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925113904528.webp" />
+    </a><figcaption class="image-caption">解析路径</figcaption>
+    </figure></p>
+<p>将自己找到的 shp 文件夹拖到模型框中。本文使用的是区县行政区划地图的 <code>district.shp</code> 文件。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114033696.webp" title="区县行政区" data-thumbnail="/img/arcGIS.zh-cn-20240925114033696.webp" data-sub-html="<h2> </h2><p>区县行政区</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114033696.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114033696.webp, /img/arcGIS.zh-cn-20240925114033696.webp 1.5x, /img/arcGIS.zh-cn-20240925114033696.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114033696.webp" />
+    </a><figcaption class="image-caption">区县行政区</figcaption>
+    </figure></p>
+<p>换成链接工具</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114207152.webp" title="链接工具" data-thumbnail="/img/arcGIS.zh-cn-20240925114207152.webp" data-sub-html="<h2> </h2><p>链接工具</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114207152.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114207152.webp, /img/arcGIS.zh-cn-20240925114207152.webp 1.5x, /img/arcGIS.zh-cn-20240925114207152.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114207152.webp" />
+    </a><figcaption class="image-caption">链接工具</figcaption>
+    </figure></p>
+<p>从“名称”连向“解析路径”，选择“输入数据元素”。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114320208.webp" title="连向" data-thumbnail="/img/arcGIS.zh-cn-20240925114320208.webp" data-sub-html="<h2> </h2><p>连向</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114320208.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114320208.webp, /img/arcGIS.zh-cn-20240925114320208.webp 1.5x, /img/arcGIS.zh-cn-20240925114320208.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114320208.webp" />
+    </a><figcaption class="image-caption">连向</figcaption>
+    </figure></p>
+<p>双击“解析路径”，解析类型选择 NAME</p>
+<blockquote>
+<p>所以注意，tif 的文件名最好是 <code>变量</code> + <code>数字</code> 的形式，便于识别规律。最好一切循环文件都是这种结构性命名。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114530352.webp" title="解析路径" data-thumbnail="/img/arcGIS.zh-cn-20240925114530352.webp" data-sub-html="<h2> </h2><p>解析路径</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114530352.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114530352.webp, /img/arcGIS.zh-cn-20240925114530352.webp 1.5x, /img/arcGIS.zh-cn-20240925114530352.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114530352.webp" />
+    </a><figcaption class="image-caption">解析路径</figcaption>
+    </figure></p>
+<p>接下来是链接参数的操作。</p>
+<ol>
+<li>从“值”连向“以表格显示分区统计”，选择“环境”-“输出配置关键字”。</li>
+<li>从“识别出的第一个 tif 数据（本文例子为 <code>pop1990.tif</code>）”连向“以表格显示分区统计”，选择“输入赋值栅格”。</li>
+<li>从“识别出的第一个 tif 数据（本文例子为 <code>pop1990.tif</code>）”连向“以表格显示分区统计”，选择“输入赋值栅格”。</li>
+<li>从“shp 文件（本文例子为 <code>district.shp</code>）”连向“以表格显示分区统计”，选择“输入栅格数据或要素区域数据”。</li>
+</ol>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925114744988.webp" title="img" data-thumbnail="/img/arcGIS.zh-cn-20240925114744988.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925114744988.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925114744988.webp, /img/arcGIS.zh-cn-20240925114744988.webp 1.5x, /img/arcGIS.zh-cn-20240925114744988.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925114744988.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<p>双击 <code>ZonalSt_shp5</code> 。将“查找范围”改为文件夹中的 result 文件夹（没有也可以在选择框里临时新建），“名称”改为 <code>%值%</code>。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115208041.webp" title="名称" data-thumbnail="/img/arcGIS.zh-cn-20240925115208041.webp" data-sub-html="<h2> </h2><p>名称</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115208041.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115208041.webp, /img/arcGIS.zh-cn-20240925115208041.webp 1.5x, /img/arcGIS.zh-cn-20240925115208041.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115208041.webp" />
+    </a><figcaption class="image-caption">名称</figcaption>
+    </figure></p>
+<p>右键tif模块，选择模型参数。</p>
+<blockquote>
+<p>此时别忘了在顶部工具栏从连线模式切换为选择模型，这样才能右键选择。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115531431.webp" title="模型参数" data-thumbnail="/img/arcGIS.zh-cn-20240925115531431.webp" data-sub-html="<h2> </h2><p>模型参数</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115531431.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115531431.webp, /img/arcGIS.zh-cn-20240925115531431.webp 1.5x, /img/arcGIS.zh-cn-20240925115531431.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115531431.webp" />
+    </a><figcaption class="image-caption">模型参数</figcaption>
+    </figure></p>
+<p>右键区域划分模块（本文就是 district.shp），选择模型参数。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115734046.webp" title="模型参数" data-thumbnail="/img/arcGIS.zh-cn-20240925115734046.webp" data-sub-html="<h2> </h2><p>模型参数</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115734046.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115734046.webp, /img/arcGIS.zh-cn-20240925115734046.webp 1.5x, /img/arcGIS.zh-cn-20240925115734046.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115734046.webp" />
+    </a><figcaption class="image-caption">模型参数</figcaption>
+    </figure></p>
+<p>顶部的自动布局可以帮助我们优化布局。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115801305.webp" title="自动布局" data-thumbnail="/img/arcGIS.zh-cn-20240925115801305.webp" data-sub-html="<h2> </h2><p>自动布局</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115801305.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115801305.webp, /img/arcGIS.zh-cn-20240925115801305.webp 1.5x, /img/arcGIS.zh-cn-20240925115801305.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115801305.webp" />
+    </a><figcaption class="image-caption">自动布局</figcaption>
+    </figure></p>
+<h3 id="表格批量转-excel">表格批量转 excel</h3>
+<p>在前面的流程图基础上继续添加。</p>
+<p>将“工具箱-转换工具 - Excel”中的“表转 Excel”工具拖到模型框中。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925115924493.webp" title="表转 Excel" data-thumbnail="/img/arcGIS.zh-cn-20240925115924493.webp" data-sub-html="<h2> </h2><p>表转 Excel</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925115924493.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925115924493.webp, /img/arcGIS.zh-cn-20240925115924493.webp 1.5x, /img/arcGIS.zh-cn-20240925115924493.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925115924493.webp" />
+    </a><figcaption class="image-caption">表转 Excel</figcaption>
+    </figure></p>
+<p>将“%值%”与“表转 Excel”进行连接，选择输入表。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120016912.webp" title="表转 Excel" data-thumbnail="/img/arcGIS.zh-cn-20240925120016912.webp" data-sub-html="<h2> </h2><p>表转 Excel</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120016912.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120016912.webp, /img/arcGIS.zh-cn-20240925120016912.webp 1.5x, /img/arcGIS.zh-cn-20240925120016912.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120016912.webp" />
+    </a><figcaption class="image-caption">表转 Excel</figcaption>
+    </figure></p>
+<p>双击 <code>%值%\_TableToExcel.xls</code>，选择保存路径的文件夹，并且设置文件名为 <code>%值%\_TableToExcel.xls</code>。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120246941.webp" title="路径的文件夹" data-thumbnail="/img/arcGIS.zh-cn-20240925120246941.webp" data-sub-html="<h2> </h2><p>路径的文件夹</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120246941.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120246941.webp, /img/arcGIS.zh-cn-20240925120246941.webp 1.5x, /img/arcGIS.zh-cn-20240925120246941.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120246941.webp" />
+    </a><figcaption class="image-caption">路径的文件夹</figcaption>
+    </figure></p>
+<p>绘制完流程图后，点击模型确定即可运行</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/arcGIS.zh-cn-20240925120948913.webp" title="点击模型确定即可运行" data-thumbnail="/img/arcGIS.zh-cn-20240925120948913.webp" data-sub-html="<h2> </h2><p>点击模型确定即可运行</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/arcGIS.zh-cn-20240925120948913.webp"
+            data-srcset="/img/arcGIS.zh-cn-20240925120948913.webp, /img/arcGIS.zh-cn-20240925120948913.webp 1.5x, /img/arcGIS.zh-cn-20240925120948913.webp 2x"
+            data-sizes="auto"
+            alt="/img/arcGIS.zh-cn-20240925120948913.webp" />
+    </a><figcaption class="image-caption">点击模型确定即可运行</figcaption>
+    </figure></p>
+<h2 id="其他提示">其他提示</h2>
+<p>如果操作完全符合，但最后读取到一半，说读取出现问题，较大可能性为以下问题：</p>
+<ul>
+<li>不是 <code>.tif</code> 格式的 gis 文件。</li>
+<li>文件夹命名是中文。</li>
+<li>数据文件命名不结构化，例如一会儿同时出现了 <code>1990pop.tif</code> 和 <code>pop1998.tif</code></li>
+<li>Result 文件夹和 tif 文件夹最好保持在同一层次的目录里。</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-09-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/gis/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis/" data-title=" arcGIS 批量转化 tif 为 excel" data-hashtags="GIS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis/" data-hashtag="GIS"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis/" data-title=" arcGIS 批量转化 tif 为 excel"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis/" data-title=" arcGIS 批量转化 tif 为 excel"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis/" data-title=" arcGIS 批量转化 tif 为 excel" data-image="/img/arcGIS.zh-cn-20240925121457983.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/gis/">GIS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/sqzl/" class="prev" rel="prev" title="《跨越边界的社区》：流动关系与社区起源"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>《跨越边界的社区》：流动关系与社区起源</a>
+            <a href="/zh-cn/posts/jjxxc/" class="next" rel="next" title="经济学的修辞">经济学的修辞<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"graph TD; \n0(获取地图文件)==\u003e1(地图主文件.Shp); \n0(获取地图文件)==\u003e11(线条主文件.Shp);\n0(获取地图文件)==\u003e3(表文件.dbf); \n1(地图主文件.Shp)==转译==\u003e2(地图轮廓数据);\n11(线条主文件.Shp)==转译==\u003e9(地图线条数据);\n3(表文件.dbf)==转译==\u003e4(标签文件); \n5(数据分析文件)==\u003e6(匹配文件); \n4(标签数据)==\u003e6(匹配文件); 6(匹配文件)==id标识==\u003e7(画图); \n2(地图轮廓数据)==id标识==\u003e7(画图); \n9(地图线条数据)==id标识==\u003e7(画图)","id-2":"滑翔闪'S BLOG","id-3":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

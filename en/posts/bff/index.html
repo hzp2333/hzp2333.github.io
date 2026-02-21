@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Notes on Learning Calculus of Variations - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Notes on Learning Calculus of Variations" />
+<meta property="og:description" content="A study note on the calculus of variations based on &ldquo;Fundamentals of Dynamic Optimization&rdquo; (Alpha C. Chiang), covering applications such as the catenary problem, the brachistochrone problem, and monopoly pricing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/bff/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-07T00:02:15+08:00" />
+<meta property="article:modified_time" content="2024-05-07T00:02:15+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Notes on Learning Calculus of Variations"/>
+<meta name="twitter:description" content="A study note on the calculus of variations based on &ldquo;Fundamentals of Dynamic Optimization&rdquo; (Alpha C. Chiang), covering applications such as the catenary problem, the brachistochrone problem, and monopoly pricing."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/bff/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/yxk1/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/log0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Notes on Learning Calculus of Variations",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/bff\/"
+        },"genre": "posts","keywords": "Calculus of Variations, Dynamic Optimization","wordcount":  1796 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/bff\/","datePublished": "2024-05-07T00:02:15+08:00","dateModified": "2024-05-07T00:02:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/bff/">简体中文</option><option value="/en/posts/bff/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/bff/">简体中文</option><option value="/en/posts/bff/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Notes on Learning Calculus of Variations</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-07">2024-05-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1796 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Cycloid_f.gif"
+        data-srcset="/img/Cycloid_f.gif, /img/Cycloid_f.gif 1.5x, /img/Cycloid_f.gif 2x"
+        data-sizes="auto"
+        alt="/img/Cycloid_f.gif"
+        title="/img/Cycloid_f.gif" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#functional">Functional</a></li>
+    <li><a href="#calculus-of-variations">Calculus of Variations</a></li>
+    <li><a href="#the-catenary-problem">The Catenary Problem</a></li>
+    <li><a href="#the-brachistochrone-problem">The Brachistochrone Problem</a></li>
+    <li><a href="#monopoly-economics-problem">Monopoly Economics Problem</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>I am recording these study notes because of the elegance of the calculus of variations. The reference book is &ldquo;Fundamentals of Dynamic Optimization&rdquo; by Alpha C. Chiang, which is a very friendly introductory textbook on dynamic optimization for economics students.</p>
+<p>These notes are based on my quick study and personal understanding. If there are any inaccuracies, please bear with me.</p>
+<h2 id="functional">Functional</h2>
+<p>Let&rsquo;s start with the study of functions.</p>
+<ul>
+<li>In elementary school, we began to encounter unknowns like $x$.</li>
+<li>In middle school, we started to learn about specific functions like $f(x) = ax + bx^2 + c$.</li>
+<li>In high school, we began to understand abstract functions like $f(x) = f(-x)$ and $f&rsquo;(x) = f(x)$.</li>
+<li>In university, we started to learn about implicit functions like $y&rsquo; = y + y&rsquo;&rsquo;$, which solve a class of functions.</li>
+</ul>
+<p>As our study of functions moves from concrete to abstract, we begin to develop the ability to <strong>infer the form of a function based on its properties</strong>.</p>
+<blockquote>
+<p><strong>Nonlinear functionals</strong> in functional analysis are functions of functions. Given specific functional characteristics, we can narrow down the range of functional forms and then select the optimal function based on constraints.</p>
+<p>For example, a firm choosing the optimal production process, or an architect selecting the best curve for a building&hellip;</p>
+<p>Previously, given a specific type of function, we sought extremum points;</p>
+<p>Now, given functional characteristics, we seek the best specific function.</p>
+</blockquote>
+<p>Generally, the characteristic constraints of a function can be expressed as $f(t, y(t), y&rsquo;(t))$, which can be understood as $f(\text{time}, \text{state}, \text{direction})$.</p>
+<p>As shown in the figure below, there are three functions from $a$ to $b$ that satisfy the functional characteristics. Which one is the optimal? This introduces the use of calculus to find the extremum of the functional path.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp" title="Functions satisfying constraints" data-thumbnail="/img/变分法速通.zh-cn-20240523094828444.webp" data-sub-html="<h2> </h2><p>Functions satisfying constraints</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094828444.webp" />
+    </a><figcaption class="image-caption">Functions satisfying constraints</figcaption>
+    </figure>
+$$
+V(t) = \int_0^T f(t, y, y&rsquo;) dt
+$$
+As the functional form $y$ changes, $V(t)$ also changes. This is the starting point of functional analysis. We aim to find the optimal path $y^*$ from a set of functional forms $y$ by seeking the extremum of $V(t)$ and other constraints.</p>
+<h2 id="calculus-of-variations">Calculus of Variations</h2>
+<p>When learning about derivatives, we used the concept of approximation to find limits:
+$$
+\lim_{\Delta x \rightarrow 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+$$
+Here, we use a similar approach. Assume the optimal function is $y^*$, and represent a class of functions near it as $y^* + \varepsilon P(t)$ .</p>
+<blockquote>
+<p>Note that $P(0) = P(T) = 0$</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp" title="Functional representation" data-thumbnail="/img/变分法速通.zh-cn-20240523094806341.webp" data-sub-html="<h2> </h2><p>Functional representation</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094806341.webp" />
+    </a><figcaption class="image-caption">Functional representation</figcaption>
+    </figure></p>
+<p>Thus, we obtain the following expression in terms of $\varepsilon$:
+$$
+V(\varepsilon) = \int_0^T F\left[t, \underbrace{y^*(t) + \varepsilon p(t)}_{y(t)}, \underbrace{y^*(t) + \varepsilon p&rsquo;(t)}_{y&rsquo;(t)}\right] dt
+$$
+The first-order condition for the extremum is $\frac{dV}{d\varepsilon} = 0$.</p>
+<p><div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Derivative formula in calculus<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">$$
+\frac{d}{dt} \int_{g(t)}^{h(t)} F(x, t) dx = F(h, t) \frac{dh}{dt} - F(g, t) \frac{dg}{dt} + \int_{g(t)}^{h(t)} \frac{\partial F}{\partial t} dx
+$$</div>
+        </div>
+    </div>
+$$
+\begin{aligned}
+\frac{dV}{d\varepsilon} &amp;= \int_0^T \frac{\partial F}{\partial \varepsilon} dt = \int_0^T \left( \frac{\partial F}{\partial y} \frac{dy}{d\varepsilon} + \frac{\partial F}{\partial y&rsquo;} \frac{dy&rsquo;}{d\varepsilon} \right) dt \\
+&amp;= \int_0^T \left[ F_y p(t) + F_{y&rsquo;} p&rsquo;(t) \right] dt \\
+&amp;= \int_0^T F_y p(t) dt + \color{red}{\int_0^T F_{y&rsquo;} p&rsquo;(t) dt} = 0
+\end{aligned}
+$$
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Local transformation<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">$$
+\frac{dy}{d\varepsilon} = \frac{d(y^*(t) + \varepsilon p)}{d\varepsilon} = P(t)
+$$
+Similarly, $\frac{dy&rsquo;}{d\varepsilon} = P&rsquo;(t)$</div>
+        </div>
+    </div></p>
+<p>Next, we transform the $\color{red}{\text{red part}}$ using integration by parts $\int_{t=a}^{t=b} v du = vu \big|_{t=a}^{t=b} - \int_{t=a}^{t=b} u dv$ (where $u = u(t)$, $v = v(t)$):</p>
+<p>$$
+\begin{align}
+&amp; \color{red}{\int_0^T F_{y&rsquo;} p&rsquo;(t) dt} \\
+&amp;= \left[ F_{y&rsquo;} p(t) \right]_0^T - \int_0^T p(t) \frac{d}{dt} F_{y&rsquo;} dt \\
+&amp;= -\int_0^T p(t) \frac{d}{dt} F_{y&rsquo;} dt \\
+&amp; (\text{Because } P(0) = P(T) = 0\\
+&amp; \text{ see the image of the perturbation function } P(t))
+\end{align}
+$$</p>
+<p>Substituting the $\color{red}{\text{red part}}$ back, we get:
+$$
+\int_0^T p(t) \left[ F_y - \frac{d}{dt} F_{y&rsquo;} \right] dt = 0
+$$
+Considering that the perturbation function $P(t)$ can be any function, the only way for the above equation to be zero is if $F_y - \frac{d}{dt} F_{y&rsquo;} = 0$.</p>
+<p>Thus, we obtain the <strong>Euler equation</strong>:
+$$
+F_y - \frac{d}{dt} F_{y&rsquo;} = 0, \quad t \in [0, T]
+$$
+When the equation constraint only involves three variables, i.e., $F(t, y, y&rsquo;)$, it can be expanded as:
+$$
+\begin{aligned}
+\frac{dF_{y&rsquo;}}{dt} &amp;= \frac{\partial F_{y&rsquo;}}{\partial t} + \frac{\partial F_{y&rsquo;}}{\partial y} \frac{dy}{dt} + \frac{\partial F_{y&rsquo;}}{\partial y&rsquo;} \frac{dy&rsquo;}{dt} \\
+&amp;= F_{ty&rsquo;} + F_{yy&rsquo;} y&rsquo;(t) + F_{y&rsquo;y&rsquo;} y&rsquo;&rsquo;(t)
+\end{aligned}
+$$
+Expanding, we get:
+$$
+F_{y&rsquo;y&rsquo;} y&rsquo;&rsquo;(t) + F_{yy&rsquo;} y&rsquo;(t) + F_{ty&rsquo;} - F_y = 0, \quad t \in [0, T]
+$$</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>A problem<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Given the functional $V(y) = \int_0^2 (12ty + y&rsquo;^2) dt$</p>
+<p>The general solution to the Euler equation is $y^*(t) = t^3 + c_1 t + c_2$</p>
+</div>
+        </div>
+    </div>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Extensions of the Euler equation<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Here, we only mention the extensions without further elaboration.</p>
+<p>When the functional $F$ contains only some variables, such as $F(t, y&rsquo;)$, $F(y, y&rsquo;)$, or $F(t, y)$, there are shortcut methods for each case.</p>
+<p>The core of the Euler equation is $F_y - \frac{d}{dt} F_{y&rsquo;} = 0, \quad t \in [0, T]$</p>
+<p>When the functional $F$ contains multiple variables or higher-order variables, the core remains the same, but further expansion is needed.</p>
+</div>
+        </div>
+    </div>
+<h2 id="the-catenary-problem">The Catenary Problem</h2>
+<p>Imagine a red string hanging between two poles for drying clothes.</p>
+<p>Establish a coordinate system and rotate this string around the x-axis. What curvature should the string have to minimize the surface area of the resulting solid?</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp" title="Even a humble clothesline has profound principles" data-thumbnail="/img/变分法速通.zh-cn-20240523094744425.webp" data-sub-html="<h2> </h2><p>Even a humble clothesline has profound principles</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094744425.webp" />
+    </a><figcaption class="image-caption">Even a humble clothesline has profound principles</figcaption>
+    </figure></p>
+<p>Consider the Pythagorean theorem for a differential element:
+$$
+(ds)^2 = (dx)^2 + (dy)^2
+$$
+We can obtain the differential of the curve:
+$$
+\frac{ds}{dt} = \sqrt{1 + \left( \frac{dy}{dt} \right)^2} = (1 + y&rsquo;^2)^{1/2}
+$$
+By differentiating along the curve, the integral of the circumference of each differential circle ($2\pi r$) gives the surface area after rotation.</p>
+<p>Thus, we obtain the following functional:
+$$
+V(t) = \int_0^T 2\pi y ds = 2\pi \int_0^T y (1 + y&rsquo;^2)^{1/2} dt
+$$
+Simplifying the expression:
+$$
+V(t) = \int_0^T y (1 + y&rsquo;^2)^{1/2} dt
+$$
+Using the Euler equation, we get:
+$$
+y (1 + y&rsquo;^2)^{1/2} - y y&rsquo;^2 (1 + y&rsquo;^2)^{-1/2} = c
+$$
+Simplifying (by rationalizing the denominator and squaring to eliminate the square root in the denominator), we obtain:
+$$
+y&rsquo; \left( \equiv \frac{dy}{dt} \right) = \frac{1}{c} \sqrt{y^2 - c^2}
+$$
+Which is:
+$$
+\frac{c dy}{\sqrt{y^2 - c^2}} = dt
+$$
+Integrating, we get:
+$$
+\int \frac{c dy}{\sqrt{y^2 - c^2}} = c \ln \left( \frac{y + \sqrt{y^2 - c^2}}{c} \right) + c_1 = \int dt = t + c_2
+$$
+Rearranging the above expression and combining the two arbitrary constants $c_1$ and $c_2$ into $k$, we obtain the general solution:
+$$
+y^*(t) = \frac{c}{2} \left[ e^{(t + k)/c} + e^{-(t + k)/c} \right]
+$$
+And the <a href="https://en.wikipedia.org/wiki/Catenary" target="_blank" rel="noopener noreffer ">catenary curve</a> is of the form:
+$$
+y = \frac{1}{2} (e^t + e^{-t})
+$$</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp" title="Catenary curve, image from Wikipedia" data-thumbnail="/img/变分法速通.zh-cn-20240523094705813.webp" data-sub-html="<h2> </h2><p>Catenary curve, image from Wikipedia</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094705813.webp" />
+    </a><figcaption class="image-caption">Catenary curve, image from Wikipedia</figcaption>
+    </figure></p>
+<blockquote>
+<p>A uniformly dense string (e.g., a clothesline) hanging under uniform gravitational force will also form this curve.</p>
+<p>Suspension bridges, hyperbolic arch bridges, and overhead cables all utilize the principles of the catenary curve.</p>
+<p>In architectural design, the following form is generally used:
+$$
+y = c + a \cosh \frac{x}{a}
+$$
+Nature and society are always under optimal control!</p>
+</blockquote>
+<h2 id="the-brachistochrone-problem">The Brachistochrone Problem</h2>
+<p>Imagine a marble race with three different slides. A contestant has only one chance to choose. Which slide should they choose for the marble to reach the finish line the fastest?</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp" title="Yes, even slides hide profound principles" data-thumbnail="/img/变分法速通.zh-cn-20240804223058150.webp" data-sub-html="<h2> </h2><p>Yes, even slides hide profound principles</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240804223058150.webp" />
+    </a><figcaption class="image-caption">Yes, even slides hide profound principles</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp" title="Source: Beijing Science and Technology Museum. Imagine ancient architecture; which building curve would facilitate easier drainage? The logic is the same." data-thumbnail="/img/变分法速通.zh-cn-20240523094621296.webp" data-sub-html="<h2> </h2><p>Source: Beijing Science and Technology Museum. Imagine ancient architecture; which building curve would facilitate easier drainage? The logic is the same.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094621296.webp" />
+    </a><figcaption class="image-caption">Source: Beijing Science and Technology Museum. Imagine ancient architecture; which building curve would facilitate easier drainage? The logic is the same.</figcaption>
+    </figure></p>
+<p>Using the conservation of energy, we get:
+$$
+\begin{align}
+\frac{1}{2} m v^2 &amp;= m g y \
+v &amp;= \sqrt{2 g y}
+\end{align}
+$$
+In the catenary problem, we introduced the differential of the curve as $ds = (1 + y&rsquo;^2)^{1/2} dt$.</p>
+<p>Thus, considering velocity as the derivative of distance with respect to time:
+$$
+v = \frac{ds}{dt} = \sqrt{1 + y&rsquo;^2} \frac{dx}{dt}
+$$
+Combining the above equations:
+$$
+\begin{cases}
+v = \sqrt{2 g y} \
+v = \sqrt{1 + y&rsquo;^2} \frac{dx}{dt}
+\end{cases}
+$$
+We obtain:
+$$
+dt = \frac{\sqrt{1 + y&rsquo;^2}}{\sqrt{2 g y}} dx
+$$
+The target functional seeks the minimum total time:
+$$
+T = \int dt = \int \frac{\sqrt{1 + y&rsquo;^2}}{\sqrt{2 g y}} dx
+$$
+Using the Euler equation, we get:
+$$
+2 y&rsquo;&rsquo; y + y&rsquo;^2 + 1 = 0
+$$
+For the complete solution, refer to <a href="https://zhuanlan.zhihu.com/p/139018146" target="_blank" rel="noopener noreffer ">A Brief Discussion on the Calculus of Variations</a>, which also mentions other mathematicians&rsquo; solutions to this problem.</p>
+<p>In any case, one form of the solution is (where $a$ and $c$ are arbitrary constants):
+$$
+\begin{cases}
+x = a (\theta - \sin \theta) + c \
+y = a (1 - \cos \theta)
+\end{cases}
+$$</p>
+<blockquote>
+<p>This form is related to the cycloid.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Cycloid_f.gif" title="Source: Wikipedia" data-thumbnail="/img/Cycloid_f.gif" data-sub-html="<h2> </h2><p>Source: Wikipedia</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Cycloid_f.gif"
+            data-srcset="/img/Cycloid_f.gif, /img/Cycloid_f.gif 1.5x, /img/Cycloid_f.gif 2x"
+            data-sizes="auto"
+            alt="/img/Cycloid_f.gif" />
+    </a><figcaption class="image-caption">Source: Wikipedia</figcaption>
+    </figure></p>
+</blockquote>
+<h2 id="monopoly-economics-problem">Monopoly Economics Problem</h2>
+<p>Consider a monopoly firm with a profit function written as $F(P, P&rsquo;)$.</p>
+<blockquote>
+<p>The economic meaning is that the monopoly firm has the power to set prices.</p>
+</blockquote>
+<p>The functional is then:
+$$
+V = \int F(P, P&rsquo;) dt
+$$
+Substituting into the Euler equation, we get:
+$$
+F_{P&rsquo;P&rsquo;} P&rsquo;&rsquo; + F_{PP&rsquo;} P&rsquo; - F_P = 0
+$$
+Solving this implicit function requires some clever manipulation. Multiply both sides by $P&rsquo;$ and then rearrange:
+$$
+\begin{aligned}
+&amp; \frac{d}{dt} (P&rsquo; F_{P&rsquo;} - F) \\
+&amp; = \frac{d}{dt} (P&rsquo; F_{P&rsquo;}) - \frac{d}{dt} F(P, P&rsquo;) \\
+&amp; = F_{P&rsquo;} P&rsquo;&rsquo; + P&rsquo; \left( F_{PP&rsquo;} P&rsquo; + F_{P&rsquo;P&rsquo;} P&rsquo;&rsquo; \right) - \left( F_P P&rsquo; + F_{P&rsquo;} P&rsquo;&rsquo; \right) \\
+&amp; = P&rsquo; \color{red}{\left( F_{P&rsquo;P&rsquo;} P&rsquo;&rsquo; + F_{PP&rsquo;} P&rsquo; - F_P \right)}
+\end{aligned}
+$$
+The red part is the original equation.</p>
+<p>Thus, we obtain:
+$$
+F - P&rsquo; F_{P&rsquo;} = c
+$$
+Where $c$ is a constant. Writing $F$ as the common profit function $\pi$, we get:
+$$
+\pi - P&rsquo; \frac{\partial \pi}{\partial P&rsquo;} = c
+$$
+Considering <a href="https://etcnew.sdut.edu.cn/meol/analytics/resPdfShow.do;jsessionid=D8B075E94531C56DA0F681D5260DFCF9?resId=1084894&amp;lid=52541" target="_blank" rel="noopener noreffer ">static monopoly</a>, the monopoly firm makes only one pricing decision (more detailed static game theory also considers product differentiation, information asymmetry, game sequence, and firm entry/exit states).</p>
+<p>In this case, the profit function only depends on $P$ and not on $P&rsquo;$ (since there is only one pricing decision, no price change occurs). Clearly, $P&rsquo; \frac{\partial \pi}{\partial P&rsquo;} = 0$, so $\pi_s = c$.</p>
+<p>Now, consider dynamic game theory on top of static game theory. After the first pricing decision, monopoly firms begin to make multiple pricing decisions. The profit function is now:
+$$
+\pi - P&rsquo; \frac{\partial \pi}{\partial P&rsquo;} = \pi_s
+$$
+Here, the profit function $\pi$ must depend on both $P$ and $P&rsquo;$. Thus, consider the elasticity of $\pi$ with respect to $P&rsquo;$, denoted as:
+$$
+\frac{\partial \pi}{\partial P&rsquo;} \frac{P&rsquo;}{\pi} = \varepsilon_{\pi P&rsquo;}
+$$
+Substituting into the dynamic monopoly game formula, we get:
+$$
+\varepsilon_{\pi P&rsquo;} = 1 - \frac{\pi_\varepsilon}{\pi}
+$$
+In other words, in dynamic monopoly, firms should continuously adjust their profit functions based on this relationship.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-05-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/bff/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/bff/" data-title="Notes on Learning Calculus of Variations" data-via="ygVNLSZ1omFBCeB" data-hashtags="Calculus of Variations,Dynamic Optimization"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/bff/" data-hashtag="Calculus of Variations"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/bff/" data-title="Notes on Learning Calculus of Variations"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/bff/" data-title="Notes on Learning Calculus of Variations"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/bff/" data-title="Notes on Learning Calculus of Variations" data-image="/img/Cycloid_f.gif"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/calculus-of-variations/">Calculus of Variations</a>,&nbsp;<a href="/en/tags/dynamic-optimization/">Dynamic Optimization</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/yxk1/" class="prev" rel="prev" title="Development Economics: Marginal Analysis and Inframarginal Analysis (Introduction)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Development Economics: Marginal Analysis and Inframarginal Analysis (Introduction)</a>
+            <a href="/en/posts/log0/" class="next" rel="next" title="Econometrics: Is the Log (y&#43;1) Transformation Reliable?">Econometrics: Is the Log (y+1) Transformation Reliable?<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

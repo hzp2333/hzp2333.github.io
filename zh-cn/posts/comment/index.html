@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Hugo 搭建 Giscus 评论区 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Hugo 搭建 Giscus 评论区" />
+<meta property="og:description" content="搭建 HUGO 的 Giscus 评论区" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/comment/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-05T15:45:18+08:00" />
+<meta property="article:modified_time" content="2024-03-05T15:45:18+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Hugo 搭建 Giscus 评论区"/>
+<meta name="twitter:description" content="搭建 HUGO 的 Giscus 评论区"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/comment/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/effect/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/font/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hugo 搭建 Giscus 评论区",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/comment\/"
+        },"genre": "posts","keywords": "Hugo","wordcount":  890 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/comment\/","datePublished": "2024-03-05T15:45:18+08:00","dateModified": "2024-03-05T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/comment/" selected>简体中文</option><option value="/en/posts/comment/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/comment/" selected>简体中文</option><option value="/en/posts/comment/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo 搭建 Giscus 评论区</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-05">2024-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 890 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp"
+        data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp 2x"
+        data-sizes="auto"
+        alt="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"
+        title="/img/Hugo中英文建站.zh-cn-20240810172249058.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建-github-仓库作为评论区">创建 Github 仓库作为评论区</a></li>
+    <li><a href="#进入-giscus-官网获取调用">进入 Giscus 官网获取调用</a></li>
+    <li><a href="#hugo-配置">Hugo 配置</a>
+      <ul>
+        <li><a href="#修改-toml-配置">修改 toml 配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo-渲染">Hugo 渲染</a></li>
+    <li><a href="#注意版本控制">注意版本控制</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>如今 hugo 评论区已经有了很多成熟的方案。Waline 强大且好用，但对我这种小白来说太不友好了（例如我就不会配置 waline 评论区的中英文自动切换）；gitalk 利用 github 仓库的 Issue 区域作为评论区，搭建简单但权限授予有点问题（可见这里的<a href="https://www.v2ex.com/t/535608" target="_blank" rel="noopener noreffer ">讨论</a>）。综上，我选择 Giscus——搭建简单且安全。</p>
+<p>环境：<a href="https://github.com/gohugoio/hugo/releases/tag/v0.123.7" target="_blank" rel="noopener noreffer ">hugo增强版(V0.123.7)</a> +win 64 amd+ <a href="https://hugoloveit.com/zh-cn/" target="_blank" rel="noopener noreffer ">loveit主题</a></p>
+<h2 id="创建-github-仓库作为评论区">创建 Github 仓库作为评论区</h2>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125357558.webp" title="github主页创建" data-thumbnail="/img/Hugo搭建Giscus评论区.zh-cn-20240523125357558.webp" data-sub-html="<h2> </h2><p>github主页创建</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125357558.webp"
+            data-srcset="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125357558.webp, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125357558.webp 1.5x, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125357558.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo搭建Giscus评论区.zh-cn-20240523125357558.webp" />
+    </a><figcaption class="image-caption">github主页创建</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125412376.webp" title="需要是Public" data-thumbnail="/img/Hugo搭建Giscus评论区.zh-cn-20240523125412376.webp" data-sub-html="<h2> </h2><p>需要是Public</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125412376.webp"
+            data-srcset="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125412376.webp, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125412376.webp 1.5x, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125412376.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo搭建Giscus评论区.zh-cn-20240523125412376.webp" />
+    </a><figcaption class="image-caption">需要是Public</figcaption>
+    </figure></p>
+<p>选择完后即可点击 Create repository 创建。创建完成之后进入仓库勾选 Discussions 来开放讨论区。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125428948.webp" title="仓库setting" data-thumbnail="/img/Hugo搭建Giscus评论区.zh-cn-20240523125428948.webp" data-sub-html="<h2> </h2><p>仓库setting</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125428948.webp"
+            data-srcset="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125428948.webp, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125428948.webp 1.5x, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125428948.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo搭建Giscus评论区.zh-cn-20240523125428948.webp" />
+    </a><figcaption class="image-caption">仓库setting</figcaption>
+    </figure></p>
+<h2 id="进入-giscus-官网获取调用">进入 Giscus 官网获取调用</h2>
+<p>进入 <a href="https://github.com/apps/giscus" target="_blank" rel="noopener noreffer ">Giscus</a> 官网点击 Install, 输入自己刚才创建的仓库。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125444871.webp" title="忘记了也可以在仓库setting页面查看名字" data-thumbnail="/img/Hugo搭建Giscus评论区.zh-cn-20240523125444871.webp" data-sub-html="<h2> </h2><p>忘记了也可以在仓库setting页面查看名字</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125444871.webp"
+            data-srcset="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125444871.webp, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125444871.webp 1.5x, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240523125444871.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo搭建Giscus评论区.zh-cn-20240523125444871.webp" />
+    </a><figcaption class="image-caption">忘记了也可以在仓库setting页面查看名字</figcaption>
+    </figure></p>
+<p>设置上我选择默认设置：</p>
+<blockquote>
+<ul>
+<li><strong>页面 ↔️ discussion 映射关系：<strong>选择</strong>Discussion 的标题包含页面的 <code>pathname</code></strong></li>
+<li><strong>Discussion 分类</strong>：选择<strong>Announcements</strong></li>
+<li><strong>主题</strong>：选择<strong>用户推荐的色彩方案</strong></li>
+</ul>
+</blockquote>
+<p>勾选完成后页面会出现对应的<strong>调用代码</strong>：</p>
+<p>重点关注 <code>data-repo</code>，<code>data-repo-id</code>，<code>data-category</code>，<code>data-category-id</code>，<code>data-mapping</code> 几个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://giscus.app/client.js&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">repo</span><span class="o">=</span><span class="s2">&#34;*************&#34;</span> <span class="err">#</span><span class="nx">注意自己的仓库名字</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">repo</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&#34;*************&#34;</span> <span class="err">#</span><span class="nx">注意自己的代码</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">category</span><span class="o">=</span><span class="s2">&#34;Announcements&#34;</span>  <span class="err">#</span><span class="nx">注意自己选择的型号配置</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">category</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&#34;*************&#34;</span> <span class="err">#</span><span class="nx">注意自己的代码</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">mapping</span><span class="o">=</span><span class="s2">&#34;pathname&#34;</span> <span class="err">#</span><span class="nx">一般为pathname</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">strict</span><span class="o">=</span><span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">reactions</span><span class="o">-</span><span class="nx">enabled</span><span class="o">=</span><span class="s2">&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">emit</span><span class="o">-</span><span class="nx">metadata</span><span class="o">=</span><span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">input</span><span class="o">-</span><span class="nx">position</span><span class="o">=</span><span class="s2">&#34;bottom&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;preferred_color_scheme&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="err">#</span><span class="nx">默认语言</span><span class="err">，</span><span class="nx">推荐填空</span><span class="err">，</span><span class="nx">会自动使用网站语言</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">crossorigin</span><span class="o">=</span><span class="s2">&#34;anonymous&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">async</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hugo-配置">Hugo 配置</h2>
+<h3 id="修改-toml-配置">修改 toml 配置</h3>
+<p>个人网站项目下的 <code>config.toml</code> 文件内写入以下内容:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">comment</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">enable</span> <span class="o">=</span> <span class="kc">true</span>       
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">comment</span><span class="p">.</span><span class="nx">giscus</span><span class="p">]</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="nx">你可以参考官方文档来使用下列配置</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">enable</span> <span class="o">=</span> <span class="kc">true</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">repo</span> <span class="o">=</span> <span class="s2">&#34;**********&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">repoId</span> <span class="o">=</span> <span class="s2">&#34;**************&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">category</span> <span class="o">=</span> <span class="s2">&#34;Announcements&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">categoryId</span> <span class="o">=</span> <span class="s2">&#34;***************&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="o">&lt;</span><span class="nx">your_repo</span><span class="o">&gt;</span> <span class="nx">对应官网的</span> <span class="nx">data</span><span class="o">-</span><span class="nx">repo</span>   
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="o">&lt;</span><span class="nx">your_repoId</span><span class="o">&gt;</span> <span class="nx">对应官网的</span> <span class="nx">data</span><span class="o">-</span><span class="nx">repo</span><span class="o">-</span><span class="nx">id</span>   
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="o">&lt;</span><span class="nx">your_category</span><span class="o">&gt;</span> <span class="nx">对应官网的</span> <span class="nx">data</span><span class="o">-</span><span class="nx">category</span>   
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="o">&lt;</span><span class="nx">your_categoryId</span><span class="o">&gt;</span> <span class="nx">对应官网的</span> <span class="nx">data</span><span class="o">-</span><span class="nx">category</span><span class="o">-</span><span class="nx">id</span>
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="nx">为空时自动适配当前主题</span> <span class="nx">i18n</span> <span class="nx">配置</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">lang</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">mapping</span> <span class="o">=</span> <span class="s2">&#34;pathname&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="err">#</span> <span class="o">&lt;</span><span class="nx">your_mapping</span><span class="o">&gt;</span> <span class="nx">对应官网的</span> <span class="nx">data</span><span class="o">-</span><span class="nx">mapping</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">reactionsEnabled</span> <span class="o">=</span> <span class="s2">&#34;1&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">emitMetadata</span> <span class="o">=</span> <span class="s2">&#34;0&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">inputPosition</span> <span class="o">=</span> <span class="s2">&#34;bottom&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">lazyLoading</span> <span class="o">=</span> <span class="kc">false</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">lightTheme</span> <span class="o">=</span> <span class="s2">&#34;light&#34;</span>   
+</span></span><span class="line"><span class="cl">  <span class="nx">darkTheme</span> <span class="o">=</span> <span class="s2">&#34;dark_dimmed&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hugo-渲染">Hugo 渲染</h2>
+<p><code>hugo serve</code> 是本地预览环境，不会启用生产力环境。</p>
+<p>启动 <code>hugo serve -e production</code> 渲染启动生产力环境，开启评论区。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240703115100547.webp" title="个人认为样式也比gitalk好看。下面是深色模式和中英文效果" data-thumbnail="/img/Hugo搭建Giscus评论区.zh-cn-20240703115100547.webp" data-sub-html="<h2> </h2><p>个人认为样式也比gitalk好看。下面是深色模式和中英文效果</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240703115100547.webp"
+            data-srcset="/img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240703115100547.webp, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240703115100547.webp 1.5x, /img/Hugo%e6%90%ad%e5%bb%baGiscus%e8%af%84%e8%ae%ba%e5%8c%ba.zh-cn-20240703115100547.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo搭建Giscus评论区.zh-cn-20240703115100547.webp" />
+    </a><figcaption class="image-caption">个人认为样式也比gitalk好看。下面是深色模式和中英文效果</figcaption>
+    </figure></p>
+<h2 id="注意版本控制">注意版本控制</h2>
+<p>严格按照以上方法，使用的 loveit 主题，却没有出现评论区。可能是版本不对。<a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer ">Loveit</a> 页面，直接通过 code 下载解压。Release 部分的 latest 代码其实是落后几个版本的代码！不支持 giscus。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/comment/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/comment/" data-title="Hugo 搭建 Giscus 评论区" data-hashtags="Hugo"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/comment/" data-hashtag="Hugo"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/comment/" data-title="Hugo 搭建 Giscus 评论区"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/comment/" data-title="Hugo 搭建 Giscus 评论区"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/comment/" data-title="Hugo 搭建 Giscus 评论区" data-image="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/hugo/">Hugo</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/effect/" class="prev" rel="prev" title="因果效应"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>因果效应</a>
+            <a href="/zh-cn/posts/font/" class="next" rel="next" title="Hugo 美化 1 ：自定义字体">Hugo 美化 1 ：自定义字体<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

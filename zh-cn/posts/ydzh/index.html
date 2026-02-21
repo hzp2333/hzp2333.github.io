@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>朝花夕誓——于离别之朝束起约定之花 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="朝花夕誓——于离别之朝束起约定之花" />
+<meta property="og:description" content="《朝花夕誓——于离别之朝束起约定之花》解析。电影的主题不只是母爱，母爱只是离别的一种意向。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-02-19T20:52:19+08:00" />
+<meta property="article:modified_time" content="2021-02-19T20:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="朝花夕誓——于离别之朝束起约定之花"/>
+<meta name="twitter:description" content="《朝花夕誓——于离别之朝束起约定之花》解析。电影的主题不只是母爱，母爱只是离别的一种意向。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/penguin/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/wedh/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "朝花夕誓——于离别之朝束起约定之花",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ydzh\/"
+        },"genre": "posts","keywords": "电影, 二次元","wordcount":  3450 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ydzh\/","datePublished": "2021-02-19T20:52:19+08:00","dateModified": "2021-02-19T20:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/ydzh/" selected>简体中文</option><option value="/en/posts/ydzh/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/ydzh/" selected>简体中文</option><option value="/en/posts/ydzh/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">朝花夕誓——于离别之朝束起约定之花</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E5%BD%B1%E8%A7%86%E5%89%A7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>影视剧</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-19">2021-02-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3450 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
+        data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+        data-sizes="auto"
+        alt="/img/朝花夕誓.zh-cn-20250119002110402.webp"
+        title="/img/朝花夕誓.zh-cn-20250119002110402.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#剧情线">剧情线：</a></li>
+    <li><a href="#意象解读">意象解读</a>
+      <ul>
+        <li><a href="#别离">别离</a></li>
+        <li><a href="#西比奥尔">西比奥尔</a></li>
+        <li><a href="#古龙">古龙</a></li>
+        <li><a href="#红眼病">红眼病</a></li>
+      </ul>
+    </li>
+    <li><a href="#孩子与邂逅">孩子与邂逅</a></li>
+    <li><a href="#相逢和交织就是幸福与自由的诅咒">相逢和交织就是幸福与自由的诅咒</a></li>
+    <li><a href="#解题于离别之时束起约定之花">解题：《于离别之时束起约定之花》</a></li>
+    <li><a href="#动漫之外想说的">动漫之外想说的</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E6%88%91%E7%9A%84%E7%BE%8E%E4%B8%BD%20%28feat.PO8%29-%E5%B0%8F%E9%9C%9E%E3%80%81PO8.mp3" name="我的美丽" artist="小霞、PO8" cover="/images/%E6%9C%9D%E8%8A%B1%E5%A4%95%E8%AA%93.png" theme="#448aff"></meting-js>
+<blockquote>
+<p>个人早期最认真的影评，于此补档。</p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<blockquote>
+<p>该作基本没有任何后宫，大胸，长腿，傲娇，后宫，热血，高中生恋爱传统元素。我只能说，世界需要更多这样的二次元作品。这个作品通过独特的设定表达了一种<strong>生活精神的内核</strong>。我们需要这样的作品，证明： 动漫不是死宅的玩物，而是种诗意的表达。</p>
+<p>——前言</p>
+</blockquote>
+<p>你见过无边无际的海面吗？清爽的海风吹拂过人的脸庞，平静的海面传来几声鸟鸣，我却深知，海面下有着深邃的漩涡，但眼前却是那若有若无的轻纱，这是这部电影给我的感受。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002041245.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002041245.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>电影全篇，是以“玛奇亚”作为妈妈成长的故事，母爱的叙述占了极大的篇幅，但与其同时，还有其他人物的线索，例如<strong>别离一族</strong>，<strong>古龙</strong>，世界从<strong>中世纪到的工业革命</strong>的场景变化，</p>
+<p>种种意向表明 <strong>“母爱”不是电影的唯一主题</strong>，我甚至认为母爱不是主要主题。<strong>别离一族的命运的启示</strong>才是，这部电影在讨论一种“生活价值观”——</p>
+<center><font color="#ff0000">害怕别离的我们该不该拒绝去邂逅？</font></center>
+<center></center>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp" title="母子凝视，相互救赎" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002110402.webp" data-sub-html="<h2> </h2><p>母子凝视，相互救赎</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002110402.webp" />
+    </a><figcaption class="image-caption">母子凝视，相互救赎</figcaption>
+    </figure></p>
+<h2 id="剧情线">剧情线：</h2>
+<ul>
+<li><strong>大背景</strong>：王国纷争下，凭借古龙而强大的人类王国梅扎特抓捕拥有长寿基因的伊奥鲁夫族以进一步加强实力。</li>
+<li><strong>主线</strong>：伊奥鲁夫族侥幸逃脱的少女玛奇亚收养一名普通人家的遗孤，努力做好母亲。</li>
+<li><strong>支线</strong>：伊奥鲁夫族，其他国家的反抗，世界的变化，被囚禁的伊奥鲁夫族。</li>
+</ul>
+<h2 id="意象解读">意象解读</h2>
+<p>伊奥鲁夫(又叫别离一族)：拥有几乎无穷尽的寿命，拥有将语言织进布里的独特能力。他们织的布又叫“<strong>西比奥尔</strong>”。</p>
+<h3 id="别离">别离</h3>
+<p>由于长寿，他们和普通人相处只会不断的产生别离，加剧痛苦，与其这样伤心，不如偏安一隅，这应该是开场“大长老”暗示的态度。</p>
+<p>当玛奇亚说感到寂寞时，她回答：“有我还感到寂寞吗？”并劝导在凡尘不要去爱，只会痛苦，以及被人类骑士攻打时站出来说</p>
+<blockquote>
+<p>“我们与尘世并无瓜葛”</p>
+</blockquote>
+<p>这些可以看出来“大长老”的态度是：</p>
+<p>避免与普通人接触，防止以后应别离而伤心，但由于人类的欲望，他们被迫与人类开始了接触。</p>
+<h3 id="西比奥尔">西比奥尔</h3>
+<blockquote>
+<p>经线是流转的岁月，牵引着四季的更迭和天色的变换纬线是众人的生业，在土地上精密交织拨动众人的心弦。</p>
+</blockquote>
+<p>这是电影开头的话，从全篇来看，我认为：这就是生活的解读。</p>
+<ul>
+<li>代表时间的经线就像人的寿命。</li>
+<li>代表空间的纬线就是人的邂逅。</li>
+</ul>
+<p><strong>倘若经线无限长，也有必要去缝制纬线。将记忆缝进布里，这种化虚为实的意象，就是赋予生活意义的表现。</strong></p>
+<p>这种设定让我想起了《你的名字》，本质是一种<strong>泛神论</strong>：</p>
+<blockquote>
+<p>我们信奉的不是具体的神，而是联系代表的神明——人与人之间的联系构成的红线就是我们信仰的神明（大意）</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002219425.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002219425.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>西比奥尔作为离别一族织的布，意义重大，可以说是他们生存的信仰。</p>
+<h3 id="古龙">古龙</h3>
+<p>作为设定上世纪最两个古老的种族之一，和别离一族又都被人类大国征服，肯定是和伊奥鲁夫族形成衬托，毕竟同样的凄惨遭遇。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp" title="古龙与红眼病" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002233055.webp" data-sub-html="<h2> </h2><p>古龙与红眼病</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002233055.webp" />
+    </a><figcaption class="image-caption">古龙与红眼病</figcaption>
+    </figure></p>
+<h3 id="红眼病">红眼病</h3>
+<p>因被奴役并不敢去争取自由而积累发疯。这点可以从被奴役的蕾莉亚和巨龙的对话可以看出。她骂古龙会飞却不争取自由。</p>
+<p>事实上，被奴役的蕾莉亚和巨龙一样，她声称“<strong>自己会飞</strong>”却也不去争取自由，这一点和别离一族的象征有什么关联吗？这一点我还没想通。但其中一个原因是：她怀了敌人（人类那个大国王子的女儿），她为了保护女孩，甚至放弃了她的真爱来救她的机会。也导致他真爱的“黑化”。</p>
+<p>到这里，黑化的这位也很疑惑：</p>
+<p>他想保持不变，拥有孩子的玛奇亚和蕾莉亚却都变了，为什么？</p>
+<p>这里也引申出电影的终极命题：</p>
+<center><font color="#ff0000">邂逅，到底值得吗？</font></center>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002355317.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002355317.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002408787.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002408787.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h2 id="孩子与邂逅">孩子与邂逅</h2>
+<p>《朝花夕誓》中，孩子就是那个“邂逅”的表现！所以我认为母爱只是指代而非主题。</p>
+<p>母亲与孩子的相处过程即邂逅与改变的最佳案例。</p>
+<p>母亲与孩子的邂逅往往不全是主动的，与孩子的邂逅也是最奇妙的，母亲与孩子的别离也是必然的。</p>
+<p>离别一族不愿去面对别离，但当他们被迫面对世界时，成为普通人的妈妈时，在于与自己终将离开的孩子相遇，有过欢乐或泪水时，</p>
+<p>他们才会明白：</p>
+<p>“伊奥鲁夫”是个延续的诅咒。</p>
+<p><strong>这个诅咒到底是幸福还是不幸，这在他们经历过之后才会有他们自己的答案。</strong></p>
+<h2 id="相逢和交织就是幸福与自由的诅咒">相逢和交织就是幸福与自由的诅咒</h2>
+<p>先从两位母亲说起，一个主动，一个被动，对比突出，结果一致。</p>
+<p><strong>主角玛奇亚</strong>：从灾难中逃离，收养了一名普通人家的孩子，经历了母亲的一切，并见证了孩子的离去（最后主角玛奇亚仍是15岁的样子）</p>
+<p>单亲妈妈不容易（找工作，养家糊口，孩子叛逆同时还有孩子对她各种“幼稚的承诺，安慰”）；</p>
+<p>她是主动养育了这个孩子，因为怕寂寞，想和人分担，而不知不觉产生了真正的母爱。 在这一段，请注意头发颜色长短与玛奇亚形象的变化。</p>
+<p><strong>主角的朋友蕾莉亚</strong>：被迫怀上敌人的孩子，并终生不能与之相见，在梅扎特国被攻陷后见到了她的女儿并逃离王国。</p>
+<p>蕾莉亚最后是被仅存的一只古龙救走，说出了两个让我在意的句子。</p>
+<blockquote>
+<p>A.我会飞</p>
+</blockquote>
+<p>古龙应该就是她的写照，古龙终于起飞争取了自由，她也见到了自己心心念念的女儿，然后下定决心离开。</p>
+<blockquote>
+<p>B.“我要忘记这里的一切，你不过是西比奥尔上的一根乱线罢了”</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp" title="如图|344" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002429514.webp" data-sub-html="<h2> </h2><p>如图|344</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002429514.webp" />
+    </a><figcaption class="image-caption">如图|344</figcaption>
+    </figure></p>
+<p>尽管是错线，也有着独特的寄托情感，但蕾莉亚这些年确实过得很糟糕</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002441836.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002441836.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>然而真的能忘吗？</p>
+<p><strong>对于母亲来说，孩子就是自己的别离</strong>。</p>
+<p>不染凡尘的离别一族被迫经历了伤离死别，但这个别离看起来似乎只是束缚。母亲们为了孩子，会失去很多，自由，理想，还要无缘无故地担惊受怕，面对孩子的愤怒。而一旦产生真正的爱意，长寿的母亲又只能眼睁睁看着他们老去。</p>
+<center><font color="#ff0000">邂逅，意义何在呢？</font></center>
+<p>是不是放弃了邂逅也就没了别离的痛苦呢？</p>
+<blockquote>
+<p>而后，玛奇亚回答她说：“你一定不会忘记的。”</p>
+</blockquote>
+<p>果然，哭泣之下，蕾莉亚还是说出了那个关键的句子：</p>
+<blockquote>
+<p>“又难过又痛苦，但这么美好的世界我怎么可能会忘记”</p>
+</blockquote>
+<p>因为一旦邂逅，火花的出现是无法被遏制的，西比奥尔会将一切记下。母亲在养育孩子的过程中产生了爱。</p>
+<p>就像<strong>烟火终会消失，那片绚丽的光景却会在我们柔软的心中留存</strong>。</p>
+<p>到现在，西比奥尔到底意味着什么？作为别离一族的职责和特征，</p>
+<p>我解读为“<strong>人的本分，人的特征</strong>”。</p>
+<p>别离一族只是个假设的种族罢了，我们何尝不和他们一样，害怕失去，害怕别离。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002457820.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002457820.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>别离看似痛苦，但也对应着一段相遇，一段闪亮的日子。佛教要求放下一起，视为“空”，把一切看成幻影露水就好了。但这样我们还是人吗，因为哪一点痛苦就把过程中的意义和幸福一并舍弃吗？</p>
+<p>我们害怕邂逅，感叹人生如朝露；我们恐惧别离，惊呼人生如梦幻泡影，好像生命短暂，人生虚幻，</p>
+<p>所以电影塑造了几乎永生的别离一族，以告诉我们:</p>
+<ul>
+<li>面对相遇与生活，勇敢去爱，是无关时间长度，表面结果的，</li>
+<li>与离别之时束起约定之花，</li>
+<li>与别离之时也会拾起那些珍贵的回忆，</li>
+<li>那，就足够了。</li>
+</ul>
+<h2 id="解题于离别之时束起约定之花">解题：《于离别之时束起约定之花》</h2>
+<p>明面上，肯定是长寿的母亲送走年迈的儿子，在离别是想起曾经的誓言与时光。</p>
+<p>内涵上：</p>
+<ol>
+<li>离别之时：一旦邂逅便意味着终会离别。</li>
+<li>约定之花：当玛奇亚以15岁的身姿面对儿子老去的事实时：</li>
+</ol>
+<blockquote>
+<p>“妈妈是不会哭的啊，但是，对不起，妈妈遵守不了约定了。爱着你，真的很幸福啊。”</p>
+</blockquote>
+<p>这样的打破约定才是誓约之花吧，只要玛奇亚还活着，她孩子的西比奥尔就将延续下去，这才是真正的约定之花，</p>
+<p><strong>没有人会不朽，但人与人终究会不断的邂逅。</strong></p>
+<p>在离别的前后，是情感和意义的赋予，离别不只有痛苦，所以，请鼓起勇气去遇见新的别离吧！</p>
+<p>沉下心来探讨一些看似缥缈的命题的动漫真的很了不起。</p>
+<p>衷心希望这个电影能让人明白：</p>
+<p>爱的感觉，真好。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp" title="如图" data-thumbnail="/img/朝花夕誓.zh-cn-20250119002516733.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 2x"
+            data-sizes="auto"
+            alt="/img/朝花夕誓.zh-cn-20250119002516733.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h2 id="动漫之外想说的">动漫之外想说的</h2>
+<p>《你好，李焕英》是母亲的赞歌。</p>
+<p>《于离别之时束起约定之花》则更像是母亲的史诗，为母的成长史。</p>
+<blockquote>
+<p>电影主题其实不是母爱，母爱只是该作命题核心的一个表现元素。</p>
+</blockquote>
+<p>母亲在任何时候都是母亲，超越种族，跨越时空，这些设定不用动漫形式，童谣般的载体是无法表现的，这是我极力推荐它的理由：</p>
+<blockquote>
+<p>这是个只有用二次元设定才能表达的作品。而这种表达已经超越的二次元本身，是在用一种形式书写邂逅的含义。</p>
+</blockquote>
+<p>动漫不只是种画风，更是种表达方式。考究到“二次元”这一词语本身，不就是一种平面的艺术表达吗？</p>
+<p>《你好，李焕英》作为贾玲的导演作，拍摄技术的遗憾网上多有论述，但不妨碍它在豆瓣上取得8.3的分数（对应豆瓣8.3真的高）。</p>
+<p>通过这两部作品，我真的进一步明白了：</p>
+<p>幼稚和天真是万万不可混为一谈的，以及，情感内核才是核心，不论外在形式。</p>
+<p>原来，<strong>最高的情商往往是真诚</strong>。</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>其他感想<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>
+<p>自由和幸福诞生于束缚之中。树叶的一生是为了落叶吗？或是滋养？</p>
+</li>
+<li>
+<p>离别一族的命运联系头发不可结缘自由母亲，母爱</p>
+</li>
+<li>
+<p>单亲不哭相处孩子对母亲的意义生命</p>
+</li>
+<li>
+<p>吹爆中间大混战和生孩子的分镜，毁灭和新生在镜头里。</p>
+</li>
+<li>
+<p>又难过又痛苦的世界，爱是诅咒，邂逅是让人孤独的诅咒，佛说弃掉一切，但经历过的放下才是真正的拿起。</p>
+</li>
+<li>
+<p>中间，骑士还说了一句话：“古老的生物注定会灭亡。”</p>
+</li>
+</ol>
+<p>我认为这代表了别离一族陈旧的观念会消亡，他们真真切切地经历了尘世的别离，明白了痛苦，也感受到了幸福。</p>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-02-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/ydzh/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" data-title="朝花夕誓——于离别之朝束起约定之花" data-hashtags="电影,二次元"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" data-hashtag="电影"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" data-title="朝花夕誓——于离别之朝束起约定之花"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" data-title="朝花夕誓——于离别之朝束起约定之花"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ydzh/" data-title="朝花夕誓——于离别之朝束起约定之花" data-image="/img/朝花夕誓.zh-cn-20250119002110402.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E7%94%B5%E5%BD%B1/">电影</a>,&nbsp;<a href="/zh-cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/">二次元</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/penguin/" class="prev" rel="prev" title="《企鹅公路》：少年终长成"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>《企鹅公路》：少年终长成</a>
+            <a href="/zh-cn/posts/wedh/" class="next" rel="next" title="《瓦尔登湖》有感">《瓦尔登湖》有感<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

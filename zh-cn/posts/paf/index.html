@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 养老金和生育率 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 养老金和生育率" />
+<meta property="og:description" content="记录 AER 文献《Pensions and Fertility: Microeconomic Evidence》的学习笔记。基于微观数据研究了养老金和生育率的关系。养老金覆盖扩大会降低生育率。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/paf/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-13T17:52:19+08:00" />
+<meta property="article:modified_time" content="2024-07-13T17:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 养老金和生育率"/>
+<meta name="twitter:description" content="记录 AER 文献《Pensions and Fertility: Microeconomic Evidence》的学习笔记。基于微观数据研究了养老金和生育率的关系。养老金覆盖扩大会降低生育率。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/paf/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/event2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/nzcp/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 养老金和生育率",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/paf\/"
+        },"genre": "posts","keywords": "文献阅读","wordcount":  4232 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/paf\/","datePublished": "2024-07-13T17:52:19+08:00","dateModified": "2024-07-13T17:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/paf/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/paf/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 养老金和生育率</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-07-13">2024-07-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4232 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240710182332401.webp"
+        data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240710182332401.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240710182332401.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240710182332401.webp 2x"
+        data-sizes="auto"
+        alt="/img/养老金和生育率-20240710182332401.webp"
+        title="/img/养老金和生育率-20240710182332401.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#精华概括">精华概括</a></li>
+    <li><a href="#理论和现实背景">理论和现实背景</a>
+      <ul>
+        <li><a href="#理论">理论</a>
+          <ul>
+            <li><a href="#女性年龄">女性年龄</a></li>
+            <li><a href="#子女数量结构">子女数量结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#现实">现实</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据方法">数据方法</a>
+      <ul>
+        <li><a href="#apc-面板">APC 面板</a></li>
+        <li><a href="#变量与计量式子">变量与计量式子</a>
+          <ul>
+            <li><a href="#因变量">因变量</a></li>
+            <li><a href="#计量回归">计量回归</a>
+              <ul>
+                <li><a href="#双重差分">双重差分</a></li>
+                <li><a href="#工具变量">工具变量</a></li>
+                <li><a href="#事件研究法">事件研究法</a></li>
+              </ul>
+            </li>
+            <li><a href="#混杂因子">混杂因子</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#稳健性">稳健性</a></li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="精华概括">精华概括</h2>
+<p>论文《<a href="https://www.aeaweb.org/articles?id=10.1257/pol.20200440" target="_blank" rel="noopener noreffer ">Pensions and Fertility: Microeconomic Evidence</a>》使用巴西的微观数据集研究了养老金供给和生育率的关系。</p>
+<p><strong>结论上：</strong> 从<strong>经济循环</strong>和<strong>要素替代</strong>的整体来看，养孩子的其中一个传统作用是养老，自然，养老金的提供缓解了这部分担忧，于是生育率下降。</p>
+<p><strong>贡献上：</strong> 历史经验显示，<font color="#ff0000">生育率下降的时间大约是在许多高收入和中等收入国家引入或扩大其社会保障制度的时候</font><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>🤯。财政公共政策影响生育方面，机理研究相对较少，同时大部分使用 OLG 的宏观模型分析，本文使用微观分析。</p>
+<p><strong>计量设计上：</strong> 个人比较喜欢本文的计量设计。文章研究的是养老金改革会影响妇女的生育决策，而不同状态的妇女反应理应不同，从而加入不同妇女群组的事件分析法来加强论证。</p>
+<h2 id="理论和现实背景">理论和现实背景</h2>
+<h3 id="理论">理论</h3>
+<blockquote>
+<p>都说国人论文喜欢造词，这篇 AER 文章的好多理论解释不也自己造词？甚至为了凸显一个造出来的效应把话说得挺绕。但对应的，本文比较有意思的点是——如何分解生育决策，并概括成为可量化的约束条件。</p>
+</blockquote>
+<h4 id="女性年龄">女性年龄</h4>
+<ul>
+<li><strong>生存效应</strong>（survival effect）：养老金改革前后，同时存在新妇女和老妇女，老妇女已经有两孩子，生育风险较低。</li>
+<li><strong>信息效应</strong>（information effect）：老年妇女更熟悉孩子养育的情况从而不会囤积孩子。</li>
+<li><strong>饱和效应</strong>（saturation effect）：已经达到孩子期望状态，和处于生育期后期的人母亲群体，将减少生育可能性。</li>
+<li><strong>养老金财富效应</strong>（pension wealth effect）：临近退休的母亲群体和年轻的母亲群体从养老金改革中获取的养老金贴现流不同，决策反应也会不同。</li>
+<li><strong>突出效应</strong>（salience effect）：养老金改革结果越明显，群众反应越突出<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</li>
+</ul>
+<p>考虑一位妇女生孩子的决策，她的决策依据将包含自己的身体适孕情况、之前生育出的孩子的数量和性别结构。<font color="#ff0000">年轻母亲将更容易对养老金改革做出反应。而年老的母亲不容易做出反应，通过对比两者都数据，使得文章的分析可信度增加。</font></p>
+<h4 id="子女数量结构">子女数量结构</h4>
+<ul>
+<li>改革前的孩子数量越多，越不容易增加生育。</li>
+<li>改革前家庭男孩子越多<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，越不容易增加生育。</li>
+</ul>
+<h3 id="现实">现实</h3>
+<p><font color="#ff0000">二十世纪中叶</font>以来，受到城市化、医疗保障、教育等扩张的影响，<strong>巴西的生育率急剧下降</strong>。在这一背景下，巴西实施了全面的养老金改革。</p>
+<p><font color="#ff0000">20 世纪 70 年代</font>之前，只有<strong>具有正式工作的城镇工人</strong>才有权享受分散的、针对特定职业的养老金，但是<font color="#ff0000"> 1988 年</font> 10 月巴西联邦共和国宪法的改革显著扩大了养老金的覆盖范围，使得农村工人在巴西历史上首次获得了养老金福利。</p>
+<p>养老金改革自<font color="#ff0000"> 1991 年</font> 7 月获得合法批准后开始实施。对于城镇工人，养老金规则和福利几乎没有变化。而对于<strong>农村工人，无论其是否有正式就业或缴纳任何社会保障款项</strong>，女性（男性）从55（ 60 ）岁起就有资格领取养老金</p>
+<p>正是基于这种历史背景，在论文的事件研究法中，1988 年成为了和 1991 年形成对比的事件检验。</p>
+<h2 id="数据方法">数据方法</h2>
+<h3 id="apc-面板">APC 面板</h3>
+<blockquote>
+<p>论文使用的<strong>巴西全国抽样家庭调查 (PNAD)</strong> 的多个横截面，覆盖了1981-1990、1992-1993、1995-1999、2001-2009、2011-2014等年份。</p>
+</blockquote>
+<p>关于 APC 面板——可以参考个人以前的笔记：《 <a href="https://blog.huaxiangshan.com/zh-cn/posts/hlt/" target="_blank" rel="noopener noreffer "> HLT: 生命周期与工资分解</a>》中的第一节阐述。论文虽然使用 APC 面板，但其实并未分解相关效应，而是通过限制 age 队列，然后通过事件分析法进行对比论证人们对政策反应的不同。</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>APC面板和三种效应补充<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>多个体追踪的面板数据总是很难得到，于是人们开始使用长截面，把多个截面数据匹配到一起。这种面板数据在流行病统计和人口统计中常常用到，被叫作 APC 数据（age-period-cohort）。显而易见，APC 面板包含三个数据维度。</p>
+<ul>
+<li>Age：年龄，也就是生理特征影响，例如年龄的生理特征可以划分适孕与否、劳动力质量&hellip;&hellip;</li>
+<li>Period：截面数据收集时的时间，例如每年人口统计时，那段时间的科技水平，基础设施水平&hellip;&hellip;</li>
+<li>Cohort：队列，每个截面的出生年月，一般看作群体共同经历了某种社会环境、历史事件，因此具有相似性。</li>
+</ul>
+<p>由于  <code>age+cohort=period</code> ,因此这几个变量常常混淆，同时实操时有会产生共线性的问题。</p>
+<p>在计量中，往往是通过某些手段（根据对象特性进行巧妙的差分）率先估计出其中一个效应量，然后回归剩余部分；要么对回归施加额外的线性约束；或者使用高阶差分（类似个体效应估计）的方式单独估计三个要素的效应。</p>
+<p>人口统计学常常使用 APC 面板绘制 Lexis 图：</p>
+<p>横纵坐标为年份时间（period）和年龄时间 (age)，中间线条按照队列（Cohort）进行分组，通过对比线条趋势和区别展开分析和预测。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp" title=" Lexis 图（图片来源维基百科）" data-thumbnail="/img/养老金和生育率-20240712020948263.webp" data-sub-html="<h2> </h2><p> Lexis 图（图片来源维基百科）</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp 2x"
+            data-sizes="auto"
+            alt="/img/养老金和生育率-20240712020948263.webp" />
+    </a><figcaption class="image-caption"> Lexis 图（图片来源维基百科）</figcaption>
+    </figure></p>
+</div>
+        </div>
+    </div>
+<h3 id="变量与计量式子">变量与计量式子</h3>
+<h4 id="因变量">因变量</h4>
+<p><strong>短期效应</strong>：如果妇女在数据收集年份一年内内生育了孩子，则值为 1，否则为 0 (基于家庭花名册和出生数据) 。样本包括 1981 年至 1999 年育龄 (15 岁至 44 岁) 的女性受访者。</p>
+<p><strong>长期效应</strong>：45岁女性的生育总数（包括存活和死亡的孩子）。样本包括1930年至1969年出生的女性受访者，她们在特定调查年份的年龄在45岁至69岁之间。作者将在调查年（1984-2014）年龄高于45岁的受访者的生育总数回溯到她们45岁时(1975-2014)的生育数。</p>
+<p>实验组为城市职工；对照组为农村职工。</p>
+<h4 id="计量回归">计量回归</h4>
+<h5 id="双重差分">双重差分</h5>
+<p>$$
+\begin{aligned}y
+_{igtr}^{SR}&amp;= \alpha^{SR}+\beta\big(RURAL
+_{g}^{SR}\times POST
+_{t}^{SR}\big)\\&amp;+ \gamma RURAL
+_{g}^{SR}+\lambda_{t}^{SR}+\phi
+_{r}^{SR}+\psi^{\prime}\mathbf{X}
+_{igtr}^{SR}+\epsilon_{igtr}^{SR}
+\end{aligned}
+$$</p>
+<ul>
+<li>脚标：r 地区 g 农村城市组别 i 个体 t 年份 r 地方州。</li>
+<li>$y_{igtr}^{SR}$: 短期效应。调查年份一年内生了孩子。</li>
+<li>$RURAL_{g}^{SR}$：农村工人女性虚拟变量。</li>
+<li>$POST_{t}^{SR}$：1991 年 7 月农村养老金政策改革虚拟变量。</li>
+<li>$\mathbf{X}_{igtr}^{SR}$：个体特征、工作特征、家庭特征和地区层面的控制变量。</li>
+<li>效应：时间效应 $\lambda_{t}^{SR}$、个体效应 $\phi_{r}^{SR}$、稳健聚类到联邦州。</li>
+</ul>
+<p>养老金改革使得生育率短期下降；</p>
+<p>分组回归中，<strong>年轻群体</strong>（15-29岁）不显著，<strong>年长群体</strong>（30-44岁）生育率显著下降；孩子数量越多，孩子男性比例越多，生育欲望越低。</p>
+<h5 id="工具变量">工具变量</h5>
+<p>将 did（养老金改革政策实施差异） 视为养老金($\ln(pensionwealth)_{igtr}$)的工具变量。</p>
+<p>一阶段：
+$$
+\begin{aligned}\ln(pensionwealth)_{igtr}&amp;= \sigma^{SR}+\theta\big(RURAL_{g}^{SR}\times POST_{t}^{SR}\big)\\&amp;+\eta RURAL_{g}^{SR}+\delta_{t}^{SR}+\tau_{r}^{SR}+\kappa^{\prime}\mathbf{X}_{igtr}^{SR}+\mu_{igtr}^{SR}\end{aligned}
+$$
+二阶段：
+$$
+\begin{aligned}y_{igtr}^{SR}&amp;=\alpha^{SR}+\beta\ln\left(\widehat{pensionwealth}\right)_{igrt}\\&amp;+\gamma RURAL_g^{SR}+\lambda_t^{SR}+\phi_r^{SR}+\psi^{\prime}\mathbf{X}_{igtr}^{SR}+\epsilon_{igtr}^{SR}\end{aligned}
+$$</p>
+<h5 id="事件研究法">事件研究法</h5>
+<p>关于事件研究法可以参考《<a href="https://blog.huaxiangshan.com/zh-cn/posts/event1/" target="_blank" rel="noopener noreffer ">计量：事件研究法 1</a>》。</p>
+<blockquote>
+<p>简单来说，事件研究法可以看作双重差分法的动态处理效应，式子变化上，就是对政策变量 $POST_{t}^{SR}$ 进行时间切片，进一步展开为 $\sum YEAR_T^{LR}$。</p>
+</blockquote>
+<p>$$
+\begin{aligned}y_{igtr}^{LR}&amp;=\alpha^{LR}+\sum_{t=-16}^{23}\beta_t\big(RURAL_g^{LR}\times YEAR_t^{LR}\big)\\&amp;+\gamma RURAL_g^{LR}+\lambda_t^{LR}+\phi_r^{LR}+\psi^{\prime}\mathbf{X}_{iglr}^{LR}+\epsilon_{iglr}^{LR},\end{aligned}
+$$</p>
+<ul>
+<li>脚标：r 地区 g 农村城市组别 i 个体 t 年份 r 地方州。</li>
+<li>$y_{igtr}^{LR}$: 长期效应。45 岁时的孩子总数。</li>
+<li>$RURAL_{g}^{LR}$：农村工人女性虚拟变量。</li>
+<li>$YEAR_{t}^{LR}$：政策时间虚拟变量。</li>
+<li>$\mathbf{X}_{igtr}^{SR}$：教育年限、婚姻虚拟变量以及终身劳动力供给的控制变量。</li>
+<li>效应：队列效应 $\lambda_{t}^{LR}$、个体效应 $\phi_{r}^{LR}$、稳健聚类到联邦州。</li>
+</ul>
+<blockquote>
+<p>双重差分部分 $\lambda_{t}$ 是调查数据年份时间虚拟变量，属于时间效应，代表数据调查时对应的科技水平、医疗水平、基础设施等随着时间变化的要素；</p>
+<p>事件研究法部分 $\lambda_{t}$ 是出生年份时间虚拟变量，用来标志特定群体经历过特定的历史社会环境。</p>
+<p>对于这个细节，我也邮件询问了两位作者，得到如下回复（非常感谢两位老师的热心回复🥰）。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp" title="我也邮件询问了两位作者，得到了如下回信（片段）" data-thumbnail="/img/养老金和生育率-20240716234809029.webp" data-sub-html="<h2> </h2><p>我也邮件询问了两位作者，得到了如下回信（片段）</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp 2x"
+            data-sizes="auto"
+            alt="/img/养老金和生育率-20240716234809029.webp" />
+    </a><figcaption class="image-caption">我也邮件询问了两位作者，得到了如下回信（片段）</figcaption>
+    </figure></p>
+<blockquote>
+<p>In the short run (SR), we control for time fixed effects (FE) and age dummies. For the long run (LR), our sample includes women aged 45-69 years. We interpret their number of children as the number of children at age 45, regardless of their current age. Therefore, we control for different fertility patterns depending on the birth year of the women, which is why we include cohort fixed effects in the event study section. In this context, (current) time fixed effects are not relevant because we are looking at retrospective fertility patterns (in the past).</p>
+<p>To summarize, in the SR, time FE and age dummies are used, while in the LR, we use cohort FE to account for differences in fertility patterns based on birth year. Time FE do not coexist in the LR analysis because they do not directly apply to the retrospective nature of the data.</p>
+</blockquote>
+<p>在我个人看来，做法是人为假设 age-period-time 中某个效应不重要，于是直接省略。这种做法坦白讲，个人依旧觉得不严谨。但还是可以辩护下，请参见下文：</p>
+</blockquote>
+<p>动态处理效应图现实，改革后城乡差距不断缩小，改革后生育率不断下降<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。横坐标展示的是队列，控制了 age 为 45 岁，以出生年份分组展现。由于 age+cohort=period, 但从统计的现实意义上说，period 在图的统计中没有特别含义，因此可以忽略时间效应。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp" title="工具变量部分" data-thumbnail="/img/养老金和生育率-20240713210232124.webp" data-sub-html="<h2> </h2><p>工具变量部分</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp 2x"
+            data-sizes="auto"
+            alt="/img/养老金和生育率-20240713210232124.webp" />
+    </a><figcaption class="image-caption">工具变量部分</figcaption>
+    </figure></p>
+<h4 id="混杂因子">混杂因子</h4>
+<p>比较农村和城市妇女之间的婚姻率，教育，医疗保健，收入，财富和就业的趋势；讨论了巴西文化变革在宗教和电视剧方面的作用、贸易自由化的作用，以及在儿童数量与对其质量 (即教育) 的投资之间的数量-质量平衡模式。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp" title="描述统计可以看出，婚姻率，教育，医疗保健，收入，财富和就业的趋势没有随着改革产生突然变化，同时农村和城市有着相同的趋势" data-thumbnail="/img/养老金和生育率-20240713202608425.webp" data-sub-html="<h2> </h2><p>描述统计可以看出，婚姻率，教育，医疗保健，收入，财富和就业的趋势没有随着改革产生突然变化，同时农村和城市有着相同的趋势</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp 2x"
+            data-sizes="auto"
+            alt="/img/养老金和生育率-20240713202608425.webp" />
+    </a><figcaption class="image-caption">描述统计可以看出，婚姻率，教育，医疗保健，收入，财富和就业的趋势没有随着改革产生突然变化，同时农村和城市有着相同的趋势</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp" title="附录A15 同样，在实施绝育政策的背景下，绝育也是从政策实施后出现大幅波动" data-thumbnail="/img/养老金和生育率-20240713210539697.webp" data-sub-html="<h2> </h2><p>附录A15 同样，在实施绝育政策的背景下，绝育也是从政策实施后出现大幅波动</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp 2x"
+            data-sizes="auto"
+            alt="/img/养老金和生育率-20240713210539697.webp" />
+    </a><figcaption class="image-caption">附录A15 同样，在实施绝育政策的背景下，绝育也是从政策实施后出现大幅波动</figcaption>
+    </figure></p>
+<h2 id="稳健性">稳健性</h2>
+<ul>
+<li><strong>更换年龄段分组回归对比</strong>：使用新的年龄段分组，对比不同队列的妇女对养老金政策的生育反应。</li>
+<li><strong>更换计量函数</strong>：加入教育水；作为控制变量；线性时间趋势，线性时间-区域；区分是否和领取养老金的人住在一起。</li>
+<li><strong>样本选择</strong>：（1）三种类型的样本抽样：非自我代表性的市政局样本框；自我代表性的地区；大都市地区。（2）根据个人职业信息、家庭住址、家长职业信息严格化实验组和对照组的划分和范围。（3）加入妻子丈夫不同职业领域工作的农村城市样本。（4）排除年龄在 15 岁以下和 44 岁以上的妇女样本。（5）排除超过 45 岁的生育妇女。</li>
+<li><strong>标准误</strong>：除了地方州聚类外，加入集中定居点的聚类。为解决自相关问题，结果分别减去治疗前后的结果均值。</li>
+</ul>
+<h2 id="结论">结论</h2>
+<p>我想重点从升华和细化角度归纳本文的结论。</p>
+<p>验证了历史经验——养老金的扩大可能降低生育率。</p>
+<p>升华：公共福利的支出可能存在一定的政策代价，社会福利和人口变动存在相关机制。</p>
+<p>细节：前文提到过了。本文的亮点特色在于结合了 1981 和 1991 年的巴西改革国情，强化了农村-城市，妇女年龄段的分组对比，因此事件研究法也运用的很好。</p>
+<blockquote>
+<p>个人的一些怀疑。</p>
+<p>为啥一般人想不到把养老服务和生育联系在一起呢？因为大家默认领取养老金的人已经丧失了怀孕能力。所以这是一个<font color="#ff0000">预期问题</font>，妇女们预期未来将得到养老金收入，所以生育决策改变。这个逻辑过程，文章并未采用过计量数据来证明，主要是通过社会历史背景的分析加以阐述。</p>
+</blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这么概括的话，这个问题瞬间变得有趣起来&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>个人理解这里是强调人们确实对养老金改革产生了预期，从而改变了她们的生育决策。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>论文使用了巴西土地继承数据作为男性偏好的证据，大部分的巴西土地由男性继承。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>文章基于历史背景加入事件分析法，个人认为配合非常完美&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-07-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/paf/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/paf/" data-title=" 养老金和生育率" data-hashtags="文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/paf/" data-hashtag="文献阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/paf/" data-title=" 养老金和生育率"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/paf/" data-title=" 养老金和生育率"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/paf/" data-title=" 养老金和生育率" data-image="/img/养老金和生育率-20240710182332401.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/event2/" class="prev" rel="prev" title=" 计量：事件研究法 2"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 计量：事件研究法 2</a>
+            <a href="/zh-cn/posts/nzcp/" class="next" rel="next" title="逆转裁判游戏测评：逆转之道，就在其中">逆转裁判游戏测评：逆转之道，就在其中<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

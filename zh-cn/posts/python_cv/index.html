@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 代码储存：python 年份、 stata 稳健性平行趋势检验 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 代码储存：python 年份、 stata 稳健性平行趋势检验" />
+<meta property="og:description" content="储存下 python、stata 的一个代码。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-05-24T10:12:19+08:00" />
+<meta property="article:modified_time" content="2025-05-24T10:12:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 代码储存：python 年份、 stata 稳健性平行趋势检验"/>
+<meta name="twitter:description" content="储存下 python、stata 的一个代码。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/fld/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/amateur_radio/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 代码储存：python 年份、 stata 稳健性平行趋势检验",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/python_cv\/"
+        },"genre": "posts","keywords": "Python, Stata","wordcount":  6013 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/python_cv\/","datePublished": "2025-05-24T10:12:19+08:00","dateModified": "2025-05-24T10:12:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/python_cv/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/python_cv/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 代码储存：python 年份、 stata 稳健性平行趋势检验</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-05-24">2025-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6013 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/pythonGIS.zh-cn-20250524111538182.webp"
+        data-srcset="/img/pythonGIS.zh-cn-20250524111538182.webp, /img/pythonGIS.zh-cn-20250524111538182.webp 1.5x, /img/pythonGIS.zh-cn-20250524111538182.webp 2x"
+        data-sizes="auto"
+        alt="/img/pythonGIS.zh-cn-20250524111538182.webp"
+        title="/img/pythonGIS.zh-cn-20250524111538182.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用-python-cv-包的一次体验">使用 python cv 包的一次体验</a></li>
+    <li><a href="#代码异质性">代码异质性</a></li>
+    <li><a href="#分享两个有趣的-stata-命令">分享两个有趣的 stata 命令</a>
+      <ul>
+        <li><a href="#manyiv">Manyiv</a></li>
+        <li><a href="#chgdiv6命令在stata中算铜钱卦">chgdiv6命令：在Stata中算铜钱卦</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>储存下 python、stata 的一个代码。</p>
+</blockquote>
+<h2 id="使用-python-cv-包的一次体验">使用 python cv 包的一次体验</h2>
+<p>最近在研究法院随机分案。老师看到了一篇论文讨论随机分案的利弊——《<a href="https://sites.google.com/utexas.edu/ruizuo11/research" target="_blank" rel="noopener noreffer ">Algorithm as Manager: How Algorithmic Judge-Case Assignment Influences Court Performance</a>》<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<p>如何判断当地法院是否执行了随机分案？这位作者一个很聪明的做法是通过政府采购信息进行辨别，如果当地法院公共采购购买了随机分案系统，那么就执行了随机分案。按照作者的资料，目前法院有纯随机分案和机器学习两种方式。</p>
+<blockquote>
+<p>我自己看了下政府采购，发现无法从里面获取法院采购随机分案系统，可能这也是作者粗糙处理到省级的原因。</p>
+</blockquote>
+<p>目前作者只定位到了省级，假设省里面存在一个法院进行了随机分案，全省统一（图片注释说未来会更新到地区层面）。</p>
+<p>
+<figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524102004632.webp" title="如图" data-thumbnail="/img/pythonGIS.zh-cn-20250524102004632.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/pythonGIS.zh-cn-20250524102004632.webp"
+            data-srcset="/img/pythonGIS.zh-cn-20250524102004632.webp, /img/pythonGIS.zh-cn-20250524102004632.webp 1.5x, /img/pythonGIS.zh-cn-20250524102004632.webp 2x"
+            data-sizes="auto"
+            alt="/img/pythonGIS.zh-cn-20250524102004632.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>虽然肉眼也能看出来省级年份，但是为了方便以后我通过图像定位更细的颜色（理论上这篇论文的色彩分布应该具体到了季度层面？），同时早就想试试看 cv 包，所以通过 ai 尝试了下。</p>
+<p>使用步骤如下：</p>
+<ul>
+<li>定位图片地址（不能包含中文）。</li>
+<li>框选两个色条（左侧和右侧），定位初始时间和最终时间。</li>
+<li>双击自己想要判断的像素点——直接得到对应的年份。</li>
+</ul>
+<p>
+<figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524102618436.webp" title="如图" data-thumbnail="/img/pythonGIS.zh-cn-20250524102618436.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/pythonGIS.zh-cn-20250524102618436.webp"
+            data-srcset="/img/pythonGIS.zh-cn-20250524102618436.webp, /img/pythonGIS.zh-cn-20250524102618436.webp 1.5x, /img/pythonGIS.zh-cn-20250524102618436.webp 2x"
+            data-sizes="auto"
+            alt="/img/pythonGIS.zh-cn-20250524102618436.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>完整代码如下（GPT 和 Gmini）联合生成：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">opencv</span><span class="o">-</span><span class="n">python</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">random_colors</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">random_interp</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">ml_colors</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">ml_interp</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_rgb</span> <span class="o">=</span> <span class="kc">None</span>           <span class="c1"># 原始图片的 RGB 格式</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_raw</span> <span class="o">=</span> <span class="kc">None</span>           <span class="c1"># 原始图片的 BGR 格式 (用于显示和临时绘图)</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_with_rois</span> <span class="o">=</span> <span class="kc">None</span>     <span class="c1"># 带有永久绘制的 ROI 框的图片</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局变量用于 ROI 选择</span>
+</span></span><span class="line"><span class="cl"><span class="n">roi_points</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 存储点击的 (x, y) 坐标</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ROI 选择阶段的状态机:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0: 准备选择 &#39;随机分案&#39; 色标的起点 (等待第一次点击)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1: 选择 &#39;随机分案&#39; 色标的终点 (第一次点击已发生，等待第二次点击)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2: &#39;随机分案&#39; 色标已选定，准备选择 &#39;机器学习&#39; 色标的起点 (等待第三次点击)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3: 选择 &#39;机器学习&#39; 色标的终点 (第三次点击已发生，等待第四次点击)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 4: 两个色标均已选定，进入年份识别阶段</span>
+</span></span><span class="line"><span class="cl"><span class="n">selecting_roi_state</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 建立色标 → 年份的插值函数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 参数:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   roi: 图片中色标的区域 (numpy 数组，包含色标的像素数据)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   year_min: 色标代表的最小年份 (例如: 2014)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   year_max: 色标代表的最大年份 (例如: 2020)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   debug_name: 用于调试输出的色标名称</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回值:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   center_col: 色标中心列的 RGB 颜色序列 (N x 3 numpy 数组)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   interp_func: 从像素在色标中的垂直位置 (索引) 到年份的插值函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_color_axis</span><span class="p">(</span><span class="n">roi</span><span class="p">,</span> <span class="n">year_min</span><span class="o">=</span><span class="mi">2014</span><span class="p">,</span> <span class="n">year_max</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">debug_name</span><span class="o">=</span><span class="s2">&#34;色标&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 色标区域的高度</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从 ROI 中选取中心列的像素颜色。我们假设色标是垂直的。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">center_col</span> <span class="o">=</span> <span class="n">roi</span><span class="p">[:,</span> <span class="n">roi</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 确保年份从上到下（从 year_max 到 year_min）对应像素索引 (0 到 h-1)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 这样色条顶部 (索引 0) 对应 year_max (2020)，底部 (索引 h-1) 对应 year_min (2014)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">year_max</span><span class="p">,</span> <span class="n">year_min</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- 调试信息: </span><span class="si">{</span><span class="n">debug_name</span><span class="si">}</span><span class="s2"> ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;ROI 高度: </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> 像素&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;色标顶部颜色 (索引 0): </span><span class="si">{</span><span class="n">center_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, 预期年份: </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;色标底部颜色 (索引 </span><span class="si">{</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">center_col</span><span class="p">[</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, 预期年份: </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;插值映射: 索引 0 -&gt; </span><span class="si">{</span><span class="n">year_max</span><span class="si">}</span><span class="s2">, 索引 </span><span class="si">{</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">year_min</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;示例年份 (顶部, 中间, 底部): </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="n">h</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">center_col</span><span class="p">,</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">years</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&#34;extrapolate&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 匹配单个颜色到最近的色标颜色，并返回对应年份</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 参数:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   sample_color: 要匹配的单个像素颜色 (1x3 numpy 数组，RGB 值)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   color_axis: 预先建立的色标颜色序列 (N x 3 numpy 数组)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   interp_func: 对应色标的插值函数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回值:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   年份 (浮点数)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">match_color_to_year</span><span class="p">(</span><span class="n">sample_color</span><span class="p">,</span> <span class="n">color_axis</span><span class="p">,</span> <span class="n">interp_func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算样本颜色与色标颜色序列中所有颜色的欧几里得距离</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">color_axis</span> <span class="o">-</span> <span class="n">sample_color</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span> <span class="c1"># 找到距离最近的颜色在色标颜色序列中的索引</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 使用插值函数将找到的索引转换为对应的年份</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">interp_func</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 鼠标点击事件处理函数 (年份识别阶段)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 当用户点击图片时，此函数会被调用</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">click_event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">cv2</span><span class="o">.</span><span class="n">EVENT_LBUTTONDOWN</span><span class="p">:</span> <span class="c1"># 检查是否为鼠标左键点击事件</span>
+</span></span><span class="line"><span class="cl">        <span class="k">global</span> <span class="n">img_rgb</span><span class="p">,</span> <span class="n">random_colors</span><span class="p">,</span> <span class="n">random_interp</span><span class="p">,</span> <span class="n">ml_colors</span><span class="p">,</span> <span class="n">ml_interp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 确保必要的全局变量已经被初始化</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">img_rgb</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">random_colors</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">ml_colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;错误：图片或色标数据未载入。请确保已成功框选色标。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">点击位置: (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取点击位置的像素颜色 (RGB 值)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clicked_color</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="p">:]</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;点击像素颜色 (RGB): </span><span class="si">{</span><span class="n">clicked_color</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 计算点击颜色与两个色标的最小距离</span>
+</span></span><span class="line"><span class="cl">        <span class="n">random_dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">random_colors</span> <span class="o">-</span> <span class="n">clicked_color</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ml_dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">ml_colors</span> <span class="o">-</span> <span class="n">clicked_color</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">random_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">random_dists</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ml_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ml_dists</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;与 &#39;随机分案&#39; 色标的最小距离: </span><span class="si">{</span><span class="n">random_dist</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;与 &#39;机器学习&#39; 色标的最小距离: </span><span class="si">{</span><span class="n">ml_dist</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 根据哪个色标的距离更小，决定点击的颜色属于哪种改革类型</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">random_dist</span> <span class="o">&lt;</span> <span class="n">ml_dist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reform_type</span> <span class="o">=</span> <span class="s2">&#34;随机分案&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 使用 &#39;随机分案&#39; 的插值函数来获取年份</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reform_time</span> <span class="o">=</span> <span class="n">match_color_to_year</span><span class="p">(</span><span class="n">clicked_color</span><span class="p">,</span> <span class="n">random_colors</span><span class="p">,</span> <span class="n">random_interp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reform_type</span> <span class="o">=</span> <span class="s2">&#34;机器学习&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 使用 &#39;机器学习&#39; 的插值函数来获取年份</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reform_time</span> <span class="o">=</span> <span class="n">match_color_to_year</span><span class="p">(</span><span class="n">clicked_color</span><span class="p">,</span> <span class="n">ml_colors</span><span class="p">,</span> <span class="n">ml_interp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;结果: </span><span class="si">{</span><span class="n">reform_type</span><span class="si">}</span><span class="s2">, 年份: </span><span class="si">{</span><span class="n">reform_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 鼠标事件处理函数 (ROI 选择阶段)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 此函数只负责记录点击点和绘制临时框，状态转换由主循环控制</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">select_roi_event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">roi_points</span><span class="p">,</span> <span class="n">selecting_roi_state</span><span class="p">,</span> <span class="n">img_raw</span><span class="p">,</span> <span class="n">img_with_rois</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">cv2</span><span class="o">.</span><span class="n">EVENT_LBUTTONDOWN</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">roi_points</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 状态转换逻辑在 main 函数中根据 roi_points 的长度进行</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="n">cv2</span><span class="o">.</span><span class="n">EVENT_MOUSEMOVE</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 在选择第一个 ROI 的第二个点时绘制临时框 (绿色)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp_img</span> <span class="o">=</span> <span class="n">img_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 从原始图片复制，避免覆盖永久框</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">temp_img</span><span class="p">,</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 绿色临时框</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">temp_img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 在选择第二个 ROI 的第二个点时绘制临时框 (绿色)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp_img</span> <span class="o">=</span> <span class="n">img_with_rois</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 从已绘制第一个 ROI 的图片复制</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">temp_img</span><span class="p">,</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 绿色临时框</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">temp_img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 主函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">img_rgb</span><span class="p">,</span> <span class="n">random_colors</span><span class="p">,</span> <span class="n">random_interp</span><span class="p">,</span> <span class="n">ml_colors</span><span class="p">,</span> <span class="n">ml_interp</span><span class="p">,</span> <span class="n">img_raw</span><span class="p">,</span> <span class="n">img_with_rois</span><span class="p">,</span> <span class="n">selecting_roi_state</span><span class="p">,</span> <span class="n">roi_points</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 图片路径</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_path</span> <span class="o">=</span> <span class="s1">&#39;D:/PyTorch_practice/map/x.png&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_raw</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="c1"># 载入图片 (以 BGR 格式)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">img_raw</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;错误：图片载入失败，请检查路径: </span><span class="si">{</span><span class="n">img_path</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">img_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_raw</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span> <span class="c1"># 将图片转换为 RGB 格式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_with_rois</span> <span class="o">=</span> <span class="n">img_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 创建一个副本用于显示和绘制永久 ROI 框</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 初始阶段设置鼠标回调函数为 ROI 选择模式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">select_roi_event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;--- 交互式色标框选 ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;步骤 1/2: 请框选 &#39;随机分案&#39; 色标 (左侧蓝色条)。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;   点击色标的左上角，然后拖拽鼠标到右下角并释放。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># ROI 选择循环</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">selecting_roi_state</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span> <span class="c1"># 当 selecting_roi_state 达到 4 时表示两个 ROI 都已选定</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">img_with_rois</span><span class="p">)</span> <span class="c1"># 持续显示带有永久 ROI 框的图片</span>
+</span></span><span class="line"><span class="cl">        <span class="n">key</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span> <span class="c1"># 按 &#39;q&#39; 键退出</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 根据 roi_points 的长度来管理状态转换</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># 随机色标起点已点击</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selecting_roi_state</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 进入等待随机色标终点的状态</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;请框选 &#39;随机分案&#39; 色标的终点 (右下角)。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># 随机色标终点已点击</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 绘制 &#39;随机分案&#39; 色标的永久矩形框 (蓝色)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img_with_rois</span><span class="p">,</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">img_with_rois</span><span class="p">)</span> <span class="c1"># 更新显示</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selecting_roi_state</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># 进入准备选择 &#39;机器学习&#39; 色标起点的状态</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">步骤 2/2: 请框选 &#39;机器学习&#39; 色标 (右侧红色条)。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;   点击色标的左上角，然后拖拽鼠标到右下角并释放。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="c1"># 机器学习色标起点已点击</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selecting_roi_state</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># 进入等待机器学习色标终点的状态</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;请框选 &#39;机器学习&#39; 色标的终点 (右下角)。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">selecting_roi_state</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roi_points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="c1"># 机器学习色标终点已点击</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 绘制 &#39;机器学习&#39; 色标的永久矩形框 (红色)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img_with_rois</span><span class="p">,</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">img_with_rois</span><span class="p">)</span> <span class="c1"># 更新显示</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selecting_roi_state</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># 两个 ROI 都已选定，退出循环</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 色标选择完成后，提取坐标并建立颜色轴</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 确保坐标是正确的 (x_start, y_start, x_end, y_end) 格式，并且 start &lt;= end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random_roi_coords</span> <span class="o">=</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">                         <span class="nb">max</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ml_roi_coords</span> <span class="o">=</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">                     <span class="nb">max</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">roi_points</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">roi_points</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从原始 RGB 图片中提取 ROI 图片数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random_roi</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="n">random_roi_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">random_roi_coords</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">random_roi_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">random_roi_coords</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ml_roi</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="n">ml_roi_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">ml_roi_coords</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">ml_roi_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">ml_roi_coords</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 建立两个色标的颜色轴和插值函数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random_colors</span><span class="p">,</span> <span class="n">random_interp</span> <span class="o">=</span> <span class="n">build_color_axis</span><span class="p">(</span><span class="n">random_roi</span><span class="p">,</span> <span class="n">debug_name</span><span class="o">=</span><span class="s2">&#34;随机分案色标&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ml_colors</span><span class="p">,</span> <span class="n">ml_interp</span> <span class="o">=</span> <span class="n">build_color_axis</span><span class="p">(</span><span class="n">ml_roi</span><span class="p">,</span> <span class="n">debug_name</span><span class="o">=</span><span class="s2">&#34;机器学习色标&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 转换到年份识别阶段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="n">click_event</span><span class="p">)</span> <span class="c1"># 将鼠标回调函数改为年份识别模式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;点击获取年份 (请框选色标)&#39;</span><span class="p">,</span> <span class="s1">&#39;点击获取年份&#39;</span><span class="p">)</span> <span class="c1"># 更新窗口标题</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">色标框选完成。现在请点击地图上的省份以获取年份。按 &#39;q&#39; 键退出。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 年份识别循环</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;点击获取年份&#39;</span><span class="p">,</span> <span class="n">img_with_rois</span><span class="p">)</span> <span class="c1"># 继续显示带有永久 ROI 框的图片</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="代码异质性">代码异质性</h2>
+<p>Stata 关于 DID 的平行趋势稳健性检验方法。</p>
+<p>来源：计量经济学圈公众号。<a href="https://mp.weixin.qq.com/s/QHU8abvuigOy1LqRYzFNdg" target="_blank" rel="noopener noreffer ">一张图里画出5种异质性稳健DID的平行趋势与动态效应的完整code和示例</a></p>
+<p>直接复制的话，排版不行；并且有些命令在 stata18 中更新，个人修改了一点细节。</p>
+<p>
+<figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524103449818.webp" title="如图,绘图风格使用的schemepack包的Rainbow风格（个人最爱的风格）" data-thumbnail="/img/pythonGIS.zh-cn-20250524103449818.webp" data-sub-html="<h2> </h2><p>如图,绘图风格使用的schemepack包的Rainbow风格（个人最爱的风格）</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/pythonGIS.zh-cn-20250524103449818.webp"
+            data-srcset="/img/pythonGIS.zh-cn-20250524103449818.webp, /img/pythonGIS.zh-cn-20250524103449818.webp 1.5x, /img/pythonGIS.zh-cn-20250524103449818.webp 2x"
+            data-sizes="auto"
+            alt="/img/pythonGIS.zh-cn-20250524103449818.webp" />
+    </a><figcaption class="image-caption">如图,绘图风格使用的schemepack包的Rainbow风格（个人最爱的风格）</figcaption>
+    </figure></p>
+<p>关于 did 异质性的理论讨论，推荐：</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1vH4y1B7kk&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<p>代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span> <span class="n">install</span> <span class="n">drdid</span> <span class="p">,</span> <span class="n">replace</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span> <span class="n">install</span> <span class="n">schemepack</span><span class="p">,</span> <span class="n">replace</span>  
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span>  <span class="n">install</span> <span class="n">did_imputation</span>  <span class="p">,</span> <span class="n">replace</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span>  <span class="n">install</span> <span class="n">did_multiplegt</span>  <span class="p">,</span> <span class="n">replace</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span>  <span class="n">install</span> <span class="n">eventstudyinteract</span>  <span class="p">,</span> <span class="n">replace</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">ssc</span>  <span class="n">install</span> <span class="n">csdid</span>  <span class="p">,</span> <span class="n">replace</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">生成模拟数据，创建一个包含</span><span class="mi">300</span><span class="err">个单位、</span><span class="mi">15</span><span class="err">个周期的完整面板数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">clear</span> <span class="n">all</span>
+</span></span><span class="line"><span class="cl"><span class="n">timer</span> <span class="n">clear</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="nb">seed</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">global</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">15</span>  <span class="o">//</span> <span class="err">全局变量</span><span class="n">T</span><span class="err">，表示观测周期数</span>
+</span></span><span class="line"><span class="cl"><span class="n">global</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">300</span>  <span class="o">//</span> <span class="err">全局变量</span><span class="n">I</span><span class="err">，表示单位数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">obs</span> <span class="err">`</span><span class="o">=$</span><span class="n">I</span><span class="o">*$</span><span class="n">T</span><span class="s1">&#39;  // 设置观测总数为单位数乘以周期数</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">i</span> <span class="o">=</span> <span class="ne">int</span><span class="p">((</span><span class="n">_n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/$</span><span class="n">T</span> <span class="p">)</span><span class="o">+</span><span class="mi">1</span>  <span class="o">//</span> <span class="err">生成单位</span><span class="n">ID</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">t</span> <span class="o">=</span> <span class="n">mod</span><span class="p">((</span><span class="n">_n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="o">$</span><span class="n">T</span> <span class="p">)</span><span class="o">+</span><span class="mi">1</span>  <span class="o">//</span> <span class="err">生成日历周期</span>
+</span></span><span class="line"><span class="cl"><span class="n">tsset</span> <span class="n">i</span> <span class="n">t</span>  <span class="o">//</span> <span class="err">设置面板数据的时间序列格式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">随机生成治疗滚动年份，在</span><span class="n">Ei</span><span class="o">=</span><span class="mi">10</span><span class="err">到</span><span class="mi">16</span><span class="err">之间均匀分布（注意：</span><span class="n">t</span><span class="o">&gt;=</span><span class="mi">16</span><span class="err">的周期无用，因为所有单位在此之前都已接受治疗）</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">Ei</span> <span class="o">=</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">runiform</span><span class="p">()</span><span class="o">*</span><span class="mi">7</span><span class="p">)</span><span class="o">+$</span><span class="n">T</span> <span class="o">-</span><span class="mi">6</span> <span class="k">if</span> <span class="n">t</span><span class="o">==</span><span class="mi">1</span>  <span class="o">//</span> <span class="err">生成单位首次接受治疗的年份</span>
+</span></span><span class="line"><span class="cl"><span class="n">bys</span> <span class="n">i</span> <span class="p">(</span><span class="n">t</span><span class="p">):</span> <span class="n">replace</span> <span class="n">Ei</span> <span class="o">=</span> <span class="n">Ei</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">//</span> <span class="err">将首次治疗年份扩展到每个单位的所有周期</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">K</span> <span class="o">=</span> <span class="n">t</span><span class="o">-</span><span class="n">Ei</span>  <span class="o">//</span> <span class="err">生成相对时间，即自治疗以来的周期数（若从未治疗则可能缺失）</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">D</span> <span class="o">=</span> <span class="n">K</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;</span> <span class="n">Ei</span><span class="o">!=.</span>  <span class="o">//</span> <span class="err">生成治疗指示变量，</span><span class="mi">1</span><span class="err">表示已接受治疗</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">生成具有平行趋势和异质性治疗效应的结果变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">cond</span><span class="p">(</span><span class="n">D</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mf">12.5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>  <span class="o">//</span> <span class="err">异质性治疗效应（随日历周期变化）</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">rnormal</span><span class="p">()</span>  <span class="o">//</span> <span class="err">生成随机误差项</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">tau</span><span class="o">*</span><span class="n">D</span> <span class="o">+</span> <span class="n">eps</span>  <span class="o">//</span> <span class="err">生成结果变量（固定效应不影响结果，因为所有方法都控制了固定效应）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">使用</span> <span class="n">Borusyak</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="p">(</span><span class="mi">2021</span><span class="p">)</span> <span class="err">的</span> <span class="n">did_imputation</span> <span class="err">方法进行估计</span>
+</span></span><span class="line"><span class="cl"><span class="n">did_imputation</span> <span class="n">Y</span> <span class="n">i</span> <span class="n">t</span> <span class="n">Ei</span><span class="p">,</span> <span class="n">allhorizons</span> <span class="n">pretrend</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="o">//</span> <span class="err">估计所有时间范围的事前趋势（</span><span class="mi">5</span><span class="err">期）</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span><span class="p">,</span> <span class="n">default_look</span> <span class="n">graph_opt</span><span class="p">(</span><span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Periods since the event&#34;</span><span class="p">)</span> <span class="n">ytitle</span><span class="p">(</span><span class="s2">&#34;Average causal effect&#34;</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">(</span><span class="s2">&#34;Borusyak et al. (2021) imputation estimator&#34;</span><span class="p">)</span> <span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">5</span><span class="p">))</span>  <span class="o">//</span> <span class="err">绘制事件图</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">estimates</span> <span class="n">store</span> <span class="n">bjs</span>  <span class="o">//</span> <span class="err">存储估计结果以供后续使用</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">使用</span> <span class="n">de</span> <span class="n">Chaisemartin</span> <span class="ow">and</span> <span class="n">D</span><span class="s1">&#39;Haultfoeuille (2020) 的 did_multiplegt 方法进行估计</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">did_multiplegt_old</span> <span class="n">Y</span> <span class="n">i</span> <span class="n">t</span> <span class="n">D</span><span class="p">,</span> <span class="n">dynamic</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">placebo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">breps</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="n">cluster</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">robust_dynamic</span>  <span class="o">//</span> <span class="err">动态效应估计，含</span><span class="mi">5</span><span class="err">期事后和</span><span class="mi">5</span><span class="err">期安慰剂检验</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="n">did_multiplegt</span> <span class="n">dyn</span> <span class="n">Y</span> <span class="n">i</span> <span class="n">t</span> <span class="n">D</span><span class="p">,</span> <span class="n">dynamic</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">placebo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">breps</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="n">cluster</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">robust_dynamic</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span> <span class="n">e</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span><span class="c1">#e(variances), default_look graph_opt(xtitle(&#34;Periods since the event&#34;) ytitle(&#34;Average causal effect&#34;) ///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">(</span><span class="s2">&#34;de Chaisemartin and D&#39;Haultfoeuille (2020)&#34;</span><span class="p">)</span> <span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">5</span><span class="p">))</span> <span class="n">stub_lag</span><span class="p">(</span><span class="n">Effect_</span><span class="c1">#) stub_lead(Placebo_#) together  // 绘制事件图</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">dcdh_b</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">estimates</span><span class="p">)</span>  <span class="o">//</span> <span class="err">存储估计结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">dcdh_v</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">variances</span><span class="p">)</span>  <span class="o">//</span> <span class="err">存储方差结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">使用</span> <span class="n">Callaway</span> <span class="ow">and</span> <span class="n">Sant</span><span class="s1">&#39;Anna (2020) 的 csdid 方法进行估计</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">gvar</span> <span class="o">=</span> <span class="n">cond</span><span class="p">(</span><span class="n">Ei</span><span class="o">==.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ei</span><span class="p">)</span>  <span class="o">//</span> <span class="err">为</span><span class="n">csdid命令生成组变量</span><span class="err">（未治疗的单位设为</span><span class="mi">0</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="n">csdid</span> <span class="n">Y</span><span class="p">,</span> <span class="n">ivar</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="n">gvar</span><span class="p">(</span><span class="n">gvar</span><span class="p">)</span> <span class="n">notyet</span>  <span class="o">//</span> <span class="err">估计因果效应</span>
+</span></span><span class="line"><span class="cl"><span class="n">estat</span> <span class="n">event</span><span class="p">,</span> <span class="n">estore</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>  <span class="o">//</span> <span class="err">生成并存储事件估计结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span> <span class="n">cs</span><span class="p">,</span> <span class="n">default_look</span> <span class="n">graph_opt</span><span class="p">(</span><span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Periods since the event&#34;</span><span class="p">)</span> <span class="n">ytitle</span><span class="p">(</span><span class="s2">&#34;Average causal effect&#34;</span><span class="p">)</span> <span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">14</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">5</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">(</span><span class="s2">&#34;Callaway and Sant&#39;Anna (2020)&#34;</span><span class="p">))</span> <span class="n">stub_lag</span><span class="p">(</span><span class="n">Tp</span><span class="c1">#) stub_lead(Tm#) together  // 绘制事件图</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">使用</span> <span class="n">Sun</span> <span class="ow">and</span> <span class="n">Abraham</span> <span class="p">(</span><span class="mi">2020</span><span class="p">)</span> <span class="err">的</span> <span class="n">eventstudyinteract</span> <span class="err">方法进行估计</span>
+</span></span><span class="line"><span class="cl"><span class="n">sum</span> <span class="n">Ei</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="n">lastcohort</span> <span class="o">=</span> <span class="n">Ei</span><span class="o">==</span><span class="n">r</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>  <span class="o">//</span> <span class="err">生成最新或从未治疗的队列的虚拟变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">forvalues</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">/</span><span class="mi">5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gen</span> <span class="n">L</span><span class="err">`</span><span class="n">l</span><span class="s1">&#39;event = K==`l&#39;</span>  <span class="o">//</span> <span class="err">生成滞后事件虚拟变量</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">forvalues</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">14</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gen</span> <span class="n">F</span><span class="err">`</span><span class="n">l</span><span class="s1">&#39;event = K==-`l&#39;</span>  <span class="o">//</span> <span class="err">生成提前事件虚拟变量</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">drop</span> <span class="n">F1event</span>  <span class="o">//</span> <span class="err">归一化</span><span class="n">K</span><span class="o">=-</span><span class="mi">1</span><span class="err">（以及</span><span class="n">K</span><span class="o">=-</span><span class="mi">15</span><span class="err">）为零</span>
+</span></span><span class="line"><span class="cl"><span class="n">eventstudyinteract</span> <span class="n">Y</span> <span class="n">L</span><span class="o">*</span><span class="n">event</span> <span class="n">F</span><span class="o">*</span><span class="n">event</span><span class="p">,</span> <span class="n">vce</span><span class="p">(</span><span class="n">cluster</span> <span class="n">i</span><span class="p">)</span> <span class="n">absorb</span><span class="p">(</span><span class="n">i</span> <span class="n">t</span><span class="p">)</span> <span class="n">cohort</span><span class="p">(</span><span class="n">Ei</span><span class="p">)</span> <span class="n">control_cohort</span><span class="p">(</span><span class="n">lastcohort</span><span class="p">)</span>  <span class="o">//</span> <span class="err">交互估计</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span> <span class="n">e</span><span class="p">(</span><span class="n">b_iw</span><span class="p">)</span><span class="c1">#e(V_iw), default_look graph_opt(xtitle(&#34;Periods since the event&#34;) ytitle(&#34;Average causal effect&#34;) xlabel(-14(1)5) ///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">(</span><span class="s2">&#34;Sun and Abraham (2020)&#34;</span><span class="p">))</span> <span class="n">stub_lag</span><span class="p">(</span><span class="n">L</span><span class="c1">#event) stub_lead(F#event) together  // 绘制事件图</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">sa_b</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">b_iw</span><span class="p">)</span>  <span class="o">//</span> <span class="err">存储估计结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">sa_v</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">V_iw</span><span class="p">)</span>  <span class="o">//</span> <span class="err">存储方差结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">使用</span> <span class="n">TWFE</span> <span class="n">OLS</span> <span class="err">方法进行估计（由于治疗效应同质性，此处结果正确）</span>
+</span></span><span class="line"><span class="cl"><span class="n">reghdfe</span> <span class="n">Y</span> <span class="n">F</span><span class="o">*</span><span class="n">event</span> <span class="n">L</span><span class="o">*</span><span class="n">event</span><span class="p">,</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span> <span class="n">t</span><span class="p">)</span> <span class="n">cluster</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="o">//</span> <span class="err">双固定效应回归</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span><span class="p">,</span> <span class="n">default_look</span> <span class="n">stub_lag</span><span class="p">(</span><span class="n">L</span><span class="c1">#event) stub_lead(F#event) together graph_opt(xtitle(&#34;Days since the event&#34;) ytitle(&#34;OLS coefficients&#34;) xlabel(-14(1)5) ///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">(</span><span class="s2">&#34;OLS&#34;</span><span class="p">))</span>  <span class="o">//</span> <span class="err">绘制事件图</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">estimates</span> <span class="n">store</span> <span class="n">ols</span>  <span class="o">//</span> <span class="err">保存估计结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">构建真实平均治疗效应的向量，按自治疗以来的周期数计算</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">btrue</span> <span class="o">=</span> <span class="n">J</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">.</span><span class="p">)</span>  <span class="o">//</span> <span class="err">创建一个</span><span class="mi">1</span><span class="n">x6的空矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="n">colnames</span> <span class="n">btrue</span> <span class="o">=</span> <span class="n">tau0</span> <span class="n">tau1</span> <span class="n">tau2</span> <span class="n">tau3</span> <span class="n">tau4</span> <span class="n">tau5</span>  <span class="o">//</span> <span class="err">设置列名</span>
+</span></span><span class="line"><span class="cl"><span class="n">qui</span> <span class="n">forvalues</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="o">/</span><span class="mi">5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum</span> <span class="n">tau</span> <span class="k">if</span> <span class="n">K</span><span class="o">==</span><span class="err">`</span><span class="n">h</span><span class="s1">&#39;  // 计算每个相对时间点的平均治疗效应</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matrix</span> <span class="n">btrue</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="err">`</span><span class="n">h</span><span class="s1">&#39;+1]=r(mean)  // 填充矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">scheme</span> <span class="n">Rainbow</span>    
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="err">在一张图中展示所有估计值的事前趋势与事后动态效应</span>
+</span></span><span class="line"><span class="cl"><span class="n">event_plot</span> <span class="n">btrue</span><span class="c1"># bjs dcdh_b#dcdh_v cs sa_b#sa_v ols, ///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stub_lag</span><span class="p">(</span><span class="n">tau</span><span class="c1"># tau# Effect_# Tp# L#event L#event) stub_lead(pre# pre# Placebo_# Tm# F#event F#event) plottype(scatter) ciplottype(rcap) ///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">together</span> <span class="n">perturb</span><span class="p">(</span><span class="o">-</span><span class="mf">0.325</span><span class="p">(</span><span class="mf">0.13</span><span class="p">)</span><span class="mf">0.325</span><span class="p">)</span> <span class="n">trimlead</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">noautolegend</span> <span class="o">///</span>  <span class="o">//</span> <span class="err">设置绘图参数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">graph_opt</span><span class="p">(</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Event study estimators in a simulated panel (300 units, 15 periods)&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">medlarge</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">        <span class="n">xtitle</span><span class="p">(</span><span class="s2">&#34;Periods since the event&#34;</span><span class="p">)</span> <span class="n">ytitle</span><span class="p">(</span><span class="s2">&#34;Average causal effect&#34;</span><span class="p">)</span> <span class="n">xlabel</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">5</span><span class="p">)</span> <span class="n">ylabel</span><span class="p">(</span><span class="mi">0</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="mi">3</span><span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">        <span class="n">legend</span><span class="p">(</span><span class="n">order</span><span class="p">(</span><span class="mi">1</span> <span class="s2">&#34;True value&#34;</span> <span class="mi">2</span> <span class="s2">&#34;Borusyak et al.&#34;</span> <span class="mi">4</span> <span class="s2">&#34;de Chaisemartin-D&#39;Haultfoeuille&#34;</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">6</span> <span class="s2">&#34;Callaway-Sant&#39;Anna&#34;</span> <span class="mi">8</span> <span class="s2">&#34;Sun-Abraham&#34;</span> <span class="mi">10</span> <span class="s2">&#34;OLS&#34;</span><span class="p">)</span> <span class="n">rows</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">region</span><span class="p">(</span><span class="n">style</span><span class="p">(</span><span class="n">none</span><span class="p">)))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">        <span class="n">xline</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lcolor</span><span class="p">(</span><span class="n">gs8</span><span class="p">)</span> <span class="n">lpattern</span><span class="p">(</span><span class="n">dash</span><span class="p">))</span> <span class="n">yline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lcolor</span><span class="p">(</span><span class="n">gs8</span><span class="p">))</span> <span class="n">graphregion</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">white</span><span class="p">))</span> <span class="n">bgcolor</span><span class="p">(</span><span class="n">white</span><span class="p">)</span> <span class="n">ylabel</span><span class="p">(,</span> <span class="n">angle</span><span class="p">(</span><span class="n">horizontal</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt1</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">cranberry</span><span class="p">))</span> <span class="n">lag_ci_opt1</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">cranberry</span><span class="p">))</span> <span class="o">///</span>  <span class="o">//</span> <span class="err">自定义绘图样式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt2</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="n">O</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">cranberry</span><span class="p">))</span> <span class="n">lag_ci_opt2</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">cranberry</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt3</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="n">Dh</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">navy</span><span class="p">))</span> <span class="n">lag_ci_opt3</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">navy</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt4</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="n">Th</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">forest_green</span><span class="p">))</span> <span class="n">lag_ci_opt4</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">forest_green</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt5</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="n">Sh</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">dkorange</span><span class="p">))</span> <span class="n">lag_ci_opt5</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">dkorange</span><span class="p">))</span> <span class="o">///</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lag_opt6</span><span class="p">(</span><span class="n">msymbol</span><span class="p">(</span><span class="n">Oh</span><span class="p">)</span> <span class="n">color</span><span class="p">(</span><span class="n">purple</span><span class="p">))</span> <span class="n">lag_ci_opt6</span><span class="p">(</span><span class="n">color</span><span class="p">(</span><span class="n">purple</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">graph</span> <span class="k">export</span> <span class="s2">&#34;five_estimators_example.png&#34;</span><span class="p">,</span> <span class="n">replace</span>  <span class="o">//</span> <span class="err">导出图形</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="分享两个有趣的-stata-命令">分享两个有趣的 stata 命令</h2>
+<h3 id="manyiv">Manyiv</h3>
+<p>Stata 命令下载：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">net install manyiv, from(&#34;https://raw.githubusercontent.com/gphk-metrics/stata-manyiv/main/&#34;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用例子如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">clear
+</span></span><span class="line"><span class="cl">sysuse auto
+</span></span><span class="line"><span class="cl">manyiv price ( trunk = weight ), absorb( gear_ratio ) absorbiv( foreign ) forcejive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后你就会得到各种改进版的 iv 估计结果（适合凑工作量）<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">           Coef.      Hetero
+</span></span><span class="line"><span class="cl">           -----      ------
+</span></span><span class="line"><span class="cl">   OLS  152.3933  (101.9636)
+</span></span><span class="line"><span class="cl">  TSLS  560.1103  (370.5976)
+</span></span><span class="line"><span class="cl">  LIML  600.0703  (383.4885)
+</span></span><span class="line"><span class="cl">MBTSLS  635.8036  (395.9637)
+</span></span><span class="line"><span class="cl">  JIVE  946.7464  (841.9874)
+</span></span><span class="line"><span class="cl"> UJIVE  648.4012  (405.8049)
+</span></span><span class="line"><span class="cl"> RTSLS  645.6237         (.)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>对工具变量强度的敏感性</th>
+<th>样本量要求</th>
+<th>典型使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OLS</strong> (普通最小二乘)</td>
+<td>不使用工具变量</td>
+<td>无特殊要求</td>
+<td>对照基准</td>
+</tr>
+<tr>
+<td><strong>TSLS</strong> (两阶段最小二乘)</td>
+<td>对弱工具高度敏感；弱时估计显著偏向OLS</td>
+<td>需要中大型样本以获得较好性质</td>
+<td>标准 IV 分析</td>
+</tr>
+<tr>
+<td><strong>LIML</strong> (有限信息极大似然)</td>
+<td>相对不敏感于弱工具；可设计权重近似消除2SLS偏差</td>
+<td>适用于大型样本和多工具情形</td>
+<td>多个（且可信）工具变量时，对抗弱工具偏差</td>
+</tr>
+<tr>
+<td><strong>MBTSLS</strong> (改进偏差TSLS)</td>
+<td>适用于多工具场景；修正弱工具偏差</td>
+<td>需要较大样本来估计偏差修正项</td>
+<td>存在众多工具或潜在仪器失效时</td>
+</tr>
+<tr>
+<td><strong>JIVE</strong> (Jackknife IV)</td>
+<td>减少弱工具偏差，可在多工具下保持一致</td>
+<td>中大型样本（因 leave-one-out 特性）</td>
+<td>许多工具、异方差存在或需消除2SLS偏差</td>
+</tr>
+<tr>
+<td><strong>UJIVE</strong> (无偏 JIVE)</td>
+<td>类似 JIVE，尤其针对处理效应异质情形</td>
+<td>中大型样本</td>
+<td>关注局部平均处理效应、多工具与异质效应场景</td>
+</tr>
+<tr>
+<td><strong>RTSLS</strong> (逆向 TSLS)</td>
+<td>敏感度同 TSLS；效应异质时估计不稳定</td>
+<td>无特殊要求，但结果常不可靠</td>
+<td>一般不常用，仅适用于特殊对称模型假设</td>
+</tr>
+</tbody>
+</table>
+<p>上面这个表格主要是顺便测试下对比下 GPT 和 grok3 的搜集能力，GPT 的更好所以放上来了。</p>
+<p>重点说明下 <code>JIVE(Jackknife IV)</code>，其实就是每个样本省略当前行。例如对于第 n 行，使用 n-1 个样本进行工具变量分析。同理，每个观测点都删去自己一行进行观察。这个方法是诺奖得主 <a href="https://www.jstor.org/stable/223249?seq=1" target="_blank" rel="noopener noreffer ">J. D. Angrist </a> 提出的。在法律经济学相关研究中，这个工具变量用的比较多，考虑每个法官具有异质性需要控制个体效应，此时比较适合用这种方法。</p>
+<h3 id="chgdiv6命令在stata中算铜钱卦">chgdiv6命令：在Stata中算铜钱卦</h3>
+<p>
+<figure><a class="lightgallery" href="/img/pythonGIS.zh-cn-20250524111744270.webp" title="如图" data-thumbnail="/img/pythonGIS.zh-cn-20250524111744270.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/img/pythonGIS.zh-cn-20250524111744270.webp"
+            data-srcset="/img/pythonGIS.zh-cn-20250524111744270.webp, /img/pythonGIS.zh-cn-20250524111744270.webp 1.5x, /img/pythonGIS.zh-cn-20250524111744270.webp 2x"
+            data-sizes="auto"
+            alt="/img/pythonGIS.zh-cn-20250524111744270.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>回归前来点玄学，详细参见</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1bGQtYFEte&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">【常规版】适合自己能解卦的
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  net install chgdiv6, from(https://gitee.com/chenshaoxuemei/chgdiv6/raw/master) replace 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">【chat版】适合不会解卦的
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  net install chgdiv6_chat, from(https://gitee.com/chenshaoxuemei/chgdiv6_chat/raw/master) replace 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  【备份版】一键下载两个命令（更加隐蔽）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">net install chgdiv6_bkp, from(https://gitee.com/chenshaoxuemei/chgdiv6_bkp/raw/master) replace
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>命令例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chgdiv6
+</span></span><span class="line"><span class="cl">\\当前时间起卦
+</span></span><span class="line"><span class="cl">chgdiv6 114514
+</span></span><span class="line"><span class="cl">\\数字起卦
+</span></span><span class="line"><span class="cl">chgdiv6 我买彩票能中一百万吗？
+</span></span><span class="line"><span class="cl">\\问题起卦
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>独作处理政府采购数据和裁判文书数据，感觉作者也太能肝了。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>遗憾的是这个命令似乎没有很多的适配输出文档的架构&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-05-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/python_cv/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" data-title=" 代码储存：python 年份、 stata 稳健性平行趋势检验" data-hashtags="Python,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" data-title=" 代码储存：python 年份、 stata 稳健性平行趋势检验"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" data-title=" 代码储存：python 年份、 stata 稳健性平行趋势检验"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/python_cv/" data-title=" 代码储存：python 年份、 stata 稳健性平行趋势检验" data-image="/img/pythonGIS.zh-cn-20250524111538182.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/python/">Python</a>,&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/fld/" class="prev" rel="prev" title="当我们反垄断时，反对的到底是什么？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>当我们反垄断时，反对的到底是什么？</a>
+            <a href="/zh-cn/posts/amateur_radio/" class="next" rel="next" title=" 业余无线电：泉盛 UV-K7 按键操作"> 业余无线电：泉盛 UV-K7 按键操作<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://img.foreverblog.cn/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://img.foreverblog.cn/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

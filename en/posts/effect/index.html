@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Causal Effec - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Causal Effec" />
+<meta property="og:description" content="This paper is a learning note on the recognition effect of causal inference methods, introducing the relationship between ATE, ATT, RCT, ITT, LATE" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/effect/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-28T18:27:40+08:00" />
+<meta property="article:modified_time" content="2024-02-28T18:27:40+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Causal Effec"/>
+<meta name="twitter:description" content="This paper is a learning note on the recognition effect of causal inference methods, introducing the relationship between ATE, ATT, RCT, ITT, LATE"/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/effect/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/dingyue/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/comment/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Causal Effec",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/effect\/"
+        },"genre": "posts","keywords": "Literature Review, Causal Effec","wordcount":  1990 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/effect\/","datePublished": "2024-02-28T18:27:40+08:00","dateModified": "2024-02-28T18:27:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/effect/">简体中文</option><option value="/en/posts/effect/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/effect/">简体中文</option><option value="/en/posts/effect/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Causal Effec</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-study/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Study</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1990 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp"
+        data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp 2x"
+        data-sizes="auto"
+        alt="/img/因果效应.en-20240523113925075.webp"
+        title="/img/因果效应.en-20240523113925075.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#from-ate-to-att">From ATE to ATT</a></li>
+    <li><a href="#rct-making-ate-approach-att">RCT: Making ATE approach ATT</a></li>
+    <li><a href="#from-itt-to-late">From ITT to LATE</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js server="netease" type="song" id="1833805540" theme="#448aff"></meting-js>
+<h1 id="1-what-are-the-causal-frameworks">1. What are the causal frameworks?</h1>
+<p>Today, with numerous causal frameworks emerging and various disciplines such as statistics (including pharmacology and psychology, each with its own statistical interpretation), economics, and computer science having their own schools of thought, the landscape has become intricate and diverse. It is intertwined and complex, and I am not entirely sure about the overall system.</p>
+<p>Personally, I have been exposed to Judea Pearl&rsquo;s Structural Causal Model (SCM) the most. Regarding his work &ldquo;The Book of Why,&rdquo;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> My personal understanding is that association-intervention-counterfactual represents the three levels of causality. The selection of control variables controls for backdoor paths, while setting instrumental variables controls for frontdoor paths.
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113809424.webp" title="Correlation does not imply causation; correlation does not discuss directionality. Causality is unidirectional, so we need directed acyclic graphs to guide us. After identifying pathways, we then analyze to envision a counterfactual world." data-thumbnail="/img/因果效应.en-20240523113809424.webp" data-sub-html="<h2> </h2><p>Correlation does not imply causation; correlation does not discuss directionality. Causality is unidirectional, so we need directed acyclic graphs to guide us. After identifying pathways, we then analyze to envision a counterfactual world.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113809424.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113809424.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113809424.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113809424.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.en-20240523113809424.webp" />
+    </a><figcaption class="image-caption">Correlation does not imply causation; correlation does not discuss directionality. Causality is unidirectional, so we need directed acyclic graphs to guide us. After identifying pathways, we then analyze to envision a counterfactual world.</figcaption>
+    </figure></p>
+<p>The knowledge about ATE (Average Treatment Effect), ATT (Average Treatment Effect for the Treated), ITT (Intention-to-Treat), and LATE (Local Average Treatment Effect) appears sporadically in &ldquo;Mostly Harmless Econometrics&rdquo; <sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. The entire framework is based on Donald Rubin&rsquo;s proposal of the Potential Outcome Framework (also known as Rubin Causal Model, abbreviated as RCM).</p>
+<blockquote>
+<p>It&rsquo;s interesting that Judea Pearl (in &ldquo;The Book of Why&rdquo;) proposes that counterfactuals under causal pathways are the same as Rubin&rsquo;s concept of &ldquo;potential outcomes.&rdquo; However, Rubin responded that the two are completely different <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>and does not endorse the analysis method of path diagrams. (Personally, I find it difficult to understand Rubin&rsquo;s response, as in my view, the direction of arrows in SCM corresponds to the direction of addition and subtraction signs in RCM).</p>
+</blockquote>
+<p>As far as I know, causal analysis in statistics is currently divided into frequentist and Bayesian schools of thought. Research is conducted to understand causal inference through Markov chains. Personally, I am quite unfamiliar with this area of knowledge. My understanding of this topic mainly comes from educational videos by Fmajor on Bilibili.</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Qu4y1j7GS&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h1 id="2-more-details-about-rcm">2. More details about RCM</h1>
+<blockquote>
+<p>ATE (Average Treatment Effect), ATT (Average Treatment Effect for the Treated), ITT (Intention-to-Treat), and LATE (Local Average Treatment Effect) are different statistical estimators.</p>
+</blockquote>
+<h2 id="from-ate-to-att">From ATE to ATT</h2>
+<p>Starting from elementary school, we have been exposed to comparing and analyzing data using the mean of various groups. However, this type of group comparison is just the starting point for causal discussions. It is necessary to further decompose these group differences to explore causal relationships.</p>
+<p><strong>Average Treatment Effect (ATE)</strong>: The difference between the means of two groups is directly used as the estimator. It can be considered as the difference between the population means or as the mean difference between groups (e.g., in the estimation of twin data):</p>
+<p>$$\bar Y_1-\bar Y_0=\sum_{i=1}^{N}\frac{Y_{i}(1)-Y_{i}(0)}{N}$$</p>
+<p>Treating $D_i$ as the treatment variable, where $D_i = 1$ represents the experimental group and $D_i = 0$ represents the control group, the linear equation is as follows:</p>
+<p>$$\begin{align}Y_{i}&amp;=\begin{cases} Y_{1i} \quad if D_i = 1 \newline Y_{0i} \quad if D_i = 0 \end{cases} \newline &amp;=Y_{0i}+(Y_{1i}-Y_{0i})D_{i} \end{align}$$</p>
+<p>Subtracting the two equations, we obtain the following expression:</p>
+<p>$$\begin{aligned} &amp;\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\newline&amp; =\color{red}{\underbrace{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}_{\text{ATT}}  } \newline &amp;+\underbrace{\mathbf{E}[Y_{0i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=0]}_{SelectionBias} \end{aligned}$$</p>
+<p>Where $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ is intentionally introduced by us, representing another &ldquo;parallel universe&rdquo; that we wish to explore but cannot directly observe—<strong>assuming</strong> that the subgroup represented by $\mathbf{E}[Y_{\color{blue}{1i}}\mid D_{i}=1]$ did not receive the treatment in the parallel world. Their state is denoted as $\mathbf{E}[Y_{\color{blue}{0i}}\mid D_{i}=1]$, which is the &ldquo;potential outcome&rdquo; that Rubin aims to find.</p>
+<p>$\color{red}{\mathbf{E}\left[ Y_{1i}\mid D_{i}=1 \right] - \mathbf{E}[Y_{0i}\mid D_{i}=1]}$ represents the <strong>Average Treatment Effect on Treated (ATT)</strong>. There is no better controlled experiment than &ldquo;<strong>a binary choice splitting into two parallel universes</strong>&rdquo;, but no one can truly obtain such data! Therefore, economists attempt to estimate ATT through ATE, hence the introduction of randomized controlled trials (RCTs).</p>
+<h2 id="rct-making-ate-approach-att">RCT: Making ATE approach ATT</h2>
+<p>RCT stands for Randomized Controlled Trial, representing a <strong>randomized experiment</strong>. <strong>Under the conditions of a randomized experiment, ATE = ATT</strong>. Next, let&rsquo;s delve into the explanation:</p>
+<p>Subtracting the subgroup $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ from the subgroup that has never received treatment in the real world $\mathbf{E}[Y_{0i}\mid D_{i}=0]$, if the result is non-zero, selection bias occurs.</p>
+<blockquote>
+<p>The reason may be <strong>sampling selection bias</strong>: for example, conducting a fitness-related survey only at gyms would definitely not achieve effective comparison; another example is the well-known survivorship bias in the military, where the returned planes are the ones that survived, making it unreliable to estimate the areas that need reinforcement based on their damages.</p>
+</blockquote>
+<blockquote>
+<p>It could also be <strong>self-selection bias</strong>: for example, an uneven gender ratio in admissions does not necessarily indicate discrimination, as this analysis overlooks the gender ratio in application tendencies. Some genders may be more inclined to apply for more challenging positions, leading to higher rejection rates; police enforcement focusing more on a certain race does not necessarily imply discrimination, as it may simply reflect higher crime rates within that race.</p>
+<p><strong>Omitted variables, model errors, measurement errors, and insufficient sample size</strong> can all contribute to bias.</p>
+</blockquote>
+<p>If we use the method of randomized trials, the samples are randomly distributed. We hope that this randomized trial can average out some unobserved influencing variables, thereby making $D_i$ and $Y_{0i}$ independent, which means $\mathbf{E}[Y_{0i}\mid D_{i}=1]=\mathbf{E}[Y_{0i}\mid D_{i}=0]=\mathbf{E}[Y_{0i}]$.</p>
+<p>At this point, the estimation of ATE has been effectively simplified:</p>
+<p>$$\begin{aligned} &amp;\mathbf{E}[Y_{1i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=1]\newline&amp;=ATT =\mathbf{E}[\mathbf{Y}_{1i}-\mathbf{Y}_{0i}\mid D_{i}=1]  \newline &amp;=ATE=\mathbf{E}[Y_{1i}-Y_{0i}] \end{aligned}$$</p>
+<p>Further estimating through <strong>regression equations</strong>:</p>
+<p>$$\begin{align}Y_{i}&amp;=\begin{cases} Y_{1i} \quad if D_i = 1 \newline Y_{0i} \quad if D_i = 0 \end{cases} \newline &amp;=Y_{0i}+(Y_{1i}-Y_{0i})D_{i}  \newline &amp; =\alpha+\rho D_i+\eta_i  \end{align}$$</p>
+<p>$$\begin{aligned}&amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=1]=\alpha+\rho+\operatorname{\mathbf{E}}[\eta_i\mid D_i=1]\newline &amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=0]=\alpha+\operatorname{\mathbf{E}}[\eta_i\mid D_i=0]\end{aligned}$$</p>
+<p>We can obtain the difference between the two.</p>
+<p>$$\begin{aligned}&amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=1]-\operatorname{\mathbf{E}}[Y_i\mid D_i=0]\newline &amp;=\underbrace{\rho}_\text{Treatment effect}+\underbrace{\operatorname{\mathbf{E}}[\eta_i\mid D_i=1]-\operatorname{\mathbf{E}}[\eta_i\mid D_i=0]}_\text{secletion bias}\end{aligned}$$</p>
+<blockquote>
+<p>When there is selection bias $\eta_i \neq 0$, it means that the residual is correlated with $D_i$. We emphasize randomized trials because we hope that random intervention experiments can make the two unrelated, eliminating this selection bias. So when randomized trials are satisfied, $\eta_i=0$, $ATE \xrightarrow{RCT} ATT$.</p>
+<blockquote>
+<p>This also tells us why we should pay attention to residual analysis.</p>
+</blockquote>
+</blockquote>
+<h2 id="from-itt-to-late">From ITT to LATE</h2>
+<p><strong>Intention to Treat (ITT)</strong>. Although randomized intervention trials are useful, the variables we want to study are not always randomly distributed. For example, industrial land tends to aggregate around certain grades of land. In this case, buyers are not randomly distributed. In such scenarios, we consider other randomly distributed variables that may influence their decisions.</p>
+<p>It&rsquo;s more illustrative to first understand this using the path diagram of SCM:</p>
+<p>Angrist (2011) is a paper that examines the impact of participating in the Vietnam War on income. In this study, the variable of military enlistment was found to be problematic, so the author used enlistment eligibility as an instrumental variable. (Nostalgic for the era of short 6-page econometric papers)</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp" title="2SLS" data-thumbnail="/img/因果效应.en-20240523113925075.webp" data-sub-html="<h2> </h2><p>2SLS</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.en-20240523113925075.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.en-20240523113925075.webp" />
+    </a><figcaption class="image-caption">2SLS</figcaption>
+    </figure></p>
+<p>Clearly, there exists a process where an individual is first informed of their enlistment eligibility and then decides whether to enter the military.</p>
+<p>The ITT equation is as follows:</p>
+<p>It can be observed that the ITT estimate is quite similar to $\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]$, meaning that <strong>when</strong> $D_i$ and $Z_i$ are one-to-one corresponding, i.e., when $z=d$, <strong>ITT = ATE</strong>.</p>
+<ul>
+<li>$\pi_N$: Regardless of whether I am eligible or not, I will never join the military.</li>
+<li>$\pi_D$: Contrarian attitude, I will join the military if I am eligible, and I will refuse if I am not eligible.</li>
+<li>$\pi_A$: Regardless of whether I am eligible or not, I will always join the military.</li>
+<li>$\pi_C$: Compliance, I will join if eligible, and I will not join if not eligible.</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp" title="The source of the diagram is the Oxford courseware (Week 4 lecture): https://andy.egge.rs/teaching/causal_inference/" data-thumbnail="/img/因果效应.zh-cn-20240523113950695.webp" data-sub-html="<h2> </h2><p>The source of the diagram is the Oxford courseware (Week 4 lecture): https://andy.egge.rs/teaching/causal_inference/</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.zh-cn-20240523113950695.webp" />
+    </a><figcaption class="image-caption">The source of the diagram is the Oxford courseware (Week 4 lecture): https://andy.egge.rs/teaching/causal_inference/</figcaption>
+    </figure></p>
+<p>Due to the non-random distribution of $Di$, as we are based on a sample of military personnel for statistics, we have only the following equation:</p>
+<p>$$\begin{aligned} \mathbf{E}[D_i=1|Z_i=0]=\pi_A+\pi_D\newline \mathbf{E}[D_i=1|Z_i=1]=\pi_A+\pi_C \end{aligned}$$</p>
+<p>In this case, we cannot estimate $\pi_i$ separately for  $\pi_i$ , $i∈{A,C,D,N}$.</p>
+<p>However, due to the random distribution, the results will be proportional, allowing us to derive a linear equation:</p>
+<blockquote>
+<p><strong>The solution is to make an assumption —</strong> quite reminiscent of an economics joke. Here&rsquo;s the original joke:</p>
+<p>A physicist, a chemist, and an economist are stranded on a deserted island, starving. Suddenly, a can of food washes ashore. The physicist says, &ldquo;We can use rocks to apply momentum to the can, causing its surface to fatigue and rupture.&rdquo; The chemist says, &ldquo;We can make a fire, then heat the can, causing it to expand until it bursts.&rdquo; The economist then says, &ldquo;Let&rsquo;s assume we have a can opener&hellip;&rdquo;</p>
+</blockquote>
+<p>After introducing the assumption, we directly obtain the LATE:</p>
+<p>$$\mathrm{LATE}=\mathrm{CATE}_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi_{\mathcal{C}}}$$</p>
+<p>$$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$</p>
+<p>The <strong>LATE section</strong> heavily relies on the <a href="https://andy.egge.rs/teaching/causal_inference/" target="_blank" rel="noopener noreffer ">Oxford course material</a>. For a more algebraic explanation, refer to the <a href="https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf" target="_blank" rel="noopener noreffer ">Harvard course material</a> and &ldquo;Mostly Harmless Econometrics.&rdquo;</p>
+<h1 id="social-science-attributes-in-mathematical-economics">Social science attributes in mathematical economics</h1>
+<p>The social science attributes in mathematical economics are evident in the need to articulate assumptions that capture social phenomena. For instance, when studying unique policies, it&rsquo;s essential to argue that the policy affects everyone, reflecting the assumption of monotonicity. Similarly, when using instrumental variables, it&rsquo;s crucial to discuss the social relationship between the instrument and the explanatory variable. These assumptions serve as concise descriptions of social phenomena, highlighting the distinct social science nature of economic analysis.</p>
+<p>Recently, as I delve into advanced macroeconomics, I&rsquo;ve come to realize the methodical nature of this field. The techniques in advanced macroeconomics, such as the variational calculus and Lagrangian method, address optimization in classical models. However, the challenge lies in navigating through the myriad of assumptions and transformations imposed on each macroeconomic model. Whether it&rsquo;s manipulating formulas or introducing sudden assumptions, the goal is to distill economic phenomena into characteristic features and then formalize them mathematically. This, I believe, is the greatest challenge. Examples include the production function for knowledge (treating knowledge as a factor of production), the Cobb-Douglas production function (exhibiting constant returns to scale), household constraints (consumption discounting being less than wealth discounting), and household utility functions (risk aversion).</p>
+<p>In essence, the distinguishing factor between economists with a background in economics and those with a background in mathematics lies in the framework used to explore equilibrium, construct functions that capture economic phenomena, and formulate optimization constraints. This represents the essence of economic thinking and intuition that sets economists apart in the realm of mathematical economics.</p>
+<p>As an aside, I&rsquo;d like to share my <a href="https://zhuanlan.zhihu.com/p/613416303" target="_blank" rel="noopener noreffer ">notes on advanced macroeconomics</a>.</p>
+<h1 id="summarize">Summarize</h1>
+<p>Further examples illustrate that the Difference-in-Differences (DID) estimation is the Average Treatment Effect on the Treated (ATT); the Regression Discontinuity Design (RDD) estimation is the Local Average Treatment Effect (LATE); and the Instrumental Variable (IV) and RDD estimations are the same under certain conditions.</p>
+<p>ATT and LATE are what we aim for, longing for a perfect control experiment like the parallel universe, but what we have are only the Average Treatment Effect (ATE) and Intention to Treat (ITT).</p>
+<p>When the treatment variable (D) satisfies the Randomized Controlled Trial (RCT), ATE equals ATT.</p>
+<p>When D does not satisfy RCT but the instrumental variable (Z) does, and assuming monotonicity and relevance, we can construct IV or RDD, and in this case, ITT equals LATE.</p>
+<p>When neither D nor Z satisfies RCT, other methods are used to estimate counterfactual situations, such as cluster analysis (directly estimating the distribution of counterfactuals and contrasting it with the current clustering phenomenon through residual analysis), synthetic control, etc.</p>
+<p>Textbooks usually introduce matching theory to achieve these estimation assumptions.</p>
+<p>In conclusion, econometric models analyze causal relationships based on such potential outcome frameworks, advocating themselves as causal science.</p>
+<p>Seen in this light, doesn&rsquo;t it embody the magic of &ldquo;creating something out of nothing&rdquo; and &ldquo;inferring causes from effects&rdquo;?</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Pearl J, Mackenzie D. The book of why: the new science of cause and effect[M]. Basic books, 2018.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Joshua D. Angrist, Jörn-Steffen Pischke. &ldquo;Mostly Harmless Econometrics: An Empiricist&rsquo;s Companion&rdquo; [M]. Publisher: Princeton University Press, 2008.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-02-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/effect/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review,Causal Effec"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-image="/img/因果效应.en-20240523113925075.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/causal-effec/">Causal Effec</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/dingyue/" class="prev" rel="prev" title="Aggregated subscriptions: free movies, comics"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Aggregated subscriptions: free movies, comics</a>
+            <a href="/en/posts/comment/" class="next" rel="next" title="Setting Up Giscus Comment Section with Hugo">Setting Up Giscus Comment Section with Hugo<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

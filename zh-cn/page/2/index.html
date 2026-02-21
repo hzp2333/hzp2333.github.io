@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+	<meta name="generator" content="Hugo 0.122.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="滑翔闪&#39;S BLOG" />
+<meta property="og:description" content="This is my cool site" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="滑翔闪&#39;S BLOG"/>
+<meta name="twitter:description" content="This is my cool site"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/" /><link rel="alternate" href="/zh-cn/index.xml" type="application/rss+xml" title="滑翔闪&#39;S BLOG">
+    <link rel="feed" href="/zh-cn/index.xml" type="application/rss+xml" title="滑翔闪&#39;S BLOG"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/","inLanguage": "zh-CN","author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": "This is my cool site","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","name": "滑翔闪'S BLOG"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/" selected>简体中文</option><option value="/en/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/" selected>简体中文</option><option value="/en/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-avatar"><a href="/zh-cn/posts/" title="书中自有黄金屋"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" width="1024" height="1024" /></a></div><h1 class="home-title">滑翔闪</h1><div class="home-subtitle"><div id="id-3" class="typeit"></div></div><div class="links"><a href="https://github.com/hzp2333" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://steamcommunity.com/id/flytothemoon2333/" title="Steam" target="_blank" rel="noopener noreffer me"><i class="fab fa-steam fa-fw" aria-hidden="true"></i></a><a href="https://www.zhihu.com/people/nan-yang-xi-shu" title="知乎" target="_blank" rel="noopener noreffer me"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/zhihu.svg" aria-hidden="true"></i></a><a href="https://space.bilibili.com/39033282" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/bilibili.svg" aria-hidden="true"></i></a><a href="/zh-cn/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw" aria-hidden="true"></i></a></div><h3 class="home-disclaimer">在你步入了这一陌生而奇妙的思想花园之后，世界将永远不再是同一个世界了。而当你多年后回顾这段经历时，即使是当时你不甚理解的东西也将已经明显成熟。——萨缪尔森</h3></div>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/stata_font/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Stata%e5%9b%be%e7%89%87%e4%b8%ad%e8%8b%b1%e6%96%87%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae.zh-cn-20250707131852585.webp"
+        data-srcset="/img/Stata%e5%9b%be%e7%89%87%e4%b8%ad%e8%8b%b1%e6%96%87%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae.zh-cn-20250707131852585.webp, /img/Stata%e5%9b%be%e7%89%87%e4%b8%ad%e8%8b%b1%e6%96%87%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae.zh-cn-20250707131852585.webp 1.5x, /img/Stata%e5%9b%be%e7%89%87%e4%b8%ad%e8%8b%b1%e6%96%87%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae.zh-cn-20250707131852585.webp 2x"
+        data-sizes="auto"
+        alt="/img/Stata图片中英文字体设置.zh-cn-20250707131852585.webp"
+        title="/img/Stata图片中英文字体设置.zh-cn-20250707131852585.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/stata_font/"> Stata 图片中英文字体设置</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-07-07">2025-07-07</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-07-07">2025-07-07</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div><div class="content">经济论文中文排版时就得掌握的技能</div><div class="post-footer">
+        <a href="/zh-cn/posts/stata_font/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/amateur_radio/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604203540294.webp"
+        data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604203540294.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604203540294.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604203540294.webp 2x"
+        data-sizes="auto"
+        alt="/img/业余无线电-20250604203540294.webp"
+        title="/img/业余无线电-20250604203540294.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/amateur_radio/"> 业余无线电：泉盛 UV-K7 按键操作</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-06-04">2025-06-04</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-06-04">2025-06-04</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div><div class="content">CQCQCQ!🥰</div><div class="post-footer">
+        <a href="/zh-cn/posts/amateur_radio/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5/">业余无线电</a>,&nbsp;<a href="/zh-cn/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">软件推荐</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/fld/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%9e%84%e6%96%ad%e4%b8%8e%e5%8f%8d%e5%9e%84%e6%96%ad%e6%b3%95.zh-cn-20250501152216230.webp"
+        data-srcset="/img/%e5%9e%84%e6%96%ad%e4%b8%8e%e5%8f%8d%e5%9e%84%e6%96%ad%e6%b3%95.zh-cn-20250501152216230.webp, /img/%e5%9e%84%e6%96%ad%e4%b8%8e%e5%8f%8d%e5%9e%84%e6%96%ad%e6%b3%95.zh-cn-20250501152216230.webp 1.5x, /img/%e5%9e%84%e6%96%ad%e4%b8%8e%e5%8f%8d%e5%9e%84%e6%96%ad%e6%b3%95.zh-cn-20250501152216230.webp 2x"
+        data-sizes="auto"
+        alt="/img/垄断与反垄断法.zh-cn-20250501152216230.webp"
+        title="/img/垄断与反垄断法.zh-cn-20250501152216230.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/fld/">当我们反垄断时，反对的到底是什么？</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-05-01">2025-05-01</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-05-01">2025-05-01</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">迪迦奥特三问：什么是垄断，为什么要反垄断，如何反垄断？</div><div class="post-footer">
+        <a href="/zh-cn/posts/fld/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E4%BA%A7%E4%B8%9A%E7%BB%8F%E6%B5%8E%E5%AD%A6/">产业经济学</a>,&nbsp;<a href="/zh-cn/tags/%E7%BB%8F%E6%B5%8E%E6%B3%95/">经济法</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/sfjs/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420144302501.webp"
+        data-srcset="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420144302501.webp, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420144302501.webp 1.5x, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420144302501.webp 2x"
+        data-sizes="auto"
+        alt="/img/山西大同「订婚强奸案」二审：一个经济学视角.zh-cn-20250420144302501.webp"
+        title="/img/山西大同「订婚强奸案」二审：一个经济学视角.zh-cn-20250420144302501.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/sfjs/"> 山西大同「订婚强奸案」二审：司法精神与执行</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-04-20">2025-04-20</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-04-20">2025-04-20</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div><div class="content">山西大同「订婚强奸案」二审，个人认为核心争议在于司法精神与执行。这里个人想解释的是为什么案件会产生如此巨大的互联网争议。</div><div class="post-footer">
+        <a href="/zh-cn/posts/sfjs/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%B3%95%E5%BE%8B/">法律</a>,&nbsp;<a href="/zh-cn/tags/%E6%97%B6%E4%BA%8B/">时事</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/judge_iv/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/judgeiv.zh-cn-20250330144102848.webp"
+        data-srcset="/img/judgeiv.zh-cn-20250330144102848.webp, /img/judgeiv.zh-cn-20250330144102848.webp 1.5x, /img/judgeiv.zh-cn-20250330144102848.webp 2x"
+        data-sizes="auto"
+        alt="/img/judgeiv.zh-cn-20250330144102848.webp"
+        title="/img/judgeiv.zh-cn-20250330144102848.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/judge_iv/"> 审查员设计（Judge IV）：一种随机分配的因果推断</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-04-01">2025-04-01</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-04-01">2025-04-01</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">介绍一种兴起的工具变量——judgeiv。它的优点是能进一步检验随机分配、工具变量的单调性和排他性。</div><div class="post-footer">
+        <a href="/zh-cn/posts/judge_iv/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/%E6%B3%95%E5%BE%8B%E7%BB%8F%E6%B5%8E%E5%AD%A6/">法律经济学</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/mess/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp"
+        data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118161832879.webp 2x"
+        data-sizes="auto"
+        alt="/img/富种起源-20250118161832879.webp"
+        title="/img/富种起源-20250118161832879.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/mess/"> 马尔萨斯两部门模型</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-03-25">2025-03-25</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-03-25">2025-03-25</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a></span></div><div class="content">课堂展示使用，《富种起源》部分数理推导细节</div><div class="post-footer">
+        <a href="/zh-cn/posts/mess/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E5%8E%86%E5%8F%B2/">微观历史</a>,&nbsp;<a href="/zh-cn/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">宏观经济学</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/zcpg/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250320000404392.webp"
+        data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250320000404392.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250320000404392.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250320000404392.webp 2x"
+        data-sizes="auto"
+        alt="/img/让政策评估变得有趣.zh-cn-20250320000404392.webp"
+        title="/img/让政策评估变得有趣.zh-cn-20250320000404392.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/zcpg/">扭曲 or 意外：让政策评估变得有趣</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-03-19">2025-03-19</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-03-19">2025-03-19</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">介绍三篇论文选题，如何让政策评估的论文叙事变得有趣。</div><div class="post-footer">
+        <a href="/zh-cn/posts/zcpg/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%8F%91%E5%B1%95%E7%BB%8F%E6%B5%8E%E5%AD%A6/">发展经济学</a>,&nbsp;<a href="/zh-cn/tags/%E6%94%BF%E7%AD%96%E8%AF%84%E4%BC%B0/">政策评估</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/solow/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/solow.zh-cn-20250302234858768.webp"
+        data-srcset="/img/solow.zh-cn-20250302234858768.webp, /img/solow.zh-cn-20250302234858768.webp 1.5x, /img/solow.zh-cn-20250302234858768.webp 2x"
+        data-sizes="auto"
+        alt="/img/solow.zh-cn-20250302234858768.webp"
+        title="/img/solow.zh-cn-20250302234858768.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/solow/"> Solow 模型 matlab 模拟代码</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-03-02">2025-03-02</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-03-02">2025-03-02</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">Solow 模型 matlab 模拟代码，收敛和冲击变化的代码。</div><div class="post-footer">
+        <a href="/zh-cn/posts/solow/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/matlab/">Matlab</a>,&nbsp;<a href="/zh-cn/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">宏观经济学</a></div></div>
+</article><ul class="pagination"><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/zh-cn/">1</a>
+                    </span>
+                </li><li class="page-item active">
+                    <span class="page-link">
+                        <a href="/zh-cn/page/2/">2</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/zh-cn/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/zh-cn/page/4/">4</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/zh-cn/page/13/">13</a>
+                    </span>
+                </li></ul></div></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG","id-3":"无门无派，是个散修，俗称个人练习生"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"],"id-3":["id-3"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

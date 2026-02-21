@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>变分法学习笔记 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="变分法学习笔记" />
+<meta property="og:description" content="参考《动态最优化基础》（蒋中一）学习变分法，并介绍了变分法相关的悬链问题、最速降线、垄断厂商定价中的应用。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/bff/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-07T00:02:15+08:00" />
+<meta property="article:modified_time" content="2024-05-07T00:02:15+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="变分法学习笔记"/>
+<meta name="twitter:description" content="参考《动态最优化基础》（蒋中一）学习变分法，并介绍了变分法相关的悬链问题、最速降线、垄断厂商定价中的应用。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/bff/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/log0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "变分法学习笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/bff\/"
+        },"genre": "posts","keywords": "变分法, 动态优化","wordcount":  2174 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/bff\/","datePublished": "2024-05-07T00:02:15+08:00","dateModified": "2024-05-07T00:02:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/bff/" selected>简体中文</option><option value="/en/posts/bff/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/bff/" selected>简体中文</option><option value="/en/posts/bff/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">变分法学习笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-07">2024-05-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2174 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Cycloid_f.gif"
+        data-srcset="/img/Cycloid_f.gif, /img/Cycloid_f.gif 1.5x, /img/Cycloid_f.gif 2x"
+        data-sizes="auto"
+        alt="/img/Cycloid_f.gif"
+        title="/img/Cycloid_f.gif" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#泛函">泛函</a></li>
+    <li><a href="#变分法">变分法</a></li>
+    <li><a href="#悬链问题">悬链问题</a></li>
+    <li><a href="#最速降线问题">最速降线问题</a></li>
+    <li><a href="#垄断经济学问题">垄断经济学问题</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>只因变分法的优美在此记录学习笔记，参考书为《动态最优化基础》（蒋中一），对经济学学习者是非常友好的动态优化入门教材。</p>
+<p>本笔记是快速学习后的个人理解，若有不严谨之处，还请多多包涵。</p>
+<h2 id="泛函">泛函</h2>
+<p>先来谈谈函数学习，</p>
+<ul>
+<li>小学时开始接触未知数 $x$，</li>
+<li>中学时开始了解具体函数 $f(x)=ax+bx^2+c$，</li>
+<li>高中时开始了解抽象函数 $f(x)=f(-x)、f^\prime(x)=f(x)$</li>
+<li>大学开始了解隐函数 $y\prime=y+y\prime \prime$，解出的是一类函数。</li>
+</ul>
+<p>随着函数学习从具体走向抽象，我们开始掌握<strong>根据函数性质推断函数形式</strong>的能力。</p>
+<blockquote>
+<p>泛函中的<strong>非线性泛函</strong>，就是函数之函数，告诉特定函数特征，我们就能框定函数形式范围，最后根据约束选出最优的函数。</p>
+<p>例如厂商选择最优的生产过程、建筑师选择最好的建筑弧线&hellip;&hellip;</p>
+<p>以前，给定具体函数类型，我们寻找极值点；</p>
+<p>现在，给定函数特征，我们寻找最好的具体函数。</p>
+</blockquote>
+<p>一般而言，一个函数的特征约束可以用 $f(t,y(t),y\prime(t))$, 可以理解为 $f(时间，状态，方向)$。</p>
+<p>如下图，满足函数特征的从 a 到 b 的函数有三条，那条是最优的呢？于是引入了微积分算函数路径的极值。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp" title="满足约束的函数" data-thumbnail="/img/变分法速通.zh-cn-20240523094828444.webp" data-sub-html="<h2> </h2><p>满足约束的函数</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094828444.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094828444.webp" />
+    </a><figcaption class="image-caption">满足约束的函数</figcaption>
+    </figure>
+$$
+V(t)=\int_0^T{f(t,y,y^\prime)dt}
+$$
+随着函数形式 $y$ 发生变化，$V(t)$ 也会产生变化，这就是泛函的分析起点，我们想要的是通过寻找 $V(t)$ 的极值和其他约束，进而从一堆函数形式 $y$ 中找到最优路径 $y^*$</p>
+<h2 id="变分法">变分法</h2>
+<p>在接触导数时，求极限使用了逼近的形式：
+$$
+\lim_{\Delta x \rightarrow 0}{\frac{f(x+\Delta x )-f(x)}{\Delta x}}
+$$
+这里也采用类似的引入，假设最优函数为 $y^*$, 在其附近的一类函数使用 $y^*+\varepsilon P(t)$ 表示。</p>
+<blockquote>
+<p>注意 $P(0)=P(T)=0$</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp" title="函数表示" data-thumbnail="/img/变分法速通.zh-cn-20240523094806341.webp" data-sub-html="<h2> </h2><p>函数表示</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094806341.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094806341.webp" />
+    </a><figcaption class="image-caption">函数表示</figcaption>
+    </figure></p>
+<p>于是得到如下关于 $\varepsilon$ 的式子
+$$
+V(\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left(t\right)+\varepsilon p\left(t\right)}_{y(t)},\underbrace{y^{*}\left(t\right)+\varepsilon p^{\prime}\left(t\right)}_{y^{&rsquo;}\left(t\right)}]dt
+$$
+极值点一阶条件为 $\frac{dV}{d\varepsilon}=0$</p>
+<p><div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>微积分求导公式<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">$$
+\frac{\mathrm{d}}{\mathrm{d}t}\int_{g(t)}^{h(t)}F(x,t)\mathrm{d}x=F(h,t)\frac{\mathrm{d}h}{\mathrm{d}t}-F(g,t)\frac{\mathrm{d}g}{\mathrm{d}t}+\int_{g(t)}^{h(t)}\frac{\partial F}{\partial t}\mathrm{d}x
+$$</div>
+        </div>
+    </div>
+$$
+\begin{aligned}
+\frac{dV}{d\varepsilon}&amp; =\int_{0}^{T}\frac{\partial F}{\partial\varepsilon}dt=\int_{0}^{T}\Big(\frac{\partial F}{\partial y}\frac{dy}{d\varepsilon}+\frac{\partial F}{\partial y^{\prime}}\frac{dy^{\prime}}{d\varepsilon}\Big)dt  \\
+&amp;=\int_{0}^{T}\Bigl[F_{y}p\left(t\right)+F_{y}p^{\prime}\left(t\right)\Bigr]dt \\
+&amp;=\int_0^TF_yp\left(t\right)dt+\color{red}{\int_0^TF_{y^{\prime}}p^{\prime}(t)dt}=0
+\end{aligned}
+$$
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>局部转化<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">$$
+\frac{dy}{d\varepsilon}=\frac{d y^{*}\left(t\right)+\varepsilon p}{d\varepsilon}=P(t)
+$$
+同理 $\frac{dy^\prime}{d\varepsilon}=P^\prime(t)$</div>
+        </div>
+    </div></p>
+<p>接下来对 $\color{red}{红色部分}$ 变形，使用分部积分 $\int_{t=a}^{t=b}vdu=vu\mid_{t=a}^{t=b}-\int_{t=a}^{t=b}udv\quad(u=u(t),v=v(t))$
+$$
+\begin{align}
+&amp; \color{red}{\int_0^TF_{y^{\prime}}p^{\prime}(t)dt} \\
+&amp;=\begin{bmatrix}F_{y^{\prime}}p(t)\end{bmatrix}_0^T-\int_0^Tp(t)\frac d{dt}F_{y^{\prime}}dt\\
+&amp;=-\int_{0}^{T}p(t)\frac{d}{dt}F_{y^{\prime}}dt \\
+&amp;(因为P(0)=P(T)=0,详见P(t)干扰函数的设置图像)
+\end{align}
+$$
+将 $\color{red}{红色部分}$ 代入后可得：
+$$
+\int_0^Tp(t)[F_y-\frac d{dt}F_{y^{\prime}}]dt=0
+$$
+考虑到扰动函数 $P(t)$ 可以是任意函数，因此如果要满足上式为 0，只能是 $F_y-\frac d{dt}F_{y^{\prime}}$ 为0。</p>
+<p>于是我们得到了<strong>欧拉方程</strong>——
+$$
+F_y-\frac d{dt}F_{y^{\prime}}=0,t\in[0,T]
+$$
+当方程约束只包含三个变量，也就是 $F(t,y,y^\prime)$ 时，可以具体展开得到，
+$$
+\begin{aligned}
+\frac{dF_{y^{\prime}}}{dt}=&amp;\frac{\partial F_{y^{\prime}}}{\partial t}+\frac{\partial F_{y^{\prime}}}{\partial y}\frac{dy}{dt}+\frac{\partial F_{y^{\prime}}}{\partial y^{\prime}}\frac{dy^{\prime}}{dt}\\
+=&amp;F_{ty^{\prime}}+F_{yy^{\prime}}y^{\prime}(t)+F_{y^{\prime}y^{\prime}}y^{\prime\prime}(t)
+\end{aligned}
+$$
+展开得到 $F_{y^{\prime}y^{\prime}}y^{\prime\prime}(t)+F_{yy^{\prime}}y^{\prime}(t)+F_{ty^{\prime}}-F_{y}=0,t\in[0,T]$</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>一道题<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>给定泛函 $V(y)=\int_0^2(12ty+y^{\prime2})dt$</p>
+<p>欧拉方程通解为 $y^*(t)=t^3+c_1t+c_2$</p>
+</div>
+        </div>
+    </div>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>欧拉方程的推广<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>这里只说有哪些推广，不进一步展开。</p>
+<p>当 $F$ 泛函只含有部分变量，例如 $F(t,y\prime)、F(y,y\prime)、F(t,y)$ 时，各有快捷处理方式。</p>
+<p>欧拉方程的核心是 $F_y-\frac d{dt}F_{y^{\prime}}=0,t\in[0,T]$</p>
+<p>当 $F$ 泛函含多元变量，高次变量时，核心也是从这个起点进一步展开。</p>
+</div>
+        </div>
+    </div>
+<h2 id="悬链问题">悬链问题</h2>
+<p>想象两个柱子间挂一根红线用于晾衣服。</p>
+<p>建立坐标轴，将这根线绕着 x 轴绕一圈，这条线以怎样的曲度才能使绕一圈后的立体图形表面积最小呢？</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp" title="默默无闻的晾衣线也有大道理" data-thumbnail="/img/变分法速通.zh-cn-20240523094744425.webp" data-sub-html="<h2> </h2><p>默默无闻的晾衣线也有大道理</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094744425.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094744425.webp" />
+    </a><figcaption class="image-caption">默默无闻的晾衣线也有大道理</figcaption>
+    </figure></p>
+<p>考虑微元的勾股定理
+$$
+(ds)^2=(dx)^2+(dy)^2
+$$
+可以得到线段的微分
+$$
+\frac{ds}{dt}=\sqrt{1+\left(\frac{dy}{dt}\right)^2}=(1+y^{\prime2})^{1/2}
+$$
+按照线段进行微分，将每个微分的圆周长（$2\pi r$）积分就是旋转后的表面积。</p>
+<p>于是得到如下泛函：
+$$
+V(t)=\int_0^T 2\pi y ds=2\pi\int_0^Ty(1+y^{\prime2})^{1/2}dt
+$$
+将式子简化成以下式子：
+$$
+V(t)=\int_0^Ty(1+y^{\prime2})^{1/2}dt
+$$
+使用欧拉方程可以得到
+$$
+y(1+y^{\prime2})^{1/2}-yy^{\prime2}(1+y^{\prime2})^{-1/2}=c
+$$
+简单化简（尝试分母有理化、平方等手段消灭分母的平方根），就可以得到化简后的式子
+$$
+y^{\prime}\left(\equiv\frac{dy}{dt}\right)=\frac{1}{c}\sqrt{y^{2}-c^{2}}\\
+$$
+也就是
+$$
+\frac{cdy}{\sqrt{y^{2}-c^{2}}}=dt
+$$
+积分可得
+$$
+\int\frac{cdy}{\sqrt{y^2-c^2}}=c\ln\biggl(\frac{y+\sqrt{y^2-c^2}}c\biggr)+c_1=\int dt=t+c_2
+$$
+整理下上面式子的形式，并把$ c_1 、c_2 $两个任意常数整合为$ k $，即可得到通解
+$$
+y^{*}\left(t\right)=\frac{c}{2}\left[e^{\left(t+k\right)/c}+e^{-\left(t+k\right)/c}\right]
+$$
+而 <a href="https://zh.wikipedia.org/wiki/%E6%82%AC%E9%93%BE%E7%BA%BF" target="_blank" rel="noopener noreffer ">悬链曲线</a> 就是以下形式
+$$
+y=\frac{1}{2}(e^{t}+e^{-t})
+$$</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp" title="悬链曲线，图片来自维基百科" data-thumbnail="/img/变分法速通.zh-cn-20240523094705813.webp" data-sub-html="<h2> </h2><p>悬链曲线，图片来自维基百科</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094705813.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094705813.webp" />
+    </a><figcaption class="image-caption">悬链曲线，图片来自维基百科</figcaption>
+    </figure></p>
+<blockquote>
+<p>一个均匀质地的线带（例如晾衣绳）均匀受到引力作用下垂，弧度也能如此推出来。</p>
+<p>悬索桥、双曲拱桥、架空电缆都用到悬链线的原理。</p>
+<p>建筑设计中一般使用的是以下形式：
+$$
+y=c+a\cosh\frac{x}{a}
+$$
+自然社会，总是最优化控制！</p>
+</blockquote>
+<h2 id="最速降线问题">最速降线问题</h2>
+<p>试想一下，弹珠比赛中有三种滑滑梯，一个参赛选手只有一次选择机会，那么选哪种滑滑梯赛道，小球能最快到达终点呢？</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp" title="没错，滑滑梯也藏着大道理" data-thumbnail="/img/变分法速通.zh-cn-20240804223058150.webp" data-sub-html="<h2> </h2><p>没错，滑滑梯也藏着大道理</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240804223058150.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240804223058150.webp" />
+    </a><figcaption class="image-caption">没错，滑滑梯也藏着大道理</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp" title="来源，北京科技馆。想象古代建筑，哪种建筑弧线更容易排水，逻辑也是一样的" data-thumbnail="/img/变分法速通.zh-cn-20240523094621296.webp" data-sub-html="<h2> </h2><p>来源，北京科技馆。想象古代建筑，哪种建筑弧线更容易排水，逻辑也是一样的</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp"
+            data-srcset="/img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp 1.5x, /img/%e5%8f%98%e5%88%86%e6%b3%95%e9%80%9f%e9%80%9a.zh-cn-20240523094621296.webp 2x"
+            data-sizes="auto"
+            alt="/img/变分法速通.zh-cn-20240523094621296.webp" />
+    </a><figcaption class="image-caption">来源，北京科技馆。想象古代建筑，哪种建筑弧线更容易排水，逻辑也是一样的</figcaption>
+    </figure></p>
+<p>通过能量守恒关系可以得到
+$$
+\begin{align}
+\frac{1}{2}mv^2&amp;=mgy\\
+v&amp;=\sqrt{2gy}
+\end{align}
+$$
+在悬链问题中，已经介绍过线的微元为 $ds=(1+y^{\prime2})^{1/2}dt$</p>
+<p>所以考虑速度就是路程对时间求导
+$$
+v=\frac{ds}{dt}=\sqrt{1+y^{\prime2}}\frac{dx}{dt}
+$$
+联立以上方程
+$$
+\begin{cases}
+v=\sqrt{2gy}\\
+v=\sqrt{1+y^{\prime2}}\frac{dx}{\mathrm{d}t}
+\end{cases}
+$$
+得到
+$$
+dt=\frac{\sqrt{1+y^{\prime2}}}{\sqrt{2gy}}dx
+$$
+而目标泛函所求的是总体用时最短
+$$
+T=\int dt=\int\frac{\sqrt{1+y^{\prime2}}}{\sqrt{2gy}}dx
+$$
+根据欧拉方程可以得到
+$$
+2y^{\prime \prime}y+y^{\prime 2}+1=0
+$$
+完整解法推荐<a href="https://zhuanlan.zhihu.com/p/139018146" target="_blank" rel="noopener noreffer ">参考浅谈变分法</a>，而且里面还提到了关于这个问题其他数学家的解法。</p>
+<p>总之其中一种解的展示方法为 ($a、c$ 为任意实数)：
+$$
+\begin{cases}
+x=a(\theta-\sin\theta)+c\\
+y=a(1-\cos\theta)
+\end{cases}
+$$</p>
+<blockquote>
+<p>这个形式和摆线相关</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Cycloid_f.gif" title="来源维基百科" data-thumbnail="/img/Cycloid_f.gif" data-sub-html="<h2> </h2><p>来源维基百科</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Cycloid_f.gif"
+            data-srcset="/img/Cycloid_f.gif, /img/Cycloid_f.gif 1.5x, /img/Cycloid_f.gif 2x"
+            data-sizes="auto"
+            alt="/img/Cycloid_f.gif" />
+    </a><figcaption class="image-caption">来源维基百科</figcaption>
+    </figure></p>
+</blockquote>
+<h2 id="垄断经济学问题">垄断经济学问题</h2>
+<p>考虑垄断企业，利润函数写为 $F(P,P^\prime)$</p>
+<blockquote>
+<p>经济含义是垄断企业拥有自主定价权</p>
+</blockquote>
+<p>泛函则为
+$$
+V=\int F(P,P^\prime)dt
+$$
+代入欧拉方程可以得到
+$$
+F_{p^{\prime}p^{\prime}}p^{\prime \prime}+F_{pp^{\prime}}p^{\prime }-F_{p}=0
+$$
+解这种隐函数就得玩骚操作，两边同时乘以 $p^{\prime}$，然后整体变形
+$$
+\begin{aligned}
+&amp; \frac{d}{dt}(P^{\prime}F_{P^{\prime}}-F) \\
+&amp; = \frac{d}{dt}(P^{\prime}F_{P^{\prime}}) - \frac{d}{dt}F(P,P^{\prime}) \\
+&amp; = F_{P^{\prime}}P^{\prime\prime} + P^{\prime}\left(F_{PP^{\prime}}P^{\prime} + F_{P^{\prime}P^{\prime}}P^{\prime\prime}\right) - \left(F_{P}P^{\prime} + F_{P^{\prime}}P^{\prime\prime}\right) \\
+&amp; = P^{\prime}\color{red}{\left(F_{P^{\prime}P^{\prime}}P^{\prime\prime} + F_{PP^{\prime}}P^{\prime} - F_{P}\right)}
+\end{aligned}
+$$
+红色部分就是原式子</p>
+<p>此时得到
+$$
+F-P^{\prime}F_{P^{\prime}}=c
+$$
+$c$ 是常数，将 $F$ 写为常用利润函数 $\pi$，也就是以下关系
+$$
+\pi-P^{\prime}\frac{\pi}{\partial P^{\prime}}=c
+$$
+考虑<a href="https://etcnew.sdut.edu.cn/meol/analytics/resPdfShow.do;jsessionid=D8B075E94531C56DA0F681D5260DFCF9?resId=1084894&amp;lid=52541" target="_blank" rel="noopener noreffer ">静态垄断</a>，垄断企业只做一次定价决策（更细分的静态博弈还要考虑产品差异，信息差异，博弈顺序，厂商进出状态）。</p>
+<p>此时利润函数只和 $P$ 有关，和 $P^{\prime}$ 无关（毕竟都只有一次定价，压根就没产生过价格变化），显然 $P^{\prime}\frac{\pi}{\partial P^{\prime}}=0$, 此时 $\pi_s=c$。</p>
+<p>再在静态博弈的基础上考虑动态博弈，在进行第一次定价后，垄断厂商们开始进行多次定价，此时利润函数如下，
+$$
+\pi-P^{\prime}\frac{\pi}{\partial P^{\prime}}=\pi_s
+$$
+此时利润函数 $\pi$ 必然同时和和 $P$ 和 $P^{\prime}$ 有关，于是考虑 $\pi$ 和 $P^{\prime}$ 弹性，记为：
+$$
+\frac{\partial\pi}{\partial P^{\prime}}\frac{p^{\prime}}{\pi}=\varepsilon_{\pi P^{\prime}}
+$$
+再代入动态垄断博弈的公式中，得到如下关系式：
+$$
+\varepsilon_{\pi P^{\prime}}=1-\frac{\pi_\varepsilon}\pi
+$$
+也就是说，动态垄断中，厂商应根据这个关系式不断调整自己的利润函数。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-05-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/bff/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/bff/" data-title="变分法学习笔记" data-hashtags="变分法,动态优化"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/bff/" data-hashtag="变分法"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/bff/" data-title="变分法学习笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/bff/" data-title="变分法学习笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/bff/" data-title="变分法学习笔记" data-image="/img/Cycloid_f.gif"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8F%98%E5%88%86%E6%B3%95/">变分法</a>,&nbsp;<a href="/zh-cn/tags/%E5%8A%A8%E6%80%81%E4%BC%98%E5%8C%96/">动态优化</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/zoteronote/" class="prev" rel="prev" title="Zotero 7 Better note 实证经济学笔记模板"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Zotero 7 Better note 实证经济学笔记模板</a>
+            <a href="/zh-cn/posts/log0/" class="next" rel="next" title="计量经济学：Log (y&#43;1) 的转化是否可靠">计量经济学：Log (y+1) 的转化是否可靠<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

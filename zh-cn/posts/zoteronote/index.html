@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Zotero 7 Better note 实证经济学笔记模板 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Zotero 7 Better note 实证经济学笔记模板" />
+<meta property="og:description" content="随着 zotero 7 版本趋于稳定，个人把 zotero 经典 sci 文献阅读模板修改成更适合实证论文的笔记版本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-06T15:39:02+08:00" />
+<meta property="article:modified_time" content="2024-05-06T15:39:02+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Zotero 7 Better note 实证经济学笔记模板"/>
+<meta name="twitter:description" content="随着 zotero 7 版本趋于稳定，个人把 zotero 经典 sci 文献阅读模板修改成更适合实证论文的笔记版本"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/bff/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zotero 7 Better note 实证经济学笔记模板",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zoteronote\/"
+        },"genre": "posts","keywords": "Zotero, 文献阅读, 软件推荐","wordcount":  2135 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/zoteronote\/","datePublished": "2024-05-06T15:39:02+08:00","dateModified": "2024-05-06T15:39:02+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/zoteronote/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/zoteronote/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Zotero 7 Better note 实证经济学笔记模板</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a>&nbsp;<a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-06">2024-05-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2135 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135841642.webp"
+        data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135841642.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135841642.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135841642.webp 2x"
+        data-sizes="auto"
+        alt="/img/Zotero7Betternote模板.zh-cn-20240523135841642.webp"
+        title="/img/Zotero7Betternote模板.zh-cn-20240523135841642.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一better-note-的安装">一、Better note 的安装</a></li>
+    <li><a href="#二模板加入">二、模板加入</a>
+      <ul>
+        <li><a href="#模板-1极致简洁">模板 1：极致简洁</a></li>
+        <li><a href="#模板-2花里胡哨">模板 2：花里胡哨</a></li>
+        <li><a href="#模板载入与报错">模板载入与报错：</a></li>
+      </ul>
+    </li>
+    <li><a href="#三模板使用">三、模板使用</a></li>
+    <li><a href="#四经济学国内外">四、经济学国内外</a></li>
+    <li><a href="#其他-zotero-相关">其他 zotero 相关</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>众所周知，zotero 有很多神级插件, Better note 就是其中一个。我们可以直接在 zotero 里边读文献边写 markdown 笔记。</p>
+<p>很多时候老师会要求做 PPT 进行文献汇报。只要 markdown 模板写得好，当 PPT 用也不是不行（</p>
+<p>结合 zotero style 、茉莉花、绿青蛙、zoteroGPT、translate 等插件，我们还可以对<strong>笔记进行自动填充。</strong></p>
+<blockquote>
+<p>最近想出来的两个论文选题，一顿花哨操作，发现数据都不显著，又没有新灵感，于是回过头继续折腾数学和软件了。</p>
+<p>不显著恰恰说明了计量的可靠，不是强行显著，而是全民炼丹，总有人会挖到真正的宝藏，挖到的大佬会说，我挖到是因为有经济直觉和科研品味——这确实有点玄学了<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<p>写这个文章也是因为 zotero 7 更新后原来的模板不再兼容，同时我想加个适合自己的文献阅读笔记模板。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp" title="better note 经典的 sci 阅读模板，以上信息来自文件元信息读取" data-thumbnail="/img/Zotero7Betternote模板.zh-cn-20240523135612745.webp" data-sub-html="<h2> </h2><p>better note 经典的 sci 阅读模板，以上信息来自文件元信息读取</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero7Betternote模板.zh-cn-20240523135612745.webp" />
+    </a><figcaption class="image-caption">better note 经典的 sci 阅读模板，以上信息来自文件元信息读取</figcaption>
+    </figure></p>
+<h2 id="一better-note-的安装">一、Better note 的安装</h2>
+<p>github 项目地址：<a href="https://github.com/windingwind/zotero-better-notes" target="_blank" rel="noopener noreffer ">https://github.com/windingwind/zotero-better-notes</a></p>
+<p>项目<a href="https://github.com/windingwind/zotero-better-notes/discussions" target="_blank" rel="noopener noreffer ">讨论区</a>（discuss）就是大家分享模板的地方。</p>
+<h2 id="二模板加入">二、模板加入</h2>
+<p>复制我的模板，或者自己去讨论区复制想要的模板。</p>
+<h3 id="模板-1极致简洁">模板 1：极致简洁</h3>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp" title="内容是我自己阅读完写的，本模板不支持元数据自动导入，但小白也看得懂怎么修改代码标题" data-thumbnail="/img/Zotero7Betternote模板.zh-cn-20240523135630670.webp" data-sub-html="<h2> </h2><p>内容是我自己阅读完写的，本模板不支持元数据自动导入，但小白也看得懂怎么修改代码标题</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero7Betternote模板.zh-cn-20240523135630670.webp" />
+    </a><figcaption class="image-caption">内容是我自己阅读完写的，本模板不支持元数据自动导入，但小白也看得懂怎么修改代码标题</figcaption>
+    </figure></p>
+<p>文字部分就是标题，<code>&lt;h1&gt;</code> 代表一号标题，<code>&lt;/li&gt;</code> 代表无序列表。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>标题<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>创新与边际贡献<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>模型方法<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>数据：<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>因变量：<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>自变量：<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>控制变量：<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>稳健性和内生性 <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>机制检验<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>异质性<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>总结<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="模板-2花里胡哨">模板 2：花里胡哨</h3>
+<p>改自：<a href="https://github.com/windingwind/zotero-better-notes/discussions/771" target="_blank" rel="noopener noreffer ">自用SCI笔记模版</a></p>
+<p>可以在 <a href="https://github.com/windingwind/zotero-better-notes/discussions/973" target="_blank" rel="noopener noreffer ">github</a> 或者<a href="https://zhuanlan.zhihu.com/p/696175807" target="_blank" rel="noopener noreffer ">知乎</a>找到我改造后的源码。</p>
+<blockquote>
+<p>就是文章开始展示的图片。<br>
+需要额外安装 zotero style、绿青蛙、translate 插件作为模板支持。</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp" title="主要加了表格和修改标题" data-thumbnail="/img/Zotero7Betternote模板.zh-cn-20240523135644862.webp" data-sub-html="<h2> </h2><p>主要加了表格和修改标题</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero7Betternote模板.zh-cn-20240523135644862.webp" />
+    </a><figcaption class="image-caption">主要加了表格和修改标题</figcaption>
+    </figure></p>
+<p>由于 HUGO 博客不支持放 zotero 的 html 代码（放代码块里也会渲染出错），</p>
+<p>可以在 <a href="https://github.com/windingwind/zotero-better-notes/discussions/973" target="_blank" rel="noopener noreffer ">github</a> （ #973 ）找到源代码；也可以在<a href="https://zhuanlan.zhihu.com/p/696175807" target="_blank" rel="noopener noreffer ">知乎</a>找到代码。</p>
+<h3 id="模板载入与报错">模板载入与报错：</h3>
+<p><code>zotero 左上角</code> - <code>编辑</code> - <code>模板编辑器</code> - <code>新建</code> - <code>把代码复制到中间去</code> - <code>保存</code></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp" title="如图" data-thumbnail="/img/Zotero7Betternote模板.zh-cn-20240523135706608.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero7Betternote模板.zh-cn-20240523135706608.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<ul>
+<li>可能报错情况 1：<strong><em>Template New Template: 1714978248098 Error: ReferenceError: topItem is not defined</em></strong></li>
+</ul>
+<p>因为模板名称得是 <code>[Item]论文笔记</code> 的形式。别问，问就是 zotero 6 流传下来的底层代码。</p>
+<ul>
+<li>可能报错情况 2：<strong><em>Template Preview Error: TypeError: Zotero. ZoteroStyle. Data. Ztoolkit. ItemTree. FieldHooks. GlobalCache is undefined</em></strong></li>
+</ul>
+<p>这里是笔记模板通过 zotero style 读取文件元数据，如果版本不匹配就不行。</p>
+<p>本文代码对应,</p>
+<p><code>Zotero 7.0.0-beta.77+adaa61f2c版本</code> + <code>Ethereal Style4.4.2版本</code> + <code>Better note1.1.4-49</code>。</p>
+<blockquote>
+<p>也是因为 zotero 7 最近几个版本都是优化 bug ，版本比较平稳了我才决定更新下 better note 的模板。</p>
+<p>提醒一下， best note 版本还停留在 2023.12<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，所以笔记导出好像还有点问题。</p>
+</blockquote>
+<ul>
+<li>可能报错 3：很多人完成以上两步依旧报错，原因还是在于这个笔记模板要读取文件元数据，如果直接对着 pdf 附件而不是论文条目加笔记模板，由于没有元数据，也会出错。</li>
+</ul>
+<h2 id="三模板使用">三、模板使用</h2>
+<p>打开自己要阅读的文件 pdf 后（确定这个 pdf 有 zotero 条目信息）</p>
+<p>右侧条目笔记一排的加号-从模板新建条目笔记-然后在弹窗中打开自己要的模板即可。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp" title="右侧条目笔记一排的加号-从模板新建条目笔记" data-thumbnail="/img/Zotero7Betternote模板.zh-cn-20240523135728403.webp" data-sub-html="<h2> </h2><p>右侧条目笔记一排的加号-从模板新建条目笔记</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp 2x"
+            data-sizes="auto"
+            alt="/img/Zotero7Betternote模板.zh-cn-20240523135728403.webp" />
+    </a><figcaption class="image-caption">右侧条目笔记一排的加号-从模板新建条目笔记</figcaption>
+    </figure></p>
+<h2 id="四经济学国内外">四、经济学国内外</h2>
+<p>最后说点最近读论文的感想。目前，国内经济学家的风评极度不好，大家也说要学经济学必须出国（贫穷如我加英语不好当然选择国内苟着了）。我是赞同的，毕竟主流经济学框架就是来自西方。</p>
+<p>但是这不是一个总量比较问题，而是追击问题。国内大把高校连三高的优质教学资源都凑不出来<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，但是研究进度已经日新月异，也算是新生代把难度卷上去了（</p>
+<ul>
+<li>
+<p>10 年前，《经济研究》做个完整的回归流程就行。</p>
+</li>
+<li>
+<p>5 年前，计量经济学已经普及。</p>
+<p>毕业论文不写计量都要催着写计量。</p>
+</li>
+<li>
+<p>如今，中国工业经济、管理世界、世界经济，一看最近的，大片好论文已经是 <strong>数理模型定性+社会现实分析+计量论证三合一。</strong> 至少模板上已经完全对齐了国际标准。</p>
+<p>最近读的越来越多的论文、异质性、机制检验有点经由经济含义分析，从而使得检验混合的意思了？感觉大佬们颇有无招胜有招的感觉。</p>
+</li>
+</ul>
+<p>只考虑纯本土培养。研究规范性起来了，剩下的就是原创性思想，这个追上去起码还有 20 年时间吧？就算今年提出天才的创新理论，还要等 20 年理论经历历史和社会的考验。</p>
+<h2 id="其他-zotero-相关">其他 zotero 相关</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/624450256" target="_blank" rel="noopener noreffer ">滑翔闪：Word替代LaTex？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/673661938" target="_blank" rel="noopener noreffer ">滑翔闪：是否选择更新zotero6到7？</a></p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" target="_blank" rel="noopener noreffer ">滑翔闪：Zotero与经济期刊RSS订阅</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>最近我怀疑我是不是被洗脑了，天天经济学要讲有趣的故事，然而所谓的品味却不由自己决定。再说问题，现在我国经济这么多问题我却不能提出来一个能具体研究的问题，也太悲伤了&hellip;&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>zotero 6 更新到 7 炸了一大波插件的适配，而且我觉得越来越卡了。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>101 计划其实没有执行的土壤吧&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-05-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/zoteronote/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" data-title="Zotero 7 Better note 实证经济学笔记模板" data-hashtags="Zotero,文献阅读,软件推荐"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" data-hashtag="Zotero"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" data-title="Zotero 7 Better note 实证经济学笔记模板"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" data-title="Zotero 7 Better note 实证经济学笔记模板"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/" data-title="Zotero 7 Better note 实证经济学笔记模板" data-image="/img/Zotero7Betternote模板.zh-cn-20240523135841642.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/zotero/">Zotero</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">软件推荐</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/r2/" class="prev" rel="prev" title="R 语言笔记 2 : 数据清洗、绘图与计量"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>R 语言笔记 2 : 数据清洗、绘图与计量</a>
+            <a href="/zh-cn/posts/bff/" class="next" rel="next" title="变分法学习笔记">变分法学习笔记<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

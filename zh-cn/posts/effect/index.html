@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>因果效应 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="因果效应" />
+<meta property="og:description" content="本文是因果推断方法识别效应学习笔记，介绍 ATE、ATT、RCT、ITT、LATE 的关系" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/effect/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-28T18:27:40+08:00" />
+<meta property="article:modified_time" content="2024-02-28T18:27:40+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="因果效应"/>
+<meta name="twitter:description" content="本文是因果推断方法识别效应学习笔记，介绍 ATE、ATT、RCT、ITT、LATE 的关系"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/effect/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/dingyue/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/comment/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "因果效应",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/effect\/"
+        },"genre": "posts","keywords": "文献阅读, 因果效应","wordcount":  5296 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/effect\/","datePublished": "2024-02-28T18:27:40+08:00","dateModified": "2024-02-28T18:27:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/effect/" selected>简体中文</option><option value="/en/posts/effect/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/effect/" selected>简体中文</option><option value="/en/posts/effect/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">因果效应</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5296 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp"
+        data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 2x"
+        data-sizes="auto"
+        alt="/img/因果效应.zh-cn-20240523113902945.webp"
+        title="/img/因果效应.zh-cn-20240523113902945.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#因果框架有哪些">因果框架有哪些？</a></li>
+    <li><a href="#细说-rcm-因果效应">细说 RCM 因果效应</a>
+      <ul>
+        <li><a href="#引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</a></li>
+        <li><a href="#从-ate-到-att">从 ATE 到 ATT</a></li>
+        <li><a href="#rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</a></li>
+        <li><a href="#补充卢卡斯批判">补充——卢卡斯批判</a></li>
+        <li><a href="#从-itt-到-late">从 ITT 到 LATE</a></li>
+      </ul>
+    </li>
+    <li><a href="#数理经济中的社科属性">数理经济中的社科属性？</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>2017 年 Angrist 凭借计量因果推断的贡献获得诺奖，其后双重差分方法大行其道。计量经济学宣扬自己研究的是因果关系而非相关关系。这里要介绍的就是“潜在结果”框架下的因果效应。本文学习记录的原因是听了《世界经济》手把手第二期讲座。听了刘若鸿老师《工业用地价格与企业产能利用率》<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 论文分享后决定整理学习因果效应。</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1ag4y1e7Bm&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="因果框架有哪些">因果框架有哪些？</h2>
+<p>今因果框架众多，群雄并起，统计学（本家之外，药物学、心理学也各有自家统计理解）、经济学、计算机皆有流派，交错纵横，我也不清楚整个体系到底如何。</p>
+<p>个人接触比较多的是 Judea Pearl 的<strong>结构因果模型</strong>（Structural Causal Model, 简称 SCM）。对于他的著作《为什么》<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ，我个人理解是，关联-干预-反事实就是三个因果层级。工具变量的选用就是控制后门（保证唯一的外生影响），控制变量的设置就是控制前门。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp" title="相关不等于因果，相关性并不讨论方向。因果性是单向的，因此我们要有单向路径图指导。寻找路径后，再通过分析想像出“反事实”的世界。" data-thumbnail="/img/因果效应.zh-cn-20240523113749633.webp" data-sub-html="<h2> </h2><p>相关不等于因果，相关性并不讨论方向。因果性是单向的，因此我们要有单向路径图指导。寻找路径后，再通过分析想像出“反事实”的世界。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.zh-cn-20240523113749633.webp" />
+    </a><figcaption class="image-caption">相关不等于因果，相关性并不讨论方向。因果性是单向的，因此我们要有单向路径图指导。寻找路径后，再通过分析想像出“反事实”的世界。</figcaption>
+    </figure></p>
+<p>ATE、ATT、ITT、LATE 这部分知识在《基本无害的计量经济学》<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 中零散出现。整个框架是基于 Donald Rubin 提出的<strong>潜在结果框架</strong>(Potential Outcome Framework ，也叫 Rubin Causal Model，简称 RCM)<strong>。</strong></p>
+<blockquote>
+<p>有趣的是，Judea Pearl（在《为什么》中）提出因果路径下的反事实就是 Rubin 提出的&quot;潜在结果&quot;，不过 Rubin 回应两者完全不是一回事<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，并且不赞成路径图的分析方法。 （个人不太能理解 rubin 的回应，在我个人看来 SCM 的路径箭头方向对应的就是 RCM 的加减符号方向）。</p>
+</blockquote>
+<p>据我所知，目前因果分析在统计学中还分为频率学派、贝叶斯学派，研究通过马尔科夫链去理解因果推断。这方面个人就完全知之甚少了。个人对这块知识的了解完全来自于 B 站 up——Fmajor 的科普视频。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Qu4y1j7GS&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="细说-rcm-因果效应">细说 RCM 因果效应</h2>
+<blockquote>
+<p>ATE、ATT、ITT、LATE 是不同的统计估计量。</p>
+</blockquote>
+<h3 id="引言社会科学和自然科学面临的统计难题">引言：社会科学和自然科学面临的统计难题</h3>
+<p>社会科学和自然科学的统计学面临不同的挑战。对于物理学家、生物学家来说，他们不用在意无偏性——因为大部分自然科学的实验都可以轻而易举地找到对照组和实验组。</p>
+<p>经济学并非如此，经济学的统计学尤其在意大数定理、中心极限定理、渐近性。由于社会科学测量的政策效应、经济因素的影响很难像物理规律一样推广，数据收集和测量已经是难题，代表性、泛用性在这之上更是一个大难题。</p>
+<blockquote>
+<p>老人群体得到的数据不一定对青少年有效；美国数据得到的结论不一定对中国有效；明年的数据得到的结论不一定对今年的社会有效&hellip;&hellip;</p>
+</blockquote>
+<p>需要明确的是——在这种情况下，计量只是妥协性给出一种可信性革命的方法。而什么样的方法才能真正得到社会科学的因果关系，这是一个永无止境的难题，也是因果推断永恒魅力所在。</p>
+<h3 id="从-ate-到-att">从 ATE 到 ATT</h3>
+<p>从小学开始，我们就接触了使用各个数组的均值来进行比较分析。不过这种分组对比只是因果讨论的起点，需要进一步对这种分组差异进行分解，进而探讨因果关系。</p>
+<blockquote>
+<p>在 OLS 中，控制变量的思想含义可以通过 FWL 定理理解——保持其他变量不变。当解释变量为 01 二元变量时，就类似实验组和对照组的划分。</p>
+</blockquote>
+<p>计量最在意的，想要求得的变量是<strong>平均处理效应</strong>——如平行宇宙般完美的实验组和对照组。</p>
+<p>$\boxed{平均处理效应}$ （average treatment effect，简称 ATE）：<strong>直接用两组数据均值之差</strong>作为估计量。既可以看作总体均值相减，又可以看作分组相减的均值（例如双胞胎数据估计）：</p>
+<p>$$\bar Y_1-\bar Y_0=\sum_{i=1}^{N_1}\frac{Y_{i}(1)}{N_1}-\sum_{i=1}^{N_0}\frac{Y_{i}(0)}{N_0}$$</p>
+<p>将 $D_i$ 视为处理行为。 $D_i$ 为 1 为实验组，为 0 为对照组。产生线性方程如下：</p>
+<p>$$\begin{align}Y_{i}&amp;=\begin{cases} Y_{1i} \quad if D_i = 1 \newline Y_{0i} \quad if D_i = 0 \end{cases} \newline &amp;=Y_{0i}+(Y_{1i}-Y_{0i})D_{i} \end{align}$$</p>
+<p>例如自然科学的对照组实验组，数据一减就相当于整体的 ATE 。</p>
+<p>社会科学也想如此，但有很多问题，只能退而求其次：</p>
+<p>分组相减，可得如下式子（注意红色部分）：</p>
+<p>$$\begin{aligned} &amp;\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\newline&amp; =\color{red}{\underbrace{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}_{\text{处理的平均处理效应ATT}}  } \newline &amp;+\underbrace{\mathbf{E}[Y_{0i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=0]}_{偏误} \end{aligned}$$</p>
+<p>其中 $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ 是我们主动添加的，是想要却无法直接找到的另一个”平行宇宙“——<strong>假如</strong>$\mathbf{E}[Y_{\color{blue}{1i}}\mid D_{i}=1]$ 部分群体，在平行世界没有没有接受处理，他们的状态表示为 $\mathbf{E}[Y_{\color{blue}{0i}}\mid D_{i}=1]$, 也就是 Rubin 想找到的&quot;潜在结果&quot;。</p>
+<p>$\color{red}{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}$ 代表着 $\boxed{处理组平均处理效应}$（Average Treatment Effect on Treated，简称 ATT）。</p>
+<p>同理，$\mathbf{E}\lfloor Y_{1i}\mid D_{i}=0\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=0]$ 代表 $\boxed{对照组平均处理效应}$ （Average Treatment Effect on Untreated，简称ATU）。采用同样的构造，构造出新的平行宇宙情况</p>
+<p>$$
+\begin{aligned}<br>
+&amp;\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\\  &amp; ={\underbrace{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=0\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=0]}_{\text{对照组的平均处理效应ATU}}  }\\
+&amp;+\underbrace{\operatorname{E}[Y_{1i}\mid D_{i}=1]-\operatorname{E}[Y_{1i}\mid D_{i}=0]}_{\operatorname*{\text{选择性偏误}}}
+\end{aligned}\\
+$$</p>
+<p>再没有比“<strong>一个二项选择分裂出两个平行宇宙</strong>”更好的对照试验了，然而没有人能真正获得这种数据！因此，经济学家的做法是想通过 ATE 来估计 ATT，于是引入了随机试验（RCT）。</p>
+<p><font color="#ff0000">强调</font>——实际上我们最想知道的一直是ATE（真正的实验组和对照组），但是我们只能观测到政策冲击推行以后的数据，因此才想从局部效应（ATT、ATU）推及到ATE。因此反事实也可以被看作修补出“缺失的数据”。</p>
+<p>也就是说，ATT 和 ATU 都是局部群体，并不是计量的终极目标—— ATE（整体）。</p>
+<h3 id="rct让-att-趋近-ate">RCT：让 ATT 趋近 ATE</h3>
+<p>RCT 全称为 Randomized controlled trial，代表 $\boxed{随机试验}$，<strong>在随机试验条件下，ATE=ATT</strong>，接下来展开介绍：</p>
+<p>平行世界分裂出的这部分群体 $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ 和现实一开始就没有接受过处理的群体 $\operatorname{E}[Y_{0i}\mid D_{i}=0]$ 相减，如果不为 0，就产生了选择性偏差。</p>
+<blockquote>
+<p>原因可能是<strong>样本选择偏差</strong>：例如我们做健身相关的调查，但只去健身馆收集数据，肯定不能实现有效对比；例如美军著名的飞机幸存者偏差，飞回来的飞机是活下来的飞机，通过他们身上的损伤估计需要加强的部位也是不可靠的；</p>
+<p>也可能是<strong>自选择偏差</strong>：例如入学性别比不均不代表歧视，因为这种分析忽略了性别比的申请倾向，某种性别的人更倾向于申请难度更高的，淘汰率也就更高；警察执法更关注某个种族也不代表就是歧视，看看那个种族犯罪频率是不是相对就高一些。</p>
+<p>也可以理解为<strong>个体差异</strong>，例如药物实验对老人、中年人、小孩的效应其实是不同等。一些人上网课效果更高，而另外一些人上网课效果更差。我们想估计是全部群体的平均效应，不想偏向某个局部群体。</p>
+<p><strong>遗漏变量、模型错误、测量错误、样本不足</strong>都可能导致。</p>
+</blockquote>
+<p><strong>如果我们采用随机试验的方法，样本是随机分布的</strong>。我们希望这种随机试验能把一些我们没观察到的影响变量给平均掉，进而使得 $D_i$ 和 $Y_{0i}$ 具有独立性，这意味着 $\mathbf{E}[Y_{0i}\mid D_{i}=1]=\mathbf{E}[Y_{0i}\mid D_{i}=0]=\mathbf{E}[Y_{0i}]$。</p>
+<p>此时 ATE 估计得到了有效的简化：</p>
+<p>$$\begin{aligned} &amp;\mathbf{E}[Y_{1i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=1]\newline&amp;=ATT =\mathbf{E}[\mathbf{Y}_{1i}-\mathbf{Y}_{0i}\mid D_{i}=1]  \newline &amp;=ATE=\mathbf{E}[Y_{1i}-Y_{0i}] \end{aligned}$$</p>
+<p>进一步通过<strong>回归式子</strong>来估计：</p>
+<p>$$\begin{align}Y_{i}&amp;=\begin{cases} Y_{1i} \quad if D_i = 1 \newline Y_{0i} \quad if D_i = 0 \end{cases} \newline &amp;=Y_{0i}+(Y_{1i}-Y_{0i})D_{i}  \newline &amp; =\alpha+\rho D_i+\eta_i  \end{align}$$</p>
+<p>由于</p>
+<p>$$\begin{aligned}&amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=1]=\alpha+\rho+\operatorname{\mathbf{E}}[\eta_i\mid D_i=1]\newline &amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=0]=\alpha+\operatorname{\mathbf{E}}[\eta_i\mid D_i=0]\end{aligned}$$</p>
+<p>可以得到两者相减</p>
+<p>$$\begin{aligned}&amp;\operatorname{\mathbf{E}}[Y_i\mid D_i=1]-\operatorname{\mathbf{E}}[Y_i\mid D_i=0]\newline &amp;=\underbrace{\rho}_\text{处理效应}+\underbrace{\operatorname{\mathbf{E}}[\eta_i\mid D_i=1]-\operatorname{\mathbf{E}}[\eta_i\mid D_i=0]}_\text{选择性偏误}\end{aligned}$$</p>
+<p>选择偏差 $\eta_i\ne0$ 时，意味着残差和 $D_i$ 相关。我们强调随机试验，就是希望随机干预试验能够使得二者无关，消除这种选择偏差。所以当满足随机试验时，$\eta_i=0$, $ATE\xrightarrow{RCT}ATT$。</p>
+<blockquote>
+<p>这也告诉了我们为什么要重视残差分析。</p>
+</blockquote>
+<h3 id="补充卢卡斯批判">补充——卢卡斯批判</h3>
+<p>政策随机性的一种体现是人们对政策的预期是一致的。而诺奖得主卢卡斯曾经有一个著名的观点：当政策实施以后，人们对政策就有了预期，这时候再把政策当成外生冲击是不合适的。预期应当被纳入决策分析。</p>
+<h3 id="从-itt-到-late">从 ITT 到 LATE</h3>
+<blockquote>
+<p>RCT 在意的是政策的外生性，但即便政策是外生的，人们对政策的反应也可能是内生的。</p>
+</blockquote>
+<p>$\boxed{意向性分析}$（Intention to treat，简称 ITT）。虽然随机干预试验很有用，但我们要研究的变量不总是随机分布的。例如刘若鸿老师的《工业用地价格与企业产能利用率》——研究工业用地集聚在某一档土地等级周围。此时买家们不讲武德，是有备而来，也就不是随机分布的。此时我们考虑其他随机分布的变量会影响他们的决策。</p>
+<p>先使用 SCM 的路径图来理解会更加形象：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp" title="图源：《因果推断实用计量方法 》(邱嘉平)我们想研究的变量D并不随机，于是我们找到了一个随机变量Z，同时Z和D之间具有因果关系。" data-thumbnail="/img/因果效应.zh-cn-20240523113840073.webp" data-sub-html="<h2> </h2><p>图源：《因果推断实用计量方法 》(邱嘉平)我们想研究的变量D并不随机，于是我们找到了一个随机变量Z，同时Z和D之间具有因果关系。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.zh-cn-20240523113840073.webp" />
+    </a><figcaption class="image-caption">图源：《因果推断实用计量方法 》(邱嘉平)我们想研究的变量D并不随机，于是我们找到了一个随机变量Z，同时Z和D之间具有因果关系。</figcaption>
+    </figure></p>
+<p>再举例 Angrist（2011）<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>的一篇论文，研究参加越南战争对收入的影响，里面参军变量不好使，就使用了入伍资格作为工具变量。（怀念短短 6 页的计量论文时代）</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp" title="论文其实就是用了2SLS" data-thumbnail="/img/因果效应.zh-cn-20240523113902945.webp" data-sub-html="<h2> </h2><p>论文其实就是用了2SLS</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.zh-cn-20240523113902945.webp" />
+    </a><figcaption class="image-caption">论文其实就是用了2SLS</figcaption>
+    </figure></p>
+<p>显然，存在这样一个过程，一个人先被告知有没有入伍资格，然后他决定是否进入军队。</p>
+<p>ITT 式子如下所示：</p>
+<p>$$ITT=\mathbf{E}[Y_i|Z_i=1]-\mathbf{E}[Y_i|Z_i=0]$$</p>
+<p>可以看出 ITT 估计和 $\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]$ 相当类似，也就是说，<strong>当</strong> $D_i$ 和 $Z_i$ 一一对应时，也就是 $z=d$ 时，<strong>ITT=ATE</strong>。</p>
+<ul>
+<li>$\pi_N$: 无论我有没有资格，我最终都不会参军。</li>
+<li>$\pi_D$: 逆反心态，有参军资格我偏不去，没有参军资格我偏要去。</li>
+<li>$\pi_A$: 无论我有没有资格，我最终都会去参军。</li>
+<li>$\pi_C$: 服从安排，有资格我就去，没资格我就不去。</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp" title="图源牛津课件（w4节)：https://andy.egge.rs/teaching/causal_inference/" data-thumbnail="/img/因果效应.zh-cn-20240523113950695.webp" data-sub-html="<h2> </h2><p>图源牛津课件（w4节)：https://andy.egge.rs/teaching/causal_inference/</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 2x"
+            data-sizes="auto"
+            alt="/img/因果效应.zh-cn-20240523113950695.webp" />
+    </a><figcaption class="image-caption">图源牛津课件（w4节)：https://andy.egge.rs/teaching/causal_inference/</figcaption>
+    </figure></p>
+<p>同时由于我们本来就是基于军人样本进行统计， $D_i$ 并非随机分布，因此只有如下式子：</p>
+<p>$$\begin{aligned} \mathbf{E}[D_i=1|Z_i=0]=\pi_A+\pi_D\newline \mathbf{E}[D_i=1|Z_i=1]=\pi_A+\pi_C \end{aligned}$$</p>
+<p>如此一来肯定不能单独估计出 $\pi_i(i\in{A,C,D,N})$ 了。</p>
+<p>不过由于随机分布，结果会成比例，可以变形出线性方程：</p>
+<p>$$ITT=\pi_CITT_C+\pi_AITT_A+\pi_NITT_N+\pi_DITT_D$$</p>
+<p>实际上，如果知道每个人对待抽签的反应，我们是可以计算所有 $π_i$ 的值的，但是计量要解决的恰恰是我们不知道总体样本点分布，因此做出假设：</p>
+<blockquote>
+<p><strong>解决办法是增加假设</strong> ——很有经济学笑话味道了。插入笑话原文：一个物理学家、一个化学家和一个经济学家漂流到孤岛上，十分饥饿。这时海面上漂來一个罐头。物理学家说：“我们可以用岩石对罐头施以动量，使其表层疲劳而断裂。”化学家说：“我们可以生火，然后把罐头加热，使它膨胀以至破裂。”经济学家则说：“假设我们有一个开罐头的起子……。”</p>
+</blockquote>
+<p>加入假设后，我们就直接得到了 LATE：</p>
+<p>$$\mathrm{LATE}=\mathrm{CATE}_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi_{\mathcal{C}}}$$</p>
+<p>此时估计如下：</p>
+<p>$$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$
+其实就是<strong>工具变量</strong>中的估计式子</p>
+<blockquote>
+<p>$$\beta^{IV}=[E(Z^\prime Z)−E(Z^\prime X)]^{-1}[E(Z^\prime Z)−E(Z^\prime Y)]$$ 矩阵表示含义—— X先对Z做回归，然后Y对Z做回归。</p>
+</blockquote>
+<p>所以也可以理解工具变量其实对样本添加了权重，越满足假设和工具变量相关的样本权重越高。</p>
+<p><strong>LATE 部分</strong>重点参考了<a href="https://andy.egge.rs/teaching/causal_inference/" target="_blank" rel="noopener noreffer ">牛津的课件</a>，如果想看相对代数化的说明可以参考<a href="https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf" target="_blank" rel="noopener noreffer ">哈佛的课件</a>和《基本无害的计量经济学》。</p>
+<h2 id="数理经济中的社科属性">数理经济中的社科属性？</h2>
+<p>直接说&quot;解决办法是添加几个假设&quot;未免有些太经济学地狱笑话了。从经济含义看更加直观，如果我们研究的政策足够独特，我们需要论述政策对每个人都有影响，也就是假设中的单调性。在使用工具变量时，也需要介绍工具变量和解释变量之间的社会关系。所以为何经济学计量区别于数学？这些假设就是对社会现象的描述总结，就是其社科属性的鲜明体现。</p>
+<p>比如我们的样本是医院样本——一般来说，没有病人不会去跟医生反着来；还比如我们的样本是政府政策，由于政府的强硬手段，没人能够跟政府反着来，因此确实其他反应就为0，大家都是顺从的反应。</p>
+<p>当然，实际上工具变量还是会有偏差（一般会增大估计量），所以要仔细理解自己选择的工具变量和 y 和 x 的关系。</p>
+<p>最近学习高级宏观也有所体悟。高宏的方法非常单调，变分法加拉格朗日基本解决了所有经典模型的最优化。难点在于每个高宏模型飞来飞去的假设条件和阴间变形。无论是公式变形还是突然施加的假设，都是提炼经济现象的一个特征，然后加以数学化，这才是最大的难点。例如知识生产函数（知识作为全要素）、科夫道格拉斯生产函数（规模报酬）、家庭约束（消费贴现小于财富贴现）、家庭效用函数（风险规避）。</p>
+<p>我开始认为——以怎样的框架挖掘均衡；通过经济现象构建具有特性的函数；总结出最优化约束条件才是经济学区别数理复合人才的“经济思想与直觉”。</p>
+<p>顺便插入下<a href="https://zhuanlan.zhihu.com/p/613416303" target="_blank" rel="noopener noreffer ">高宏笔记</a>。</p>
+<h2 id="总结">总结</h2>
+<p>进一步举例子说明，DID 估计是 ATE；RDD 估计是 LATE ；聚束分析是 LATE。</p>
+<p>ATE 和 LATE 是我们所求的，是我们渴望平行世界那样完善的对照试验，但我们有的只是 ATT 和 ITT。</p>
+<p>当 D 满足 RCT 时，ATT=ATE。</p>
+<p>当 D 不满足 RCT，但 Z 满足时，同时基于单调性和限制约束造出工具变量 (IV）或者 RDD，此时 ITT=LATE。</p>
+<p>当 D 不满足 RCT，Z 也找不到时，就采用其他方法估计反事实情况，例如群聚分析 (通过残差分析变形直接估计反事实的分布和当前集聚现象形成对比)、合成控制&hellip;&hellip;</p>
+<blockquote>
+<p>教材一般也会引入匹配论来实现这些估计假设。</p>
+</blockquote>
+<p>综上，计量模型就是基于这样的潜在结果框架分析因果关系，宣扬自己研究的是因果科学。</p>
+<p>如此一看，是否颇有&quot;无中生有&quot;,&ldquo;由果索因&quot;之妙也？</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>刘若鸿, 许晏君. 工业用地价格与企业产能利用率[J]. 世界经济,2023,46 (11): 103-127. DOI: 10.19985/j.cnki. Cassjwe. 2023.11.004. ↩ ↩&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Pearl J, Mackenzie D. The book of why: the new science of cause and effect[M]. Basic books, 2018.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>乔舒亚·安格里斯特, 约恩-斯特芬·皮施克. 基本无害的计量经济学[M]. 格致出版社, 2012.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Angrist J D, Chen S H, Song J. Long-term consequences of Vietnam-era conscription: New estimates using social security data[J]. American Economic Review, 2011, 101 (3): 334-338.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-02-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/effect/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/effect/" data-title="因果效应" data-hashtags="文献阅读,因果效应"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/effect/" data-hashtag="文献阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/effect/" data-title="因果效应"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/effect/" data-title="因果效应"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/effect/" data-title="因果效应" data-image="/img/因果效应.zh-cn-20240523113902945.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/dingyue/" class="prev" rel="prev" title="聚合订阅：影视、漫画、文献、音乐自由"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>聚合订阅：影视、漫画、文献、音乐自由</a>
+            <a href="/zh-cn/posts/comment/" class="next" rel="next" title="Hugo 搭建 Giscus 评论区">Hugo 搭建 Giscus 评论区<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

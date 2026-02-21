@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> LaTeX 与绘图 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" LaTeX 与绘图" />
+<meta property="og:description" content="LaTeX 的绘图经验。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-19T18:52:19+08:00" />
+<meta property="article:modified_time" content="2022-10-19T18:52:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" LaTeX 与绘图"/>
+<meta name="twitter:description" content="LaTeX 的绘图经验。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/latex/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/soul/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " LaTeX 与绘图",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/latex2\/"
+        },"genre": "posts","keywords": "LaTeX","wordcount":  1463 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/latex2\/","datePublished": "2022-10-19T18:52:19+08:00","dateModified": "2022-10-19T18:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/latex2/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/latex2/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> LaTeX 与绘图</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-19">2022-10-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1463 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204946084.webp"
+        data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204946084.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204946084.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204946084.webp 2x"
+        data-sizes="auto"
+        alt="/img/LaTeX入门2.zh-cn-20250103204946084.webp"
+        title="/img/LaTeX入门2.zh-cn-20250103204946084.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#软件下载">软件下载</a></li>
+    <li><a href="#环境配置-两种图片插入方式">环境配置 （两种图片插入方式）</a>
+      <ul>
+        <li><a href="#个人推荐直接代码插入">个人推荐：直接代码插入</a></li>
+        <li><a href="#图片引用插入">图片引用插入</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他工具">其他工具</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>众所周知，tikz 宏包是 latex 画图的神级宏包，但是代码确实难打。</p>
+<p>于是个人推荐使用 tikzit 软件，鼠标操作作画，然后自动转化成 latex 代码。</p>
+<h2 id="软件下载">软件下载</h2>
+<p>下载链接: <a href="https://tikzit.github.io/" target="_blank" rel="noopener noreffer ">TikZit</a></p>
+<p>建议上谷歌翻译，功能介绍耐心细致，
+这里不再重复作画教程，tikzit 页面简洁易懂。</p>
+<p>页面如下：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp" title="tikzit" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103203258581.webp" data-sub-html="<h2> </h2><p>tikzit</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103203258581.webp" />
+    </a><figcaption class="image-caption">tikzit</figcaption>
+    </figure></p>
+<h2 id="环境配置-两种图片插入方式">环境配置 （两种图片插入方式）</h2>
+<p>这里先强调环境配置。</p>
+<p>核心是还要自己下载宏包拓展—— <a href="https://tikzit.github.io/tikzit.sty" target="_blank" rel="noopener noreffer ">tikzit.sty</a></p>
+<p>同时有两种插入方式。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp" title="本段文字就在下载页面的插入latex部分，注意里面的蓝色超链接字体，点进去即可下载。" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103203412739.webp" data-sub-html="<h2> </h2><p>本段文字就在下载页面的插入latex部分，注意里面的蓝色超链接字体，点进去即可下载。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103203412739.webp" />
+    </a><figcaption class="image-caption">本段文字就在下载页面的插入latex部分，注意里面的蓝色超链接字体，点进去即可下载。</figcaption>
+    </figure></p>
+<p>本段文字就在下载页面的插入 LaTeX 部分，注意里面的蓝色超链接字体，点进去即可下载。</p>
+<h3 id="个人推荐直接代码插入">个人推荐：直接代码插入</h3>
+<p>首先将下载好的 <code>tikzit.sty</code> 和 LaTeX 论文软件放在同一主体下，</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp" title="将下载好的tikzit.sty和latex论文软件放在同一主体下" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103203444252.webp" data-sub-html="<h2> </h2><p>将下载好的tikzit.sty和latex论文软件放在同一主体下</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103203444252.webp" />
+    </a><figcaption class="image-caption">将下载好的tikzit.sty和latex论文软件放在同一主体下</figcaption>
+    </figure></p>
+<p>这样才能识别宏包</p>
+<p>LaTeX 宏包使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikzit<span class="nb">}</span> <span class="k">\\</span>使用宏包tikzit.sty
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当在 tikzit 做好图后，依次点击工具栏，<code>tool</code>，<code>jump to selection</code>，底部就会弹出 LaTeX 代码</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp" title="自动生成" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103203736095.webp" data-sub-html="<h2> </h2><p>自动生成</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103203736095.webp" />
+    </a><figcaption class="image-caption">自动生成</figcaption>
+    </figure></p>
+<p>整体环境代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikzit<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>nodelayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (0) at (-5.75, 1) <span class="nb">{</span>Y<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (2) at (-2, 0.75) <span class="nb">{</span>无差异曲线<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (3) at (-4, 4) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (4) at (2.25, -1) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (5) at (-5, 3.75) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (6) at (-5, -1.5) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (7) at (2.75, -1.5) <span class="nb">{}</span>;
+</span></span><span class="line"><span class="cl">		<span class="k">\node</span> [style=none] (8) at (-1, -2.25) <span class="nb">{</span>X<span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">	<span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>edgelayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">\draw</span> [bend right=45, looseness=1.50] (3.center) to (4.center);
+</span></span><span class="line"><span class="cl">		<span class="k">\draw</span> (6.center) to (7.center);
+</span></span><span class="line"><span class="cl">		<span class="k">\draw</span> (6.center) to (5.center);
+</span></span><span class="line"><span class="cl">	<span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp" title="页面" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103203827922.webp" data-sub-html="<h2> </h2><p>页面</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103203827922.webp" />
+    </a><figcaption class="image-caption">页面</figcaption>
+    </figure></p>
+<h3 id="图片引用插入">图片引用插入</h3>
+<p>过程就是，先利用 tikzit 保存多组自己作画的矢量图，然后编号，再插入 tex 中。</p>
+<blockquote>
+<p>（参考 latex 参考文献插入和图片插入的类似插入方式）</p>
+</blockquote>
+<p>具体过程，</p>
+<ul>
+<li>创建个文件夹，命名为 <code>tikzpaper</code>。</li>
+<li>把 <a href="https://tikzit.github.io/tikzit.sty" target="_blank" rel="noopener noreffer ">tikzit.sty</a> 放进里面</li>
+<li>在 <code>tikzpaper</code> 文件夹中创建一个叫 <code>figures</code> 的文件夹，把所有 tikzit 保存的作图保存在里面。</li>
+<li>在 tikzpaper 文件夹中创建 <code>paper.tex</code> 。</li>
+</ul>
+<p><code>paper.tex</code> 环境如下</p>
+<blockquote>
+<p>其中 <code>\tikzfig{ddd} </code> 和 <code>\ctikzfig{ddd} </code> 就是两种引用图片的方式，大括号{}里面就是保存在 figures 文件夹里的图片文件名。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="c">% paper.tex
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikzit<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">%\input{sample.tikzstyles}
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	A tikz picture as an equation:
+</span></span><span class="line"><span class="cl">	<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">\tikzfig</span><span class="nb">{</span>ddd<span class="nb">}</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	A centered tikz picture:
+</span></span><span class="line"><span class="cl">		<span class="k">\ctikzfig</span><span class="nb">{</span>ddd<span class="nb">}</span>	
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp" title="效果如图" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103204125035.webp" data-sub-html="<h2> </h2><p>效果如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103204125035.webp" />
+    </a><figcaption class="image-caption">效果如图</figcaption>
+    </figure></p>
+<h2 id="其他工具">其他工具</h2>
+<p>开源软件都是小巧玲珑的，不少解压即用。</p>
+<ul>
+<li><a href="https://www.mathcha.io/" target="_blank" rel="noopener noreffer ">mathcha</a>（网页，付费）</li>
+<li><a href="https://tikzcd.yichuanshen.de/" target="_blank" rel="noopener noreffer ">tikzcd-editor</a> (很多回答提到了这个网站，但麻烦的是里面没有告诉需要的宏包，但是现在有了 gpt 了影响不大）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span> <span class="k">\usetikzlibrary</span><span class="nb">{</span>cd<span class="nb">}</span> <span class="k">\\</span>tikz子包 调用关系图tikzcd命令环境
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="https://inkscape.org/" target="_blank" rel="noopener noreffer ">inkscape</a>（可以当成开源的 PS）</li>
+<li><a href="http://ipe.otfried.org/" target="_blank" rel="noopener noreffer ">ipe</a>（免费开源，但是目前没有汉化包，但页面都是图形为主）
+下载 ipe 时安装路径不要有中文，不然打开会出错
+（ipe 建议配合 B 站有个教学视频服用：<a href="https://www.bilibili.com/video/BV14E411u7Na/?spm_id_from=333.337.search-card.all.click&amp;vd_source=0e137afa81fa006aaa9f39b597699a06" target="_blank" rel="noopener noreffer ">B站教学</a>）</li>
+<li><a href="https://latexdraw.sourceforge.net/" target="_blank" rel="noopener noreffer ">latexdraw</a>（免费开源）</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp" title="LaTeXdraw" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103204450111.webp" data-sub-html="<h2> </h2><p>LaTeXdraw</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103204450111.webp" />
+    </a><figcaption class="image-caption">LaTeXdraw</figcaption>
+    </figure></p>
+<ul>
+<li><a href="http://tikzedt.org/" target="_blank" rel="noopener noreffer ">TikzEdit</a>（免费开源，英文，但通俗易懂
+
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp" title="tikzedit" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103204534530.webp" data-sub-html="<h2> </h2><p>tikzedit</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103204534530.webp" />
+    </a><figcaption class="image-caption">tikzedit</figcaption>
+    </figure></li>
+</ul>
+<p>Tikzedit 就像一个即时编译的 tex，页面也和 tex 完全一致</p>
+<blockquote>
+<p>TikzEdit 和 latexdraw 我都体验过，latexdraw 可视化编辑做得更好，文字位置颜色也能可视化调整位置。TikzEdit 则更多的是点位和线条的可视化移动编辑。但是两者对于箭头样式都不能可视化编辑。对于有一定基础的人，TikzEdit 更好用。</p>
+</blockquote>
+<ul>
+<li>邪道方法：花里胡哨的工具（例如 PPT，<a href="https://www.processon.com/" target="_blank" rel="noopener noreffer ">processon</a>（在线网页））作图，保存 PDF，然后剪切，作为 PDF 文件插入 latex 中（这样也可以减少 latex 的排版和代码运行压力）</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp" title="这个是我使用processon网页版随便画的图，不过里面的latex公式保存为PDF会失真，其他中文格式不会" data-thumbnail="/img/LaTeX入门2.zh-cn-20250103204622722.webp" data-sub-html="<h2> </h2><p>这个是我使用processon网页版随便画的图，不过里面的latex公式保存为PDF会失真，其他中文格式不会</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp 2x"
+            data-sizes="auto"
+            alt="/img/LaTeX入门2.zh-cn-20250103204622722.webp" />
+    </a><figcaption class="image-caption">这个是我使用processon网页版随便画的图，不过里面的latex公式保存为PDF会失真，其他中文格式不会</figcaption>
+    </figure></p>
+<p>以下是插入剪切后的 PDF 的局部环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-LaTeX" data-lang="LaTeX"><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\centering</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\includegraphics</span><span class="na">[width=0.8\textwidth,height=0.5\textwidth]</span><span class="nb">{</span>实践时间是.pdf<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\\</span>中括号是控制PDF大小长宽；大括号是PDF的名字
+</span></span><span class="line"><span class="cl">	<span class="k">\caption</span><span class="nb">{</span>标题<span class="nb">}</span> 
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">顺便补充下插入整页PDF文件的整体环境吧
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>article<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>pdfpages<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">\includepdf</span><span class="na">[pages={1,2,4,7}]</span><span class="nb">{</span>PDF的名字.pdf<span class="nb">}</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">\\</span>中括号里面的就是原PDF的页数
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-10-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/latex2/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" data-title=" LaTeX 与绘图" data-hashtags="LaTeX"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" data-hashtag="LaTeX"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" data-title=" LaTeX 与绘图"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" data-title=" LaTeX 与绘图"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/latex2/" data-title=" LaTeX 与绘图" data-image="/img/LaTeX入门2.zh-cn-20250103204946084.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/latex/">LaTeX</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/latex/" class="prev" rel="prev" title=" 如何在1小时内快速入手LaTeX？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 如何在1小时内快速入手LaTeX？</a>
+            <a href="/zh-cn/posts/soul/" class="next" rel="next" title="盛世与妖术并行，“权力幻觉”近在迟尺">盛世与妖术并行，“权力幻觉”近在迟尺<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Todesk 平板远程控制电脑的声音问题 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Todesk 平板远程控制电脑的声音问题" />
+<meta property="og:description" content="Todesk 平板远程控制电脑的声音问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-19T10:11:52+08:00" />
+<meta property="article:modified_time" content="2024-05-19T10:11:52+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Todesk 平板远程控制电脑的声音问题"/>
+<meta name="twitter:description" content="Todesk 平板远程控制电脑的声音问题"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/log0/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/ob/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Todesk 平板远程控制电脑的声音问题",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/todesk\/"
+        },"genre": "posts","keywords": "Todesk","wordcount":  1213 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/todesk\/","datePublished": "2024-05-19T10:11:52+08:00","dateModified": "2024-05-19T10:11:52+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/todesk/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/todesk/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Todesk 平板远程控制电脑的声音问题</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-19">2024-05-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1213 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134719672.webp"
+        data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134719672.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134719672.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134719672.webp 2x"
+        data-sizes="auto"
+        alt="/img/Todek远程控制.zh-cn-20240523134719672.webp"
+        title="/img/Todek远程控制.zh-cn-20240523134719672.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#电脑端">电脑端</a></li>
+    <li><a href="#平板端">平板端</a></li>
+    <li><a href="#注意事项">注意事项</a></li>
+    <li><a href="#串流方案简评">串流方案简评</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>个人目前<strong>最新串流方案</strong>是 moonlight，试过的各种串流方案评价放在结尾。</p>
+</blockquote>
+<p>最近终于换上了游戏本。考虑到我一般会背着电脑到处跑，我选了性价比游戏本中续航最强重量最轻的天选 3<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<p>但终究失算了，适应了一段时间后还是觉得太笨重，于是决定采用平板远程控制的方法。</p>
+<p>远程控制有很多方案：</p>
+<p>Todesk、向日葵、Teamviewer、RustDesk、Parsec&hellip;&hellip;</p>
+<blockquote>
+<p>速度、便利、画质，Todesk 都是第一（Parsec 更好，但链接需要外网支持），虽然免费版没有防窥屏，但放寝室里压根没人关注我的电脑屏幕 (</p>
+</blockquote>
+<p>个人控制：华为 matepad 柔光版+ Todek +天选 3 酷睿版</p>
+<p>这里主要介绍如何开启声音远程传递。</p>
+<h2 id="电脑端">电脑端</h2>
+<p>需要有声卡驱动协议把电脑声音传递到控制端。</p>
+<p>如果没有声卡驱动，创建如下 <code>.text</code> 文档，输入代码后修改为 <code>.bat</code> 结尾然后运行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-react" data-lang="react"><span class="line"><span class="cl"><span class="err">@</span><span class="nx">echo</span> <span class="nx">off</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">pushd</span> <span class="s2">&#34;%~dp0&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">dir</span> <span class="o">/</span><span class="nx">b</span> <span class="nx">C</span><span class="o">:</span><span class="err">\</span><span class="nx">Windows</span><span class="err">\</span><span class="nx">servicing</span><span class="err">\</span><span class="nb">Packages</span><span class="err">\</span><span class="nx">Microsoft</span><span class="o">-</span><span class="nx">Windows</span><span class="o">-</span><span class="nx">GroupPolicy</span><span class="o">-</span><span class="nx">ClientExtensions</span><span class="o">-</span><span class="nx">Package</span><span class="o">~</span><span class="mi">3</span><span class="o">*</span><span class="p">.</span><span class="nx">mum</span> <span class="o">&gt;</span><span class="nx">List</span><span class="p">.</span><span class="nx">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">dir</span> <span class="o">/</span><span class="nx">b</span> <span class="nx">C</span><span class="o">:</span><span class="err">\</span><span class="nx">Windows</span><span class="err">\</span><span class="nx">servicing</span><span class="err">\</span><span class="nb">Packages</span><span class="err">\</span><span class="nx">Microsoft</span><span class="o">-</span><span class="nx">Windows</span><span class="o">-</span><span class="nx">GroupPolicy</span><span class="o">-</span><span class="nx">ClientTools</span><span class="o">-</span><span class="nx">Package</span><span class="o">~</span><span class="mi">3</span><span class="o">*</span><span class="p">.</span><span class="nx">mum</span> <span class="o">&gt;&gt;</span><span class="nx">List</span><span class="p">.</span><span class="nx">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="sr">/f %%i in (&#39;findstr /i</span> <span class="p">.</span> <span class="nx">List</span><span class="p">.</span><span class="nx">txt</span> <span class="mi">2</span><span class="o">^&gt;</span><span class="nx">nul</span><span class="err">&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="nx">dism</span> <span class="o">/</span><span class="nx">online</span> <span class="o">/</span><span class="nx">norestart</span> <span class="o">/</span><span class="nx">add</span><span class="o">-</span><span class="kr">package</span><span class="o">:</span><span class="s2">&#34;C:\Windows\servicing\Packages\%%i&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">pause</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后启动声音调用：</p>
+<p>打开运行窗口，在运行窗口中输入 gpedit.msc 命令，点击确定按钮</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp" title="输入gpedit.msc命令" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134253440.webp" data-sub-html="<h2> </h2><p>输入gpedit.msc命令</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134253440.webp" />
+    </a><figcaption class="image-caption">输入gpedit.msc命令</figcaption>
+    </figure></p>
+<p>打开编辑界面</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp" title="打开本地组策略编辑器界面" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134313370.webp" data-sub-html="<h2> </h2><p>打开本地组策略编辑器界面</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134313370.webp" />
+    </a><figcaption class="image-caption">打开本地组策略编辑器界面</figcaption>
+    </figure></p>
+<p>在菜单栏中，依次选择【计算机配置】-【管理模板】-【所有设置】选项。
+
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp" title="选择配置" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134330911.webp" data-sub-html="<h2> </h2><p>选择配置</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134330911.webp" />
+    </a><figcaption class="image-caption">选择配置</figcaption>
+    </figure>
+滑动右侧的页面，找到允许音频和视频播放重定向选项，单击右键，选择编辑选项</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp" title="找到允许音频和视频播放重定向选项" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134530406.webp" data-sub-html="<h2> </h2><p>找到允许音频和视频播放重定向选项</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134530406.webp" />
+    </a><figcaption class="image-caption">找到允许音频和视频播放重定向选项</figcaption>
+    </figure>
+启动允许音频和视频播放重定向。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp" title="选择启用" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134555054.webp" data-sub-html="<h2> </h2><p>选择启用</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134555054.webp" />
+    </a><figcaption class="image-caption">选择启用</figcaption>
+    </figure></p>
+<h2 id="平板端">平板端</h2>
+<p>点击控制页面右下角的<strong>展开箭头</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp" title="键盘符号左侧的展开键" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134617698.webp" data-sub-html="<h2> </h2><p>键盘符号左侧的展开键</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134617698.webp" />
+    </a><figcaption class="image-caption">键盘符号左侧的展开键</figcaption>
+    </figure></p>
+<p>点击打开声音，打开成功后，对应键变成关闭声音</p>
+<p><strong>如果切换平板页面后回来没声音了，就关闭声音再开启。</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp" title="开启和关闭声音" data-thumbnail="/img/Todek远程控制.zh-cn-20240523134632726.webp" data-sub-html="<h2> </h2><p>开启和关闭声音</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp 2x"
+            data-sizes="auto"
+            alt="/img/Todek远程控制.zh-cn-20240523134632726.webp" />
+    </a><figcaption class="image-caption">开启和关闭声音</figcaption>
+    </figure></p>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>开启声音传递后，<strong>即便电脑静音，控制处依旧有声音</strong>，且声音大小调整由控制设备操控。</li>
+<li>由于平板一般都没有听筒，声音都默认外放。</li>
+<li>我使用的蓝牙耳机链接平板，有时外放有时能通过耳机播放。据我观察，应该是要<strong>先连接耳机和平板，然后远程控制</strong>，声音才会通过耳机传导而不是外放。</li>
+</ul>
+<h2 id="串流方案简评">串流方案简评</h2>
+<ul>
+<li>
+<p>华为：在天选上刷了个华为管家，进去里面的设置可以开启远程控制，在华为手机、平板的 <code>智慧连接</code> 里可以找到远程控制。<strong>包含隐私屏，速度不错，不支持游戏鼠标，画质比较低，相当于 todesk 多了个隐私屏</strong>。</p>
+</li>
+<li>
+<p>华硕：需要微软账号个人版，个人是家庭账号，用不了。</p>
+</li>
+<li>
+<p><a href="https://parsec.app/downloads" target="_blank" rel="noopener noreffer ">Parsec</a>: <strong>画质高、延迟低、支持游戏，没有隐私屏幕、搭建简便（只需要设备登录软件时挂梯子）</strong>。应该是一般情况下的最优解——然而华为平板不兼容，鼠标滚轮和声音播放会失效。</p>
+</li>
+<li>
+<p><a href="https://github.com/moonlight-stream" target="_blank" rel="noopener noreffer ">Moonlight</a> + <a href="https://github.com/LizardByte/Sunshine" target="_blank" rel="noopener noreffer ">sunshine</a>: parsec 的平替方案，而且针对 steam 做了优化，旮旯串流终极方案。美中不足是校园网每次随机分配 ip 还得重新设置一下。个人目前在用的就是这个方案。还有个缺点就是——偶尔声音还在卡顿一下，<strong>鼠标优化也比较差</strong>，在 <code>moonlight</code> 中修改成适合远程的鼠标有用，但是此时不再适配游戏<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>4060 配置，基本锁定暗影精灵 9，联想 y 7000，天选 3 中选一个。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>例如原神、星穹铁道这类隐藏鼠标的游戏，启用这个功能玩游戏时将失去鼠标转向功能。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-05-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/todesk/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" data-title="Todesk 平板远程控制电脑的声音问题" data-hashtags="Todesk"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" data-hashtag="Todesk"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" data-title="Todesk 平板远程控制电脑的声音问题"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" data-title="Todesk 平板远程控制电脑的声音问题"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" data-title="Todesk 平板远程控制电脑的声音问题" data-image="/img/Todek远程控制.zh-cn-20240523134719672.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/todesk/">Todesk</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/log0/" class="prev" rel="prev" title="计量经济学：Log (y&#43;1) 的转化是否可靠"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计量经济学：Log (y+1) 的转化是否可靠</a>
+            <a href="/zh-cn/posts/ob/" class="next" rel="next" title="Obsidian 管理文献阅读和博客文档">Obsidian 管理文献阅读和博客文档<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

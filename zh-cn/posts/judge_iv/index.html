@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> 审查员设计（Judge IV）：一种随机分配的因果推断 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" 审查员设计（Judge IV）：一种随机分配的因果推断" />
+<meta property="og:description" content="介绍一种兴起的工具变量——judgeiv。它的优点是能进一步检验随机分配、工具变量的单调性和排他性。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-04-01T15:30:19+08:00" />
+<meta property="article:modified_time" content="2025-04-01T15:30:19+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 审查员设计（Judge IV）：一种随机分配的因果推断"/>
+<meta name="twitter:description" content="介绍一种兴起的工具变量——judgeiv。它的优点是能进一步检验随机分配、工具变量的单调性和排他性。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/mess/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/sfjs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": " 审查员设计（Judge IV）：一种随机分配的因果推断",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/"
+        },"genre": "posts","keywords": "因果效应, 文献阅读, 法律经济学","wordcount":  2896 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/","datePublished": "2025-04-01T15:30:19+08:00","dateModified": "2025-04-01T15:30:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/judge_iv/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/judge_iv/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 审查员设计（Judge IV）：一种随机分配的因果推断</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-04-01">2025-04-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2896 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/judgeiv.zh-cn-20250330144102848.webp"
+        data-srcset="/img/judgeiv.zh-cn-20250330144102848.webp, /img/judgeiv.zh-cn-20250330144102848.webp 1.5x, /img/judgeiv.zh-cn-20250330144102848.webp 2x"
+        data-sizes="auto"
+        alt="/img/judgeiv.zh-cn-20250330144102848.webp"
+        title="/img/judgeiv.zh-cn-20250330144102848.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#发展历程">发展历程</a></li>
+    <li><a href="#实证分析">实证分析</a>
+      <ul>
+        <li><a href="#随机分配">随机分配</a>
+          <ul>
+            <li><a href="#方法一">方法一</a></li>
+            <li><a href="#方法二">方法二</a></li>
+          </ul>
+        </li>
+        <li><a href="#一阶回归可视化">一阶回归可视化</a>
+          <ul>
+            <li><a href="#单调性检验方法-1平均单调">单调性检验方法 1：平均单调</a></li>
+            <li><a href="#单调性检验方法-2多峰偏好">单调性检验方法 2：多峰偏好</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#仍值得探讨的地方">仍值得探讨的地方</a></li>
+    <li><a href="#推荐参考资料">推荐参考资料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>在混乱之中发现单纯 ——爱因斯坦</p>
+</blockquote>
+<p>大自然充满了魔力，<strong>随机分配</strong>让准自然实验成为可能，其也是因果推断的发源基石之一<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。一般认为，随机分配会平均掉和解释变量相关的偏差，进而得到具有良好特性的实验组和对照组。在 2022 年，一种基于随机分配的工具变量思想逐渐频繁登上了 top5 经济期刊。</p>
+<h2 id="发展历程">发展历程</h2>
+<p>举一个例子：</p>
+<ul>
+<li>大型社会考试时我们会祈祷遇上仁慈的改卷老师。</li>
+<li>贷款时我们会祈祷遇上宽松的审查员。</li>
+<li>旅游时我们祈祷期待遇上好心的路人。</li>
+</ul>
+<p>命运的随机分配充满了魔力，一些人确实被随机分配到了更为仁慈的审查员手里，于是他们的命运，相较于哪些随机分到了严格的审查员的人群产生了差异。这就是 <code>Judge_IV</code> 的核心因果思想，先量化这些审查员的严格程度。然后比较随机分配到他们手中的群体的未来发展差异，进而成为一种基于随机分配的因果推断。</p>
+<blockquote>
+<p>Judge leniency IV designs: Now not just for Crime Studies
+——<a href="https://blogs.worldbank.org/en/team/d/david-mckenzie" target="_blank" rel="noopener noreffer ">David McKenzie</a></p>
+</blockquote>
+<p>JUDGE – IV，也可以叫 Examiner Designs （审查员设计），或者 Judge leniency IV designs（仁慈法官工具变量）。这类工具变量的思想先起源于描述统计，当时有人统计了不同教师和不同法官的给分和判案倾向，发现了显著的差异性。2006 年有文章直接使用了这个工具变量作为检验。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250330145351804.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250330145351804.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250330145351804.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250330145351804.webp, /img/judgeiv.zh-cn-20250330145351804.webp 1.5x, /img/judgeiv.zh-cn-20250330145351804.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250330145351804.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>工具变量的构造非常检验，和其他工具变量的构造类似<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>——<strong>去中心化的均值期望</strong>。</p>
+<p>2018 年以后，不断有研究拓展了这种方法。这种测量关注的是审查员的严格程度。简单来说就是 <code>{通过，不通过}</code> 的概率。去中心化的数学期望分布在 0-1 之间，用于衡量严格程度。</p>
+<p>也就说，只要拥有随机分配的审查员和结果方向性，就可以尝试使用 judge iv 。例如家暴调查员是否选择带走孩子；美国的救护车公司是随机分配的，但他们的价格有高有低，在救援中会造成不同影响；房贷审查员有些人比较粗心，很容易就通过贷款申请&hellip;&hellip;</p>
+<h2 id="实证分析">实证分析</h2>
+<ul>
+<li>定义<strong>解释变量</strong> $D_i$  : 代表审查员的变化方向，通过为 1，不通过为 0。</li>
+<li>定义<strong>工具变量</strong> $Z_{a_{\{-i\}} }$  : 代表审查员<strong>除去当前案子</strong>的其他案子的通过率。</li>
+</ul>
+<p>两阶段回归便是：</p>
+<p>$$
+\text{一阶段：}D_i=Z_{a(-i)}\pi+\nu_i
+$$
+$$
+\text{二阶段:}Y_i=\alpha+\delta D_i+\epsilon_i
+$$</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>可比性：系数的经济意义是什么？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>随机分配到不同倾向性审查员后的被审查对象的 <strong>发展差异</strong>。</p>
+<p>工具变量写成矩估计的形式可以看作一种样本权重（GMM 框架下特殊的矩条件），而在这里比较的就是那些被分配到相似严格程度的法官的行为差异。这种情况也类似样本匹配的功效。</p>
+</div>
+        </div>
+    </div>
+<p>一般 iv 无法检验变量的排他性和单调性，只能通过理论阐述进行补充，但 jugeiv 的优势是它能够通过实验设计检验工具变量的单调性、排他性<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<h3 id="随机分配">随机分配</h3>
+<h4 id="方法一">方法一</h4>
+<blockquote>
+<p>使用工具变量或者解释变量对样本特征进行回归，不显著，或者 F 检验不通过，则说明样本特征并没有干预解释变量，也就是解释变量是外生的。</p>
+</blockquote>
+<p>在《Feedback and learning: The causal effects of reversals on judicial decision-making》中，作者通过案件的逆转方向（工具变量）对案件特征变量进行回归，皆不显著，验证了随机分配。也就说案件的结果和法官的特征是无关，每一个案件被随机分配到了不同的法官手中。</p>
+<p>随机分配也证明了工具变量的<strong>排他性</strong>。法官随机抽取一个案件然后判案，断绝了法官自身性格因素以外情况（例如权钱交易）。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250508195205074.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250508195205074.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250508195205074.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250508195205074.webp, /img/judgeiv.zh-cn-20250508195205074.webp 1.5x, /img/judgeiv.zh-cn-20250508195205074.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250508195205074.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>上面是使用解释变量对其他特征进行回归，通过 F 检验检验随机分配。</p>
+<h4 id="方法二">方法二</h4>
+<p>实验组和对照组的均值差异不大，则说明分组依据做到了随机。</p>
+<p>第二种更直观的检验随机分配的方法，就是比较实验组和对照组的平均特征差异。也就是使用案件特征对解释变量进行回归，此时经济意义就是对照组和实验组的平均差异。</p>
+<p>$$X_i=\beta\cdot PD_i+\alpha_{j(i)}+e_i$$
+下面这篇 <a href="https://escholarship.org/uc/item/3sd0f741" target="_blank" rel="noopener noreffer ">2025 年斯隆奖获奖</a>的博士论文研究的就是律师的随机分配，贫穷的被告会被随机分配到公共组织和私人组织的辩护律师。将律师特征作为工具变量对分配类型进行回归，经济系数接近于 0 且不显著，说明组间差异不大进而说明随机分配。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250508195601076.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250508195601076.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250508195601076.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250508195601076.webp, /img/judgeiv.zh-cn-20250508195601076.webp 1.5x, /img/judgeiv.zh-cn-20250508195601076.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250508195601076.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h3 id="一阶回归可视化">一阶回归可视化</h3>
+<h4 id="单调性检验方法-1平均单调">单调性检验方法 1：平均单调</h4>
+<p>一阶段回归同时检验了单调性与相关性。</p>
+<p>$$
+\text{一阶段：}D_i=Z_{a(-i)}\pi+\nu_i
+$$</p>
+<p>代码思路是，先使用 fwl 定理，让解释变量、工具变量分别对固定效应等控制变量做回归，对残差进行标准化，再使用残差进行局部线性拟合（stata 命令为 <code>lpoly</code>）。</p>
+<p>《EXAMINER AND JUDGE DESIGNS IN ECONOMICS: A PRACTITIONER&rsquo;S GUIDE》结果如图。研究的是不同倾向性法官与是否选择监禁的关系。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250330151702663.webp" title="NATIONAL BUREAU OF ECONOMIC RESEARCH|499" data-thumbnail="/img/judgeiv.zh-cn-20250330151702663.webp" data-sub-html="<h2> </h2><p>NATIONAL BUREAU OF ECONOMIC RESEARCH|499</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250330151702663.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250330151702663.webp, /img/judgeiv.zh-cn-20250330151702663.webp 1.5x, /img/judgeiv.zh-cn-20250330151702663.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250330151702663.webp" />
+    </a><figcaption class="image-caption">NATIONAL BUREAU OF ECONOMIC RESEARCH|499</figcaption>
+    </figure></p>
+<p>横坐标是标准化后的工具变量残差，衡量了审查员的严格程度。纵轴是对应的解释变量（具体时事件的审查结果）的残差。<strong>局部</strong>拟合呈现<strong>正相关</strong>的<strong>直线</strong>形状，通过检验。<strong>这种检验一般使用的是二次多项式局部回归</strong>。</p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>如果结果是连续的负相关直线能通过吗？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>答案是不能——正相关和较为平滑的直线<strong>趋势</strong>缺一不可。</p>
+<p>拟合系数为正，代表着，一个案件被分到更严格（仁慈）的审查员手中，不通过（通过）的概率与之相对越高。越后方的拟合系数必须高于前方的拟合系数，才能说明仁慈法官手中通过的案件到严格法官手中是不容易被通过的。</p>
+<p>系数为正不但验证了解释变量和被解释变量的相关性，还验证了法官之间案件通过率的单调性。</p>
+</div>
+        </div>
+    </div>
+<h4 id="单调性检验方法-2多峰偏好">单调性检验方法 2：多峰偏好</h4>
+<p>法官不能对一些类型的案件严格，另一些类型的案件宽松。可以尝试分类案件类型和案件严格程度进行一阶段回归的检验。《JUDGING JUDGE FIXED EFFECTS》演示的分组角度是案件类型和案件严重程度。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250330152704455.webp" title="《JUDGING JUDGE FIXED EFFECTS》" data-thumbnail="/img/judgeiv.zh-cn-20250330152704455.webp" data-sub-html="<h2> </h2><p>《JUDGING JUDGE FIXED EFFECTS》</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/judgeiv.zh-cn-20250330152704455.webp"
+            data-srcset="/img/judgeiv.zh-cn-20250330152704455.webp, /img/judgeiv.zh-cn-20250330152704455.webp 1.5x, /img/judgeiv.zh-cn-20250330152704455.webp 2x"
+            data-sizes="auto"
+            alt="/img/judgeiv.zh-cn-20250330152704455.webp" />
+    </a><figcaption class="image-caption">《JUDGING JUDGE FIXED EFFECTS》</figcaption>
+    </figure></p>
+<h2 id="仍值得探讨的地方">仍值得探讨的地方</h2>
+<ul>
+<li>Juge iv 的构造非常简单，但具体场所是否能使用<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>，怎样检验依旧值得讨论。尤其是工具变量的单调性。</li>
+<li>审查员设计必须是离散变量吗？不能是连续变量名？如果引入负权重会怎样影响估计结果<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>？</li>
+<li>如果一个事件有多个审查员呢？<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></li>
+<li>Juge iv 的渐进性要求体现在哪里？该聚焦被审查者次数还是审查员的工作次数？个人认为两者的样本规模都很重要。</li>
+</ul>
+<p>是不是很多人都有过这样的想法？若是某时某刻碰见了其他的人，我们的人生是否会变得不同？随机分配总会让我思考偶然与必然的关系。偶然中的必然——必然有人中彩票，只是那个人偶然是你。在知晓随机分配之后？我们又该如何看待命运？对于一个人来说，他该选择偶然的上限？还是平均值的下限<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>？</p>
+<h2 id="推荐参考资料">推荐参考资料</h2>
+<p>就目前而言，judgeiv 期刊论文以外的参考资料相对较少：</p>
+<p><a href="https://mp.weixin.qq.com/s/ZKEOQgUdBB_2vsTnSQw4bw" target="_blank" rel="noopener noreffer ">可能你一辈子都用不上的因果推断方法：仁慈法官工具变量</a></p>
+<p><a href="https://blogs.worldbank.org/en/impactevaluations/judge-leniency-iv-designs-now-not-just-crime-studies" target="_blank" rel="noopener noreffer ">世界银行经济学家发展经济学专栏作者博客</a></p>
+<p>个人格外推荐关注他们的<a href="https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0" target="_blank" rel="noopener noreffer ">计量技术主题</a>专栏。</p>
+<p><a href="https://www.youtube.com/watch?v=Aa0i54jxFa8" target="_blank" rel="noopener noreffer ">耶鲁大学的博士助教课（计量专题）</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>我们可以从最优化和因果推断两条线审视计量的发展。最优化是关于如何增强测量的一致性，因果推断是让我们思考如何设计实验过程。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>找工具变量的一些思路：关系之关系、遥远的历史变量、平均化、增长率，以及前面几类方法的组合。例如移动份额法工具变量 shift-share 就是去中心均值加上增长率。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>所有的计量检验都是检验必要条件而非充要条件。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>目前较为成熟的检验场景是司法数据，但其他场景的范式依旧没有定论。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Bhuller M, Sigstad H. 2SLS with multiple treatments[J]. Journal of Econometrics, 2024, 242(1): 105785.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Chyn E, Frandsen B, Leslie E C. Examiner and Judge Designs in Economics: A Practitioner&rsquo;s Guide[R]. National Bureau of Economic Research, 2024.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>其实这些方面更相关的是不确定性理论。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-04-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/judge_iv/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" data-title=" 审查员设计（Judge IV）：一种随机分配的因果推断" data-hashtags="因果效应,文献阅读,法律经济学"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" data-title=" 审查员设计（Judge IV）：一种随机分配的因果推断"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" data-title=" 审查员设计（Judge IV）：一种随机分配的因果推断"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/" data-title=" 审查员设计（Judge IV）：一种随机分配的因果推断" data-image="/img/judgeiv.zh-cn-20250330144102848.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a>,&nbsp;<a href="/zh-cn/tags/%E6%B3%95%E5%BE%8B%E7%BB%8F%E6%B5%8E%E5%AD%A6/">法律经济学</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/mess/" class="prev" rel="prev" title=" 马尔萨斯两部门模型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 马尔萨斯两部门模型</a>
+            <a href="/zh-cn/posts/sfjs/" class="next" rel="next" title=" 山西大同「订婚强奸案」二审：司法精神与执行"> 山西大同「订婚强奸案」二审：司法精神与执行<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

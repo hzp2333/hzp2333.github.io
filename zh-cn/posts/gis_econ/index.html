@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ArcGispro 操作简要 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="ArcGispro 操作简要" />
+<meta property="og:description" content="从 arcgis 更新到了 arcgispro" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-11-03T21:08:58+08:00" />
+<meta property="article:modified_time" content="2025-11-03T21:08:58+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="ArcGispro 操作简要"/>
+<meta name="twitter:description" content="从 arcgis 更新到了 arcgispro"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/rsc_econ/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/stata_auto/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ArcGispro 操作简要",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis_econ\/"
+        },"genre": "posts","keywords": "区域经济学, GIS","wordcount":  2255 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/gis_econ\/","datePublished": "2025-11-03T21:08:58+08:00","dateModified": "2025-11-03T21:08:58+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/gis_econ/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/gis_econ/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ArcGispro 操作简要</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-11-03">2025-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2255 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181862850.webp"
+        data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181862850.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181862850.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181862850.webp 2x"
+        data-sizes="auto"
+        alt="/img/Gispro操作简要.zh-cn-1762181862850.webp"
+        title="/img/Gispro操作简要.zh-cn-1762181862850.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#空间计量">空间计量</a>
+      <ul>
+        <li><a href="#空间关系">空间关系</a></li>
+        <li><a href="#为什么需要空间计量">为什么需要空间计量</a></li>
+      </ul>
+    </li>
+    <li><a href="#软件版本">软件版本</a></li>
+    <li><a href="#操作">操作</a>
+      <ul>
+        <li><a href="#基础设定">基础设定</a></li>
+        <li><a href="#缓冲区分析buffer">缓冲区分析（buffer）</a></li>
+        <li><a href="#邻接分析proximity">邻接分析（proximity）</a></li>
+        <li><a href="#栅格数据">栅格数据</a></li>
+        <li><a href="#网络分析">网络分析</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>空间分析与技术方法（简单实操）笔记。</p>
+</blockquote>
+<h2 id="空间计量">空间计量</h2>
+<h3 id="空间关系">空间关系</h3>
+<p>什么是区域经济学，核心是利用<strong>空间数据</strong>刻画<strong>空间关系</strong>。空间数据需要数据和位置。<strong>位置</strong>不只是经纬度，还有距离。<strong>距离</strong>不只是空间距离，文化相似度也可以看作一种距离，关系程度（省份 gdp 排名，同伴亲密关系）。定义<strong>位置关系</strong>的方式也多种多样，例如点相邻，边相邻&hellip;</p>
+<h3 id="为什么需要空间计量">为什么需要空间计量</h3>
+<p>推荐参考《<a href="https://zh.z-library.ec/book/16726690/efe0c9/%E7%A9%BA%E9%97%B4%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AF%BC%E8%AE%BA.html?ts=1509" target="_blank" rel="noopener noreffer ">空间计量经济学导论</a>》（James LeSage / R.Kelley Pac）</p>
+<ul>
+<li><strong>空间依赖</strong>：不同观测点的值互相影响。
+<ul>
+<li><strong>竞争、合作、模仿、扩散（空间溢出性）、对抗</strong>&hellip;&hellip;</li>
+<li>这种内生性可能是 a 地 x 影响了 b 地的 y；也可能是 a 地的 y 直接影响了 b 地的 y。</li>
+</ul>
+</li>
+<li><strong>空间自相关</strong>：对空间依赖的一种测度。
+<ul>
+<li><strong>空间异质性</strong>：空间依赖关系并不均匀分布。例如国内数据，可能东北是内部多地负相关，西南地区内部多地正相关关。</li>
+<li>测量也分为全局自相关和局部自相关。</li>
+</ul>
+</li>
+</ul>
+<p>因此，不同的空间自相关需要用不同的模型进行估计。</p>
+<h2 id="软件版本">软件版本</h2>
+<ul>
+<li>R、stata、matlab 各自有合适的空间计量包。</li>
+<li><a href="https://geodacenter.github.io/zh-Hans/" target="_blank" rel="noopener noreffer ">Geoda</a> 为免费开源的空间计量软件。</li>
+<li><strong>重点为 gis 软件</strong>：如果选择 <a href="https://www.arcgis.com/index.html" target="_blank" rel="noopener noreffer ">arcgis</a> 系列，其分为旧系列和 pro 系列。</li>
+<li>Arcgispro 是 arcgis 的升级版，但尚在迭代中，不稳定，<strong>理论上 pro 都能兼容旧版</strong>。由于国家需要版本稳定性，测绘的行业一般要求使用 <code>arcgis 10.2 版本</code> 或者 <code>arcgis 10.8 版本</code> 。网上大部分教程也是针对 arcgis 旧版的教程。</li>
+</ul>
+<p>个人是经济学专业，并非专业测绘，所谓学新不学旧，因此选择 arcgispro。官方帮助教材可以参考<a href="https://pro.arcgis.com/zh-cn/pro-app/latest/get-started/get-started.htm" target="_blank" rel="noopener noreffer ">官网网站</a>。</p>
+<blockquote>
+<p>个人以前也使用过旧版，记录过的步骤为<a href="https://blog.huaxiangshan.com/zh-cn/posts/gis/" target="_blank" rel="noopener noreffer ">转化 tif 为 excel</a>。个人感觉 pro 版本的页面更简介美观一些。</p>
+</blockquote>
+<h2 id="操作">操作</h2>
+<h3 id="基础设定">基础设定</h3>
+<p>学习 stata 要培养良好的代码文件管理习惯，例如从 do 文件入手，而 gis 也是从<strong>新建目录</strong>开始。新建的目录就是自己的工程项目。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp" title="如图" data-thumbnail="/img/Gispro操作简要.zh-cn-1762174389527.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762174389527.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>这里我新建了一个地图（<code>插入</code> - <code>新建地图</code>），目前是线上的默认全球地图。随意点击地图，正式开始工程。如果不满意页面布局，拖动几个选项框就可以换位置。</p>
+<p>可以看到<strong>右侧边缘</strong>有：</p>
+<ul>
+<li>目录：插入界面的 <code>添加文件夹</code>，可以把其他文件夹添加到目录内。后续在目录文件夹中新建处理图层。如果你有地图数据（<code>.geodatabase</code> 文件），也可以通过插入界面的 <code>连接</code> 把地图文件加载到目录的数据库中。</li>
+<li>地理处理：主要的分析工具。</li>
+<li>属性：数据属性，因为数据可能是边界轮廓、点面数据。</li>
+<li>历史：操作历史</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp" title="左侧是地图的内容，主要是图层显示管理 ，右侧是目录、工具栏" data-thumbnail="/img/Gispro操作简要.zh-cn-1762175832065.webp" data-sub-html="<h2> </h2><p>左侧是地图的内容，主要是图层显示管理 ，右侧是目录、工具栏</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762175832065.webp" />
+    </a><figcaption class="image-caption">左侧是地图的内容，主要是图层显示管理 ，右侧是目录、工具栏</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp" title="如图" data-thumbnail="/img/Gispro操作简要.zh-cn-1764340185120.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1764340185120.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>整个文件目录的环境，本质上是电脑文件夹，新建 <code>.gdb</code> 其实是 gis 工程的文件夹。<code>.gdb</code> 下面又可以新建要素数据集。然后要素数据集下面就是存放的 gis 数据。例如图中的就是 <code>ex22-网络分析-网络-下面一堆数据集文件</code>。</p>
+<p>每次创建新环境就是创建 <code>.gdb</code>，然后再在下面创建一个数据库，然后再导入我们要用的数据。</p>
+<h3 id="缓冲区分析buffer">缓冲区分析（buffer）</h3>
+<p>所谓缓冲区就是围绕边界或者点圈定范围。</p>
+<blockquote>
+<p>《<strong>立“竿”见影：策略性环境规制与环境质量结构性改善</strong>》（2024，<em>经济学季刊</em>（中文））就利用了 buffer 的策略。</p>
+<p>研究发现监测站设立后，距监测站4km范围内的PM2.5浓度降低幅度比4-8km区域多0.74%，表明监测站周围的环境质量呈现结构性改善（当地故意在检测站附近喷水美化考核指标）。其缓冲区分析就是<strong>通过 gis 软件识别了每个检测站周围 4km 的区域范围</strong>。</p>
+</blockquote>
+<p>右键右侧侧边栏 <code>目录</code> 页面下我们添加的文件夹。</p>
+<ol>
+<li>右键新建 <code>移动地理数据库</code>。</li>
+<li>右键新建的 <code>移动地理数据库</code></li>
+<li>新建 <code>要素类</code>：其中选择点数据类型，其他跟着提示走即可。</li>
+<li>可以发现左侧内容栏已经有了新建的点数据。</li>
+</ol>
+<p>这时候继续点击 <code>编辑</code> - <code>创建</code>，然后随便点击页面就可以创建点位。同理，按照前面的步骤创建 <code>面要素类</code>，对应的编辑就是创建不同的面数据。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp" title="编辑自建点数据，同理也可以自建面数据" data-thumbnail="/img/Gispro操作简要.zh-cn-1762177414904.webp" data-sub-html="<h2> </h2><p>编辑自建点数据，同理也可以自建面数据</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762177414904.webp" />
+    </a><figcaption class="image-caption">编辑自建点数据，同理也可以自建面数据</figcaption>
+    </figure></p>
+<p>此时点击 <code>地理处理工具栏</code>（工具箱形式图标），然后按照提示选择即可。例如这里我就针对点数据进行缓冲分析，要求其划定每个点 100000 米范围的区域，结果如图所示。缓冲自然也可以针对线数据。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp" title="缓冲区分析结果" data-thumbnail="/img/Gispro操作简要.zh-cn-1762176623535.webp" data-sub-html="<h2> </h2><p>缓冲区分析结果</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762176623535.webp" />
+    </a><figcaption class="image-caption">缓冲区分析结果</figcaption>
+    </figure></p>
+<h3 id="邻接分析proximity">邻接分析（proximity）</h3>
+<p>进一步，这里使用的工具为生成邻近表。</p>
+<p>例如这里输入和邻近都是同一个点数据集，含义为<strong>离自己最近的点数据是哪个</strong>？</p>
+<p>输出表格数据后右键打开即可。如果想要形象比较，右键 <code>内容</code> - <code>点文件</code> - <code>标注</code> 就是添加标签的操作。情况如下，例如第一个点距离最近的是第二个点。</p>
+<p>邻接分析可以分析点、线、面之间的相邻关系。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp" title="分析距离最近的点数据" data-thumbnail="/img/Gispro操作简要.zh-cn-1762178817771.webp" data-sub-html="<h2> </h2><p>分析距离最近的点数据</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762178817771.webp" />
+    </a><figcaption class="image-caption">分析距离最近的点数据</figcaption>
+    </figure></p>
+<p>邻接表只会默认把 FID 进行连接，想要添加名称标签就右键输出的邻接结果表然后 <code>添加和关联</code>。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp" title="如图" data-thumbnail="/img/Gispro操作简要.zh-cn-1762181791273.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1762181791273.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<h3 id="栅格数据">栅格数据</h3>
+<p>Gis 有矢量、栅格、图像数据。实际上遥感图像也是栅格数据，通过网格进行划分填色，例如手机照片像素点概念。</p>
+<p>不同的矢量转栅格插值方法不同，结果也不同。例如区域经济学中刻画<strong>城市形态</strong>其实是很困难的地方，<strong>例如城市中间有大山大河？此时如何插值？</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp" title="如图,这是一个人口密度的点集矢量数据" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129086988.webp" data-sub-html="<h2> </h2><p>如图,这是一个人口密度的点集矢量数据</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129086988.webp" />
+    </a><figcaption class="image-caption">如图,这是一个人口密度的点集矢量数据</figcaption>
+    </figure></p>
+<p>可以通过 <code>要素转栅格</code> 命令转化。典型的均匀涂色到对应的方格子之中。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp" title="直接对点数据转栅格" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129127588.webp" data-sub-html="<h2> </h2><p>直接对点数据转栅格</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129127588.webp" />
+    </a><figcaption class="image-caption">直接对点数据转栅格</figcaption>
+    </figure></p>
+<p>使用插值进行填充，这里使用 <code>插值</code> 中的<strong>反距离权重法</strong>。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp" title="反距离权重法对点数据进行插值" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129200989.webp" data-sub-html="<h2> </h2><p>反距离权重法对点数据进行插值</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129200989.webp" />
+    </a><figcaption class="image-caption">反距离权重法对点数据进行插值</figcaption>
+    </figure></p>
+<p>使用 <code>密度</code> 进行计算，这里使用 <code>核密度</code> 估计。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp" title="核密度" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129405819.webp" data-sub-html="<h2> </h2><p>核密度</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129405819.webp" />
+    </a><figcaption class="image-caption">核密度</figcaption>
+    </figure></p>
+<p>此外，通过 <code>表面-等值线</code> 还可以插入等高线。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp" title="等高线和核密度" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129520527.webp" data-sub-html="<h2> </h2><p>等高线和核密度</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129520527.webp" />
+    </a><figcaption class="image-caption">等高线和核密度</figcaption>
+    </figure></p>
+<p>如果想要修改分组层次，右键图层点击<code>符号系统</code>即可修改。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp" title="符号系统可以修改分组层次" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129597060.webp" data-sub-html="<h2> </h2><p>符号系统可以修改分组层次</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129597060.webp" />
+    </a><figcaption class="image-caption">符号系统可以修改分组层次</figcaption>
+    </figure></p>
+<p>例如在城市规划中，我们有了城市用地规划、人口密度、学校分布、道路交通的矢量密度图。接下来思考新学校修建在哪里？我们可以使用 <code>地图代数-栅格计算器</code> 叠加计算每个栅格数据的值。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp" title="如图" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129832685.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129832685.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>例如这里人口流量大，加五分，这里是山地，减少五分，这里有学校覆盖了，减少五分，最终得到新建学校的栅格分数。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp" title="我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。" data-thumbnail="/img/Gispro操作简要.zh-cn-1763129840413.webp" data-sub-html="<h2> </h2><p>我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 2x"
+            data-sizes="auto"
+            alt="/img/Gispro操作简要.zh-cn-1763129840413.webp" />
+    </a><figcaption class="image-caption">我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。</figcaption>
+    </figure></p>
+<h3 id="网络分析">网络分析</h3>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-11-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/gis_econ/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" data-title="ArcGispro 操作简要" data-hashtags="区域经济学,GIS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" data-hashtag="区域经济学"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" data-title="ArcGispro 操作简要"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" data-title="ArcGispro 操作简要"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/" data-title="ArcGispro 操作简要" data-image="/img/Gispro操作简要.zh-cn-1762181862850.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8C%BA%E5%9F%9F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">区域经济学</a>,&nbsp;<a href="/zh-cn/tags/gis/">GIS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/rsc_econ/" class="prev" rel="prev" title="四川省分家之后：政治规划与经济增长"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>四川省分家之后：政治规划与经济增长</a>
+            <a href="/zh-cn/posts/stata_auto/" class="next" rel="next" title="双剑合璧：VScode 与 Stata ">双剑合璧：VScode 与 Stata <i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>原神概率论：材料合成天赋选 10%双倍还是 25%返还？ - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" />
+<meta property="og:description" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-09T18:39:02+08:00" />
+<meta property="article:modified_time" content="2024-12-25T18:39:02+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"/>
+<meta name="twitter:description" content="原神概率论：材料合成天赋选 10%双倍还是 25%返还？网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/tl/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/art/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "原神概率论：材料合成天赋选 10%双倍还是 25%返还？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/genshin\/"
+        },"genre": "posts","keywords": "原神, 概率论","wordcount":  2570 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/genshin\/","datePublished": "2023-08-09T18:39:02+08:00","dateModified": "2024-12-25T18:39:02+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/genshin/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/genshin/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">原神概率论：材料合成天赋选 10%双倍还是 25%返还？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2570 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp"
+        data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115303126.webp 2x"
+        data-sizes="auto"
+        alt="/img/原神概率.zh-cn-20240523115303126.webp"
+        title="/img/原神概率.zh-cn-20240523115303126.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一设定介绍">一、设定介绍</a></li>
+    <li><a href="#二计算期望与方差"><strong>二、计算期望与方差</strong></a>
+      <ul>
+        <li><a href="#一10双倍产出的期望与方差"><strong>（一）10%双倍产出的期望与方差</strong></a></li>
+        <li><a href="#二25返回材料的期望与方差">（二）25%返回材料的期望与方差</a></li>
+      </ul>
+    </li>
+    <li><a href="#三结论与计算机模拟">三、结论与计算机模拟</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>网上计算数学期望的已经有很多，但是似乎没人计算方差，这里把方差计算补上。</p>
+<h2 id="一设定介绍">一、设定介绍</h2>
+<p>在原神中，<strong>三个低级材料能够合成一个高级材料</strong>。我们表示为 $a \xrightarrow{\text{转化}}\dfrac{b}{3}$</p>
+<p>为保持单位一致，我们统一<strong>使用 b 表示投入与产出</strong>，假设两边同时有初始材料 a，也就等价于 $\dfrac{b}{3}$。</p>
+<p>此时有两种天赋，<strong>如下图</strong></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp" title="两种天赋" data-thumbnail="/img/原神概率.zh-cn-20240523115001685.webp" data-sub-html="<h2> </h2><p>两种天赋</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115001685.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115001685.webp" />
+    </a><figcaption class="image-caption">两种天赋</figcaption>
+    </figure></p>
+<ul>
+<li>一种是有 10%的概率双倍产出。</li>
+</ul>
+<blockquote>
+<p>每使用 a 个材料，也就是 $\dfrac{b}{3}$ 材料时，10%概率直接产出 $\dfrac{2}{3}b$ 材料。</p>
+</blockquote>
+<ul>
+<li>一种是有 25%的概率返还部分低级材料。</li>
+</ul>
+<blockquote>
+<p>每使用 a 个材料，也就是 $\dfrac{b}{3}$ 材料时，25%概率返回 $\dfrac{1}{3} \times \dfrac{1}{4}b$ 材料。</p>
+</blockquote>
+<p>使用<strong>随机变量</strong>的形式，也就是：</p>
+<p>$$X_{总产出}=\frac{b}{3}+Y_{额外产出}$$</p>
+<h2 id="二计算期望与方差"><strong>二、计算期望与方差</strong></h2>
+<blockquote>
+<p><strong>网上计算数学期望的已经有很多，但是似乎没有人计算方差，这里顺便把方差的计算补上。</strong></p>
+</blockquote>
+<h3 id="一10双倍产出的期望与方差"><strong>（一）10%双倍产出的期望与方差</strong></h3>
+<p><strong>1、期望</strong></p>
+<p>此时就是<strong>二项分布离散分布列</strong> 。10% 概率双倍产出，90% 概率普通产出。</p>
+<p>如下表 1：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp" title="二项分布离散分布列" data-thumbnail="/img/原神概率.zh-cn-20240523115047136.webp" data-sub-html="<h2> </h2><p>二项分布离散分布列</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115047136.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115047136.webp" />
+    </a><figcaption class="image-caption">二项分布离散分布列</figcaption>
+    </figure></p>
+<p>$$
+\mathrm{E}_{{双倍}}[X]=\mathrm{E}_{{双倍}}[\frac{b}{3}+Y_{额外}]=\frac{b}{3}+np=10% \times\frac{2}{3}b+90% \times\frac{1}{3}b
+$$
+所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，10%双倍天赋的数学期望 $E_{\text{双倍}}(\dfrac{b}{3})=\dfrac{11 b}{30} $ 。</p>
+<p><strong>2、方差</strong></p>
+<p>$$
+\mathrm{Var}[X]=\mathrm{Var}[\frac{b}{3}+Y_{额外产出}]=\mathrm{Var}[Y_{额外产出}]
+$$</p>
+<p>$$
+\mathrm{Var}[Y]=np(1-p)=\frac{b}{3}\times0.1\times0.9=\frac{3}{100}b
+$$
+所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，10%双倍天赋的方差 $Var_{\text{双倍}}(\dfrac{b}{3})=\dfrac{1}{100}b^2$。</p>
+<h3 id="二25返回材料的期望与方差">（二）25%返回材料的期望与方差</h3>
+<p><strong>1、期望的两种算法</strong></p>
+<p><strong>方法一：等比数列</strong></p>
+<p>$$
+\begin{align*}
+E_{\text{返回}}\left(\frac{b}{3}\right)<br>
+&amp;= \frac{b}{3} + \frac{b}{3} \times 25\% \times \frac{1}{3} + \ldots + \frac{b}{3} \times \left(\frac{1}{12}\right)^n \newline	
+&amp;= \frac{b}{3} \times (1+{\frac{1}{12}}+{\frac{1}{12}}^2+&hellip;+{\frac{1}{12}}^n)  \newline	 	
+&amp;= \frac{b}{3} \times \frac{1 \times (1-{\frac{1}{12}}^n)}{1-\frac{1}{12}}  \newline	
+\end{align*}
+$$</p>
+<p>$$
+\lim_{n\rightarrow + \infty}E_{\text{返回}}\left(\frac{b}{3}\right)=\frac{b}{3} \times \frac{1 \times (1-{\frac{1}{12}}^n)}{1-\frac{1}{12}}=\frac{4b}{11}
+$$</p>
+<p>展示图如下：</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp" title="树状图" data-thumbnail="/img/原神概率.zh-cn-20240523115108123.webp" data-sub-html="<h2> </h2><p>树状图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20240523115108123.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20240523115108123.webp" />
+    </a><figcaption class="image-caption">树状图</figcaption>
+    </figure></p>
+<p>我们可以验证下这种分类是否讨论完了所有情况，将所有概率加总：</p>
+<p>$$
+\lim_{n\rightarrow +\infty}75\%+&hellip;+{(25\%)}^{n-1}75\%=1
+$$
+所有对应概率加总为 1，一定程度上验证了这种分类的正确性。</p>
+<p><strong>方法二：递归</strong></p>
+<p><strong>由于返还后的材料继续炼丹，会形成一个递归，因此我们得到：</strong>
+$$
+E_{\text{返回}}\left(\frac{b}{3}\right)=\frac{b}{3} +E_{\text{返回}}\left(\frac{b}{3}\right)\times 25% \times \frac{1}{3}
+$$
+答案与上面相同：</p>
+<p>所以投入 a 材料，等价于投入 $\dfrac{b}{3}$ 材料，25%返回天赋的数学期望 $E_{\text{返回}}(\frac{b}{3} )=\frac{4b}{11}$。</p>
+<p><strong>2、方差</strong></p>
+<p>以下方差计算思路来自 <a href="https://zhuanlan.zhihu.com/p/656792523" target="_blank" rel="noopener noreffer ">《【原神】关于材料合成天赋选 10% 双倍还是 25% 返还的更精细计算》</a></p>
+<p>此时继续引入递推关系，我们有如下递推关系。</p>
+<p>$$\mathrm{E}(a_k)=\mathrm{E}(a_{k-1})\times 25% \times \dfrac{1}{3}$$</p>
+<blockquote>
+<p>含义：</p>
+<p>第 $k$ 次合成前，手中有 $a_k$ 个初级材料。</p>
+<p>能进行第 $k$  次合成的条件是： 第 $k-1$  次合成触发效果返还了部分初级材料。</p>
+</blockquote>
+<p>使用条件期望的描述也就是</p>
+<p>$$
+\mathrm{E}(a_k)=\mathrm{E}[\mathrm{E}[a_k| a_{k-1}]]=\mathrm{E}[\frac{1}{12}a_{k-1}]=\frac{1}{12}\mathrm{E}[a_{k-1}]
+$$</p>
+<p>$$
+\mathrm{E}[X]=\sum_1^{k}a_k=\sum_1^{k}\frac{1}{12^k}a_0
+$$</p>
+<blockquote>
+<p>这个式子可以展开为递归，也可以展开为等比数列，也就是前面计算期望的两种方法。</p>
+</blockquote>
+<p>引入完条件期望后，接下来引入方差分解公式：</p>
+<p>$$
+\mathrm{Var}[X]=\mathrm{E}[X^2]-[\mathrm{E}(X)]^2
+$$
+变形加入<strong>条件期望</strong>，变形可以得到两个式子 $\mathrm{E}(X|Y)$。</p>
+<p>$$
+\mathrm{Var}[\mathrm{E}(X|Y)]=\mathrm{E}\left\{\left[\mathrm{E}(X|Y)\right]^{2}\right\}-\left\{\mathrm{E}\left[\mathrm{E}(X|Y)\right]\right\}^{2}=\mathrm{E}\left\{\left[\mathrm{E}(X|Y)\right]^{2}\right\}-\left[\mathrm{E}(X)\right]^{2}
+$$</p>
+<p>$$
+\mathrm{E}[\mathrm{Var}(X|Y)]=\mathrm{E}\left\{\mathrm{E}(X^{2}|Y)-[\mathrm{E}(X|Y)]^{2}\right\}=\mathrm{E}(X^2)-\mathrm{E}\left\{\left[\mathrm{E}(X|Y)\right]^2\right\}
+$$</p>
+<p>上面两个式子相加得到方差分解公式：</p>
+<p>$$
+\mathrm{Var}(X)=\mathrm{Var}[\mathrm{E}(X|Y)]+\mathrm{E}[\mathrm{Var}(X|Y)]
+$$</p>
+<p>将这个式子代入 $a_k、a_{k-1}$。</p>
+<p>$$
+\mathrm{Var}(a_k)=\mathrm{Var}[\mathrm{E}(a_k|a_{{k-1}})]+\mathrm{E}[\mathrm{Var}(a_k|a_{k-1})]
+$$
+其中</p>
+<p>$$
+\mathrm{Var}[\mathrm{E}(a_k|a_{{k-1}})]=\mathrm{Var}[\frac{1}{12}a_{k-1}]
+$$
+$$
+\mathrm{E}[\mathrm{Var}(a_k|a_{k-1})]=\mathrm{E}[np(1-p)]=\mathrm{E}[np(1-p)]=\mathrm{E}\left[\frac{a_{k-1}}{16}\right]
+$$
+得到：</p>
+<p>$$
+\begin{aligned}\mathrm{Var}\left[a_k\right]=\frac{3}{4} \frac{a_0}{12^k}+\frac{1}{12^2} \mathrm{Var}\left[a_{k-1}\right]\end{aligned}
+$$
+因为 $\mathrm{Var}(a_0)=0$ ,使用递归，可以得到通项公式</p>
+<blockquote>
+<p>丢给 GPT 算了然后验证了一下，也满足方差项之间144倍关系：</p>
+</blockquote>
+<p>$$
+\mathrm{Var}[a_k]=\frac{9}{143}a_0\left(1-\frac{1}{144^k}\right)=a_0\times \frac{1}{16\times 144^{k-1}}
+$$
+$$
+\mathrm{E}\left[a_k^2\right] = \mathrm{Var}[a_k] + \left(\mathrm{E}\left[a_k\right]\right)^2 =9\frac{k{a_0}}{12^{2k}} + \frac{a_0^2}{12^{2k}}
+$$</p>
+<p>又设置之后递归融合$ l $次</p>
+<p>$$
+\begin{aligned} &amp;\mathrm{E}\left[a_k a_\ell\right]=\mathrm{E}\left[\mathrm{E}\left[a_k a_\ell \mid a_\ell\right]\right]\\ &amp;=\mathrm{E}\left[a_\ell \mathrm{E}\left[a_k \mid a_\ell\right]\right]\\ &amp;=\frac{1}{12^{k-\ell}}\mathrm{E}\left[a_\ell^2\right]\\ &amp;=\frac{9a_0^2l+a_0^2}{12^{k+\ell}} \end{aligned}
+$$
+这是为了计算协方差：</p>
+<p>$$
+\mathrm{Cov}(a_\ell, a_k) = \mathrm{E}\left[a_\ell a_k\right] - \mathrm{E}\left[a_\ell\right]\mathrm{E}\left[a_k\right]=\frac{9a_0^2\ell}{12^{k+\ell}}
+$$
+代入计算方差：</p>
+<p>因为原神是三个合成一个:</p>
+<p>$$
+X_n=\sum\limits_{k=0}^n \frac{a_k}{3}
+$$
+得到方差计算公式：</p>
+<p>$$
+\mathrm{Var}\left[X_n\right]  =\frac{1}{9}\left(\sum_{k=0}^n \mathrm{Var}\left[a_k\right]+2 \sum_{\ell&lt;k} \mathrm{Cov}\left[a_{\ell} a_k\right]\right)
+$$</p>
+<p>代入得到：</p>
+<blockquote>
+<p>以下部分是 GPT 展开的，我能感觉到问题出现在方差累加那部分，不可能出现无法消除的一个1的单独项，这样就无法收敛了.</p>
+</blockquote>
+<p>$$
+\begin{align*} \text{Var}[X_n] &amp;= \frac{1}{9} \Bigg( \frac{9}{143} a_0 \left[ (n+1) - \frac{144}{143} \left( 1 - \frac{1}{144^{n+1}} \right) \right] \\&amp;\quad + 2 \cdot \frac{9a_0^2}{11} \sum_{\ell=0}^{n-1} \frac{\ell}{12^{2\ell}} \left( 1 - \frac{1}{12^{n-\ell}} \right) \Bigg) \end{align*}
+$$接下来让n趋于极限。</p>
+<p>按照代码图，目测估计下极限应该是 0.009b 附近，也就是 0.027a 附近。</p>
+<h2 id="三结论与计算机模拟">三、结论与计算机模拟</h2>
+<p>使用代码拟合一下,也是和计算结果吻合的：</p>
+<ul>
+<li>10%期望略微高一些，但是期望差异1000个材料以内并不大。</li>
+<li>25%的方差波动更小，只是次数增多，摩拉成本会多一点。</li>
+<li>考虑到原神素材999的上限，高级材料期望也就相差2-3个左右。</li>
+</ul>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140147025.webp" title="100次" data-thumbnail="/img/原神概率.zh-cn-20241225140147025.webp" data-sub-html="<h2> </h2><p>100次</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140147025.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140147025.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140147025.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140147025.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20241225140147025.webp" />
+    </a><figcaption class="image-caption">100次</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140222239.webp" title="1000次" data-thumbnail="/img/原神概率.zh-cn-20241225140222239.webp" data-sub-html="<h2> </h2><p>1000次</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140222239.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140222239.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140222239.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140222239.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20241225140222239.webp" />
+    </a><figcaption class="image-caption">1000次</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140244046.webp" title="800-1000次" data-thumbnail="/img/原神概率.zh-cn-20241225140244046.webp" data-sub-html="<h2> </h2><p>800-1000次</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140244046.webp"
+            data-srcset="/img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140244046.webp, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140244046.webp 1.5x, /img/%e5%8e%9f%e7%a5%9e%e6%a6%82%e7%8e%87.zh-cn-20241225140244046.webp 2x"
+            data-sizes="auto"
+            alt="/img/原神概率.zh-cn-20241225140244046.webp" />
+    </a><figcaption class="image-caption">800-1000次</figcaption>
+    </figure></p>
+<p>实验代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置matplotlib的字体，以便支持中文显示</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SimHei&#39;</span><span class="p">]</span>  <span class="c1"># 用来正常显示中文标签</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># 用来正常显示负号</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 模拟合成高级道具的函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">synthesize_items</span><span class="p">(</span><span class="n">low_items</span><span class="p">,</span> <span class="n">strategy</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">high_items</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">low_items</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">合成结果</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">strategy</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">合成结果</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">high_items</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># 额外获得一个高级道具</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">high_items</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">strategy</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">合成结果</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">low_items</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># 返还一个低级道具</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high_items</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">low_items</span> <span class="o">-=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">low_items</span><span class="p">,</span> <span class="n">high_items</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 模拟多次合成并计算平均收益和方差</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">simulate_synthesis</span><span class="p">(</span><span class="n">low_items</span><span class="p">,</span> <span class="n">strategy</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_</span><span class="p">,</span> <span class="n">high_items</span> <span class="o">=</span> <span class="n">synthesize_items</span><span class="p">(</span><span class="n">low_items</span><span class="p">,</span> <span class="n">strategy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">high_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 绘制图表</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">strategies</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制均值比较图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">strategy</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">means</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;策略</span><span class="si">{</span><span class="n">strategy</span><span class="si">}</span><span class="s1">均值&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;低级道具数量&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;高级道具均值&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;均值比较&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制方差比较图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">strategy</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">variances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;策略</span><span class="si">{</span><span class="n">strategy</span><span class="si">}</span><span class="s1">方差&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;低级道具数量&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;高级道具方差&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;方差比较&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;results.png&#39;</span><span class="p">)</span>  <span class="c1"># 保存图表为图片文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 主函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_items</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>  <span class="c1"># 投入的低级道具数量范围</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trials</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># 模拟次数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strategy1_means</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strategy1_variances</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strategy2_means</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strategy2_variances</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">num_items</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mean1</span><span class="p">,</span> <span class="n">variance1</span> <span class="o">=</span> <span class="n">simulate_synthesis</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mean2</span><span class="p">,</span> <span class="n">variance2</span> <span class="o">=</span> <span class="n">simulate_synthesis</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">strategy1_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">strategy1_variances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">variance1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">strategy2_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">strategy2_variances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">variance2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plot_results</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">1</span><span class="p">:</span> <span class="n">strategy1_means</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">2</span><span class="p">:</span> <span class="n">strategy2_means</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">1</span><span class="p">:</span> <span class="n">strategy1_variances</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">2</span><span class="p">:</span> <span class="n">strategy2_variances</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多讨论详见：<a href="https://zhuanlan.zhihu.com/p/648950822?" target="_blank" rel="noopener noreffer ">原神概率论</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-12-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/genshin/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" data-hashtags="原神,概率论"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-hashtag="原神"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/genshin/" data-title="原神概率论：材料合成天赋选 10%双倍还是 25%返还？" data-image="/img/原神概率.zh-cn-20240523115303126.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8E%9F%E7%A5%9E/">原神</a>,&nbsp;<a href="/zh-cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/tl/" class="prev" rel="prev" title="奇葩而通俗的中世纪指南《如何屠龙》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>奇葩而通俗的中世纪指南《如何屠龙》</a>
+            <a href="/zh-cn/posts/art/" class="next" rel="next" title="看展：时代的容颜">看展：时代的容颜<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

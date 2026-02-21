@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>计量经济学：Log (y&#43;1) 的转化是否可靠 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="计量经济学：Log (y&#43;1) 的转化是否可靠" />
+<meta property="og:description" content="《Logs with Zeros? Some Problems and Solutions 》文献阅读。当数据解释变量包含 0 时，log (y&#43;1) 的对数化在处理效应估计上有一些局限。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/log0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-12T17:59:49+08:00" />
+<meta property="article:modified_time" content="2024-05-12T17:59:49+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="计量经济学：Log (y&#43;1) 的转化是否可靠"/>
+<meta name="twitter:description" content="《Logs with Zeros? Some Problems and Solutions 》文献阅读。当数据解释变量包含 0 时，log (y&#43;1) 的对数化在处理效应估计上有一些局限。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/log0/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/bff/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/todesk/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "计量经济学：Log (y+1) 的转化是否可靠",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/log0\/"
+        },"genre": "posts","keywords": "文献阅读","wordcount":  2108 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/log0\/","datePublished": "2024-05-12T17:59:49+08:00","dateModified": "2024-05-12T17:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/log0/" selected>简体中文</option><option value="/en/posts/log0/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/log0/" selected>简体中文</option><option value="/en/posts/log0/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量经济学：Log (y+1) 的转化是否可靠</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-12">2024-05-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2108 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094150322.webp"
+        data-srcset="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094150322.webp, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094150322.webp 1.5x, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094150322.webp 2x"
+        data-sizes="auto"
+        alt="/img/包含0值的对数化是否可靠-20240523094150322.webp"
+        title="/img/包含0值的对数化是否可靠-20240523094150322.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#省流的概括">省流的概括</a></li>
+    <li><a href="#代码例子">代码例子</a></li>
+    <li><a href="#解释">解释</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#认识对数化处理">认识对数化处理</a></li>
+            <li><a href="#对数化的局限">对数化的局限</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#结论和解决方法">结论和解决方法</a>
+      <ul>
+        <li><a href="#结论">结论</a></li>
+        <li><a href="#解决方法">解决方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="log-y1-的转化是否可靠">Log (y+1) 的转化是否可靠</h1>
+<h2 id="摘要">摘要</h2>
+<table>
+<thead>
+<tr>
+<th>标题: Logs with Zeros? Some Problems and Solutions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>作者:</strong>  Jiafeng Chen; Jonathan Roth</td>
+</tr>
+<tr>
+<td><strong>期刊:</strong>  The Quarterly Journal of Economics  （2024/3/30）</td>
+</tr>
+<tr>
+<td><strong>DOI:</strong>  <a href="https://academic.oup.com/qje/article-abstract/139/2/891/7473710?redirectedFrom=fulltext" target="_blank" rel="noopener noreffer ">10.1093/qje/qjad054</a></td>
+</tr>
+<tr>
+<td><strong>摘要翻译:</strong>  当研究一个结果变量 Y 可以等于 0 时 (例如收益) 时，多数研究者在估计时通常采用进行转换的平均处理效应 (ATE)，这种转换在结果变量 Y 很大时，可以表现为 log (Y)，定义为零值时，通常采用 log (1 + Y) 进行处理。我们的研究发现，此类对数转换的平均处理效应不应被解释为百分比效应，因为结果本身与百分比不同，平均处理效应的估计值取决于结果变量的单位。事实上，我们的研究表明，如果在进行类对数变换之前，改变 Y 的实际单位，就可以得到任意大小的处理效应。这种结果产生的原因是，对于在估计时结果从零变为非零的样本，样本水平的百分比效应没有明确定义，并且结果的单位隐含地决定了对数转换的平均处理效应在广延边际上的赋予权重。进一步研究中，我们发现了一个“不可能三角”: 当结果变量可以等于零时，不能同时满足估计结果即是样本的平均处理效应，且 Y 的单位不发生改变（或者说与单位变动无关）以及实现点识别。我们讨论了几种可能在具有集约边际和广泛边际的设置中是合理可行的替代方法，包括（1）以百分比表示平均处理效应水平 (例如使用泊松回归)，(2) 明确校准置于集约边际与广泛边际上的样本，以及 (3) 分别估计广延边际和集约边际的实际处理效应 (例如使用 Lee bounds)。我们在三个实证应用中说明了这些方法。</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="省流的概括">省流的概括</h2>
+<p>讨论 <strong>包含 0 值的对数化</strong> 方式，例如  $log(1+y)$  、$arcsinh(y)=\sqrt{1+y^2}+y$ 是否可靠。</p>
+<h2 id="代码例子">代码例子</h2>
+<p>代码结果说明，数据中含有 0 时，可以通过对数化的 $y$ 单位修改影响回归显著性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">sysuse</span><span class="w"> </span><span class="n">nlsw88</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">wage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">_n</span><span class="o">&lt;=</span><span class="mi">400</span><span class="w"> </span><span class="o">//</span><span class="err">前</span><span class="mi">400</span><span class="err">个观测值的工资改为</span><span class="mi">0</span><span class="err">值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">.</span><span class="mi">128683</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">.</span><span class="mi">7744329</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">84</span><span class="p">.</span><span class="mi">02252</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="mi">68</span><span class="n">e</span><span class="o">+</span><span class="mi">08</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">77</span><span class="n">e</span><span class="o">+</span><span class="mi">25</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">lnwage1</span><span class="w"> </span><span class="n">tenure</span><span class="w"> </span><span class="n">grade</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">eststo</span><span class="w"> </span><span class="n">m1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">lnwage2</span><span class="w"> </span><span class="n">tenure</span><span class="w"> </span><span class="n">grade</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">eststo</span><span class="w"> </span><span class="n">m2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">lnwage3</span><span class="w"> </span><span class="n">tenure</span><span class="w"> </span><span class="n">grade</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">eststo</span><span class="w"> </span><span class="n">m3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">lnwage4</span><span class="w"> </span><span class="n">tenure</span><span class="w"> </span><span class="n">grade</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">eststo</span><span class="w"> </span><span class="n">m4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reg</span><span class="w"> </span><span class="n">lnwage5</span><span class="w"> </span><span class="n">tenure</span><span class="w"> </span><span class="n">grade</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">eststo</span><span class="w"> </span><span class="n">m5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">esttab</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">tenure</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">compress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*-------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="cm">                 (1)          (2)          (3)          (4)          (5)   
+</span></span></span><span class="line"><span class="cl"><span class="cm">             lnwage1      lnwage2      lnwage3      lnwage4      lnwage5   
+</span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="cm">tenure         0.010***     0.020***     0.030**      0.050        0.100   
+</span></span></span><span class="line"><span class="cl"><span class="cm">             (0.001)      (0.003)      (0.010)      (0.032)      (0.090)   
+</span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="cm">N               2229         2229         2229         2229         2229   
+</span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------*/</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="解释">解释</h2>
+<h4 id="认识对数化处理">认识对数化处理</h4>
+<p>一般认为对数化处理后的经济意义变动 <strong>百分比</strong>。</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>对数化后的系数含义<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>对变量取对数后，一般认为系数结果反映的是百分比变化。例如  lnGDP ，在回归中代表的 GDP 变化百分之几。如果是 <code>reg lny lnx</code>, 系数经济含义则是弹性。参见<a href="https://www.zhihu.com/question/27588499/answer/588450047" target="_blank" rel="noopener noreffer ">取对数的意义</a>。</p>
+<p>对于以下回归式子
+$$
+\ln y_n=\alpha+\beta x_n +\varepsilon
+$$
+其系数有如下经济含义
+$$
+\begin{align}
+\beta &amp; = \frac{\ln Y_{n+1}-\ln Y_{n}}{X_{n+1}-X_{n}}\\
+&amp;=\frac{\ln \frac{Y_{n+1}}{Y_{n}}}{X_{n+1}-X_{n}}=  \frac{\ln (1+\frac{Y_{n+1}-Y_{n}}{Y_{n}})}{\Delta X}\\
+&amp;= \frac{\ln (1+\Delta Y \% )}{\Delta X} \approx\frac{\Delta Y \% }{\Delta X}
+\end{align}
+$$
+有时研究者进行对数化还因为数据呈现长尾分布，对数化使得数据更加紧凑。</p>
+</div>
+        </div>
+    </div>
+<h4 id="对数化的局限">对数化的局限</h4>
+<p>文章核心结论是，<strong>当数据包含 0，且放缩单位有变化时</strong>（例如劳动经济学中经常使用每小时工资，每月工资，每周工资, 这涉及单位转化），对数化的估计会发生改变，因此不太可靠。</p>
+<p>一般认为对数化后求出来的处理效应是一种百分比，和放缩参数 $\alpha$ 无关。
+$$
+\small
+ATE=E[\log(1+aY(1))-\log(1+aY(0))]=E\left[\log\left(\frac{1+aY(1)}{1+aY(0)}\right)\right]
+$$</p>
+<p>进一步考虑数据结构，会产生变化
+$$
+\begin{aligned}
+\lim_{a\to\infty}\log\left(\frac{1+aY(1)}{1+aY(0)}\right)=\begin{cases}\log\left(\frac{Y(1)}{Y(0)}\right)&amp;\text{if }Y(1)&gt;0,Y(0)&gt;0\\
+0&amp;\text{if }Y(1)=0,Y(0)=0\\
+\infty&amp;\text{if }Y(1)&gt;0,Y(0)=0\\
+-\infty&amp;\text{if }Y(1)=0,Y(0)&gt;0
+\end{cases}
+\end{aligned}
+$$
+上式的后三者说明了处理效应的估计值可能会受到影响。</p>
+<p>文章关于对数化的偏差类似于 <strong>局部平均处理效应（LATE）</strong> 。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp" title="以就业政策为研究对象" data-thumbnail="/img/包含0值的对数化是否可靠-20240523094100269.webp" data-sub-html="<h2> </h2><p>以就业政策为研究对象</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp"
+            data-srcset="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp 1.5x, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp 2x"
+            data-sizes="auto"
+            alt="/img/包含0值的对数化是否可靠-20240523094100269.webp" />
+    </a><figcaption class="image-caption">以就业政策为研究对象</figcaption>
+    </figure></p>
+<p>以就业政策为对象，<strong>政策冲击为实验组带来了不一样的反应</strong> 。</p>
+<blockquote>
+<p>0 表示失业状态，1 表示就业状态。</p>
+</blockquote>
+<p>原本实验组有失业人群 0 有就业人群 1，但是在政策冲击后全部变成了就业人群 1。</p>
+<ul>
+<li>原本状态为就业 1，冲击后依旧为就业 1，但收入依旧有上升，此时解释变量的变化由政策冲击直接带来，为 <strong>集约边际（intensive margin）</strong></li>
+<li>原本状态为 0，冲击后变成了 1 ，解释变量变化除了政策冲击，还有自身状态改变带来的变化，这种变化为 <strong>广延边际（extensive margin）</strong></li>
+</ul>
+<p>于是处理效应的测度变成了以下情况：</p>
+<div class="mermaid" id="id-1"></div>
+<p>因此平均处理效应也是两种边际效应的数学期望加总</p>
+<p>$$
+ATT=E(ATT^{int})+E(ATT^{ext})
+$$</p>
+<p>假如使用 $lg(1+x)$ 来变化，同时放缩单位，从千元变为元</p>
+<p>对于 <strong>集约边际（intensive margin)</strong> 来说，
+$$
+\begin{aligned}
+ATT_{1000}^{int}&amp; =E{log(1000Y^{int}(1))-log(1000Y^{int}(0))}  \\
+&amp;=E{log(1000)+logY^{int}(1))-log(1000)-logY^{int}(0))} \\
+&amp;=E{log(Y^{int}(1))-log(Y^{int}(0))}=ATT^{int}
+\end{aligned}
+$$
+对于 <strong>广延边际（extensive margin）</strong> 来说，</p>
+<blockquote>
+<p>这部分是状态从 0 到 1 的部分，采用 $ln(y+1)$ d 对数化后，原本为 0 的部分依旧为 0。</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+ATT_{1000}^{ext}
+&amp; =E{log(1000Y^{ext}(1))-log(1000Y^{ext}(0))}  \\
+&amp;=E{log(1000)+logY^{ext}(1))-0} \\
+&amp;=ATT^{ext}+\color{red}{log(1000)}
+\end{aligned}
+$$</p>
+<p>总体处理效应是这以上两部分的数学期望加总
+$$
+\begin{align}
+ATT&amp;=P \times ATT^{ext}+(1-P)\times ATT^{int}\\
+&amp;=ATT+\color{blue}{P\times log(a)}
+\end{align}
+$$
+其中 $\color{blue}{P\times log(a)}$ 就是改变回归结果的偏差部分。</p>
+<p>正是因为有这种偏差，很多文章会把 0 值处理作为稳健性检验的一部分。</p>
+<p>还有其他更复杂的情况讨论，不过个人就无法理解了。</p>
+<h2 id="结论和解决方法">结论和解决方法</h2>
+<h3 id="结论">结论</h3>
+<p>在面对<strong>包含 0 的解释变量样本</strong>时！</p>
+<p>很多营销号夸大了文章的结论，文章批评的是<strong>解释变量包含 0 的对数</strong>化情况，处理效应估计上实际上有个不可能三角形。</p>
+<div class="mermaid" id="id-2"></div>
+<h3 id="解决方法">解决方法</h3>
+<blockquote>
+<p>以下每个方法就是在不可能三角形中进行取舍。</p>
+</blockquote>
+<ol>
+<li>采用普遍的归一化和标准化去量纲，这样就没有单位影响</li>
+<li>泊松回归最大似然估计</li>
+<li>去除 0 值样本</li>
+<li>理清样本分布，进一步分解集约边际和广延边际。</li>
+<li>采用其他参数 lee bounds 之类的（这个没看明白怎么做）</li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>论文作者之一<a href="https://jiafengkevinchen.github.io/publications" target="_blank" rel="noopener noreffer ">博客</a></li>
+<li><a href="https://mp.weixin.qq.com/s/linHQsAq2tXV3LXA9gNPZQ" target="_blank" rel="noopener noreffer ">可能你的老师一直都教错了：不能再用log(Y+0.0000000001)了</a></li>
+<li><a href="https://mp.weixin.qq.com/s/ki4zxiqyghx89wHBSbedKA" target="_blank" rel="noopener noreffer ">TOP5被质疑用log(1+x)数据转换, 固定效应, 双重差分事件图, 结论不可靠！</a></li>
+<li><a href="https://mp.weixin.qq.com/s/3SXhDaahX54DvTlqPN6UYw" target="_blank" rel="noopener noreffer ">TOP5最新: 不接受log(y+1)或arcsinh(y)转换, 绝不接受！</a></li>
+<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">取对数：如何应对零值和负数</a></li>
+<li><a href="https://mp.weixin.qq.com/s/LoXCQhvSqIq9EEhYj4teoA" target="_blank" rel="noopener noreffer ">对数终结之日</a></li>
+<li><a href="https://blog.huaxiangshan.com/zh-cn/posts/effect/" target="_blank" rel="noopener noreffer ">因果效应</a></li>
+<li><a href="https://mp.weixin.qq.com/s/4dZBIELlT4NtVwwYKdFfJw" target="_blank" rel="noopener noreffer ">顶刊速览：QJE 对数化的末日</a></li>
+<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">如何处理非正值</a></li>
+<li><a href="https://github.com/jiafengkevinchen/logs-public" target="_blank" rel="noopener noreffer ">log with zero的论文代码</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-05-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/log0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/log0/" data-title="计量经济学：Log (y&#43;1) 的转化是否可靠" data-hashtags="文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/log0/" data-hashtag="文献阅读"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/log0/" data-title="计量经济学：Log (y&#43;1) 的转化是否可靠"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/log0/" data-title="计量经济学：Log (y&#43;1) 的转化是否可靠"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/log0/" data-title="计量经济学：Log (y&#43;1) 的转化是否可靠" data-image="/img/包含0值的对数化是否可靠-20240523094150322.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/bff/" class="prev" rel="prev" title="变分法学习笔记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>变分法学习笔记</a>
+            <a href="/zh-cn/posts/todesk/" class="next" rel="next" title="Todesk 平板远程控制电脑的声音问题">Todesk 平板远程控制电脑的声音问题<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

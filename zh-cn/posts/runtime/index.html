@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>hugo 美化 2 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="hugo 美化 2" />
+<meta property="og:description" content="在博客页脚添加总字数统计和建站时间并且能自动中英切换。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-08-10T15:45:18+08:00" />
+<meta property="article:modified_time" content="2024-08-10T15:45:18+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="hugo 美化 2"/>
+<meta name="twitter:description" content="在博客页脚添加总字数统计和建站时间并且能自动中英切换。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/pytorch2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/fs2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "hugo 美化 2",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
+        },"genre": "posts","keywords": "Hugo","wordcount":  4056 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/runtime/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/runtime/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">hugo 美化 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4056 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp"
+        data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810172249058.webp 2x"
+        data-sizes="auto"
+        alt="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"
+        title="/img/Hugo中英文建站.zh-cn-20240810172249058.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#自定义字体">自定义字体</a></li>
+    <li><a href="#建站时间加多语言设置">建站时间加多语言设置</a>
+      <ul>
+        <li><a href="#总字数">总字数</a>
+          <ul>
+            <li><a href="#添加博客总字数统计">添加博客总字数统计</a></li>
+            <li><a href="#一个-bug">一个 bug</a></li>
+          </ul>
+        </li>
+        <li><a href="#站点运行时间">站点运行时间</a>
+          <ul>
+            <li><a href="#添加自定义的-customjs">添加自定义的 <code>custom.js</code></a></li>
+            <li><a href="#修改-i18n">修改 <code>i18n</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#背景">背景</a>
+      <ul>
+        <li><a href="#博客背景">博客背景</a></li>
+        <li><a href="#注意事项">注意事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#看板娘">看板娘</a></li>
+    <li><a href="#标题样式">标题样式</a>
+      <ul>
+        <li><a href="#更改特点">更改特点</a></li>
+        <li><a href="#更改方式">更改方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#在博客中渲染数学公式">在博客中渲染数学公式</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="自定义字体">自定义字体</h2>
+<p>参见 <a href="https://blog.huaxiangshan.com/zh-cn/posts/font/" target="_blank" rel="noopener noreffer ">Hugo 自定义字体</a></p>
+<h2 id="建站时间加多语言设置">建站时间加多语言设置</h2>
+<p>将<strong>建站时间</strong>和<strong>博客总字数</strong>添加到页脚，并适配<strong>多语言</strong>自动切换：</p>
+<p>效果如下</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp" title="中英文效果图" data-thumbnail="/img/Hugo中英文建站.zh-cn-20240810161839711.webp" data-sub-html="<h2> </h2><p>中英文效果图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp"
+            data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo中英文建站.zh-cn-20240810161839711.webp" />
+    </a><figcaption class="image-caption">中英文效果图</figcaption>
+    </figure></p>
+<p>一般多语言 hugo 博客都有一个 <code>i18n</code> 文件，目的就是识别页面语言参数，然后替换相应文字。</p>
+<h3 id="总字数">总字数</h3>
+<h4 id="添加博客总字数统计">添加博客总字数统计</h4>
+<p>找到 <code>&lt;你的博客文件&gt;\layouts\partials\footer.html</code>，</p>
+<p>在里面添加以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ $articleCount := len .Site.RegularPages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount := 0 }}
+</span></span><span class="line"><span class="cl">{{ range .Site.Pages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount = add $totalWordCount .WordCount }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ i18n &#34;articleCount&#34; (dict &#34;Count&#34; $articleCount) }}，{{ i18n &#34;totalWordCount&#34; (dict &#34;WordCount&#34; $totalWordCount) }}。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
+<p>在 <code>zh-CN.toml</code> 里添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[articleCount]
+</span></span><span class="line"><span class="cl">other = &#34;发布了 {{ .Count }} 篇文章&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[totalWordCount]
+</span></span><span class="line"><span class="cl">other = &#34;共 {{ .WordCount }} 字&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>en.toml</code> 里添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[articleCount]
+</span></span><span class="line"><span class="cl">other = &#34;published {{ .Count }} posts&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[totalWordCount]
+</span></span><span class="line"><span class="cl">other = &#34;total {{ .WordCount }} words&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>多语言切换显然是一对一的字符识别。</p>
+<p>因此，在 <code>i18n</code> 文件中，每个[调用名称]下只能有一个 <code>other=</code>，同时[调用名称]不能重复，这样才能一对一自动切换字符。</p>
+</blockquote>
+<h4 id="一个-bug">一个 bug</h4>
+<p>如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug。</p>
+<meting-js url="/music/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.flac" name="三葉のテーマ" artist="君の名" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
+<p>由于 hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器会继续保留，原因不明。</p>
+<p>因此个人选择放弃添加字数统计。</p>
+<h3 id="站点运行时间">站点运行时间</h3>
+<h4 id="添加自定义的-customjs">添加自定义的 <code>custom.js</code></h4>
+<p>在站点根目录下创建一个自定义的 JavaScript 文件 <code>\static\js\custom.js</code>。</p>
+<p>写入如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 站点运行时间 */</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取当前语言设置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">getCurrentLanguage</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 假设你有一个全局变量或方法来获取当前语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">lang</span> <span class="o">||</span> <span class="s1">&#39;zh&#39;</span><span class="p">;</span> <span class="c1">// 默认返回中文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 更新站点运行时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">runtime</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">runtime</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;02/18/2024 15:00:00&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//这里写自己的建站时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">endTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">usedTime</span> <span class="o">=</span> <span class="nx">endTime</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">days</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">usedTime</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">leavel</span> <span class="o">=</span> <span class="nx">usedTime</span> <span class="o">%</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">hours</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">leavel</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">leavel2</span> <span class="o">=</span> <span class="nx">leavel</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">leavel2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">leavel3</span> <span class="o">=</span> <span class="nx">leavel2</span> <span class="o">%</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">leavel3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 根据语言设置选择对应的文本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">language</span> <span class="o">=</span> <span class="nx">getCurrentLanguage</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">runtimeText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">language</span> <span class="o">===</span> <span class="s1">&#39;zh&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">runtimeText</span> <span class="o">=</span> <span class="s1">&#39;本站已运行&lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">days</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">days</span> <span class="o">+</span> <span class="s1">&#39; 天 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">hours</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="s1">&#39; 时 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">minutes</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="s1">&#39; 分 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">seconds</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">seconds</span> <span class="o">+</span> <span class="s1">&#39; 秒 &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span> <span class="o">===</span> <span class="s1">&#39;en&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">runtimeText</span> <span class="o">=</span> <span class="s1">&#39;Running for &lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">days</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">days</span> <span class="o">+</span> <span class="s1">&#39; d &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">hours</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="s1">&#39; h &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">minutes</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="s1">&#39; m &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">seconds</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">seconds</span> <span class="o">+</span> <span class="s1">&#39; s &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 默认文本（可以选择其他语言或保留中文/英文）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">runtimeText</span> <span class="o">=</span> <span class="s1">&#39;本站已运行&lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">days</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">days</span> <span class="o">+</span> <span class="s1">&#39; 天 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">hours</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="s1">&#39; 时 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">minutes</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="s1">&#39; 分 &#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="p">((</span><span class="nx">seconds</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">seconds</span> <span class="o">+</span> <span class="s1">&#39; 秒 &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 更新页面上的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;run-time&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">runtimeText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">runtime</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>感兴趣的也可以看看本站完整的 <a href="https://github.com/hzp2333/hzp2333.github.io/blob/master/js/custom.js" target="_blank" rel="noopener noreffer ">custom.js</a>。</p>
+<p>找到 <code>&lt;你的博客文件&gt;\layouts\partials\assets.html</code>，在最末尾的 <code>{{- partial &quot;plugin/analytics.html&quot; . -}}</code> 的上一行添加如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{- /* 自定义的js文件 */ -}}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/custom.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样博客就可以调用自定义的 js 文件了。其他 js 文件也可以写在这里面。</p>
+<h4 id="修改-i18n">修改 <code>i18n</code></h4>
+<p>找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
+<p>在 <code>zh-CN.toml</code> 里添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
+</span></span><span class="line"><span class="cl">other = &#34;本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>en.toml</code> 里添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
+</span></span><span class="line"><span class="cl">other = &#34;The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .Minutes }} minutes {{ .Seconds }} seconds&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="背景">背景</h2>
+<h3 id="博客背景">博客背景</h3>
+<p>我们可以通过直接在 <code>footer.html</code> 添加 js 文件的方式设置博客背景。</p>
+<p>本文使用的蜂窝条形网络。还有其他 js，例如网格、球形、波浪、带状&hellip;&hellip;</p>
+<p>效果图可以参考：<a href="https://herenpeng.github.io/2023/03/14/javascript/%E6%8E%A8%E8%8D%90%E5%87%A0%E7%A7%8D%E7%AE%80%E6%B4%81%E7%BE%8E%E8%A7%82%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C/" target="_blank" rel="noopener noreffer ">推荐几种简洁美观的博客背景效果</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">彩带</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;ribbon&#34;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;150&#34;</span> <span class="nx">alpha</span><span class="o">=</span><span class="s1">&#39;0.9&#39;</span> <span class="nx">zIndex</span><span class="o">=</span><span class="s2">&#34;-2&#34;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">波浪</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/three-waves.min.js&#34;</span> <span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">蜂窝巢</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">随机点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_lines.min.js&#34;</span> <span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">光球</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_sphere.min.js&#34;</span> <span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="注意事项">注意事项</h3>
+<p>引入 js 背景需要限制范围</p>
+<p>例如在页脚引入，如果不定义范围，那么页脚的链接会被覆盖，导致无法点击。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp" title="如图" data-thumbnail="/img/Hugo中英文建站.zh-cn-20250223143815226.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp"
+            data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo中英文建站.zh-cn-20250223143815226.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<p>最好在页脚开头定义一个环境体用来分层</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">页脚</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">footer</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer-container&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer-line&#34;</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后将引入的 js 设置为<strong>最底层</strong>即可：<code>data-zIndex=&quot;-1&quot;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="c">&lt;!--</span> <span class="nx">引入</span> <span class="nx">canvas</span><span class="o">-</span><span class="nx">nest</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">js</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">color</span><span class="o">=</span><span class="s2">&#34;0,0,0&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">count</span><span class="o">=</span><span class="s2">&#34;150&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">zIndex</span><span class="o">=</span><span class="s2">&#34;-1&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/body&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/html&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="看板娘">看板娘</h2>
+<p>个人是在 <code>header.html</code> 中加入的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;zh&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Sakana 小组件集成<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">/* 固定 Sakana 小组件在页面左下角 */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">sakana-widget-container</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">width</span><span class="p">:</span> <span class="mi">268</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">height</span><span class="p">:</span> <span class="mi">268</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">sakana-widget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;sakana-widget-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;sakana-widget&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">initSakanaWidget</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">new</span> <span class="nx">SakanaWidget</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">size</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">autoFit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">character</span><span class="o">:</span> <span class="s1">&#39;chisato&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">controls</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">rod</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">draggable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">stroke</span><span class="o">:</span> <span class="p">{</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#b4b4b4&#39;</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">10</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">threshold</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">rotate</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}).</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#sakana-widget&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1">// 初始化时检测屏幕宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">checkScreenWidth</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="nx">checkScreenWidth</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">checkScreenWidth</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">screenWidth</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;sakana-widget-container&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">screenWidth</span> <span class="o">&lt;=</span> <span class="mi">960</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- 只在库加载完成后初始化 --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> 
+</span></span><span class="line"><span class="cl">    <span class="na">async</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onload</span><span class="o">=</span><span class="s">&#34;initSakanaWidget()&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="标题样式">标题样式</h2>
+<h3 id="更改特点">更改特点</h3>
+<p>个人更改的标题样式：</p>
+<ul>
+<li><strong>二级到六级标题</strong>：
+<ul>
+<li>字体从 30 号逐级变小。</li>
+<li>增强互动性——点击悬浮放大。</li>
+<li>保持独立单行。</li>
+</ul>
+</li>
+<li><strong>二级标题</strong>：阴影效果、渐变蓝色方框 + <code>#</code> 包围，居中对齐</li>
+<li><strong>三级标题到六级标题</strong>：
+<ul>
+<li>级别越低，竖线越多。例如图中的四级标题（<code>#### h4</code>）左侧有两条竖线。三级标题则只有一条。</li>
+<li>标题使用透明方框包围，阴影效果。</li>
+<li>兼容白天夜晚模式切换。</li>
+</ul>
+</li>
+<li><strong>四级标题到六级标题</strong>：加入等边三角形作为装饰。</li>
+</ul>
+<p>效果图片如下</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp" title="效果图" data-thumbnail="/img/Hugo中英文建站.zh-cn-1759029479630.webp" data-sub-html="<h2> </h2><p>效果图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp"
+            data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo中英文建站.zh-cn-1759029479630.webp" />
+    </a><figcaption class="image-caption">效果图</figcaption>
+    </figure></p>
+<h3 id="更改方式">更改方式</h3>
+<p>在 <code>&lt;自己的博客&gt;\assets\css\_custom.scss</code> 中，添加如下命令：</p>
+<blockquote>
+<p>以前自定义过标题样式记得删去。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 标题 **************************/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* ====================================================================== */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* H2 二级标题：居中 + 渐变 + 左右 # 装饰 */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* ====================================================================== */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">relative</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="nx">block</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* 确保标题是块级元素，独占一行 */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="nx">max</span><span class="o">-</span><span class="nx">content</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* 让宽度自适应内容，才能使用 margin: auto 居中 */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">margin</span><span class="o">:</span> <span class="mf">2.5</span><span class="nx">rem</span> <span class="nx">auto</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* 块级元素居中 */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="o">:</span> <span class="nx">bold</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">30</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="o">:</span> <span class="mf">1.4</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="nx">fff</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">linear</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="mi">90</span><span class="nx">deg</span><span class="p">,</span> <span class="err">#</span><span class="mi">4</span><span class="nx">a90e2</span><span class="p">,</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">8</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">padding</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span> <span class="mi">24</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">-</span><span class="nx">align</span><span class="o">:</span> <span class="nx">center</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* --- Enhanced Shadow --- */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="nx">px</span> <span class="mi">12</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transition</span><span class="o">:</span> <span class="nx">all</span> <span class="mf">0.3</span><span class="nx">s</span> <span class="nx">ease</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Keep transition for smooth hover */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* --- H2 Interactive Hover Effect --- */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">8</span><span class="nx">px</span> <span class="mi">20</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Deeper shadow on hover */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">scale</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* 仅保留放大效果 */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cursor</span><span class="o">:</span> <span class="nx">pointer</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H2 Dark Mode Shadow */</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">15</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H2 Dark Mode Hover */</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">8</span><span class="nx">px</span> <span class="mi">25</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 隐藏主题自动生成的锚点 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span> <span class="p">.</span><span class="nx">headerlink</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span> <span class="nx">a</span><span class="p">.</span><span class="nx">headerlink</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="nx">none</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H2 左右装饰 # */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;#&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="o">-</span><span class="mi">32</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">4</span><span class="nx">a90e2</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="o">:</span> <span class="nx">bold</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mf">1.4</span><span class="nx">rem</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h2</span><span class="o">::</span><span class="nx">after</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;#&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">right</span><span class="o">:</span> <span class="o">-</span><span class="mi">32</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="o">:</span> <span class="nx">bold</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mf">1.4</span><span class="nx">rem</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* ====================================================================== */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* H3-H6：左对齐 + 多条竖线分级 + 背景轻色 + 阴影 + 三角符号 */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* ====================================================================== */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 隐藏自带锚点 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span> <span class="nx">a</span><span class="p">.</span><span class="nx">headerlink</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span> <span class="nx">a</span><span class="p">.</span><span class="nx">headerlink</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span> <span class="nx">a</span><span class="p">.</span><span class="nx">headerlink</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span> <span class="nx">a</span><span class="p">.</span><span class="nx">headerlink</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="nx">none</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 通用基础样式 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">relative</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="nx">block</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">margin</span><span class="o">:</span> <span class="mi">20</span><span class="nx">px</span> <span class="mi">0</span> <span class="mi">12</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="o">:</span> <span class="mf">1.5</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="o">:</span> <span class="nx">bold</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="nx">px</span> <span class="mi">6</span><span class="nx">px</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* --- Transparent background for light mode --- */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">74</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* --- Enhanced shadow for light mode --- */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transition</span><span class="o">:</span> <span class="nx">all</span> <span class="mf">0.3</span><span class="nx">s</span> <span class="nx">ease</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Keep transition for smooth hover */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* --- H3-H5 Interactive Hover Effect --- */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span><span class="o">:</span><span class="nx">hover</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="o">:</span><span class="nx">hover</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateX</span><span class="p">(</span><span class="mi">4</span><span class="nx">px</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Move slightly to the right */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">74</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Increase opacity */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="nx">px</span> <span class="mi">10</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Slightly stronger shadow */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cursor</span><span class="o">:</span> <span class="nx">pointer</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* Dark Mode General Styles */</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* --- Lighter, transparent background for dark mode --- */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* --- Stronger, darker shadow for dark mode --- */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="nx">px</span> <span class="mi">8</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="nx">E5E7EB</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Ensures text is light */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* Dark Mode H3-H5 Hover */</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span><span class="o">:</span><span class="nx">hover</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="o">:</span><span class="nx">hover</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateX</span><span class="p">(</span><span class="mi">4</span><span class="nx">px</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Increase opacity */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="nx">px</span> <span class="mi">10</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Stronger shadow */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H3：1 条竖线 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">22</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">padding</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span> <span class="mi">18</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h3</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bottom</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="mi">5</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">4</span><span class="nx">a90e2</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H4：▶ + 2 条竖线 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">18</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">padding</span><span class="o">:</span> <span class="mi">8</span><span class="nx">px</span> <span class="mi">14</span><span class="nx">px</span> <span class="mi">8</span><span class="nx">px</span> <span class="mi">38</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Increased left padding for symbol */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* Triangle Symbol */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;▶&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">18</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">12</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* Two Vertical Lines (efficiently using box-shadow) */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h4</span><span class="o">::</span><span class="nx">after</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">15</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Make lines shorter than heading height */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bottom</span><span class="o">:</span> <span class="mi">15</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">2</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">6</span><span class="nx">px</span> <span class="mi">0</span> <span class="mi">0</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Creates the second line */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* H5：▶ + 3 条竖线 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">16</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">padding</span><span class="o">:</span> <span class="mi">6</span><span class="nx">px</span> <span class="mi">14</span><span class="nx">px</span> <span class="mi">6</span><span class="nx">px</span> <span class="mi">42</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Increased left padding */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* Triangle Symbol */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;▶&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">22</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">34495</span><span class="nx">e</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* Three Vertical Lines (using box-shadow) */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h5</span><span class="o">::</span><span class="nx">after</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">15</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bottom</span><span class="o">:</span> <span class="mi">15</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">34495</span><span class="nx">e</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">2</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">0</span> <span class="mi">0</span> <span class="err">#</span><span class="mi">34495</span><span class="nx">e</span><span class="p">,</span> <span class="mi">10</span><span class="nx">px</span> <span class="mi">0</span> <span class="mi">0</span> <span class="err">#</span><span class="mi">34495</span><span class="nx">e</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Creates 2nd and 3rd lines */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* NEW H6：▶ + 1 条虚线 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">15</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">padding</span><span class="o">:</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">12</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">30</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">background</span><span class="o">:</span> <span class="nx">none</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Simpler style for H6 */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="nx">none</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">0</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">bottom</span><span class="o">:</span> <span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="nx">eee</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">border</span><span class="o">-</span><span class="nx">bottom</span><span class="o">:</span> <span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="mi">444</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* Triangle Symbol */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;▶&#34;</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">8</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="o">%</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateY</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">777</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span><span class="o">::</span><span class="nx">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">888</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* --- H6 Interactive Hover Effect --- */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="nx">translateX</span><span class="p">(</span><span class="mi">2</span><span class="nx">px</span><span class="p">)</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Smallest shift */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">4</span><span class="nx">a90e2</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span> <span class="cm">/* Highlight text color */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cursor</span><span class="o">:</span> <span class="nx">pointer</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="在博客中渲染数学公式">在博客中渲染数学公式</h2>
+<p>虽然 <strong><a href="https://hugoloveit.com/zh-cn/theme-documentation-content/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F" target="_blank" rel="noopener noreffer ">LoveIt</a></strong> 主题通过 <a href="https://katex.org/" target="_blank" rel="noopener noreffer ">KaTeX</a> 提供数学公式的支持，但个人觉得使用体验不如 <a href="https://www.mathjax.org/" target="_blank" rel="noopener noreffer ">MathJax</a> 。</p>
+<p>使用 <code>MathJax</code> 的方法首先是在 <code>&lt;你的博客&gt;\layouts\partials</code> 中创建 <code>mathjax.html</code>。</p>
+<p><code>mathjax.html</code>: 右键点击网站公式支持公式代码复制。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp" title="如图" data-thumbnail="/img/Hugo中英文建站.zh-cn-1759032235608.webp" data-sub-html="<h2> </h2><p>如图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp"
+            data-srcset="/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp 1.5x, /img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp 2x"
+            data-sizes="auto"
+            alt="/img/Hugo中英文建站.zh-cn-1759032235608.webp" />
+    </a><figcaption class="image-caption">如图</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .Params.math }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tex</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[[</span><span class="s2">&#34;$&#34;</span><span class="p">,</span> <span class="s2">&#34;$&#34;</span><span class="p">]],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;$$&#34;</span><span class="p">,</span> <span class="s2">&#34;$$&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="s2">&#34;\[\[&#34;</span><span class="p">,</span> <span class="s2">&#34;\]\]&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">svg</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fontCache</span><span class="o">:</span> <span class="s2">&#34;global&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span>
+</span></span><span class="line"><span class="cl">  <span class="na">id</span><span class="o">=</span><span class="s">&#34;MathJax-script&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">async</span>
+</span></span><span class="line"><span class="cl">  <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在 <code>&lt;你的博客&gt;\layouts\partials\header.html</code> 中添加调用命令即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;mathjax.html&#34; . }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在每篇文章中，想要启用数学公式渲染，就在开头使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Math = true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于 Hugo 在渲染 Markdown 文档时会根据 <code>_</code>/<code>*</code>/<code>&gt;&gt;</code> 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 (如 <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>) 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:</p>
+<ul>
+<li><code>_</code> -&gt; <code>\_</code></li>
+<li><code>*</code> -&gt; <code>\*</code></li>
+<li><code>&gt;&gt;</code> -&gt; <code>\&gt;&gt;</code></li>
+<li><code>\(</code> -&gt; <code>\\(</code></li>
+<li><code>\)</code> -&gt; <code>\\)</code></li>
+<li><code>\[</code> -&gt; <code>\\[</code></li>
+<li><code>\]</code> -&gt; <code>\\]</code></li>
+<li><code>\\</code> -&gt; <code>\\\\</code></li>
+</ul>
+<p>例如我渲染以下公式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\<span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="n">V</span><span class="p">(</span>\<span class="n">varepsilon</span><span class="p">)</span><span class="o">=</span>\<span class="n">int_</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="o">^</span><span class="p">{</span><span class="n">T</span><span class="p">}</span><span class="n">F</span><span class="p">[</span><span class="n">t</span><span class="p">,</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span><span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)},</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span><span class="o">^</span><span class="p">{</span>\<span class="n">prime</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span><span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="err">’</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}]</span><span class="n">dt</span>
+</span></span><span class="line"><span class="cl">\<span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实际情况会变成：</p>
+<p>[
+V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{<em>}\left (t\right)+\varepsilon p\left (t\right)}_{y (t)},\underbrace{y^{</em>}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}_{y^{’}\left (t\right)}]dt
+]</p>
+<p>只有转化为 <code>\_</code> <code>^\*</code> <code>\\[ \\]</code> 才是正确的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\\<span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="n">V</span><span class="p">(</span>\<span class="n">varepsilon</span><span class="p">)</span><span class="o">=</span>\<span class="ne">int</span>\<span class="n">_</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="o">^</span><span class="p">{</span><span class="n">T</span><span class="p">}</span><span class="n">F</span><span class="p">[</span><span class="n">t</span><span class="p">,</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span>\<span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span>\<span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)},</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span>\<span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span><span class="o">^</span><span class="p">{</span>\<span class="n">prime</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span>\<span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="s1">&#39;}\left(t</span><span class="se">\r</span><span class="s1">ight)}]dt</span>
+</span></span><span class="line"><span class="cl">\\<span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>\[
+V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left (t\right)+\varepsilon p\left (t\right)}_{y (t)},\underbrace{y^{*}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}_{y^{&rsquo;}\left (t\right)}]dt
+\]</p>
+<p>但就我个人使用体验而言，有时候只转化式子的一半命令也可以渲染——转化多少命令似乎与渲染复杂度相关。</p>
+<p>例如我渲染 <code>$2\_i^\*-2_j^*$</code> —— $2_i^*-2_j^*$, 由于式子很简单，转不转化命令都一样。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97" target="_blank" rel="noopener noreffer ">总字数统计</a></li>
+<li><a href="https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4" target="_blank" rel="noopener noreffer ">添加站点运行时间</a></li>
+<li><a href="https://zishu.me/blog/213.html/" target="_blank" rel="noopener noreffer ">Hugo 的一些模板语法</a></li>
+<li><a href="https://flynx.dev/post/hugo-total-count/" target="_blank" rel="noopener noreffer ">Hugo 总文章数和总字数</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-08-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/runtime/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-hashtags="Hugo"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-hashtag="Hugo"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-image="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/hugo/">Hugo</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/pytorch2/" class="prev" rel="prev" title="anaconda 的卸载与安装"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>anaconda 的卸载与安装</a>
+            <a href="/zh-cn/posts/fs2/" class="next" rel="next" title=" 实证经济学：符合直觉≠显而易见"> 实证经济学：符合直觉≠显而易见<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

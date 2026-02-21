@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>R 语言基础 1：界面介绍与语法结构 - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="R 语言基础 1：界面介绍与语法结构" />
+<meta property="og:description" content="R 语言的基本代码引入，包含下载、教程、数据类型结构、语法、数据导入导出的代码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/r1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-20T10:11:52+08:00" />
+<meta property="article:modified_time" content="2024-04-20T10:11:52+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="R 语言基础 1：界面介绍与语法结构"/>
+<meta name="twitter:description" content="R 语言的基本代码引入，包含下载、教程、数据类型结构、语法、数据导入导出的代码"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/yxk2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "R 语言基础 1：界面介绍与语法结构",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r1\/"
+        },"genre": "posts","keywords": "R","wordcount":  6078 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r1\/","datePublished": "2024-04-20T10:11:52+08:00","dateModified": "2024-04-20T10:11:52+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/r1/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/r1/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">R 语言基础 1：界面介绍与语法结构</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-04-20">2024-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6078 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp"
+        data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130853495.webp 2x"
+        data-sizes="auto"
+        alt="/img/R语言基础.zh-cn-20240523130853495.webp"
+        title="/img/R语言基础.zh-cn-20240523130853495.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程推荐">教程推荐</a>
+      <ul>
+        <li><a href="#个人推荐">个人推荐</a></li>
+        <li><a href="#电子讲义教材">电子讲义教材</a></li>
+      </ul>
+    </li>
+    <li><a href="#r-语言下载">R 语言下载</a></li>
+    <li><a href="#r-studio-界面与准备">R studio 界面与准备</a>
+      <ul>
+        <li><a href="#界面介绍">界面介绍</a></li>
+        <li><a href="#包的管理与下载">包的管理与下载</a>
+          <ul>
+            <li><a href="#手动安装">手动安装</a></li>
+            <li><a href="#命令安装加载">命令安装、加载</a></li>
+            <li><a href="#设置工作目录">设置工作目录</a></li>
+            <li><a href="#载入数据">载入数据</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#语法知识">语法知识</a>
+      <ul>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#数据结构">数据结构</a>
+          <ul>
+            <li><a href="#赋值与向量">赋值与向量</a></li>
+            <li><a href="#矩阵">矩阵</a></li>
+            <li><a href="#列表">列表</a></li>
+            <li><a href="#数据框">数据框</a></li>
+          </ul>
+        </li>
+        <li><a href="#基本运算和函数">基本运算和函数</a>
+          <ul>
+            <li><a href="#基本运算">基本运算</a></li>
+            <li><a href="#向量函数运算">向量函数运算</a></li>
+            <li><a href="#数据框和矩阵运算">数据框和矩阵运算</a>
+              <ul>
+                <li><a href="#数据框-1">数据框</a></li>
+                <li><a href="#矩阵-1">矩阵</a></li>
+              </ul>
+            </li>
+            <li><a href="#字符函数">字符函数</a></li>
+            <li><a href="#分布函数">分布函数</a></li>
+          </ul>
+        </li>
+        <li><a href="#基本语法">基本语法</a>
+          <ul>
+            <li><a href="#循环">循环</a></li>
+            <li><a href="#条件">条件</a></li>
+            <li><a href="#函数构建">函数构建</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#数据整理">数据整理</a>
+      <ul>
+        <li><a href="#导入和导出">导入和导出</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" target="_blank" rel="noopener noreffer ">R 语言笔记 1 界面介绍与语法结构</a></p>
+<p><a href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" target="_blank" rel="noopener noreffer ">R 语言笔记 2 数据清洗、绘图与计量</a></p>
+<p>记录下 R 语言学习过程。个人感觉作为<strong>只跑回归</strong>的经济学学习者， Stata  完全够用了<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，不足的部分一般都用 Python 的轮子，即便是算 DSGE 用的也是 Matlab 的 Dynare 插件。对于计量经济学来说 R 语言回归表格样式和导出都不太友好，比较劝退。</p>
+<p>虽然目前对我没啥用，但学习原因有三：</p>
+<ul>
+<li>支持开源<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，所以想浅浅学习下 R 语言；</li>
+<li>个人目前在用 Rstudio 写博客文件；</li>
+<li>看了下快手、字节、腾讯、百度等大厂的分析师类型实习招聘，一般都是要求用 R 语言处理 SQL 数据库。</li>
+</ul>
+<h2 id="教程推荐">教程推荐</h2>
+<h3 id="个人推荐">个人推荐</h3>
+<ul>
+<li>
+<p>论坛：<a href="https://cosx.org/" target="_blank" rel="noopener noreffer ">统计之都</a></p>
+</li>
+<li>
+<p>在线即可运行 R 语言代码：<a href="https://www.runoob.com/r/r-tutorial.html" target="_blank" rel="noopener noreffer ">菜鸟编程</a></p>
+</li>
+<li>
+<p>国外版本的菜鸟编程：<a href="https://www.w3schools.com/r/r_lists.asp" target="_blank" rel="noopener noreffer ">w3schools</a></p>
+</li>
+<li>
+<p>推荐<a href="https://tecdat.cn/" target="_blank" rel="noopener noreffer ">博客网站</a></p>
+</li>
+<li>
+<p>强烈推荐：《<a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html" target="_blank" rel="noopener noreffer ">统计软件</a> R》 <a href="https://www.stat-center.pku.edu.cn/zxry/zxjy/ldf/1227393.htm" target="_blank" rel="noopener noreffer ">李东风老师</a>写的电子讲义</p>
+</li>
+<li>
+<p>强烈推荐：《<a href="https://bookdown.org/wangminjie/R4DS/index.html" target="_blank" rel="noopener noreffer ">数据科学中的 R 语言</a>》王敏杰老师写的电子讲义</p>
+</li>
+<li>
+<p>强烈推荐：《<a href="https://www.econometrics-with-r.org/index.html" target="_blank" rel="noopener noreffer ">Introduction to Econometrics with R</a>》教材互动感极强！</p>
+</li>
+<li>
+<p>由于 R 语言可以生成网站，国内外很多老师都把自己的课写成了在线电子讲义。</p>
+<blockquote>
+<p>写博客是积累，写讲义是用心，这样的老师越来越多，中国以后也会越来越好吧。</p>
+<p>可以参见 R 语言电子图书大集合 <a href="https://bookdown.org/" target="_blank" rel="noopener noreffer ">bookdown</a></p>
+<p>大部分老师的电子讲义都会推荐的<a href="https://r4ds.had.co.nz/" target="_blank" rel="noopener noreffer ">一本</a></p>
+</blockquote>
+</li>
+<li>
+<p>R 语言项目： mounment 的 <a href="https://github.com/Mounment/R-Project?tab=readme-ov-file" target="_blank" rel="noopener noreffer ">github仓库</a></p>
+</li>
+<li>
+<p>国内教程<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>推荐：</p>
+</li>
+</ul>
+<p>个人喜欢快速入门且关键处足够细致的教程，本文笔记也主要来源于该视频：</p>
+<blockquote>
+<p>看完视频语法介绍之后建议直接开看电子讲义了。</p>
+<p>后面视频讲复杂了，没必要。</p>
+</blockquote>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1fh411H7vi&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h3 id="电子讲义教材">电子讲义教材</h3>
+<p>表格出处：<a href="https://zhuanlan.zhihu.com/p/530525295" target="_blank" rel="noopener noreffer ">【精心整理】2022年各专业领域全网最新最顶级的R语言新书</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">专业领域</th>
+<th>TOP-R 书籍或资源</th>
+<th>作者</th>
+<th>书籍地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">R 编程</td>
+<td>R 语言编程：基于 tidyverse</td>
+<td>张敬信</td>
+<td><a href="https://zhuanlan.zhihu.com/p/467134727" target="_blank" rel="noopener noreffer ">https://zhuanlan.zhihu.com/p/467134727</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 编程</td>
+<td>R 语言教程</td>
+<td>李东风</td>
+<td><a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html" target="_blank" rel="noopener noreffer ">https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 编程</td>
+<td>Advanced R</td>
+<td>Hadley</td>
+<td><a href="https://adv-r.hadley.nz/" target="_blank" rel="noopener noreffer ">https://adv-r.hadley.nz/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 编程</td>
+<td>Efficient R programming</td>
+<td>Colin Gillespie, Robin Lovelace</td>
+<td><a href="https://csgillespie.github.io/efficientR/" target="_blank" rel="noopener noreffer ">https://csgillespie.github.io/efficientR/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>ggplot 2: Elegant Graphics for Data Analysis</td>
+<td>Hadley</td>
+<td><a href="https://ggplot2-book.org/" target="_blank" rel="noopener noreffer ">https://ggplot2-book.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>Interactive web-based data visualization with R, plotly, and shiny</td>
+<td>Carson Sievert</td>
+<td><a href="https://plotly-r.com/" target="_blank" rel="noopener noreffer ">https://plotly-r.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>现代统计图形</td>
+<td>赵鹏，谢益辉，黄湘云</td>
+<td><a href="https://bookdown.org/xiangyun/msg/" target="_blank" rel="noopener noreffer ">https://bookdown.org/xiangyun/msg/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>rstudio:: conf 2020 data visualization workshop</td>
+<td>Kieran Healy</td>
+<td><a href="https://github.com/rstudio-conf-2020/dataviz" target="_blank" rel="noopener noreffer ">https://github.com/rstudio-conf-2020/dataviz</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>R Graphics Cookbook, 2 nd edition</td>
+<td>Winston Chang</td>
+<td><a href="https://r-graphics.org/" target="_blank" rel="noopener noreffer ">https://r-graphics.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">R 可视化</td>
+<td>R 语言数据可视化之美</td>
+<td>张杰</td>
+<td><a href="https://gitee.com/easyshu/Beautiful-Visualization-with-R" target="_blank" rel="noopener noreffer ">https://gitee.com/easyshu/Beautiful-Visualization-with-R</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文档沟通</td>
+<td>R Markdown Cookbook</td>
+<td>谢益辉</td>
+<td><a href="https://bookdown.org/yihui/rmarkdown-cookbook/" target="_blank" rel="noopener noreffer ">https://bookdown.org/yihui/rmarkdown-cookbook/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文档沟通</td>
+<td>R Markdown: The Definitive Guide</td>
+<td>谢益辉</td>
+<td><a href="https://bookdown.org/yihui/rmarkdown/" target="_blank" rel="noopener noreffer ">https://bookdown.org/yihui/rmarkdown/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文档沟通</td>
+<td>bookdown: Authoring Books and Technical Documents with R Markdown</td>
+<td>谢益辉</td>
+<td><a href="https://bookdown.org/yihui/bookdown/" target="_blank" rel="noopener noreffer ">https://bookdown.org/yihui/bookdown/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">开发 R 包</td>
+<td>R Packages</td>
+<td>Hadley</td>
+<td><a href="https://r-pkgs.org/" target="_blank" rel="noopener noreffer ">https://r-pkgs.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Shiny</td>
+<td>Mastering Shiny</td>
+<td>Hadley</td>
+<td><a href="https://mastering-shiny.org/" target="_blank" rel="noopener noreffer ">https://mastering-shiny.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Shiny</td>
+<td>Engineering Production-Grade Shiny Apps</td>
+<td>Colin Fay, Sébastien Rochette, Vincent Guyader and Cervan Girard</td>
+<td><a href="https://engineering-shiny.org/" target="_blank" rel="noopener noreffer ">https://engineering-shiny.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Shiny</td>
+<td>JavaScript for R</td>
+<td>John Coene</td>
+<td><a href="https://javascript-for-r.com/" target="_blank" rel="noopener noreffer ">https://javascript-for-r.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">应用统计</td>
+<td>Statistical Inference via Data Science</td>
+<td>Chester Ismay and Albert Y. Kim</td>
+<td><a href="https://moderndive.com/" target="_blank" rel="noopener noreffer ">https://moderndive.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">应用统计</td>
+<td>Introduction to Modern Statistics</td>
+<td>Mine Çetinkaya-Rundel</td>
+<td><a href="https://openintro-ims.netlify.app/" target="_blank" rel="noopener noreffer ">https://openintro-ims.netlify.app/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">应用统计</td>
+<td>现代应用统计与 R 语言</td>
+<td>黄湘云</td>
+<td><a href="https://bookdown.org/xiangyun/masr/" target="_blank" rel="noopener noreffer ">https://bookdown.org/xiangyun/masr/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">应用统计</td>
+<td>统计学与 R 语言 (课件)</td>
+<td>张敬信</td>
+<td>tidy-R 语言 2 群（222427909）群文件</td>
+</tr>
+<tr>
+<td style="text-align:left">实验设计</td>
+<td>The Grammar of Experimental Designs</td>
+<td>Emi Tanaka</td>
+<td><a href="https://emitanaka.org/edibble-book/" target="_blank" rel="noopener noreffer ">https://emitanaka.org/edibble-book/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">贝叶斯</td>
+<td>Doing Bayesian Data Analysis in brms and the tidyverse</td>
+<td>A Solomon Kurz</td>
+<td><a href="https://bookdown.org/content/3686/" target="_blank" rel="noopener noreffer ">https://bookdown.org/content/3686/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">贝叶斯</td>
+<td>Introduction to Bayesian Econometrics: A GUIded tour using R</td>
+<td>Andrés Ramírez-Hassan</td>
+<td><a href="https://bookdown.org/aramir21/IntroductionBayesianEconometricsGuidedTour/" target="_blank" rel="noopener noreffer ">https://bookdown.org/aramir21/IntroductionBayesianEconometricsGuidedTour/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">贝叶斯</td>
+<td>An Introduction to Bayesian Reasoning and Methods</td>
+<td>Kevin Ross</td>
+<td><a href="https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/" target="_blank" rel="noopener noreffer ">https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">贝叶斯</td>
+<td>Statistical rethinking with brms, ggplot 2, and the tidyverse: Second edition</td>
+<td>A Solomon Kurz</td>
+<td><a href="https://bookdown.org/content/70a06054-8138-4d90-aaa0-895f57aab1b4/" target="_blank" rel="noopener noreffer ">https://bookdown.org/content/70a06054-8138-4d90-aaa0-895f57aab1b4/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>R for Data Science</td>
+<td>Hadley</td>
+<td><a href="https://r4ds.had.co.nz/" target="_blank" rel="noopener noreffer ">https://r4ds.had.co.nz/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>Tidyverse Skills for Data Science in R</td>
+<td>Carrie Wright, Shannon Ellis, Stephanie Hicks, and Roger D. Peng</td>
+<td><a href="https://leanpub.com/tidyverseskillsdatascience" target="_blank" rel="noopener noreffer ">https://leanpub.com/tidyverseskillsdatascience</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>数据科学中的 R 语言</td>
+<td>王敏杰</td>
+<td><a href="https://bookdown.org/wangminjie/R4DS/" target="_blank" rel="noopener noreffer ">https://bookdown.org/wangminjie/R4DS/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>Data Science Live Book</td>
+<td>Pablo Casas</td>
+<td><a href="https://livebook.datascienceheroes.com/" target="_blank" rel="noopener noreffer ">https://livebook.datascienceheroes.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>R 语言实战（第三版）</td>
+<td>Rob Kabacoff</td>
+<td><a href="https://livebook.manning.com/book/r-in-action-third-edition/" target="_blank" rel="noopener noreffer ">https://livebook.manning.com/book/r-in-action-third-edition/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">数据科学</td>
+<td>Modern Data Science with R (2 nd)</td>
+<td>Benjamin S. Baumer, Daniel T. Kaplan, and Nicholas J. Horton</td>
+<td><a href="https://mdsr-book.github.io/mdsr2e/" target="_blank" rel="noopener noreffer ">https://mdsr-book.github.io/mdsr2e/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>mlr 3 book</td>
+<td>官方出品</td>
+<td><a href="https://mlr3book.mlr-org.com/" target="_blank" rel="noopener noreffer ">https://mlr3book.mlr-org.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>Tidy Modeling with R</td>
+<td>MAX KUHN AND JULIASILGE</td>
+<td><a href="https://www.tmwr.org/index.html" target="_blank" rel="noopener noreffer ">https://www.tmwr.org/index.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>Hands-On Machine Learning with R</td>
+<td>Bradley Boehmke &amp; Brandon Greenwell</td>
+<td><a href="https://bradleyboehmke.github.io/HOML/" target="_blank" rel="noopener noreffer ">https://bradleyboehmke.github.io/HOML/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>Feature Engineering and Selection: A Practical Approach for Predictive Models</td>
+<td>Max Kuhn and Kjell Johnson</td>
+<td><a href="http://www.feat.engineering/" target="_blank" rel="noopener noreffer ">http://www.feat.engineering/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>An Introduction to Statistical Learning with R</td>
+<td>Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani</td>
+<td><a href="https://trevorhastie.github.io/ISLR/" target="_blank" rel="noopener noreffer ">https://trevorhastie.github.io/ISLR/</a></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">机器学习</td>
+<td>R 机器学习：基于 mlr 3 verse (课件)</td>
+<td>张敬信</td>
+<td>tidy-R 语言 2 群（222427909）群文件</td>
+</tr>
+<tr>
+<td style="text-align:left">深度学习</td>
+<td>Deep Learning with R, Second Edition</td>
+<td>François Chollet with Tomasz Kalinowski and J. J. Allaire</td>
+<td><a href="https://www.manning.com/books/deep-learning-with-r-second-edition" target="_blank" rel="noopener noreffer ">https://www.manning.com/books/deep-learning-with-r-second-edition</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文本挖掘</td>
+<td>Supervised Machine Learning for Text Analysis in R</td>
+<td>EMIL HVITFELDT AND JULIA SILGE</td>
+<td><a href="https://smltar.com/" target="_blank" rel="noopener noreffer ">https://smltar.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文本挖掘</td>
+<td>QUANTEDA TUTORIALS</td>
+<td>Kohei Watanabe and Stefan Müller</td>
+<td><a href="https://tutorials.quanteda.io/" target="_blank" rel="noopener noreffer ">https://tutorials.quanteda.io/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">文本挖掘</td>
+<td>Text Analysis Tutorials</td>
+<td>LADAL</td>
+<td><a href="https://slcladal.github.io/index.html" target="_blank" rel="noopener noreffer ">https://slcladal.github.io/index.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">计量</td>
+<td>Introduction to Econometrics with R</td>
+<td>Christoph Hanck, Martin Arnold, Alexander Gerber, and Martin Schmelzer</td>
+<td><a href="https://www.econometrics-with-r.org/" target="_blank" rel="noopener noreffer ">https://www.econometrics-with-r.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">计量</td>
+<td>Beyond Multiple Linear Regression: Applied Generalized Linear Models and Multilevel Models in R</td>
+<td>Paul Roback and Julie Legler</td>
+<td><a href="https://bookdown.org/roback/bookdown-BeyondMLR/" target="_blank" rel="noopener noreffer ">https://bookdown.org/roback/bookdown-BeyondMLR/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">计量</td>
+<td>Mixed Models with R Getting started with random effects</td>
+<td>Michael Clark</td>
+<td><a href="https://m-clark.github.io/mixed-models-with-R/" target="_blank" rel="noopener noreffer ">https://m-clark.github.io/mixed-models-with-R/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">时间序列</td>
+<td>Forecasting: Principles and Practice (3 rd ed)</td>
+<td>RobJHyndman</td>
+<td><a href="https://otexts.com/fpp3/" target="_blank" rel="noopener noreffer ">https://otexts.com/fpp3/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">时间序列</td>
+<td>金融时间序列分析讲义</td>
+<td>李东风</td>
+<td><a href="https://www.math.pku.edu.cn/teachers/lidf/course/fts/ftsnotes/html/_ftsnotes/index.html" target="_blank" rel="noopener noreffer ">https://www.math.pku.edu.cn/teachers/lidf/course/fts/ftsnotes/html/_ftsnotes/index.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">金融</td>
+<td>Tidy Finance with R</td>
+<td>Christoph Scheuch, Stefan Voigt, and Patrick Weiss</td>
+<td><a href="https://tidy-finance.org/" target="_blank" rel="noopener noreffer ">https://tidy-finance.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">空间数据分析</td>
+<td>Geocomputation with R</td>
+<td>Robin Lovelace, Jakub Nowosad, Jannes Muenchow</td>
+<td><a href="https://geocompr.robinlovelace.net" target="_blank" rel="noopener noreffer ">https://geocompr.robinlovelace.net</a></td>
+</tr>
+<tr>
+<td style="text-align:left">空间数据分析</td>
+<td>Spatial Data Science with applications in R</td>
+<td>Edzer Pebesma, Roger Bivand</td>
+<td><a href="https://keen-swartz-3146c4.netlify.app/" target="_blank" rel="noopener noreffer ">https://keen-swartz-3146c4.netlify.app/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">空间数据分析</td>
+<td>NHH ECS 530 2021 course: Spatial data analysis (with R)</td>
+<td>Roger Bivand</td>
+<td><a href="https://rsbivand.github.io/ECS530_h21/" target="_blank" rel="noopener noreffer ">https://rsbivand.github.io/ECS530_h21/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">因果推断</td>
+<td>The Effect: An Introduction to Research Design and Causality</td>
+<td>Nick Huntington-Klein</td>
+<td><a href="https://theeffectbook.net/" target="_blank" rel="noopener noreffer ">https://theeffectbook.net/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">因果推断</td>
+<td>Causal Inference: The Mixtape</td>
+<td>Scott Cunningham</td>
+<td><a href="https://mixtape.scunning.com/index.html" target="_blank" rel="noopener noreffer ">https://mixtape.scunning.com/index.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">社会科学</td>
+<td>Data Analytics for the Social Sciences Applications in R</td>
+<td>G. David Garson</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">社会科学</td>
+<td>A Business Analyst’s Introduction to Business Analytics</td>
+<td>Adam Fleischhacker</td>
+<td><a href="https://www.causact.com/" target="_blank" rel="noopener noreffer ">https://www.causact.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">社会科学</td>
+<td>Computing for the Social Sciences</td>
+<td>Benjamin Soltoff</td>
+<td><a href="https://cfss.uchicago.edu/notes/intro-to-course/" target="_blank" rel="noopener noreffer ">https://cfss.uchicago.edu/notes/intro-to-course/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">网络分析</td>
+<td>Methods for Network Analysis</td>
+<td>Mark Hoffman</td>
+<td><a href="https://bookdown.org/markhoff/social_network_analysis/" target="_blank" rel="noopener noreffer ">https://bookdown.org/markhoff/social_network_analysis/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">网络分析</td>
+<td>Handbook of Graphs and Networks in People Analytics: With Examples in R and Python</td>
+<td>Keith McNulty</td>
+<td><a href="https://ona-book.org/" target="_blank" rel="noopener noreffer ">https://ona-book.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">网络建模</td>
+<td>workshop 2020_Network Modeling for Epidemics</td>
+<td><a href="http://statnet.org" target="_blank" rel="noopener noreffer ">http://statnet.org</a></td>
+<td><a href="https://statnet.org/nme/d1.html" target="_blank" rel="noopener noreffer ">https://statnet.org/nme/d1.html</a></td>
+</tr>
+<tr>
+<td style="text-align:left">模型计算</td>
+<td>Model Estimation by Example Demonstrations with R</td>
+<td>Michael Clark</td>
+<td><a href="https://m-clark.github.io/models-by-example/" target="_blank" rel="noopener noreffer ">https://m-clark.github.io/models-by-example/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">模型计算</td>
+<td>Computer-age Calculus with R</td>
+<td>Daniel Kaplan</td>
+<td><a href="https://dtkaplan.github.io/RforCalculus/" target="_blank" rel="noopener noreffer ">https://dtkaplan.github.io/RforCalculus/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">大数据</td>
+<td>Mastering Spark with R</td>
+<td>Javier Luraschi, Kevin Kuo, Edgar Ruiz</td>
+<td><a href="https://therinspark.com/" target="_blank" rel="noopener noreffer ">https://therinspark.com/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">元分析</td>
+<td>Doing Meta-Analysis in R: A Hands-on Guide</td>
+<td>Harrer, M., Cuijpers, P., Furukawa, T.A., &amp; Ebert, D.D</td>
+<td><a href="https://bookdown.org/mathiasHarrer/Doing_Meta_Analysis_in_R/" target="_blank" rel="noopener noreffer ">https://bookdown.org/mathiasHarrer/Doing_Meta_Analysis_in_R/</a></td>
+</tr>
+<tr>
+<td style="text-align:left">生存分析</td>
+<td>Applied Survival Analysis Using R</td>
+<td>Dirk F. Moore</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="r-语言下载">R 语言下载</h2>
+<p>个人环境：</p>
+<p>R 语言（本体）+ Rstuido（IDE）+ Rtools（插件包管理，win 系统限定）</p>
+<p>下载很简单，都是点点点一路 yes 即可。</p>
+<p>R 语言本体：<a href="https://cran.r-project.org/" target="_blank" rel="noopener noreffer ">https://cran.r-project.org/</a></p>
+<p>Rstudio 桌面软件：<a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreffer ">https://posit.co/download/rstudio-desktop/</a></p>
+<p>R 语言本体自带中文支持，但是 Rstudio 没有中文支持，有<a href="https://github.com/s0521/rstudio_cn" target="_blank" rel="noopener noreffer ">汉化github项目</a>，但是不好用，也不推荐去用，产生闪退、不兼容 bug 就麻烦了。</p>
+<h2 id="r-studio-界面与准备">R studio 界面与准备</h2>
+<h3 id="界面介绍">界面介绍</h3>
+<p>菜单目录进入页面设置：<code>tools</code> - <code>global option</code> - <code> Pane Layout</code></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130353761.webp" title="页面" data-thumbnail="/img/R语言基础.zh-cn-20240523130353761.webp" data-sub-html="<h2> </h2><p>页面</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130353761.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130353761.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130353761.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130353761.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130353761.webp" />
+    </a><figcaption class="image-caption">页面</figcaption>
+    </figure></p>
+<p>此时，</p>
+<p>左上角的 <code>source</code>（新建 R script 项目后）页面代表代码编写部分。</p>
+<p>左下角的 <code>console</code> 代表结果展示部分。</p>
+<p>右侧上下部分就是自定义栏目，例如 <code>history</code> 代表代码运行历史；<code>environment</code> 代表变量环境，可以在里面通过 <code>import Dataset</code> 导入 stata、excel 等数据；<code>file</code> 代表运行环境的电脑目录。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130634460.webp" title="随便加载了一个手头的数据集" data-thumbnail="/img/R语言基础.zh-cn-20240523130634460.webp" data-sub-html="<h2> </h2><p>随便加载了一个手头的数据集</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130634460.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130634460.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130634460.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130634460.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130634460.webp" />
+    </a><figcaption class="image-caption">随便加载了一个手头的数据集</figcaption>
+    </figure></p>
+<h3 id="包的管理与下载">包的管理与下载</h3>
+<h4 id="手动安装">手动安装</h4>
+<p>持续使用 R 语言很考验电脑内存，因为要不断地下载包。</p>
+<p>win 系统上使用 R 语言，一般使用 Rtools 管理。最新版的 R 语言应该自带这个工具包，没有的话去<a href="https://cran.r-project.org/bin/windows/Rtools/history.html" target="_blank" rel="noopener noreffer ">官网</a>安装即可，安装 .exe 的软件即可。</p>
+<p>在包含 <code>file</code> 的部分，其中包含 <code>Packages</code> 部分，点击其中的 <code>install</code> 即可安装。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130717577.webp" title="包的安装" data-thumbnail="/img/R语言基础.zh-cn-20240523130717577.webp" data-sub-html="<h2> </h2><p>包的安装</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130717577.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130717577.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130717577.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130717577.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130717577.webp" />
+    </a><figcaption class="image-caption">包的安装</figcaption>
+    </figure></p>
+<h4 id="命令安装加载">命令安装、加载</h4>
+<blockquote>
+<p>R 语言作为统计学家的语言，个人感觉本体程序语法不太优雅，但开源加载适合的包后就无比痛快了。</p>
+</blockquote>
+<p>例如我们要安装 car 这个包，可以使用以下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 包的安装</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;car&#34;</span><span class="p">)</span> <span class="c1">#这里是注释</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 包的加载</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 单独加载其中某个字函数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># car::vif()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 更新包</span>
+</span></span><span class="line"><span class="cl"><span class="nf">update.packages</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除包</span>
+</span></span><span class="line"><span class="cl"><span class="nf">remove.packages</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取帮助</span>
+</span></span><span class="line"><span class="cl"><span class="o">?</span><span class="n">help</span>
+</span></span><span class="line"><span class="cl"><span class="nf">help</span><span class="p">(</span><span class="s">&#34;library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 某个关键词的帮助</span>
+</span></span><span class="line"><span class="cl"><span class="nf">help.search</span><span class="p">(</span><span class="s">&#34;library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 某个packages的帮助</span>
+</span></span><span class="line"><span class="cl"><span class="nf">help</span><span class="p">(</span><span class="n">packages</span> <span class="o">=</span> <span class="s">&#34;ggplot2&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>由于包与包之前可能存在同样的函数名，在调用两个包产生冲突时，后面的包的同名函数将覆盖前一个包</p>
+</blockquote>
+<h4 id="设置工作目录">设置工作目录</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 查看当前目录</span>
+</span></span><span class="line"><span class="cl"><span class="nf">getwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置工作目录,注意使用的是斜杠</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取文件路径，此时会打开电脑文件手动寻找文件，然后点击后会返回文件路径</span>
+</span></span><span class="line"><span class="cl"><span class="nf">file.choose</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 保存R文件.RData</span>
+</span></span><span class="line"><span class="cl"><span class="nf">save</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nf">save.image</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#加载R文件</span>
+</span></span><span class="line"><span class="cl"><span class="nf">load</span><span class="p">(</span><span class="s">&#34;F:/文档1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">load</span><span class="p">(</span><span class="nf">file.choose</span><span class="p">()</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 记载某个包的数据集</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="载入数据">载入数据</h4>
+<p>Stata 一个页面只能加载一个数据库，但是 R 语言可以加载多个。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp" title="环境部分可以手动载入" data-thumbnail="/img/R语言基础.zh-cn-20240523130739387.webp" data-sub-html="<h2> </h2><p>环境部分可以手动载入</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130739387.webp" />
+    </a><figcaption class="image-caption">环境部分可以手动载入</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 展示当前环境栏中的所有数据对象，以数据库名称为单位</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ls</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除某个对象</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rm</span><span class="p">(</span><span class="n">list</span> <span class="o">=</span> <span class="nf">ls</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="语法知识">语法知识</h2>
+<h3 id="数据类型">数据类型</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>示例或描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数值</td>
+<td>2333    233.3</td>
+<td>numeric</td>
+</tr>
+<tr>
+<td>字符</td>
+<td>&lsquo;下一个就是你了&rsquo;  &ldquo;JOJO&rdquo;  &ldquo;2333&rdquo;</td>
+<td>character</td>
+</tr>
+<tr>
+<td>逻辑</td>
+<td>TRUE T FALSE F</td>
+<td>logical</td>
+</tr>
+<tr>
+<td>缺失值</td>
+<td>例如强行把文字转化为数字会转换失败</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>空白值</td>
+<td></td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>非数</td>
+<td>Not a Number 非数值</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>无穷大</td>
+<td>“Infinite”的缩写</td>
+<td>Inf</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 判断数据类型</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.numeric</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.character</span><span class="p">(</span><span class="s">&#39;123&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.na</span><span class="p">(</span><span class="kc">NA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.null</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">is.nan</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 转换数据类型</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.numeric</span><span class="p">(</span><span class="s">&#39;123&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.character</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数据结构">数据结构</h3>
+<h4 id="赋值与向量">赋值与向量</h4>
+<p>常规介绍顺序：赋值、索引、切片</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 赋值赋值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 对象名 &lt;- 对象值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 快捷键 alt -</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">v1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span> <span class="c1">#生成1到5对应的向量组v1</span>
+</span></span><span class="line"><span class="cl"><span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">44</span><span class="p">,</span><span class="m">6</span><span class="p">)</span> <span class="c1">#链接connect嵌套</span>
+</span></span><span class="line"><span class="cl"><span class="n">v3</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">times</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span><span class="c1"># repeat:按整体次序重复两次</span>
+</span></span><span class="line"><span class="cl"><span class="n">v4</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span><span class="c1"># repeat:按每个元素重复两次</span>
+</span></span><span class="line"><span class="cl"><span class="n">v5</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">times</span><span class="o">=</span><span class="m">2</span> <span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span><span class="c1"># 优先执行each，后执行times</span>
+</span></span><span class="line"><span class="cl"><span class="n">v6</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span> <span class="c1">#以2为取值起点，每次加3取值，直到大于9为止</span>
+</span></span><span class="line"><span class="cl"><span class="n">v7</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span> <span class="c1">#限制向量长度，因此多出来的数字会被取均值</span>
+</span></span><span class="line"><span class="cl"><span class="n">v8</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;JOJO&#39;</span> <span class="p">,</span><span class="s">&#39;下一个就是你了&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v9</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;JOJO&#39;</span> <span class="p">,</span><span class="bp">T</span> <span class="p">,</span> <span class="m">123</span><span class="p">)</span> <span class="c1">#会存在强制转换，字符&gt;逻辑&gt;数值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 向量名称</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">&lt;-</span> <span class="n">v9</span> <span class="c1">#变量v2的名称改为v9</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 此时v2情况如下</span>
+</span></span><span class="line"><span class="cl"><span class="n">JOJO</span> <span class="kc">TRUE</span>  <span class="m">123</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="kc">NA</span><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">3</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">6</span> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 向量长度</span>
+</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">v9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">v9</span><span class="p">)</span><span class="o">&lt;-</span> <span class="m">9</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 向量索引</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 不同于python重默认索引从0开始,R语言索引默认从1开始</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 不同于python加上负号代表反方向,R语言负索引代表去掉该索引值</span>
+</span></span><span class="line"><span class="cl"><span class="n">v7[3]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">v7</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">v2</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">v2[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="n">]</span>  <span class="c1">#去掉1和4对应索引值</span>
+</span></span><span class="line"><span class="cl"><span class="n">v2</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#39;JOJO&#39;</span> <span class="p">,</span><span class="s">&#39;TRUE&#39;</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">v1[v1</span><span class="o">%%</span><span class="m">2</span><span class="o">==</span><span class="m">1</span><span class="n">]</span> <span class="c1">#条件索引，模2余1的奇数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 常量</span>
+</span></span><span class="line"><span class="cl"><span class="kc">pi</span> <span class="c1">#圆周率</span>
+</span></span><span class="line"><span class="cl"><span class="kc">letters</span> <span class="c1">#小写字母</span>
+</span></span><span class="line"><span class="cl"><span class="kc">LETTERS</span> <span class="c1">#大写字母</span>
+</span></span><span class="line"><span class="cl"><span class="n">month.abb</span> <span class="c1">#月份缩写 &#34;Jan&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">month.name</span> <span class="c1">#月份全写 &#34;January&#34; </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="矩阵">矩阵</h4>
+<p>矩阵相关就是向量命令的叠加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="n">m1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="c1"># 两行</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># ncol = 3, # 列</span>
+</span></span><span class="line"><span class="cl">	<span class="n">byrow</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="c1">#按列进行填充，所以无需规定ncol</span>
+</span></span><span class="line"><span class="cl">	<span class="n">dimnames</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;r1&#39;</span><span class="p">,</span><span class="s">&#39;r2&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">					<span class="nf">c</span><span class="p">(</span><span class="s">&#39;c1&#39;</span><span class="p">,</span><span class="s">&#39;c2&#39;</span><span class="p">,</span><span class="s">&#39;c3&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 和向量相同，矩阵只接受一种数据格式</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成一个3*3的空矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="n">m0</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="n">nclo</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">m2</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> <span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">6</span><span class="n">]</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dimnames</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;r1&#39;</span><span class="p">,</span> <span class="s">&#39;r2&#39;</span><span class="p">,</span> <span class="s">&#39;r3&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="nf">c</span><span class="p">(</span><span class="s">&#39;c1&#39;</span><span class="p">,</span> <span class="s">&#39;c2&#39;</span><span class="p">,</span> <span class="s">&#39;c3&#39;</span><span class="p">,</span> <span class="s">&#39;c4&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 行列名册</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="c1">#列</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="c1">#行</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dimnames</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">list</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1">#行列名称</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 维度信息,也就是python中的shape命令</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">ncol</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">nrow</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 矩阵索引</span>
+</span></span><span class="line"><span class="cl"><span class="n">m2[1</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="c1">#返回一行二列的值</span>
+</span></span><span class="line"><span class="cl"><span class="n">m2[1</span><span class="p">,</span><span class="n">]</span> <span class="c1">#返回第一行的向量</span>
+</span></span><span class="line"><span class="cl"><span class="n">m2</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 换成按照索引名称切片等同</span>
+</span></span><span class="line"><span class="cl"><span class="n">m2[</span><span class="s">&#39;r1&#39;</span><span class="p">,</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 转化成向量</span>
+</span></span><span class="line"><span class="cl"><span class="nf">as.vector</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>  <span class="c1">#按列顺序抽取控制</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#array</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="列表">列表</h4>
+<p>不同于向量和矩阵，列表可以是不同数据类型和结构的组合</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">m1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">byrow</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">dimnames</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;r1&#39;</span><span class="p">,</span><span class="s">&#39;r2&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                  <span class="nf">c</span><span class="p">(</span><span class="s">&#39;c1&#39;</span><span class="p">,</span><span class="s">&#39;c2&#39;</span><span class="p">,</span><span class="s">&#39;c3&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 不同于向量和矩阵，列表可以是不同数据类型和结构</span>
+</span></span><span class="line"><span class="cl"><span class="n">l1</span><span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">com1</span> <span class="o">=</span> <span class="n">v1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">com2</span> <span class="o">=</span> <span class="n">m1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 列表名称</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 列表索引,虽然有视频说这几个命令不相同，也就是区别返回到到底是列表、矩阵还是向量，个人试了下似乎没有区别。</span>
+</span></span><span class="line"><span class="cl"><span class="n">l1</span><span class="o">$</span><span class="n">com1</span> 		
+</span></span><span class="line"><span class="cl"><span class="n">l1[[</span><span class="s">&#39;com2&#39;</span><span class="n">]]</span> 	
+</span></span><span class="line"><span class="cl"><span class="n">l1[</span><span class="s">&#39;com2&#39;</span><span class="n">]</span>    
+</span></span><span class="line"><span class="cl"><span class="n">l1[20]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 新建成分</span>
+</span></span><span class="line"><span class="cl"><span class="n">l1</span><span class="o">$</span><span class="n">com3</span><span class="o">&lt;-</span> <span class="m">3</span><span class="o">:</span><span class="m">6</span>
+</span></span><span class="line"><span class="cl"><span class="n">l1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 释放列表</span>
+</span></span><span class="line"><span class="cl"><span class="nf">unlist</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="c1"># 把列表降维成向量，索引生成为第几个列表第几个值</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据框">数据框</h4>
+<p>特殊的列表，也就是我们常常处理的面板数据、时间序列，使用 Data frame 构建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 数据框生成</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">C1</span> <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">C2</span> <span class="o">=</span> <span class="kc">letters</span><span class="n">[2</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 维度信息</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ncol</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">nrow</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 行列名称</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dimnames</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span> <span class="c1"># 列和行名称</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span> <span class="c1"># 行名称</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 数据框索引</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[1</span><span class="o">:</span><span class="m">2</span> <span class="p">,</span><span class="m">2</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[</span><span class="p">,</span><span class="s">&#34;c1&#34;</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[[2]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span><span class="o">$</span><span class="n">c1</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[2]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1[</span><span class="s">&#39;c1&#39;</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 新间列</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span><span class="o">$</span><span class="n">c3</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成网格搜索的数据框</span>
+</span></span><span class="line"><span class="cl"><span class="nf">expand.grid</span><span class="p">(</span><span class="n">mtry</span> <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			  <span class="n">ntree</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">500</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="基本运算和函数">基本运算和函数</h3>
+<h4 id="基本运算">基本运算</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="m">1+2</span> <span class="c1">#加法</span>
+</span></span><span class="line"><span class="cl"><span class="m">3-2</span> <span class="c1">#减法</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span><span class="o">*</span><span class="m">4</span> <span class="c1">#乘法</span>
+</span></span><span class="line"><span class="cl"><span class="m">8</span><span class="o">/</span><span class="m">5</span> <span class="c1">#除法</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span><span class="o">/</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>       <span class="c1">#长度不同则会循环扩展</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span><span class="n">^3</span> 				<span class="c1">#幂运算</span>
+</span></span><span class="line"><span class="cl"><span class="nf">exp</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">log</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="m">25</span>，<span class="n">base</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>   <span class="c1">#5为底的25的对数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sqrt</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> 			<span class="c1">#开平方</span>
+</span></span><span class="line"><span class="cl"><span class="nf">abs</span><span class="p">(</span><span class="m">-5.6</span><span class="p">)</span> 			<span class="c1">#绝对值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">slign</span><span class="p">(</span><span class="m">-5.6</span><span class="p">)</span>			<span class="c1">#符号</span>
+</span></span><span class="line"><span class="cl"><span class="nf">round</span><span class="p">(</span><span class="m">3.1415926</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>	<span class="c1">#保留指定小数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">signif</span><span class="p">(</span><span class="m">3.1415926</span><span class="p">,</span><span class="m">2</span><span class="p">)</span> <span class="c1">#保留有效数字</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ceiling</span><span class="p">(</span><span class="m">3.2</span><span class="p">)</span>		<span class="c1">#大于此数的最小整数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">floor</span><span class="p">(</span><span class="m">3.2</span><span class="p">)</span>			<span class="c1">#小于此数的最大整数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 数值对比</span>
+</span></span><span class="line"><span class="cl"><span class="o">==</span> <span class="o">!=</span> <span class="o">&gt;</span> <span class="o">&gt;=</span> <span class="o">&lt;</span> <span class="o">&lt;=</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="o">%in%</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span> <span class="c1">#是否包含于</span>
+</span></span><span class="line"><span class="cl"><span class="o">&amp;</span> 	<span class="c1">#与</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> 	<span class="c1">#或</span>
+</span></span><span class="line"><span class="cl"><span class="o">!</span>	<span class="c1">#非</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="向量函数运算">向量函数运算</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">21</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">max</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#最大值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cummax</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#对应长度范围内的最大值，返回值也是向量</span>
+</span></span><span class="line"><span class="cl"><span class="nf">min</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cummin</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sum</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#求和</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cumsum</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#累计求和</span>
+</span></span><span class="line"><span class="cl"><span class="nf">prod</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#乘积</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cumprod</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#累计乘积</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">mean</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#均值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">median</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#中位数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sd</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#标准差，计算使用的样本的公式</span>
+</span></span><span class="line"><span class="cl"><span class="nf">var</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#方差，计算使用的样本的公式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">rev</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#向量逆转，倒过来reverse排序</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sort</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#排序</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">times</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">v5</span><span class="p">)</span>			<span class="c1">#频数统计</span>
+</span></span><span class="line"><span class="cl"><span class="nf">unique</span><span class="p">(</span><span class="n">v5</span><span class="p">)</span>			<span class="c1">#取值水平，按照数字第一次出现的先后顺序排列数字</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 索引函数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">which</span><span class="p">(</span><span class="n">v5</span><span class="o">==</span><span class="m">7</span><span class="p">)</span>		<span class="c1">#返回满足条件的索引值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">which.max</span><span class="p">(</span><span class="n">v5</span><span class="p">)</span>		<span class="c1">#最大值有重复时返回第一次出现的索引</span>
+</span></span><span class="line"><span class="cl"><span class="nf">which.min</span><span class="p">(</span><span class="n">v5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 交集</span>
+</span></span><span class="line"><span class="cl"><span class="nf">intersect</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 差集</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setdiff</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 并集,只保留元素的位置值，有重复也保留一个</span>
+</span></span><span class="line"><span class="cl"><span class="nf">union</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据框和矩阵运算">数据框和矩阵运算</h4>
+<h5 id="数据框-1">数据框</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">dfs</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">b</span> <span class="o">=</span> <span class="m">3</span><span class="o">:</span><span class="m">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">d</span> <span class="o">=</span> <span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 行列合并</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span> <span class="o">&lt;-</span> <span class="n">dfs[1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span>
+</span></span><span class="line"><span class="cl"><span class="n">df2</span> <span class="o">&lt;-</span> <span class="n">dfs[3</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 行合并</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rbind</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span> <span class="c1"># 行增加，列不变</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cbind</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span> <span class="c1"># 列增加，行不变</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 行列运算</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colMeans</span><span class="p">(</span><span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">)</span>		<span class="c1">#列均值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colSums</span><span class="p">(</span><span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">)</span>		<span class="c1">#列求和</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowMeans</span><span class="p">(</span><span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">)</span>		<span class="c1">#列均值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowSums</span><span class="p">(</span><span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">)</span>		<span class="c1">#列求和</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># apply(数据框,行1还是列2，运算函数)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span> 	<span class="c1">#按列计算方差</span>
+</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">dfs[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="m">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">))}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 数据结构信息</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>			<span class="c1">#数据类型</span>
+</span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>		<span class="c1">#最小值和最大值</span>
+</span></span><span class="line"><span class="cl"><span class="nf">View</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>			<span class="c1">#展示数据框</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#展示前两行(n=2)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">tail</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#展示末尾两行(n=2)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="矩阵-1">矩阵</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ncol</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">byrow</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m3</span>
+</span></span><span class="line"><span class="cl"><span class="n">m4</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ncol</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">byrow</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">t</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>			<span class="c1">#转置</span>
+</span></span><span class="line"><span class="cl"><span class="nf">det</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>			<span class="c1">#行列式</span>
+</span></span><span class="line"><span class="cl"><span class="n">m3</span> <span class="o">%*%</span> <span class="n">m4</span>		<span class="c1">#矩阵乘法</span>
+</span></span><span class="line"><span class="cl"><span class="nf">solve</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>		<span class="c1">#m3 %*% x =E ，求出x</span>
+</span></span><span class="line"><span class="cl"><span class="nf">solve</span><span class="p">(</span><span class="n">m3</span><span class="p">,</span><span class="n">m4</span><span class="p">)</span>	<span class="c1">#m3 %*% x =m4 ，求出x</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="字符函数">字符函数</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 连接字符</span>
+</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;+&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">8</span><span class="n">]</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;~&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">8</span><span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 字符长度</span>
+</span></span><span class="line"><span class="cl"><span class="nf">nchar</span><span class="p">(</span><span class="n">month.name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 字母转大写</span>
+</span></span><span class="line"><span class="cl"><span class="nf">toupper</span><span class="p">(</span><span class="n">month.name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 字母转小写</span>
+</span></span><span class="line"><span class="cl"><span class="nf">tolower</span><span class="p">(</span><span class="n">month.name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 含有某个字符的元素的索引</span>
+</span></span><span class="line"><span class="cl"><span class="nf">grep</span><span class="p">(</span><span class="s">&#34;JU&#34;</span><span class="p">,</span><span class="n">month.name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 替换字符</span>
+</span></span><span class="line"><span class="cl"><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;e&#34;</span><span class="p">,</span><span class="s">&#34;000&#34;</span><span class="p">,</span><span class="n">month.name</span><span class="p">)</span>	<span class="c1">#将month.name含有e的地方替换成000</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="分布函数">分布函数</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">set.seed</span><span class="p">(</span><span class="m">24</span><span class="p">)</span> 					<span class="c1">#随机种子</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>		<span class="c1">#从1和2中进行12次有放回（T）的抽样。stata安慰剂检验随机抽样大家应该见过</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> 	<span class="c1">#r随机数+分布（norm）</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pnorm</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#p累计概率</span>
+</span></span><span class="line"><span class="cl"><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#q分位数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dnorm</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#d概率密度</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">1000</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">     <span class="n">y</span> <span class="o">=</span> <span class="nf">dnorm</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">1000</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">               <span class="n">mean</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">sd</span> <span class="o">=</span> <span class="m">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">     <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;l&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.25</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从-5到7间取1000个数，1000个数服从均值为1，标准差为2的正态分布</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 增加值为0的横线和值为1的竖线</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp" title="对应的分布函数图" data-thumbnail="/img/R语言基础.zh-cn-20240523130808012.webp" data-sub-html="<h2> </h2><p>对应的分布函数图</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130808012.webp" />
+    </a><figcaption class="image-caption">对应的分布函数图</figcaption>
+    </figure></p>
+<h3 id="基本语法">基本语法</h3>
+<h4 id="循环">循环</h4>
+<p>stata 简化为了 <code>local</code>、<code>global</code> 结合 <code>foreach</code> 进行变量循环，缺点是不便于行间的加减。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># for循环</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">x</span> <span class="kr">in</span> <span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">y</span><span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">z</span><span class="o">=</span><span class="n">y^3</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="s">&#34;____&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用宏变量定义</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">variable</span> <span class="kr">in</span> <span class="n">vector</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># while循环</span>
+</span></span><span class="line"><span class="cl"><span class="n">v1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="o">&lt;-</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="kr">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="nf">length</span><span class="p">(</span><span class="n">v1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">v1[1</span><span class="o">:</span><span class="n">i]</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="s">&#34;####&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">c1</span> <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">c2</span> <span class="o">=</span> <span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">c3</span> <span class="o">=</span> <span class="m">-19</span><span class="o">:</span><span class="m">-16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1"># 循环遍历数据框的每一行</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算每行的总和并打印</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df[i</span><span class="p">,</span> <span class="n">]</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#next:跳过</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#break:结束</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 计算每行的总和并打印</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="m">3</span><span class="p">){</span><span class="kr">break</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df[i</span><span class="p">,</span> <span class="n">]</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="条件">条件</h4>
+<p>If else 老生常谈了，这里不再过多举例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">7</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="m">6</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;a &gt; 6&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;a &lt;= 6&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="m">45</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;偶数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;奇数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">ifelse</span><span class="p">(</span><span class="m">55</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span><span class="m">0</span><span class="p">,</span><span class="s">&#34;偶数&#34;</span> <span class="s">&#34;奇数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="函数构建">函数构建</h4>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp" title="定义函数后，变量栏也会有展示" data-thumbnail="/img/R语言基础.zh-cn-20240523130826725.webp" data-sub-html="<h2> </h2><p>定义函数后，变量栏也会有展示</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp 2x"
+            data-sizes="auto"
+            alt="/img/R语言基础.zh-cn-20240523130826725.webp" />
+    </a><figcaption class="image-caption">定义函数后，变量栏也会有展示</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">名称<span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>参数<span class="p">){</span>
+</span></span><span class="line"><span class="cl">	具体操作
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义函数：阶乘</span>
+</span></span><span class="line"><span class="cl"><span class="n">f1</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">aug1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">res1</span><span class="o">&lt;-</span><span class="m">1</span><span class="o">:</span><span class="n">aug1</span>
+</span></span><span class="line"><span class="cl">	<span class="n">res2</span><span class="o">&lt;-</span><span class="nf">prod</span><span class="p">(</span><span class="n">res1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">return</span><span class="p">(</span><span class="n">res2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用函数</span>
+</span></span><span class="line"><span class="cl"><span class="nf">f1</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义函数：加法</span>
+</span></span><span class="line"><span class="cl"><span class="n">f2</span><span class="o">&lt;-</span><span class="kr">function</span><span class="p">(</span><span class="n">aug1</span><span class="p">,</span><span class="n">aug2</span><span class="o">=</span><span class="m">4</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">&lt;-</span> <span class="n">aug1</span><span class="o">+</span><span class="n">aug2</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nf">f2</span><span class="p">(</span><span class="m">2333</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">f2</span><span class="p">(</span><span class="m">2333</span><span class="p">,</span><span class="m">6666</span><span class="p">)</span> <span class="c1">#此时覆盖默认值aug2=4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="数据整理">数据整理</h2>
+<p>tidyverse 包的官网：<a href="https://www.tidyverse.org/" target="_blank" rel="noopener noreffer ">https://www.tidyverse.org/</a></p>
+<p>测试数据集可以在这里下载：<a href="https://moxingjiqi.shinyapps.io/dataset/" target="_blank" rel="noopener noreffer ">https://moxingjiqi.shinyapps.io/dataset/</a></p>
+<p>tidyverse 包的 <code>haven</code> 支持读取 spss、stata、SAS</p>
+<blockquote>
+<p>文件路径最好别包括中文名，不然容易导入乱码失败</p>
+</blockquote>
+<h3 id="导入和导出">导入和导出</h3>
+<p>表格出处：《<a href="https://bookdown.org/wangminjie/R4DS/index.html" target="_blank" rel="noopener noreffer ">数据科学中的 R 语言</a>》</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.txt</td>
+<td><code>read.table()</code></td>
+</tr>
+<tr>
+<td>.csv</td>
+<td><code>read.csv()</code> and <code>readr::read_csv()</code></td>
+</tr>
+<tr>
+<td>.xls and .xlsx</td>
+<td><code>readxl::read_excel()</code> and <code>openxlsx::read.xlsx()</code></td>
+</tr>
+<tr>
+<td>.sav (SPSS files)</td>
+<td><code>haven::read_sav()</code> and <code>foreign::read.spss()</code></td>
+</tr>
+<tr>
+<td>.Rdata or rda</td>
+<td><code>load()</code></td>
+</tr>
+<tr>
+<td>.rds</td>
+<td><code>readRDS()</code> and <code>readr::read_rds()</code></td>
+</tr>
+<tr>
+<td>.dta</td>
+<td><code>haven::read_dta()</code> and <code>haven::read_stata()</code></td>
+</tr>
+<tr>
+<td>.sas 7 bdat (SAS files)</td>
+<td><code>haven::read_sas()</code></td>
+</tr>
+<tr>
+<td>Internet</td>
+<td><code>download.file()</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CSV数据导入</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#自定义数据列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">d.small</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;John, 33, 95
+</span></span></span><span class="line"><span class="cl"><span class="s">Kim, 21, 64
+</span></span></span><span class="line"><span class="cl"><span class="s">Sandy, 49, 100
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;y&#34;</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#文件读取1</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;testcsv.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#文件读取2</span>
+</span></span><span class="line"><span class="cl"><span class="n">rawdata</span><span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="nf">file.choose</span><span class="p">(),</span><span class="n">head</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># head:第一行变变量名 sep：csv分割符</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>	<span class="c1">#输出了数据的前 4 行</span>
+</span></span><span class="line"><span class="cl"><span class="nf">tail</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>	<span class="c1">#输出了数据的后 10 行</span>
+</span></span><span class="line"><span class="cl"><span class="n">rawdata[95</span><span class="o">:</span><span class="m">105</span><span class="n">]</span>		<span class="c1">#输出95-105行</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">rawdata</span><span class="p">)</span>		<span class="c1">#查看数据类型</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># read.csv(file.choose())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># data.table::fread(file.choose())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CSV数据导出</span>
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span>	<span class="c1">#导出对象</span>
+</span></span><span class="line"><span class="cl">           <span class="s">&#34;test.csv&#34;</span><span class="p">,</span>	<span class="c1">#导出路径</span>
+</span></span><span class="line"><span class="cl">           <span class="n">sep</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">,</span>		<span class="c1">#导出分割符号</span>
+</span></span><span class="line"><span class="cl">           <span class="n">row.names</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>	<span class="c1">#行名称</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取excel表</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="nf">file.choose</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#批量获取csv文件</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置文件夹路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">folder_path</span> <span class="o">&lt;-</span> <span class="s">&#34;F:/桌面/房地产PB/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取文件夹中的所有csv文件路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">csv_files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;\\.csv$&#34;</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个空的列表，用于存储读取的csv数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 循环读取每个csv文件，并将其存储在data_list中</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">file</span> <span class="kr">in</span> <span class="n">csv_files</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data_list[[file]]</span> <span class="o">&lt;-</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将所有数据合并到一个数据框中</span>
+</span></span><span class="line"><span class="cl"><span class="n">combined_data</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看合并后的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">combined_data</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>至少绝大部分期刊主体文件都是 do 文件。如果再论画图，stata 的<code>schemepack</code>包已经足够强大，可以调整成 R 语言的默认风格&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>使用 Zotero 进行文献管理是我爱上开源理念的开始&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>国内卖课确实天下第一&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-04-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/r1/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-hashtags="R"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-hashtag="R"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-image="/img/R语言基础.zh-cn-20240523130853495.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/r/">R</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/yxk2/" class="prev" rel="prev" title="转载：杨小凯《我的一生》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>转载：杨小凯《我的一生》</a>
+            <a href="/zh-cn/posts/r2/" class="next" rel="next" title="R 语言笔记 2 : 数据清洗、绘图与计量">R 语言笔记 2 : 数据清洗、绘图与计量<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，345069 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

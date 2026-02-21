@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34; - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;" />
+<meta property="og:description" content="In the classic textbook &ldquo;Intermediate Microeconomics: A Modern Approach&rdquo; by Varian, there is a famous &ldquo;tax refund case&rdquo; in Chapter 8, &ldquo;Slutsky Equation&rdquo; (9th Edition, Page 100). The key concepts examined are income effect and substitution effect. This article records some personal insights." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/fla/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-06T17:01:14+08:00" />
+<meta property="article:modified_time" content="2023-07-06T17:01:14+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;"/>
+<meta name="twitter:description" content="In the classic textbook &ldquo;Intermediate Microeconomics: A Modern Approach&rdquo; by Varian, there is a famous &ldquo;tax refund case&rdquo; in Chapter 8, &ldquo;Slutsky Equation&rdquo; (9th Edition, Page 100). The key concepts examined are income effect and substitution effect. This article records some personal insights."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/fla/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/moviedoor/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/hw/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Analysis of the Tax Refund Case in Varian’s \"Microeconomics\"",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/fla\/"
+        },"genre": "posts","keywords": "Microeconomics","wordcount":  793 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/fla\/","datePublished": "2023-07-06T17:01:14+08:00","dateModified": "2023-07-06T17:01:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/fla/">简体中文</option><option value="/en/posts/fla/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/fla/">简体中文</option><option value="/en/posts/fla/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Analysis of the Tax Refund Case in Varian’s "Microeconomics"</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-07-06">2023-07-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;793 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523102750831.webp"
+        data-srcset="/img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523102750831.webp, /img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523102750831.webp 1.5x, /img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523102750831.webp 2x"
+        data-sizes="auto"
+        alt="/img/范里安《微观经济学》退税案例解析.zh-cn-20240523102750831.webp"
+        title="/img/范里安《微观经济学》退税案例解析.zh-cn-20240523102750831.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction"><strong>1. Introduction</strong></a></li>
+    <li><a href="#2-a-non-mathematical-explanation"><strong>2. A Non-Mathematical Explanation:</strong></a>
+      <ul>
+        <li><a href="#first-the-deposit-perspective-personal-view"><strong>First: The Deposit Perspective (Personal View)</strong></a></li>
+        <li><a href="#second-tax-friction-intertemporal-perspective">Second: Tax Friction, Intertemporal Perspective</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-mathematical-explanation"><strong>3. Mathematical Explanation</strong></a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>In the classic textbook &ldquo;Intermediate Microeconomics: A Modern Approach&rdquo; by Varian, there is a famous &ldquo;tax refund case&rdquo; in Chapter 8, &ldquo;Slutsky Equation&rdquo; (9th Edition, Page 100). <strong>The key concepts examined are income effect and substitution effect.</strong></p>
+<h2 id="1-introduction"><strong>1. Introduction</strong></h2>
+<blockquote>
+<p>In 1974, OPEC imposed an oil embargo on the United States. To reduce oil dependence, some proposed taxing oil, but taxing would hurt consumers&rsquo; wallets and was politically unfeasible. Therefore, some suggested taxing oil and then refunding the tax to consumers.<br>
+Critics argued that &ldquo;taxing first and then refunding&rdquo; would change nothing, as people would increase consumption after receiving the refund.</p>
+</blockquote>
+<p><strong>Counterintuitively,</strong></p>
+<p>The textbook argues that taxing first and then refunding would actually make consumers worse off, reducing oil consumption from $x$ to $x\prime$.</p>
+<h2 id="2-a-non-mathematical-explanation"><strong>2. A Non-Mathematical Explanation:</strong></h2>
+<h3 id="first-the-deposit-perspective-personal-view"><strong>First: The Deposit Perspective (Personal View)</strong></h3>
+<p>Here, I will first explain Varian&rsquo;s logic with minimal mathematical language.</p>
+<p>Taxing first and then refunding sounds like a bizarre plan, but think about it: what if we consider the deposit for &ldquo;shared bikes or shared power banks&rdquo; as a tax?</p>
+<ul>
+<li>The deposit, like Varian&rsquo;s oil tax, is paid first and then refunded.</li>
+<li>The deposit is an additional charge on top of the shared bike or power bank usage fee, just as the oil tax is an additional charge on gasoline consumption.</li>
+<li>Both the deposit and the oil tax are fully refunded.</li>
+</ul>
+<p><strong>The original question: Will taxing oil and then refunding it to consumers change their consumption?</strong></p>
+<p><strong>Transformed into: If the deposit for shared bikes or power banks increases, will consumers&rsquo; consumption change?</strong></p>
+<p>Let&rsquo;s assume there are two types of people in the market:</p>
+<p>One is a wealthy person who has 100 dollars a day, spends 50 dollars on personal consumption, and can even spend the other 50 dollars on &ldquo;Crazy Fridays&rdquo; for others.</p>
+<p>The other is a worker who only has 50 dollars a day, barely enough for personal consumption, with no extra money for KFC.</p>
+<p>For both groups, when the deposit for shared power banks is 0 dollars, each consumes two power banks a day.</p>
+<p>But one day, the deposit for power banks increases to 50 dollars!</p>
+<p>The wealthy person doesn&rsquo;t care; they still spend 100 dollars on two power banks and continue to enjoy life after receiving the refund.</p>
+<p>The worker, however, is in trouble. The deposit has increased from 0 dollars to 100 dollars, but they only have 50 dollars! Unless they borrow money, they can&rsquo;t afford the deposit. As a result, the worker reduces their consumption from two power banks a day to one.</p>
+<p><strong>So in this market, even though the deposit is refunded, the number of power banks rented daily has decreased from 4 to 3.</strong></p>
+<p><strong>The increase in deposit has no effect on the wealthy person&rsquo;s consumption $x$, but the worker&rsquo;s consumption has decreased from $x$ to $x\prime$.</strong></p>
+<p>The average market consumption change: $\frac{x+x}{2} \Rightarrow\frac{x+x^{\prime}}{2}$, and indeed, market consumption has decreased!</p>
+<hr>
+<p>This is why Varian says in the book ( <em>Original English textbook link: <a href="http://candrafajriananda.lecture.ub.ac.id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf" target="_blank" rel="noopener noreffer ">Intermediate Microeconomics</a>)</em></p>
+<blockquote>
+<p>That’s because he is average, not because of any causal connection</p>
+</blockquote>
+<p>Varian distinguishes between &ldquo;consumers&rdquo; and &ldquo;average consumers.&rdquo; That is, the wealthy person (consumer) in the market is not affected by the deposit, but the worker is, and as a result, the overall market (average consumer) consumption decreases.</p>
+<h3 id="second-tax-friction-intertemporal-perspective">Second: Tax Friction, Intertemporal Perspective</h3>
+<p><strong>The deposit analogy explores how policies affect different groups differently</strong>, ultimately leading to an overall decrease in consumption, which is also a one-time effect.</p>
+<p>But there is another explanatory perspective, <strong>treating the policy as forcing everyone to engage in intertemporal consumption</strong>.</p>
+<p>Before the refund, consumption is considered as a price increase, where the price is the tax burden, increasing from $p$ to $(1+t)p$, and consumption naturally decreases from $x$ to $x^\prime$. The second refund is $tx^\prime$.</p>
+<h2 id="3-mathematical-explanation"><strong>3. Mathematical Explanation</strong></h2>
+<p>Once the &ldquo;non-mathematical explanation&rdquo; is understood, we can look at the mathematical analysis provided in the book.</p>
+<ul>
+<li>The entire tax burden is shifted to consumers, meaning the price of gasoline rises.</li>
+<li>(Because some workers cannot afford the deposit, even though it will be refunded.)</li>
+<li>Taxing and then refunding ultimately leaves income unchanged.</li>
+</ul>
+<p>The first point indicates that <strong>the substitution effect occurs</strong>: as the price of gasoline rises, consumers are willing to spend more on other goods instead of gasoline. Therefore, the final consumption of oil by consumers must be $x^\prime$ after the price change, not the original $x$.</p>
+<p>The second point indicates that, overall, income has not changed, so <strong>there is no income effect</strong>.</p>
+<p>This is why the book distinguishes between &ldquo;consumers&rdquo; and &ldquo;average consumers.&rdquo; The average consumer&rsquo;s reaction to taxing and refunding is to reduce consumption, as they perceive gasoline as <strong>more expensive</strong>, with the tax burden shifted as $t$.</p>
+<p>$$
+\begin{cases} \text{Before:   }px+y=m\newline \text{Now:   }(p+t)x\prime+y\prime=m+tx\prime \end{cases}
+$$
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523101844324.webp" title="Diagram" data-thumbnail="/img/范里安《微观经济学》退税案例解析.zh-cn-20240523101844324.webp" data-sub-html="<h2> </h2><p>Diagram</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523101844324.webp"
+            data-srcset="/img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523101844324.webp, /img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523101844324.webp 1.5x, /img/%e8%8c%83%e9%87%8c%e5%ae%89%e3%80%8a%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%e5%ad%a6%e3%80%8b%e9%80%80%e7%a8%8e%e6%a1%88%e4%be%8b%e8%a7%a3%e6%9e%90.zh-cn-20240523101844324.webp 2x"
+            data-sizes="auto"
+            alt="/img/范里安《微观经济学》退税案例解析.zh-cn-20240523101844324.webp" />
+    </a><figcaption class="image-caption">Diagram</figcaption>
+    </figure></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/fla/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/fla/" data-title="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;" data-via="ygVNLSZ1omFBCeB" data-hashtags="Microeconomics"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/fla/" data-hashtag="Microeconomics"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/fla/" data-title="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/fla/" data-title="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/fla/" data-title="Analysis of the Tax Refund Case in Varian’s &#34;Microeconomics&#34;" data-image="/img/范里安《微观经济学》退税案例解析.zh-cn-20240523102750831.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/microeconomics/">microeconomics</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/moviedoor/" class="prev" rel="prev" title="2023 Movie Talk: The Other Side of the Door"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>2023 Movie Talk: The Other Side of the Door</a>
+            <a href="/en/posts/hw/" class="next" rel="next" title="Everything You Need to Know About Huawei Member Day">Everything You Need to Know About Huawei Member Day<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

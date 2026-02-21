@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34; - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;" />
+<meta property="og:description" content="GPT Summary: This article explores the application and meaning of convergence in the fields of mathematics, probability theory, and economics. Starting from the concepts of limits and convergence in mathematics, it gradually expands to the Law of Large Numbers and the Central Limit Theorem in probability theory, and finally delves into the convergence effect in economics and the convergence tests and club convergence analysis in econometrics." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/shounian/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-01T18:59:15+08:00" />
+<meta property="article:modified_time" content="2023-10-01T18:59:15+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;"/>
+<meta name="twitter:description" content="GPT Summary: This article explores the application and meaning of convergence in the fields of mathematics, probability theory, and economics. Starting from the concepts of limits and convergence in mathematics, it gradually expands to the Law of Large Numbers and the Central Limit Theorem in probability theory, and finally delves into the convergence effect in economics and the convergence tests and club convergence analysis in econometrics."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/shounian/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/h/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Convergence: From \"The Limit of Equations\" to \"The Limit of Growth\"",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/shounian\/"
+        },"genre": "posts","keywords": "Stata","wordcount":  3011 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/shounian\/","datePublished": "2023-10-01T18:59:15+08:00","dateModified": "2023-10-01T18:59:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$","$$"], ["[[", "]]"]]
+  },
+  svg: { fontCache: "global" }
+};
+
+const mathjaxCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
+];
+
+function loadMathJax(index=0){
+  if(index >= mathjaxCDNs.length){
+    console.error("所有 MathJax CDN 加载失败");
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = mathjaxCDNs[index];
+  script.async = true;
+  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
+  script.onerror = () => {
+    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
+    loadMathJax(index+1);
+  };
+  document.head.appendChild(script);
+}
+
+
+const polyfillCDNs = [
+  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6"
+];
+const polyfillScript = document.createElement("script");
+polyfillScript.src = polyfillCDNs[0]; 
+document.head.appendChild(polyfillScript);
+
+
+loadMathJax();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/shounian/">简体中文</option><option value="/en/posts/shounian/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/shounian/">简体中文</option><option value="/en/posts/shounian/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Convergence: From "The Limit of Equations" to "The Limit of Growth"</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-01">2023-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3011 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp"
+        data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp 2x"
+        data-sizes="auto"
+        alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp"
+        title="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#i-advanced-mathematics-limits-and-convergence">I. Advanced Mathematics: Limits and Convergence</a></li>
+    <li><a href="#ii-probability-theory-law-of-large-numbers-and-central-limit-theorem">II. Probability Theory: Law of Large Numbers and Central Limit Theorem</a></li>
+    <li><a href="#iii-economic-significance-convergence-effect">III. Economic Significance: Convergence Effect</a>
+      <ul>
+        <li><a href="#1-convergence-hypothesis-convergence">1. Convergence Hypothesis (Convergence)</a></li>
+        <li><a href="#2-convergence-speed">2. Convergence Speed</a></li>
+      </ul>
+    </li>
+    <li><a href="#iv-econometric-analysis">IV. Econometric Analysis</a>
+      <ul>
+        <li><a href="#1-econometric-equations">1. Econometric Equations</a></li>
+        <li><a href="#2-empirical-results-examples">2. Empirical Results (Examples)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/Can%20You%20Hear%20The%20Music-Ludwig%20G%C3%B6ransson.mp3" name="Can You Hear The Music" artist="Ludwig Göransson" cover="/images/aoben.png" theme="#448aff"></meting-js>
+<p>In economics courses, most concepts often undergo &ldquo;<strong>mathematical meaning - economic meaning - statistical meaning</strong>&rdquo; three re-understandings. We often see the same thing in different places, but we rarely take the time to fully understand it in one go, for example, <a href="https://blog.huaxiangshan.com/zh-cn/posts/flapxq/" target="_blank" rel="noopener noreffer ">three calculation formulas</a>.</p>
+<blockquote>
+<p>This article will summarize the concept of &ldquo;convergence&rdquo; as it runs through these three stages (although the connections may seem weak, I still want to go through it all at once).</p>
+</blockquote>
+<h2 id="i-advanced-mathematics-limits-and-convergence">I. Advanced Mathematics: Limits and Convergence</h2>
+<blockquote>
+<p>Limits and convergence are essentially the same thing from the start.</p>
+</blockquote>
+<p>Main reference: <strong>Tongji Edition &ldquo;Advanced Mathematics&rdquo;</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, where convergence is introduced as a description of the state of a limit:</p>
+<p>In <strong>the limit of a sequence</strong> (page 21, Volume I), the sequence $x_n$ converges to $a$, denoted as $\lim_{n \rightarrow \infty}{x_n=a}$.</p>
+<p>In <strong>the limit of a function</strong> (page 33, Volume I), the function converges, denoted as $\small \lim_{n \rightarrow \infty}{f(x_n)}=\lim_{n \rightarrow x_0}{f(x)}$.</p>
+<p>In <strong>the limit of a series</strong> (page 252, Volume II), $\small s=u_1+u_2+u_3+&hellip;u_i+&hellip;$ an infinite series converges if $\lim_{n \rightarrow \infty}{s_n=s}$, otherwise it diverges.</p>
+<p>$$
+\text{Convergence Classification}
+\begin{cases}
+\text{Content}
+\begin{cases}
+\text{Absolute Convergence} \
+\text{Conditional Convergence}
+\end{cases} \
+\text{Form}
+\begin{cases}
+\text{Pointwise Convergence} \
+\text{Uniform Convergence}
+\end{cases}
+\end{cases}
+$$</p>
+<p>Where series convergence is further divided into absolute convergence and conditional convergence; pointwise convergence and uniform convergence.</p>
+<p>Absolute Convergence: If $\small \sum_{n=1}^{\infty}{|u_n|}$ converges, then $\small \sum_{n=1}^{\infty}{u_n}$ is absolutely convergent.</p>
+<p>Conditional Convergence: If $\small \sum_{n=1}^{\infty}{|u_n|}$ does not converge, but $\sum_{n=1}^{\infty}{u_n}$ converges, then $\small \sum_{n=1}^{\infty}{u_n}$ is conditionally convergent.</p>
+<p>Pointwise Convergence: $\small \exists{0&lt;x&lt;\delta},\forall\varepsilon&gt;0, |f(x)-A|&lt;\varepsilon$, $\small \exists{0&lt;x&lt;\delta},\forall\varepsilon&gt;0, |f(x)-A|&lt;\varepsilon$</p>
+<p>Uniform Convergence: $\small \exists{0&lt;|x_1-x_2|&lt;\delta},\forall\varepsilon&gt;0,|f(x_1)-f(x_2)|&lt;\varepsilon$, $\small \exists{0&lt;|x_1-x_2|&lt;\delta},\forall\varepsilon&gt;0,|f(x_1)-f(x_2)|&lt;\varepsilon$</p>
+<p>By the way, convergence radius, which is the range of $x$ values that allow the series $\small u_n(x)$ to converge.</p>
+<p>Is there a shortcut for judging convergence or divergence? My advanced mathematics teacher mentioned a &ldquo;humorous&rdquo; method, which I also came across on Zhihu:</p>
+<p>Look at these two characters, aren&rsquo;t they both convergent and divergent?</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110525604.webp" title="Convergent and Divergent" data-thumbnail="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110525604.webp" data-sub-html="<h2> </h2><p>Convergent and Divergent</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110525604.webp"
+            data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110525604.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110525604.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110525604.webp 2x"
+            data-sizes="auto"
+            alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110525604.webp" />
+    </a><figcaption class="image-caption">Convergent and Divergent</figcaption>
+    </figure></p>
+<h2 id="ii-probability-theory-law-of-large-numbers-and-central-limit-theorem">II. Probability Theory: Law of Large Numbers and Central Limit Theorem</h2>
+<blockquote>
+<p>What you think of as &ldquo;chance&rdquo; is often embedded in &ldquo;necessity.&rdquo; Someone <strong>necessarily</strong> wins the lottery; it&rsquo;s just that person <strong>chance</strong> is you.</p>
+</blockquote>
+<p>Reference: <strong>Mao Shisong&rsquo;s &ldquo;Probability Theory and Mathematical Statistics&rdquo;</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, sequences of random variables have two modes of convergence: convergence in probability and convergence in distribution.</p>
+<p>Convergence in Probability: $\bbox[#def,5px,border: 1px solid]{ x\stackrel{P}{\longrightarrow}c }$</p>
+<p>For example, when flipping a coin, the initial frequency of heads may deviate greatly from $\frac{1}{2}$, but as the number of flips increases, the frequency approaches the probability. Frequency statistics have become one of the methods to determine probability<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<p>Various versions of the Law of Large Numbers, $\boxed{ Law of Large Numbers }$ essentially say the same thing: as the number of experiments $n$ increases, the probability of the deviation $\small \frac{S_n}{n}-P$ being greater than a predetermined value $\varepsilon$ decreases.</p>
+<blockquote>
+<p>Whether it&rsquo;s the Bernoulli (Bernoulli) Law of Large Numbers, Chebyshev&rsquo;s Law of Large Numbers, Markov&rsquo;s Law of Large Numbers, or Khinchin&rsquo;s Law of Large Numbers, they all essentially describe the same thing<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+</blockquote>
+<p>Convergence in Distribution: $\bbox[#def,5px,border: 1px solid]{ x\stackrel{F}{\longrightarrow}c }$</p>
+<p>Strong convergence in distribution is pointwise convergence, while weak convergence removes discontinuities and only considers the continuous distribution of $F(x)$.</p>
+<p>Denoted as $ \mathbb{P}(X_n\leqslant a)\to\mathbb{P}(X\leqslant a) $, which is $ \lim_{n\to\infty}F_n (x)=F (x)$.</p>
+<p>The $\boxed{ Central Limit Theorem }$ states that under certain conditions<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, the distribution function of the sum of independent random variables $Y_n=\sum_{i=1}^{n}{X_i}$ approaches a normal distribution.</p>
+<p><strong>Interesting knowledge about function distributions</strong><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<ul>
+<li>Assume there is a random variable that follows a binomial distribution.</li>
+<li>When it tends to the limit, with the expectation equal to the variance, it becomes a Poisson distribution.</li>
+<li>The intervals between random variables follow an exponential distribution.</li>
+<li>The nth variable corresponds to the gamma distribution in the horizontal coordinate.</li>
+</ul>
+<h2 id="iii-economic-significance-convergence-effect">III. Economic Significance: Convergence Effect</h2>
+<blockquote>
+<p>Money ≠ Numbers, Operations ≠ Problems, Economics ≠ Mathematics</p>
+</blockquote>
+<h3 id="1-convergence-hypothesis-convergence">1. Convergence Hypothesis (Convergence)</h3>
+<p>From the资料 used by the teacher in the &ldquo;Regional Economics&rdquo; course <strong><a href="http://qrcode.cp.cn/qr_code.php?id=r4e72n1bcu2o3o81fzg7uooy289qegqu" target="_blank" rel="noopener noreffer ">《Advanced Economic Geography》</a></strong> (He Canfei著).</p>
+<p>With the proposal of the Solow model, development economics researchers raised questions:</p>
+<p><strong>Since each economy has its own steady state and balanced growth path,</strong></p>
+<p><strong>and at the same time, less developed economies grow quickly while advanced economies slow down,</strong></p>
+<p><strong>the question is, will the economic growth of all economies converge in the end?</strong></p>
+<p>$$
+\begin{cases}
+\beta\text{-convergence}
+\begin{cases}
+\text{Absolute Convergence} \
+\text{Conditional Convergence} \
+\text{Club Convergence}
+\end{cases} \
+\sigma\text{-convergence}
+\end{cases}
+$$</p>
+<p>$\beta$-convergence:</p>
+<ul>
+<li>$\boxed{\beta\text{ Absolute Convergence}}$ assumes that regardless of the initial conditions of the economy, due to the faster development of the weaker and slower development of the stronger, the economy will eventually converge to the same level. All we need is a little patience.</li>
+<li>$\boxed{\beta\text{ Conditional Convergence}}$ assumes that the growth rate of the economy is influenced by certain structural factors (such as population structure, endowments of factors, growth rates of factors), so different economies converge to different steady states, and the final outcomes of development differ.</li>
+<li>$\boxed{\text{Club Convergence}}$ assumes that within economic groups with initially similar levels of economic development and among richer country groups, there is conditional convergence within each group, but no signs of convergence between the two groups.</li>
+</ul>
+<p>$\sigma$-convergence:</p>
+<ul>
+<li>$\boxed{\sigma\text{-convergence}}$ assumes that the standard deviation $\sigma$ between different economies is constantly decreasing.</li>
+</ul>
+<h3 id="2-convergence-speed">2. Convergence Speed</h3>
+<blockquote>
+<p>It seems like a mathematical concept from real analysis, but I first learned it in <strong>Romer</strong>&rsquo;s &ldquo;Advanced Macroeconomics,&rdquo; so I&rsquo;ve categorized it under economics.</p>
+</blockquote>
+<p>I looked it up on Wikipedia (<strong><a href="https://en.wikipedia.org/wiki/Rate_of_convergence" target="_blank" rel="noopener noreffer ">Rate of convergence</a></strong>), which is mainly applied in algorithm optimization and deep learning fields.</p>
+<p>If a sequence $x_k$ converges to $L$, the expression $\mu$ is the rate of convergence.</p>
+<p>$$
+\lim_{k\to\infty}\frac{|x_{k+1}-L|}{|x_k-L|^q}=\mu
+$$</p>
+<p>When $q=1$ in the equation, it is <strong>linear convergence</strong>, where the convergence speed is the ratio of the numerical difference to the convergence point between times $t$ and $t+1$.</p>
+<blockquote>
+<p>Imagine a race. We measure speed by comparing the distance from the starting point.<br>
+Convergence is like anxiously waiting for the school bell. We care about how long it will take to reach the endpoint.</p>
+</blockquote>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp" title="Convergence Together" data-thumbnail="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp" data-sub-html="<h2> </h2><p>Convergence Together</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp"
+            data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110613986.webp 2x"
+            data-sizes="auto"
+            alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp" />
+    </a><figcaption class="image-caption">Convergence Together</figcaption>
+    </figure></p>
+<p>![Solow Model actually just added a factor on the horizontal axis](/img/收敛：从“算式的极限”到“增长的极限”.zh</think></p>
+<h2 id="iv-econometric-analysis">IV. Econometric Analysis</h2>
+<h3 id="1-econometric-equations">1. Econometric Equations</h3>
+<p><strong>(1) Absolute Convergence</strong></p>
+<p>Barro and Martin (1991)<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> proposed the test equation for absolute $\beta$ convergence based on Baumol (1986)<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>.</p>
+<p>$$
+\small \frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha - \frac{(1 - e^{-\beta T})}{T} \log(y_{i,t}) + \varepsilon_i
+$$</p>
+<p>Where $i$ represents the $i$th region, $t$ is the initial period, $t+T$ is the final period, $T$ is the length of the observation period, $y_{i,t}$ is the per capita GDP of region $i$ in period $t$, and $\beta$ represents the convergence speed. If $\beta &gt; 0$, it indicates that the differences in economic development between regions will gradually disappear, eventually reaching the same steady state.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110658031.webp" title="OLS Regression Statistics Chart, Data from EU Regions (Source: Barro and Martin, 1991)" data-thumbnail="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110658031.webp" data-sub-html="<h2> </h2><p>OLS Regression Statistics Chart, Data from EU Regions (Source: Barro and Martin, 1991)</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110658031.webp"
+            data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110658031.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110658031.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110658031.webp 2x"
+            data-sizes="auto"
+            alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110658031.webp" />
+    </a><figcaption class="image-caption">OLS Regression Statistics Chart, Data from EU Regions (Source: Barro and Martin, 1991)</figcaption>
+    </figure></p>
+<p>The above formula is derived from the neoclassical growth model (i.e., the Solow model).</p>
+<p>Personally, I find that domestic descriptions of convergence regression variance are much clearer and more concise. Here, I refer to Peng Guohua (2005)<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>&rsquo;s regression equation:</p>
+<p>$$
+g = c + \beta \ln y_0 + \varepsilon
+$$</p>
+<p>Where $g$ is the growth rate, $c$ is the constant term, $y_0$ is the actual output, and $\varepsilon$ is the error term. When $\beta &lt; 0$, it indicates that the growth rate $g$ is negatively correlated with the economic level $y_0$, consistent with our assumption that &ldquo;high-level economies grow slower, while low-level economies grow faster.&rdquo;</p>
+<p><strong>(2) Conditional Convergence</strong></p>
+<p>Barro and Martin (1992)<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> proposed the test equation for conditional $\beta$ convergence based on the absolute $\beta$ convergence test equation:</p>
+<p>$$
+\small \frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha - \frac{(1 - e^{-\beta T})}{T} \log(y_{i,t}) + \lambda X_{i,t} + \varepsilon_{i,t}
+$$</p>
+<p>The conclusions and parameter meanings are the same as those for absolute convergence, as conditional convergence implies that economic growth is related to the structural environment of the economy, hence the inclusion of $X_{i,t}$ as control variables.</p>
+<blockquote>
+<p>The inconvenience of introducing control variables $X_{i,t}$ is that we have to study exogeneity again.</p>
+</blockquote>
+<p><strong>(3) Club Convergence</strong></p>
+<p>In groups with similar economic characteristics and similar growth paths, convergence exists within the group, but not between different economic groups. This phenomenon is called club convergence (Durlauf, 1995; Galor, 1996).</p>
+<p>$$
+\frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha + \beta \log(y_{i,t}) + \lambda D + \varepsilon_{i,t}
+$$</p>
+<p>The variable meanings are the same as above, except that convergence is indicated only when $\beta &lt; 0$, where $D_{i,t}$ is a dummy variable, i.e., grouping, such as all of East Asia following the same development path, or several cities developing as port cities.</p>
+<blockquote>
+<p>An interesting study I found is modeling based on clustering criteria, such as using the &ldquo;middle-income trap&rdquo; as a clustering criterion<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>.<br>
+Du (2017) (who is from Shandong University) introduced a Stata package to perform the econometric convergence test and club clustering algorithm by Phillips and Sul (2007)<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup><sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>.<br>
+The grouping basis idea is roughly as follows:<br>
+$$
+\lim_{x \rightarrow +\infty} \frac{X_j}{X_i} \rightarrow 1
+$$
+For detailed mathematical derivations, please click on the hyperlinks to their names.</p>
+</blockquote>
+<p>Regarding club clustering operations in Stata, there are excellent tutorials available on YouTube and <a href="https://github.com/quarcs-lab/mendez2020-convergence-clubs-code-data" target="_blank" rel="noopener noreffer ">GitHub</a>.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FO8Ngl57HRQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>I have translated and added details to his do file:</p>
+<blockquote>
+<p>Note: Use <code>cd</code> to adjust the Stata working environment (already noted in the do file comments)</p>
+</blockquote>
+<p><a href="https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==" target="_blank" rel="noopener noreffer ">BDY do file</a></p>
+<p><a href="https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==" target="_blank" rel="noopener noreffer ">dta file</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">***************** This <span class="k">do</span> <span class="k">file</span> <span class="k">and</span> accompanying data sources are <span class="k">from</span>:
+</span></span><span class="line"><span class="cl">*  https://github<span class="m">.</span>com/quarcs-lab/mendez2020-convergence-clubs-code-data
+</span></span><span class="line"><span class="cl">*  This <span class="k">file</span> mainly translates part of the content <span class="k">and</span> adds explanations for operations <span class="k">and</span> details.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Loading plotting packages*********************
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">* Install the convergence clubs package
+</span></span><span class="line"><span class="cl">findit st0503_1
+</span></span><span class="line"><span class="cl">net install st0503_1, <span class="k">from</span>(http://www<span class="m">.</span>stata-journal<span class="m">.</span>com/software/sj19<span class="m">-1</span>)
+</span></span><span class="line"><span class="cl">* Install package dependencies
+</span></span><span class="line"><span class="cl">ssc install moremata
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* Reminder: Running these packages requires Stata <span class="m">12</span> <span class="k">or</span> above, <span class="k">and</span> exporting results to Excel requires version <span class="m">14.2</span> <span class="k">or</span> above
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">clear all
+</span></span><span class="line"><span class="cl">macro <span class="k">drop</span> _all
+</span></span><span class="line"><span class="cl"><span class="k">set</span> more off
+</span></span><span class="line"><span class="cl">capture log close
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Define global macros for easy reference*********
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">* (<span class="m">1</span>) Indicate the name of the dataset (Example: hiYes_log_lp<span class="m">.</span>dta)
+</span></span><span class="line"><span class="cl">global dataSet hiYes_log_lp
+</span></span><span class="line"><span class="cl">* (<span class="m">2</span>) Indicate the name of the variable to be studied (Example: log_lp)
+</span></span><span class="line"><span class="cl">global xVar log_lp
+</span></span><span class="line"><span class="cl">* (<span class="m">3</span>) Write the <span class="k">label</span> of the variable (Example: Labor Productivity)
+</span></span><span class="line"><span class="cl">global xVarLabel Labor Productivity
+</span></span><span class="line"><span class="cl">* (<span class="m">4</span>) Indicate cross-sectional unit ID (Example: country)
+</span></span><span class="line"><span class="cl">global csUnitName country
+</span></span><span class="line"><span class="cl">* (<span class="m">5</span>) Indicate temporal unit ID (Example: year)
+</span></span><span class="line"><span class="cl">global timeUnit year
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// The logic for macro calls is to name the files <span class="k">in</span> the Stata working directory
+</span></span><span class="line"><span class="cl">// Use cd to <span class="k">view</span> <span class="k">and</span> change the current working directory
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cd F:\desktop\club convergence
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Load <span class="k">and</span> <span class="k">set</span> dataset  ***********
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">** Load data
+</span></span><span class="line"><span class="cl">use <span class="s">&#34;${dataSet}.dta&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* <span class="k">Keep</span> necessary variables
+</span></span><span class="line"><span class="cl"><span class="k">keep</span> id ${csUnitName} ${timeUnit} ${xVar}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* <span class="k">Set</span> panel data
+</span></span><span class="line"><span class="cl">xtset id ${timeUnit}
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">**** Run log-t convergence test, clustering, <span class="k">and</span> merging algorithm, <span class="k">and</span> <span class="k">list</span> final results <span class="k">in</span> <span class="k">table</span> *****
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">* <span class="k">If</span> we use a log <span class="k">file</span>, all code <span class="k">and</span> results will be recorded <span class="k">in</span> the dataSet_clubs<span class="m">.</span>txt <span class="k">file</span>. Additionally, <span class="k">by</span> using putexcel, we can export the results <span class="k">in</span> <span class="k">table</span> form to Excel.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* (<span class="m">1</span>) Run log-t regression
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">putexcel <span class="k">set</span> <span class="s">&#34;${dataSet}_test.xlsx&#34;</span>, sheet(logtTest) <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">// <span class="k">Set</span> Excel <span class="k">as</span> <span class="k">output</span> <span class="k">file</span>, default <span class="k">output</span> to current working directory log you <span class="k">set</span> (cd)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">logtreg ${xVar}, kq(<span class="m">0.333</span>)
+</span></span><span class="line"><span class="cl">// kq() is the weight of data to be discarded, default is <span class="m">0.3</span>
+</span></span><span class="line"><span class="cl">// The mathematical derivation of this command can be found at:
+</span></span><span class="line"><span class="cl">* https://www<span class="m">.</span>stata-journal<span class="m">.</span>com/article<span class="m">.</span>html?article=st0503
+</span></span><span class="line"><span class="cl">* https://onlinelibrary<span class="m">.</span>wiley<span class="m">.</span>com/doi/abs/<span class="m">10.1111</span>/j<span class="m">.1468-0262.2007.00811.</span><span class="k">x</span>
+</span></span><span class="line"><span class="cl">// Adding the following commands, the mathematical meaning is that within each cluster, <span class="k">as</span> the limit is approached, the ratio of variables within the cluster tends to <span class="m">1</span>, indicating relative convergence
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ereturn <span class="k">list</span>
+</span></span><span class="line"><span class="cl">matrix result0 = e(res)
+</span></span><span class="line"><span class="cl">putexcel A1 = matrix(result0), names nformat(<span class="s">&#34;#.##&#34;</span>) overwritefmt
+</span></span><span class="line"><span class="cl">// Command to import matrix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* (<span class="m">2</span>) Run clustering algorithm
+</span></span><span class="line"><span class="cl">* Perform clustering to determine the number of clubs
+</span></span><span class="line"><span class="cl">putexcel <span class="k">set</span> <span class="s">&#34;${dataSet}_test.xlsx&#34;</span>, sheet(initialClusters) <span class="k">modify</span>
+</span></span><span class="line"><span class="cl">    psecta ${xVar}, name(${csUnitName}) kq(<span class="m">0.333</span>) gen(club_${xVar})
+</span></span><span class="line"><span class="cl">matrix b=e(bm)
+</span></span><span class="line"><span class="cl">matrix t=e(tm)
+</span></span><span class="line"><span class="cl">matrix result1=(b \ t)
+</span></span><span class="line"><span class="cl">matlist result1, border(rows) rowtitle(<span class="s">&#34;log(t)&#34;</span>) <span class="k">format</span>(%<span class="m">9.</span>3f) <span class="nb">left(</span><span class="m">4</span>)
+</span></span><span class="line"><span class="cl">putexcel A1 = matrix(result1), names nformat(<span class="s">&#34;#.##&#34;</span>) overwritefmt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* (<span class="m">3</span>) Run merging algorithm
+</span></span><span class="line"><span class="cl">* <span class="k">Merge</span> clubs to determine comprehensive clubs, re-cluster
+</span></span><span class="line"><span class="cl">putexcel <span class="k">set</span> <span class="s">&#34;${dataSet}_test.xlsx&#34;</span>, sheet(mergingClusters) <span class="k">modify</span>
+</span></span><span class="line"><span class="cl">    scheckmerge ${xVar}, kq(<span class="m">0.333</span>) club(club_${xVar})
+</span></span><span class="line"><span class="cl">matrix b=e(bm)
+</span></span><span class="line"><span class="cl">matrix t=e(tm)
+</span></span><span class="line"><span class="cl">matrix result2=(b \ t)
+</span></span><span class="line"><span class="cl">matlist result2, border(rows) rowtitle(<span class="s">&#34;log(t)&#34;</span>) <span class="k">format</span>(%<span class="m">9.</span>3f) <span class="nb">left(</span><span class="m">4</span>)
+</span></span><span class="line"><span class="cl">putexcel A1 = matrix(result2), names nformat(<span class="s">&#34;#.##&#34;</span>) overwritefmt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* (<span class="m">4</span>) <span class="k">List</span> final clusters
+</span></span><span class="line"><span class="cl">putexcel <span class="k">set</span> <span class="s">&#34;${dataSet}_test.xlsx&#34;</span>, sheet(finalClusters) <span class="k">modify</span>
+</span></span><span class="line"><span class="cl">    imergeclub ${xVar}, name(${csUnitName}) kq(<span class="m">0.333</span>) club(club_${xVar}) gen(finalclub_${xVar})
+</span></span><span class="line"><span class="cl">matrix b=e(bm)
+</span></span><span class="line"><span class="cl">matrix t=e(tm)
+</span></span><span class="line"><span class="cl">matrix result3=(b \ t)
+</span></span><span class="line"><span class="cl">matlist result3, border(rows) rowtitle(<span class="s">&#34;log(t)&#34;</span>) <span class="k">format</span>(%<span class="m">9.</span>3f) <span class="nb">left(</span><span class="m">4</span>)
+</span></span><span class="line"><span class="cl">putexcel A1 = matrix(result3), names nformat(<span class="s">&#34;#.##&#34;</span>) overwritefmt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* <span class="k">In</span> summary, regions have undergone two rounds of clustering grouping
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Generate relative variables**********
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">* Generate relative variables (for plotting)
+</span></span><span class="line"><span class="cl">* <span class="k">Group</span> <span class="k">and</span> take the average of each <span class="k">group</span>, convenient for plotting each club later
+</span></span><span class="line"><span class="cl">save <span class="s">&#34;temporary1.dta&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">use <span class="s">&#34;temporary1.dta&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">collapse ${xVar}, <span class="k">by</span>(${timeUnit})
+</span></span><span class="line"><span class="cl">gen id=<span class="m">999999</span>
+</span></span><span class="line"><span class="cl">append using <span class="s">&#34;temporary1.dta&#34;</span>
+</span></span><span class="line"><span class="cl">sort id ${timeUnit}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gen ${xVar}_av = ${xVar} <span class="k">if</span> id==<span class="m">999999</span>
+</span></span><span class="line"><span class="cl">bysort ${timeUnit} (${xVar}_av): <span class="k">replace</span> ${xVar}_av = ${xVar}_av[<span class="m">1</span>]
+</span></span><span class="line"><span class="cl">gen re_${xVar} = <span class="m">1</span>*(${xVar}/${xVar}_av)
+</span></span><span class="line"><span class="cl"><span class="k">label</span> var re_${xVar} <span class="s">&#34;Relative ${xVar} (Average=1)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">drop</span> ${xVar}_av
+</span></span><span class="line"><span class="cl">sort id ${timeUnit}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">drop</span> <span class="k">if</span> id == <span class="m">999999</span>
+</span></span><span class="line"><span class="cl">rm <span class="s">&#34;temporary1.dta&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* <span class="k">Order</span> variables
+</span></span><span class="line"><span class="cl"><span class="k">order</span> ${csUnitName}, before(${timeUnit})
+</span></span><span class="line"><span class="cl"><span class="k">order</span> id, before(${csUnitName})
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* Export data to csv
+</span></span><span class="line"><span class="cl">export delimited using <span class="s">&#34;${dataSet}_clubs.csv&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">save <span class="s">&#34;${dataSet}_clubs.dta&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Plotting  *********************
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">** All lines
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">xtline re_${xVar}, overlay legend(off) scale(<span class="m">1.6</span>) ytitle(<span class="s">&#34;${xVarLabel}&#34;</span>, size(small)) yscale(lstyle(none)) ylabel(, noticks labcolor(gs10)) xscale(lstyle(none)) xlabel(, noticks labcolor(gs10)) xtitle(<span class="s">&#34;&#34;</span>) name(allLines, <span class="k">replace</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">graph save <span class="s">&#34;${dataSet}_allLines.gph&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">graph export <span class="s">&#34;${dataSet}_allLines.pdf&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">** Identified Clubs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">summarize finalclub_${xVar}
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="k">list</span>
+</span></span><span class="line"><span class="cl">scalar numberOfClubs = r(max)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">forval i=<span class="m">1</span>/`numberOfClubs<span class="s">&#39; {
+</span></span></span><span class="line"><span class="cl"><span class="s">    xtline re_${xVar} if finalclub_${xVar} == `i&#39;</span>, overlay <span class="k">title</span>(<span class="s">&#34;Club `i&#39;&#34;</span>, size(small)) legend(off) scale(<span class="m">1.5</span>) yscale(lstyle(none)) ytitle(<span class="s">&#34;${xVarLabel}&#34;</span>, size(small)) ylabel(, noticks labcolor(gs10)) xtitle(<span class="s">&#34;&#34;</span>) xscale(lstyle(none)) xlabel(, noticks labcolor(gs10)) name(club`i<span class="s">&#39;, replace)
+</span></span></span><span class="line"><span class="cl"><span class="s">    local graphs `graphs&#39;</span> club`i<span class="s">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">graph combine `graphs&#39;</span>, ycommon
+</span></span><span class="line"><span class="cl">graph save <span class="s">&#34;${dataSet}_clubsLines.gph&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">graph export <span class="s">&#34;${dataSet}_clubsLines.pdf&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">** Within-club averages
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">collapse (mean) re_${xVar}, <span class="k">by</span>(finalclub_${xVar} ${timeUnit})
+</span></span><span class="line"><span class="cl">xtset finalclub_${xVar} ${timeUnit}
+</span></span><span class="line"><span class="cl"><span class="k">rename</span> finalclub_${xVar} Club
+</span></span><span class="line"><span class="cl">xtline re_${xVar}, overlay scale(<span class="m">1.6</span>) ytitle(<span class="s">&#34;${xVarLabel}&#34;</span>, size(small)) yscale(lstyle(none)) ylabel(, noticks labcolor(gs10)) xscale(lstyle(none)) xlabel(, noticks labcolor(gs10)) xtitle(<span class="s">&#34;&#34;</span>) name(clubsAverages, <span class="k">replace</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">graph save <span class="s">&#34;${dataSet}_clubsAverages.gph&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">graph export <span class="s">&#34;${dataSet}_clubsAverages.pdf&#34;</span>, <span class="k">replace</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">clear
+</span></span><span class="line"><span class="cl">use <span class="s">&#34;${dataSet}_clubs.dta&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">***************** Export <span class="k">list</span> of clubs  ****************
+</span></span><span class="line"><span class="cl">*-------------------------------------------------------
+</span></span><span class="line"><span class="cl">* The following code exports the country <span class="k">list</span> <span class="k">and</span> club membership to a .csv <span class="k">file</span>. This <span class="k">list</span> can be used <span class="k">as</span> a convenient reference <span class="k">in</span> the appendices of publications.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">summarize ${timeUnit}
+</span></span><span class="line"><span class="cl">scalar finalYear = r(max)
+</span></span><span class="line"><span class="cl"><span class="k">keep</span> <span class="k">if</span> ${timeUnit} == `finalYear<span class="s">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">keep id ${csUnitName} finalclub_${xVar}
+</span></span></span><span class="line"><span class="cl"><span class="s">sort finalclub_${xVar} ${csUnitName}
+</span></span></span><span class="line"><span class="cl"><span class="s">export delimited using &#34;${dataSet}_clubsList.csv&#34;, replace
+</span></span></span><span class="line"><span class="cl"><span class="s">*-------------------------------------------------------
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-empirical-results-examples">2. Empirical Results (Examples)</h3>
+<p>China&rsquo;s current empirical results basically satisfy $\sigma$ convergence<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup> and club convergence (classification is generally regional, such as eastern, central, and western regions)<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup>. The standards of GDP, total factors, and industrial output basically lead to the same conclusions<sup id="fnref:16"><a href="#fn:16" class="footnote-ref" role="doc-noteref">16</a></sup>.</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110723022.webp" title="img" data-thumbnail="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110723022.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110723022.webp"
+            data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110723022.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110723022.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110723022.webp 2x"
+            data-sizes="auto"
+            alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110723022.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110745653.webp" title="img" data-thumbnail="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110745653.webp" data-sub-html="<h2> </h2><p>img</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110745653.webp"
+            data-srcset="/img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110745653.webp, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110745653.webp 1.5x, /img/%e6%94%b6%e6%95%9b%ef%bc%9a%e4%bb%8e%e2%80%9c%e7%ae%97%e5%bc%8f%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d%e5%88%b0%e2%80%9c%e5%a2%9e%e9%95%bf%e7%9a%84%e6%9e%81%e9%99%90%e2%80%9d.zh-cn-20240523110745653.webp 2x"
+            data-sizes="auto"
+            alt="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110745653.webp" />
+    </a><figcaption class="image-caption">img</figcaption>
+    </figure></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Personally, I think Tongji Edition&rsquo;s calculus part is still quite good, but absolutely do not use its linear algebra part. The definitions, Tongji Edition&rsquo;s directional derivatives differ from some mathematical analysis textbooks.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Personally, I think the best domestic statistics textbook, especially in the probability theory section, is captivating. The mathematical statistics section is relatively less interesting.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Other methods include geometric methods, subjective methods, and algebraic methods.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>If I were to explain each of these laws of large numbers individually, I honestly can&rsquo;t remember them.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>I have forgotten what specific conditions they are; in machine learning applications, it seems quite difficult to satisfy.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>So I say, the probability theory textbooks for economics and management are not good; if you don&rsquo;t look at statistics textbooks, you miss out on such a coherent understanding of knowledge points. So these distributions have evolved step by step. If you don&rsquo;t know this development, you&rsquo;d think they were sent from nowhere.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Barro R J, Sala-i-Martin X, Blanchard O J, et al. Convergence across states and regions[J]. Brookings papers on economic activity, 1991: 107-182.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Baumol, W. J. (1986). Productivity Growth, Convergence, and Welfare: What the Long-Run Data Show. The American Economic Review, 76 (5), 1072–1085. <a href="http://www.jstor.org/stable/1816469" target="_blank" rel="noopener noreffer ">http://www.jstor.org/stable/1816469</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Peng Guohua. China&rsquo;s regional income disparity, total factor productivity, and convergence analysis[J]. Economic Research, 2005 (9): 11. DOI: CNKI:SUN: JJYJ. 0.2005-09-003.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Barro R J, Mankiw N G, Sala-i-Martin X. Capital mobility in neoclassical models of growth[R]. National Bureau of Economic Research, 1992.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Xu Yonghui, Li Yue, Deng Hongtu. Club convergence and the middle-income trap[J]. Modern Finance (Tianjin University of Finance and Economics Journal), 2022, 42 (11): 48-62. DOI: 10.19559/j.cnki. 12-1387.2022.11.004.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Du, K. (2017). Econometric convergence test and club clustering using Stata. The Stata Journal, 17 (4), 882-900.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p>Phillips, P. C., &amp; Sul, D. (2007). Transition modeling and econometric convergence tests. Econometrica, 75 (6), 1771-1855.&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p>Lin Yifu, Liu Mingxing. China&rsquo;s economic growth convergence and income distribution[J]. World Economy, 2003 (08): 3-14+80.&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15">
+<p>Shen Kunrong, Ma Jun. China&rsquo;s economic growth &ldquo;club convergence&rdquo; characteristics and cause analysis[J]. Economic Research, 2002 (01): 33-39+94-95.&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:16">
+<p>Tang Xuebing, Chen Xiushan. Convergence of economic growth in China&rsquo;s eight major regions and its influencing factors analysis[J]. Journal of Renmin University of China, 2007 (01): 106-113.&#160;<a href="#fnref:16" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-10-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/shounian/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/shounian/" data-title="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;" data-via="ygVNLSZ1omFBCeB" data-hashtags="Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/shounian/" data-hashtag="Stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/shounian/" data-title="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/shounian/" data-title="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/shounian/" data-title="Convergence: From &#34;The Limit of Equations&#34; to &#34;The Limit of Growth&#34;" data-image="/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/stata/">Stata</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/" class="prev" rel="prev" title="Microeconomics: Roy Hotelling Shephard"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Microeconomics: Roy Hotelling Shephard</a>
+            <a href="/en/posts/h/" class="next" rel="next" title=" Only the River Flows"> Only the River Flows<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

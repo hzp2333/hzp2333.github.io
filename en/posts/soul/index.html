@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>The Calling of Spirits - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="The Calling of Spirits" />
+<meta property="og:description" content="GPT: The text delves into the historical event known as &ldquo;The Calling of Spirits&rdquo; during the Qing Dynasty in 1768. It discusses three main threads: public panic and dissemination of sorcery, political concerns and exploitation by the emperor, and bureaucratic dilemmas. The analysis covers folk beliefs, cultural contradictions between rulers and subjects, and the hierarchical nature of the bureaucratic system. The narrative draws parallels between historical occurrences and contemporary societal dynamics, particularly concerning power struggles and the manipulation of narratives. The comparison to cyberpunk themes adds a modern perspective to the analysis, highlighting the enduring relevance of historical events in understanding present-day society." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/soul/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-21T21:45:16+08:00" />
+<meta property="article:modified_time" content="2023-01-21T21:45:16+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="The Calling of Spirits"/>
+<meta name="twitter:description" content="GPT: The text delves into the historical event known as &ldquo;The Calling of Spirits&rdquo; during the Qing Dynasty in 1768. It discusses three main threads: public panic and dissemination of sorcery, political concerns and exploitation by the emperor, and bureaucratic dilemmas. The analysis covers folk beliefs, cultural contradictions between rulers and subjects, and the hierarchical nature of the bureaucratic system. The narrative draws parallels between historical occurrences and contemporary societal dynamics, particularly concerning power struggles and the manipulation of narratives. The comparison to cyberpunk themes adds a modern perspective to the analysis, highlighting the enduring relevance of historical events in understanding present-day society."/>
+<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/soul/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/ynzt/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/moviedoor/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Calling of Spirits",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/soul\/"
+        },"genre": "posts","keywords": "Reading, Microhistory","wordcount":  1201 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/soul\/","datePublished": "2023-01-21T21:45:16+08:00","dateModified": "2023-01-21T21:45:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "滑翔闪"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakana 小组件集成</title>
+  <style>
+     
+    #sakana-widget-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 268px;
+      height: 268px;
+    }
+    #sakana-widget {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="sakana-widget-container">
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget({
+        size: 300,
+        autoFit: true,
+        character: 'chisato',
+        controls: true,
+        rod: true,
+        draggable: true,
+        stroke: { color: '#b4b4b4', width: 10 },
+        threshold: 0.1,
+        rotate: 0,
+        title: false
+      }).mount('#sakana-widget');
+
+      
+      checkScreenWidth();
+      window.addEventListener('resize', checkScreenWidth);
+    }
+
+    function checkScreenWidth() {
+      var screenWidth = window.innerWidth;
+      var container = document.getElementById('sakana-widget-container');
+      if (screenWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+  
+  <script 
+    async
+    onload="initSakanaWidget()"
+    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+  </script>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript" color="0,174,255" opacity='0.7' zIndex="-2" count="200" src="https://www.liuzehe.top/upload/bkjs/bj.js"></script><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/soul/">简体中文</option><option value="/en/posts/soul/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/soul/">简体中文</option><option value="/en/posts/soul/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">The Calling of Spirits</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/book/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Book</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-21">2023-01-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1201 words
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
+        
+    
+
+
+</div>
+
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e5%8f%ab%e9%ad%82.en-20240523103939442.webp"
+        data-srcset="/img/%e5%8f%ab%e9%ad%82.en-20240523103939442.webp, /img/%e5%8f%ab%e9%ad%82.en-20240523103939442.webp 1.5x, /img/%e5%8f%ab%e9%ad%82.en-20240523103939442.webp 2x"
+        data-sizes="auto"
+        alt="/img/叫魂.en-20240523103939442.webp"
+        title="/img/叫魂.en-20240523103939442.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-calling-of-spirits-prosperitys-zenith-sorcerys-sway">&ldquo;The Calling of Spirits&rdquo;: Prosperity&rsquo;s zenith, sorcery&rsquo;s sway,</a>
+      <ul>
+        <li><a href="#first-public-opinion-folk-legends-and-population-mobility">First, public opinion: folk legends and population mobility.</a></li>
+        <li><a href="#second-cultural-contradictions-manchu-rule-over-the-han">Second, cultural contradictions: Manchu rule over the Han.</a></li>
+        <li><a href="#third-bureaucratic-politics-examination-and-clubs">Third, bureaucratic politics: examination and clubs.</a></li>
+        <li><a href="#fourth-political-crimes-the-accessible-power-and-fear">Fourth, Political Crimes: The Accessible Power and Fear</a></li>
+        <li><a href="#conclusion-the-soul-calling-of-cyberpunk">Conclusion: The &ldquo;Soul Calling&rdquo; of Cyberpunk</a></li>
+        <li><a href="#some-simple-reflections"><strong>Some Simple Reflections</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><meting-js url="/music/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.flac" name="三葉のテーマ" artist="君の名" cover="/images/e3iviwrwnh1.jpg" theme="#448aff"></meting-js>
+<h2 id="the-calling-of-spirits-prosperitys-zenith-sorcerys-sway">&ldquo;The Calling of Spirits&rdquo;: Prosperity&rsquo;s zenith, sorcery&rsquo;s sway,</h2>
+<p>Where power&rsquo;s mirage, in twilight, may play.</p>
+<p>During the boring time of the Chinese New Year holidays, I finally finished reading &ldquo;<a href="https://zh.wikipedia.org/wiki/%E5%8F%AB%E9%AD%82%EF%BC%9A1768%E5%B9%B4%E4%B8%AD%E5%9B%BD%E5%A6%96%E6%9C%AF%E5%A4%A7%E6%81%90%E6%85%8C" target="_blank" rel="noopener noreffer ">The Calling of Spirits</a>.&rdquo;</p>
+<blockquote>
+<p>In 1768, a panic of sorcery called &ldquo;The Calling of Spirits&rdquo; swept across the land of the Qing Empire. Surprisingly, the terms &ldquo;prosperous era&rdquo; and &ldquo;sorcery&rdquo; became parallel concepts. Kong Feili followed the thread of the &ldquo;sorcery/hair-cutting case&rdquo; and dissected the entire class structure of the Qing Dynasty—faced with the unheard-of sorcery of hair-cutting, each class had its own interpretation.</p>
+</blockquote>
+<p>In summary, the &ldquo;Calling of Spirits&rdquo; case involves <strong>three main threads</strong>:</p>
+<ol>
+<li>The panic and public dissemination of sorcery among common people.</li>
+<li>The political concerns and exploitation of the &ldquo;Calling of Spirits&rdquo; by the emperor.</li>
+<li>The bureaucratic dilemma of officials fearing pressure from above and below.</li>
+</ol>
+<h3 id="first-public-opinion-folk-legends-and-population-mobility">First, public opinion: folk legends and population mobility.</h3>
+<p>The &ldquo;Calling of Spirits&rdquo; case involved an unheard-of form of sorcery where one&rsquo;s money could be stolen simply by cutting off their braid.</p>
+<p>For the common people, who believed in the existence of the soul, &ldquo;calling of spirits&rdquo; was a widely circulated folk custom, providing a foundation for belief in sorcery.</p>
+<p>China&rsquo;s deep-rooted local sentiment made it easier for people to demonize outsiders. At this time, Chinese construction workers and the monk class, due to the transient nature of their professions, were particularly susceptible to suspicion. The expansion of the &ldquo;Calling of Spirits&rdquo; incidents originated from these transient populations.</p>
+<h3 id="second-cultural-contradictions-manchu-rule-over-the-han">Second, cultural contradictions: Manchu rule over the Han.</h3>
+<p>Faced with sorcery, the Qing Dynasty faced inherent cultural contradictions.</p>
+<p>Despite Emperor Qianlong&rsquo;s early attempts to distance the &ldquo;hair-cutting case&rdquo; from political dissent, the braided queue remained a symbol of Manchu identity.</p>
+<p>As rulers of the Qing Dynasty, their attitude reflected not only fear of rebellion but also dissatisfaction with the Sinicization of the Manchus.</p>
+<p>The inherent weakness of feudal dynasties was evident in the legal ambiguity regarding &ldquo;sorcery.&rdquo; While the emperor and the state used the concept of &ldquo;divine right&rdquo; to bolster their legitimacy, sorcery was seen as both a miracle and a threat. This led to vague laws regarding sorcery in the Qing Dynasty, which had to be established nonetheless.</p>
+<h3 id="third-bureaucratic-politics-examination-and-clubs">Third, bureaucratic politics: examination and clubs.</h3>
+<p>The bureaucratic system of the Qing Dynasty was rife with inequality.<strong>The core of Kong Lifai&rsquo;s research lies in the impact of this system on information dissemination and policy implementation.</strong></p>
+<p>The emperor regarded bureaucrats as tools, establishing various channels. Although the ceremonial language was cumbersome, it served both as a means of communication and a way to delineate status.</p>
+<p>Without the ceremonial aspects, the emperor would struggle to bear the burden of pushing through tasks, yet reverting to formality also led to inefficiency.</p>
+<p>In the &ldquo;hair-cutting case,&rdquo; the most prominent aspect was the prevalence of officials&rsquo; evaluations filled with flattery and mutual protection. Under the system of mutual recommendation for official selection, actions at all levels were aligned along an axis of interests. Bureaucratic evaluations manifested as a strip, with flattery revolving around imperial power.</p>
+<p>Qing officials&rsquo; evaluations were brief and crude, with achievements attributed to &ldquo;events.&rdquo; What&rsquo;s terrifying is that officials had the ability to control these events, and the moral risk of self-directed deception occurred easily under the desire for positive imperial evaluations and mutual concealment among peers.</p>
+<p>From this moment on, imperial evaluations had never had such power to influence the course of events, yet Qianlong&rsquo;s decisions remained loyal to his position as a Manchu emperor. Was this management by an ethnic minority a political distortion? Regardless, as the &ldquo;calling souls&rdquo; case shattered, the actors on the stage retreated one by one.</p>
+<h3 id="fourth-political-crimes-the-accessible-power-and-fear">Fourth, Political Crimes: The Accessible Power and Fear</h3>
+<p>How was the &ldquo;Haircut Case&rdquo; classified?</p>
+<p>This is a &ldquo;political crime&rdquo; similar to a &ldquo;literary inquisition,&rdquo; where anyone can be charged with an unfounded accusation of political crime.</p>
+<p>For most people, this means - everyone has never had such an opportunity to get close to &ldquo;power&rdquo; and &ldquo;fear.&rdquo;</p>
+<blockquote>
+<p>For the masses, it is fear as well as a weapon. For bureaucrats, it is an event.</p>
+</blockquote>
+<blockquote>
+<p>For the emperor, it is a threat and a tool. For some people, it&rsquo;s just fun.</p>
+</blockquote>
+<p>At this point - the &ldquo;Haircut Case&rdquo; / &ldquo;Sorcery&rdquo; / &ldquo;Haircut,&rdquo; mixed with various classes, has exploded into a chemical reaction.</p>
+<h3 id="conclusion-the-soul-calling-of-cyberpunk">Conclusion: The &ldquo;Soul Calling&rdquo; of Cyberpunk</h3>
+<p>&ldquo;The Soul Calling&rdquo; achieves a remarkable balance between academic rigor, detailed and vast content, and a compelling narrative.</p>
+<p>Faced with the same &ldquo;soul calling&rdquo; and hair-cutting incidents, the experiences of different social classes are completely different. Kong Feili has conducted a perfect &ldquo;heterogeneity&rdquo; analysis and class analysis of society.</p>
+<p>It is worth noting that <strong>this result is a structured classification rather than a combination of multiple quantities</strong>.</p>
+<p>Therefore, I believe that the discussion of &ldquo;The Soul Calling&rdquo; should be separated from &ldquo;The Crowd: A Study of the Popular Mind&rdquo;.</p>
+<p>The &ldquo;Soul Calling&rdquo; case has many similarities with the characteristics of the Qing Dynasty. This is an explanation of the decline and turning point under the prosperous age, and it is also the inevitable result of the historical operation of the feudal dynasty. Although the case seems to revolve around the emperor&rsquo;s attitude, the emperor remains faithful to his class. However, China at this time had not yet achieved harmonious integration of its diverse cultural groups, leading to distortions in the operation of power.</p>
+<p>How could absurd sorcery emerge in a &ldquo;prosperous age&rdquo;? Perhaps coincidence is just a turning point in history. The big fish lurking beneath the surface of the water has never stopped swimming, just casting fleeting shadows in the rise and fall of governance.</p>
+<p><strong>But we must be vigilant, for history occasionally drops insane fuses.</strong></p>
+<p><strong>Once the elements are in place—there is nothing to stand in the way of this madness.</strong></p>
+<h3 id="some-simple-reflections"><strong>Some Simple Reflections</strong></h3>
+<p>As for why the &ldquo;Call Soul Case&rdquo; had such far-reaching consequences in the Qing Dynasty, I couldn&rsquo;t help but think of cyberpunk.</p>
+<p>At a time of prosperity in the Qing Dynasty, why did superstition prevail?</p>
+<p>Certainly, the feudal cultural characteristics of the Qing Dynasty and its simplistic evaluation system played a role.</p>
+<p>But the tragic events of political crimes have recurred throughout history.</p>
+<p>The &ldquo;Call Soul Case&rdquo; created a collective &ldquo;illusion of power&rdquo; for people of all classes, with political crimes becoming the fear and weapon of everyone.</p>
+<p>In modern society, educated individuals are unlikely to be superstitious about &ldquo;souls,&rdquo; but in contemporary society (for example, online discourse), everyone seems to crave power more than ever:</p>
+<blockquote>
+<p>Educating others, a wield of power,</p>
+<p>Judging others, a wield of power,</p>
+<p>Assessing others, a wield of power.</p>
+</blockquote>
+<p>The discussion of three views is gradually becoming a weapon, Like blocking and reporting, once tools for maintaining discussion environment, Now wielded as weapons to attack dissenters. Misalignment of ideologies leads to explosions, Each fighting for their beliefs, But are we battling for truth itself, Or falling into the illusion of power?</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80" title="Israel&amp;rsquo;s deadly attacks on the West Bank of the Jordan River are still ongoing." data-thumbnail="https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80" data-sub-html="<h2> </h2><p>Israel&amp;rsquo;s deadly attacks on the West Bank of the Jordan River are still ongoing.</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80"
+            data-srcset="https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80, https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80 1.5x, https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80 2x"
+            data-sizes="auto"
+            alt="https://chinese.aljazeera.net/wp-content/uploads/2024/02/AP24051552861468-1708472551-1708523049.jpg?w=770&amp;resize=770%2C514&amp;quality=80" />
+    </a><figcaption class="image-caption">Israel&rsquo;s deadly attacks on the West Bank of the Jordan River are still ongoing.</figcaption>
+    </figure>
+
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8f%ab%e9%ad%82.zh-cn-20240917093020556.webp" title="Israel deadly assault on the west bank of the Jordan River continues" data-thumbnail="/img/叫魂.zh-cn-20240917093020556.webp" data-sub-html="<h2> </h2><p>Israel deadly assault on the west bank of the Jordan River continues</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/%e5%8f%ab%e9%ad%82.zh-cn-20240917093020556.webp"
+            data-srcset="/img/%e5%8f%ab%e9%ad%82.zh-cn-20240917093020556.webp, /img/%e5%8f%ab%e9%ad%82.zh-cn-20240917093020556.webp 1.5x, /img/%e5%8f%ab%e9%ad%82.zh-cn-20240917093020556.webp 2x"
+            data-sizes="auto"
+            alt="/img/叫魂.zh-cn-20240917093020556.webp" />
+    </a><figcaption class="image-caption">Israel deadly assault on the west bank of the Jordan River continues</figcaption>
+    </figure></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-01-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/posts/soul/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/soul/" data-title="The Calling of Spirits" data-via="ygVNLSZ1omFBCeB" data-hashtags="Reading,Microhistory"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/soul/" data-hashtag="Reading"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/soul/" data-title="The Calling of Spirits"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/soul/" data-title="The Calling of Spirits"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/soul/" data-title="The Calling of Spirits" data-image="/img/叫魂.en-20240523103939442.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reading/">Reading</a>,&nbsp;<a href="/en/tags/microhistory/">Microhistory</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/ynzt/" class="prev" rel="prev" title=" Research Note 1: Zhaotong, Yunnan"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> Research Note 1: Zhaotong, Yunnan</a>
+            <a href="/en/posts/moviedoor/" class="next" rel="next" title="2023 Movie Talk: The Other Side of the Door">2023 Movie Talk: The Other Side of the Door<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main><script>
+document.addEventListener('pjax:end', function() {
+  document.querySelectorAll('meting-js').forEach(el => new Meting(el));
+});
+</script>
+
+
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88641 words total</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>
