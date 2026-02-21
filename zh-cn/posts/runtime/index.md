@@ -67,7 +67,7 @@ other = "total {{ .WordCount }} words"
 
 #### 一个 bug
 
-如果你像我一样，通过 aplayer 为每个博客都添加了一个音乐播放器，那么会出现一个 bug。
+如果你像我一样，通过 aplayer 在每个博客文章页面都添加了一个音乐播放器，那么会出现一个 bug。
 
 {{< music url="/music/三葉のテーマ.flac" name=三葉のテーマ artist= 君の名 cover="/images/三葉のテーマ.jpg" >}} 
 
@@ -75,7 +75,7 @@ Hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会
 
 {{< admonition type=bug  title="2026年2月21日更新" open=false >}}
 
-最近借助 claude 加 deepseek v3.2 模型测试了下这个 bug。
+最近借助 claude code 加 deepseek v3.2 模型测试了下这个 bug。
 
 发现音乐插件的失效原因大概是：
 
