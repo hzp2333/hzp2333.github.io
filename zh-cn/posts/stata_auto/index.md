@@ -94,6 +94,8 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
 
 ## 推荐 api？
 
+### Api 平台
+
 个人觉得国内 api，deepseek 的性价比最高。
 
 如果想要免费的，个人推荐 [GLM](https://bigmodel.cn/)，注册就送模型 token[^6]。
@@ -101,6 +103,30 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
 现在注册[硅基流动](https://siliconflow.cn/)也送 50+16 元的代金券。
 
 ![GLM 注册送的资源包。不过我两天就用得差不多了。](/img/Stata_auto.zh-cn-1771587415799.webp)
+
+### 基于 api 消费数据看 llm 市场
+
+最近已经有论文利用 api 提供市场进行分析。典型的就是国内也可以用的 [OpenRouter](https://openrouter.ai/)。
+
+![OpenRouter用户数据总体可视化做得相当不错，可以在上面参考现在的消费者主要用什么模型，做的任务主要是什么](/img/Stata_auto.zh-cn-1771695202842.webp)
+
+NBER 最近有篇论文爬取了 OpenRouter 网站的数据进行市场分析:
+
+《[The Emerging Market for Intelligence: Pricing, Supply, and Demand for LLMs](https://www.nber.org/papers/w34608)》
+
+最让我印象深刻的是下面这几个图：
+
+![图片显示了过去六个月内发布的模型性能分布，该分布基于智能指数(IntelligenceIndex)绘制。红线为模型智能中位数，深灰色和浅灰色阴影区域分别表示第25-75百分位数和第10-90百分位数范围。分布的扩大进一步反映了前沿领域的进步：当今表现最好的模型达到了样本中最早模型性能的约六倍。](/img/Stata_auto.zh-cn-1771695412057.webp)
+
+
+![纵坐标为每百万tokens价格的对数值。在2023年中期至2024年初急剧下降之后，即使更新、更强大的模型进入市场，价格也保持相对稳定。在任何给定的时间点，最低十分位数的模型比最高十分位数的模型便宜50到150倍。](/img/Stata_auto.zh-cn-1771695452859.webp)
+
+不知道是不是受到这篇论文的启发😂，OpenRouter 团队自己用数据又做了个分析[^8]，就在：
+
+《[An Empirical 100 Trillion Token Study with OpenRouter](https://openrouter.ai/state-of-ai)》
+
+![ 每个点代表 OpenRouter 提供的模型，按源类型着色。闭源模型趋向高成本高使用象限，而开源模型则主导低成本、高流量的区域。虚线趋势线几乎平坦，显示成本与总使用量之间的相关性有限。](/img/Stata_auto.zh-cn-1771695660257.webp)
+
 
 ## 安装 skills
 
@@ -152,7 +178,7 @@ https://github.com/meleantonio/awesome-econ-ai-stuff
 npx skills add https://github.com/vercel-labs/skills --skill find-skills
 ```
 
-![个人安装的一些 skills](/img/Stata_auto.zh-cn-1771642532010.webp)
+![下载这个skill后识别确实更加顺畅了](/img/Stata_auto.zh-cn-1771684866236.webp)
 
 ## 更深的自动化术语？
 
@@ -177,3 +203,4 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 [^5]: openai 对应的产品为 [codex](https://openai.com/zh-Hans-CN/codex/)。
 [^6]: token 烧的也快，我一个下午就烧完了送的第一个资源包。
 [^7]: 甚至可以考虑让 codex 具有 mcp claude code 的能力联合拷打代码。 
+[^8]: 这也太尴尬了
