@@ -118,6 +118,8 @@ Hugo 为了获取 WordCount 需要计算每篇文章的内容，这会重置页�
 
 
 {{< /admonition >}}
+
+回过头来看，这个 bug 和[中文博客目录跳转失败](https://blog.huaxiangshan.com/zh-cn/posts/toc/)的原因相当类似。
 ### 站点运行时间
 
 #### 添加自定义的 `custom.js`
