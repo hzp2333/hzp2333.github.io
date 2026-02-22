@@ -36,10 +36,16 @@ smoothScroll 默认设置是英文参数，当引入 APIayer 播放音乐后，�
 
 修改 `<个人网站>\assets\lib\aplayer` 目录下的 `APlayer.min.js`。
 
-[鱼の乐](https://blog.wangriyu.wang/)大佬给出了他修改好的 [APlayer.min.js](https://src.wangriyu.wang/lib/Aplayer/APlayer.min.js)。
+博主[鱼の乐](https://blog.wangriyu.wang/)给出了他修改好的 [APlayer.min.js](https://src.wangriyu.wang/lib/Aplayer/APlayer.min.js)。
+
+如果博主域名没用续费可以参考我复制下的文件：
+
+[APlayer.min.js](https://github.com/hzp2333/hzp2333.github.io/blob/master/lib/aplayer/APlayer.min.js)
 
 全文替换即可。
+
 **这些问题都是 2018 年就暴露的问题，看来以后也不会有维护了，建议自己修改**。
+
 ## 问题 2
 
 当我添加 giscus 评论区后，这个问题又出现了？前面的解决办法也失效了。
