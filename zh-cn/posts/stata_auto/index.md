@@ -1,4 +1,4 @@
-# 双剑合璧：VScode 与 Stata 
+# 双剑合璧：智能体时代的 Stata 实证
 
 
 当 ai 打败柯洁时，人们依旧认为 ai 离自己的事业很遥远，正如柯洁看到 ai 打败李世石时的年少轻狂。直到 2026 年，实证学习者们才开始围绕 ai 建立一种"自动化"的恐惧。
@@ -9,17 +9,17 @@
 - 《[A dataset on the spatiotemporal distributions of street and neighborhood crime in China](https://www.nature.com/articles/s41597-025-04757-8)》：使用 LLM 提取裁判文书刑事案件的变量。
 - 《[Decoding China's Industrial Policies](https://www.nber.org/papers/w33814)》: 使用 LLM 对海量政策进行编码解析。
 
-不严谨的概括:让 ai 成为一个（具备某些特点的）操控主体（agent），能操控自己电脑上的软件（mcp 能力），也就完成了一种自动化编程流程（vibecoding）。结合 ai 的 api 和 vscode 插件。这里我们可以建立一个粗糙的环境简单体验一二。
+不严谨的概括:让 ai 成为一个（具备某些特点的）操控主体（agent），能操控自己电脑上的软件（mcp 能力），也就完成了一种自动化编程流程（vibecoding）。结合 ai 的 api 和 VSCode 插件。这里我们可以建立一个粗糙的环境简单体验一二。
 
 ## 让 ai 操控软件
 
 最简单的集成版本—— [cusor](https://cursor.com/)、[claudecode](https://code.claude.com/docs/zh-CN/overview)[^5]。
 
-但是我们也可以通过 VScode 实现 all in one。
+但是我们也可以通过 VSCode 实现 all in one。
 
 需要以下软件：
 
-- Vscode：代码编写环境
+- VSCode：代码编写环境
 - Git：版本控制，文件传输管理
 - Node.js：可以写后端、操作文件、控制硬件。
 - cc Switch： 调用集成 ai 的 api。
@@ -28,9 +28,9 @@
 
 {{< bilibili BV19vc5zUEeQ>}}
 
-当实现以后，就可以在 vscode 中调用 ai 的 api 直接操作编辑页面。
+当实现以后，就可以在 VSCode 中调用 ai 的 api 直接操作编辑页面。
 
-> 若是第一次使用 vscode, 操作记得先建立一个新文件夹，然后打开 vscode, 点击文件，打开新建的对应文件夹，剩下的就是在其中操作了。
+> 若是第一次使用 VSCode, 操作记得先建立一个新文件夹，然后打开 VSCode, 点击文件，打开新建的对应文件夹，剩下的就是在其中操作了。
 
 ## 进一步加入 stata 插件
 
@@ -38,11 +38,11 @@
 
 ![插件名称](/img/Stata_auto.zh-cn-1771516675297.webp)
 
-我个人推荐在 vscode 中下载这几个 stata 插件。
+我个人推荐在 VSCode 中下载这几个 stata 插件。
 
 - Stata language：识别 stata 语法
 - Stata Outline：让代码能识别大纲，标题格式为 `**#`。有几个 `#` 就是几级标题，最多六级标题。
-- Stata MCP：核心，让 vscode 具备控制 stata 的能力。
+- Stata MCP：核心，让 VSCode 具备控制 stata 的能力。
 
 需要的额外设置也很简单，只需要在 stata MCP 的设置页面输入自己安装 stata 的文件夹目录：
 
@@ -50,7 +50,7 @@
 
 ![自己安装 stata 的文件夹目录](/img/Stata_auto.zh-cn-1771516985076.webp)
 
-Statamcp 插件会让页面出现以下按键，其实就对应着 stata 的运行。
+Stata MCP 插件会让页面出现以下按键，其实就对应着 stata 的运行。
 
 ![按键](/img/Stata_auto.zh-cn-1771517247069.webp)
 
@@ -62,7 +62,7 @@ Statamcp 插件会让页面出现以下按键，其实就对应着 stata 的运�
 
 David Yanagizawa-Drott 教授的项目，就是在这个基础上，进一步让 ai 拥有调用公共大数据 api、tex 文件编辑、r 语言分析的能力。
 
-> 可惜的是，stataMCP 是完全在 vscode 中操控 stata。如果想将 vscode 直接作为 do 文件的执行阅读器，且连接桌面上的 stata 执行，似乎目前没有非常优雅的联动方案。
+> 可惜的是，Stata MCP 是完全在 VSCode 中操控 stata。如果想将 VSCode 直接作为 do 文件的执行阅读器，且连接桌面上的 stata 执行，似乎目前没有非常优雅的联动方案。
 
 
 ## 集成在其他编辑器上
@@ -133,6 +133,10 @@ NBER 最近有篇论文爬取了 OpenRouter 网站的数据进行市场分析:
 ### 安装与说明
 
 Skills 其实就是 ai 的指导说明书，指导其在具体场合具体怎么处理。在其中添加脚本或流程就能约束模型在特定场景下的输出结果。
+
+关于 skill ，特别推荐阅读这位博主的文章进一步了解：
+
+《[上下文是稀缺资源｜RAG、Memory、Skills 的设计哲学刍议](https://www.lapis.cafe/posts/ai-and-deep-learning/agi/context-scarcity-rag-memory-skills/)》
 
 此时依次输入以下命令，就可以下载 claude 官方准备的 skills 包。
 

@@ -114,7 +114,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   
 	name="松易涅"
 	url="https://www.sungyinieh.com/"
-	logo="https://www.sungyinieh.com/upload/logo-square-g4-150px-300ppi.png"
+	logo=""
 	word="对历史、政治经济学、政治学感兴趣"
     primary-color="default"
     img-animation="rotate"
@@ -135,7 +135,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   
 	name="理论派"
 	url="https://lilun.bearblog.dev/"
-	logo="https://sliun.com/lilun/logo.png"
+	logo=""
 	word="历史爱好者"
     primary-color="default"
     img-animation="rotate"
@@ -173,7 +173,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend  
 	name="LS-Shandong"
 	url="https://ls-shandong.codeberg.page/"
-	logo="https://ls-shandong.github.io/images/avatar.png"
+	logo=""
 	word="LS-Shandong 的博客网站"
     primary-color="default"
     img-animation="rotate"
@@ -597,6 +597,15 @@ word="与九百多位博友成为近邻"
 url="https://www.boyouquan.com/home"
 logo="https://www.travellings.cn/assets/travelling.png"
 word="博友圈 · 博客人的朋友圈"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend  name="博友俱乐部"
+url="https://www.blogsclub.org/"
+logo="https://www.blogsclub.org/usr/themes/default/assets/images/logo_2026.png"
+word="博友俱乐部"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
