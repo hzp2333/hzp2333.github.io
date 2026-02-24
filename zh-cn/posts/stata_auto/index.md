@@ -98,15 +98,31 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
 
 个人觉得国内 api，deepseek 的性价比最高。
 
-如果想要免费的，个人推荐 [GLM](https://bigmodel.cn/)，注册就送模型 token[^6]。
+以下大厂平台都送一些注册免费额度：
 
-现在注册[硅基流动](https://siliconflow.cn/)也送 50+16 元的代金券。
+- [阿里百炼](https://bailian.console.aliyun.com/)
+- [硅基流动](https://siliconflow.cn/)：推荐，包含免费模型。且有新手送的 65 元代金券和协作计划。
+- [智谱](https://open.bigmodel.cn/)[^6]
+- [火山引擎（字节的）](https://www.volcengine.com/docs/82379)
 
 ![GLM 注册送的资源包。不过我两天就用得差不多了。](/img/Stata_auto.zh-cn-1771587415799.webp)
 
 ### 基于 api 消费数据看 llm 市场
 
-最近已经有论文利用 api 提供市场进行分析。典型的就是国内也可以用的 [OpenRouter](https://openrouter.ai/)。
+最近已经有论文利用 api 提供市场进行分析。典型的就是国内也可以用的 [OpenRouter](https://openrouter.ai/)。[OpenRouter](https://openrouter.ai/) 也提供了一些免费的大模型。不过免费调用赚的是账户余额。
+
+{{< admonition type=warning  title="OpenRouter免费模型的限制" open=false >}}
+
+限制可以参考：[limits](https://openrouter.ai/docs/api/reference/limits)
+
+- **未充值或余额不足 10 美元的用户**：每日 50 次请求。（以前为 200 次）
+- **账户余额在 10 美元以上的用户**：每日请求从之前的 200 次提高至 **1000 次**.
+- **每分钟 20 次请求**：无论哪种用户，免费模型均维持每分钟最多 20 次请求的限制。
+
+{{< /admonition >}}
+
+![一些免费模型](/img/Stata_auto.zh-cn-1771921574690.webp)
+
 
 ![OpenRouter用户数据总体可视化做得相当不错，可以在上面参考现在的消费者主要用什么模型，做的任务主要是什么](/img/Stata_auto.zh-cn-1771695202842.webp)
 
