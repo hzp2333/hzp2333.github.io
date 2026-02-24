@@ -155,10 +155,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // 添加图片加载错误处理
+  // 添加图片加载错误处理（跳过已有自定义处理的图片）
   document.querySelectorAll('img').forEach(img => {
+    // 跳过friend logo类和已有onerror处理的图片
+    if (img.classList.contains('friend') || img.hasAttribute('onerror')) {
+      return;
+    }
     img.addEventListener('error', function() {
-      this.src = '/images/default.jpg'; // 替换为默认图片路径
+      // 防止重复处理
+      if (this.dataset.errorHandled) return;
+      this.dataset.errorHandled = true;
+      this.src = 'https://sdn.geekzu.org/avatar/d41d8cd98f00b204e9800998ecf8427e?d=retro';
       this.alt = '图片加载失败';
     });
   });
