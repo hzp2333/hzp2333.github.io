@@ -54,7 +54,7 @@ $$
 
 ### 随机分配
 
-#### 方法一
+#### 例子一
 
 > 使用工具变量或者解释变量对样本特征进行回归，不显著，或者 F 检验不通过，则说明样本特征并没有干预解释变量，也就是解释变量是外生的。
 
@@ -67,13 +67,8 @@ $$
 
 上面是使用解释变量对其他特征进行回归，通过 F 检验检验随机分配。
 
-#### 方法二
+#### 例子二
 
-实验组和对照组的均值差异不大，则说明分组依据做到了随机。
-
-第二种更直观的检验随机分配的方法，就是比较实验组和对照组的平均特征差异。也就是使用案件特征对解释变量进行回归，此时经济意义就是对照组和实验组的平均差异。
-
-$$X_i=\beta\cdot PD_i+\alpha_{j(i)}+e_i$$
 下面这篇 [2025 年斯隆奖获奖](https://escholarship.org/uc/item/3sd0f741)的博士论文研究的就是律师的随机分配，贫穷的被告会被随机分配到公共组织和私人组织的辩护律师。将律师特征作为工具变量对分配类型进行回归，经济系数接近于 0 且不显著，说明组间差异不大进而说明随机分配。
 
 ![如图](/img/judgeiv.zh-cn-20250508195601076.webp)
@@ -125,6 +120,8 @@ $$
 
 ## 推荐参考资料
 
+### 课程资料
+
 就目前而言，judgeiv 期刊论文以外的参考资料相对较少：
 
 [可能你一辈子都用不上的因果推断方法：仁慈法官工具变量](https://mp.weixin.qq.com/s/ZKEOQgUdBB_2vsTnSQw4bw)
@@ -134,6 +131,14 @@ $$
 个人格外推荐关注他们的[计量技术主题](https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0)专栏。
 
 [耶鲁大学的博士助教课（计量专题）](https://www.youtube.com/watch?v=Aa0i54jxFa8)
+
+### AER 关于 jugeiv 的一些论文讨论
+
+
+- [Monotonicity among Judges: Evidence from Judicial Panels and Consequences for Judge IV Designs](https://www.aeaweb.org/articles?id=10.1257/aer.20231104)（AER, 2026）
+- [Judging judge fixed effects](https://www.aeaweb.org/articles?id=10.1257/aer.20201860)（AER, 2023）
+
+
 
 [^1]: 找工具变量的一些思路：关系之关系、遥远的历史变量、平均化、增长率，以及前面几类方法的组合。例如移动份额法工具变量 shift-share 就是去中心均值加上增长率。
 [^2]: 我们可以从最优化和因果推断两条线审视计量的发展。最优化是关于如何增强测量的一致性，因果推断是让我们思考如何设计实验过程。

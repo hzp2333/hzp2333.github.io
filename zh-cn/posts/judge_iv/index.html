@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/"
-        },"genre": "posts","keywords": "因果效应, 文献阅读, 法律经济学","wordcount":  2896 ,
+        },"genre": "posts","keywords": "因果效应, 文献阅读, 法律经济学","wordcount":  2854 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/judge_iv\/","datePublished": "2025-04-01T15:30:19+08:00","dateModified": "2025-04-01T15:30:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,7 +248,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 审查员设计（Judge IV）：一种随机分配的因果推断</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-04-01">2025-04-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2896 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-04-01">2025-04-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2854 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
     
 
@@ -285,8 +285,8 @@ loadMathJax();
       <ul>
         <li><a href="#随机分配">随机分配</a>
           <ul>
-            <li><a href="#方法一">方法一</a></li>
-            <li><a href="#方法二">方法二</a></li>
+            <li><a href="#例子一">例子一</a></li>
+            <li><a href="#例子二">例子二</a></li>
           </ul>
         </li>
         <li><a href="#一阶回归可视化">一阶回归可视化</a>
@@ -298,7 +298,12 @@ loadMathJax();
       </ul>
     </li>
     <li><a href="#仍值得探讨的地方">仍值得探讨的地方</a></li>
-    <li><a href="#推荐参考资料">推荐参考资料</a></li>
+    <li><a href="#推荐参考资料">推荐参考资料</a>
+      <ul>
+        <li><a href="#课程资料">课程资料</a></li>
+        <li><a href="#aer-关于-jugeiv-的一些论文讨论">AER 关于 jugeiv 的一些论文讨论</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
@@ -356,7 +361,7 @@ $$</p>
     </div>
 <p>一般 iv 无法检验变量的排他性和单调性，只能通过理论阐述进行补充，但 jugeiv 的优势是它能够通过实验设计检验工具变量的单调性、排他性<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
 <h3 id="随机分配">随机分配</h3>
-<h4 id="方法一">方法一</h4>
+<h4 id="例子一">例子一</h4>
 <blockquote>
 <p>使用工具变量或者解释变量对样本特征进行回归，不显著，或者 F 检验不通过，则说明样本特征并没有干预解释变量，也就是解释变量是外生的。</p>
 </blockquote>
@@ -374,11 +379,8 @@ $$</p>
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
 <p>上面是使用解释变量对其他特征进行回归，通过 F 检验检验随机分配。</p>
-<h4 id="方法二">方法二</h4>
-<p>实验组和对照组的均值差异不大，则说明分组依据做到了随机。</p>
-<p>第二种更直观的检验随机分配的方法，就是比较实验组和对照组的平均特征差异。也就是使用案件特征对解释变量进行回归，此时经济意义就是对照组和实验组的平均差异。</p>
-<p>$$X_i=\beta\cdot PD_i+\alpha_{j(i)}+e_i$$
-下面这篇 <a href="https://escholarship.org/uc/item/3sd0f741" target="_blank" rel="noopener noreffer ">2025 年斯隆奖获奖</a>的博士论文研究的就是律师的随机分配，贫穷的被告会被随机分配到公共组织和私人组织的辩护律师。将律师特征作为工具变量对分配类型进行回归，经济系数接近于 0 且不显著，说明组间差异不大进而说明随机分配。</p>
+<h4 id="例子二">例子二</h4>
+<p>下面这篇 <a href="https://escholarship.org/uc/item/3sd0f741" target="_blank" rel="noopener noreffer ">2025 年斯隆奖获奖</a>的博士论文研究的就是律师的随机分配，贫穷的被告会被随机分配到公共组织和私人组织的辩护律师。将律师特征作为工具变量对分配类型进行回归，经济系数接近于 0 且不显著，说明组间差异不大进而说明随机分配。</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/judgeiv.zh-cn-20250508195601076.webp" title="如图" data-thumbnail="/img/judgeiv.zh-cn-20250508195601076.webp" data-sub-html="<h2> </h2><p>如图</p>">
         <img
@@ -443,11 +445,17 @@ $$</p>
 </ul>
 <p>是不是很多人都有过这样的想法？若是某时某刻碰见了其他的人，我们的人生是否会变得不同？随机分配总会让我思考偶然与必然的关系。偶然中的必然——必然有人中彩票，只是那个人偶然是你。在知晓随机分配之后？我们又该如何看待命运？对于一个人来说，他该选择偶然的上限？还是平均值的下限<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>？</p>
 <h2 id="推荐参考资料">推荐参考资料</h2>
+<h3 id="课程资料">课程资料</h3>
 <p>就目前而言，judgeiv 期刊论文以外的参考资料相对较少：</p>
 <p><a href="https://mp.weixin.qq.com/s/ZKEOQgUdBB_2vsTnSQw4bw" target="_blank" rel="noopener noreffer ">可能你一辈子都用不上的因果推断方法：仁慈法官工具变量</a></p>
 <p><a href="https://blogs.worldbank.org/en/impactevaluations/judge-leniency-iv-designs-now-not-just-crime-studies" target="_blank" rel="noopener noreffer ">世界银行经济学家发展经济学专栏作者博客</a></p>
 <p>个人格外推荐关注他们的<a href="https://blogs.worldbank.org/en/impactevaluations/curated-list-our-postings-technical-topics-your-one-stop-shop-methodology-0" target="_blank" rel="noopener noreffer ">计量技术主题</a>专栏。</p>
 <p><a href="https://www.youtube.com/watch?v=Aa0i54jxFa8" target="_blank" rel="noopener noreffer ">耶鲁大学的博士助教课（计量专题）</a></p>
+<h3 id="aer-关于-jugeiv-的一些论文讨论">AER 关于 jugeiv 的一些论文讨论</h3>
+<ul>
+<li><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20231104" target="_blank" rel="noopener noreffer ">Monotonicity among Judges: Evidence from Judicial Panels and Consequences for Judge IV Designs</a>（AER, 2026）</li>
+<li><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20201860" target="_blank" rel="noopener noreffer ">Judging judge fixed effects</a>（AER, 2023）</li>
+</ul>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -867,7 +875,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，346585 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，346539 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
