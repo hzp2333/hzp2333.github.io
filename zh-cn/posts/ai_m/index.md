@@ -1,7 +1,7 @@
 # 记录一次梦境与 AI 解梦
 
 
-{{< music url="/music/三葉のテーマ.flac" name="三葉のテーマ" artist=" 君の名" cover="/images/三葉のテーマ.jpg" >}} 
+{{< music url="/music/午后的教室.mp3" name="午后的教室" artist="妹尾武" cover="/images/三葉のテーマ.jpg" >}} 
 
 > 梦中的世界确实别有一番趣味。
 > 

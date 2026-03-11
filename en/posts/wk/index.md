@@ -6,8 +6,6 @@
 {{< music url="/music/黑神话：悟空》主题音乐（完整版）-JLRS-jayfm.m4s" name=黑神话：悟空》主题音乐 artist= JLRS-jayfm cover="/images/黑神话.png" >}} 
 
 
-![As shown](/img/黑神话悟空.zh-cn-20250114102350091.webp)
-
 Based on the shadow images, "Black Myth: Wukong" has already hinted that the old monkey is Jin Chanzi (Tang Sanzang, reincarnation, Buddha, etc.).
 
 Currently, the only reason online for opposing Jin Chanzi is that the old monkey's words are lies, which do not align with Jin Chanzi's identity. In fact, although Jin Chanzi does not appear, his character is consistently portrayed throughout the game.
