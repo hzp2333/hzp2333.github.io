@@ -112,6 +112,17 @@ img-animation="rotate"    border-animation="shadow"  >}}
 >也有些单向链接是我觉得很有意思的博客
 
 {{< friend   
+	name="Web of  Nothing_"
+	url="https://webofnothing.org/"
+	logo="https://webofnothing.org/logo.jpg"
+	word="世界上首屈一指的虚无学术索引平台"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+{{< friend   
 	name="松易涅"
 	url="https://www.sungyinieh.com/"
 	logo=""
