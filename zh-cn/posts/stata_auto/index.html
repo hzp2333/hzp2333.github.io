@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_auto\/"
-        },"genre": "posts","keywords": "Stata, 软件推荐, Obsdian","wordcount":  3161 ,
+        },"genre": "posts","keywords": "Stata, 软件推荐, Obsdian","wordcount":  3638 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_auto\/","datePublished": "2026-02-20T00:12:19+08:00","dateModified": "2026-02-20T00:12:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -204,8 +204,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">双剑合璧：智能体时代的 Stata 实证</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-20">2026-02-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3161 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-20">2026-02-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3638 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;
     
 
     
@@ -249,6 +249,7 @@
       <ul>
         <li><a href="#安装与说明">安装与说明</a></li>
         <li><a href="#skill-资源">Skill 资源</a></li>
+        <li><a href="#cli-代理工具">CLI 代理工具</a></li>
       </ul>
     </li>
     <li><a href="#更深的自动化术语">更深的自动化术语？</a></li>
@@ -542,6 +543,7 @@
             alt="/img/Stata_auto.zh-cn-1771596774086.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
+<p>与 skill 形成配合的往往还有 hook。如果说 skill 是 ai 的指导书，让 ai 能快速地选择参考资料；hook 就是参考指南。简单的理解为——特定场景下强制执行的脚本。例如一旦阅读文献，执行一个给定的词云分析脚本。Hook 可以和 skill 匹配使用，形成指令判断-选择流程-执行脚本的过程。</p>
 <h3 id="skill-资源">Skill 资源</h3>
 <p>可以在以下网站寻找 skills 资源</p>
 <ul>
@@ -569,6 +571,41 @@
             alt="/img/Stata_auto.zh-cn-1771684866236.webp" />
     </a><figcaption class="image-caption">下载这个skill后识别确实更加顺畅了</figcaption>
     </figure></p>
+<h3 id="cli-代理工具">CLI 代理工具</h3>
+<p>CLI 代理工具是优化 AI 与命令行交互效率的助手。这类工具通过压缩和优化命令输出，显著减少 AI 处理时的 token 消耗。</p>
+<p>这里推荐一个优秀的 CLI 代理工具：</p>
+<p><strong><a href="https://github.com/rtk-ai/rtk" target="_blank" rel="noopener noreffer ">RTK (Rust Token Killer)</a></strong> - 这是一个 Rust 编写的 CLI 代理，可以将常见开发命令的 LLM 令牌消耗减少 60-90%。它通过智能过滤和压缩命令输出，让 AI 在处理命令行结果时更加高效。</p>
+<p>主要特性：</p>
+<ul>
+<li><strong>单一 Rust 二进制，零依赖</strong></li>
+<li><strong>支持广泛的开发命令</strong>：Git、Cargo、npm/pnpm、Docker、kubectl 等</li>
+<li><strong>智能输出压缩</strong>：保留关键信息，过滤冗余内容</li>
+<li><strong>无缝集成</strong>：只需在命令前加上 <code>rtk</code> 前缀即可使用</li>
+</ul>
+<p>使用示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 传统方式 - 输出冗长</span>
+</span></span><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 RTK - 输出简洁</span>
+</span></span><span class="line"><span class="cl">rtk git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 命令链也适用</span>
+</span></span><span class="line"><span class="cl">rtk git add . <span class="o">&amp;&amp;</span> rtk git commit -m <span class="s2">&#34;更新&#34;</span> <span class="o">&amp;&amp;</span> rtk git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>RTK 特别适合在 AI 辅助开发环境中使用，能显著降低上下文长度，让 AI 更专注于核心任务。</p>
 <h2 id="更深的自动化术语">更深的自动化术语？</h2>
 <p>如果想要更深入地了解当今结合 ai 的自动化流程，或许可以进一步检索 vibecoding 相关术语。</p>
 <p>对标同样的 claude code ，openai 的是 <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank" rel="noopener noreffer ">codex</a>，google 的则是 <a href="https://geminicli.com/" target="_blank" rel="noopener noreffer ">gemini cili</a><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>。如今正在早期竞争阶段，各家注册福利都不少。</p>
@@ -1002,7 +1039,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，346592 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，347069 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

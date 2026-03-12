@@ -183,6 +183,7 @@ https://github.com/meleantonio/awesome-econ-ai-stuff
 
 ![如图](/img/Stata_auto.zh-cn-1771596774086.webp)
 
+与 skill 形成配合的往往还有 hook。如果说 skill 是 ai 的指导书，让 ai 能快速地选择参考资料；hook 就是参考指南。简单的理解为——特定场景下强制执行的脚本。例如一旦阅读文献，执行一个给定的词云分析脚本。Hook 可以和 skill 匹配使用，形成指令判断-选择流程-执行脚本的过程。
 
 ### Skill 资源
 
@@ -199,6 +200,35 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 ```
 
 ![下载这个skill后识别确实更加顺畅了](/img/Stata_auto.zh-cn-1771684866236.webp)
+
+### CLI 代理工具
+
+ CLI 代理工具是优化 AI 与命令行交互效率的助手。这类工具通过压缩和优化命令输出，显著减少 AI 处理时的 token 消耗。
+
+这里推荐一个优秀的 CLI 代理工具：
+
+**[RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk)** - 这是一个 Rust 编写的 CLI 代理，可以将常见开发命令的 LLM 令牌消耗减少 60-90%。它通过智能过滤和压缩命令输出，让 AI 在处理命令行结果时更加高效。
+
+主要特性：
+- **单一 Rust 二进制，零依赖**
+- **支持广泛的开发命令**：Git、Cargo、npm/pnpm、Docker、kubectl 等
+- **智能输出压缩**：保留关键信息，过滤冗余内容
+- **无缝集成**：只需在命令前加上 `rtk` 前缀即可使用
+
+使用示例：
+```bash
+# 传统方式 - 输出冗长
+git status
+
+# 使用 RTK - 输出简洁
+rtk git status
+
+# 命令链也适用
+rtk git add . && rtk git commit -m "更新" && rtk git push
+```
+
+RTK 特别适合在 AI 辅助开发环境中使用，能显著降低上下文长度，让 AI 更专注于核心任务。
+
 
 ## 更深的自动化术语？
 
