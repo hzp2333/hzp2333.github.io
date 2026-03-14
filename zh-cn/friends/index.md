@@ -630,7 +630,7 @@ word="博友俱乐部"
 name="滑翔闪"
 url="https://blog.huaxiangshan.com/"
 logo="https://blog.huaxiangshan.com/images/avatar.png"
-word="正在学习经济学的二次元"
+word="无门无派，是个散修，俗称个人练习生"
 ```
 
 

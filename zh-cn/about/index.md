@@ -8,15 +8,13 @@
 > 人生哲学为存在主义——承认世界荒诞，但存在先于本质，直面这样的世界并做出选择是最自我的回答。诺斯曾言，**历史有其意义**。偶然是历史的一部分——比起“存在即合理”，个人倾向于“存在即有原因”。
 
 
-
-
 ### 活在社会（媒体）联系中的我：
 
 - [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。
 - [Steam](https://steamcommunity.com/id/flytothemoon2333/)：开放世界、角色扮演、卡牌策略、轻动作类玩家。
 - [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻、科幻要素。
 - [Zhihu](https://www.zhihu.com/people/nan-yang-xi-shu)：啥都看看。
-- [Github](https://github.com/hzp2333)：略懂古诗写作与 LaTeX ，好用 AI。熟练 Stata；R、Python 调包侠；matlab dynare 学习中。
+- [Github](https://github.com/hzp2333)：略懂古诗写作与 LaTeX ，好用 AI。熟练 Stata；R、Python 调包侠。
 
 一些分享：
 
@@ -38,8 +36,9 @@
 
 推荐所有人尝试博客：
 
-- 兴趣使然的尝试，影响深远的坚持。
+- 记录，然后巩固成长路径。
 - 远离国内平台的各种审查与限制。
+- 兴趣使然的尝试，影响深远的坚持。
 -  建立自己的笔记库，浏览器打开即用。
 -  体验自己建站（青春期博主会不会梦见看板娘）
 - 从互联网中来，到互联网中去。做互联网的幽灵，在世界留下一点痕迹。

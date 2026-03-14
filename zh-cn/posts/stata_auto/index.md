@@ -201,42 +201,17 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 
 ![下载这个skill后识别确实更加顺畅了](/img/Stata_auto.zh-cn-1771684866236.webp)
 
-### CLI 代理工具
-
- CLI 代理工具是优化 AI 与命令行交互效率的助手。这类工具通过压缩和优化命令输出，显著减少 AI 处理时的 token 消耗。
-
-这里推荐一个优秀的 CLI 代理工具：
-
-**[RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk)** - 这是一个 Rust 编写的 CLI 代理，可以将常见开发命令的 LLM 令牌消耗减少 60-90%。它通过智能过滤和压缩命令输出，让 AI 在处理命令行结果时更加高效。
-
-主要特性：
-- **单一 Rust 二进制，零依赖**
-- **支持广泛的开发命令**：Git、Cargo、npm/pnpm、Docker、kubectl 等
-- **智能输出压缩**：保留关键信息，过滤冗余内容
-- **无缝集成**：只需在命令前加上 `rtk` 前缀即可使用
-
-使用示例：
-```bash
-# 传统方式 - 输出冗长
-git status
-
-# 使用 RTK - 输出简洁
-rtk git status
-
-# 命令链也适用
-rtk git add . && rtk git commit -m "更新" && rtk git push
-```
-
-RTK 特别适合在 AI 辅助开发环境中使用，能显著降低上下文长度，让 AI 更专注于核心任务。
-
 
 ## 更深的自动化术语？
 
-如果想要更深入地了解当今结合 ai 的自动化流程，或许可以进一步检索 vibecoding 相关术语。
+如果想要更深入地了解当今结合 ai 的自动化流程，或许可以进一步检索 vibecoding 相关术语。现在也有很多经济学家开始介绍自己的 stata+智能体编程。例如：
+
+- [Claude Code for Economists]( " https://ai-mba.io/cohorts/claude-code-economists" )。（[作者推特](https://x.com/aniketapanjwani/status/2021663279307706372)有更详细的链接）。
+- [大年初六我把论文复现Claude Agent公开了，欢迎使用](https://mp.weixin.qq.com/s/fqvZMSqM_8eYsZo0lZH1GA)
 
 对标同样的 claude code ，openai 的是 [codex](https://openai.com/zh-Hans-CN/codex/)，google 的则是 [gemini cili](https://geminicli.com/)[^7]。如今正在早期竞争阶段，各家注册福利都不少。
 
-不过也别怕，工业革命之前还得是能源革命。现在 ai 烧钱烧资源性价比太低了，泛用注定是个大问题。但是，让人恐怖的不是 ai 的绝对值，而是进步的迭代速度，至少能让我们对变化的时代保持一种清醒。从另外一个角度讲，赛车早已超越了人类的极限，我们却依旧为百米赛跑感到刺激、恐惧、兴奋。若真如刘慈欣《诗云》那样[^4]，某种文明能排列出所有的文字组合，我们对诗歌的感受才是更重要的事情。
+现在估计每门计量经济学，甚至是经济学的开学第一课，都是自问怎么应对 ai 冲击。不过也别怕，工业革命之前还得是能源革命。现在 ai 烧钱烧资源性价比太低了，泛用注定是个大问题。但是，让人恐怖的不是 ai 的绝对值，而是进步的迭代速度，至少能让我们对变化的时代保持一种清醒。从另外一个角度讲，赛车早已超越了人类的极限，我们却依旧为百米赛跑感到刺激、恐惧、兴奋。若真如刘慈欣《诗云》那样[^4]，某种文明能排列出所有的文字组合，我们对诗歌的感受才是更重要的事情。
 
 ![漫改电影《百米》：跑得快不一定能解决所有事，但只要在100米内跑得比任何人都快，那就能解决任何事情。](/img/Stata_auto.zh-cn-1771518187683.webp)
 
