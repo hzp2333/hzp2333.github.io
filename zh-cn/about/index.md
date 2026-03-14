@@ -24,6 +24,7 @@
 - 《[精神污染](https://blog.huaxiangshan.com/%E7%B2%BE%E7%A5%9E%E6%B1%A1%E6%9F%93.pdf)》：AI 克苏鲁故事绘本。
 - 《[计量经济学笔记](https://blog.huaxiangshan.com/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
 - 《[微观经济学笔记](https://blog.huaxiangshan.com/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
+- 《[宏观经济学笔记](https://blog.huaxiangshan.com/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
 
 
 ### 对世界的呐喊：
