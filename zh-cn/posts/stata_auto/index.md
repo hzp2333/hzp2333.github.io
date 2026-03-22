@@ -71,6 +71,30 @@ ai <-> mcp-proxy <-> stata-mcp <-> Stata
 ```python
 pip install mcp-proxy
 ```
+### Claude code 接入 statamcp
+
+`claude code` 对 mcp 的管理比较谨慎，兼容不像 codex 那么便利。目前我似乎是通过在 `.claude` 下方添加以下 `.json` 文件实现了连接。
+
+```js
+{
+
+  "mcpServers": {
+
+    "stata-mcp": {
+
+      "command": "mcp-proxy",
+
+      "args": ["http://localhost:4000/mcp"]
+
+    }
+
+  }
+
+}
+```
+
+
+### Codex 接入 statamcp
 
 接下来在 ai 的本地设置中，让 ai 知道我们已经打通了调用 stata 的权限。例如目前我使用的是 `vscode+codex` 的组合，本地配置文件就在 `C:\Users\Administrator\.codex\config.toml
 `
@@ -96,7 +120,7 @@ LSE 的 Thomas Monk 教授也出了一个自己搭建的 statamcp 插件 [Stata 
 
 关于选择哪家的本地 cli 编辑器。如果不止用 vscode, 个人推荐 claude code ，切换其他模型更便捷，跨平台推广更好。如果只在 vscode 上使用，个人推荐 codex，目前工程上的优化确实优于 claude code。
 
-![如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析](/img/Stata_auto.zh-cn-1774184934752.webp)
+![如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析](/img/Stata_auto.zh-cn-1774196570649.webp)
 
 ## Obsidian 加入 ai
 
