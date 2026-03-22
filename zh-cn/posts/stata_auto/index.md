@@ -13,6 +13,7 @@
 
 ## 让 ai 操控软件
 
+
 最简单的集成版本—— [cusor](https://cursor.com/)、[claudecode](https://code.claude.com/docs/zh-CN/overview)[^5]。
 
 但是我们也可以通过 VSCode 实现 all in one。
@@ -34,6 +35,8 @@
 
 ## 进一步加入 stata 插件
 
+### StataMCP 插件
+
 当你完成上一步操作后，你完全可以调用 ai 服务帮你开展其他设置操作😀。
 
 ![插件名称](/img/Stata_auto.zh-cn-1771516675297.webp)
@@ -52,20 +55,50 @@
 
 Stata MCP 插件会让页面出现以下按键，其实就对应着 stata 的运行。
 
-![按键](/img/Stata_auto.zh-cn-1771517247069.webp)
+![按键|127](/img/Stata_auto.zh-cn-1771517247069.webp)
 
-运行如图：
+
+### 让 ai 具有调用 stata 的权限
+
+为了让 ai 具有操纵 stata 软件的能力，首先需要下载 mcp 协议桥梁 `mcp-proxy`。
+
+```txt
+ai <-> mcp-proxy <-> stata-mcp <-> Stata
+```
+
+直接在 `powershell` 窗口运行以下代码即可下载
+
+```python
+pip install mcp-proxy
+```
+
+接下来在 ai 的本地设置中，让 ai 知道我们已经打通了调用 stata 的权限。例如目前我使用的是 `vscode+codex` 的组合，本地配置文件就在 `C:\Users\Administrator\.codex\config.toml
+`
+> 这一步直接让 ai 自己修改即可。
+
+加入以下设置
+
+```js
+[mcp_servers.stata-mcp]
+command = "mcp-proxy"
+args = ["http://localhost:4000/mcp"]
+```
+
+最终 ai 就用有了自己运行代码的能力。
 
 > 提示词：修改完善代码，基于sysuse auto进行一个实证分析。加入代码大纲层次，** # 为标题格式。 # 有几个代表几级标题，最多六级标题。
 
 ![运行界面](/img/Stata_auto.zh-cn-1771517125007.webp)
 
-David Yanagizawa-Drott 教授的项目，就是在这个基础上，进一步让 ai 拥有调用公共大数据 api、tex 文件编辑、r 语言分析的能力。
+### 其他 statamcp 插件
 
-> 可惜的是，Stata MCP 是完全在 VSCode 中操控 stata。如果想将 VSCode 直接作为 do 文件的执行阅读器，且连接桌面上的 stata 执行，似乎目前没有非常优雅的联动方案。
+LSE 的 Thomas Monk 教授也出了一个自己搭建的 statamcp 插件 [Stata Workbench](https://github.com/tmonk/stata-workbench)。不过我个人觉得没有 statamcp 插件好用。
 
+关于选择哪家的本地 cli 编辑器。如果不止用 vscode, 个人推荐 claude code ，切换其他模型更便捷，跨平台推广更好。如果只在 vscode 上使用，个人推荐 codex，目前工程上的优化确实优于 claude code。
 
-## 集成在其他编辑器上
+![如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析](/img/Stata_auto.zh-cn-1774184934752.webp)
+
+## Obsidian 加入 ai
 
 同样，当你完成第一部——配置好 claude 调用 deepseek 的 api 后，你也可以在其他编辑器上实现同样的操作。例如 `obsidian`。
 

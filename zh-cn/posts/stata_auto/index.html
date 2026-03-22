@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_auto\/"
-        },"genre": "posts","keywords": "Stata, 软件推荐, Obsdian","wordcount":  3409 ,
+        },"genre": "posts","keywords": "Stata, 软件推荐, Obsdian","wordcount":  3635 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/stata_auto\/","datePublished": "2026-02-20T00:12:19+08:00","dateModified": "2026-02-20T00:12:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -204,8 +204,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">双剑合璧：智能体时代的 Stata 实证</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-20">2026-02-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3409 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-20">2026-02-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3635 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;
     
 
     
@@ -237,8 +237,14 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#让-ai-操控软件">让 ai 操控软件</a></li>
-    <li><a href="#进一步加入-stata-插件">进一步加入 stata 插件</a></li>
-    <li><a href="#集成在其他编辑器上">集成在其他编辑器上</a></li>
+    <li><a href="#进一步加入-stata-插件">进一步加入 stata 插件</a>
+      <ul>
+        <li><a href="#statamcp-插件">StataMCP 插件</a></li>
+        <li><a href="#让-ai-具有调用-stata-的权限">让 ai 具有调用 stata 的权限</a></li>
+        <li><a href="#其他-statamcp-插件">其他 statamcp 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#obsidian-加入-ai">Obsidian 加入 ai</a></li>
     <li><a href="#推荐-api">推荐 api？</a>
       <ul>
         <li><a href="#api-平台">Api 平台</a></li>
@@ -280,6 +286,7 @@
 <p>若是第一次使用 VSCode, 操作记得先建立一个新文件夹，然后打开 VSCode, 点击文件，打开新建的对应文件夹，剩下的就是在其中操作了。</p>
 </blockquote>
 <h2 id="进一步加入-stata-插件">进一步加入 stata 插件</h2>
+<h3 id="statamcp-插件">StataMCP 插件</h3>
 <p>当你完成上一步操作后，你完全可以调用 ai 服务帮你开展其他设置操作😀。</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/Stata_auto.zh-cn-1771516675297.webp" title="插件名称" data-thumbnail="/img/Stata_auto.zh-cn-1771516675297.webp" data-sub-html="<h2> </h2><p>插件名称</p>">
@@ -313,7 +320,7 @@
     </figure></p>
 <p>Stata MCP 插件会让页面出现以下按键，其实就对应着 stata 的运行。</p>
 <p>
-<figure class="center-figure"><a class="lightgallery" href="/img/Stata_auto.zh-cn-1771517247069.webp" title="按键" data-thumbnail="/img/Stata_auto.zh-cn-1771517247069.webp" data-sub-html="<h2> </h2><p>按键</p>">
+<figure class="center-figure"><a class="lightgallery" href="/img/Stata_auto.zh-cn-1771517247069.webp" title="按键|127" data-thumbnail="/img/Stata_auto.zh-cn-1771517247069.webp" data-sub-html="<h2> </h2><p>按键|127</p>">
         <img
             class="lazyload center-image"
             src="/svg/loading.min.svg"
@@ -321,9 +328,45 @@
             data-srcset="/img/Stata_auto.zh-cn-1771517247069.webp, /img/Stata_auto.zh-cn-1771517247069.webp 1.5x, /img/Stata_auto.zh-cn-1771517247069.webp 2x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771517247069.webp" />
-    </a><figcaption class="image-caption">按键</figcaption>
+    </a><figcaption class="image-caption">按键|127</figcaption>
     </figure></p>
-<p>运行如图：</p>
+<h3 id="让-ai-具有调用-stata-的权限">让 ai 具有调用 stata 的权限</h3>
+<p>为了让 ai 具有操纵 stata 软件的能力，首先需要下载 mcp 协议桥梁 <code>mcp-proxy</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">ai &lt;-&gt; mcp-proxy &lt;-&gt; stata-mcp &lt;-&gt; Stata
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>直接在 <code>powershell</code> 窗口运行以下代码即可下载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">mcp</span><span class="o">-</span><span class="n">proxy</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来在 ai 的本地设置中，让 ai 知道我们已经打通了调用 stata 的权限。例如目前我使用的是 <code>vscode+codex</code> 的组合，本地配置文件就在 <code>C:\Users\Administrator\.codex\config.toml </code></p>
+<blockquote>
+<p>这一步直接让 ai 自己修改即可。</p>
+</blockquote>
+<p>加入以下设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">mcp_servers</span><span class="p">.</span><span class="nx">stata</span><span class="o">-</span><span class="nx">mcp</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">command</span> <span class="o">=</span> <span class="s2">&#34;mcp-proxy&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;http://localhost:4000/mcp&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终 ai 就用有了自己运行代码的能力。</p>
 <blockquote>
 <p>提示词：修改完善代码，基于sysuse auto进行一个实证分析。加入代码大纲层次，** # 为标题格式。 # 有几个代表几级标题，最多六级标题。</p>
 </blockquote>
@@ -338,11 +381,21 @@
             alt="/img/Stata_auto.zh-cn-1771517125007.webp" />
     </a><figcaption class="image-caption">运行界面</figcaption>
     </figure></p>
-<p>David Yanagizawa-Drott 教授的项目，就是在这个基础上，进一步让 ai 拥有调用公共大数据 api、tex 文件编辑、r 语言分析的能力。</p>
-<blockquote>
-<p>可惜的是，Stata MCP 是完全在 VSCode 中操控 stata。如果想将 VSCode 直接作为 do 文件的执行阅读器，且连接桌面上的 stata 执行，似乎目前没有非常优雅的联动方案。</p>
-</blockquote>
-<h2 id="集成在其他编辑器上">集成在其他编辑器上</h2>
+<h3 id="其他-statamcp-插件">其他 statamcp 插件</h3>
+<p>LSE 的 Thomas Monk 教授也出了一个自己搭建的 statamcp 插件 <a href="https://github.com/tmonk/stata-workbench" target="_blank" rel="noopener noreffer ">Stata Workbench</a>。不过我个人觉得没有 statamcp 插件好用。</p>
+<p>关于选择哪家的本地 cli 编辑器。如果不止用 vscode, 个人推荐 claude code ，切换其他模型更便捷，跨平台推广更好。如果只在 vscode 上使用，个人推荐 codex，目前工程上的优化确实优于 claude code。</p>
+<p>
+<figure class="center-figure"><a class="lightgallery" href="/img/Stata_auto.zh-cn-1774184934752.webp" title="如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析" data-thumbnail="/img/Stata_auto.zh-cn-1774184934752.webp" data-sub-html="<h2> </h2><p>如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析</p>">
+        <img
+            class="lazyload center-image"
+            src="/svg/loading.min.svg"
+            data-src="/img/Stata_auto.zh-cn-1774184934752.webp"
+            data-srcset="/img/Stata_auto.zh-cn-1774184934752.webp, /img/Stata_auto.zh-cn-1774184934752.webp 1.5x, /img/Stata_auto.zh-cn-1774184934752.webp 2x"
+            data-sizes="auto"
+            alt="/img/Stata_auto.zh-cn-1774184934752.webp" />
+    </a><figcaption class="image-caption">如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析</figcaption>
+    </figure></p>
+<h2 id="obsidian-加入-ai">Obsidian 加入 ai</h2>
 <p>同样，当你完成第一部——配置好 claude 调用 deepseek 的 api 后，你也可以在其他编辑器上实现同样的操作。例如 <code>obsidian</code>。</p>
 <p>BRAT 是 Obsidian 用于安装测试版插件的工具。</p>
 <ol>
@@ -1007,7 +1060,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，346840 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，347066 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
