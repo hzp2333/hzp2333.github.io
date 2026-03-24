@@ -96,6 +96,8 @@ pip install mcp-proxy
 
 ### Codex 接入 statamcp
 
+> 这种接入要求 stata 必须有许可证。如果用的 stata 破解版需要基于许可证的破解版。
+
 接下来在 ai 的本地设置中，让 ai 知道我们已经打通了调用 stata 的权限。例如目前我使用的是 `vscode+codex` 的组合，本地配置文件就在 `C:\Users\Administrator\.codex\config.toml
 `
 > 这一步直接让 ai 自己修改即可。
