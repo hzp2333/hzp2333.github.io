@@ -124,6 +124,16 @@ LSE 的 Thomas Monk 教授也出了一个自己搭建的 statamcp 插件 [Stata 
 
 ![如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析](/img/Stata_auto.zh-cn-1774196570649.webp)
 
+
+## 论文测试
+
+目前我用这套流程测试产生了三篇论文：
+
+- 第一篇：让 ai 自己清洗 csmar 的企业数据并进行分析《[组织规模、人力资本结构与上市公司违规风险：来自中国上市公司的面板证据](https://github.com/hzp2333/GPT5.4_Paper_automated_testing/blob/main/stata%E6%B5%8B%E8%AF%953/paper/main.pdf)》
+- 第二篇：测试 ai 的数理建模《[走人户随礼、关系资本与跨期财富配置：一个关于中国礼物流动的经济学解释](https://github.com/hzp2333/GPT5.4_Paper_automated_testing/blob/main/stata%E6%B5%8B%E8%AF%952/gift_exchange_paper.pdf)》
+- 第三篇：测试 ai 的可视化程度《[城市企业进入退出与营商活力：基于 2000-2023 年全国市级地区-年份面板的描述性研究](https://github.com/hzp2333/GPT5.4_Paper_automated_testing/blob/main/stata%E6%B5%8B%E8%AF%953/paper/main.pdf)》
+
+
 ## Obsidian 加入 ai
 
 同样，当你完成第一部——配置好 claude 调用 deepseek 的 api 后，你也可以在其他编辑器上实现同样的操作。例如 `obsidian`。
