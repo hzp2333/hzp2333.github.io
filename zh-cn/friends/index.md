@@ -171,6 +171,17 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+    
+
+{{< friend   
+	name="Yuteng Yan"
+	url="https://blog.yanyuteng.cn/"
+	logo="https://blog.yanyuteng.cn/images/avater.png"
+	word="有言毕竟胜无言"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+    
 
 {{< friend   
 	name="狐狸反走矣"

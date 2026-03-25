@@ -265,7 +265,7 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 
 如果想要更深入地了解当今结合 ai 的自动化流程，或许可以进一步检索 vibecoding 相关术语。现在也有很多经济学家开始介绍自己的 stata+智能体编程。例如：
 
-- [Claude Code for Economists]( " https://ai-mba.io/cohorts/claude-code-economists" )。（[作者推特](https://x.com/aniketapanjwani/status/2021663279307706372)有更详细的链接）。
+- [Claude Code for Economists](https://ai-mba.io/cohorts/claude-code-economists)。（[作者推特](https://x.com/aniketapanjwani/status/2021663279307706372)有更详细的链接）。
 - [大年初六我把论文复现Claude Agent公开了，欢迎使用](https://mp.weixin.qq.com/s/fqvZMSqM_8eYsZo0lZH1GA)
 
 对标同样的 claude code ，openai 的是 [codex](https://openai.com/zh-Hans-CN/codex/)，google 的则是 [gemini cili](https://geminicli.com/)[^7]。如今正在早期竞争阶段，各家注册福利都不少。
