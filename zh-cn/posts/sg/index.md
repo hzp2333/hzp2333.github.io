@@ -108,7 +108,12 @@
 - 《实证论文写作八讲》（刘西川）
 - [我为《经济研究》审稿——庞瑞芝](http://www.cesgw.cn/cn/NewsInfo.aspx?m=20100914093455340657&n=20130121161532390266)
 - [作为审稿人，你什么情况下会选择拒稿？](https://www.zhihu.com/question/529489400/answer/2458876355)
-
+- [《财经研究》专家外审倡议与指引](https://mp.weixin.qq.com/s/r4IH3UqRcaP0S-Ps16jusQ)
+- [陆铭：说审稿](https://mp.weixin.qq.com/s/_qfQ1n0lyoEZo5CZdyq8ow)
+- [悦茶丨张川川：对经济学期刊审稿工作的几点思考](https://mp.weixin.qq.com/s/HZy3QTH22iMt7GsUOIvHdg)
+- [写作与发表 | 施新政：关于审稿的几点看法](https://mp.weixin.qq.com/s/_sIQyj3BEbssa9G0QdFOhQ)
+- [审稿大家谈 | 期刊审稿中的价值判断与平衡](https://mp.weixin.qq.com/s/fsTIbd1t7VCfITLMePtyHg)
+- [审稿大家谈 | 于新亮 在审稿中成人达己、美美与共](https://mp.weixin.qq.com/s/1_I4F5s3V_3vrX5VSqcYZA)
 
 [^1]: 当时还有个问题是怎么给论文取标题。编辑回答标题不是最重要的，可以看到越厉害的研究者论文标题越短，因为他们在乎的是简洁和快速凸显主题。
 [^2]: 创新层面和经济意义内生性层面的建议和思考，水平要求是最高的，也是最能体现审稿人水平的
