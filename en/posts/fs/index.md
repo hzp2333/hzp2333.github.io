@@ -29,7 +29,7 @@ Gradually refined theoretical cognition: overlaying macro and micro, dividing in
 
 **Adding Modern Patches:** Transformation of value, game theory, complexity economics, non-equilibrium, behavioral economics, interdisciplinary approaches (evolutionary economics, neuroeconomics...).
 
-At this point, no longer fixated on grandstand positions, but rather focusing on theoretical paradigms and application scenarios, while paying more attention to theory-guided practices.
+Here, no longer fixated on grandstand positions, but rather focusing on theoretical paradigms and application scenarios, while paying more attention to theory-guided practices.
 
 ###  Methodology in Papers:
 
@@ -66,7 +66,7 @@ Started realizing that keeping up with economics requires reading cutting-edge E
 
 Started understanding the importance of packaging a story, always saying that a paper tells a good **story**.
 
-> Yes, we've become storytellers now (image of [Zhang Wuchang](https://en.wikipedia.org/wiki/Steven_N._S._Cheung). jpg)
+> Yes, we've become storytellers now (image of [Zhang Wuchang](https://en.wikipedia.org/wiki/Steven_N._S._Cheung).jpg)
 
 ### Conclusion
 

@@ -12,7 +12,7 @@ Geographic discontinuities, to some extent, can mitigate the endogeneity of the 
 
 Now the crucial question is: **Through what characteristics do cultural institutions bring about such tremendous disparities in development?**
 
-"[Political hierarchy and regional economic development: Evidence from a spatial discontinuity in China](https://www.sciencedirect.com/science/article/pii/S0047272720302164)" utilizes the geographic discontinuity created when Chongqing was elevated from a prefecture-level city in Sichuan Province to a municipality directly under the central government in 1997 to investigate the phenomenon that **empowering local governments through increased political hierarchy can promote regional development**.
+"[Political hierarchy and regional economic development: Evidence from a spatial discontinuity in China](https://www. sciencedirect. com/science/article/pii/S0047272720302164)" utilizes the geographic discontinuity created when Chongqing was elevated from a prefecture-level city in Sichuan Province to a municipality directly under the central government in 1997 to investigate the phenomenon that **empowering local governments through increased political hierarchy can promote regional development**.
 
 ## Political Structure and Economic Growth
 
@@ -38,13 +38,13 @@ The core mechanism by which administrative power stimulates economic growth is `
 In terms of power allocation, the paper's theory and the points to explore can be divided into the following parts:
 
 - **Core Question**: Does the allocation of power structure affect economic growth?
-	- For example, converting counties to districts
-	- When local government in South Africa is very decentralized, existing studies show weak effects[^9].
+- For example, converting counties to districts
+- When local government in South Africa is very decentralized, existing studies show weak effects[^9].
 - **The Tradeoff Dilemma**: The decentralization and diffusion of political power bring benefits of flexible decision-making, but also bring local protectionism, corruption, and rent-seeking.
 - **Impact**: Do these behaviors represent spontaneous order? Public choice theory reveals that politicians are motivated by the desire to expand their power networks rather than maximizing social welfare.
 - **Marginal Contribution**:
-	- Methodologically using geographic discontinuities to discuss government power diffusion and decentralization. Sichuan and Chongqing share very similar geographic, cultural environments, and ethnic composition.
-	- Compared to South Africa, China's power decentralization involves substantive enhancement; the appointment system from higher levels can better prevent corruption.
+- Methodologically using geographic discontinuities to discuss government power diffusion and decentralization. Sichuan and Chongqing share very similar geographic, cultural environments, and ethnic composition.
+- Compared to South Africa, China's power decentralization involves substantive enhancement; the appointment system from higher levels can better prevent corruption.
 
 ## Background
 

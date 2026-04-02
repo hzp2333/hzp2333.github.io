@@ -51,12 +51,12 @@ This is $\boxed{Simpson's Paradox}$: local correlations and overall correlations
 
 Simpson's Paradox is ubiquitous in life, such as measuring the efficacy of drugs across different age groups, gender discrimination in college admissions, or racial bias in police enforcement.
 
--   We should not only care about absolute values, such as the gender ratio of a certain outcome;
--   But also observe relative values, such as whether police focus more on people of color because they have higher crime rates;
+- We should not only care about absolute values, such as the gender ratio of a certain outcome;
+- But also observe relative values, such as whether police focus more on people of color because they have higher crime rates;
 
 > **_《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》_**（2006）[^1] is based on "crime rates by race and police enforcement focus" to study racial bias in police enforcement in Florida. Since Floyd's "I can't breathe" went viral, many books have used this event to introduce counterfactual inference[^2] (e.g., *Mostly Harmless Econometrics* by **_Joshua D. Angrist_**).
 
--   We should also pay attention to internal stratification, such as by race, region, gender... as in the coffee consumption example above.
+- We should also pay attention to internal stratification, such as by race, region, gender... as in the coffee consumption example above.
 
 One reason for Simpson's Paradox is **omitted variables and confounders**[^3]—in the case of coffee consumption and income, gender is an important factor we omitted, but by grouping and fitting, we controlled for it.
 
@@ -152,11 +152,11 @@ Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{i
 $$
 ### 1. Pooled OLS
 
-$\boxed{Pooled OLS}$ : When $Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u$, even though we have many methods, such as grouping by year or by individual, we still treat each as a unique data point and pool them together for regression. This can be seen as all data points sharing a single intercept.
+$\boxed{Pooled OLS}$: When $Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u$, even though we have many methods, such as grouping by year or by individual, we still treat each as a unique data point and pool them together for regression. This can be seen as all data points sharing a single intercept.
 
 Here, we **assume** no individual effects: $\lambda_{\color{red}{i}}=0$.
 
-We also **assume** that the remaining residuals are uncorrelated with explanatory and control variables: $Cov（u|M\_{\_{\color{red}{it}}},X\_{\_{\color{red}{it}}}） =0$, and the residuals follow a normal distribution.
+We also **assume** that the remaining residuals are uncorrelated with explanatory and control variables: $Cov（u|M\_{\_{\color{red}{it}}}, X\_{\_{\color{red}{it}}}） =0$, and the residuals follow a normal distribution.
 
 $$
 Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u
@@ -173,7 +173,7 @@ Divided into individual fixed effects and time fixed effects (double fixed).
 
 **Individual Fixed Effects:**
 
-$\boxed{LSDV} :$ Pooled OLS treats all $\lambda\_{it}$ equally. Imagine observing the same person multiple times—pooled OLS treats each repeated observation as equally valuable. Fixed effects disagree, believing that individuals have certain traits, and repeated observations provide limited value. Therefore, we need to **generate dummy individual variables (n-1) to identify each individual and estimate each individual's effect separately**, known as the "Least Square Dummy Variable Model" (**LSDV**).
+$\boxed{LSDV}:$ Pooled OLS treats all $\lambda\_{it}$ equally. Imagine observing the same person multiple times—pooled OLS treats each repeated observation as equally valuable. Fixed effects disagree, believing that individuals have certain traits, and repeated observations provide limited value. Therefore, we need to **generate dummy individual variables (n-1) to identify each individual and estimate each individual's effect separately**, known as the "Least Square Dummy Variable Model" (**LSDV**).
 
 > This generates many control variables, so $R^2$ is high.
 
@@ -191,7 +191,7 @@ $\boxed{Within-group estimation}$, fixed effects assume that individual effects 
 The average is taken for the same variable, averaging values across different years: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$
 
 {{< admonition tip "Supplement" false >}}
-Variance analysis of panel data. After setting `xtset id year`, `id` could be a spatial, industry, or individual identifier, giving us n groups. Each group has internal variance, which is within-group variance; there is also variance between groups, which is between-group variance. Variance analysis helps confirm whether our grouping is appropriate.  
+Variance analysis of panel data. After setting `xtset id year`, `id` could be a spatial, industry, or individual identifier, giving us n groups. Each group has internal variance, which is within-group variance; there is also variance between groups, which is between-group variance. Variance analysis helps confirm whether our grouping is appropriate.
 Here, within-group estimation is used, which is more effective than between-group estimation. The argument is from Wooldridge's econometrics textbook exercises and won't be expanded here.
 {{< /admonition >}}
 $$
@@ -344,13 +344,13 @@ Indirect effect: $gender\rightarrow department\rightarrow admission rate$, where
 
 If we directly control for "department," we show the direct effect of gender on admission rates, and the regression will indicate discrimination against women.
 
-If we only control for "state of residence," we show the direct effect of gender on admission rates and the indirect effect of gender-department-admission rates, indicating no discrimination against women. The completely different results are precisely **Simpson's Paradox** . In the coffee example, we made a mistake by **omitting a variable**; here, the mistake is **controlling for a "mediating variable"**. The final conclusion is that because women are more likely to apply to the most competitive departments, their admission rates appear lower, so department is an important mediating variable and should not be casually controlled.
+If we only control for "state of residence," we show the direct effect of gender on admission rates and the indirect effect of gender-department-admission rates, indicating no discrimination against women. The completely different results are precisely **Simpson's Paradox**. In the coffee example, we made a mistake by **omitting a variable**; here, the mistake is **controlling for a "mediating variable"**. The final conclusion is that because women are more likely to apply to the most competitive departments, their admission rates appear lower, so department is an important mediating variable and should not be casually controlled.
 
 Thus, mediating variables should not be used as control variables, and if we want to distinguish between direct and mediating effects, further differentiation is needed.
 
 ### 3. Moderating Effects: Grouped Regression or Interaction Terms
 
-Found a comprehensive [summary](https://zhuanlan.zhihu.com/p/120310111)
+Found a comprehensive [summary](https://zhuanlan. zhihu. com/p/120310111)
 
 > This section mainly references *Regression Analysis* by Xie Yu.
 
@@ -374,8 +374,8 @@ First, there are cases **where grouped regression is necessary**, such as when d
 
 Here are some common conclusions (though I feel these conclusions lack authoritative paper support):
 
-- Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also [test coefficient differences for significance](https://zhuanlan.zhihu.com/p/629123531)), are more sensitive, and use the entire sample, while grouped regression reduces sample size; 
-- Data assumptions differ, **interaction terms assume only interaction-related groups have between-group differences**, requiring stricter assumptions. **Interaction terms require control variable coefficients to be consistent across groups**, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent. 
+- Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also [test coefficient differences for significance](https://zhuanlan. zhihu. com/p/629123531)), are more sensitive, and use the entire sample, while grouped regression reduces sample size;
+- Data assumptions differ, **interaction terms assume only interaction-related groups have between-group differences**, requiring stricter assumptions. **Interaction terms require control variable coefficients to be consistent across groups**, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent.
 - Different variables require different discussions; interaction terms can be divided into dummy-dummy interactions ([recommended reference](https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG)), dummy-continuous interactions, and continuous-continuous interactions, requiring specific analysis. (*Basic Econometrics* by Gujarati supports dummy-dummy interactions—no controversy given the prevalence of difference-in-differences.)
 
 Interaction term assumptions remain a gray area in mechanism testing. As long as your variable logic makes sense, use whichever is significant—grouped or interaction—or better yet, use both.
@@ -429,21 +429,21 @@ _*Basic Econometrics*_ (Gujarati)
 
 *The Book of Why* (Judea Pearl)
 
-[What on Earth Are Interaction Terms in Econometric Regression? Here's a Book for You](http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448056220&idx=1&sn=b079a3454204a013fd441b874186f91d&chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&scene=21#wechat_redirect)
+[What on Earth Are Interaction Terms in Econometric Regression? Here's a Book for You](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&mid=2448056220&idx=1&sn=b079a3454204a013fd441b874186f91d&chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&scene=21#wechat_redirect)
 
-[5 Questions and Responses on "Interaction Terms" in Econometrics](http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448057995&idx=1&sn=43011772c6adf79ad636463014d98423&chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&scene=21#wechat_redirect)
+[5 Questions and Responses on "Interaction Terms" in Econometrics](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&mid=2448057995&idx=1&sn=43011772c6adf79ad636463014d98423&chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&scene=21#wechat_redirect)
 
-[STATA: How to Analyze Interaction Terms!](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36)
+[STATA: How to Analyze Interaction Terms!](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Fb5ea12da7f36)
 
-[STATA: How to Use Interaction Terms?](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89)
+[STATA: How to Use Interaction Terms?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ff7222672fe89)
 
-[STATA: Marginal Effect Analysis](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf)
+[STATA: Marginal Effect Analysis](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F012d8a6159cf)
 
-[STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24)
+[STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F7af58033dc24)
 
-[STATA: Visualizing Interaction/Moderation Effects](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354)
+[STATA: Visualizing Interaction/Moderation Effects](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ffa6778828354)
 
-[After Adding Interaction Terms, the Sign Changed!?](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195)
+[After Adding Interaction Terms, the Sign Changed!?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F953f30f39195)
 
 [^1]: Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.
 [^2]: Every time I see books using this example to introduce causality, I feel time flies.

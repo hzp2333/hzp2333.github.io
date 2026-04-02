@@ -5,39 +5,39 @@
 
 ## Typical Facts about Pop Mart Products
 
-In Pop Mart's business conception, the collectible toy economy should first emerge in developed countries.
+From a conventional business perspective, the collectible-toy economy should have emerged first in developed countries.
 
 The economic theory is quite simple:
 
 > Consumption is divided into subsistence and developmental; developmental consumption can only be satisfied after subsistence needs are met.
 
-However, the actual situation is—Asian developing countries have responded more rapidly to the collectible toy market than developed countries.
+In practice, Asian developing countries have responded more rapidly to the collectible toy market than developed countries.
 
 - From a micro perspective, individuals are willing to tighten their belts for the "guzi economy" (collectible toy economy);
 - From a macro perspective, current social consumption upgrading is accompanied by declining birth rates[^1].
 
 ![Figure 1—An issue of "Kan Tian Xia"](/img/谷子经济的函数.zh-cn-1758790604961.webp)
 
-Reflected in specific functional relationships, the typical facts about products like Pop Mart are:
+In terms of functional relationships, the typical facts about products like Pop Mart are:
 
 **When supply falls short of demand, prices (at least official prices) remain largely unchanged, while Pop Mart's scalper prices have recently experienced a decline (around July 2025).**
 
 ![Figure 2—Data from Qiandao APP on June 19](/img/谷子经济的函数.zh-cn-1758791870185.webp)
 
-This means:
+In other words:
 
 - First, Pop Mart is not a Giffen good[^2], as its pricing is not cheap, defined as developmental consumption rather than an inferior good.
 - It cannot be explained by price stickiness from Keynesian theory, as there is no union involvement here, and menu costs (the costs of changing prices) are low.
 - Pop Mart's official prices often don't increase much, and its market prices hover near a certain high point, falling into a **temporary** equilibrium[^3].
-- Pop Mart's popularity is quite inexplicable; therefore, if Pop Mart launches another product, sales might explode or receive no attention (characteristic of viral products).
+- Pop Mart's popularity is difficult to predict; a new release may either go viral or attract almost no attention, which is typical of products driven by social contagion.
 
 ## Incorporating Conspicuous Consumption into the Model
 
-> The viewpoint is simple; here we mainly look at how to incorporate it into economic theoretical models.
+> The basic idea is straightforward; the main task here is to see how it can be incorporated into an economic model.
 
 Meanwhile, in a 1991 University of Chicago economics class, Nobel laureate [Gary S. Becker](https://en.wikipedia.org/wiki/Gary_Becker)[^4] posed a question—why does a famous seafood restaurant he likes, with so many daily customers, never raise its prices?
 
-This phenomenon is widespread—during periods without scalpers (resellers), many successful restaurants, theaters, sports events, and other activities do not raise prices even under sustained excess demand.
+This phenomenon is quite common: even without scalpers, many successful restaurants, theaters, sporting events, and similar activities do not raise prices despite persistent excess demand.
 
 ### Traditional Microeconomic Model
 
@@ -66,7 +66,7 @@ Consumption elasticity is closely related to firms' markup space. When examining
 
 ### Model with Conspicuous Consumption
 
-When consumers purchase goods, they consider the market for these goods. For example, the value of subsequent posts on Xiaohongshu (Little Red Book), WeChat Moments, and group "screen resonance." At this point, the demand function becomes:
+When consumers buy a good, they also care about the social environment surrounding it. For example, the value of subsequent posts on Xiaohongshu (Little Red Book), WeChat Moments, and group "screen resonance." Here, the demand function becomes:
 
 $$
 D=\sum d^{\prime}(p,D)=F(p,D),\quad F_p<0,F_d>0
@@ -81,7 +81,7 @@ $$L(p,D)=F(p,D)-D=0$$
 $$
 dL=L_pdp+L_DdD=0
 $$
-At this point,
+Here,
 
 $$
 L_p=F_p,\quad L_D=F_D-1
@@ -106,7 +106,7 @@ But now, based on the network model, there's a new possibility—
 
 When total demand is low, $F_D<1$; when total demand is high, $F_D>1$.
 
-At this point, the total social demand function is no longer a monotonically declining line but a curve that first declines then rises.
+Here, the total social demand function is no longer a monotonically declining line but a curve that first declines then rises.
 
 ![Figure 4](/img/谷子经济的函数.zh-cn-1758797043385.webp)
 {{< admonition type=note  title="MR Curve in Figure 4" open=false >}}
@@ -182,7 +182,7 @@ This is why Keynes[^7] said:
 
 > "In the short run, **people's psychological expectations and confidence (animal spirits) are more important than gold reserves**."
 
-Economics today has moved toward complexity economics. Complexity economists emphasize **network effects, heterogeneous agents, multiple equilibria** in society. Actually, the explanation of network effects is also simple: I follow the rise and fall of social voices, but how to extract social voices and incorporate them into analysis? This is one of the most worthwhile issues to explore.
+Economics today has moved toward complexity economics. Complexity economists emphasize **network effects, heterogeneous agents, multiple equilibria** in society. At a basic level, network effects mean that individuals move with the rise and fall of public sentiment. The harder question is how to measure that sentiment and bring it into formal analysis. That, in my view, is one of the most worthwhile directions for future research.
 
 [^1]: Too many macroeconomic explanations: caused by gender division of labor, social security, culture, parenting pressure, housing prices...... One macroeconomic explanation might refer to another blog post [《The Origin of Wealth》: A Thousand Years of Darkness, One Lamp Illuminates](https://blog.huaxiangshan.com/zh-cn/posts/fzqy/).
 [^2]: Under special circumstances, inferior goods show price and demand moving in the same direction, e.g., potatoes during famine (the textbook's perennial example), where higher prices lead to more purchases.

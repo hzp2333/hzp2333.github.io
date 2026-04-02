@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/effect\/"
-        },"genre": "posts","keywords": "Literature Review, Causal Effec","wordcount":  1990 ,
+        },"genre": "posts","keywords": "Literature Review, Causal Effects","wordcount":  1987 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/effect\/","datePublished": "2024-02-28T18:27:40+08:00","dateModified": "2024-02-28T18:27:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -247,9 +247,9 @@ loadMathJax();
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Causal Effec</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-study/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Study</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1990 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-28">2024-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1987 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
     
 
@@ -321,7 +321,7 @@ loadMathJax();
 <p>Subtracting the two equations, we obtain the following expression:</p>
 <p>$$\begin{aligned} &amp;\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\newline&amp; =\color{red}{\underbrace{\mathbf{E}\lfloor Y_{1i}\mid D_{i}=1\rfloor-\mathbf{E}[Y_{0i}\mid D_{i}=1]}_{\text{ATT}}  } \newline &amp;+\underbrace{\mathbf{E}[Y_{0i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=0]}_{SelectionBias} \end{aligned}$$</p>
 <p>Where $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ is intentionally introduced by us, representing another &ldquo;parallel universe&rdquo; that we wish to explore but cannot directly observe—<strong>assuming</strong> that the subgroup represented by $\mathbf{E}[Y_{\color{blue}{1i}}\mid D_{i}=1]$ did not receive the treatment in the parallel world. Their state is denoted as $\mathbf{E}[Y_{\color{blue}{0i}}\mid D_{i}=1]$, which is the &ldquo;potential outcome&rdquo; that Rubin aims to find.</p>
-<p>$\color{red}{\mathbf{E}\left[ Y_{1i}\mid D_{i}=1 \right] - \mathbf{E}[Y_{0i}\mid D_{i}=1]}$ represents the <strong>Average Treatment Effect on Treated (ATT)</strong>. There is no better controlled experiment than &ldquo;<strong>a binary choice splitting into two parallel universes</strong>&rdquo;, but no one can truly obtain such data! Therefore, economists attempt to estimate ATT through ATE, hence the introduction of randomized controlled trials (RCTs).</p>
+<p>$\color{red}{\mathbf{E}\left[Y_{1i}\mid D_{i}=1 \right] - \mathbf{E}[Y_{0i}\mid D_{i}=1]}$ represents the <strong>Average Treatment Effect on Treated (ATT)</strong>. There is no better controlled experiment than &ldquo;<strong>a binary choice splitting into two parallel universes</strong>&rdquo;, but no one can truly obtain such data! Therefore, economists attempt to estimate ATT through ATE, hence the introduction of randomized controlled trials (RCTs).</p>
 <h2 id="rct-making-ate-approach-att">RCT: Making ATE approach ATT</h2>
 <p>RCT stands for Randomized Controlled Trial, representing a <strong>randomized experiment</strong>. <strong>Under the conditions of a randomized experiment, ATE = ATT</strong>. Next, let&rsquo;s delve into the explanation:</p>
 <p>Subtracting the subgroup $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ from the subgroup that has never received treatment in the real world $\mathbf{E}[Y_{0i}\mid D_{i}=0]$, if the result is non-zero, selection bias occurs.</p>
@@ -333,7 +333,7 @@ loadMathJax();
 <p><strong>Omitted variables, model errors, measurement errors, and insufficient sample size</strong> can all contribute to bias.</p>
 </blockquote>
 <p>If we use the method of randomized trials, the samples are randomly distributed. We hope that this randomized trial can average out some unobserved influencing variables, thereby making $D_i$ and $Y_{0i}$ independent, which means $\mathbf{E}[Y_{0i}\mid D_{i}=1]=\mathbf{E}[Y_{0i}\mid D_{i}=0]=\mathbf{E}[Y_{0i}]$.</p>
-<p>At this point, the estimation of ATE has been effectively simplified:</p>
+<p>Here, the estimation of ATE has been effectively simplified:</p>
 <p>$$\begin{aligned} &amp;\mathbf{E}[Y_{1i}\mid D_{i}=1]-\mathbf{E}[Y_{0i}\mid D_{i}=1]\newline&amp;=ATT =\mathbf{E}[\mathbf{Y}_{1i}-\mathbf{Y}_{0i}\mid D_{i}=1]  \newline &amp;=ATE=\mathbf{E}[Y_{1i}-Y_{0i}] \end{aligned}$$</p>
 <p>Further estimating through <strong>regression equations</strong>:</p>
 <p>$$\begin{align}Y_{i}&amp;=\begin{cases} Y_{1i} \quad if D_i = 1 \newline Y_{0i} \quad if D_i = 0 \end{cases} \newline &amp;=Y_{0i}+(Y_{1i}-Y_{0i})D_{i}  \newline &amp; =\alpha+\rho D_i+\eta_i  \end{align}$$</p>
@@ -383,7 +383,7 @@ loadMathJax();
     </figure></p>
 <p>Due to the non-random distribution of $Di$, as we are based on a sample of military personnel for statistics, we have only the following equation:</p>
 <p>$$\begin{aligned} \mathbf{E}[D_i=1|Z_i=0]=\pi_A+\pi_D\newline \mathbf{E}[D_i=1|Z_i=1]=\pi_A+\pi_C \end{aligned}$$</p>
-<p>In this case, we cannot estimate $\pi_i$ separately for  $\pi_i$ , $i∈{A,C,D,N}$.</p>
+<p>In this case, we cannot estimate $\pi_i$ separately for $\pi_i$, $i∈{A, C, D, N}$.</p>
 <p>However, due to the random distribution, the results will be proportional, allowing us to derive a linear equation:</p>
 <blockquote>
 <p><strong>The solution is to make an assumption —</strong> quite reminiscent of an economics joke. Here&rsquo;s the original joke:</p>
@@ -392,12 +392,12 @@ loadMathJax();
 <p>After introducing the assumption, we directly obtain the LATE:</p>
 <p>$$\mathrm{LATE}=\mathrm{CATE}_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi_{\mathcal{C}}}$$</p>
 <p>$$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$</p>
-<p>The <strong>LATE section</strong> heavily relies on the <a href="https://andy.egge.rs/teaching/causal_inference/" target="_blank" rel="noopener noreffer ">Oxford course material</a>. For a more algebraic explanation, refer to the <a href="https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf" target="_blank" rel="noopener noreffer ">Harvard course material</a> and &ldquo;Mostly Harmless Econometrics.&rdquo;</p>
+<p>The <strong>LATE section</strong> heavily relies on the [Oxford course material](https://andy. egge. rs/teaching/causal_inference/). For a more algebraic explanation, refer to the [Harvard course material](https://scholar. harvard. edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf) and &ldquo;Mostly Harmless Econometrics.&rdquo;</p>
 <h1 id="social-science-attributes-in-mathematical-economics">Social science attributes in mathematical economics</h1>
 <p>The social science attributes in mathematical economics are evident in the need to articulate assumptions that capture social phenomena. For instance, when studying unique policies, it&rsquo;s essential to argue that the policy affects everyone, reflecting the assumption of monotonicity. Similarly, when using instrumental variables, it&rsquo;s crucial to discuss the social relationship between the instrument and the explanatory variable. These assumptions serve as concise descriptions of social phenomena, highlighting the distinct social science nature of economic analysis.</p>
 <p>Recently, as I delve into advanced macroeconomics, I&rsquo;ve come to realize the methodical nature of this field. The techniques in advanced macroeconomics, such as the variational calculus and Lagrangian method, address optimization in classical models. However, the challenge lies in navigating through the myriad of assumptions and transformations imposed on each macroeconomic model. Whether it&rsquo;s manipulating formulas or introducing sudden assumptions, the goal is to distill economic phenomena into characteristic features and then formalize them mathematically. This, I believe, is the greatest challenge. Examples include the production function for knowledge (treating knowledge as a factor of production), the Cobb-Douglas production function (exhibiting constant returns to scale), household constraints (consumption discounting being less than wealth discounting), and household utility functions (risk aversion).</p>
 <p>In essence, the distinguishing factor between economists with a background in economics and those with a background in mathematics lies in the framework used to explore equilibrium, construct functions that capture economic phenomena, and formulate optimization constraints. This represents the essence of economic thinking and intuition that sets economists apart in the realm of mathematical economics.</p>
-<p>As an aside, I&rsquo;d like to share my <a href="https://zhuanlan.zhihu.com/p/613416303" target="_blank" rel="noopener noreffer ">notes on advanced macroeconomics</a>.</p>
+<p>As an aside, I&rsquo;d like to share my [notes on advanced macroeconomics](https://zhuanlan. zhihu. com/p/613416303).</p>
 <h1 id="summarize">Summarize</h1>
 <p>Further examples illustrate that the Difference-in-Differences (DID) estimation is the Average Treatment Effect on the Treated (ATT); the Regression Discontinuity Design (RDD) estimation is the Local Average Treatment Effect (LATE); and the Instrumental Variable (IV) and RDD estimations are the same under certain conditions.</p>
 <p>ATT and LATE are what we aim for, longing for a perfect control experiment like the parallel universe, but what we have are only the Average Treatment Effect (ATE) and Intention to Treat (ITT).</p>
@@ -429,13 +429,13 @@ loadMathJax();
                             <a class="link-to-markdown" href="/en/posts/effect/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review,Causal Effec"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-image="/img/因果效应.en-20240523113925075.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review,Causal Effects"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/effect/" data-title="Causal Effec" data-image="/img/因果效应.en-20240523113925075.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/causal-effec/">Causal Effec</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/causal-effects/">Causal Effects</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
@@ -811,7 +811,7 @@ loadMathJax();
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88639 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

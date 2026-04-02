@@ -13,7 +13,7 @@ In the northwest, it's a paradise for hiking and mountain adventures. For exampl
 
 This field research takes us to Jianjian Village in Mentougou District, situated at the foot of Miaofeng Mountain. The main peak of Miaofeng Mountain stands at an elevation of 1291 meters, making it the closest peak over a thousand meters to Beijing's urban area[^1].
 
-Along the way, almost every 20 minutes, a backpacker can be seen jogging down the mountain, waving trekking poles. Upon inquiry, we learned that this is the famous "[Beijing Three Peaks](https://ww.itra.run/Races/RaceDetails/Beijing.Three.Peaks.42k/2023/84047)" hiking route.
+Along the way, almost every 20 minutes, a backpacker can be seen jogging down the mountain, waving trekking poles. Upon inquiry, we learned that this is the famous "[Beijing Three Peaks](https://ww. itra. run/Races/RaceDetails/Beijing. Three. Peaks.42k/2023/84047)" hiking route.
  ![The Three Peaks Traverse: from Dajue Temple in Haidian District to Yangtai Mountain and finally to Miaofeng Mountain.](/img/调研小记：山与红玫瑰.zh-cn-20240617173944541.webp)
 
 In Beijing, this kind of hiking business model is quite common, and many friends in my social circle have participated. If you explore the mountains in the suburbs of Beijing, you’ll often see <font color="#ff0000">red ribbons</font> with writing fluttering from the trees—these are usually route markers and advertisements from hiking groups.

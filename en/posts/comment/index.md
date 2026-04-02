@@ -1,7 +1,7 @@
 # Setting Up Giscus Comment Section with Hugo
 
 
-Nowadays, there are many mature solutions for comments in Hugo. Waline is powerful and easy to use, but it's a bit unfriendly for newcomers like me (for example, I don't know how to configure Waline to automatically switch between Chinese and English); Gitalk uses the Issues section of a GitHub repository as the comment area, which is easy to set up but has some permission grant issues (as discussed here [discussion](https://www.v2ex.com/t/535608)). Therefore, I choose Giscus—simple to set up and secure.
+Nowadays, there are many mature solutions for comments in Hugo. Waline is powerful and easy to use, but it's a bit unfriendly for newcomers like me (for example, I don't know how to configure Waline to automatically switch between Chinese and English); Gitalk uses the Issues section of a GitHub repository as the comment area, which is easy to set up but has some permission grant issues (as discussed here [discussion](https://www. v2ex. com/t/535608)). Therefore, I choose Giscus—simple to set up and secure.
 
 Environment: [Hugo Enhanced Edition (V0.123.7)](https://github.com/gohugoio/hugo/releases/tag/v0.123.7) + Windows 64 AMD + [LoveIt Theme](https://hugoloveit.com/zh-cn/)
 

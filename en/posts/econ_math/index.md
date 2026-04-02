@@ -79,7 +79,7 @@ Uncertain environments can help us determine cardinal utility theory.
 
 Shi Shuzhong approaches the macro part from the perspective of engineering control.
 
-The blogger {{< person "https://www.sungyinieh.com/" Song Yinnie "author of the LoveIt theme" >}} recommended "Cybernetics and Scientific Methodology" to me. In fact, some foreign universities in macroeconomics also require students to study control theory and dynamical systems. Walras and Pareto also received training in this area.
+The blogger {{< person "https://www.sungyinieh.com/" Song Yinnie "author of the LoveIt theme" >}} recommended "Cybernetics and Scientific Methodology" to me. In practice, some foreign universities in macroeconomics also require students to study control theory and dynamical systems. Walras and Pareto also received training in this area.
 
 Macro systems need to consider input, output, transfer, feedback, goal achievement, and optimal path (flowchart). Ordinary differential equations are closely related to control theory. If society is seen as a system, then the market is a regulator.
 
@@ -98,7 +98,7 @@ Mathematically, it is a nonlinear Volterra equation. Initially, it described the
 
 Regarding the current relationship between economics and mathematics.
 
-I feel that the controversy lies in what is called economic intuition. For example, in this foreign exam question, you are first asked to calculate, then to think intuitively after calculating. At this point, mathematics and economic reasoning complement each other.
+I feel that the controversy lies in what is called economic intuition. For example, in this foreign exam question, you are first asked to calculate, then to think intuitively after calculating. Here, mathematics and economic reasoning complement each other.
 
 ![Question source: https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view](/img/经济学与数学-20250111203831787.webp)
 

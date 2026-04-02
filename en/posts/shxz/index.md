@@ -51,7 +51,7 @@ In other words, this school of thought assumes that national development is dete
 
 > The following distinctions about institutional economics are based on "Institutions and Economic Growth" (Yao Yang), a book about the dialogue between Professor Yao Yang and institutional economics master North. (Haven't finished reading it yet, will supplement later.)
 
-Institutional economics disagrees. For instance, North argues that factors like investment, education, and capital accumulation are not causes of economic growth but manifestations of growth. If merely accumulating production factors could achieve development, theoretically all countries could imitate this, but reality proves otherwise. In fact, efficient organizations are the primary drivers of development.
+Institutional economics disagrees. For instance, North argues that factors like investment, education, and capital accumulation are not causes of economic growth but manifestations of growth. If merely accumulating production factors could achieve development, theoretically all countries could imitate this, but reality proves otherwise. In practice, efficient organizations are the primary drivers of development.
 
 Meanwhile, resource endowment theory always assumes people rationally maximize their resource advantages. A simple counterexample is the partial emergence of deglobalization trends globally.
 
@@ -112,9 +112,9 @@ In probability theory, we used sets to represent event outcome ranges. The term 
 
 Some advanced microeconomic reasoning relies on sets as the space for decision elements:
 
-Let the **set of social individuals** be $I=\\{ 1,2,\ldots,n \\}, n\geqslant2$.
+Let the **set of social individuals** be $I=\\{ 1,2,\ldots, n \\}, n\geqslant2$.
 
-$x,y \in X$ are **resource sets**, allocated to individuals $a_i$, i.e., $\sum_i^n a_i=X_i$.
+$x, y \in X$ are **resource sets**, allocated to individuals $a_i$, i.e., $\sum_i^n a_i=X_i$.
 
 Preferences are as follows:
 

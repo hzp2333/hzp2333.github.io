@@ -36,23 +36,23 @@ If we want to refute Marx's view, we need to argue that division of labor indeed
 
 Yang Xiaokai advocates analyzing economic development from **four aspects**. This is the historical background of classical development economics—the rapid development of Britain in the 17th-19th centuries and the liberal reforms in 19th-century Europe.
 
--   Geopolitical landscape
+- Geopolitical landscape
 
 > Europe: Fragmented, low trade and defense costs, free cities developed before nation-states. China was the opposite.
 
--   Ideology, moral standards, legal norms
+- Ideology, moral standards, legal norms
 
 > Europe: The pursuit of wealth legitimized commerce (e.g., the Glorious Revolution in Britain), and the Industrial Revolution accumulated substantial commercial wealth. The Reformation led to competition among churches, weakening unity. China did not face external challenges to its nation-state.
 
--   Industrial and commercial institutions and practices
+- Industrial and commercial institutions and practices
 
 > Market institutions, patent law, property law
 
--   Division of labor and economic structure
+- Division of labor and economic structure
 
 > International trade system and colonial movements
 
--   Total productivity and economic welfare
+- Total productivity and economic welfare
 
 ## 3. Refuting Keynesianism
 
@@ -125,7 +125,7 @@ Economics strives to imitate physics, following the process of phenomenon-mathem
 
 However, since social sciences do not have the powerful experimental verification of natural sciences, statistical verification is used as a substitute.
 
-Whether it is Yang Xiaokai's neoclassical development economics or Lin Yifu's new structural economics, both derive conclusions from international trade. Similarly, when a theory encounters phenomena it cannot explain—in the field of international trade, it is the Leontief Paradox—patches or revisions are needed. Many people use human irrationality to refute economics, but in fact, there are many theoretical patches in this area.
+Whether it is Yang Xiaokai's neoclassical development economics or Lin Yifu's new structural economics, both derive conclusions from international trade. Similarly, when a theory encounters phenomena it cannot explain—in the field of international trade, it is the Leontief Paradox—patches or revisions are needed. Many people use human irrationality to refute economics, but In practice, there are many theoretical patches in this area.
 
 {{< mermaid >}}
 graph LR;
@@ -160,4 +160,4 @@ Yang Xiaokai extended the consumer-producer trade model based on Ricardo's trade
 
 > For example, Zhang Weiying's entrepreneurial spirit (believing that entrepreneurs have the ability to create something from nothing, and using this to refute Lin Yifu's new structural economics). Romer's economic growth model.
 
-**[High Macro Notes](https://zhuanlan.zhihu.com/p/613416303) has just updated the Romer model.**
+**[High Macro Notes](https://zhuanlan. zhihu. com/p/613416303) has just updated the Romer model.**

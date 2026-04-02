@@ -31,7 +31,7 @@ The protagonist (Yuta)’s mother is diagnosed with cancer and asks her son to f
 
 In the first film, the mother is portrayed positively. In the second film, the mother’s true personality begins to emerge.
 
-At this point, Fujimoto starts reversing all the characters.
+Here, Fujimoto starts reversing all the characters.
 
 Why does Eri like Yuta’s film?
 

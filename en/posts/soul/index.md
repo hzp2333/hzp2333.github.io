@@ -63,7 +63,7 @@ For most people, this means - everyone has never had such an opportunity to get 
 
 > For the emperor, it is a threat and a tool. For some people, it's just fun.
 
-At this point - the "Haircut Case" / "Sorcery" / "Haircut," mixed with various classes, has exploded into a chemical reaction.
+At this point, the "Haircut Case" / "Sorcery" / "Haircut," mixed with various classes, has exploded into a chemical reaction.
 
 ### Conclusion: The "Soul Calling" of Cyberpunk
 

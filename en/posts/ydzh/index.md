@@ -75,9 +75,9 @@ As one of the two oldest races in the setting, both the Ancient Dragons and the 
 
 Caused by the accumulation of madness from being enslaved and not daring to fight for freedom. This can be seen from the dialogue between the enslaved Leilia and the dragon. She scolds the dragon for being able to fly but not fighting for freedom.
 
-In fact, the enslaved Leilia is similar to the dragon. She claims to "**be able to fly**" but does not fight for freedom. Is there a connection between this and the symbolism of the Clan of Parting? I haven't figured this out yet. But one reason is that she is pregnant with the child of her enemy (the prince of the human kingdom). To protect the girl, she even gives up the chance to be rescued by her true love, leading to his "darkening."
+In practice, the enslaved Leilia is similar to the dragon. She claims to "**be able to fly**" but does not fight for freedom. Is there a connection between this and the symbolism of the Clan of Parting? I haven't figured this out yet. But one reason is that she is pregnant with the child of her enemy (the prince of the human kingdom). To protect the girl, she even gives up the chance to be rescued by her true love, leading to his "darkening."
 
-At this point, the darkened character is also confused:
+Here, the darkened character is also confused:
 
 He wants to remain unchanged, but both Maquia and Leilia, who have children, have changed. Why?
 
@@ -219,13 +219,13 @@ In the end, **the highest emotional intelligence is often sincerity**.
 
 {{< admonition type=note  title="Other Thoughts" open=false >}}
 
-1. Freedom and happiness are born from restraints. Is the life of a leaf meant to fall, or to nourish? 
+1. Freedom and happiness are born from restraints. Is the life of a leaf meant to fall, or to nourish?
 
 2. The fate of the Clan of Parting is linked to their hair; they cannot form bonds with freedom mothers. Maternal love.
 
-3. Single mothers don't cry; the significance of children to mothers is life. 
+3. Single mothers don't cry; the significance of children to mothers is life.
 
-4. The middle section's grand battle and childbirth scenes are breathtaking. Destruction and rebirth are captured in the lenses. 
+4. The middle section's grand battle and childbirth scenes are breathtaking. Destruction and rebirth are captured in the lenses.
 
 5. A world of sadness and pain; love is a curse, encounters are a curse that makes one lonely. Buddhism teaches us to let go of everything, but only by experiencing can we truly let go.
 

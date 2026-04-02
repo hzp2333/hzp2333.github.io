@@ -71,6 +71,6 @@ Spell casting preparation: Emphasize repeatedly that you don't drink, haven't dr
 
 > When others interject to add to the conversation, it's also a good opportunity for a small move. Typically, at a drinking session, everyone usually watches the person speaking.
 
-- Stage three: At this point, the meal is almost over and most people are at least tipsy, so they can rest assured. When toasting, cover the sides of the glass with your hands. Join the toasting group and pretend to be drinking, but no wine enters your mouth. Move around a lot. At this time, everyone is usually trying to please others and will usually not notice small movements.
+- Stage three: Here, the meal is almost over and most people are at least tipsy, so they can rest assured. When toasting, cover the sides of the glass with your hands. Join the toasting group and pretend to be drinking, but no wine enters your mouth. Move around a lot. At this time, everyone is usually trying to please others and will usually not notice small movements.
 
 > It is recommended to use the teachings in Liu Qian's magic class - **big movements cover up small movements** to mislead the other party's attention. For example, one hand makes movements to attract attention, and the other hand gently pours wine on the ground.

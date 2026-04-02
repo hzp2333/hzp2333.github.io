@@ -3,7 +3,7 @@
 
 {{< music netease song 472045267>}}
 
-The method to customize fonts in each Hugo theme varies, and there are few resources online explaining how to modify fonts in Hugo. Here, we'll introduce how to change fonts in the [LoveIt theme](https://hugoloveit.com/zh-cn/).
+Each Hugo theme handles custom fonts a little differently, and there are not many clear guides online on how to change them. Here, we'll introduce how to change fonts in the [LoveIt theme](https://hugoloveit.com/zh-cn/).
 
 ## Two Methods of Modification
 
@@ -12,7 +12,7 @@ According to the LoveIt documentation, customizing fonts requires the **extended
 1. In `assets/css/_custom.scss`, you can add CSS style code to customize the style.
 2. In `assets/css/_override.scss`, you can override variables in `themes/LoveIt/assets/css/_variables.scss` to customize the style.
 
-The first method, writing CSS styles by yourself, is not very beginner-friendly. The second method involves setting font variables.
+The first approach, writing the CSS yourself, is not especially beginner-friendly. The second approach relies on overriding font variables.
 
 Here, we'll focus on the second method, which involves using the [Google Fonts](https://fonts.google.com/) API to import fonts.
 
@@ -92,7 +92,7 @@ $toc-title-font-size: 25px;
 $toc-content-font-size: 20px ;
 ```
 
-The local preview worked fine, but when I uploaded to GitHub Pages, the about page encountered issues, possibly due to exceeding size limits or similar issues. So, I decided to simply delete the "about" folder under the "themes" directory.
+Local preview worked fine, but after I deployed to GitHub Pages the about page ran into issues, possibly because of file size or a related build constraint. So, I decided to simply delete the "about" folder under the "themes" directory.
 
 ## Reference
 

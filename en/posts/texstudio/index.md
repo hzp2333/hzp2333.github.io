@@ -3,7 +3,7 @@
 
 For Chinese-speaking users, there is probably nothing more frustrating than wanting to type `$$` but ending up with `￥￥` due to not switching input methods in time.
 
-Although there are now a series of $\LaTeX$ online compilation websites like [overleaf](https://www.overleaf.com/), [texpage](https://www.texpage.com/zh/), [slager](https://www.slager.link/#/home), they still struggle to provide convenience for this issue. Online rendering is becoming increasingly restrictive. If you want to try compiling larger, more complex, or longer documents without paying, local software is always the best choice (**as long as there is no need for collaborative editing**), which also means greater freedom.
+Although there are now a series of $\LaTeX$ online compilation websites like [overleaf](https://www. overleaf. com/), [texpage](https://www. texpage. com/zh/), [slager](https://www. slager. link/#/home), they still struggle to provide convenience for this issue. Online rendering is becoming increasingly restrictive. If you want to try compiling larger, more complex, or longer documents without paying, local software is always the best choice (**as long as there is no need for collaborative editing**), which also means greater freedom.
 
 - For $\LaTeX$ tutorials, see [How to Get Started with LaTeX in 1 Hour?](https://blog.huaxiangshan.com/zh-cn/posts/latex/)
 
@@ -22,7 +22,7 @@ Especially the writing enhancement plugin [easy typing](https://github.com/Yaozh
 
 So the question is, how to make TexStudio achieve the same functionality?
 
-The answer is custom macros. TexStudio supports custom macro definitions. For detailed syntax, refer to the official documentation [Personal macros](https://texstudio-org.github.io/advanced.html#personal-macros).
+The answer is custom macros. TexStudio supports custom macro definitions. For detailed syntax, refer to the official documentation [Personal macros](https://texstudio-org. github. io/advanced.html#personal-macros).
 
 **Normal mode** macros can be understood as text transformation and completion. I write `￥￥￥￥ ` in the **trigger** (note: intentionally leaving a space at the end). `%|` represents the cursor position after completion.
 
@@ -119,11 +119,11 @@ First, download Java (please find tutorials yourself).
 
 Then download the free grammar checking assistant—[https://languagetool.org/download/](https://languagetool.org/download/)
 
-Download the version corresponding to your computer. I'm using Windows system with the latest TexStudio, so I chose [LanguageTool-6.6.zip](https://languagetool.org/download/LanguageTool-6.6.zip).
+Download the version corresponding to your computer. I'm using Windows system with the latest TexStudio, so I chose [LanguageTool-6.6. zip](https://languagetool.org/download/LanguageTool-6.6. zip).
 
 After downloading, extract the corresponding LanguageTool zip file. Open cmd in the corresponding folder page (just type cmd in the address bar to open it from here).
 
-Then run java -jar languagetool.jar
+Then run java -jar languagetool. jar
 
 After opening, go to `text checking` - `options` to enter the page, set language, server port.
 
@@ -167,6 +167,6 @@ TexStudio supports inline preview. `Alt+P` to start, but it may conflict with ot
 
 ## References
 
-- [Advanced features](https://texstudio-org.github.io/advanced.html#personal-macros)
-- [TexStudio Macro Script Writing-2022-4-24 16:48:09](https://www.bilibili.com/video/BV1uA4y1X7Ji/?spm_id_from=333.1391.0.0&vd_source=0e137afa81fa006aaa9f39b597699a06)
-- [Installing Language Tool in TexStudio](https://tex.stackexchange.com/questions/155148/installing-language-tool-in-texstudio)
+- [Advanced features](https://texstudio-org. github. io/advanced.html#personal-macros)
+- [TexStudio Macro Script Writing-2022-4-24 16:48:09](https://www. bilibili. com/video/BV1uA4y1X7Ji/? spm_id_from=333.1391.0.0&vd_source=0e137afa81fa006aaa9f39b597699a06)
+- [Installing Language Tool in TexStudio](https://tex. stackexchange. com/questions/155148/installing-language-tool-in-texstudio)

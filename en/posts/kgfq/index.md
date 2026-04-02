@@ -11,7 +11,7 @@ Hupu is popular for "I post pictures, you rate them." Economics often uses weigh
 
 This section mainly refers to the following blog:
 
-[Why are most coupling coordination degree papers wrong?](http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php)
+[Why are most coupling coordination degree papers wrong?](http://www. huaxuejia. cn/ism/CESAISM/coupling-coordination. php)
 
 $\boxed{ Dimensionless }$: No matter how many strange indicators we have initially, we need to present a **total score** without "units" in the end. This process is called **dimensionless**.
 
@@ -35,8 +35,8 @@ $$
 \small f(x)\in\{0,1\} \xrightarrow {Transformation} (b-a)f(x)+a \in \{a,b\}
 $$
 
--   **Tip 1: Positive and negative indicators require different formulas and should be handled separately.**
--   **Tip 2: There are other normalization methods.**
+- **Tip 1: Positive and negative indicators require different formulas and should be handled separately.**
+- **Tip 2: There are other normalization methods.**
 
 ![Source: http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152608558.webp)
 
@@ -44,7 +44,7 @@ $$
 
 Here, we provide practice data. The data source is Zhao Tao et al. (2020) on digital economy indicators[^1].
 
-[Baidu Netdisk](https://pan.baidu.com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)
+[Baidu Netdisk](https://pan. baidu. com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)
 
 ![Panel data, five indicators measuring the digital economy|542](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152627385.webp)
 
@@ -317,9 +317,9 @@ To be added.
 
 Refer to the following articles, which are very well explained.
 
-[Principal Component Analysis (PCA) Explained in Detail](https://zhuanlan.zhihu.com/p/37777074)
+[Principal Component Analysis (PCA) Explained in Detail](https://zhuanlan. zhihu. com/p/37777074)
 
-[CodingLabs - The Mathematical Principles of PCA](http://blog.codinglabs.org/articles/pca-tutorial.html)
+[CodingLabs - The Mathematical Principles of PCA](http://blog. codinglabs. org/articles/pca-tutorial.html)
 
 To further visualize the process, we can use two-dimensional data to demonstrate the PCA decomposition process[^4].
 
@@ -327,7 +327,7 @@ When the data is standardized (standard normal distribution), we obtain a datase
 
 ![Dataset](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152714028.webp)
 
-At this point, we draw a line parallel to the x-axis, making it correspond to the direction with the maximum variance. This **principal component** $PC_1$ is a linear combination of the two.
+Here, we draw a line parallel to the x-axis, making it correspond to the direction with the maximum variance. This **principal component** $PC_1$ is a linear combination of the two.
 
 $$
 PC_1=a_{11}X_1+a_{12}X_2
@@ -340,12 +340,12 @@ Similarly, we draw a line parallel to the y-axis, noting that **the y-axis is pe
 
 With n indicators, there are n dimensions, and thus n mutually perpendicular directions.
 
--   $\boxed{Eigenvector}:$ The eigenvector is the direction of the axis with the maximum variance (most information), known as the principal component.  
+- $\boxed{Eigenvector}:$ The eigenvector is the direction of the axis with the maximum variance (most information), known as the principal component.
     
--   $\boxed{Eigenvalue}:$ The eigenvalue is the variance of a principal component, and its relative proportion can be understood as the explained variance or contribution value. The eigenvalue decreases from the first principal component.  
+- $\boxed{Eigenvalue}:$ The eigenvalue is the variance of a principal component, and its relative proportion can be understood as the explained variance or contribution value. The eigenvalue decreases from the first principal component.
     
--   $\boxed{Loading}:$ The loading is the eigenvector multiplied by the square root of the eigenvalue. The loading is the weight coefficient of each original variable on each principal component.
--   $\boxed{Dimension}:$ Dimension in data refers to the number of indicators. With n indicators, there are n dimensions, and thus n mutually perpendicular directions, i.e., n principal components that can be decomposed. However, in practice, we only need a few with significant contributions, so we take k. **The process from n to k is** $\boxed{Dimensionality\ Reduction} $.
+- $\boxed{Loading}:$ The loading is the eigenvector multiplied by the square root of the eigenvalue. The loading is the weight coefficient of each original variable on each principal component.
+- $\boxed{Dimension}:$ Dimension in data refers to the number of indicators. With n indicators, there are n dimensions, and thus n mutually perpendicular directions, i.e., n principal components that can be decomposed. However, in practice, we only need a few with significant contributions, so we take k. **The process from n to k is** $\boxed{Dimensionality\ Reduction} $.
 
 $$
 \small
@@ -367,6 +367,6 @@ Divided into two parts: necessary operations for obtaining scores and non-essent
 
 **Important Notes!!!!!!!!!!!!!!!!!!!!**
 
--   Stata's pca command automatically standardizes data, so no additional preprocessing is needed.
--   Negative indicators in the analysis data need to be transformed into positive indicators: $\small 1-x_{negative\ indicator} , \small \frac{1}{x_{negative\ indicator}}......$
--   The principal component method provides principal components $PC_k$, meaning n indicators are decomposed into k principal components,
+- Stata's pca command automatically standardizes data, so no additional preprocessing is needed.
+- Negative indicators in the analysis data need to be transformed into positive indicators: $\small 1-x_{negative\ indicator}, \small \frac{1}{x_{negative\ indicator}}......$
+- The principal component method provides principal components $PC_k$, meaning n indicators are decomposed into k principal components,

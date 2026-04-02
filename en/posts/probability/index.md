@@ -15,7 +15,7 @@ Special thanks to the **[github re-book project team](https://github.com/re-book
 
 ### **1.1 Introduction: Geometric Probability**
 
-For basic notes on classical probability, you can refer to my [other answer](https://zhuanlan.zhihu.com/p/645540951):
+For basic notes on classical probability, you can refer to my [other answer](https://zhuanlan. zhihu. com/p/645540951):
 
 The formula for classical probability is as follows:
 $$
@@ -58,7 +58,7 @@ When the needle intersects a parallel line, take the midpoint of the needle and 
 
 ![When the needle intersects a parallel line, take the midpoint of the needle and project it vertically. The projected vertical line segment is divided into two parts.](/img/概率论茆诗松笔记.zh-cn-20240523114343772.webp)
 
-**The necessary and sufficient condition for intersection** becomes: $x\leq\frac{1}{2}l \!sin\alpha$, where the unknown parameters are $x$ and $\alpha$.
+**The necessary and sufficient condition for intersection** becomes: $x\leq\frac{1}{2}l \! sin\alpha$, where the unknown parameters are $x$ and $\alpha$.
 
 The constraints for the parameters are:
 
@@ -84,10 +84,10 @@ Therefore, by conducting more and more experiments and dividing the results, we 
 
 In Mao Shisong's textbook, a section is dedicated to discussing methods for determining probability:
 
--   Frequency statistics approximating probability
--   Classical methods (permutations, combinations, addition and multiplication principles, etc.)
--   Geometric methods
--   Subjective methods (e.g., it seems like there's a 50% chance of rain tomorrow, but the weather forecast says there's an 85% chance; or saying you have a 60% chance of succeeding at something... these are subjective probabilities)
+- Frequency statistics approximating probability
+- Classical methods (permutations, combinations, addition and multiplication principles, etc.)
+- Geometric methods
+- Subjective methods (e.g., it seems like there's a 50% chance of rain tomorrow, but the weather forecast says there's an 85% chance; or saying you have a 60% chance of succeeding at something... these are subjective probabilities)
 
 ## 2. Estimating the Truth in Sensitive Questionnaire Questions
 
@@ -119,9 +119,9 @@ $$
 
 Among the three formulas of conditional probability:
 
--   **Multiplication Formula** is used to find the probability of the intersection of events.
--   **Total Probability Formula** is used to find the probability of a complex event.
--   **Bayes' Formula** is used to find a conditional probability.
+- **Multiplication Formula** is used to find the probability of the intersection of events.
+- **Total Probability Formula** is used to find the probability of a complex event.
+- **Bayes' Formula** is used to find a conditional probability.
 
 ![Venn diagram, left: ordinary conditional probability, right: total probability formula (drawn using LaTeX's tikz)](/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp)
 
@@ -129,8 +129,8 @@ Among the three formulas of conditional probability:
 
 The respondent only needs to answer one of the following two questions, with options being "Yes" or "No."
 
--   Question A: Is your birthday before July 1st?
--   Question B: Have you visited inappropriate websites?
+- Question A: Is your birthday before July 1st?
+- Question B: Have you visited inappropriate websites?
 
 ![The respondent only needs to answer one of the following two questions.](/img/概率论茆诗松笔记.zh-cn-20240523114455242.webp)
 

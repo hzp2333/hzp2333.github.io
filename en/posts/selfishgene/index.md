@@ -16,8 +16,8 @@ In this book, the meaning of **selfishness** is **taking all actions to enhance 
 
 The author also considered titles like "The Cooperative Gene" or "The Immortal Gene," ultimately choosing "The Selfish Gene" likely to create a stark contrast with biological altruistic behaviors, but with two requirements:
 
--   Genes are purposeless and unconscious
--   Selfish behavior refers to enhancing one's own natural survival probability
+- Genes are purposeless and unconscious
+- Selfish behavior refers to enhancing one's own natural survival probability
 
 The laws of species evolution ≠ the laws of societal operation. The author advocates **distinguishing evolutionary theory from social development, emphasizing that this book focuses on explaining biological behaviors through natural selection.**
 
@@ -91,9 +91,9 @@ I fully agree with the deductive logic emphasized in this book:
 
 **This book avoids illustrative arguments, circular reasoning, and using biology to argue sociology, employing logical deduction instead.**
 
--   Some say: Baboons are human ancestors, baboons are selfish, therefore humans are even more so. This confuses biological relationships.
--   Some say: Animals A, B, C, D all behave this way, therefore humans do too. Such illustrative arguments easily manipulate viewpoints.
--   Some say: Only superior individuals can reproduce. This is circular reasoning, with "superior" and "reproduction" mutually justifying each other.
+- Some say: Baboons are human ancestors, baboons are selfish, therefore humans are even more so. This confuses biological relationships.
+- Some say: Animals A, B, C, D all behave this way, therefore humans do too. Such illustrative arguments easily manipulate viewpoints.
+- Some say: Only superior individuals can reproduce. This is circular reasoning, with "superior" and "reproduction" mutually justifying each other.
 
 > (Actually, "effort leads to success" and "heaven rewards diligence" also constitute circular reasoning. I prefer to term such inspirational logic as survivalist philosophy—manifestations of survival wisdom used for self-affirmation, self-promotion, and self-comfort, often beneficial for individual growth. Rather than absolute rules of societal operation, they represent ideal environments social sciences aim to shape—environments conducive to developing forward-looking[^5] moral perspectives.)
 
@@ -201,9 +201,9 @@ If viewed as gene-independent behaviors, we generally default to human uniquenes
 
 The key lies in how death genes are viewed.
 
--   Viewpoint: Many death genes exist worldwide; currently retained death genes are beneficial—they function to delay host reproduction.
--   Further speculation: Death genes within bodies are good genes that have aged, while another good gene works to postpone this aging process until after reproduction accelerates.
--   Further speculation: Deception genes—delayed reproduction might enable longer survival.
+- Viewpoint: Many death genes exist worldwide; currently retained death genes are beneficial—they function to delay host reproduction.
+- Further speculation: Death genes within bodies are good genes that have aged, while another good gene works to postpone this aging process until after reproduction accelerates.
+- Further speculation: Deception genes—delayed reproduction might enable longer survival.
 
 (Here too, the author only conducts logical deduction without evidence indicating the above viewpoints are correct.)
 
@@ -256,8 +256,8 @@ The author considers these extreme behaviors, unrepresentative, requiring furthe
 
 **Traditional racial selection theory's** two explanations:
 
--   Conspicuous display: Some researchers believe birds gather to observe current population size and control reproduction numbers.
--   Territory: Many animals first compete for territory, then reproduce. Limited territory means those without territory don't reproduce, controlling population numbers. Essentially, territory serves as animals' reproduction certificates.
+- Conspicuous display: Some researchers believe birds gather to observe current population size and control reproduction numbers.
+- Territory: Many animals first compete for territory, then reproduce. Limited territory means those without territory don't reproduce, controlling population numbers. Essentially, territory serves as animals' reproduction certificates.
 
 Traditional theories treat parental love as exceptional, distinguishing it from ordinary altruistic behaviors. **The author believes all reproducers "choose" between birthing and rearing.** On one hand, each individual attempts maximal reproduction to perpetuate genes. On the other, more reproduction increases survival pressure. Thus, individuals choose between reproduction numbers and rearing pressure, not based on population size.
 
@@ -272,7 +272,7 @@ If individuals choose reproduction based on population numbers, as birds, optima
 Animals without territory don't lose reproductive capacity but wait until having territory to reproduce. **The key isn't just "how many" but also "when."**
 
 {{< admonition tip "Some Reflection" false >}}
-They say economics is the best catalyst. Reflecting on today, I find the author's analysis quite reasonable. Current situations resemble inverted U-curves: the poor reproduce more, the rich reproduce more, the middle class reproduces less. "Poor Economics" essentially reaches similar conclusions—the poor's expectations for changing survival pressures differ from the middle class, each class's survival pressures and expectations closely related. In places like Africa, the poorer have more children hoping for change—why is reversal difficult? The 2020 Nobel laureate's answer: poor people's funds prioritize solving survival pressures like food, water, slightly better—television, while the middle class seeks more human capital investment, making reversal difficult. Essentially, the poor start negative, the middle class accumulates from zero. Of course, this surpasses "The Selfish Gene" topics. The selfish gene doesn't consider conscious expectations or "social welfare" enhancement.
+They say economics is the best catalyst. Reflecting on today, I find the author's analysis quite reasonable. Current situations resemble inverted U-curves: the poor reproduce more, the rich reproduce more, the middle class reproduces less. "Poor Economics" essentially reaches similar conclusions—the poor's expectations for changing survival pressures differ from the middle class, each class's survival pressures and expectations closely related. In places like Africa, the poorer have more children hoping for change—why is reversal difficult? The 2020 Nobel laureate's answer: poor people's funds prioritize solving survival pressures like food, water, slightly better—television, while the middle class seeks more human capital investment, making reversal difficult. Essentially, the poor start negative, the middle class accumulates from zero. this surpasses "The Selfish Gene" topics. The selfish gene doesn't consider conscious expectations or "social welfare" enhancement.
 {{< /admonition >}}
 
 ### Chapter 8: Intergenerational Conflict
@@ -305,8 +305,8 @@ From a genetic perspective, siblings share identical genetic content with me—g
 
 How do weaker, potentially abandoned offspring respond to such favoritism? If parents don't feed them, constant crying might attract predators.
 
--   Thus parents decide: "Is feeding value greater than killing cost?"
--   Their game: "Is obtaining food value greater than predator attraction risk?"
+- Thus parents decide: "Is feeding value greater than killing cost?"
+- Their game: "Is obtaining food value greater than predator attraction risk?"
 
 Hence "only children truly feel secure in being loved" (tongue-in-cheek).
 
@@ -354,10 +354,10 @@ Insect reproduction cycle diagram essentially as follows; red represents genetic
 
 **Final chapters already integrated into previous discussions; here brief summary only.**
 
--   Chapter 11: MEME: Cultural inheritance "memes"
--   Chapter 12: Nice Guys Finish First: Single prisoner's dilemma leads to selfishness; infinite repeated prisoner's dilemma games lead to cooperation
--   Chapters 13-14: Natural society ≠ human society, gene selection ≠ genetic determinism
--   Chapter 15: Constraints on Perfection: Explaining gene selection theory's dilemmas
+- Chapter 11: MEME: Cultural inheritance "memes"
+- Chapter 12: Nice Guys Finish First: Single prisoner's dilemma leads to selfishness; infinite repeated prisoner's dilemma games lead to cooperation
+- Chapters 13-14: Natural society ≠ human society, gene selection ≠ genetic determinism
+- Chapter 15: Constraints on Perfection: Explaining gene selection theory's dilemmas
 
 ## References
 

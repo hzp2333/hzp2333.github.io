@@ -1,14 +1,14 @@
 # Shanxi Datong "Engagement Rape Case" Second Trial: An Economic Perspective on Judicial Spirit and Execution
 
 
-A recent high-profile legal case has attracted widespread attention: "[Shanxi Datong 'Engagement Rape Case'](https://zh.wikipedia.org/wiki/%E5%B1%B1%E8%A5%BF%E5%A4%A7%E5%90%8C%E8%AE%A2%E5%A9%9A%E5%BC%BA%E5%A5%B8%E6%A1%88)." While the apparent controversy centers on the question of marital rape following engagement—undoubtedly wrongful conduct—the question remains: why do online debates persist? The fundamental issue is that the two opposing factions are actually debating at different conceptual levels.
+A recent high-profile legal case has attracted widespread attention: "[Shanxi Datong &#39;Engagement Rape Case&#39;](https://zh.wikipedia.org/wiki/%E5%B1%B1%E8%A5%BF%E5%A4%A7%E5%90%8C%E8%AE%A2%E5%A9%9A%E5%BC%BA%E5%A5%B8%E6%A1%88)." While the apparent controversy centers on the question of marital rape following engagement—undoubtedly wrongful conduct—the question remains: why do online debates persist? The fundamental issue is that the two opposing factions are actually debating at different conceptual levels.
 
 From an economic perspective, this case reveals two particularly interesting phenomena:
 
 - The two sides are fundamentally addressing different issues at different analytical levels.
 - Gender significantly influences the cognitive framework through which each party approaches the problem. This dimension warrants careful consideration.
 
-## ## The Supportive Perspective: Ex Ante "Judicial Spirit" and Legal Principles
+## The Supportive Perspective: Ex Ante "Judicial Spirit" and Legal Principles
 
 The core judicial principles of this case are as follows[^1]:
 
@@ -73,15 +73,19 @@ As for how much evidence is required to convince someone of a crime? At least in
 
 For female respondents, the evocative nature of the case generates higher empathy levels, and the available evidence proves sufficient to convince them of the shared experiential reality. Their cognitive reference point typically centers on "**what would happen if I were in the same situation**" (adverse selection). In contrast, male respondents exhibit greater concern about "**what is the risk of being falsely accused**" (moral hazard).
 
-Historically, verdicts in male rape cases have been disproportionately influenced by cultural values. However, as societal openness and legal consciousness continue to evolve, this concern should diminish in significance. In this particular case, additional corroborating evidence exists, and I maintain considerable confidence in China's public security and judicial institutions. It is worth noting that the defendant in this case did, in fact, admit to the criminal acts in question.
+Historically, verdicts in male rape cases have been disproportionately influenced by cultural values. However, as societal openness and legal consciousness continue to evolve, this concern should diminish in significance. In this particular case, additional corroborating evidence exists, and I maintain considerable confidence in China's public security and judicial institutions. It is worth noting that the defendant in this case did, In practice, admit to the criminal acts in question.
 
 Despite the controversies inherent in such cases, the process of debate and legal discourse remains essential. As the philosophical adage suggests, truth often emerges through the dialectical process of uncertainty, and these arguments enable us to address each case on its individual merits while advancing our collective understanding of justice.
 
-
-
-[^1]: What are the legal grounds for Xi?？'s conviction of rape? Does the plaintiff's constitute fraudulent marriage? [Shanxi "Engagement Rape Case" Presiding Judge's Response](https://mp.weixin.qq.com/s/UqwG5A4hVLYqNVunFv8qFQ)
+[^1]: What are the legal grounds for Xi?？'s conviction of rape? Does the plaintiff's constitute fraudulent marriage? [Shanxi &amp;#34;Engagement Rape Case&amp;#34; Presiding Judge&amp;#39;s Response](https://mp.weixin.qq.com/s/UqwG5A4hVLYqNVunFv8qFQ)
+    
 [^2]: [Dongyan Lao: The cacophony of voices in Shanxi Datong engagement rape case](https://mp.weixin.qq.com/s/UqwG5A4hVLYqNVunFv8qFQ)
+    
 [^3]: The cost of destroying evidence is low while obtaining physical evidence is extremely difficult
+    
 [^4]: Ex ante information asymmetry leads to adverse selection, where inferior quality drives out superior quality (Gresham's Law)
+    
 [^5]: However, the legality of capital punishment and abortion remains a subject of ongoing debate
+    
 [^6]: Each individual has a reference point when making judgments.
+

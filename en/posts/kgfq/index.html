@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/kgfq\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  1993 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  1999 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/kgfq\/","datePublished": "2023-11-20T15:27:17+08:00","dateModified": "2023-11-20T15:27:17+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -247,9 +247,9 @@ loadMathJax();
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Economic weighting and scoring methods: PCA, CRITIC, EWM</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a>&nbsp;<a href="/en/categories/economic-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Learning</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a>&nbsp;<a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-20">2023-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1993 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-20">2023-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1999 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
     
 
@@ -328,7 +328,7 @@ loadMathJax();
     </figure></p>
 <h2 id="1-standardization-and-normalization">1. &ldquo;Standardization&rdquo; and &ldquo;Normalization&rdquo;</h2>
 <p>This section mainly refers to the following blog:</p>
-<p><a href="http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php" target="_blank" rel="noopener noreffer ">Why are most coupling coordination degree papers wrong?</a></p>
+<p>[Why are most coupling coordination degree papers wrong?](http://www. huaxuejia. cn/ism/CESAISM/coupling-coordination. php)</p>
 <p>$\boxed{ Dimensionless }$: No matter how many strange indicators we have initially, we need to present a <strong>total score</strong> without &ldquo;units&rdquo; in the end. This process is called <strong>dimensionless</strong>.</p>
 <p>$\boxed{ Normalization }$: Both &ldquo;standardization&rdquo; and &ldquo;normalization&rdquo; are used to <strong>normalize</strong> data, scaling the data into the desired form while preserving the <strong>comparative ranking characteristics</strong> of the data as much as possible.
 $$
@@ -362,7 +362,7 @@ $$</p>
     </figure></p>
 <h3 id="1-1-normalization-stata-code">1-1. Normalization Stata Code</h3>
 <p>Here, we provide practice data. The data source is Zhao Tao et al. (2020) on digital economy indicators[^1].</p>
-<p><a href="https://pan.baidu.com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==" target="_blank" rel="noopener noreffer ">Baidu Netdisk</a></p>
+<p>[Baidu Netdisk](https://pan. baidu. com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152627385.webp" title="Panel data, five indicators measuring the digital economy|542" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152627385.webp" data-sub-html="<h2> </h2><p>Panel data, five indicators measuring the digital economy|542</p>">
         <img
@@ -805,8 +805,8 @@ $$</p>
 <h2 id="5-principal-component-score-pca">5. Principal Component Score (PCA)</h2>
 <h3 id="1-theoretical-steps-2">1. Theoretical Steps</h3>
 <p>Refer to the following articles, which are very well explained.</p>
-<p><a href="https://zhuanlan.zhihu.com/p/37777074" target="_blank" rel="noopener noreffer ">Principal Component Analysis (PCA) Explained in Detail</a></p>
-<p><a href="http://blog.codinglabs.org/articles/pca-tutorial.html" target="_blank" rel="noopener noreffer ">CodingLabs - The Mathematical Principles of PCA</a></p>
+<p>[Principal Component Analysis (PCA) Explained in Detail](https://zhuanlan. zhihu. com/p/37777074)</p>
+<p>[CodingLabs - The Mathematical Principles of PCA](http://blog. codinglabs. org/articles/pca-tutorial.html)</p>
 <p>To further visualize the process, we can use two-dimensional data to demonstrate the PCA decomposition process[^4].</p>
 <p>When the data is standardized (standard normal distribution), we obtain a dataset that forms an ellipse.</p>
 <p>
@@ -820,7 +820,7 @@ $$</p>
             alt="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152714028.webp" />
     </a><figcaption class="image-caption">Dataset</figcaption>
     </figure></p>
-<p>At this point, we draw a line parallel to the x-axis, making it correspond to the direction with the maximum variance. This <strong>principal component</strong> $PC_1$ is a linear combination of the two.</p>
+<p>Here, we draw a line parallel to the x-axis, making it correspond to the direction with the maximum variance. This <strong>principal component</strong> $PC_1$ is a linear combination of the two.</p>
 <p>$$
 PC_1=a_{11}X_1+a_{12}X_2
 $$
@@ -880,7 +880,7 @@ $$</p>
 <p><strong>Important Notes!!!!!!!!!!!!!!!!!!!!</strong></p>
 <ul>
 <li>Stata&rsquo;s pca command automatically standardizes data, so no additional preprocessing is needed.</li>
-<li>Negative indicators in the analysis data need to be transformed into positive indicators: $\small 1-x_{negative\ indicator} , \small \frac{1}{x_{negative\ indicator}}&hellip;&hellip;$</li>
+<li>Negative indicators in the analysis data need to be transformed into positive indicators: $\small 1-x_{negative\ indicator}, \small \frac{1}{x_{negative\ indicator}}&hellip;&hellip;$</li>
 <li>The principal component method provides principal components $PC_k$, meaning n indicators are decomposed into k principal components,</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
@@ -1276,7 +1276,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;56 posts, 88639 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

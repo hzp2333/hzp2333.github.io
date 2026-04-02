@@ -91,7 +91,7 @@ John Stuart Mill's paper on expectations emphasizes the role of economics profes
 >
 > I have heard similar views from others—econometrics analyzes causality through exogeneity, so how can we expect it to predict exogenous events?
 
-Fogel used the method of sacrificing the small for the big, as he was refuting the mainstream conclusion that "railroad construction promoted U.S. economic growth." Regarding x, y, coefficients—perhaps y is small; x is large; we overestimated the coefficient, leading to today's conclusion. His paper uses hints of uncertainty to cast doubt on theories.
+Fogel used the method of sacrificing the small for the big, as he was refuting the mainstream conclusion that "railroad construction promoted U. S. economic growth." Regarding x, y, coefficients—perhaps y is small; x is large; we overestimated the coefficient, leading to today's conclusion. His paper uses hints of uncertainty to cast doubt on theories.
 
 {{< admonition tip "Fogel" false >}}
 

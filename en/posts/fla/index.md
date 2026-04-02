@@ -20,9 +20,9 @@ Here, I will first explain Varian's logic with minimal mathematical language.
 
 Taxing first and then refunding sounds like a bizarre plan, but think about it: what if we consider the deposit for "shared bikes or shared power banks" as a tax?
 
--   The deposit, like Varian's oil tax, is paid first and then refunded.
--   The deposit is an additional charge on top of the shared bike or power bank usage fee, just as the oil tax is an additional charge on gasoline consumption.
--   Both the deposit and the oil tax are fully refunded.
+- The deposit, like Varian's oil tax, is paid first and then refunded.
+- The deposit is an additional charge on top of the shared bike or power bank usage fee, just as the oil tax is an additional charge on gasoline consumption.
+- Both the deposit and the oil tax are fully refunded.
 
 **The original question: Will taxing oil and then refunding it to consumers change their consumption?**
 
@@ -50,7 +50,7 @@ The average market consumption change: $\frac{x+x}{2} \Rightarrow\frac{x+x^{\pri
 
 * * *
 
-This is why Varian says in the book ( _Original English textbook link: [Intermediate Microeconomics](http://candrafajriananda.lecture.ub.ac.id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
+This is why Varian says in the book (_Original English textbook link: [Intermediate Microeconomics](http://candrafajriananda. lecture. ub. ac. id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
 
 > That’s because he is average, not because of any causal connection
 
@@ -68,9 +68,9 @@ Before the refund, consumption is considered as a price increase, where the pric
 
 Once the "non-mathematical explanation" is understood, we can look at the mathematical analysis provided in the book.
 
--   The entire tax burden is shifted to consumers, meaning the price of gasoline rises.
--   (Because some workers cannot afford the deposit, even though it will be refunded.)
--   Taxing and then refunding ultimately leaves income unchanged.
+- The entire tax burden is shifted to consumers, meaning the price of gasoline rises.
+- (Because some workers cannot afford the deposit, even though it will be refunded.)
+- Taxing and then refunding ultimately leaves income unchanged.
 
 The first point indicates that **the substitution effect occurs**: as the price of gasoline rises, consumers are willing to spend more on other goods instead of gasoline. Therefore, the final consumption of oil by consumers must be $x^\prime$ after the price change, not the original $x$.
 

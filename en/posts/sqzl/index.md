@@ -68,18 +68,18 @@ Constructing forward-thinking moral frameworks is difficult. Is there truly rati
 
 ## Footnotes
 
-1. Scholars like Malinowski, Pan Suiming, and Xiang Biao have shown remarkable dedication to ethnographic research. 
+1. Scholars like Malinowski, Pan Suiming, and Xiang Biao have shown remarkable dedication to ethnographic research.
     
-2. Tönnies (community and society), Durkheim (mechanical solidarity and organic solidarity), Weber (substantive rationality and formal rationality), Pareto (traditional and legitimate domination), Lewis (industrial and agricultural sectors), Parsons (pattern variables)... 
+2. Tönnies (community and society), Durkheim (mechanical solidarity and organic solidarity), Weber (substantive rationality and formal rationality), Pareto (traditional and legitimate domination), Lewis (industrial and agricultural sectors), Parsons (pattern variables)...
     
-3. Emergent fact. This theory is quite intriguing as the addition of relations brings qualitative change. For instance, three separate lines are meaningless individually, but when connected, they form a triangle with significance. 
+3. Emergent fact. This theory is quite intriguing as the addition of relations brings qualitative change. For instance, three separate lines are meaningless individually, but when connected, they form a triangle with significance.
     
-4. I resonate with a critique that economics often quantifies social networks and social capital, overlooking the influence of ethical values. 
+4. I resonate with a critique that economics often quantifies social networks and social capital, overlooking the influence of ethical values.
     
-5. Among those I’ve encountered, sociology students tend to be the most well-read. 
+5. Among those I’ve encountered, sociology students tend to be the most well-read.
     
-6. There are many fascinating details in these descriptions, proving Zhejiang merchants’ cultural and relational expansion, which are too extensive to detail here. 
+6. There are many fascinating details in these descriptions, proving Zhejiang merchants’ cultural and relational expansion, which are too extensive to detail here.
     
-7. I now understand why many recommend Hayek’s works, as his emphasis on spontaneous order and knowledge systems provides profound insights. 
+7. I now understand why many recommend Hayek’s works, as his emphasis on spontaneous order and knowledge systems provides profound insights.
     
 8. However, Beijing’s Zhejiang Village has been dismantled by strong administrative measures, which long-term impacts might undermine the credibility of individual social networks.

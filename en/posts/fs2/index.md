@@ -3,7 +3,7 @@
 
 {{< music netease song 420513480>}}
 
-People often say that empirical economics papers are always obvious—either they engage in hindsight or their conclusions merely align with common sense. Only those papers that offer accurate predictions or counterintuitive insights are considered valuable.
+People often argue that empirical economics papers are always obvious—either they engage in hindsight or their conclusions merely align with common sense. Only those papers that offer accurate predictions or counterintuitive insights are considered valuable.
 
 Here, I’d like to counter this notion by arguing from several angles that **a conclusion aligning with intuition is not necessarily self-evident**.
 

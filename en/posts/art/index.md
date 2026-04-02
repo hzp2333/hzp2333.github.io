@@ -27,21 +27,21 @@ With the emergence of the camera, painters began to contemplate the differences 
 
 Most styles of painting in the modern era are essentially "reconstructions" of the real world, combining brushstrokes with the artist's understanding of the world's essence.
 
-**Futurists:**  Science can explain everything; it's a symbol of order. We should use orderly geometric shapes to compose our works and showcase the beauty of rationality.
+**Futurists:** Science can explain everything; it's a symbol of order. We should use orderly geometric shapes to compose our works and showcase the beauty of rationality.
 
-**Symbolists:**  All cognition is a product of society. To stimulate people's thinking on a topic, we need to transfer the same object to different scenarios. For example, moving a spoon from a table to the ceiling, or replacing actors in a stage play with wooden stakes in an open-air mine. Our inexplicability is precisely to alienate things, thus provoking people's reflection (classic anthropological alienation).
+**Symbolists:** All cognition is a product of society. To stimulate people's thinking on a topic, we need to transfer the same object to different scenarios. For example, moving a spoon from a table to the ceiling, or replacing actors in a stage play with wooden stakes in an open-air mine. Our inexplicability is precisely to alienate things, thus provoking people's reflection (classic anthropological alienation).
 
 **Impressionists:** Colors, light, and time are constantly changing. What we paint is just the light atmosphere at a specific moment in time. We need to learn to observe, to observe the changes in color and light of an object under various conditions. (That's why Monet painted over 300 versions of "Water Lilies").
 
-**Pointillists:**  The colors of light can be expressed by the three primary colors. By letting the three primary colors form dots that overlap and eventually create an image.
+**Pointillists:** The colors of light can be expressed by the three primary colors. By letting the three primary colors form dots that overlap and eventually create an image.
 
-**Collage Art:**  Reassemble everyday objects to express ideas, and materials such as newspapers and posters can also be reassembled into a new work.
+**Collage Art:** Reassemble everyday objects to express ideas, and materials such as newspapers and posters can also be reassembled into a new work.
 
-**Dada Art:**  Gradually entering the realm of conceptual deconstruction and reflection. All concepts should be deconstructed and reexamined. So, in the eyes of Dadaists, a toilet becomes a fountain, and a clothes hanger becomes an octopus.
+**Dada Art:** Gradually entering the realm of conceptual deconstruction and reflection. All concepts should be deconstructed and reexamined. So, in the eyes of Dadaists, a toilet becomes a fountain, and a clothes hanger becomes an octopus.
 
 ![apple man](/img/看展：时代的容颜.zh-cn-20240523105140425.webp)
 
-Once we understand the artists' principles and backgrounds, previously perplexing images seem to become more understandable. Nowadays, many "performance art" pieces and inexplicable paintings may make people feel that art is just empty boasting. I think, in fact, discussions about painting concepts ultimately lead to abstraction. Just like some branches of mathematics, when taken to certain depths, lose the concept of numbers. Painters abstract concepts and expressions themselves, and then use incomprehensible actions to express themselves. It seems that abstraction through paintings is a trend in the so-called avant-garde.
+Once we understand the artists' principles and backgrounds, previously perplexing images seem to become more understandable. Nowadays, many "performance art" pieces and inexplicable paintings may make people feel that art is just empty boasting. I think, In practice, discussions about painting concepts ultimately lead to abstraction. Just like some branches of mathematics, when taken to certain depths, lose the concept of numbers. Painters abstract concepts and expressions themselves, and then use incomprehensible actions to express themselves. It seems that abstraction through paintings is a trend in the so-called avant-garde.
 
 - First-class art is intoxicating in appearance, or concise and easy to understand, and the icing on the cake is understanding the connotation.
 - Second-rate art is incomprehensible in appearance, but once you understand the connotation, you can see the light.

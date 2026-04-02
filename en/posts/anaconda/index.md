@@ -7,7 +7,7 @@ Today, when I ran Anaconda, it suddenly could not open the startup interface, bu
 
 The commonly used solutions online did not work, but I will still list them here.
 
--   Upgrade the installation packages,
+- Upgrade the installation packages,
 
 ```python
 conda update navigator
@@ -17,7 +17,7 @@ conda update conda
 conda update --all
 ```
 
--   Delete files
+- Delete files
 
 > Delete the `.condarc` file (usually found in C drive, Users, Current User).
 

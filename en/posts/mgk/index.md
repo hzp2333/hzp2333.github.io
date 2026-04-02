@@ -6,7 +6,7 @@
 
 
 
-In fact, it has yet to be rated because it is considered an endeavor in scientific education, falling under the purview of the Cultural Relics Bureau rather than the Tourism Bureau. The Tourism Bureau has granted the Forbidden City the highest rating and naturally desires to do the same for Dunhuang. However, the Mogao Grottoes have not acquiesced. 
+In practice, it has yet to be rated because it is considered an endeavor in scientific education, falling under the purview of the Cultural Relics Bureau rather than the Tourism Bureau. The Tourism Bureau has granted the Forbidden City the highest rating and naturally desires to do the same for Dunhuang. However, the Mogao Grottoes have not acquiesced.
 
 In former days, the Taoist king had already cast out all the gold, and the resplendent treasures rode makeshift cattle carts, wandering into foreign lands. The sedimented history pays no heed to transient hustle and bustle, while the British Museum, destined for daily foot traffic, bustles incessantly. History chuckles. Faced with vast, magnificent toys, infants find themselves bewildered. Yet, the entirety of culpability does not solely rest upon the Taoist king—Dunhuang was not unearthed in an auspicious era, and even today, I cannot easily sketch the contours of ancients. Thus, here, cultural heritage preservation and dissemination intertwine.
 
@@ -20,7 +20,7 @@ Relying solely on "flying apsaras" cannot uphold the phrase "Chinese treasure." 
 
 The multitude of cave entrances symbolizes the interaction of communities. In the long river of history filled with wars, there indeed exists such a solid port of ethnic integration. Inside the caves, there is no strong light; instead, the mineral pigments from the Tang Dynasty cover every surface, creating a faint fluorescent effect. Most of the sculptures I observed were of figures like Shakyamuni Buddha and Guanyin. Simply speaking of the sculptures, I did not perceive any advanced craftsmanship or exquisite expressions. According to the introduction, the internal craftsmanship mainly involves unique filling methods, often utilizing local materials, with a deeper cultural significance such as the reclining Buddha in Nirvana.
 
-Observing the seated Buddha indoors is quite marvelous. Unlike viewing the Leshan Giant Buddha under the bright sunlight, leaving nothing unseen, looking up at the seated Buddha inside the cave is different. The shadows above exude a profound sense of emptiness, making the Buddha statue appear enigmatic and compelling one to kneel in reverence. 
+Observing the seated Buddha indoors is quite marvelous. Unlike viewing the Leshan Giant Buddha under the bright sunlight, leaving nothing unseen, looking up at the seated Buddha inside the cave is different. The shadows above exude a profound sense of emptiness, making the Buddha statue appear enigmatic and compelling one to kneel in reverence.
 
 The murals of Dunhuang, illuminated by the dim light within the caves, leave one spellbound. The array of divine and mythical figures or allegorical scenes in the entire cave complex are each unique, forming a celestial net while basking in the Buddha's radiance.
 

@@ -8,7 +8,7 @@
 
 Based on the shadow images, "Black Myth: Wukong" has already hinted that the old monkey is Jin Chanzi (Tang Sanzang, reincarnation, Buddha, etc.).
 
-Currently, the only reason online for opposing Jin Chanzi is that the old monkey's words are lies, which do not align with Jin Chanzi's identity. In fact, although Jin Chanzi does not appear, his character is consistently portrayed throughout the game.
+Currently, the only reason online for opposing Jin Chanzi is that the old monkey is lying, which do not align with Jin Chanzi's identity. In practice, although Jin Chanzi does not appear, his character is consistently portrayed throughout the game.
 
 First, this is "**Black Myth: Wukong**." **Black Myth** implies a subversion of character settings. Game Science does respect the original work, but only in terms of **story events, interpersonal relationships, and magical artifact settings**. The character settings in the game have been altered. Huangfeng Great King has a righteous side, and Lingji Bodhisattva has a selfish side. Why should we assume that Jin Chanzi cannot say the words at the end? Next, I will present evidence from the shadow images.
 
@@ -23,7 +23,7 @@ The poem on the old monkey's shadow image mentions:
 > The path to immortality is walked by countless people. Seeking the Dao without seeking truth, saving others but unable to save oneself.
 
 ![Old Monkey Shadow Image](/img/黑神话悟空.zh-cn-20240907193057705.webp)
-It can be seen that the old monkey's pursuit is <font color="#ff0000">truth</font>.
+This suggests that the old monkey's pursuit is <font color="#ff0000">truth</font>.
 
 Next, look at Huang Mei's shadow image—Huang Mei debates with Jin Chanzi.
 
@@ -41,7 +41,7 @@ In the second CG animation, Huang Mei is obsessed with winning, while Jin Chanzi
 
 > The celestial beings of Heaven say he is gambling. The Buddha of Ling Mountain says that gambling inevitably leads to loss. He says he is not gambling, nor has he lost.
 
-Similarly, the old monkey does not care about winning or losing. What matters more is—<font color="#ff0000">seeking truth</font>. The old monkey believes he is not a gambler but a waiter, waiting for the Chosen One who can inherit Sun Wukong's legacy. Who is the old monkey gambling against? Ling Mountain, and coincidentally, Jin Chanzi also comes from Ling Mountain.
+Similarly, the old monkey does not care about winning or losing. What matters more is <font color="#ff0000">seeking truth</font>. The old monkey believes he is not a gambler but a waiter, waiting for the Chosen One who can inherit Sun Wukong's legacy. Who is the old monkey gambling against? Ling Mountain, and coincidentally, Jin Chanzi also comes from Ling Mountain.
 
 ![Old Monkey Shadow Image](/img/黑神话悟空.zh-cn-20240907193328373.webp)
 
@@ -93,7 +93,7 @@ First, let's take a step back and assume that Game Science really defaults to Me
 
 ## Is the Old Monkey Lying?
 
-Many people say the old monkey is lying, but is he really lying?
+Many people argue the old monkey is lying, but is he really lying?
 
 Look at what the old monkey comments on at the end—the six roots.
 
@@ -112,7 +112,7 @@ Please look again at Jin Chanzi's attitude—non-interventionist <font color="#f
 
 The true will to desire does not require external intervention. Like in "Elden Ring," only by experiencing the suffering and desires of all beings can one forge their own law.
 
-In fact, the old monkey is the one who believes in Sun Wukong the most. That's why he believes he is not gambling, because he trusts that Sun Wukong's will to desire will be inherited.
+In practice, the old monkey is the one who believes in Sun Wukong the most. That's why he believes he is not gambling, because he trusts that Sun Wukong's will to desire will be inherited.
 
 This process should not and cannot be interfered with. The traces of the journey to the West cannot be erased.
 
@@ -124,13 +124,13 @@ What are the Buddhist will clones, the Golden Headband clones? They are all exte
 
 ## Will? Enlightenment!
 
-The true will is derived from reflecting on what one sees and does.
+True will emerges from reflecting on what one has seen and done.
 
-This is why I get angry at some analyses. Many answers try to prove their own version of the Great Sage, their own version of Jin Chanzi, over-interpreting the ending dialogue. The official shadow images make it clear, but people refuse to connect or believe them.
+This is why some interpretations frustrate me. Many answers try to prove their own version of the Great Sage, their own version of Jin Chanzi, over-interpreting the ending dialogue. The official shadow images make it clear, but people refuse to connect or believe them.
 
 It seems that interpretations always aim to be grander, more unique.
 
-Well, let me say this: all the theories about Buddhist will, Yuan Hong, Guanyin, Taibai Jinxing, Six-Eared Macaque, and Sun Wukong are nonsense! The Jin Chanzi theory is lofty enough.
+Well, let me say this: all those theories about Buddhist will, Yuan Hong, Guanyin, Taibai Jinxing, Six-Eared Macaque, and Sun Wukong are nonsense! The Jin Chanzi theory is lofty enough.
 
 **Unity of knowledge and action, unbound by Buddhism, unbound by Taoism, transcending the three realms, existing beyond the five elements.**
 

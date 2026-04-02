@@ -39,7 +39,7 @@ $$\begin{aligned} &\mathbf{E}[Y_{i}\mid D_{i}=1]-\mathbf{E}[Y_{i}\mid D_{i}=0]\n
 
 Where $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ is intentionally introduced by us, representing another "parallel universe" that we wish to explore but cannot directly observe—**assuming** that the subgroup represented by $\mathbf{E}[Y_{\color{blue}{1i}}\mid D_{i}=1]$ did not receive the treatment in the parallel world. Their state is denoted as $\mathbf{E}[Y_{\color{blue}{0i}}\mid D_{i}=1]$, which is the "potential outcome" that Rubin aims to find.
 
-$\color{red}{\mathbf{E}\left[ Y_{1i}\mid D_{i}=1 \right] - \mathbf{E}[Y_{0i}\mid D_{i}=1]}$ represents the **Average Treatment Effect on Treated (ATT)**. There is no better controlled experiment than "**a binary choice splitting into two parallel universes**", but no one can truly obtain such data! Therefore, economists attempt to estimate ATT through ATE, hence the introduction of randomized controlled trials (RCTs).
+$\color{red}{\mathbf{E}\left[Y_{1i}\mid D_{i}=1 \right] - \mathbf{E}[Y_{0i}\mid D_{i}=1]}$ represents the **Average Treatment Effect on Treated (ATT)**. There is no better controlled experiment than "**a binary choice splitting into two parallel universes**", but no one can truly obtain such data! Therefore, economists attempt to estimate ATT through ATE, hence the introduction of randomized controlled trials (RCTs).
 
 ## RCT: Making ATE approach ATT
 
@@ -56,7 +56,7 @@ Subtracting the subgroup $\mathbf{E}[Y_{0i}\mid D_{i}=1]$ from the subgroup that
 
 If we use the method of randomized trials, the samples are randomly distributed. We hope that this randomized trial can average out some unobserved influencing variables, thereby making $D_i$ and $Y_{0i}$ independent, which means $\mathbf{E}[Y_{0i}\mid D_{i}=1]=\mathbf{E}[Y_{0i}\mid D_{i}=0]=\mathbf{E}[Y_{0i}]$.
 
-At this point, the estimation of ATE has been effectively simplified:
+Here, the estimation of ATE has been effectively simplified:
 
 $$\begin{aligned} &\mathbf{E}[Y\_{1i}\mid D\_{i}=1]-\mathbf{E}[Y\_{0i}\mid D\_{i}=1]\newline&=ATT =\mathbf{E}[\mathbf{Y}\_{1i}-\mathbf{Y}\_{0i}\mid D\_{i}=1]  \newline &=ATE=\mathbf{E}[Y\_{1i}-Y\_{0i}] \end{aligned}$$
 
@@ -102,7 +102,7 @@ Due to the non-random distribution of $Di$, as we are based on a sample of milit
 
 $$\begin{aligned} \mathbf{E}[D_i=1|Z_i=0]=\pi_A+\pi_D\newline \mathbf{E}[D_i=1|Z_i=1]=\pi_A+\pi_C \end{aligned}$$
 
-In this case, we cannot estimate $\pi_i$ separately for  $\pi_i$ , $i∈{A,C,D,N}$.
+In this case, we cannot estimate $\pi_i$ separately for $\pi_i$, $i∈{A, C, D, N}$.
 
 However, due to the random distribution, the results will be proportional, allowing us to derive a linear equation:
 
@@ -116,7 +116,7 @@ $$\mathrm{LATE}=\mathrm{CATE}\_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi\_{\mathcal{
 
 $$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$
 
-The **LATE section** heavily relies on the [Oxford course material](https://andy.egge.rs/teaching/causal_inference/). For a more algebraic explanation, refer to the [Harvard course material](https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf) and "Mostly Harmless Econometrics."
+The **LATE section** heavily relies on the [Oxford course material](https://andy. egge. rs/teaching/causal_inference/). For a more algebraic explanation, refer to the [Harvard course material](https://scholar. harvard. edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf) and "Mostly Harmless Econometrics."
 
 # Social science attributes in mathematical economics
 
@@ -127,7 +127,7 @@ Recently, as I delve into advanced macroeconomics, I've come to realize the meth
 
 In essence, the distinguishing factor between economists with a background in economics and those with a background in mathematics lies in the framework used to explore equilibrium, construct functions that capture economic phenomena, and formulate optimization constraints. This represents the essence of economic thinking and intuition that sets economists apart in the realm of mathematical economics.
 
-As an aside, I'd like to share my [notes on advanced macroeconomics](https://zhuanlan.zhihu.com/p/613416303).
+As an aside, I'd like to share my [notes on advanced macroeconomics](https://zhuanlan. zhihu. com/p/613416303).
 
 # Summarize
 

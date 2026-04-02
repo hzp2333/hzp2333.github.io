@@ -17,7 +17,7 @@ In **the limit of a sequence** (page 21, Volume I), the sequence $x_n$ converges
 
 In **the limit of a function** (page 33, Volume I), the function converges, denoted as $\small \lim_{n \rightarrow \infty}{f(x_n)}=\lim_{n \rightarrow x_0}{f(x)}$.
 
-In **the limit of a series** (page 252, Volume II), $\small s=u_1+u_2+u_3+...u_i+...$ an infinite series converges if $\lim_{n \rightarrow \infty}{s_n=s}$, otherwise it diverges.
+In **the limit of a series** (page 252, Volume II), $\small s=u_1+u_2+u_3+... u_i+...$ an infinite series converges if $\lim_{n \rightarrow \infty}{s_n=s}$, otherwise it diverges.
 
 $$
 \text{Convergence Classification}
@@ -59,7 +59,7 @@ Look at these two characters, aren't they both convergent and divergent?
 
 Reference: **Mao Shisong's "Probability Theory and Mathematical Statistics"**[^2], sequences of random variables have two modes of convergence: convergence in probability and convergence in distribution.
 
-Convergence in Probability: $\bbox[#def,5px,border: 1px solid]{ x\stackrel{P}{\longrightarrow}c }$
+Convergence in Probability: $\bbox[#def,5px, border: 1px solid]{ x\stackrel{P}{\longrightarrow}c }$
 
 For example, when flipping a coin, the initial frequency of heads may deviate greatly from $\frac{1}{2}$, but as the number of flips increases, the frequency approaches the probability. Frequency statistics have become one of the methods to determine probability[^3].
 
@@ -67,7 +67,7 @@ Various versions of the Law of Large Numbers, $\boxed{ Law of Large Numbers }$ e
 
 > Whether it's the Bernoulli (Bernoulli) Law of Large Numbers, Chebyshev's Law of Large Numbers, Markov's Law of Large Numbers, or Khinchin's Law of Large Numbers, they all essentially describe the same thing[^4].
 
-Convergence in Distribution: $\bbox[#def,5px,border: 1px solid]{ x\stackrel{F}{\longrightarrow}c }$
+Convergence in Distribution: $\bbox[#def,5px, border: 1px solid]{ x\stackrel{F}{\longrightarrow}c }$
 
 Strong convergence in distribution is pointwise convergence, while weak convergence removes discontinuities and only considers the continuous distribution of $F(x)$.
 
@@ -88,7 +88,7 @@ The $\boxed{ Central Limit Theorem }$ states that under certain conditions[^5], 
 
 ### 1. Convergence Hypothesis (Convergence)
 
-From the资料 used by the teacher in the "Regional Economics" course **[《Advanced Economic Geography》](http://qrcode.cp.cn/qr_code.php?id=r4e72n1bcu2o3o81fzg7uooy289qegqu)** (He Canfei著).
+From the资料 used by the teacher in the "Regional Economics" course **[《Advanced Economic Geography》](http://qrcode. cp. cn/qr_code. php? id=r4e72n1bcu2o3o81fzg7uooy289qegqu)** (He Canfei著).
 
 With the proposal of the Solow model, development economics researchers raised questions:
 
@@ -153,7 +153,7 @@ $$
 \small \frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha - \frac{(1 - e^{-\beta T})}{T} \log(y_{i,t}) + \varepsilon_i
 $$
 
-Where $i$ represents the $i$th region, $t$ is the initial period, $t+T$ is the final period, $T$ is the length of the observation period, $y_{i,t}$ is the per capita GDP of region $i$ in period $t$, and $\beta$ represents the convergence speed. If $\beta > 0$, it indicates that the differences in economic development between regions will gradually disappear, eventually reaching the same steady state.
+Where $i$ represents the $i$th region, $t$ is the initial period, $t+T$ is the final period, $T$ is the length of the observation period, $y_{i, t}$ is the per capita GDP of region $i$ in period $t$, and $\beta$ represents the convergence speed. If $\beta > 0$, it indicates that the differences in economic development between regions will gradually disappear, eventually reaching the same steady state.
 
 ![OLS Regression Statistics Chart, Data from EU Regions (Source: Barro and Martin, 1991)](/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110658031.webp)
 
@@ -175,7 +175,7 @@ $$
 \small \frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha - \frac{(1 - e^{-\beta T})}{T} \log(y_{i,t}) + \lambda X_{i,t} + \varepsilon_{i,t}
 $$
 
-The conclusions and parameter meanings are the same as those for absolute convergence, as conditional convergence implies that economic growth is related to the structural environment of the economy, hence the inclusion of $X_{i,t}$ as control variables.
+The conclusions and parameter meanings are the same as those for absolute convergence, as conditional convergence implies that economic growth is related to the structural environment of the economy, hence the inclusion of $X_{i, t}$ as control variables.
 
 > The inconvenience of introducing control variables $X_{i,t}$ is that we have to study exogeneity again.
 
@@ -187,7 +187,7 @@ $$
 \frac{1}{T}\left[\log(y_{i,t+T}) - \log(y_{i,t})\right] = \alpha + \beta \log(y_{i,t}) + \lambda D + \varepsilon_{i,t}
 $$
 
-The variable meanings are the same as above, except that convergence is indicated only when $\beta < 0$, where $D_{i,t}$ is a dummy variable, i.e., grouping, such as all of East Asia following the same development path, or several cities developing as port cities.
+The variable meanings are the same as above, except that convergence is indicated only when $\beta < 0$, where $D_{i, t}$ is a dummy variable, i.e., grouping, such as all of East Asia following the same development path, or several cities developing as port cities.
 
 > An interesting study I found is modeling based on clustering criteria, such as using the "middle-income trap" as a clustering criterion[^12].  
 > Du (2017) (who is from Shandong University) introduced a Stata package to perform the econometric convergence test and club clustering algorithm by Phillips and Sul (2007)[^13][^14].  
@@ -205,9 +205,9 @@ I have translated and added details to his do file:
 
 > Note: Use `cd` to adjust the Stata working environment (already noted in the do file comments)
 
-[BDY do file](https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
+[BDY do file](https://pan. baidu. com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
 
-[dta file](https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
+[dta file](https://pan. baidu. com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
 
 ```SAS
 ***************** This do file and accompanying data sources are from:
