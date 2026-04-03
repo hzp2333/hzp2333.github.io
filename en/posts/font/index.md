@@ -69,13 +69,12 @@ Then click on **Get embed code**. Choose `Web` - `@import`, which provides the c
 <style>
 @import url ('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital, wght@0 ,300; 0,400; 0,700; 0,900; 1,300; 1,400; 1,700; 1,900&family=Noto+Serif+SC&display=swap')
 </style>
+
 The code shown in the image corresponds to the API call. It also provides the name of each font.
 
 ![ API](/img/Hugo自定义字体.zh-cn-20240523130007169.webp)
 
-
-
-### The fonts used on this site 
+### The fonts used on this site
 
 ```
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Serif+SC&display=swap');
@@ -105,5 +104,4 @@ Local preview worked fine, but after I deployed to GitHub Pages the about page r
 [Hugo 博客自定义优化](https://shishuochen.github.io/2022/cpvuqozuc/)
 
 [LoveIt主题美化与博客功能增强](https://lewky233.top/posts/hugo-3.html/)
-
 
