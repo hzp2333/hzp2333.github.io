@@ -12,7 +12,7 @@ Geographic discontinuities, to some extent, can mitigate the endogeneity of the 
 
 Now the crucial question is: **Through what characteristics do cultural institutions bring about such tremendous disparities in development?**
 
-"[Political hierarchy and regional economic development: Evidence from a spatial discontinuity in China](https://www. sciencedirect. com/science/article/pii/S0047272720302164)" utilizes the geographic discontinuity created when Chongqing was elevated from a prefecture-level city in Sichuan Province to a municipality directly under the central government in 1997 to investigate the phenomenon that **empowering local governments through increased political hierarchy can promote regional development**.
+"[Political hierarchy and regional economic development: Evidence from a spatial discontinuity in China](https://www.sciencedirect.com/science/article/pii/S0047272720302164)" utilizes the geographic discontinuity created when Chongqing was elevated from a prefecture-level city in Sichuan Province to a municipality directly under the central government in 1997 to investigate the phenomenon that **empowering local governments through increased political hierarchy can promote regional development**.
 
 ## Political Structure and Economic Growth
 

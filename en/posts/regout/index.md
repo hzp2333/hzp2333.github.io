@@ -9,9 +9,9 @@ Currently, Stata has a plethora of corresponding commands—`asdoc`, `outreg2`, 
 
 ### Estout: Versatile, LaTeX Output
 
-`estout` is written by Professor Ben Jann from the University of Bern, Institute of Sociology. ([The __CODE_PLACEHOLDER_1__ command](https://repec. sowi. unibe. ch/stata/) was also developed by this expert).
+`estout` is written by Professor Ben Jann from the University of Bern, Institute of Sociology. ([The __CODE_PLACEHOLDER_1__ command](https://repec.sowi.unibe.ch/stata/) was also developed by this expert).
 
-It excels in customization, making it a mainstream command for result outputs. Its most powerful feature is support for [LaTeX export](https://www. lianxh. cn/details/948.html).
+It excels in customization, making it a mainstream command for result outputs. Its most powerful feature is support for [LaTeX export](https://www.lianxh.cn/details/948.html).
 
 ### Asdoc: Descriptive Statistics
 
@@ -93,7 +93,7 @@ outreg2 using Filename.doc, append tstat bdec(4) tdec(4) rdec(4) ctitle(OLS) kee
 
 ### Putdocx Series: Unified Solution
 
-The `docx` series commands are developed by [Crawler Club](https://stata-club. github. io/). Most of the above commands (not including asdoc) mean that a table output takes up a separate Word file. The `docx` series allows reusing a single file.
+The `docx` series commands are developed by [Crawler Club](https://stata-club.github.io/). Most of the above commands (not including asdoc) mean that a table output takes up a separate Word file. The `docx` series allows reusing a single file.
 
 ```sql
 ssc install sum2docx, replace
@@ -102,7 +102,7 @@ ssc install t2docx, replace
 ssc install reg2docx, replace
 ```
 
-The following example code is from "[Jun Sheng Wo Wei Sheng! Stata Output: One-Click Paper Tables - reg2docx-corr2docx](https://www. lianxh. cn/details/264.html)."
+The following example code is from "[Jun Sheng Wo Wei Sheng! Stata Output: One-Click Paper Tables - reg2docx-corr2docx](https://www.lianxh.cn/details/264.html)."
 
 ```sql
 clear all
@@ -208,7 +208,7 @@ etable, estimates(Male_Regression Female_Regression Overall_Regression) column(e
 
 ### Code for Illustrations in This Article
 
-From [Crawler Club WeChat Account](https://stata-club. github. io/stata_article/2017-09-29.html)
+From [Crawler Club WeChat Account](https://stata-club.github.io/stata_article/2017-09-29.html)
 
 ```sql
 clear

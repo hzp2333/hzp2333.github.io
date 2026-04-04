@@ -50,17 +50,13 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   name="智能装机网"
-    url="http://www.pcaidiy.cn/"
-    logo="http://www.pcaidiy.cn/static/logo.png"
-    word="（建设中）人工智能，智能装机赋能"
+{{< friend   name="无边的奇想角落"
+    url="https://zeimo.top/"
+    logo="https://zeimo.top/static/image/avatar.png"
+    word="原神千星奇领关卡设计师"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-
-
-
-
 
 
 {{< friend   name="Wenjun Zheng"

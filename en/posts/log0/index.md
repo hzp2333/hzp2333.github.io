@@ -105,7 +105,7 @@ The latter three cases in the above equation show that the estimated treatment e
 
 The paper's discussion on the bias of logarithmic transformation is similar to the **Local Average Treatment Effect (LATE)**.
 
-![Taking Employment Policy as the Research Object](/img/Is the Logarithmic Transformation with Zero Values Reliable-20240523094100269.webp)
+![Taking Employment Policy as the Research Object](/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp)
 
 Taking employment policy as the object, **the policy shock brings different responses to the treatment group**.
 

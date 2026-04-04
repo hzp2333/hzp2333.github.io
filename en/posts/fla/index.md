@@ -50,7 +50,7 @@ The average market consumption change: $\frac{x+x}{2} \Rightarrow\frac{x+x^{\pri
 
 * * *
 
-This is why Varian says in the book (_Original English textbook link: [Intermediate Microeconomics](http://candrafajriananda. lecture. ub. ac. id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
+This is why Varian says in the book (_Original English textbook link: [Intermediate Microeconomics](http://candrafajriananda.lecture.ub.ac.id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
 
 > That’s because he is average, not because of any causal connection
 

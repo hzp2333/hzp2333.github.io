@@ -11,7 +11,7 @@ Hupu is popular for "I post pictures, you rate them." Economics often uses weigh
 
 This section mainly refers to the following blog:
 
-[Why are most coupling coordination degree papers wrong?](http://www. huaxuejia. cn/ism/CESAISM/coupling-coordination. php)
+[Why are most coupling coordination degree papers wrong?](http://www.huaxuejia.cn/ism/CESAISM/coupling-coordination.php)
 
 $\boxed{ Dimensionless }$: No matter how many strange indicators we have initially, we need to present a **total score** without "units" in the end. This process is called **dimensionless**.
 
@@ -44,7 +44,7 @@ $$
 
 Here, we provide practice data. The data source is Zhao Tao et al. (2020) on digital economy indicators[^1].
 
-[Baidu Netdisk](https://pan. baidu. com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)
+[Baidu Netdisk](https://pan.baidu.com/link/zhihu/7MhVzRuahxiWbKtGp3RLxzU0QtUj50ZwZVZz==)
 
 ![Panel data, five indicators measuring the digital economy|542](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152627385.webp)
 
@@ -317,9 +317,9 @@ To be added.
 
 Refer to the following articles, which are very well explained.
 
-[Principal Component Analysis (PCA) Explained in Detail](https://zhuanlan. zhihu. com/p/37777074)
+[Principal Component Analysis (PCA) Explained in Detail](https://zhuanlan.zhihu.com/p/37777074)
 
-[CodingLabs - The Mathematical Principles of PCA](http://blog. codinglabs. org/articles/pca-tutorial.html)
+[CodingLabs - The Mathematical Principles of PCA](http://blog.codinglabs.org/articles/pca-tutorial.html)
 
 To further visualize the process, we can use two-dimensional data to demonstrate the PCA decomposition process[^4].
 

@@ -116,7 +116,7 @@ $$\mathrm{LATE}=\mathrm{CATE}\_{\mathcal{C}}=\frac{\mathrm{ITT}}{\pi\_{\mathcal{
 
 $$\small \hat{\mathbf{CATE}_C}=\frac{\mathbf{E}\Big[Y_i|Z_i=1\Big]-\mathbf{E}\Big[Y_i|Z_i=0\Big]}{\mathbf{E}\Big[D_i|Z_i=1\Big]-\mathbf{E}\Big[D_i|Z_i=0\Big]}=\frac{\mathrm{effect~of~}Z_i\text{ on }Y_i}{\mathrm{effect~of~}Z_i\text{ on }D_i}=\frac{\operatorname{ITT}_Y}{\operatorname{ITT}_D}$$
 
-The **LATE section** heavily relies on the [Oxford course material](https://andy. egge. rs/teaching/causal_inference/). For a more algebraic explanation, refer to the [Harvard course material](https://scholar. harvard. edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf) and "Mostly Harmless Econometrics."
+The **LATE section** heavily relies on the [Oxford course material](https://andy.egge.rs/teaching/causal_inference/). For a more algebraic explanation, refer to the [Harvard course material](https://scholar.harvard.edu/files/apassalacqua/files/section8_ATE_vs_LATE.pdf) and "Mostly Harmless Econometrics."
 
 # Social science attributes in mathematical economics
 
@@ -127,7 +127,7 @@ Recently, as I delve into advanced macroeconomics, I've come to realize the meth
 
 In essence, the distinguishing factor between economists with a background in economics and those with a background in mathematics lies in the framework used to explore equilibrium, construct functions that capture economic phenomena, and formulate optimization constraints. This represents the essence of economic thinking and intuition that sets economists apart in the realm of mathematical economics.
 
-As an aside, I'd like to share my [notes on advanced macroeconomics](https://zhuanlan. zhihu. com/p/613416303).
+As an aside, I'd like to share my [notes on advanced macroeconomics](https://zhuanlan.zhihu.com/p/613416303).
 
 # Summarize
 

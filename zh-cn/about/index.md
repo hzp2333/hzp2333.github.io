@@ -5,12 +5,14 @@
 
 > 注册账号时曾随机摇到名字“**滑翔闪电**”——瞬间联想到**滑翔闪**和**滑翔伞**的不严谨谐音，遂沿用至今。
 > 
-> 人生哲学为存在主义——承认世界荒诞，但存在先于本质，直面这样的世界并做出选择是最自我的回答。诺斯曾言，**历史有其意义**。偶然是历史的一部分——比起“存在即合理”，个人倾向于“存在即有原因”。
+> 人生哲学为存在主义——承认世界荒诞，但存在先于本质，直面这样的世界并做出选择是最自我的回答。诺斯曾言，**历史有其意义**。偶然是历史的一部分——比起“存在即合理”，个人倾向于“**存在即有原因**”。
+> 
+> 若想快速了解本博客的内容分布，可参见[分析页面](https://blog.huaxiangshan.com/zh-cn/analysis/)。社会科学的美德之一便是学会 **认识你自己**。
 
 
 ### 活在社会（媒体）联系中的我：
 
-- [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。
+- [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。目前研究主要为制度经济学、产业经济学方向。
 - [Steam](https://steamcommunity.com/id/flytothemoon2333/)：开放世界、角色扮演、卡牌策略、轻动作类玩家。
 - [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻、科幻要素。
 - [Zhihu](https://www.zhihu.com/people/nan-yang-xi-shu)：啥都看看。
@@ -25,7 +27,6 @@
 - 《[宏观经济学笔记](https://blog.huaxiangshan.com/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0.pdf)》：笔记分享。
 
 非常推荐的一位学长的分享：《[简单博弈论](https://wenjun-zheng.github.io/game_theory.pdf)》
-
 
 ### 对世界的呐喊：
 

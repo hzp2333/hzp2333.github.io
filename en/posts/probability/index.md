@@ -15,7 +15,7 @@ Special thanks to the **[github re-book project team](https://github.com/re-book
 
 ### **1.1 Introduction: Geometric Probability**
 
-For basic notes on classical probability, you can refer to my [other answer](https://zhuanlan. zhihu. com/p/645540951):
+For basic notes on classical probability, you can refer to my [other answer](https://zhuanlan.zhihu.com/p/645540951):
 
 The formula for classical probability is as follows:
 $$

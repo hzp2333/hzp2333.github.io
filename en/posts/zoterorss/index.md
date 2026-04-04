@@ -115,7 +115,7 @@ https://onlinelibrary.wiley.com/feed/14680262/most-cited
 
 ### Journal of Political Economy
 
-The Journal of Political Economy (JPE), abbreviated as JPE, is under the management of the University of Chicago. The RSS sources for all journals under the University of Chicago can be found in the following PDF link: [University of Chicago Journals RSS Feeds](https://www. journals. uchicago. edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf)
+The Journal of Political Economy (JPE), abbreviated as JPE, is under the management of the University of Chicago. The RSS sources for all journals under the University of Chicago can be found in the following PDF link: [University of Chicago Journals RSS Feeds](https://www.journals.uchicago.edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf)
 
 RSS as follows:
 
@@ -205,7 +205,7 @@ https://back.nber.org/rss/new.xml
 
 Sometimes, when official journal websites do not provide RSS feeds but you still wish to follow them, you can utilize academic paper platforms to capture their RSS feeds. You can visit platforms like **Elsevier's Journal Navigator** to find the journals you're interested in and subscribe to their RSS feeds.
 
-[Elsevier](https://www. sciencedirect. com/)
+[Elsevier](https://www.sciencedirect.com/)
 
 ![Elsevier](/img/Zotero：RSS聚合订阅.en-20240523134939027.webp)
 
@@ -219,7 +219,7 @@ Sometimes, when official journal websites do not provide RSS feeds but you still
 
 > Generally, in China, you can find RSS feeds for domestic journals through CNKI (China National Knowledge Infrastructure).
 
-[CNKI](https://navi. cnki. net/knavi/)
+[CNKI](https://navi.cnki.net/knavi/)
 
 ![CNKI](/img/Zotero：RSS聚合订阅.en-20240523135019212.webp)
 
@@ -258,7 +258,7 @@ https://terrytao.wordpress.com/feed/
 
 At the time, I was particularly curious about how Terence Tao was using GPT in mathematical research. This curiosity arose because the United States was soliciting opinions on managing AI at that time.
 
-[Terence Tao's Blog](https://terrytao. wordpress. com/2023/05/13/pcast-working-group-on-generative-ai-invites-public-input/)
+[Terence Tao's Blog](https://terrytao.wordpress.com/2023/05/13/pcast-working-group-on-generative-ai-invites-public-input/)
 
 **Greg Mankiw's Blog**: Yes, that's the same person who authored the textbooks "Macroeconomics" and "Principles of Economics."
 

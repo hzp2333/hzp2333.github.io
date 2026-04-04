@@ -5,7 +5,7 @@
 
 > "Microeconomic Theory: Eighteen Lectures by Ping Xinqiao" directly uses the above three as calculation methods for post-class exercises, but "Microeconomics: A Modern Approach" (Varian) does not mention this part of the knowledge (the mathematics in Ping Xinqiao feels quite challenging), so this is a supplementary record. > "Microeconomic Theory: Eighteen Lectures" (Ping Xinqiao) is available in the attachment (from Z-Library).
 
-[Microeconomic Theory: Eighteen Lectures (Ping Xinqiao) (Z-Library).pdf](https://pan. baidu. com/link/zhihu/7ph3zMubh4iTezc0RkMtMyxEOaXyQ1RQUZZz==)
+[Microeconomic Theory: Eighteen Lectures (Ping Xinqiao) (Z-Library).pdf](https://pan.baidu.com/link/zhihu/7ph3zMubh4iTezc0RkMtMyxEOaXyQ1RQUZZz==)
 
 ## Overall Understanding Framework
 

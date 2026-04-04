@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "Causal Effects, Stata","wordcount":  4465 ,
+        },"genre": "posts","keywords": "Causal Effects, Stata","wordcount":  4419 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -96,34 +96,47 @@ loadMathJax();
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -137,30 +150,17 @@ loadMathJax();
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -178,7 +178,7 @@ loadMathJax();
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -230,7 +230,7 @@ loadMathJax();
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -249,7 +249,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Grouping and Measurement of Econometric Data (STATA Version)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a>&nbsp;<a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4465 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4419 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;
     
 
@@ -721,7 +721,7 @@ Taking the above two path diagrams as examples, the first one—eating vitamin C
 <p>If we only control for &ldquo;state of residence,&rdquo; we show the direct effect of gender on admission rates and the indirect effect of gender-department-admission rates, indicating no discrimination against women. The completely different results are precisely <strong>Simpson&rsquo;s Paradox</strong>. In the coffee example, we made a mistake by <strong>omitting a variable</strong>; here, the mistake is <strong>controlling for a &ldquo;mediating variable&rdquo;</strong>. The final conclusion is that because women are more likely to apply to the most competitive departments, their admission rates appear lower, so department is an important mediating variable and should not be casually controlled.</p>
 <p>Thus, mediating variables should not be used as control variables, and if we want to distinguish between direct and mediating effects, further differentiation is needed.</p>
 <h3 id="3-moderating-effects-grouped-regression-or-interaction-terms">3. Moderating Effects: Grouped Regression or Interaction Terms</h3>
-<p>Found a comprehensive [summary](https://zhuanlan. zhihu. com/p/120310111)</p>
+<p>Found a comprehensive <a href="https://zhuanlan.zhihu.com/p/120310111" target="_blank" rel="noopener noreffer ">summary</a></p>
 <blockquote>
 <p>This section mainly references <em>Regression Analysis</em> by Xie Yu.</p>
 </blockquote>
@@ -743,7 +743,7 @@ $$
 <p>First, there are cases <strong>where grouped regression is necessary</strong>, such as when discussing regional heterogeneity across east, west, north, south, and central regions. We cannot quantify their roles in interaction terms with 1-4, and repeatedly using 0-1 coding doesn&rsquo;t align with control logic, so grouped regression is needed. Second, there are cases <strong>where we need to study interaction terms</strong>, i.e., substitution and complementary effects. When the equation becomes $Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u$, studying marginal effects, each other&rsquo;s marginal effects are influenced by the other. Finally, when group coefficients are similar, grouped regression can also serve as a <strong>robustness test</strong>.</p>
 <p>Here are some common conclusions (though I feel these conclusions lack authoritative paper support):</p>
 <ul>
-<li>Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also [test coefficient differences for significance](https://zhuanlan. zhihu. com/p/629123531)), are more sensitive, and use the entire sample, while grouped regression reduces sample size;</li>
+<li>Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also <a href="https://zhuanlan.zhihu.com/p/629123531" target="_blank" rel="noopener noreffer ">test coefficient differences for significance</a>), are more sensitive, and use the entire sample, while grouped regression reduces sample size;</li>
 <li>Data assumptions differ, <strong>interaction terms assume only interaction-related groups have between-group differences</strong>, requiring stricter assumptions. <strong>Interaction terms require control variable coefficients to be consistent across groups</strong>, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent.</li>
 <li>Different variables require different discussions; interaction terms can be divided into dummy-dummy interactions (<a href="https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG" target="_blank" rel="noopener noreffer ">recommended reference</a>), dummy-continuous interactions, and continuous-continuous interactions, requiring specific analysis. (<em>Basic Econometrics</em> by Gujarati supports dummy-dummy interactions—no controversy given the prevalence of difference-in-differences.)</li>
 </ul>
@@ -803,14 +803,14 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
 <p><em>Advanced Econometrics and STATA Applications</em> (Chen Qiang)</p>
 <p><em>Regression Analysis</em> (Xie Yu)</p>
 <p><em>The Book of Why</em> (Judea Pearl)</p>
-<p>[What on Earth Are Interaction Terms in Econometric Regression? Here&rsquo;s a Book for You](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448056220&amp;idx=1&amp;sn=b079a3454204a013fd441b874186f91d&amp;chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&amp;scene=21#wechat_redirect)</p>
-<p>[5 Questions and Responses on &ldquo;Interaction Terms&rdquo; in Econometrics](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448057995&amp;idx=1&amp;sn=43011772c6adf79ad636463014d98423&amp;chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&amp;scene=21#wechat_redirect)</p>
-<p>[STATA: How to Analyze Interaction Terms!](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Fb5ea12da7f36)</p>
-<p>[STATA: How to Use Interaction Terms?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ff7222672fe89)</p>
-<p>[STATA: Marginal Effect Analysis](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F012d8a6159cf)</p>
-<p>[STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F7af58033dc24)</p>
-<p>[STATA: Visualizing Interaction/Moderation Effects](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ffa6778828354)</p>
-<p>[After Adding Interaction Terms, the Sign Changed!?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F953f30f39195)</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448056220&amp;idx=1&amp;sn=b079a3454204a013fd441b874186f91d&amp;chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">What on Earth Are Interaction Terms in Econometric Regression? Here&rsquo;s a Book for You</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448057995&amp;idx=1&amp;sn=43011772c6adf79ad636463014d98423&amp;chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">5 Questions and Responses on &ldquo;Interaction Terms&rdquo; in Econometrics</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36" target="_blank" rel="noopener noreffer ">STATA: How to Analyze Interaction Terms!</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89" target="_blank" rel="noopener noreffer ">STATA: How to Use Interaction Terms?</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf" target="_blank" rel="noopener noreffer ">STATA: Marginal Effect Analysis</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24" target="_blank" rel="noopener noreffer ">STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354" target="_blank" rel="noopener noreffer ">STATA: Visualizing Interaction/Moderation Effects</a></p>
+<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195" target="_blank" rel="noopener noreffer ">After Adding Interaction Terms, the Sign Changed!?</a></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -1224,7 +1224,7 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94756 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

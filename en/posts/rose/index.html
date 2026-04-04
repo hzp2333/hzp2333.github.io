@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/rose\/"
-        },"genre": "posts","keywords": "Travel, Survey","wordcount":  931 ,
+        },"genre": "posts","keywords": "Travel, Survey","wordcount":  927 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/rose\/","datePublished": "2024-06-17T16:52:19+08:00","dateModified": "2024-06-17T16:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -52,34 +52,47 @@
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -93,30 +106,17 @@
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -134,7 +134,7 @@
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -186,7 +186,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -205,7 +205,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> Research Note 3: Mountains and Red Roses</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/travel/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Travel</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-06-17">2024-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;931 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-06-17">2024-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;927 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;
     
 
@@ -254,7 +254,7 @@
 <h2 id="mountains-and-hikers">Mountains and Hikers</h2>
 <h3 id="beijing-three-peaks">Beijing Three Peaks</h3>
 <p>This field research takes us to Jianjian Village in Mentougou District, situated at the foot of Miaofeng Mountain. The main peak of Miaofeng Mountain stands at an elevation of 1291 meters, making it the closest peak over a thousand meters to Beijing&rsquo;s urban area<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
-<p>Along the way, almost every 20 minutes, a backpacker can be seen jogging down the mountain, waving trekking poles. Upon inquiry, we learned that this is the famous &ldquo;[Beijing Three Peaks](https://ww. itra. run/Races/RaceDetails/Beijing. Three. Peaks.42k/2023/84047)&rdquo; hiking route.
+<p>Along the way, almost every 20 minutes, a backpacker can be seen jogging down the mountain, waving trekking poles. Upon inquiry, we learned that this is the famous &ldquo;<a href="https://ww.itra.run/Races/RaceDetails/Beijing.Three.Peaks.42k/2023/84047" target="_blank" rel="noopener noreffer ">Beijing Three Peaks</a>&rdquo; hiking route.
 
 <figure class="center-figure"><a class="lightgallery" href="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp" title="The Three Peaks Traverse: from Dajue Temple in Haidian District to Yangtai Mountain and finally to Miaofeng Mountain." data-thumbnail="/img/调研小记：山与红玫瑰.zh-cn-20240617173944541.webp" data-sub-html="<h2> </h2><p>The Three Peaks Traverse: from Dajue Temple in Haidian District to Yangtai Mountain and finally to Miaofeng Mountain.</p>">
         <img
@@ -790,7 +790,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94756 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

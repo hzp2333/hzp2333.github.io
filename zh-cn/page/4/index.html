@@ -43,34 +43,47 @@
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -84,30 +97,17 @@
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -125,7 +125,7 @@
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="/zh-cn/analysis/" title="博客分析报告"><i class='fa fa-chart-line'></i> 分析 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -177,7 +177,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="/zh-cn/analysis/" title="博客分析报告"><i class='fa fa-chart-line'></i>分析</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -199,6 +199,22 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" width="1024" height="1024" /></a></div><h1 class="home-title">滑翔闪</h1><div class="home-subtitle"><div id="id-3" class="typeit"></div></div><div class="links"><a href="https://github.com/hzp2333" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://steamcommunity.com/id/flytothemoon2333/" title="Steam" target="_blank" rel="noopener noreffer me"><i class="fab fa-steam fa-fw" aria-hidden="true"></i></a><a href="https://www.zhihu.com/people/nan-yang-xi-shu" title="知乎" target="_blank" rel="noopener noreffer me"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/zhihu.svg" aria-hidden="true"></i></a><a href="https://space.bilibili.com/39033282" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/bilibili.svg" aria-hidden="true"></i></a><a href="/zh-cn/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw" aria-hidden="true"></i></a></div><h3 class="home-disclaimer">在你步入了这一陌生而奇妙的思想花园之后，世界将永远不再是同一个世界了。而当你多年后回顾这段经历时，即使是当时你不甚理解的东西也将已经明显成熟。——萨缪尔森</h3></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/zh-cn/posts/shxz/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223657502.webp"
+        data-srcset="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223657502.webp, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223657502.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223657502.webp 2x"
+        data-sizes="auto"
+        alt="/img/社会选择理论.zh-cn-20241117223657502.webp"
+        title="/img/社会选择理论.zh-cn-20241117223657502.webp" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/zh-cn/posts/shxz/">制度、政治、民主与阿罗不可能定理</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-11-17">2024-11-17</time>, 
+            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2024-11-17">2024-11-17</time>, 
+            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">政治经济学、制度经济学的历史脉络与阿罗不可能定理</div><div class="post-footer">
+        <a href="/zh-cn/posts/shxz/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%88%B6%E5%BA%A6%E7%BB%8F%E6%B5%8E%E5%AD%A6/">制度经济学</a>,&nbsp;<a href="/zh-cn/tags/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/">微观经济学</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/zh-cn/posts/fs3/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -310,22 +326,6 @@
             </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E6%B8%B8%E6%88%8F/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏</a></span></div><div class="content">综合神影图可以看出，《黑神话悟空》中的老猴子是金蝉子。</div><div class="post-footer">
         <a href="/zh-cn/posts/wk/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E6%B8%B8%E6%88%8F/">游戏</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/zh-cn/posts/fs2/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e6%9d%82%e8%b0%88-20240820203115052.webp"
-        data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e6%9d%82%e8%b0%88-20240820203115052.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e6%9d%82%e8%b0%88-20240820203115052.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e6%9d%82%e8%b0%88-20240820203115052.webp 2x"
-        data-sizes="auto"
-        alt="/img/经济学杂谈-20240820203115052.webp"
-        title="/img/经济学杂谈-20240820203115052.webp" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/zh-cn/posts/fs2/"> 实证经济学：符合直觉≠显而易见</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-08-20">2024-08-20</time>, 
-            </span>&nbsp;<span class="post-publish">更新于 <time datetime="2025-01-16">2025-01-16</time>, 
-            </span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">人们总说实证经济学结论总是显而易见，于是毫无意义。本文试图反驳这个看法。</div><div class="post-footer">
-        <a href="/zh-cn/posts/fs2/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%8F%8D%E6%80%9D/">反思</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/zh-cn/">1</a>
@@ -721,7 +721,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 97 篇文章，347469 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，351189 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

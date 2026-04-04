@@ -11,7 +11,7 @@ I experienced Huawei Member Day at the authorized store in Wudaokou, and here’
 
 For example, today, July 7, 2023, is the result of a one-week postponement.
 
-[2023 Huawei Service Day Promotion Guide](https://consumer. huawei. com/cn/support/search/)
+[2023 Huawei Service Day Promotion Guide](https://consumer.huawei.com/cn/support/search/)
 
 ### 2. Do I Need to Make an Appointment?
 

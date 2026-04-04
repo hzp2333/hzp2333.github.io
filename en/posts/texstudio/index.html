@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/texstudio\/"
-        },"genre": "posts","keywords": "LaTeX, Software Recommendations","wordcount":  1409 ,
+        },"genre": "posts","keywords": "LaTeX, Software Recommendations","wordcount":  1413 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/texstudio\/","datePublished": "2025-10-10T16:52:19+08:00","dateModified": "2025-10-10T16:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -96,34 +96,47 @@ loadMathJax();
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -137,30 +150,17 @@ loadMathJax();
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -178,7 +178,7 @@ loadMathJax();
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -230,7 +230,7 @@ loadMathJax();
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -249,7 +249,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Optimize Your TexStudio Editing Experience</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-10-10">2025-10-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1409 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-10-10">2025-10-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1413 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
     
 
@@ -289,7 +289,7 @@ loadMathJax();
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>For Chinese-speaking users, there is probably nothing more frustrating than wanting to type <code>$$</code> but ending up with <code>￥￥</code> due to not switching input methods in time.</p>
-<p>Although there are now a series of $\LaTeX$ online compilation websites like [overleaf](https://www. overleaf. com/), [texpage](https://www. texpage. com/zh/), [slager](https://www. slager. link/#/home), they still struggle to provide convenience for this issue. Online rendering is becoming increasingly restrictive. If you want to try compiling larger, more complex, or longer documents without paying, local software is always the best choice (<strong>as long as there is no need for collaborative editing</strong>), which also means greater freedom.</p>
+<p>Although there are now a series of $\LaTeX$ online compilation websites like  <a href="https://www.overleaf.com/" target="_blank" rel="noopener noreffer ">overleaf</a>、<a href="https://www.texpage.com/zh/" target="_blank" rel="noopener noreffer ">texpage</a> 、<a href="https://www.slager.link/#/home" target="_blank" rel="noopener noreffer ">slager</a>  , they still struggle to provide convenience for this issue. Online rendering is becoming increasingly restrictive. If you want to try compiling larger, more complex, or longer documents without paying, local software is always the best choice (<strong>as long as there is no need for collaborative editing</strong>), which also means greater freedom.</p>
 <ul>
 <li>For $\LaTeX$ tutorials, see <a href="https://blog.huaxiangshan.com/zh-cn/posts/latex/" target="_blank" rel="noopener noreffer ">How to Get Started with LaTeX in 1 Hour?</a></li>
 </ul>
@@ -304,7 +304,7 @@ loadMathJax();
 </ul>
 <p>Especially the writing enhancement plugin <a href="https://github.com/Yaozhuwa/easy-typing-obsidian/tree/master" target="_blank" rel="noopener noreffer ">easy typing</a>, which supports custom completions, automatic spacing between Chinese and English, seamless Chinese-English character switching—for example, typing <code>￥￥</code> twice will automatically become <code>$$</code>.</p>
 <p>So the question is, how to make TexStudio achieve the same functionality?</p>
-<p>The answer is custom macros. TexStudio supports custom macro definitions. For detailed syntax, refer to the official documentation [Personal macros](https://texstudio-org. github. io/advanced.html#personal-macros).</p>
+<p>The answer is custom macros. TexStudio supports custom macro definitions. For detailed syntax, refer to the official documentation <a href="https://texstudio-org.github.io/advanced.html#personal-macros" target="_blank" rel="noopener noreffer ">Personal macros</a>.</p>
 <p><strong>Normal mode</strong> macros can be understood as text transformation and completion. I write <code>￥￥￥￥ </code> in the <strong>trigger</strong> (note: intentionally leaving a space at the end). <code>%|</code> represents the cursor position after completion.</p>
 <p>Personal macros can also have custom shortcuts. For example, in the image below, I set <code>Ctrl+M</code> as the shortcut for inserting <code>$$</code>. When I type <code>￥*2 (space)</code>, it will also automatically trigger the transformation.</p>
 <p>
@@ -474,7 +474,7 @@ loadMathJax();
     </figure></p>
 <p>First, download Java (please find tutorials yourself).</p>
 <p>Then download the free grammar checking assistant—<a href="https://languagetool.org/download/" target="_blank" rel="noopener noreffer ">https://languagetool.org/download/</a></p>
-<p>Download the version corresponding to your computer. I&rsquo;m using Windows system with the latest TexStudio, so I chose [LanguageTool-6.6. zip](<a href="https://languagetool.org/download/LanguageTool-6.6" target="_blank" rel="noopener noreffer ">https://languagetool.org/download/LanguageTool-6.6</a>. zip).</p>
+<p>Download the version corresponding to your computer. I&rsquo;m using Windows system with the latest TexStudio, so I chose <a href="https://languagetool.org/download/LanguageTool-6.6.zip" target="_blank" rel="noopener noreffer ">LanguageTool-6.6.Zip</a>.</p>
 <p>After downloading, extract the corresponding LanguageTool zip file. Open cmd in the corresponding folder page (just type cmd in the address bar to open it from here).</p>
 <p>Then run java -jar languagetool. jar</p>
 <p>After opening, go to <code>text checking</code> - <code>options</code> to enter the page, set language, server port.</p>
@@ -564,9 +564,9 @@ Press <code>Ctrl</code> key and click on PDF position to jump to code editing po
     </figure></p>
 <h2 id="references">References</h2>
 <ul>
-<li>[Advanced features](https://texstudio-org. github. io/advanced.html#personal-macros)</li>
-<li>[TexStudio Macro Script Writing-2022-4-24 16:48:09](https://www. bilibili. com/video/BV1uA4y1X7Ji/? spm_id_from=333.1391.0.0&amp;vd_source=0e137afa81fa006aaa9f39b597699a06)</li>
-<li>[Installing Language Tool in TexStudio](https://tex. stackexchange. com/questions/155148/installing-language-tool-in-texstudio)</li>
+<li><a href="https://texstudio-org.github.io/advanced.html#personal-macros" target="_blank" rel="noopener noreffer ">Advanced features</a></li>
+<li><a href="https://www.bilibili.com/video/BV1uA4y1X7Ji/?spm_id_from=333.1391.0.0&amp;vd_source=0e137afa81fa006aaa9f39b597699a06" target="_blank" rel="noopener noreffer ">TexStudio Macro Script Writing-2022-4-24 16:48:09</a></li>
+<li><a href="https://tex.stackexchange.com/questions/155148/installing-language-tool-in-texstudio" target="_blank" rel="noopener noreffer ">Installing Language Tool in TexStudio</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -961,7 +961,7 @@ Press <code>Ctrl</code> key and click on PDF position to jump to code editing po
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94756 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

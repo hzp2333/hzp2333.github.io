@@ -41,11 +41,11 @@ In his youth, the Hundred Days' Reform occurred, and capitalist theories gradual
 
 ![如图](/img/鲁迅故居.zh-cn-20250119000740654.webp)
 
-In 1899, Lu Xun transferred to the Jiangnan Army Academy to study mining. The textbooks on display have basically no illustrations; their content涉及 chemistry and physics, simply explaining phenomena like lightning and thunder. The books still preserve discursive phrases like "ordinary people believe" and "within it lies the Way." Moreover, it was during this period that Lu Xun encountered Huxley's [Evolution and Ethics](https://baike. baidu. com/item/%E5%A4%A9%E6%BC%94%E8%AE%BA/4331).
+In 1899, Lu Xun transferred to the Jiangnan Army Academy to study mining. The textbooks on display have basically no illustrations; their content涉及 chemistry and physics, simply explaining phenomena like lightning and thunder. The books still preserve discursive phrases like "ordinary people believe" and "within it lies the Way." Moreover, it was during this period that Lu Xun encountered Huxley's [Evolution and Ethics](https://baike.baidu.com/item/%E5%A4%A9%E6%BC%94%E8%AE%BA/4331).
 
 The next exhibition hall tells the story of Lu Xun's study abroad; this is also the hall where visitors linger the longest.
 
-In 1902, Mr. Lu Xun graduated from the Mining and Railroad Academy. In March, he and others including [Qian Junfu](https://baike. baidu. com/item/%E9%92%B1%E5%9D%87%E5%A4%AB/2586519) went to Japan for government-funded study abroad. The exhibition hall preserves Lu Xun's medical school grades from Japan. In 1904, Mr. Lu Xun met Mr. Fujino; Mr. Fujino's attitude toward China indeed commands respect, but the circumstances of that time had already caused Lu Xun to waver in his determination to study medicine.
+In 1902, Mr. Lu Xun graduated from the Mining and Railroad Academy. In March, he and others including [Qian Junfu](https://baike.baidu.com/item/%E9%92%B1%E5%9D%87%E5%A4%AB/2586519) went to Japan for government-funded study abroad. The exhibition hall preserves Lu Xun's medical school grades from Japan. In 1904, Mr. Lu Xun met Mr. Fujino; Mr. Fujino's attitude toward China indeed commands respect, but the circumstances of that time had already caused Lu Xun to waver in his determination to study medicine.
 
 
 ![如图](/img/鲁迅故居.zh-cn-20250119000809781.webp)

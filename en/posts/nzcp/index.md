@@ -80,4 +80,4 @@ All of this can begin with a single phrase—
 ## Related Links
 
 - [Ace Attorney Simulator](https://objection.lol/maker)
-- [Ace Attorney Resources](http://www. court-records. net/sprites1. htm)
+- [Ace Attorney Resources](http://www.court-records.net/sprites1.htm)

@@ -15,11 +15,11 @@ LDA is an established technique in computational text analysis, yet it remains s
 
 Examples of applications in research papers:
 
-- JPE 2025's "[More Laws, More Growth? Evidence from US States](https://www. journals. uchicago. edu/doi/full/10.1086/734874)" quantifies the distribution of new legislative topics across U. S. states, examining the relationship between legislation and economic growth. Legislation related to business environment topics proves more effective, with the mechanism being investment attraction and reduced economic uncertainty.
-- RES 2025's "[Women in the Courtroom: Technology and Justice](https://academic. oup. com/restud/advance-article/doi/10.1093/restud/rdaf066/8220859)" uses panel data from live courtroom broadcasting pilot cases to study female case success rates, where case types are summarized into 50 topic categories based on legal content.
-- For other text analysis references, see "[Xiangzhang Article 3057: How to Use Text Analysis Algorithms in Economics?](https://mp. weixin. qq. com/s/9SzkCP0kkG3gw-ca-wNqAA)"
+- JPE 2025's "[More Laws, More Growth? Evidence from US States](https://www.journals.uchicago.edu/doi/full/10.1086/734874)" quantifies the distribution of new legislative topics across U. S. states, examining the relationship between legislation and economic growth. Legislation related to business environment topics proves more effective, with the mechanism being investment attraction and reduced economic uncertainty.
+- RES 2025's "[Women in the Courtroom: Technology and Justice](https://academic.oup.com/restud/advance-article/doi/10.1093/restud/rdaf066/8220859)" uses panel data from live courtroom broadcasting pilot cases to study female case success rates, where case types are summarized into 50 topic categories based on legal content.
+- For other text analysis references, see "[Xiangzhang Article 3057: How to Use Text Analysis Algorithms in Economics?](https://mp.weixin.qq.com/s/9SzkCP0kkG3gw-ca-wNqAA)"
 
-For understanding LDA, I recommend a concise and intuitive [YouTube video](https://www. youtube. com/watch? v=3mHy4OSyRf0) (requires VPN access):
+For understanding LDA, I recommend a concise and intuitive [YouTube video](https://www.youtube.com/watch?v=3mHy4OSyRf0) (requires VPN access):
 
 {{< youtube 3mHy4OSyRf0>}}
 
@@ -27,7 +27,7 @@ For understanding LDA, I recommend a concise and intuitive [YouTube video](https
 
 ### Examples
 
-Gephi is a network relationship visualization software. I was first introduced to this software by my blogger friend {{< person "https://www.sungyinieh.com/" Song Yinieh "Blogger" >}}. He used this software in his thesis to study the [Global Lithium Product Trade Dependency Network](https://mp. weixin. qq. com/s/M2Y3_Cre5vl7Wnk6o6J1fg).
+Gephi is a network relationship visualization software. I was first introduced to this software by my blogger friend {{< person "https://www.sungyinieh.com/" Song Yinieh "Blogger" >}}. He used this software in his thesis to study the [Global Lithium Product Trade Dependency Network](https://mp.weixin.qq.com/s/M2Y3_Cre5vl7Wnk6o6J1fg).
 
 > For foundational knowledge of network analysis, I highly recommend the open-source Iris Flower statistics textbook "[The Way of Data](https://github.com/Visualize-ML/Book6_First-Course-in-Data-Science)."
 
@@ -39,7 +39,7 @@ The most classic dataset for social network analysis is the **Karate Club**. The
 
 Social network visualization primarily involves network evolution (clustering, fragmentation), distribution[^6] (key nodes, weights, density, structure[^2]), and prediction.
 
-The paper "[Ownership Networks and Firm Growth: What Do Forty Million Companies Tell Us About the Chinese Economy?](https://cfrc. pbcsf. tsinghua. edu. cn/__local/C/E3/F1/034E2CB105C230C8A028BDF18AD_5B83ADAD_18F58A.pdf? e=.pdf)" studies the distribution and evolution of China's equity networks.
+The paper "[Ownership Networks and Firm Growth: What Do Forty Million Companies Tell Us About the Chinese Economy?](https://cfrc.pbcsf.tsinghua.edu.cn/__local/C/E3/F1/034E2CB105C230C8A028BDF18AD_5B83ADAD_18F58A.pdf?e=.pdf)" studies the distribution and evolution of China's equity networks.
 
 ![As shown](/img/社会网络.zh-cn-20250824230329625.webp)
 
@@ -633,7 +633,7 @@ if __name__ == '__main__':
 
 I often criticize machine learning as a black box, but for someone like me who uses various analysis software, how different are many software methods from black boxes? If a Stata external command has an error, without deep understanding or theoretical cross-validation from multiple perspectives, it's difficult to detect the mistake.
 
-For example, ["Stata" bdiff+reghdfe correct usage, many papers have been misled](https://mp. weixin. qq. com/s/IsuB02q6Lek07Oxknvx6Vw). I recall a previous did external command also had errors.
+For example, ["Stata" bdiff+reghdfe correct usage, many papers have been misled](https://mp.weixin.qq.com/s/IsuB02q6Lek07Oxknvx6Vw). I recall a previous did external command also had errors.
 
 I believe AI will enhance positive feedback in code-based learning, but simultaneously, AI also brings the illusion of "I understand." As Feynman consistently emphasized—**knowing and understanding are not the same**[^5]. Running code and understanding code are far from the same level of learning. In the era of AI learning knowledge illusions, what truly constitutes understanding? Perhaps this needs to be reconsidered.
 

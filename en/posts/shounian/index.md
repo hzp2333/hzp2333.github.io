@@ -88,7 +88,7 @@ The $\boxed{ Central Limit Theorem }$ states that under certain conditions[^5], 
 
 ### 1. Convergence Hypothesis (Convergence)
 
-From the资料 used by the teacher in the "Regional Economics" course **[《Advanced Economic Geography》](http://qrcode. cp. cn/qr_code. php? id=r4e72n1bcu2o3o81fzg7uooy289qegqu)** (He Canfei著).
+From the资料 used by the teacher in the "Regional Economics" course **[《Advanced Economic Geography》](http://qrcode.cp.cn/qr_code.php?id=r4e72n1bcu2o3o81fzg7uooy289qegqu)** (He Canfei著).
 
 With the proposal of the Solow model, development economics researchers raised questions:
 
@@ -205,9 +205,9 @@ I have translated and added details to his do file:
 
 > Note: Use `cd` to adjust the Stata working environment (already noted in the do file comments)
 
-[BDY do file](https://pan. baidu. com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
+[BDY do file](https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
 
-[dta file](https://pan. baidu. com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
+[dta file](https://pan.baidu.com/link/zhihu/7BhHzOuchfi0TsR2dGV5htYUVVeoN1YQUXRW==)
 
 ```SAS
 ***************** This do file and accompanying data sources are from:

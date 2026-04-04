@@ -49,7 +49,7 @@
 
 ![The protagonist of the 2018 National Volume 2 essay question is Wald. Unfortunately, Wald died in a plane crash.](/img/经济学与数学-20250102155048117.webp)
 
-The most famous mathematical method in macroeconomics is control theory, which was formed by a group of free-spirited scientists in Vienna, including von Neumann. The first to seriously introduce control theory into economics was [Alan Blinder](https://en.wikipedia.org/wiki/Alan_Blinder) (Alan Stuart Blinder). Earlier introductions of control theory are more commonly known through [Phillips](https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_ (%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6)) (Phillips)[^7].
+The most famous mathematical method in macroeconomics is control theory, which was formed by a group of free-spirited scientists in Vienna, including von Neumann. The first to seriously introduce control theory into economics was [Alan Blinder](https://en.wikipedia.org/wiki/Alan_Blinder) (Alan Stuart Blinder). Earlier introductions of control theory are more commonly known through [Phillips](https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_(%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6)) (Phillips)[^7].
 
 ## Economics That Can Be Studied with Mathematics and Mathematics in Economic Research
 

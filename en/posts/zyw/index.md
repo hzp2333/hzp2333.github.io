@@ -111,7 +111,7 @@ In *Your Name*, Mitsuha and Taki meet across displaced time and space also at tw
 
 The "Monogatari Series" directly and vividly demonstrates both types. In *Nisemonogatari*, Koyomi Araragi genuinely treats the counterfeit Karen as his sister—whether genuine or not has already become irrelevant.
 
-There are many similar concepts in Buddhism, broadly speaking, "phenomena arise from the mind." Once there was a famous reading comprehension passage ["Again the Year When Zongzi Fragrance Floats"](https://www. thn21. com/Article/ji/30385.html), in which the author ate everywhere to find the taste of his mother's zongzi, but in the end, the more he compared, the less he found it. The question asks: did he find it in the end? The answer is yes: because the taste of his mother's zongzi became clearer in the contrast of memories.
+There are many similar concepts in Buddhism, broadly speaking, "phenomena arise from the mind." Once there was a famous reading comprehension passage ["Again the Year When Zongzi Fragrance Floats"](https://www.thn21.com/Article/ji/30385.html), in which the author ate everywhere to find the taste of his mother's zongzi, but in the end, the more he compared, the less he found it. The question asks: did he find it in the end? The answer is yes: because the taste of his mother's zongzi became clearer in the contrast of memories.
 
 (This is Chinese reading comprehension! I gradually understand everything)
 

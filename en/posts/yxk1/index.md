@@ -160,4 +160,4 @@ Yang Xiaokai extended the consumer-producer trade model based on Ricardo's trade
 
 > For example, Zhang Weiying's entrepreneurial spirit (believing that entrepreneurs have the ability to create something from nothing, and using this to refute Lin Yifu's new structural economics). Romer's economic growth model.
 
-**[High Macro Notes](https://zhuanlan. zhihu. com/p/613416303) has just updated the Romer model.**
+**[High Macro Notes](https://zhuanlan.zhihu.com/p/613416303) has just updated the Romer model.**

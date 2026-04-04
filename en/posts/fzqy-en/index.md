@@ -11,7 +11,7 @@
 
 > *The Selfish Gene* inspired the author to understand economic history from an evolutionary perspective, while *The Three-Body Problem* inspired the search for counterfactuals through science fiction and modeling. Both share the commonality of employing game theory and evolutionary theory.
 
-I find Zhao Dingxin's "[Zhao Dingxin | Structural Mechanism Explanation and the Development of Structural Mechanism Relationships After the Big Bang](https://mp. weixin. qq. com/s/ce8kI3MuK40UHcMQbotNWg)" provides an excellent summary of Malthus's limitations:
+I find Zhao Dingxin's "[Zhao Dingxin | Structural Mechanism Explanation and the Development of Structural Mechanism Relationships After the Big Bang](https://mp.weixin.qq.com/s/ce8kI3MuK40UHcMQbotNWg)" provides an excellent summary of Malthus's limitations:
 
 > The Malthusian equation describes **the exponential relationship between individual reproduction rates and population growth in biological populations**. However, this equation only holds as a fixed causal relationship under conditions of unlimited food, no intra- or inter-species competition, no predators, no density-dependent diseases, and no migration.
 
@@ -65,7 +65,7 @@ Seeing such historical trend charts inevitably raises the following questions:
 - Why was the Industrial Revolution able to break the Malthusian Trap?
 - Can a unified model describe the entire history of economic growth?
 
-The extended discussion of unified economic growth models is quite fascinating. Initially, I found the Needham Question most interesting, stemming from the high school history teacher's gift of *[The Gains and Losses of Economic Reforms Through the Ages](https://book. douban. com/subject/24851460/)*[^10]. My understanding of evolutionary theory owes thanks to Senior Z's gift of *The Selfish Gene* 😍.
+The extended discussion of unified economic growth models is quite fascinating. Initially, I found the Needham Question most interesting, stemming from the high school history teacher's gift of *[The Gains and Losses of Economic Reforms Through the Ages](https://book.douban.com/subject/24851460/)*[^10]. My understanding of evolutionary theory owes thanks to Senior Z's gift of *The Selfish Gene* 😍.
 
 > Personal reading notes on *The Selfish Gene* can be found at [*The Selfish Gene*: The Question of Altruistic Morality](https://blog.huaxiangshan.com/zh-cn/posts/selfishgene/).
 
@@ -264,7 +264,7 @@ This is why I find economic growth studies fascinating—model mathematics, econ
 
 > Microeconomics seeks optimization, econometrics seeks credibility, macroeconomics seeks what? I can only summarize this feeling as "**big-picture perspective**."
 
-When we realize economic growth is but a brief moment in historical rivers, while stagnant equilibrium constitutes history's majority, we alleviate real-world anxiety. Tranquility endures, cosmic extinction is destined, but life cycles endlessly, continuously regenerating. Ultimately, this book's philosophy aligns with *The Lion King*, *21 Lessons for the 21st Century*, *[Wisteria Waterfall](https://book. douban. com/subject/26934235/)*[^11].
+When we realize economic growth is but a brief moment in historical rivers, while stagnant equilibrium constitutes history's majority, we alleviate real-world anxiety. Tranquility endures, cosmic extinction is destined, but life cycles endlessly, continuously regenerating. Ultimately, this book's philosophy aligns with *The Lion King*, *21 Lessons for the 21st Century*, *[Wisteria Waterfall](https://book.douban.com/subject/26934235/)*[^11].
 
 Adam Smith's *The Theory of Moral Sentiments* stated "humans pursue inner tranquility and pleasure." Once abandoning being happy pigs to become suffering humans, we embark on this journey seeking inner peace. Isn't this also pursuing luxury goods? 👨‍🎓
 

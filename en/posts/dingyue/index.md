@@ -16,7 +16,7 @@ Every mainstream journal must have a website, and there are also many hidden web
 
 The playback system not only includes most of the screen and subtitle adjustment functions, but also many people maintain resources for movies and TV live broadcasts.
 
-The official website is linked here: [TVbox](http://tvbox. clbug. com/#google_vignette).
+The official website is linked here: [TVbox](http://tvbox.clbug.com/#google_vignette).
 
 After downloading, click on settings, enter the subscription configuration address, and you're good to go. As shown in the image below, this way, we can watch and collect resources from different websites within one app.
 
@@ -42,7 +42,7 @@ http://pandown.pro/tvbox/tvbox.json
 
 ### TV Installation
 
-Nowadays, most households have digital television, and at the same time, people have long been suffering from multiple VIP subscriptions. TV casting VIP and software VIP are mostly two separate payment methods! At home, parents always worry about charges for digital television here and there, while the TV shows they like are not easy to find on TV. For example, someone in the family is obsessed with the show ' [狗剩快跑](https://movie. douban. com/subject/35231245/) ' they saw on china TikTok. So, taking this as an opportunity, I researched TVbox on the TV.
+Nowadays, most households have digital television, and at the same time, people have long been suffering from multiple VIP subscriptions. TV casting VIP and software VIP are mostly two separate payment methods! At home, parents always worry about charges for digital television here and there, while the TV shows they like are not easy to find on TV. For example, someone in the family is obsessed with the show ' [狗剩快跑](https://movie.douban.com/subject/35231245/) ' they saw on china TikTok. So, taking this as an opportunity, I researched TVbox on the TV.
 
 The TV environment is essentially an older version of the Android environment. There are two ways to download mobile apps to the TV.
 
@@ -53,7 +53,7 @@ The TV environment is essentially an older version of the Android environment. T
 
 The image above shows the two USB ports on the back of the Xiaomi TV.
 
-Since the software environment on the TV is an older version of Android, TVbox also needs to use an older version. You can download the APK from the following GitHub link: [TVBox_：The version adapted for TV. apk](https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20230823-1758/TVBox_q215613905_20230823-1758. apk).
+Since the software environment on the TV is an older version of Android, TVbox also needs to use an older version. You can download the APK from the following GitHub link: [TVBox_：The version adapted for TV. apk](https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20230823-1758/TVBox_q215613905_20230823-1758.apk).
 
 When encountering playback failures on the TV, focus on version compatibility and the decoding method in the settings (I don't understand it either, just try different ones).
 

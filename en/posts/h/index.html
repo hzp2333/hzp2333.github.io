@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/h\/"
-        },"genre": "posts","keywords": "Movies","wordcount":  981 ,
+        },"genre": "posts","keywords": "Movies","wordcount":  976 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/h\/","datePublished": "2023-10-29T18:52:19+08:00","dateModified": "2023-10-29T18:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -52,34 +52,47 @@
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -93,30 +106,17 @@
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -134,7 +134,7 @@
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -186,7 +186,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -205,7 +205,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> Only the River Flows</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/film-and-tv/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Film and TV</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-29">2023-10-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;981 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-29">2023-10-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;976 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;
     
 
@@ -243,7 +243,7 @@
 <div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV14w411k7uc&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
 <p>Mazhe attempted to untangle the ripples of fate, believing that reason was the driving force behind the essence of these murders. But what if the murders originated from chaos and disorder themselves? Thus, the looming behemoth behind the tangle of yarn overwhelmed him, and we were horrified to discover that the error lay in our self-assumption that &ldquo;life contains no errors beyond reason&rdquo;; <strong>the error lay in our refusal to acknowledge that life indeed harbors a corner of &ldquo;disorder and chaos&rdquo;</strong>.</p>
-<p>Why do we criticize Erjiu for not handling internal conflicts well in &ldquo;In the Heat of the Sun,&rdquo; but &ldquo;To Live,&rdquo; &ldquo;Brothers,&rdquo; &ldquo;My Life as Emperor,&rdquo; and &ldquo;The Seventh Day&rdquo; do not elicit the same backlash? As absurd films, I am inclined to believe that &ldquo;[He bian de cuo wu](https://www. imdb. com/title/tt27590147/? ref_=fn_al_tt_1)&rdquo; surpasses &ldquo;<strong>[Yu zhou tan suo bian ji bu](https://www. imdb. com/title/tt15072612/)</strong>&rdquo; in terms of its thematic depth. Like Erjiu&rsquo;s ending, the latter also finds solace and inspiration from survivors, empathizing with them as they await the arrival of spring after enduring hardship.</p>
+<p>Why do we criticize Erjiu for not handling internal conflicts well in &ldquo;In the Heat of the Sun,&rdquo; but &ldquo;To Live,&rdquo; &ldquo;Brothers,&rdquo; &ldquo;My Life as Emperor,&rdquo; and &ldquo;The Seventh Day&rdquo; do not elicit the same backlash? As absurd films, I am inclined to believe that &ldquo;<a href="https://www.imdb.com/title/tt27590147/?ref_=fn_al_tt_1" target="_blank" rel="noopener noreffer ">He bian de cuo wu</a>&rdquo; surpasses &ldquo;<strong><a href="https://www.imdb.com/title/tt15072612/" target="_blank" rel="noopener noreffer ">Yu zhou tan suo bian ji bu</a></strong>&rdquo; in terms of its thematic depth. Like Erjiu&rsquo;s ending, the latter also finds solace and inspiration from survivors, empathizing with them as they await the arrival of spring after enduring hardship.</p>
 <p>Hence, people extol phrases like &ldquo;the good days are still ahead&rdquo; and &ldquo;there is no winter that cannot be crossed,&rdquo; because we are destined to overcome, and Therefore, we face the future without fear. This is evidently a circular argument. But outside of this cycle, who will question the winter? Yu Hua&rsquo;s works confront the source of suffering directly—a Cthulhu without an object to speak of.</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e3%80%8a%e6%b2%b3%e8%be%b9%e7%9a%84%e9%94%99%e8%af%af%e3%80%8b%e6%98%af%e4%bb%80%e4%b9%88.en-20240523092008017.webp" title="Yu zhou tan suo bian ji bu" data-thumbnail="/img/《河边的错误》是什么.en-20240523092008017.webp" data-sub-html="<h2> </h2><p>Yu zhou tan suo bian ji bu</p>">
@@ -670,7 +670,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94756 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -34,7 +34,7 @@ At 12 p. m., board the airport subway, and arrive at the Yellow Crane Tower entr
 
 ## III. Visit the Yellow Crane Tower
 
-Purchase tickets via WeChat mini program, student tickets are half price at 35 yuan. Without a student ID, proof can be obtained through the Education Link (WeChat mini program). Special thanks to classmate [@leland](https://blog. yllhwa. com/) for guiding.
+Purchase tickets via WeChat mini program, student tickets are half price at 35 yuan. Without a student ID, proof can be obtained through the Education Link (WeChat mini program). Special thanks to classmate [@leland](https://blog.yllhwa.com/) for guiding.
 
 The Yellow Crane Tower has one path up, with each floor requiring a full circle to the next staircase, and a continuous corridor downstairs.
 

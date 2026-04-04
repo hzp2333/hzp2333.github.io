@@ -230,7 +230,7 @@ Using the Euler equation, we get:
 $$
 2 y'' y + y'^2 + 1 = 0
 $$
-For the complete solution, refer to [A Brief Discussion on the Calculus of Variations](https://zhuanlan. zhihu. com/p/139018146), which also mentions other mathematicians' solutions to this problem.
+For the complete solution, refer to [A Brief Discussion on the Calculus of Variations](https://zhuanlan.zhihu.com/p/139018146), which also mentions other mathematicians' solutions to this problem.
 
 In any case, one form of the solution is (where $a$ and $c$ are arbitrary constants):
 $$
@@ -277,7 +277,7 @@ Where $c$ is a constant. Writing $F$ as the common profit function $\pi$, we get
 $$
 \pi - P' \frac{\partial \pi}{\partial P'} = c
 $$
-Considering [static monopoly](https://etcnew. sdut. edu. cn/meol/analytics/resPdfShow. do; jsessionid=D8B075E94531C56DA0F681D5260DFCF9? resId=1084894&lid=52541), the monopoly firm makes only one pricing decision (more detailed static game theory also considers product differentiation, information asymmetry, game sequence, and firm entry/exit states).
+Considering [static monopoly](https://etcnew.sdut.edu.cn/meol/analytics/resPdfShow.do;jsessionid=D8B075E94531C56DA0F681D5260DFCF9?resId=1084894&lid=52541), the monopoly firm makes only one pricing decision (more detailed static game theory also considers product differentiation, information asymmetry, game sequence, and firm entry/exit states).
 
 In this case, the profit function only depends on $P$ and not on $P'$ (since there is only one pricing decision, no price change occurs). Clearly, $P' \frac{\partial \pi}{\partial P'} = 0$, so $\pi_s = c$.
 

@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/lxgj\/"
-        },"genre": "posts","keywords": "Travel, Microhistory","wordcount":  1832 ,
+        },"genre": "posts","keywords": "Travel, Microhistory","wordcount":  1828 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/lxgj\/","datePublished": "2020-12-19T10:35:32+08:00","dateModified": "2020-12-19T10:35:32+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -96,34 +96,47 @@ loadMathJax();
 
 
 
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakana 小组件集成</title>
-  <style>
-     
-    #sakana-widget-container {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 268px;
-      height: 268px;
-    }
-    #sakana-widget {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="sakana-widget-container">
-    <div id="sakana-widget"></div>
-  </div>
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
 
-  <script>
-    function initSakanaWidget() {
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div id="sakana-widget-container" aria-hidden="true">
+  <div id="sakana-widget"></div>
+</div>
+
+<script>
+  (function () {
+    function checkScreenWidth() {
+      var container = document.getElementById('sakana-widget-container');
+      if (!container) return;
+
+      if (window.innerWidth <= 960) {
+        container.style.display = 'none';
+      } else {
+        container.style.display = 'block';
+      }
+    }
+
+    window.initSakanaWidget = function () {
+      var target = document.getElementById('sakana-widget');
+      if (!target || typeof SakanaWidget === 'undefined' || target.dataset.mounted === 'true') {
+        checkScreenWidth();
+        return;
+      }
+
+      target.dataset.mounted = 'true';
+
       new SakanaWidget({
         size: 300,
         autoFit: true,
@@ -137,30 +150,17 @@ loadMathJax();
         title: false
       }).mount('#sakana-widget');
 
-      
       checkScreenWidth();
       window.addEventListener('resize', checkScreenWidth);
-    }
+    };
+  })();
+</script>
 
-    function checkScreenWidth() {
-      var screenWidth = window.innerWidth;
-      var container = document.getElementById('sakana-widget-container');
-      if (screenWidth <= 960) {
-        container.style.display = 'none';
-      } else {
-        container.style.display = 'block';
-      }
-    }
-  </script>
-
-  
-  <script 
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
-  </script>
-</body>
-</html>
+<script
+  async
+  onload="window.initSakanaWidget && window.initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js">
+</script>
 
 
 
@@ -178,7 +178,7 @@ loadMathJax();
         title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -230,7 +230,7 @@ loadMathJax();
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -249,7 +249,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lu Xun's Former Residence: The Sole Light</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/travelogue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Travelogue</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1832 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1828 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;
     
 
@@ -339,9 +339,9 @@ loadMathJax();
             alt="/img/鲁迅故居.zh-cn-20250119000740654.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
-<p>In 1899, Lu Xun transferred to the Jiangnan Army Academy to study mining. The textbooks on display have basically no illustrations; their content涉及 chemistry and physics, simply explaining phenomena like lightning and thunder. The books still preserve discursive phrases like &ldquo;ordinary people believe&rdquo; and &ldquo;within it lies the Way.&rdquo; Moreover, it was during this period that Lu Xun encountered Huxley&rsquo;s [Evolution and Ethics](https://baike. baidu. com/item/%E5%A4%A9%E6%BC%94%E8%AE%BA/4331).</p>
+<p>In 1899, Lu Xun transferred to the Jiangnan Army Academy to study mining. The textbooks on display have basically no illustrations; their content涉及 chemistry and physics, simply explaining phenomena like lightning and thunder. The books still preserve discursive phrases like &ldquo;ordinary people believe&rdquo; and &ldquo;within it lies the Way.&rdquo; Moreover, it was during this period that Lu Xun encountered Huxley&rsquo;s <a href="https://baike.baidu.com/item/%E5%A4%A9%E6%BC%94%E8%AE%BA/4331" target="_blank" rel="noopener noreffer ">Evolution and Ethics</a>.</p>
 <p>The next exhibition hall tells the story of Lu Xun&rsquo;s study abroad; this is also the hall where visitors linger the longest.</p>
-<p>In 1902, Mr. Lu Xun graduated from the Mining and Railroad Academy. In March, he and others including [Qian Junfu](https://baike. baidu. com/item/%E9%92%B1%E5%9D%87%E5%A4%AB/2586519) went to Japan for government-funded study abroad. The exhibition hall preserves Lu Xun&rsquo;s medical school grades from Japan. In 1904, Mr. Lu Xun met Mr. Fujino; Mr. Fujino&rsquo;s attitude toward China indeed commands respect, but the circumstances of that time had already caused Lu Xun to waver in his determination to study medicine.</p>
+<p>In 1902, Mr. Lu Xun graduated from the Mining and Railroad Academy. In March, he and others including <a href="https://baike.baidu.com/item/%E9%92%B1%E5%9D%87%E5%A4%AB/2586519" target="_blank" rel="noopener noreffer ">Qian Junfu</a> went to Japan for government-funded study abroad. The exhibition hall preserves Lu Xun&rsquo;s medical school grades from Japan. In 1904, Mr. Lu Xun met Mr. Fujino; Mr. Fujino&rsquo;s attitude toward China indeed commands respect, but the circumstances of that time had already caused Lu Xun to waver in his determination to study medicine.</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp" title="如图" data-thumbnail="/img/鲁迅故居.zh-cn-20250119000809781.webp" data-sub-html="<h2> </h2><p>如图</p>">
         <img
@@ -823,7 +823,7 @@ loadMathJax();
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94969 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;59 posts, 94756 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

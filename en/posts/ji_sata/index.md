@@ -350,7 +350,7 @@ Thus, mediating variables should not be used as control variables, and if we wan
 
 ### 3. Moderating Effects: Grouped Regression or Interaction Terms
 
-Found a comprehensive [summary](https://zhuanlan. zhihu. com/p/120310111)
+Found a comprehensive [summary](https://zhuanlan.zhihu.com/p/120310111)
 
 > This section mainly references *Regression Analysis* by Xie Yu.
 
@@ -374,7 +374,7 @@ First, there are cases **where grouped regression is necessary**, such as when d
 
 Here are some common conclusions (though I feel these conclusions lack authoritative paper support):
 
-- Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also [test coefficient differences for significance](https://zhuanlan. zhihu. com/p/629123531)), are more sensitive, and use the entire sample, while grouped regression reduces sample size;
+- Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also [test coefficient differences for significance](https://zhuanlan.zhihu.com/p/629123531)), are more sensitive, and use the entire sample, while grouped regression reduces sample size;
 - Data assumptions differ, **interaction terms assume only interaction-related groups have between-group differences**, requiring stricter assumptions. **Interaction terms require control variable coefficients to be consistent across groups**, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent.
 - Different variables require different discussions; interaction terms can be divided into dummy-dummy interactions ([recommended reference](https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG)), dummy-continuous interactions, and continuous-continuous interactions, requiring specific analysis. (*Basic Econometrics* by Gujarati supports dummy-dummy interactions—no controversy given the prevalence of difference-in-differences.)
 
@@ -429,21 +429,21 @@ _*Basic Econometrics*_ (Gujarati)
 
 *The Book of Why* (Judea Pearl)
 
-[What on Earth Are Interaction Terms in Econometric Regression? Here's a Book for You](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&mid=2448056220&idx=1&sn=b079a3454204a013fd441b874186f91d&chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&scene=21#wechat_redirect)
+[What on Earth Are Interaction Terms in Econometric Regression? Here's a Book for You](http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448056220&idx=1&sn=b079a3454204a013fd441b874186f91d&chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&scene=21#wechat_redirect)
 
-[5 Questions and Responses on "Interaction Terms" in Econometrics](http://mp. weixin. qq. com/s?__biz=MjM5OTMwODM1Mw==&mid=2448057995&idx=1&sn=43011772c6adf79ad636463014d98423&chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&scene=21#wechat_redirect)
+[5 Questions and Responses on "Interaction Terms" in Econometrics](http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448057995&idx=1&sn=43011772c6adf79ad636463014d98423&chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&scene=21#wechat_redirect)
 
-[STATA: How to Analyze Interaction Terms!](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Fb5ea12da7f36)
+[STATA: How to Analyze Interaction Terms!](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36)
 
-[STATA: How to Use Interaction Terms?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ff7222672fe89)
+[STATA: How to Use Interaction Terms?](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89)
 
-[STATA: Marginal Effect Analysis](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F012d8a6159cf)
+[STATA: Marginal Effect Analysis](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf)
 
-[STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F7af58033dc24)
+[STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24)
 
-[STATA: Visualizing Interaction/Moderation Effects](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2Ffa6778828354)
+[STATA: Visualizing Interaction/Moderation Effects](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354)
 
-[After Adding Interaction Terms, the Sign Changed!?](https://bbs. pinggu. org/linkto. php? url=https%3A%2F%2Fwww. jianshu. com%2Fp%2F953f30f39195)
+[After Adding Interaction Terms, the Sign Changed!?](https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195)
 
 [^1]: Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.
 [^2]: Every time I see books using this example to introduce causality, I feel time flies.
