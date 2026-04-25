@@ -1,166 +1,169 @@
 # The Rhetoric of Economics
 
 
-> The author's trilogy on the rhetoric of economics: *If You're So Smart*, *The Rhetoric of Economics*, and *The Vices of Economists* all discuss literary criticism of economics. The first book is not recommended at all—its fragmented literary criticism is tedious, and its flowery language cannot hide the lack of structure. The second book, however, is much better. This article summarizes the second book.
+> McCloskey's trilogy on the rhetoric of economics — "If You're So Smart," "The Rhetoric of Economics," and "The Vices of Economists" — treats economics as a subject for literary criticism throughout. I really would not recommend the first volume. Its fragmentary, notebook-like criticism quickly becomes tiresome, and the ornate language cannot hide how weak the overall structure is. The second book is much better. This post is a summary of that second volume.
 
-Rhetoric, in essence, is **persuasion with a purpose**. Ancient Greeks used arguments, structure, and style to build the framework of rhetoric, while contemporary economic rhetoric has richer content—facts, stories, logic, and metaphors. Unlike abstract natural language, which is created solely for description, social science writings are actually **written with intent**, giving economics a humanistic flavor through rhetoric.
+Rhetoric, put simply, is **persuasion with a purpose**. In ancient Greece, rhetoric was framed around argument, structure, and style. In contemporary economics, that repertoire becomes richer: facts, stories, logic, and metaphor. Unlike abstract natural language built only to describe, a social science essay is really "<font color="#ff0000">writing with intent</font>," and that gives economics a distinctly human, rhetorical character.
 
-> In this blog, "the author" refers to [Deirdre N. McCloskey](https://www.deirdremccloskey.com/), the author of *The Rhetoric of Economics*.
+>In this post, "the author" always refers to the author of *The Rhetoric of Economics*, [Deirdre N. McCloskey](https://www.deirdremccloskey.com/).
 
-**Rhetorical Analysis Structure Table:**
+**A table for the structure of rhetorical analysis:**
 
-Four rhetorical perspectives: facts, stories, logic, metaphors.
+Four rhetorical angles: fact, story, logic, metaphor.
 
 | Impersonal | Axis |     |         |
 | :--- | :-- | :-- | ------- |
-| Facts   | Stories  | Specific  | **Specificity** |
-| Logic   | Metaphors  | Universal  | **Axis** |
+| Fact   | Story  | Particular  | **Particularity** |
+| Logic   | Metaphor  | Universal  | **Axes** |
 | Impersonal | Personal |     |         |
 
-## What is Rhetoric, and How to Do It?
+## What is rhetoric, and how do you do it?
 
-### The Anonymous Spokesperson of Authority.
+### The anonymous voice of authority.
 
-Economics is not the voice of God but the language humans use to persuade others to believe a certain truth. Although it is human language, it **pretends to be the spokesperson of historical laws**, metaphorically anonymizing itself as science itself.
+Economics is not the voice of God. It is people using language to persuade other people to believe a certain claim. Yet although it is human language, it still has to **pretend that it speaks for the laws of history**, anonymously casting itself as science itself.
 
-> Do not applaud me, audience, for today it is the voice of history that speaks.
+> No need to applaud me, audience. Today, history is the one speaking.
 
-Thus, economics always uses the eternal **present continuous tense** to describe factory production, profit formulas, even though these organizational forms should be analyzed in historical contexts.
+That is why economics so often describes factory production and profit formulas in an eternal **present tense**, even though these forms of organization really ought to be analyzed within a historical setting.
 
-### Creator Techniques.
+### Techniques of creation.
 
-First, **poets and metaphors**.
+First, the **poet and metaphor**.
 
-Extending game theory to nations, markets become competitive arenas, and economists tell their countries, "We are going to lose the game because we have xx problem." Metaphors add persuasive power to the necessity of models. Using network metaphors, small companies as families, durable goods as children...
+Extend game theory to nations, and the market becomes an arena of competition. Economists then address their own country as if saying, "We are going to lose the game because we have problem X." Metaphor makes the model feel more necessary, and more persuasive. Networks become webs, families become small firms, children become durable goods...
 
-Second, **novelists**.
+Second, the **novelist**.
 
-Economics must learn to combine stories.
+Economics needs to learn how to build stories.
 
-xx was once poor, but then embraced capitalism, and xx became rich. Story combination is about linking related events through state descriptions, actions, and internal connections (causation, temporal relationships) to form a narrative (positive and negative).
+X was poor at first, but then embraced capitalism, and so X became rich. Building a story means arranging related events through descriptions of states, actions, and internal connections: causation, temporal sequence, and both positive and negative turns.
 
-The end of each story signifies a **new state**. In economics, perfect and imperfect endings are equilibrium and disequilibrium. A perfect story needs a curtain call, a prophecy of the ending state rather than just a summary of the past, which can be extended.
+Each ending of a story marks a **new state**. In economics, a perfect or imperfect ending becomes equilibrium or disequilibrium. A good story needs a curtain call, not just a summary of the past, but a forecast of the ending state. The line can always be extended further.
 
-Texts lacking actions and states do not qualify as stories.
+A text without action or state is not a story.
 
-Economists emphasize starting with exogenous variables because, in the story system, this serves as the beginning. Starting with endogenous variables makes the story feel like it begins in the middle.
+Economists place so much emphasis on beginning with exogenous variables because, within a story system, that works as a beginning. If you start with endogenous variables, the story feels as if it begins halfway through.
 
-This is also for speculative reasons. Blaming historical bad debts on obvious roles makes for a very uninspiring ending.
+That also reflects a more speculative concern. If you pin all of history's bad debts on the most obvious character, the ending is not very illuminating.
 
 ### Performance.
 
-Fiction does not imitate reality; fiction creates reality. Influential economics papers often contain convoluted and obscure sentences, such as Keynes's *The General Theory of Employment, Interest and Money*. When writing papers, try to create "the author's audience" (knowing the story is fictional) and "the narrative audience" (unaware the story is fictional)[^1].
+A novel does not imitate reality. A novel creates reality. The economics papers that leave the deepest mark are often the ones written in difficult, knotted sentences. Keynes's *The General Theory of Employment, Interest and Money* is an example. When writing a paper, try to create both the "authorial audience" (which knows the story is fictional) and the "narrative audience" (which does not know it is fictional)[^1].
 
-Because economists themselves need to realize that they are not necessarily stating facts but creating an audience.
+Economists themselves need to realize that they are not always stating facts. Sometimes they are creating an audience.
 
-<font color="#ff0000">**Every text has an implied author, an implied reader, a history, and a form.**</font>
+<font color="#ff0000">**Every article contains an implied author, an implied reader, a piece of history, and a form.**</font>
 
-## The Literary Characteristics of Economics: Science, Literature, Art
+## The literary side of economics: science, literature, art
 
-The author wrote this book to explore the boundaries between economics, science, and text. In the author's view, **science is merely a way of speaking, not a domain of truth**.
+The author's goal in writing this book is to probe the boundaries between economics, science, and text. In her view, **science is only one way of speaking, not a separate domain of truth**.
 
-- Science requires texts to express itself.
-- Scientific experiments are limited, and often people judge the value of a theory based on its aesthetic appeal.
-- The methods of persuasion in texts are similar to literature and speeches.
+- Science needs text in order to be expressed.
+- Scientific resources for experimentation are limited, so people often judge the value of testing a theory by the beauty of the theory itself.
+- Text persuades in ways that are not so different from literature and public speaking.
 
-Thus, science, literature, and art intersect rather than oppose each other in the traditional sense.
+So science, literature, and art overlap rather than standing in simple opposition, as they often do in more traditional ways of talking.
 
-> Personally, I reserve my opinion on this.
+> I still have reservations about that myself.
 
-Economic arguments employ the following **argumentative methods**:
+Economics relies on the following **methods of argument**:
 
-> The first three points are from British scientific argumentation. From a literary perspective, the author expands these to more points.
+>The first three come from British scientific argument. From a literary angle, the author expands that list much further.
 
-Statistical tests, specific market analysis, experiments on theories, introspection (What would I do if xx happened?), thought experiments (Based on experience, what would others do in xx situations?), case studies, folk wisdom (merchants), traditional academic knowledge, symmetry of laws (e.g., defining glorious periods and garbage periods), pure definitions, analogies...
+Statistical tests, analysis of specific markets, experiments on theory, introspection (if X happened, what would I do?), thought experiments (based on experience, what would someone else do in situation X?), case studies, folk wisdom (merchants), the traditional knowledge of the academy, the symmetry of laws (for example, defining both a glorious age and a garbage age), pure definition, analogy...
 
-For example, economic papers do not describe the motion of objects but depict human behavior, which aligns with literary creation. Even though economic papers describe a category of people, readers imagine specific individuals rather than abstract object movements, a role depiction shared with literature.
+For example, an economics paper cannot simply describe the motion of objects. It has to portray human behavior, and that has something in common with literature. Even when the author is portraying a type of person rather than a particular person, what the reader imagines while reading is still a concrete human being, not an abstract movement of objects. That kind of characterization overlaps with literature.
 
-Naming is part of rhetoric and image creation. For example, the term "preference" carries a strong literary sense of desire, and most economic terms have this quality, such as Hayek's spontaneous order, Adam Smith's animal spirits...
+Naming is part of rhetoric, and it is also part of shaping an image. The word "preference," for example, carries a strong literary sense of desire. Most economic terms have a similar shade to them, Hayek's endogenous order, Adam Smith's animal spirits...
 
-## Rhetorical Techniques in Economics
+## Rhetorical devices in economics
 
-Take Samuelson's use of mathematics as an example—when using statistics and mathematical models, he uses **we**, but when discussing economic propositions, he uses **I**.
+Take Samuelson's use of mathematics as an example. When he uses statistics and mathematical models, he says <font color="#ff0000">we</font>; when he discusses economic propositions, he says <font color="#ff0000">I</font>.
 
-Because Samuelson states in the preface that **economic propositions are debatable and refutable**, using **I** shows a more conversational stance, while **we** conveys authority (implying consensus).
+Because Samuelson says in the preface that "**economic propositions are open to discussion and open to refutation**," "<font color="#ff0000">I</font>" better shows a posture of discussion, while "<font color="#ff0000">we</font>" conveys authority (as if what is being said here is already consensus).
 
-If we conduct an experiment, we find that most people do not care about mathematical proofs or statistical details, but the mere presence of mathematics enhances persuasiveness.
+If we actually ran an experiment, we would find that most people do not care about mathematical proofs or statistical detail, but the mere presence of mathematics strengthens persuasion.
 
-John Stuart Mill's paper on expectations emphasizes the role of economics professors—criticizing people's slow market expectations from the perspective of economic researchers.
+John Stuart Mill's paper on expectations stresses the position of the economics professor: criticizing people's sluggish response to market expectations from the standpoint of an economic researcher.
 
-> The author's critique of economic forecasting is interesting—economic forecasts are always conditional, and conditional forecasts are inherently consistent with experience, so how can they truly exceed expectations?
+>The author's criticism of economics as prediction is interesting. Economic predictions are always conditional predictions, and conditional predictions are always consistent with experience in what they mean. So how could they ever produce something genuinely beyond expectation?
 >
-> I have heard similar views from others—econometrics analyzes causality through exogeneity, so how can we expect it to predict exogenous events?
+>I've heard similar views from others too. Econometrics identifies causality through exogeneity, so how could we expect econometrics to predict exogenous events?
 
-Fogel used the method of sacrificing the small for the big, as he was refuting the mainstream conclusion that "railroad construction promoted U. S. economic growth." Regarding x, y, coefficients—perhaps y is small; x is large; we overestimated the coefficient, leading to today's conclusion. His paper uses hints of uncertainty to cast doubt on theories.
+Fogel uses a strategy of sacrificing the small to attack the large, because he is rebutting the mainstream conclusion that "railroad construction promoted American economic growth." For x, y, and the coefficient, maybe y is small; maybe x is large; maybe we overestimated the coefficient, and that is what produced the conclusion we have today. His paper uses those hints of uncertainty to cast doubt on the theory.
 
 {{< admonition tip "Fogel" false >}}
 
-Fogel was the first to compare railroads to river transport in terms of contribution, using historical quantification and counterfactual thinking, inspiring counterfactual causal inference. He argued that past views overestimated the contribution of railroads.
+Fogel was the first to compare rail transport with river transport when estimating the railroad's contribution. He used quantitative historical calculation and counterfactual reasoning, which later helped inspire counterfactual causal inference. His point was that earlier views had overstated the railroad's contribution.
 
-Since his report, economics has also used quantitative history to revolutionize the paradigm of economic history.
+After his report, economics also began using quantitative history to reshape the paradigm of economic history.
 
-Dave was inspired by this, measuring market accessibility based on railroad expansion, establishing a general equilibrium of railroads and market accessibility, allowing comparative advantage to be empirically measured, and winning the 2017 Clark Medal.
+Dave Donaldson was inspired by this work and measured market access through railway expansion. He then built a general equilibrium framework around railways and market accessibility, making comparative advantage empirically measurable, and won the 2017 Clark Medal.
 
 ![Fogel](/img/经济学修辞.zh-cn-20241024233711565.webp)
 
+
+
 {{< /admonition >}}
 
-Coase's[^5] papers are written in a lawyer's tone, proposing various theoretical possibilities and then refuting them one by one. Coase's papers resemble the structure of ancient Greek oratory—introduction, narrative (facts), detailed classification (controversial and non-controversial claims), evidence, refutation, conclusion. Thus, his classic paper *The Nature of the Firm* is filled with adversarial language.
+Coase[^5]'s paper speaks in the voice of a lawyer, laying out theoretical possibilities and then rebutting them one by one. It reads like the structure of ancient Greek oratory: introduction, narration (facts), classified exposition (disputed claims and undisputed claims), proof, refutation, conclusion. That is why the classic paper "The Nature of the Firm" is full of adversarial phrasing.
 
-Other rhetorical techniques include—appeals to authority, verbal hints (metaphors for competition), metaphors[^2] (zero-sum games, children as durable goods), parables (metaphors + stories)...
+Other rhetorical techniques include appeals to authority, verbal suggestion (using language to imply a competitive relationship), metaphor[^2] (zero-sum games, children as durable goods), and parable (metaphor + story)...
 
-> Literary understanding is so broad...
+> Literary interpretation can really stretch very far...
 
-## Does Quantification Need Rhetoric?
+## Does quantification need rhetoric?
 
-Two questions—How big is big? So what?
+Two questions: how big is big? And so what?
 
-### On "How Big is Big"
+### On "how big is big"
 
-Some believe that by mathematizing problems, pure mathematical thinking can separate what is within human reach. But is this really the case?
+Some people believe that once economics turns a problem into mathematics, purely mathematical thinking can separate it from the range of ordinary human judgment. But is that really true?
 
-How big is a number? What counts as big or small is still a process of trying to persuade others, which still requires human comparison to reach a conclusion. Thus, the process still involves rhetoric.
+How big is big? How big counts as big, and how small counts as small, is still a process of trying to persuade other people. You still need people to compare and judge before reaching a conclusion. So the process still contains rhetoric.
 
-> Of course, if you study advanced econometrics[^3], you will find that hypothesis testing constructs small probability events—"Type I errors" and "Type II errors" to test significance. Although this is considered standard practice, it is still a relative standard.
+>Of course, if you have studied advanced econometrics[^3], you realize that the logic of hypothesis testing is to construct low-probability events, "Type I error" and "Type II error," in order to test significance. That approach is widely treated as basic practice, but it is still only a relative standard.
 >
-> I agree with [Shi Zhentao](https://zhentaoshi.github.io/)'s view on econometrics teaching—"How big is credible" is not just a statistical question but also a philosophical one. Advanced econometrics merely makes people start thinking about this question.
-![Shi Zhentao's Zhihu Answer](/img/经济学修辞.zh-cn-20241016152827042.webp)
-> For example, Bayesians and frequentists have long debated, and Bayesians themselves are divided into subjective and objective schools. While it all looks like mathematical derivation, the basic construction of credibility measurement always involves worldview. Everything can indeed be philosophical.
+>I agree with Professor [Zhentao Shi](https://zhentaoshi.github.io/)'s view of econometrics teaching: "How large is large enough to be credible" is not only a statistical question, but also a philosophical one. Advanced econometrics mainly forces people to start thinking about this.
+![Professor Zhentao Shi's Zhihu answer](/img/经济学修辞.zh-cn-20241016152827042.webp)
+>For example, Bayesians and frequentists have argued over this for years, and Bayesians themselves split into subjective and objective camps. It all looks like mathematical deduction, but the construction of the basic unit of credibility never escapes a worldview. The old saying that everything can turn into philosophy really is true.
 >
-> For example, the classic case—**statistical significance and economic significance should be distinguished**.
+>For example, the classic point is that **statistical significance and economic significance should be distinguished**.
 
-### On "So What"
+### On "so what?"
 
-Economic papers need to address specific audiences, and you are also narrating a fictional society. Different groups see the world differently, and to gain their recognition, you need to resonate with their "consensus"—that is what captures their attention.
+An economics paper has to speak to a particular audience, and the society it describes is itself a fictional construction. Different groups see the world differently. If you want their recognition, you have to respond to the part they already treat as "common sense." Those are the topics more likely to draw attention.
 
-### Things to Note in Econometrics
+### What econometric work should watch out for
 
-Distinguish between statistical significance and economic significance.
+Distinguish statistical significance from economic significance.
 
-In short, paper arguments cannot rely solely on statistical significance.
+Put simply, a paper's argument cannot rely on statistical significance alone.
 
-You need to clarify sample distribution assumptions, the real-world meaning and form of coefficients (e.g., whether they are elasticities), incorporate real-world consensus analysis, strictly define significance, ensure a natural transition from statistical significance to real-world impact, and recognize that statistical, policy, scientific, and economic significance are different. (This section is taken from AER's records of misapplications of statistical significance in the 1980s.)
+You need to spell out assumptions about the sample distribution, the real-world meaning and functional form of coefficients (for example, whether they are elasticities), analysis grounded in shared real-world understanding, a strict definition of significance, and a sufficiently natural transition from statistical significance to real-world impact. Statistical meaning, policy meaning, scientific meaning, and economic meaning are different things. (This part comes from records in the *AER* from the 1980s on mistaken uses of statistical significance.)
 
-The author's attacks on modernism, represented by mathematics and statistics, are numerous, but the principle is simple:
+The author's later attacks on the modernism represented by mathematical statistics go on and on, but in the end the principle is simple:
 
-Many view falsification as science, but falsification is an arbitrary issue. Too much real-world evidence does not guarantee full coverage. When a theory is tested, in economics, it often manifests as widespread interest in it. Thus, the author ultimately calls for skepticism toward any rule-based methodology[^4]. We should oppose anti-rhetoric and anti-modernism.
+Many people treat falsification as science, but falsification also involves arbitrariness. Even a great deal of evidence cannot guarantee that everything has been covered. And when a theory is tested in economics, what that usually means is simply that many people are interested in it. So in the end, the author argues that any rule-bound methodology may be wrong[^4]. We should therefore turn against anti-rhetoric and against modernism.
 
-## Will Rhetoric Be a Future Discipline?
+## Could rhetoric become a discipline of the future?
 
-Two trends are evident in economics today.
+Two trends in economics are obvious right now.
 
-1. The fundamentals of mathematics and statistics are gaining popularity. In advanced econometrics courses, I see history students enrolling, while economics seniors are moving toward mathematics. The deep intersection of mathematics and economics is becoming the norm. Mathematical economists are joining, and standards are being raised.
+1. Basic mathematical statistics is increasingly prized. In my advanced econometrics course, I have seen students from the history department taking it as an elective, while older generations of economists keep moving further toward mathematics courses. The deeper crossover between math and economics is becoming normal. More scholars of mathematical economics keep entering the field, and the bar keeps rising.
 
-2. On the other hand, as mathematics and statistics are widely applied, their rationality is increasingly questioned. The instrumental nature of mathematics is indeed giving way to rhetoric. The themes, stories, and inspiration of papers are becoming more interesting to people.
+2. On the other hand, once mathematical statistics is used widely enough, its legitimacy starts being questioned. The tool-like role of mathematics really does seem to be giving some ground back to rhetoric. A paper's central idea, its story, and how illuminating it is are becoming the things people care more about.
 
-This trade-off, like "correctly reaching a conclusion" versus "reaching the correct conclusion," leaves people unsure of how to choose and which direction will dominate.
+This trade-off is as hard to choose between as the difference between "arriving at a conclusion correctly" and "arriving at the correct conclusion." I genuinely do not know which direction will become the mainstream in the end.
 
-If we examine science solely based on "persuasion," then all methodological rules become irrelevant. With such a liberal definition, worldviews might turn into **function-oriented** utilitarian thinking.
+If we examine science from the single standpoint of "persuasion," then every methodological rule stops mattering. Under the author's extremely loose definition, worldview may turn into a kind of **function-oriented** utilitarian thinking.
 
-But rhetoric, standing against modernism, undoubtedly offers a fresh perspective to examine science. **Innovation requires boldness, and this freedom provides a springboard. Therefore, I believe *The Rhetoric of Economics* is absolutely worth reading.**
+But rhetoric stands on the opposite side of modernism, and it unquestionably offers a fresh way to examine science. **Innovation needs room for wild thinking, and a lack of restraint can provide exactly that springboard. That is why I think *The Rhetoric of Economics* is absolutely worth reading.**
 
-[^1]: Indeed, many people cannot even issue notices well, as they are not good at imagining readers. I recommend practicing this imaginative ability through blogging.
-[^2]: The author even considers objectivity a metaphor, as metaphors use vocabulary to influence judgments. However, in my view, this definition is too broad, almost overlapping with rhetoric itself.
-[^3]: Undergraduate probability and mathematical statistics already explain this, but I think most economics students only truly grasp this idea when they study advanced econometrics.
-[^4]: This view is a bit too liberal (.
-[^5]: Coase was trained in law.
+[^1]: Honestly, a lot of people cannot even write a clear notice, because they are bad at imagining their own readers. I personally recommend blogging as a way to train that ability.
+[^2]: The author even argues that objectivity is itself a metaphor, and that metaphor works by using vocabulary and construction to shape people's judgment. Personally, though, I think that definition is so broad that it almost collapses into rhetoric itself.
+[^3]: In undergraduate study, probability and mathematical statistics already hint at this, but I think most economics majors only really feel the force of the idea once they reach advanced econometrics.
+[^4]: This view is a little too freewheeling for my taste.
+[^5]: Coase was trained in law
+
