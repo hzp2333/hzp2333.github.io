@@ -229,7 +229,7 @@ egen Score=rowtotal(Score_*)   //求和
 ******************************************************************
 ```
 
-## 三、变异系数法 (COV)
+## 三、变异系数法 （COV）
 
 ### 1、理论步骤
 
@@ -311,7 +311,7 @@ egen Score_b=rowtotal(Score_b_*)
 
 待补
 
-## 五、主成分得分 (PCA)
+## 五、主成分得分 （PCA）
 
 ### 1、理论步骤
 
@@ -465,7 +465,7 @@ predict f1 f2 f3 f4
 
 ![得分分析](/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152840677.webp)
 
-对于得分图来说，**距离越近越相似**，由于我们选择了参数 factors (4)，那么四个主成分两两组合，就会产生 $C_4^2=6$ 个得分图。我们使用的是面板数据，我们按照的地域标签，确实可以看出**不同年份的同一个城市（北京、重庆）**总是聚类在一起。
+对于得分图来说，**距离越近越相似**，由于我们选择了参数 factors （4），那么四个主成分两两组合，就会产生 $C_4^2=6$ 个得分图。我们使用的是面板数据，我们按照的地域标签，确实可以看出**不同年份的同一个城市（北京、重庆）**总是聚类在一起。
 
 **因子载荷图**命令如下：
 
@@ -474,7 +474,7 @@ loadingplot, factors(4) yline(0) xline(0) //荷载图
 *factors(4)也是分析几个因子的设定。
 ```
 
-由于我们选择了参数 factors (4)，那么四个主成分两两组合，就会产生 $C_4^2=6$ 个因子载荷图  
+由于我们选择了参数 factors （4），那么四个主成分两两组合，就会产生 $C_4^2=6$ 个因子载荷图  
 
 它反映了不同组成分下指标的聚类程度。
 
@@ -494,7 +494,7 @@ loadingplot, factors(4) yline(0) xline(0) //荷载图
 
 虽然这些方法已经被滥用、被质疑，但比起一知半解套用代码，了解他们的使用背景，结合选题详细地说明，或许这才是最重要的。
 
-[^1]: 赵涛, 张智, 梁上坤. 数字经济、创业活跃度与高质量发展——来自中国城市的经验证据\[J\]. 管理世界,2020,36 (10): 65-76. DOI: 10.19744/j.cnki. 11-1235/f.2020.0154.
-[^2]: Shannon, C. E. (2001). A mathematical theory of communication. ACM SIGMOBILE mobile computing and communications review, 5 (1), 3-55.
+[^1]: 赵涛, 张智, 梁上坤. 数字经济、创业活跃度与高质量发展——来自中国城市的经验证据\[J\]. 管理世界,2020,36 （10）: 65-76. DOI: 10.19744/j.cnki. 11-1235/f.2020.0154.
+[^2]: Shannon, C. E. （2001）. A mathematical theory of communication. ACM SIGMOBILE mobile computing and communications review, 5 （1）, 3-55.
 [^3]:https://en.wikipedia.org/wiki/Entropy\_(information\_theory)
 [^4]: [https://mp.weixin.qq.com/s/H-wFZOxWPUdwJBkpASu8bw](https://mp.weixin.qq.com/s/H-wFZOxWPUdwJBkpASu8bw)

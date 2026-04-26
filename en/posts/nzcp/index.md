@@ -18,7 +18,7 @@ Consider the turnabout philosophy in other games:
 - **In/Spectre**: The protagonist fabricates the truth rather than uncovering it.
 
 These examples don’t imply that the designs themselves are turnabout thinking, but rather suggest that—
-**“Adopting a framework of element reversal offers a uniquely intriguing perspective.”**
+**"Adopting a framework of element reversal offers a uniquely intriguing perspective."**
 
 - In a typical detective setting where criminals are caught through clues, how does one create a turnabout? {{< spoiler >}}By making a game where you defend the accused with evidence.{{< /spoiler >}}
 - Don’t think about what evidence can prove the criminal’s actions, but rather, {{< spoiler >}}consider the inevitable consequences of the criminal’s deeds.{{< /spoiler >}}
@@ -73,7 +73,7 @@ As a lawyer, the more perilous the situation, the more you must smile—perhaps 
 Trust in your client, trust in your opponent, delve into contradictions, pursue the truth, and never give up...
 All of this can begin with a single phrase—
 
-「異議あり!」
+"異議あり!"
 
 ![異議あり!](/img/逆转裁判.zh-cn-20240810201920520.webp)
 

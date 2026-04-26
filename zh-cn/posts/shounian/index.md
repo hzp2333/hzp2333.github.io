@@ -1,4 +1,4 @@
-# 收敛：从“算式的极限”到“增长的极限”
+# 收敛：从算式的极限到增长的极限
 
 
 {{< music url="/music/Can You Hear The Music-Ludwig Göransson.mp3" name="Can You Hear The Music" artist="Ludwig Göransson" cover="/images/aoben.png" >}}
@@ -182,9 +182,9 @@ g=c+\beta{\ln y_0}+\varepsilon
 $$
 $g$ 就是增长率， $c$ 是常数项，$y_0$ 是真实产出，$\varepsilon$ 是误差项。当 $\beta<0$，也就说明了增长率 $g$ 和经济水平 $y_0$ 负相关。符合我们“高水平经济体增速较慢，低水平经济体增速较高”的假设。
 
-**(2) 条件趋同**
+**（2） 条件趋同**
 
-Barro 和 Martin (1992)[^11]在绝对 $\beta$ 趋同检验方程的基础上又提出了条件 $\beta$ 趋同的检验方程:
+Barro 和 Martin （1992）[^11]在绝对 $\beta$ 趋同检验方程的基础上又提出了条件 $\beta$ 趋同的检验方程:
 
 $$
 \small \frac{1}{T}\left[\log(y_{i,t+T})-\log(y_{i,t})\right]=\alpha-\frac{(1-\mathrm{e}^{-\beta T})}{T}\log(y_{i,t})+\lambda X_{i,t}+\varepsilon_{i,t}
@@ -193,7 +193,7 @@ $$
 
 > 引入控制变量 $X_{i,t}$ 麻烦的点在于又得去研究外生性了，，，，，，
 
-**(3) 俱乐部趋同**
+**（3） 俱乐部趋同**
 
 具有相同的经济特征、具有类似增长路径的集团内部存在趋同，在不同的经济集团之间则不存在趋同，这种现象称为俱乐部趋同（Durlauf，1995; Galor，1996）。
 $$
@@ -202,7 +202,7 @@ $$
 变量含义与上面相同，不同的是当 $\beta<0$ 才说明趋同， $D_{i,t}$ 是虚拟变量，也就是分组，例如整个东亚可能是同样的发展路径，或者某几个城市都是作为港口城市进行发展。
 
 > 发现的比较有趣的研究是以什么标准聚类分类俱乐部，比如以“中等收入陷阱”为聚类分类标准建模[^12]。  
-> Du (2017) （这位居然是山东大学的）引入了 Stata 包来执行 [Phillips 和 Sul (2007)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2007.00811.x) 的计量经济学收敛分析和俱乐部聚类算法。  
+> Du （2017） （这位居然是山东大学的）引入了 Stata 包来执行 [Phillips 和 Sul (2007)](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2007.00811.x) 的计量经济学收敛分析和俱乐部聚类算法。  
 > 分组依据思想大概如下  
 > $$
 > \lim_{ x\rightarrow +\infty}{\frac{X_j}{X_i}}\rightarrow1
@@ -435,12 +435,13 @@ export delimited using "${dataSet}_clubsList.csv", replace
 [^6]: 所以我说，经管版概率论教材就是不行，如果不看统计学教材，就错过了这么连贯的知识点理解。所以这些分布本身就是一步一步发展过来的。如果不知道这种发展，还以为是隔空投送呢
 [^7]: 这部分主要参考了《区域与城市经济学》（踪家峰著）
 [^8]: Barro R J, Sala-i-Martin X, Blanchard O J, et al. Convergence across states and regions[J]. Brookings papers on economic activity, 1991: 107-182.
-[^9]: Baumol, W. J. (1986). Productivity Growth, Convergence, and Welfare: What the Long-Run Data Show. The American Economic Review, 76 (5), 1072–1085. http://www.jstor.org/stable/1816469
-[^10]: 彭国华. 中国地区收入差距、全要素生产率及其收敛分析[J]. 经济研究, 2005 (9): 11. DOI:CNKI:SUN: JJYJ. 0.2005-09-003.
+[^9]: Baumol, W. J. （1986）. Productivity Growth, Convergence, and Welfare: What the Long-Run Data Show. The American Economic Review, 76 （5）, 1072–1085. http://www.jstor.org/stable/1816469
+[^10]: 彭国华. 中国地区收入差距、全要素生产率及其收敛分析[J]. 经济研究, 2005 （9）: 11. DOI:CNKI:SUN: JJYJ. 0.2005-09-003.
 [^11]: Barro R J, Mankiw N G, Sala-i-Martin X. Capital mobility in neoclassical models of growth[R]. National Bureau of Economic Research, 1992.
-[^12]: 徐永慧, 李月, 邓宏图. 俱乐部收敛与中等收入陷阱[J]. 现代财经 (天津财经大学学报), 2022,42 (11): 48-62. DOI: 10.19559/j.cnki. 12-1387.2022.11.004.
-[^13]: Du, K. (2017). Econometric convergence test and club clustering using Stata. The Stata Journal, 17 (4), 882-900.
-[^14]: Phillips, P. C., & Sul, D. (2007). Transition modeling and econometric convergence tests. Econometrica, 75 (6), 1771-1855.
-[^15]: 林毅夫, 刘明兴. 中国的经济增长收敛与收入分配[J]. 世界经济,2003 (08): 3-14+80.
-[^16]: 沈坤荣, 马俊. 中国经济增长的“俱乐部收敛”特征及其成因研究[J]. 经济研究,2002 (01): 33-39+94-95.
-[^17]: 汤学兵, 陈秀山. 我国八大区域的经济收敛性及其影响因素分析[J]. 中国人民大学学报,2007 (01): 106-113.
+[^12]: 徐永慧, 李月, 邓宏图. 俱乐部收敛与中等收入陷阱[J]. 现代财经 （天津财经大学学报）, 2022,42 （11）: 48-62. DOI: 10.19559/j.cnki. 12-1387.2022.11.004.
+[^13]: Du, K. （2017）. Econometric convergence test and club clustering using Stata. The Stata Journal, 17 （4）, 882-900.
+[^14]: Phillips, P. C., & Sul, D. （2007）. Transition modeling and econometric convergence tests. Econometrica, 75 （6）, 1771-1855.
+[^15]: 林毅夫, 刘明兴. 中国的经济增长收敛与收入分配[J]. 世界经济,2003 （08）: 3-14+80.
+[^16]: 沈坤荣, 马俊. 中国经济增长的“俱乐部收敛”特征及其成因研究[J]. 经济研究,2002 （01）: 33-39+94-95.
+[^17]: 汤学兵, 陈秀山. 我国八大区域的经济收敛性及其影响因素分析[J]. 中国人民大学学报,2007 （01）: 106-113.
+

@@ -67,7 +67,7 @@ $header-title-font-height: 2rem;
 ![Get embed code](/img/Hugo自定义字体.zh-cn-20240523125942865.webp)
 
 <style>
-@import url ('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital, wght@0 ,300; 0,400; 0,700; 0,900; 1,300; 1,400; 1,700; 1,900&family=Noto+Serif+SC&display=swap')
+@import url （'https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital, wght@0 ,300; 0,400; 0,700; 0,900; 1,300; 1,400; 1,700; 1,900&family=Noto+Serif+SC&display=swap'）
 </style>
 
 以上图中代码就是对应的调用 api。里面也提供了每个字体的名称。

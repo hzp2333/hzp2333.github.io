@@ -1,4 +1,4 @@
-# Convergence: From "The Limit of Equations" to "The Limit of Growth"
+# Convergence: From the Limit of Equations to the Limit of Growth
 
 
 {{< music url="/music/Can You Hear The Music-Ludwig Göransson.mp3" name="Can You Hear The Music" artist="Ludwig Göransson" cover="/images/aoben.png" >}}
@@ -139,7 +139,7 @@ When $q=1$ in the equation, it is **linear convergence**, where the convergence 
 
 ![Convergence Together](/img/收敛：从“算式的极限”到“增长的极限”.zh-cn-20240523110613986.webp)
 
-![Solow Model actually just added a factor on the horizontal axis](/img/收敛：从“算式的极限”到“增长的极限”.zh</think>
+![Solow Model actually just added a factor on the horizontal axis](/img/收敛：从"算式的极限"到"增长的极限".zh</think>
 
 ## IV. Econometric Analysis
 
@@ -446,3 +446,4 @@ China's current empirical results basically satisfy $\sigma$ convergence[^15] an
 [^16]: Shen Kunrong, Ma Jun. China's economic growth "club convergence" characteristics and cause analysis[J]. Economic Research, 2002 (01): 33-39+94-95.
 
 [^17]: Tang Xuebing, Chen Xiushan. Convergence of economic growth in China's eight major regions and its influencing factors analysis[J]. Journal of Renmin University of China, 2007 (01): 106-113.
+

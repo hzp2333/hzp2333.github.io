@@ -24,7 +24,7 @@
 
 被引入到计量经济学中，事件研究法主要用于研究**动态处理效应**。通过处理效应的时间分组切片，进一步讨论事件影响。
 
-例如下图研究失业对收入[^1]的影响中，根据每个人失业时间建立动态的时间虚拟变量：失业前一年（t-1）、失业后一年(t+1)、失业后两年(t+2)。其中包含了预期趋势和事后趋势。
+例如下图研究失业对收入[^1]的影响中，根据每个人失业时间建立动态的时间虚拟变量：失业前一年（t-1）、失业后一年（t+1）、失业后两年（t+2）。其中包含了预期趋势和事后趋势。
 
 ![Earnings losses of displaced workers](/img/事件研究法.zh-cn-20240620154618867.webp)
 
@@ -222,6 +222,6 @@ $$
 [^1]: Jacobson L S, LaLonde R J, Sullivan D G. Earnings losses of displaced workers[J]. The American economic review, 1993: 685-709.
 [^2]: Li H, Meng L, Mu K, et al. English language requirement and educational inequality: Evidence from 16 million college applicants in China[J]. Journal of Development Economics, 2024: 103271.
 [^3]: 很符合我对金融研究信息因子无情挖掘的刻板印象。
-[^4]: Miller D L. An introductory guide to event study models[J]. Journal of Economic Perspectives, 2023, 37(2): 203-230.
+[^4]: Miller D L. An introductory guide to event study models[J]. Journal of Economic Perspectives, 2023, 37（2）: 203-230.
 [^5]: Qiu H, Hong J, Wang X, et al. Home sweet home: Impacts of living conditions on worker migration with evidence from randomized resettlement in China[J]. Journal of Economic Behavior & Organization, 2024, 220: 558-583.
-[^6]: Braghieri L, Levy R, Makarin A. Social media and mental health[J]. American Economic Review, 2022, 112(11): 3660-3693.
+[^6]: Braghieri L, Levy R, Makarin A. Social media and mental health[J]. American Economic Review, 2022, 112（11）: 3660-3693.

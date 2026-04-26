@@ -80,7 +80,7 @@ Hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会
 发现音乐插件的失效原因大概是：
 
 
-LoveIt 主题使用 Hugo 的 Scratch 系统作为"功能开关"机制：
+LoveIt 主题使用 Hugo 的 Scratch 系统作为“功能开关”机制：
 
 - `music` 短代码执行时设置：`{{- .Page.Scratch.SetInMap "this" "music" true -}}`
 - `assets.html` 中检查：`{{- if (.Scratch.Get "this").music -}}` 来加载音乐资源。
@@ -678,7 +678,7 @@ Math = true
 ```
 
 
-由于 Hugo 在渲染 Markdown 文档时会根据 `_`/`*`/`>>` 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 (如 `\(`/`\)`/`\[`/`\]`/`\\`) 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:
+由于 Hugo 在渲染 Markdown 文档时会根据 `_`/`*`/`>>` 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 （如 `\(`/`\)`/`\[`/`\]`/`\\`） 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:
 
 - `_` -> `\_`
 - `*` -> `\*`
@@ -700,7 +700,7 @@ V(\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left(t\right)+\varepsilon p\lef
 实际情况会变成：
 
 \[
-V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left (t\right)+\varepsilon p\left (t\right)}_{y (t)},\underbrace{y^{*}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}_{y^{’}\left (t\right)}]dt
+V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{’}\left （t\right）}]dt
 \]
 
 只有转化为 `\_` `^\*` `\\[ \\]` 才是正确的：
@@ -712,7 +712,7 @@ V(\varepsilon)=\int\_{0}^{T}F[t,\underbrace{y^{\*}\left(t\right)+\varepsilon p\l
 ```
 
 \\[
-V (\varepsilon)=\int\_{0}^{T}F[t,\underbrace{y^{\*}\left (t\right)+\varepsilon p\left (t\right)}\_{y (t)},\underbrace{y^{\*}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}\_{y^{'}\left (t\right)}]dt
+V （\varepsilon）=\int\_{0}^{T}F[t,\underbrace{y^{\*}\left （t\right）+\varepsilon p\left （t\right）}\_{y （t）},\underbrace{y^{\*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}\_{y^{'}\left （t\right）}]dt
 \\]
 
 但就我个人使用体验而言，有时候只转化式子的一半命令也可以渲染——转化多少命令似乎与渲染复杂度相关。

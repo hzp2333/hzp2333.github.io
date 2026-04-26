@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  4575 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  4886 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,7 +248,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">hugo 美化 2</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4575 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4886 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
     
 
@@ -415,7 +415,7 @@ loadMathJax();
         <div class="details-content">
             <div class="admonition-content"><p>最近借助 claude code 加 deepseek v3.2 模型测试了下这个 bug。</p>
 <p>发现音乐插件的失效原因大概是：</p>
-<p>LoveIt 主题使用 Hugo 的 Scratch 系统作为&quot;功能开关&quot;机制：</p>
+<p>LoveIt 主题使用 Hugo 的 Scratch 系统作为“功能开关”机制：</p>
 <ul>
 <li><code>music</code> 短代码执行时设置：<code>{{- .Page.Scratch.SetInMap &quot;this&quot; &quot;music&quot; true -}}</code></li>
 <li><code>assets.html</code> 中检查：<code>{{- if (.Scratch.Get &quot;this&quot;).music -}}</code> 来加载音乐资源。</li>
@@ -1476,7 +1476,7 @@ loadMathJax();
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Math = true
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>由于 Hugo 在渲染 Markdown 文档时会根据 <code>_</code>/<code>*</code>/<code>&gt;&gt;</code> 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 (如 <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>) 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:</p>
+</div><p>由于 Hugo 在渲染 Markdown 文档时会根据 <code>_</code>/<code>*</code>/<code>&gt;&gt;</code> 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 （如 <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>） 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:</p>
 <ul>
 <li><code>_</code> -&gt; <code>\_</code></li>
 <li><code>*</code> -&gt; <code>\*</code></li>
@@ -1502,7 +1502,7 @@ loadMathJax();
 </div>
 </div><p>实际情况会变成：</p>
 <p>[
-V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{<em>}\left (t\right)+\varepsilon p\left (t\right)}_{y (t)},\underbrace{y^{</em>}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}_{y^{’}\left (t\right)}]dt
+V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{<em>}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{</em>}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{’}\left （t\right）}]dt
 ]</p>
 <p>只有转化为 <code>\_</code> <code>^\*</code> <code>\\[ \\]</code> 才是正确的：</p>
 <div class="highlight"><div class="chroma">
@@ -1518,7 +1518,7 @@ V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{<em>}\left (t\right)+\varepsilon 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>\[
-V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left (t\right)+\varepsilon p\left (t\right)}_{y (t)},\underbrace{y^{*}\left (t\right)+\varepsilon p^{\prime}\left (t\right)}_{y^{&rsquo;}\left (t\right)}]dt
+V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{&rsquo;}\left （t\right）}]dt
 \]</p>
 <p>但就我个人使用体验而言，有时候只转化式子的一半命令也可以渲染——转化多少命令似乎与渲染复杂度相关。</p>
 <p>例如我渲染 <code>$2\_i^\*-2_j^*$</code> —— $2_i^*-2_j^*$, 由于式子很简单，转不转化命令都一样。</p>
@@ -1922,7 +1922,7 @@ V (\varepsilon)=\int_{0}^{T}F[t,\underbrace{y^{*}\left (t\right)+\varepsilon p\l
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，351438 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，353056 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -1,7 +1,7 @@
 # 双剑合璧：智能体时代的 Stata 实证
 
 
-当 ai 打败柯洁时，人们依旧认为 ai 离自己的事业很遥远，正如柯洁看到 ai 打败李世石时的年少轻狂。直到 2026 年，实证学习者们才开始围绕 ai 建立一种"自动化"的恐惧。
+当 ai 打败柯洁时，人们依旧认为 ai 离自己的事业很遥远，正如柯洁看到 ai 打败李世石时的年少轻狂。直到 2026 年，实证学习者们才开始围绕 ai 建立一种“自动化”的恐惧。
 
 最近 David Yanagizawa-Drott 教授启动了智能体实证分析项目（[APEP 项目](https://ape.socialcatalystlab.org/)）；陶哲轩建立了智能体对 Erdős 数学问题集贡献的项目（[AI contributions to Erdős problems](https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems)）。计算机领域热词也层出不穷——agent、skill、vibecoding、mcp、ABM model......[^1]
 
@@ -144,7 +144,7 @@ BRAT 是 Obsidian 用于安装测试版插件的工具。
     
     - 在 Obsidian 设置中，前往 **Community plugins**（第三方插件） -> **Browse**（浏览）。
         
-    - 搜索并安装 **BRAT** (Beta Reviewers Auto-update Tester)。
+    - 搜索并安装 **BRAT** （Beta Reviewers Auto-update Tester）。
         
     - 安装后点击 **Enable**（启用）。
         
@@ -258,7 +258,7 @@ https://github.com/meleantonio/awesome-econ-ai-stuff
 
 可以在以下网站寻找 skills 资源
 
-- [Skills. Sh](https://skills.sh/) (个人推荐，也推荐参考这里面的命令统一安装 skills )
+- [Skills. Sh](https://skills.sh/) （个人推荐，也推荐参考这里面的命令统一安装 skills ）
 - [skillsmp.com](https://skillsmp.com/)
 - [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)
 

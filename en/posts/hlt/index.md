@@ -44,7 +44,7 @@ $$ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_
 
 When we directly regress APC data, we encounter the problem of **collinearity**—**age + birth year = current year**.
 
-## Deaton's approach（mathematical Decomposition）
+## Deaton's approach(mathematical Decomposition)
 
 
 > Angus Deaton, who won the Nobel Prize in 2015 for his research on poverty, has made significant contributions to labor economics, with much discussion focused on his findings that aid may worsen conditions [^7].
@@ -251,6 +251,6 @@ At this time, the depreciation rate $\delta$ can be used for sensitivity testing
 [^7]: When I read about the Nobel Prize winner in 2015, most people were talking about aid, and not much about his contribution to the labor economy.
 [^9]: McKenzie D J. Disentangling age, cohort and time effects in the additive model[J]. Oxford bulletin of economics and statistics, 2006, 68 (4): 473-495.
 [^8]: Deaton A. The analysis of household surveys: a microeconometric approach to development policy[M]. World Bank Publications, 1997.
-[^11]: Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706
+[^11]: Fang H, Qiu X. "Golden Ages": A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706
 [^10]: Personally, I feel that the lack of detailed discussion of educational age is the weakness of this method, especially in today's battle between work and postgraduate entrance examinations. However, under the linear assumption, the education variable will also be eliminated due to differences.
 

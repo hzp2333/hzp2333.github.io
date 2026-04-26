@@ -44,7 +44,7 @@ I wrote one that can transform content in the format `-content1-content2-content
 \end{content1}
 ```
 
-I also further set up a mapping: if content1 is “证明”, it transforms to “proof”; if it's “概念”, it transforms to “definition”.
+I also further set up a mapping: if content1 is "证明", it transforms to "proof"; if it's "概念", it transforms to "definition".
 
 The code is as follows:
 

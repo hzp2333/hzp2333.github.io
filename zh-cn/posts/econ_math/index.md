@@ -27,7 +27,7 @@
 
 19 世纪。
 
-**函数的使用**：[古诺](https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%B0%94%C2%B7%E5%8F%A4%E8%AF%BA)（Charles-François Gounod）[^3] (巴黎师高的学生，拉普拉斯和泊松的学生)《财富理论的数学原理》。很多人不能接受书中价格需求函数的数学表达，因此古诺又写了一个回避数学的版本（但依旧不火）。其去世 80 年后贡献才被肯定。
+**函数的使用**：[古诺](https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%B0%94%C2%B7%E5%8F%A4%E8%AF%BA)（Charles-François Gounod）[^3] （巴黎师高的学生，拉普拉斯和泊松的学生）《财富理论的数学原理》。很多人不能接受书中价格需求函数的数学表达，因此古诺又写了一个回避数学的版本（但依旧不火）。其去世 80 年后贡献才被肯定。
 
 **边际分析的先驱**：
 
@@ -39,19 +39,19 @@
 
 **数理模式的扩张**：瓦尔拉斯的一般均衡横空出世。证明存在价格使得市场供求平衡。不过瓦尔拉斯数学还不够好，他认为变量数等于方程数就有解，没有考虑方程组的秩。虽然证明不严谨，但思想的影响依旧深远。冯诺依曼也是基于一般均衡思考起了博弈论。
 
-瓦尔拉斯提出一般均衡理论 80 年后，[德布罗](https://zh.wikipedia.org/wiki/%E5%82%91%E6%8B%89%E5%BE%B7%C2%B7%E5%BE%B7%E5%B8%83%E9%AD%AF) (Gérard Debreu)《价值理论，经济均衡的一种公理化分析》（1959）才严格证明了一般均衡存在性。其和布劳威不动点是充要条件。
+瓦尔拉斯提出一般均衡理论 80 年后，[德布罗](https://zh.wikipedia.org/wiki/%E5%82%91%E6%8B%89%E5%BE%B7%C2%B7%E5%BE%B7%E5%B8%83%E9%AD%AF) （Gérard Debreu）《价值理论，经济均衡的一种公理化分析》（1959）才严格证明了一般均衡存在性。其和布劳威不动点是充要条件。
 
-**边际效用学派二代**：[埃奇沃思](https://zh.wikipedia.org/wiki/%E5%BC%97%E6%9C%97%E8%A5%BF%E6%96%AF%C2%B7%E4%BC%8A%E8%A5%BF%E5%BE%B7%E7%BD%97%C2%B7%E5%9F%83%E5%A5%87%E6%B2%83%E6%80%9D) 《数学心理学》、马歇尔《经济学原理》（[马歇尔](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E5%BC%97%E9%9B%B7%E5%BE%B7%C2%B7%E9%A9%AC%E6%AD%87%E5%B0%94) (Alfred Marshall)[^4]也是数学出身，是剑桥学派代表）。[凯恩斯](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E5%87%AF%E6%81%A9%E6%96%AF) (John Maynard Keynes)[^2]是马歇尔的学生。
+**边际效用学派二代**：[埃奇沃思](https://zh.wikipedia.org/wiki/%E5%BC%97%E6%9C%97%E8%A5%BF%E6%96%AF%C2%B7%E4%BC%8A%E8%A5%BF%E5%BE%B7%E7%BD%97%C2%B7%E5%9F%83%E5%A5%87%E6%B2%83%E6%80%9D) 《数学心理学》、马歇尔《经济学原理》（[马歇尔](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E5%BC%97%E9%9B%B7%E5%BE%B7%C2%B7%E9%A9%AC%E6%AD%87%E5%B0%94) （Alfred Marshall）[^4]也是数学出身，是剑桥学派代表）。[凯恩斯](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E5%87%AF%E6%81%A9%E6%96%AF) （John Maynard Keynes）[^2]是马歇尔的学生。
 
-**洛桑学派二代**：[帕累托](https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%B0%94%E5%BC%97%E9%9B%B7%E5%A4%9A%C2%B7%E5%B8%95%E7%B4%AF%E6%89%98) (Vilfredo Federico Damaso Pareto)（做了 20 年铁路采矿工程师）
+**洛桑学派二代**：[帕累托](https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%B0%94%E5%BC%97%E9%9B%B7%E5%A4%9A%C2%B7%E5%B8%95%E7%B4%AF%E6%89%98) （Vilfredo Federico Damaso Pareto）（做了 20 年铁路采矿工程师）
 
 **美国边际学派**： [费雪](https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%96%87%C2%B7%E8%B4%B9%E9%9B%AA)[^5]（Irving Fisher） 启发了凯恩斯。
 
-**奥地利学派后续**：门格尔的儿子成为了数学家，带出来两个重要人物，一个是哥德尔不完备猜想的[哥德尔](https://zh.wikipedia.org/wiki/%E5%BA%93%E5%B0%94%E7%89%B9%C2%B7%E5%93%A5%E5%BE%B7%E5%B0%94) (Gödel)，另外一个是统计学家沃尔德（wald）[^6]（计量 wald 检验）。[熊彼特](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9)（Joseph Alois Schumpeter）虽然是奥派出生，但其理论影响几乎独领风骚。
+**奥地利学派后续**：门格尔的儿子成为了数学家，带出来两个重要人物，一个是哥德尔不完备猜想的[哥德尔](https://zh.wikipedia.org/wiki/%E5%BA%93%E5%B0%94%E7%89%B9%C2%B7%E5%93%A5%E5%BE%B7%E5%B0%94) （Gödel），另外一个是统计学家沃尔德（wald）[^6]（计量 wald 检验）。[熊彼特](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9)（Joseph Alois Schumpeter）虽然是奥派出生，但其理论影响几乎独领风骚。
 
 ![2018年全国2卷的作文题目，主角正是 wald 。遗憾的是，wald 最后死于飞机事故。](/img/经济学与数学-20250102155048117.webp)
 
-宏观中最著名的数理方法是控制论[^8]，是维也纳一群无拘无束的科学家一起讨论形成的方法，其中就有冯诺依曼。最早将控制论认真引入经济学的是[艾伦](https://en.wikipedia.org/wiki/Alan_Blinder)（Alan Stuart Blinder）。早期引入控制论，大家更了解的可能是[菲利普斯]( https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_ (%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6))（Phillips）
+宏观中最著名的数理方法是控制论[^8]，是维也纳一群无拘无束的科学家一起讨论形成的方法，其中就有冯诺依曼。最早将控制论认真引入经济学的是[艾伦](https://en.wikipedia.org/wiki/Alan_Blinder)（Alan Stuart Blinder）。早期引入控制论，大家更了解的可能是[菲利普斯]( https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%E6%96%AF_ (%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%AE%B6)）（Phillips）
 [^7]。
 
 > 史树中老师将宏观模型粗暴地理解为控制论，是本书招致批评的主要原因之一。

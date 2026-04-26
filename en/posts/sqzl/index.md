@@ -1,7 +1,7 @@
 # 《Crossing Boundaries of Community》: Fluid Relations and the Origins of Communities
 
 
-> “Indeed,” he lit a cigarette, stretching comfortably against the armchair, replying, “You are looking, not observing. There is a clear distinction between these two.”
+> "Indeed," he lit a cigarette, stretching comfortably against the armchair, replying, "You are looking, not observing. There is a clear distinction between these two."
 > 
 > ————《Adventures of Sherlock Holmes: A Scandal in Bohemia》
 

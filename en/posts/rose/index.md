@@ -45,7 +45,7 @@ Dayun Temple is nominally open from 8:30 to 17:00. The entrance fee is 40 ￥ pe
 
 Inside, there are four halls: the Lower Niangniang Temple, the Temple of the God of Wealth, and one temple that is currently under renovation.
 
-The Chinese characters "招财进宝" mean to attract wealth and treasure. Here, the Chinese character "宝" is missing a part “、”, and they promote it as "少了一点你," implying that the part that is missing is you.
+The Chinese characters "招财进宝" mean to attract wealth and treasure. Here, the Chinese character "宝" is missing a part "、", and they promote it as "少了一点你," implying that the part that is missing is you.
 
 ![attract wealth and treasure](/img/调研小记：山与红玫瑰.zh-cn-20240617182329436.webp)
 

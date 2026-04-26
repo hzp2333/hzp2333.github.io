@@ -142,7 +142,7 @@ $\mathbf {p}$ : 商品价格， $w$ ：工资
 $$
 \large \bbox[#def,10px,border: 5px solid] {x_i^m=-\frac{\partial v/\partial p_i}{\partial v/\partial m} }
 $$
-($x_i^m$ 中的 m 表示的是马歇尔需求函数的意思，同理， $x_i^h$ 中的 h 是希克斯需求函数。）
+（$x_i^m$ 中的 m 表示的是马歇尔需求函数的意思，同理， $x_i^h$ 中的 h 是希克斯需求函数。）
 
 ### **证明过程：**
 
@@ -190,8 +190,8 @@ $$
 > 考虑两个消费者，两种商品的经济，消费者效用禀赋如下。  
 >$$
 > \begin{aligned}
-> u^{1}(x_{1},x_{2})&=\min\{x_{1},x_{2}\}&e^{1}=(30,0) \newline
-> \nu^{2}\left(p,y\right)&=\frac{y}{2\sqrt{p_{1}p_{2}}}&e^{2}=(0,20)\end{aligned}
+> u^{1}（x_{1},x_{2}）&=\min\{x_{1},x_{2}\}&e^{1}=（30,0） \newline
+> \nu^{2}\left（p,y\right）&=\frac{y}{2\sqrt{p_{1}p_{2}}}&e^{2}=（0,20）\end{aligned}
 > $$
 > 求发现瓦尔拉斯均衡
 

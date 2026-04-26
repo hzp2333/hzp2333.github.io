@@ -56,7 +56,7 @@ This survey was conducted at the village level, which made the social interactio
 
 - The suburbs of Beijing aren’t much different from my hometown. It is often assumed that poorer areas tend to favor sons over daughters, but here, due to men's jobs being insufficient to support a family and the bride price system, people actually feel it’s better to have daughters.
 
-- The attitude of the residents reflects the quality of governance. In areas with rampant corruption, villagers clearly distrusted us, feeling that despite all the surveys, nothing changes: “We common folks, no matter how much we talk, it doesn’t help.” In well-governed areas with good welfare, every response was filled with gratitude towards the state, with villagers willing to comply with any government directives.
+- The attitude of the residents reflects the quality of governance. In areas with rampant corruption, villagers clearly distrusted us, feeling that despite all the surveys, nothing changes: "We common folks, no matter how much we talk, it doesn’t help." In well-governed areas with good welfare, every response was filled with gratitude towards the state, with villagers willing to comply with any government directives.
 
 - I realized I am indeed quite careless! My fellow classmates, especially the female students, were much more meticulous than I was. Their questionnaire filling and reviewing were more rigorous, and I should learn from them.
 

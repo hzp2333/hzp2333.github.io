@@ -123,7 +123,7 @@ LaTeX 宏包使用：
 开源软件都是小巧玲珑的，不少解压即用。
 
 - [mathcha](https://www.mathcha.io/)（网页，付费）
-- [tikzcd-editor]( https://tikzcd.yichuanshen.de/ ) (很多回答提到了这个网站，但麻烦的是里面没有告诉需要的宏包，但是现在有了 gpt 了影响不大）
+- [tikzcd-editor]( https://tikzcd.yichuanshen.de/ ) （很多回答提到了这个网站，但麻烦的是里面没有告诉需要的宏包，但是现在有了 gpt 了影响不大）
 ```LaTeX
 \usepackage{tikz} \usetikzlibrary{cd} \\tikz子包 调用关系图tikzcd命令环境
 ```

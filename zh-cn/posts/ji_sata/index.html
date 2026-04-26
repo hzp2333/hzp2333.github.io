@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10272 ,
+        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10303 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,7 +248,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量数据的分组与测度（STATA 版）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10272 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10303 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
     
 
@@ -584,7 +584,7 @@ u_3 = X_1 - \gamma X_2
 $$
 展开变形，我们直接得到：<br>
 $$
-Y=\dot \beta X_1 + (\alpha-\gamma)X_2+u
+Y=\dot \beta X_1 + （\alpha-\gamma）X_2+u
 $$
 可以发现 $\dot \beta=\beta_1$ ,通过曲线救国，间接估计，我们估计出了我们想要的系数 $\beta_1$。虚拟二乘回归就是先回归$ Y $与虚拟变量 $D$，然后回归 $X_1$ 与 $D$ ，最后使用残差进行估计，因此系数和组内估计系数回归一致。</p>
 <p>通过 FWL 可以证明一阶差分估计和虚拟变量的估计是相等的。</p>
@@ -810,11 +810,11 @@ $$
 <blockquote>
 <p>默认回归是普通标准差，要求数据满足<strong>同方差</strong>；</p>
 <p>添加 r, 也就是 robust 后是稳健标准差，是为了解决数据<strong>异方差</strong>；</p>
-<p>添加 vce (cluster company) 是聚类稳健标准差，是为了解决数据<strong>异方差+内部自相关</strong>。</p>
+<p>添加 vce （cluster company） 是聚类稳健标准差，是为了解决数据<strong>异方差+内部自相关</strong>。</p>
 </blockquote>
 <h2 id="四机制检验">四、机制检验</h2>
 <h3 id="1机制检验在实证中的灰色地带">1、机制检验在实证中的灰色地带</h3>
-<p>辛普森悖论启示我们分组回归和整体回归的结果可能完全相反，原因之一就是遗漏变量。所以我们要添加控制变量。在使用&quot;面板数据”时，数据多了“时间”和“空间”两个维度。依然可能对研究产生影响，所以我们需要分离“个体效应”和“时间效应”。<strong>回答辛普森悖论——此时我们解决的是因果性问题，要求避免内生性。<strong>在机制检验中，有人用分组回归或者交互项回归来</strong>扩展结论，默认前提——机制检验的新变量不是你忽略的控制变量。</strong></p>
+<p>辛普森悖论启示我们分组回归和整体回归的结果可能完全相反，原因之一就是遗漏变量。所以我们要添加控制变量。在使用“面板数据”时，数据多了“时间”和“空间”两个维度。依然可能对研究产生影响，所以我们需要分离“个体效应”和“时间效应”。<strong>回答辛普森悖论——此时我们解决的是因果性问题，要求避免内生性。<strong>在机制检验中，有人用分组回归或者交互项回归来</strong>扩展结论，默认前提——机制检验的新变量不是你忽略的控制变量。</strong></p>
 <p>这里有个巨大的问题——<strong>在进行机制检验时，你又如何保证没有内生性呢？<strong>例如下图，最左边的是因果关系的对撞路径，右边是机制检验的调节效应、中介效应。很显然的地方在于，<strong>含有混杂因子的对撞效应依然能满足调节效应和中介效应</strong>。所以这又有了一个新的内生性问题！！！！所以朱家祥和张文睿（2021）<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>说</strong>调节效应是不满足统计学的因果关系检验</strong>的。在这基础上，江艇（2022）<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>干脆呼吁取消中介三步法，因为没有意义——这样既无法证明有内生性，也无法证明没有内生性。</p>
 <p>
 <img
@@ -871,7 +871,7 @@ $$
     </figure></p>
 <p>直接效应：$性别\rightarrow录取率$</p>
 <p>间接效应： $性别\rightarrow院系\rightarrow录取率$，在间接效应中，“院系”就是中介变量。</p>
-<p>如果我们直接将&quot;院系&quot;作为控制变量，此时展现的是性别-录取率的直接效应，回归会显示女性遭到了歧视。</p>
+<p>如果我们直接将“院系”作为控制变量，此时展现的是性别-录取率的直接效应，回归会显示女性遭到了歧视。</p>
 <p>如果我们只将“居住州”作为控制变量，此时展现的就是性别-录取的直接效应和性别-院系-录取率的间接效应，此时显示女性没有遭到歧视。截然不同的结果就是“辛普森悖论”。在咖啡中，我们犯错了是<strong>遗漏了变量</strong>；这里犯错是因为<strong>控制了“中介变量”</strong>。最终结论是，因为女生们敢于申请难度最大的院系所以看起来录取率低，所以院系是重要的中介变量并且不应该随便加以控制。</p>
 <p>所以中介变量不应该作为控制变量，同时如果我们要区分直接效应和中介效应，是需要进一步区分的。</p>
 <h3 id="3调节效应分组回归还是交互项">3、调节效应：分组回归还是交互项</h3>
@@ -953,7 +953,7 @@ $$
 <p>《计量经济学导论》（伍德里奇）</p>
 <p><em>《计量经济学基础》</em>（古扎拉蒂）</p>
 <p>《基本无害的计量经济学》（安格里斯特 / 皮施克）</p>
-<p>《因果推断实用计量方法》 (邱嘉平)</p>
+<p>《因果推断实用计量方法》 （邱嘉平）</p>
 <p>《高级计量经济学及 Stata 应用》（陈强）</p>
 <p>《回归分析》（谢宇）</p>
 <p>《为什么》（朱迪亚·珀尔）</p>
@@ -969,7 +969,7 @@ $$
 <hr>
 <ol>
 <li id="fn:1">
-<p>Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 （1）: 127-151.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2">
 <p>每每看到各类书用这个例子引出因果关系，总是感觉时间飞逝&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -990,13 +990,13 @@ $$
 <p>欢迎质疑。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:8">
-<p>朱家祥, 张文睿. 调节效应的陷阱[J]. 经济学 (季刊), 2021,21 (05): 1867-1876. DOI: 10.13821/j.cnki. Ceq. 2021.05.19.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>朱家祥, 张文睿. 调节效应的陷阱[J]. 经济学 （季刊）, 2021,21 （05）: 1867-1876. DOI: 10.13821/j.cnki. Ceq. 2021.05.19.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:9">
 <p>江艇. 因果推断经验研究中的中介效应与调节效应[J]. 中国工业经济[2023-12-28].&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:10">
-<p>P. J. Bickel et al. ,Sex Bias in Graduate Admissions: Data from Berkeley. Science 187,398-404 (1975). DOI: 10.1126/science. 187.4175.398&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>P. J. Bickel et al. ,Sex Bias in Graduate Admissions: Data from Berkeley. Science 187,398-404 （1975）. DOI: 10.1126/science. 187.4175.398&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:11">
 <p>Cleary P D, Kessler R C. The estimation and interpretation of modifier effects[J]. Journal of Health and Social Behavior, 1982: 159-169.12:&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -1396,7 +1396,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，351438 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，353056 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

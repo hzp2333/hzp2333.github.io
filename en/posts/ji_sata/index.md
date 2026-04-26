@@ -54,7 +54,7 @@ Simpson's Paradox is ubiquitous in life, such as measuring the efficacy of drugs
 - We should not only care about absolute values, such as the gender ratio of a certain outcome;
 - But also observe relative values, such as whether police focus more on people of color because they have higher crime rates;
 
-> **_《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》_**（2006）[^1] is based on "crime rates by race and police enforcement focus" to study racial bias in police enforcement in Florida. Since Floyd's "I can't breathe" went viral, many books have used this event to introduce counterfactual inference[^2] (e.g., *Mostly Harmless Econometrics* by **_Joshua D. Angrist_**).
+> **_《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》_**(2006)[^1] is based on "crime rates by race and police enforcement focus" to study racial bias in police enforcement in Florida. Since Floyd's "I can't breathe" went viral, many books have used this event to introduce counterfactual inference[^2] (e.g., *Mostly Harmless Econometrics* by **_Joshua D. Angrist_**).
 
 - We should also pay attention to internal stratification, such as by race, region, gender... as in the coffee consumption example above.
 

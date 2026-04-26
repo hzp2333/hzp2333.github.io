@@ -39,11 +39,11 @@ file.choose()
 | .txt                 | `read.table()`                                     |
 | .csv                 | `read.csv()` and `readr::read_csv()`               |
 | .xls and .xlsx       | `readxl::read_excel()` and `openxlsx::read.xlsx()` |
-| .sav (SPSS files)     | `haven::read_sav()` and `foreign::read.spss()`     |
+| .sav （SPSS files）     | `haven::read_sav()` and `foreign::read.spss()`     |
 | .Rdata or rda        | `load()`                                           |
 | .rds                 | `readRDS()` and `readr::read_rds()`                |
 | .dta                 | `haven::read_dta()` and `haven::read_stata()`      |
-| .sas 7 bdat (SAS files) | `haven::read_sas()`                                |
+| .sas 7 bdat （SAS files） | `haven::read_sas()`                                |
 | Internet             | `download.file()`                                  |
 
 遇到中文乱码则加入编码

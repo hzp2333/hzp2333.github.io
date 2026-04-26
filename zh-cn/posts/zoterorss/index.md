@@ -14,7 +14,7 @@
 
 ![zotero6如何导入rss订阅](/img/Zotero：RSS聚合订阅.en-20240523134830568.webp) ![输入后就可以识别编辑名称了](/img/Zotero：RSS聚合订阅.en-20240523134843505.webp)
 
-Zotero 7 (也就是 zotero beta) 载入订阅: 右键订阅
+Zotero 7 （也就是 zotero beta） 载入订阅: 右键订阅
 
 ![右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里](/img/Zotero：RSS聚合订阅.en-20240523134857161.webp)
 
@@ -79,7 +79,7 @@ https://rss.sciencedirect.com/publication/science/1043951X
 
 ###### American Economic Review
 
-《American Economic Review》（简称 AER）期刊网没有自己的 RSS 源，但是它归“American economic association”（简称 AEA) 管理。AEA 会定期更新旗下期刊的研究亮点（Highlight) 总结。
+《American Economic Review》（简称 AER）期刊网没有自己的 RSS 源，但是它归“American economic association”（简称 AEA） 管理。AEA 会定期更新旗下期刊的研究亮点（Highlight） 总结。
 
 RSS 如下：
 
@@ -102,7 +102,7 @@ https://onlinelibrary.wiley.com/feed/14680262/most-cited
 
 ###### Journal of Political Economy
 
-Journal of Political Economy (简称 JPE）归芝加哥大学管，芝加哥大学旗下全部期刊的 RSS 源可以参见如下 PDF 链接—— [芝加哥大学期刊RSS源](https://www.journals.uchicago.edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf)
+Journal of Political Economy （简称 JPE）归芝加哥大学管，芝加哥大学旗下全部期刊的 RSS 源可以参见如下 PDF 链接—— [芝加哥大学期刊RSS源](https://www.journals.uchicago.edu/pb-assets/docs/division/chicago-journals-rss-feeds-1694790368500.pdf)
 
 RSS 如下：
 
@@ -129,7 +129,7 @@ https://academic.oup.com/rss/site_5504/3365_56068.xml
 
 ###### Review of economic studies
 
-Review of economic studies (简称 RES）
+Review of economic studies （简称 RES）
 
 RSS 如下：
 
@@ -166,7 +166,7 @@ https://onlinelibrary.wiley.com/feed/10991255/most-recent
 https://onlinelibrary.wiley.com/feed/10991255/most-cited
 ```
 
-Journal of Labor Economics (简称 JLE）劳动经济学领域
+Journal of Labor Economics （简称 JLE）劳动经济学领域
 
 ```
 最新一期

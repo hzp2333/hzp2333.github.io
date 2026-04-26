@@ -45,7 +45,7 @@
 
 ### APC 面板
 
->论文使用的**巴西全国抽样家庭调查 (PNAD)** 的多个横截面，覆盖了1981-1990、1992-1993、1995-1999、2001-2009、2011-2014等年份。
+>论文使用的**巴西全国抽样家庭调查 （PNAD）** 的多个横截面，覆盖了1981-1990、1992-1993、1995-1999、2001-2009、2011-2014等年份。
 
 关于 APC 面板——可以参考个人以前的笔记：《 [ HLT: 生命周期与工资分解](https://blog.huaxiangshan.com/zh-cn/posts/hlt/)》中的第一节阐述。论文虽然使用 APC 面板，但其实并未分解相关效应，而是通过限制 age 队列，然后通过事件分析法进行对比论证人们对政策反应的不同。
 
@@ -63,7 +63,7 @@
 
 人口统计学常常使用 APC 面板绘制 Lexis 图：
 
-横纵坐标为年份时间（period）和年龄时间 (age)，中间线条按照队列（Cohort）进行分组，通过对比线条趋势和区别展开分析和预测。
+横纵坐标为年份时间（period）和年龄时间 （age），中间线条按照队列（Cohort）进行分组，通过对比线条趋势和区别展开分析和预测。
 
 ![ Lexis 图（图片来源维基百科）](/img/养老金和生育率-20240712020948263.webp)
 
@@ -72,9 +72,9 @@
 
 #### 因变量
 
-**短期效应**：如果妇女在数据收集年份一年内内生育了孩子，则值为 1，否则为 0 (基于家庭花名册和出生数据) 。样本包括 1981 年至 1999 年育龄 (15 岁至 44 岁) 的女性受访者。
+**短期效应**：如果妇女在数据收集年份一年内内生育了孩子，则值为 1，否则为 0 （基于家庭花名册和出生数据） 。样本包括 1981 年至 1999 年育龄 （15 岁至 44 岁） 的女性受访者。
 
-**长期效应**：45岁女性的生育总数（包括存活和死亡的孩子）。样本包括1930年至1969年出生的女性受访者，她们在特定调查年份的年龄在45岁至69岁之间。作者将在调查年（1984-2014）年龄高于45岁的受访者的生育总数回溯到她们45岁时(1975-2014)的生育数。
+**长期效应**：45岁女性的生育总数（包括存活和死亡的孩子）。样本包括1930年至1969年出生的女性受访者，她们在特定调查年份的年龄在45岁至69岁之间。作者将在调查年（1984-2014）年龄高于45岁的受访者的生育总数回溯到她们45岁时（1975-2014）的生育数。
 
 实验组为城市职工；对照组为农村职工。
 
@@ -104,7 +104,7 @@ $$
 分组回归中，**年轻群体**（15-29岁）不显著，**年长群体**（30-44岁）生育率显著下降；孩子数量越多，孩子男性比例越多，生育欲望越低。
 ##### 工具变量
 
-将 did（养老金改革政策实施差异） 视为养老金($\ln(pensionwealth)_{igtr}$)的工具变量。
+将 did（养老金改革政策实施差异） 视为养老金（$\ln(pensionwealth)_{igtr}$）的工具变量。
 
 一阶段：
 $$
@@ -137,7 +137,7 @@ $$
 >
 >对于这个细节，我也邮件询问了两位作者，得到如下回复（非常感谢两位老师的热心回复🥰）。
 > ![我也邮件询问了两位作者，得到了如下回信（片段）](/img/养老金和生育率-20240716234809029.webp)
-> >In the short run (SR), we control for time fixed effects (FE) and age dummies. For the long run (LR), our sample includes women aged 45-69 years. We interpret their number of children as the number of children at age 45, regardless of their current age. Therefore, we control for different fertility patterns depending on the birth year of the women, which is why we include cohort fixed effects in the event study section. In this context, (current) time fixed effects are not relevant because we are looking at retrospective fertility patterns (in the past).
+> >In the short run （SR）, we control for time fixed effects （FE） and age dummies. For the long run （LR）, our sample includes women aged 45-69 years. We interpret their number of children as the number of children at age 45, regardless of their current age. Therefore, we control for different fertility patterns depending on the birth year of the women, which is why we include cohort fixed effects in the event study section. In this context, （current） time fixed effects are not relevant because we are looking at retrospective fertility patterns （in the past）.
 > >
 > >To summarize, in the SR, time FE and age dummies are used, while in the LR, we use cohort FE to account for differences in fertility patterns based on birth year. Time FE do not coexist in the LR analysis because they do not directly apply to the retrospective nature of the data.
 > 
@@ -148,7 +148,7 @@ $$
 ![工具变量部分](/img/养老金和生育率-20240713210232124.webp)
 #### 混杂因子
 
-比较农村和城市妇女之间的婚姻率，教育，医疗保健，收入，财富和就业的趋势；讨论了巴西文化变革在宗教和电视剧方面的作用、贸易自由化的作用，以及在儿童数量与对其质量 (即教育) 的投资之间的数量-质量平衡模式。
+比较农村和城市妇女之间的婚姻率，教育，医疗保健，收入，财富和就业的趋势；讨论了巴西文化变革在宗教和电视剧方面的作用、贸易自由化的作用，以及在儿童数量与对其质量 （即教育） 的投资之间的数量-质量平衡模式。
 
 ![描述统计可以看出，婚姻率，教育，医疗保健，收入，财富和就业的趋势没有随着改革产生突然变化，同时农村和城市有着相同的趋势](/img/养老金和生育率-20240713202608425.webp)
 

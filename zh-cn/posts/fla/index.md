@@ -52,11 +52,11 @@
 
 * * *
 
-所以范里安在书中说 ( _英文教材原链接：[《Intermediate Microeconomics》](http://candrafajriananda.lecture.ub.ac.id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
+所以范里安在书中说 （ _英文教材原链接：[《Intermediate Microeconomics》](http://candrafajriananda.lecture.ub.ac.id/files/2017/09/e-books-MICRO-INTERMDEDIATE-ed9-VARIAN.pdf))_
 
 > That’s because he is average, not because of any causal connection
 
-范里安区分了“消费者”和“平均消费者”。也就是市场上的富哥 (消费者) 不会被押金影响，但打工人会，最后市场整体（平均消费者）就会下降。
+范里安区分了“消费者”和“平均消费者”。也就是市场上的富哥 （消费者） 不会被押金影响，但打工人会，最后市场整体（平均消费者）就会下降。
 
 ### 其二：税收摩擦，跨期视角
 

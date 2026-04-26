@@ -74,7 +74,7 @@ Years later, as an adult suffering from misfortunes, Yuta returns to the place w
 - <font color="#ff0000">The answer is clear: from beginning to end, Yuta was filming himself.</font>
 - More importantly, the entire narrative is about Yuta filming how he perceives himself.
 
-In the second story, Eri once said—“**What I want you to film is a movie about yourself, Yuta.**”
+In the second story, Eri once said—"**What I want you to film is a movie about yourself, Yuta.**"
 
 > Thus, the third act can be interpreted as Yuta’s father’s role—because vampires cannot exist in reality.
 

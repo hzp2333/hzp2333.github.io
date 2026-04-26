@@ -121,3 +121,4 @@ The successful mathematics in economics is actually an abstraction of the essenc
 [^5]: What you need to know in finance and monetary studies—Fisher equation. It contains the idea of dichotomy, nominal and real.
 [^6]: His more famous story is the U.S. military survivor bias, which was also a multiple-choice question in the 2017 college entrance exam.
 [^7]: Phillips curve, the trade-off between inflation and unemployment.
+

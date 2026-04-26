@@ -49,7 +49,7 @@
 
 > 在漫长的经济增长史中，似乎只发生了一件事——工业革命。
 > 
-> ——格里高利·克拉格（经济学家）（[Gregory Clark]( https://en.wikipedia.org/wiki/Gregory_Clark_ (economist))）
+> ——格里高利·克拉格（经济学家）（[Gregory Clark]( https://en.wikipedia.org/wiki/Gregory_Clark_ (economist)））
 
 ![如图,世界人均收入，人们一般划分两个时期，马尔萨斯前和马尔萨斯后](/img/富种起源-20250118181734292.webp)
 
@@ -100,7 +100,7 @@
 
 下图是其中一个场景分析:
 
-人们对效用品偏好增加(无差异曲线变得平坦)。
+人们对效用品偏好增加（无差异曲线变得平坦）。
 此时均衡低于人口平衡线（生产可能性曲线扩展）。
 最终形成新的均衡。
 
@@ -315,10 +315,10 @@ $$
 [^2]: 为何中国、印度这样的东方社会，没能在政治、经济、科学乃至艺术领域走上独立于西方之外的理性化道路？
 [^3]:西方世界在19世纪克服了增长限制，超越了以前占主导地位或类似的中东和亚洲文明
 [^4]: Höglund J, Sheldon B C. The cost of reproduction and sexual selection[J]. Oikos, 1998: 478-483.
-[^5]: Jones C I. Was an industrial revolution inevitable? Economic growth over the very long run[J]. The BE Journal of Macroeconomics, 2001, 1(2): 153460131028.
-[^6]: Galor O, Weil D N. Population, technology, and growth: From Malthusian stagnation to the demographic transition and beyond[J]. American economic review, 2000, 90(4): 806-828.
-[^7]: Galor O, Moav O. Natural selection and the origin of economic growth[J]. The Quarterly Journal of Economics, 2002, 117(4): 1133-1191.
-[^8]: Hansen G D, Prescott E C. Malthus to solow[J]. American economic review, 2002, 92(4): 1205-1217.
+[^5]: Jones C I. Was an industrial revolution inevitable? Economic growth over the very long run[J]. The BE Journal of Macroeconomics, 2001, 1（2）: 153460131028.
+[^6]: Galor O, Weil D N. Population, technology, and growth: From Malthusian stagnation to the demographic transition and beyond[J]. American economic review, 2000, 90（4）: 806-828.
+[^7]: Galor O, Moav O. Natural selection and the origin of economic growth[J]. The Quarterly Journal of Economics, 2002, 117（4）: 1133-1191.
+[^8]: Hansen G D, Prescott E C. Malthus to solow[J]. American economic review, 2002, 92（4）: 1205-1217.
 [^9]: 在刘慈欣的这个小说中，球状闪电是一种难以肉眼观测到的宏原子，只是和闪电发生反应时容易被注意到。
 [^10]: 这本书是经济周期论，同时认为现代中国经济是古代思想的一种延续。当时国民进退论比较火，这本书基本上也是这个基调。
 [^11]: 初中课文。我印象深刻还是因为上课老师问《紫藤萝瀑布》主题是什么，我刚好有印象，就回答上了，于是印象更深刻了。

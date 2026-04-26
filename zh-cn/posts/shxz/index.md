@@ -67,7 +67,7 @@
 > 
 > **例子 5.** 正式会议要穿西服；结婚需要彩礼；探病最好不要空手...... 这些非正式规则（这一概念由诺斯提出）无时无刻约束着大家。这些制度实际上具有相当大的执行弹性，我们不能单纯从资源利用最大化的角度理解非正式规则。
 
-也就是说，制度演化混杂了太多非理性因素与非物质因素，尤其是文化宗教这类。如何认识这种制度中非最优、非完全理性的制度演化，制度经济学又分为了基于积极运用新古典经济新制度经济学学派（如 Dron）和抛弃新古典经济学的旧制度经济学派（例如萨缪尔森（Samuelson））。(这只是诺斯的一种分法)
+也就是说，制度演化混杂了太多非理性因素与非物质因素，尤其是文化宗教这类。如何认识这种制度中非最优、非完全理性的制度演化，制度经济学又分为了基于积极运用新古典经济新制度经济学学派（如 Dron）和抛弃新古典经济学的旧制度经济学派（例如萨缪尔森（Samuelson））。（这只是诺斯的一种分法）
 
 > 一些区分标准：制度的定义；理性与非理性假设边界；制度演化是否自发，相对经济外生还是内生；制度变迁的动力；人在制度变迁的地位；用经济解释制度还是用制度解释经济......
 
@@ -147,7 +147,7 @@ $$
 N(x\succ_{i}y)>N(y\succ_{i}x)\Rightarrow\quad x\succ y $$
 
 $$
-N(x\succ_{i}y)=N(y\succ_{i}x)\Rightarrow\quad x\sim y
+N（x\succ_{i}y）=N（y\succ_{i}x）\Rightarrow\quad x\sim y
 $$
 
 > **梅伊定理（May）**: 社会福利泛函是多数票的充分必要性是以下三个性质：
@@ -175,12 +175,12 @@ $$
 
 最后将每个选项的顺序加总。
 $$
-c(x)=\sum_{i=1}^{n}c_{i}(x)
+c（x）=\sum_{i=1}^{n}c_{i}（x）
 $$
 总数越小，社会偏好越靠前。
 
 $$
-c(x)<c(y)\quad\Leftrightarrow\quad x\succ y
+c（x）<c（y）\quad\Leftrightarrow\quad x\succ y
 $$
 
 看起来很靠谱？但是**博达计数方案**违背了独立性：
@@ -193,9 +193,9 @@ $$x\succ_1z\succ_1y,\quad y\succ_2x\succ_2z$$
 两两排序比较进行计数：
 
 $$
-c_{1}(x)=1, c_{2}(x)=2\quad\Rightarrow\quad c(x)=c_{1}(x)+c_{2}(x)=3$$
+c_{1}（x）=1, c_{2}（x）=2\quad\Rightarrow\quad c（x）=c_{1}（x）+c_{2}（x）=3$$
 
-$$c_{1}(y)=3, c_{2}(y)=1\quad\Rightarrow\quad c(y)=c_{1}(y)+c_{2}(y)=4
+$$c_{1}（y）=3, c_{2}（y）=1\quad\Rightarrow\quad c（y）=c_{1}（y）+c_{2}（y）=4
 $$
 
 于是得到社会偏好 $x\succ y$。
@@ -208,10 +208,10 @@ $$
 得到如下计数：
 
 $$
-c_1(x)=1, c_2(x)=3\quad\Rightarrow\quad c(x)=c_1(x)+c_2(x)=4
+c_1（x）=1, c_2（x）=3\quad\Rightarrow\quad c（x）=c_1（x）+c_2（x）=4
 $$
 $$
-c_1(y)=2, c_2(y)=1\quad\Rightarrow\quad c(y)=c_1(y)+c_2(y)=3
+c_1（y）=2, c_2（y）=1\quad\Rightarrow\quad c（y）=c_1（y）+c_2（y）=3
 $$
 
 社会偏好 $y\succ x$ 竟然发生了逆转！

@@ -143,7 +143,7 @@ $$Y\_{i}\equiv ln(0.01+LightIntensity\_{i,2013})-ln(0.01+LightIntensity\_{i,1996
 
 #### 排除四川效应
 
-四川面积变小也可能会使得四川省提供公共物品的效率提升。因此使用四川相邻的其他省份 (**甘肃、贵州、青海、陕西和云南**) 边界区域数据进行检验。
+四川面积变小也可能会使得四川省提供公共物品的效率提升。因此使用四川相邻的其他省份 （**甘肃、贵州、青海、陕西和云南**） 边界区域数据进行检验。
 
 ![如图](/img/行政规划与经济发展.zh-cn-1761490252878.webp)
 #### 排除政治溢出效应
@@ -226,20 +226,20 @@ $$Y\_{i}\equiv ln(0.01+LightIntensity\_{i,2013})-ln(0.01+LightIntensity\_{i,1996
 
 
 
-[^1]: Allen R C, Bertazzini M C, Heldring L. The economic origins of government[J]. American Economic Review, 2023, 113(10): 2507-2545.
+[^1]: Allen R C, Bertazzini M C, Heldring L. The economic origins of government[J]. American Economic Review, 2023, 113（10）: 2507-2545.
 
-[^2]: Acemoglu D, De Feo G, De Luca G D. Weak states: Causes and consequences of the Sicilian Mafia[J]. The Review of Economic Studies, 2020, 87(2): 537-581.
+[^2]: Acemoglu D, De Feo G, De Luca G D. Weak states: Causes and consequences of the Sicilian Mafia[J]. The Review of Economic Studies, 2020, 87（2）: 537-581.
 
-[^3]: Dipoppa, G. (2025). How criminal organizations expand to strong states: local agreements and migrant exploitation in Northern Italy. The Journal of Politics, 87(2), 000-000.
+[^3]: Dipoppa, G. （2025）. How criminal organizations expand to strong states: local agreements and migrant exploitation in Northern Italy. The Journal of Politics, 87（2）, 000-000.
 
-[^4]: Sánchez De La Sierra R. On the origins of the state: Stationary bandits and taxation in eastern congo[J]. Journal of Political Economy, 2020, 128(1): 000-000.
+[^4]: Sánchez De La Sierra R. On the origins of the state: Stationary bandits and taxation in eastern congo[J]. Journal of Political Economy, 2020, 128（1）: 000-000.
 
-[^5]: Gallagher, J. (2014). Learning about an Infrequent Event: Evidence from Flood Insurance Take-Up in the United States. American Economic Journal: Applied Economics, 6(3), 206–233.
+[^5]: Gallagher, J. （2014）. Learning about an Infrequent Event: Evidence from Flood Insurance Take-Up in the United States. American Economic Journal: Applied Economics, 6（3）, 206–233.
 
-[^6]: Talhelm T, Zhang X, Oishi S, et al. Large-scale psychological differences within China explained by rice versus wheat agriculture[J]. Science, 2014, 344(6184): 603-608.
+[^6]: Talhelm T, Zhang X, Oishi S, et al. Large-scale psychological differences within China explained by rice versus wheat agriculture[J]. Science, 2014, 344（6184）: 603-608.
 [^7]: 当然我个人觉得地理断点一个内生性在于中心外围城市论，边界的发展和中心的发展强关联。
 
 [^8]: 为什么治理一定要分级，看似显而易见的现实往往并不容易给出显而易见的回答。例如继续深问：怎样的政治分级才是合理的？这就是一个非常复杂的问题了。
 
-[^9]: Gottlieb, J., Grossman, G., Larreguy, H., Marx, B., 2019. A signaling theory of distributive policy choice: evidence from Senegal. J. Polit. 81 (2), 631–647
+[^9]: Gottlieb, J., Grossman, G., Larreguy, H., Marx, B., 2019. A signaling theory of distributive policy choice: evidence from Senegal. J. Polit. 81 （2）, 631–647
 

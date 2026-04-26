@@ -58,5 +58,5 @@ CUDA 官网下载后进行第一次下载地址选择。
 
 ## 参考资料
 
-- [OSError: [WinError 126] The specified module could not be found]( https://github.com/pytorch/pytorch/issues/131662 )
+- [OSError: [WinError 126] The specified module could not be found]（ https://github.com/pytorch/pytorch/issues/131662 ）
 - [LeNet 学习笔记](https://blog.bdim.moe/zh/posts/2024-7-13/)

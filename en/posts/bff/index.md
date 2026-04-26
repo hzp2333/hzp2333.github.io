@@ -294,3 +294,4 @@ $$
 \varepsilon_{\pi P'} = 1 - \frac{\pi_\varepsilon}{\pi}
 $$
 In other words, in dynamic monopoly, firms should continuously adjust their profit functions based on this relationship.
+

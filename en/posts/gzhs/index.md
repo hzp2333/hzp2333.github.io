@@ -1,4 +1,4 @@
-# Explaining the "Trendy Toy Craze": From Network Effects to Multiple Equilibria
+# Explaining the Trendy Toy Craze: From Network Effects to Multiple Equilibria
 
 
 > "Man is by nature a political animal, but the human heart is not easily fathomed." — Aristotle
@@ -191,3 +191,4 @@ Economics today has moved toward complexity economics. Complexity economists emp
 [^5]: Three-stage production function, so firms only produce in the second stage. The process involves comparing marginal product (mp) and average product (ap).
 [^6]: Actually, elasticity can also be seen as dimensionless rate of change.
 [^7]: *The General Theory of Employment, Interest and Money* (1936)
+

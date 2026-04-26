@@ -12,11 +12,11 @@
 
 `ESRI Shapefile` 文件是由[美国环境系统研究所](https://www.esri.com/en-us/home)开发的空间地理数据。里面同时储存空间位置和特征数据。其基本文件主要为：
 
-- **主文件 (. Shp)：** 存储几何要素的的空间信息，也就是 XY 坐标。Gis 图片的地图轮廓信息就是这个文件储存的。
+- **主文件 （. Shp）：** 存储几何要素的的空间信息，也就是 XY 坐标。Gis 图片的地图轮廓信息就是这个文件储存的。
 
-- **表文件 (. Dbf)：** 存储地理数据的属性信息的 dBase 表。
+- **表文件 （. Dbf）：** 存储地理数据的属性信息的 dBase 表。
 
-- **索引文件 (. Shx)：** 存储有关 .shp 存储的索引信息。它记录了在 .shp 中，空间数据是如何存储的，XY 坐标的输入点在哪里，有多少 XY 坐标对等信息。
+- **索引文件 （. Shx）：** 存储有关 .shp 存储的索引信息。它记录了在 .shp 中，空间数据是如何存储的，XY 坐标的输入点在哪里，有多少 XY 坐标对等信息。
 
 这里介绍写我找到的一些数据源：
 
@@ -28,7 +28,7 @@
 
 - [github随手找到的中国地图数据](https://github.com/GaryBikini/ChinaAdminDivisonSHP)
 
-- [Rstata资料](https://github.com/Wsf921109/stata-prov-map?tab=readme-ov-file)：中国地图省级分区。国内买课世界一流，个人觉得 stata 专题做得最好的是“连享会"和"Rstata"。即便我是坚定的~~白嫖~~开源主义，也经常看他们的科普文章学习 stata。此处是有好心人上传了 Rstata 相关的数据库。
+- [Rstata资料](https://github.com/Wsf921109/stata-prov-map?tab=readme-ov-file)：中国地图省级分区。国内买课世界一流，个人觉得 stata 专题做得最好的是“连享会“和”Rstata“。即便我是坚定的~~白嫖~~开源主义，也经常看他们的科普文章学习 stata。此处是有好心人上传了 Rstata 相关的数据库。
 
 - [中科院地资所](https://www.resdc.cn/Default.aspx)：或许是国内的半官方？
 
@@ -624,8 +624,8 @@ geoframe create rivers   `url'Italy-Rivers.dta, feature(water)
 
 含义解释：
 
-> Geoframe create 调用名字地图标签文件和, id (独特标识) coord (经度纬度) ///
-> Shpfile (地图轮廓文件)
+> Geoframe create 调用名字地图标签文件和, id （独特标识） coord （经度纬度） ///
+> Shpfile （地图轮廓文件）
 >
 > 每一个宏定义代表一个图层。
 >

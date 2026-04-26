@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/hlt\/"
-        },"genre": "posts","keywords": "文献阅读, Stata","wordcount":  5668 ,
+        },"genre": "posts","keywords": "文献阅读, Stata","wordcount":  5692 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/hlt\/","datePublished": "2024-01-19T09:58:30+08:00","dateModified": "2024-01-19T09:58:30+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -248,7 +248,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HLT: 生命周期与工资分解</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-19">2024-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5668 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-19">2024-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5692 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;
     
 
@@ -294,10 +294,10 @@ loadMathJax();
             </div><div class="content" id="content"><h1 id="生命周期与工资分解">生命周期与工资分解</h1>
 <p>起因是看到了《中国工业经济》的《户籍制度下劳动力的经验人力资本: 生命周期视角》 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，觉得关于生命周期工资的分解理论太顶级了，这样的思路怎能不发顶刊！？在阅读过程中发现其分析框架果然来自 JPE 的《Life cycle wage growth across countries》（2018）<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>的 Heckman-Lochner-Taber 算法（简称 HLT），沿用的也是里面的 do 文件，这里记录下学习 HLT 的笔记，并且记录理论变化和数理推导过程。</p>
 <blockquote>
-<p>在查找相关文献中也发现了很多基于 HLT 法本土化的论文——如何把国外优秀论文化为己用，怎么找到微小的计量创新点，看看别人做了哪些微改变确实让人深思，这点在最后分享（dog.jpg)</p>
+<p>在查找相关文献中也发现了很多基于 HLT 法本土化的论文——如何把国外优秀论文化为己用，怎么找到微小的计量创新点，看看别人做了哪些微改变确实让人深思，这点在最后分享（dog.jpg）</p>
 </blockquote>
 <h2 id="apc-面板与生命周期">APC 面板与生命周期</h2>
-<p><strong>明瑟收入方程（Mincer earnings function)</strong> 较早讨论了人力资本投入的回报关系<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>：</p>
+<p><strong>明瑟收入方程（Mincer earnings function）</strong> 较早讨论了人力资本投入的回报关系<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>：</p>
 <p>$$ ln(w)=\alpha_0+\beta_ss+\beta_0\exp+\beta_1\exp^2+\gamma X_i+\varepsilon$$</p>
 <p>$s$ 代表受教育水平，$exp$ 代表工作经验水平 $experience$ ， $X_i$ 是其他控制变量。</p>
 <blockquote>
@@ -335,7 +335,7 @@ loadMathJax();
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124632737.webp" />
     </a><figcaption class="image-caption">《Life cycle wage growth across countries》（Lagakos等，2018）工资与工作经验相关图</figcaption>
     </figure></p>
-<p>这种面板数据要考虑<strong>年龄 age、时间段 period、群组 cohort</strong>作为自变量，也叫 The Age-Period-Cohort Model（简称 APC）。在劳经中，APC 面板数据的估计一直是个热点<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> (大神 Deaton 力挺，毕竟是自己在经济分析中建立的框架）。</p>
+<p>这种面板数据要考虑<strong>年龄 age、时间段 period、群组 cohort</strong>作为自变量，也叫 The Age-Period-Cohort Model（简称 APC）。在劳经中，APC 面板数据的估计一直是个热点<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> （大神 Deaton 力挺，毕竟是自己在经济分析中建立的框架）。</p>
 <p>对于估计式：</p>
 <p>$$ln(w_{ict})=\alpha+\theta(s_{ict})+f(x_{ict})+\gamma_{t}+\chi_{c}+\varepsilon_{ict}$$</p>
 <p>当我们使用 APC 数据直接回归时，会产生<strong>共线性</strong>的问题——<strong>年龄+出生年份=当前年份</strong>。</p>
@@ -401,7 +401,7 @@ loadMathJax();
             <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>虚拟变量（dummy)知识点<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">回顾一下计量中虚拟变量（dummy) 的知识点： 一般是 n 个分类为避免共线性生成 n-1 个虚拟变量。也就是说这里如果 5 年一段，30 年会分成 6 段，那么一般省略 0-4 年这段，生成 5 个虚拟变量。生成的系数都是和遗漏部分相比得出的结论。也就是说，每个系数是相较于 0-4 年分段的增长水平。</div>
+            <div class="admonition-content">回顾一下计量中虚拟变量（dummy） 的知识点： 一般是 n 个分类为避免共线性生成 n-1 个虚拟变量。也就是说这里如果 5 年一段，30 年会分成 6 段，那么一般省略 0-4 年这段，生成 5 个虚拟变量。生成的系数都是和遗漏部分相比得出的结论。也就是说，每个系数是相较于 0-4 年分段的增长水平。</div>
         </div>
     </div>
 <p>$\gamma_{t}$: 时间效应。$\chi_{c}$ 个体效应。</p>
@@ -558,10 +558,10 @@ $$
 <hr>
 <ol>
 <li id="fn:1">
-<p>盖庆恩, 胡涟漪, 王美知等. 户籍制度下劳动力的经验人力资本: 生命周期视角[J/OL]. 中国工业经济,2023 (11): 62-80[2024-01-16].https://doi.org/10.19581/j.cnki.ciejournal.2023.11.003.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>盖庆恩, 胡涟漪, 王美知等. 户籍制度下劳动力的经验人力资本: 生命周期视角[J/OL]. 中国工业经济,2023 （11）: 62-80[2024-01-16].https://doi.org/10.19581/j.cnki.ciejournal.2023.11.003.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2">
-<p>Lagakos D , Moll B , Porzio T ,et al. Life Cycle Wage Growth across Countries[J]. University of Chicago, 2017 (2). DOI: 10.1086/696225.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Lagakos D , Moll B , Porzio T ,et al. Life Cycle Wage Growth across Countries[J]. University of Chicago, 2017 （2）. DOI: 10.1086/696225.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3">
 <p>其他估计方法还有工具变量法、双胞胎数据、内部收益函数（泛函最优化分析）、双重差分&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -570,7 +570,7 @@ $$
 <p>Heckman J J, Lochner L J, Todd P E. Earnings functions, rates of return and treatment effects: The Mincer equation and beyond[J]. Handbook of the Economics of Education, 2006, 1: 307-458.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:5">
-<p>《Arrival of Young Talent: The Send- Down Movement and Rural Education in China》（陈祎等，2020) 使用了队列 did 估计上山下乡对中国教育的影响。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>《Arrival of Young Talent: The Send- Down Movement and Rural Education in China》（陈祎等，2020） 使用了队列 did 估计上山下乡对中国教育的影响。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:6">
 <p>Ribas R P. Using pseudo-panels to analyse labour market transitions[J]. 2022.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -582,16 +582,16 @@ $$
 <p>Deaton A. The analysis of household surveys: a microeconometric approach to development policy[M]. World Bank Publications, 1997.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:9">
-<p>McKenzie D J. Disentangling age, cohort and time effects in the additive model[J]. Oxford bulletin of economics and statistics, 2006, 68 (4): 473-495.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>McKenzie D J. Disentangling age, cohort and time effects in the additive model[J]. Oxford bulletin of economics and statistics, 2006, 68 （4）: 473-495.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:10">
 <p>个人感觉没有详细讨论受教育年龄就是这个方法的薄弱之处，尤其是如今的工作和考研之争。不过在线性假设下，教育变量也会因为差分被消除&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:11">
-<p>Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 （4）: 665-706.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:12">
-<p>Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 （4）: 665-706.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:13">
 <p>下载后解压后缀名换成 zip 就行，是 statado 文件和相关论文的 pdf&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -991,7 +991,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，351438 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，353056 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

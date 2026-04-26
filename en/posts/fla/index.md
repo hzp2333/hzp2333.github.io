@@ -1,4 +1,4 @@
-# Analysis of the Tax Refund Case in Varian’s "Microeconomics"
+# Analysis of the Tax Refund Case in Varian's Microeconomics
 
 
 In the classic textbook "Intermediate Microeconomics: A Modern Approach" by Varian, there is a famous "tax refund case" in Chapter 8, "Slutsky Equation" (9th Edition, Page 100). **The key concepts examined are income effect and substitution effect.**
@@ -82,3 +82,4 @@ $$
 \begin{cases} \text{Before:   }px+y=m\newline \text{Now:   }(p+t)x\prime+y\prime=m+tx\prime \end{cases}
 $$
 ![Diagram](/img/范里安《微观经济学》退税案例解析.zh-cn-20240523101844324.webp)
+

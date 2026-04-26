@@ -175,7 +175,7 @@ https://www.bis.org/doclist/all_statistics.rss
 
 ### Publications in Subfields Beyond the Top 5 Journals
 
-Journal of Applied Econometrics（JAE）
+Journal of Applied Econometrics(JAE)
 
 ```
 Latest Issue: 

@@ -177,7 +177,7 @@ A concrete example: Athens had an extraordinarily advanced civilization and prac
 
 > From this angle, I think *The Origin of Rich Species* can even absorb *Why Nations Fail*, and it may also explain why inclusive institutions could fail in their early stages.
 > 
-> It also suggests that time travelers would be useless 😄（
+> It also suggests that time travelers would be useless 😄(
 
 To sum up, if the utility-goods sector grows far faster than the subsistence-goods sector, it becomes easier to attack. The same can be said of China's Song dynasty.
 

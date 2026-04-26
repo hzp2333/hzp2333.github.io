@@ -104,7 +104,7 @@ cursor.movePosition(1, cursorEnums.StartOfLine);
 *(.+) ：括号就是一个环境，代表分隔符-中的环境。其中.+代表一个及其以上字符，如果要求至少两个字符，使用.+.即可。
 ```
 
-逻辑也不难，触发器三个括号的正则识别内容对应着代码里的 env 、title、label。填入构造代码模板，然后移动光标。(唯一问题是 texstudio 正则识别对中文符号的兼容太差了)
+逻辑也不难，触发器三个括号的正则识别内容对应着代码里的 env 、title、label。填入构造代码模板，然后移动光标。（唯一问题是 texstudio 正则识别对中文符号的兼容太差了）
 
 ![如图](/img/texstudio.zh-cn.md-1760491203042.webp)
 
@@ -115,7 +115,7 @@ Texstudio 页面。
 
 ![如图](/img/LaTeX入门.zh-cn-1758093039527.webp)
 
-先下载 java (请自行寻找教程)
+先下载 java （请自行寻找教程）
 
 然后下载免费的语法检查助手—— [https://languagetool.org/download/](https://languagetool.org/download/)
 

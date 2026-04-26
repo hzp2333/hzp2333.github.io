@@ -1,4 +1,4 @@
-# "The Copernican moment" and research taste
+# The Copernican Moment and Research Taste
 
 
 {{< music url="/music/Travelers_encore.mp3" name="Travelers_encore" artist="星际拓荒" cover="/images/星际拓荒.webp" >}} 

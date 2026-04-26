@@ -188,12 +188,12 @@ $$
 $$ 人均水平再除以 H,
 
 $$
-\begin{cases}x=A(1-\beta)\left(\frac{H}{L}\right)^{\gamma-1}\\\\y=B\beta\left(\frac{H}{L}\right)^{\gamma-1}&\end{cases}
+\begin{cases}x=A（1-\beta）\left（\frac{H}{L}\right）^{\gamma-1}\\\\y=B\beta\left（\frac{H}{L}\right）^{\gamma-1}&\end{cases}
 $$
 产品决策后，代入效用 $U=x^{1-\beta}y^{\beta}$，
 
 $$
-\begin{aligned}\mathrm{U}&=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^\beta(1-\beta)^{1-\beta}\beta^\beta\\\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
+\begin{aligned}\mathrm{U}&=A\left（\frac{H}{L}\right）^{\gamma-1}\left（\frac{B}{A}\right）^\beta（1-\beta）^{1-\beta}\beta^\beta\\\\&=x\left（\frac{B}{A}\right）^\beta\left（\frac{\beta}{1-\beta}\right）^\beta\end{aligned}
 $$
 
 {{< admonition type=question  title="为什么提取x" open=false >}}
@@ -213,7 +213,7 @@ $\bar{x}$ 是使人口保持不变的平均生存品消费水平。
 均衡效用的表示：
 
 $$
-U^E=\bar{x}\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta
+U^E=\bar{x}\left（\frac{B}{A}\right）^\beta\left（\frac{\beta}{1-\beta}\right）^\beta
 $$
 
 均衡人均效用随着产出结构效用品化程度（$\frac{B}{A}$ ）、对效用品的相对偏好（ $\beta$）和维持人口平衡所需的人均生存品消费（$\bar{x}$ ）的增长而增长。
@@ -237,7 +237,7 @@ $$
 土地资源简化为 1，得到 $x=A(1-\beta)^{\gamma}H^{\gamma-1}$，代入 $g_H$:
 
 $$
-g_H=\delta\left[\ln A+\gamma\ln(1-\beta)+(\gamma-1)\ln H-\ln x\right]
+g_H=\delta\left[\ln A+\gamma\ln（1-\beta）+（\gamma-1）\ln H-\ln x\right]
 $$
 
 使用 M 指代 $\ln A+\gamma\ln(1-\beta)$，简化为：
@@ -247,12 +247,12 @@ $$g_H=\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]$$
 对 M 进行微分，
 
 $$
-\mathrm{d}M=g_A+(\gamma-1)g_H=g_A+(\gamma-1)\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]
+\mathrm{d}M=g_A+（\gamma-1）g_H=g_A+（\gamma-1）\delta\left[M+\gamma\ln（1-\beta）-\ln x\right]
 $$
 稳态时，$dM=0$, 代入求解，
 
 $$
-M^*=\frac{g_A}{(1-\gamma)\delta}-\gamma\ln(1-\beta)+\ln\bar{x}
+M^*=\frac{g_A}{（1-\gamma）\delta}-\gamma\ln（1-\beta）+\ln\bar{x}
 $$
 
 而此时又有：$\mathrm{d}M=g_A+(\gamma-1)g_H=0$
@@ -270,7 +270,7 @@ $$
 效用为:
 
 $$
-U=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^{\beta}(1-\beta)^{1-\beta}\beta^{\beta}
+U=A\left（\frac{H}{L}\right）^{\gamma-1}\left（\frac{B}{A}\right）^{\beta}（1-\beta）^{1-\beta}\beta^{\beta}
 $$
 
 {{< admonition type=note  title="取对数，求导就可转化为增长率。" open=false >}}
@@ -280,7 +280,7 @@ $$
 对 ln (X) 的 t 求导。
 
 $$
-\begin{aligned}&\frac{d\ln X(t)}{dt}=\frac{d\ln X(t)}{dX(t)}\frac{dX(t)}{dt}\\\\&=\frac{\frac{dX(t)}{X(t)}}{dt}=\frac{\dot{X}(t)}{X(t)}=g(\text{增长速率})\end{aligned}
+\begin{aligned}&\frac{d\ln X（t）}{dt}=\frac{d\ln X（t）}{dX（t）}\frac{dX（t）}{dt}\\\\&=\frac{\frac{dX（t）}{X（t）}}{dt}=\frac{\dot{X}（t）}{X（t）}=g（\text{增长速率}）\end{aligned}
 $$
 
 {{< /admonition >}}
@@ -293,7 +293,7 @@ $$g_U=\beta\left(g_B-g_A\right)+g_A-(1-\gamma)g_H$$
 于是得到了人均福利（收入）与生存品和效用品的关系。
 
 $$
-g_U=\beta\left(g_B-g_A\right)
+g_U=\beta\left（g_B-g_A\right）
 $$
 按照这个结论，人均收入长期停滞的原因应该只有一个，
 

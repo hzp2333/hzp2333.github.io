@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/"
-        },"genre": "posts","keywords": "Stata, Python","wordcount":  21920 ,
+        },"genre": "posts","keywords": "Stata, Python","wordcount":  21812 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/cpws_stata\/","datePublished": "2025-01-13T18:52:19+08:00","dateModified": "2025-01-13T20:50:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -219,7 +219,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">裁判文书清洗指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 21920 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-01-13">2025-01-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 21812 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 44 分钟&nbsp;
     
 
@@ -331,9 +331,9 @@ Draft = true
 Math= false
 OutdatedInfoWarning  = false
 Lightgallery = true
-FeaturedImage=&quot;/img/pythonGIS.zh-cn-20250524111143536.webp&quot;
-Tags = [&ldquo;标签&rdquo;,&ldquo;ass&rdquo; ]
-Categories= [&ldquo;Movies&rdquo;,&ldquo;test&rdquo;]
+FeaturedImage=“/img/pythonGIS.zh-cn-20250524111143536.webp”
+Tags = [“标签”,“ass” ]
+Categories= [“Movies”,“test”]
 Summary=&rsquo; 总结'
 +++</p>
 <meting-js url="/music/%E4%B8%89%E5%8F%B6%28%E4%B8%BB%E9%A2%98%E6%9B%B2%29%20-%20RADWIMPS-MengLuoRJ.m4s" name="三葉のテーマ" artist=" 君の名" cover="/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg" theme="#448aff"></meting-js>
@@ -520,7 +520,7 @@ Summary=&rsquo; 总结'
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">exclusions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;Ｘ&#39;</span><span class="p">,</span> <span class="s1">&#39;执&#39;</span><span class="p">,</span> <span class="s1">&#39;不动产&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;第&#39;</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>排序，优先按照案号中的 (年份) 进行排序。 删除案号数量大于等于 5 的所有行。</p>
+</div><p>排序，优先按照案号中的 （年份） 进行排序。 删除案号数量大于等于 5 的所有行。</p>
 <p>一个案子最多是如下的顺序：</p>
 <p>初审，不服申请上诉，再审，终审，不服再进行上诉，终审。</p>
 <p>可以直接从初审跳到终审，终审后还有最后一次再审机会，再审结束后一般就不会更改了。</p>
@@ -1171,7 +1171,7 @@ Summary=&rsquo; 总结'
 </div>
 </div><p><code>['s23', 's25', 's26', 's27']</code> 的中文字符加总就是裁判文书的正文字数。</p>
 <blockquote>
-<p>&ldquo;s7&rdquo;: &ldquo;案件号&rdquo;,&ldquo;s23&rdquo;: &ldquo;诉讼记录&rdquo;,&ldquo;s24&rdquo;: &ldquo;诉控辩&rdquo;,&ldquo;s25&rdquo;: &ldquo;事实&rdquo;,&ldquo;s26&rdquo;: &ldquo;理由&rdquo;,&ldquo;s27&rdquo;: &ldquo;判决结果&rdquo;。</p>
+<p>“s7”: “案件号”,“s23”: “诉讼记录”,“s24”: “诉控辩”,“s25”: “事实”,“s26”: “理由”,“s27”: “判决结果”。</p>
 </blockquote>
 <h3 id="多个-txt">多个 txt</h3>
 <div class="highlight"><div class="chroma">
@@ -2016,7 +2016,7 @@ Summary=&rsquo; 总结'
 <p>如果我们只截取 6 个长度，变量就会变成乱码。</p>
 <p>个人观察到的案号占位符最长大概是 39 个位置，个人为了稳健直接选择的截取 88 个字符符号。</p>
 <p>这也意味着： 我们需要在清理掉文本中的奇怪符号以后再转化。</p>
-<p>例如有些法院名字是&quot;<code>广西壮族自治区柳州市鱼峰区人民法院</code>&quot;</p>
+<p>例如有些法院名字是“<code>广西壮族自治区柳州市鱼峰区人民法院</code>”</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2399,7 +2399,7 @@ Summary=&rsquo; 总结'
 <p>例如有以下组合</p>
 <p>张三<strong>于</strong> 2014 年进行庭审</p>
 <p>张三<strong>代理</strong>审判长<strong>于</strong> 2014 年进行庭审</p>
-<p>在该变量包含&quot;庭审&quot;两个字时，我们应该先都保留“于”以前的字符，再保留&quot;代理&quot;以前的字符。</p>
+<p>在该变量包含“庭审”两个字时，我们应该先都保留“于”以前的字符，再保留“代理”以前的字符。</p>
 <p>条件筛选最好找两个字的特征词，这样叫“于庭审”的法官名字几乎不可能出现。</p>
 </blockquote>
 <p>个人使用的顺序，仅供参考：</p>
@@ -3125,7 +3125,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="python-例子-案件积压量">Python 例子 ：案件积压量</h2>
-<p>在裁判文书中有两个时间，案件判决时间( jud 开头)和案件立案( acc 开头)时间。</p>
+<p>在裁判文书中有两个时间，案件判决时间（ jud 开头）和案件立案（ acc 开头）时间。</p>
 <p>案件积压量是指立案时间早于当前年月，判决年饭晚于当前年份的所有案件。这种涉及跨行变量识别处理的操作就是 stata 的弱点。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -4892,7 +4892,7 @@ csv 乱码了。因为提取的 txt 不是 utf 8 格式。</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，351438 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 98 篇文章，353056 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

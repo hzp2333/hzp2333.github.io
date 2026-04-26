@@ -143,7 +143,7 @@ $$
 [^1]: 找工具变量的一些思路：关系之关系、遥远的历史变量、平均化、增长率，以及前面几类方法的组合。例如移动份额法工具变量 shift-share 就是去中心均值加上增长率。
 [^2]: 我们可以从最优化和因果推断两条线审视计量的发展。最优化是关于如何增强测量的一致性，因果推断是让我们思考如何设计实验过程。
 [^3]: 所有的计量检验都是检验必要条件而非充要条件。
-[^4]: Bhuller M, Sigstad H. 2SLS with multiple treatments[J]. Journal of Econometrics, 2024, 242(1): 105785.
+[^4]: Bhuller M, Sigstad H. 2SLS with multiple treatments[J]. Journal of Econometrics, 2024, 242（1）: 105785.
 [^5]: Chyn E, Frandsen B, Leslie E C. Examiner and Judge Designs in Economics: A Practitioner's Guide[R]. National Bureau of Economic Research, 2024.
 [^6]: 目前较为成熟的检验场景是司法数据，但其他场景的范式依旧没有定论。
 [^7]: 其实这些方面更相关的是不确定性理论。

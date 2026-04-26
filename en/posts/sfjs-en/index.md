@@ -1,4 +1,4 @@
-# Shanxi Datong "Engagement Rape Case" Second Trial: An Economic Perspective on Judicial Spirit and Execution
+# Shanxi Datong Engagement Case Second Trial: An Economic Perspective on Judicial Spirit and Execution
 
 
 A recent high-profile legal case has attracted widespread attention: "[Shanxi Datong &#39;Engagement Rape Case&#39;](https://zh.wikipedia.org/wiki/%E5%B1%B1%E8%A5%BF%E5%A4%A7%E5%90%8C%E8%AE%A2%E5%A9%9A%E5%BC%BA%E5%A5%B8%E6%A1%88)." While the apparent controversy centers on the question of marital rape following engagement—undoubtedly wrongful conduct—the question remains: why do online debates persist? The fundamental issue is that the two opposing factions are actually debating at different conceptual levels.

@@ -229,3 +229,4 @@ Another school of thought is the frequentist approach, where the real parameters
 From this perspective, Bayesian estimation is even a worldview.
 
 {{< /admonition >}}
+
