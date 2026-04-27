@@ -1,83 +1,85 @@
-# The path to a turnabout lies within
+# Ace Attorney review: the path to a turnabout lies within
 
+
+Two of my favorite BGM tracks
 
 {{< music url="/music/成歩堂龍一 ～異議あり! 2001-杉森雅和.mp3" name=成歩堂龍一異議あり artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
 
 {{< music url="/music/綾里真宵 ～逆転姉妹のテーマ　2001-杉森雅和.mp3" name=逆転姉妹のテーマ artist= 杉森雅和 cover="/images/逆转裁判.jpg" >}}
 
-Don't approach Ace Attorney with the expectation of learning legal principles or honing your logical reasoning. Its true beauty shines through in its breathtaking twists of thought and masterfully crafted narrative rhythm!
+## Philosophy matters more than logic
 
-## Philosophy Over Logic
+Think about the kind of turnabout philosophy you can find in other games:
 
-Consider the turnabout philosophy in other games:
+- 《**Death Stranding**》: ropes meant for protection and sticks meant for attack switch places.
+- 《**Red Dead Redemption 2**》: instead of showing the glory days of the West, it shows an era and a protagonist already in decline.
+- 《**Elden Ring**》: it is not that the enemies and levels keep getting harder; it is that the player keeps getting stronger.
+- 《**Honkai Impact 3rd**》: it is not Fu Hua turning into a Herrscher, but the Herrscher turning into Fu Hua.
+- 《**In/Spectre**》: the protagonist has to fabricate the truth instead of exposing it.
 
-- **Death Stranding**: The roles of the protective rope and the aggressive stick are reversed.
-- **Red Dead Redemption 2**: Instead of showcasing the glory of the Wild West, it portrays its twilight and the decline of the protagonist.
-- **Elden Ring**: The enemies don’t become progressively harder; rather, the player becomes progressively stronger.
-- **Honkai Impact 3rd**: It's not that Fu Hua becomes a Herrscher; it's that the Herrscher becomes Fu Hua.
-- **In/Spectre**: The protagonist fabricates the truth rather than uncovering it.
+These examples are not meant to say that every design above is "turnabout thinking." I only want to say—
+"<font color="#ff0000">if you look at a problem through a framework that flips one of its key elements, you can end up with a surprisingly interesting perspective</font>."
 
-These examples don’t imply that the designs themselves are turnabout thinking, but rather suggest that—
-**"Adopting a framework of element reversal offers a uniquely intriguing perspective."**
+- In a familiar detective setup where clues are used to catch the criminal, how do you reverse it? {{< spoiler >}}You make a game where evidence is used to defend the suspect{{< /spoiler >}}!
+- Do not think about what evidence can prove the criminal did. Think instead about {{< spoiler >}}what consequences must follow once the criminal has done it{{< /spoiler >}}.
+- Do not ask why the culprit wanted to do it. Ask instead about {{< spoiler >}}the reason the culprit had no choice but to do it{{< /spoiler >}}.
 
-- In a typical detective setting where criminals are caught through clues, how does one create a turnabout? {{< spoiler >}}By making a game where you defend the accused with evidence.{{< /spoiler >}}
-- Don’t think about what evidence can prove the criminal’s actions, but rather, {{< spoiler >}}consider the inevitable consequences of the criminal’s deeds.{{< /spoiler >}}
-- Don’t ask why the criminal committed the crime, but rather, {{< spoiler >}}what compels the criminal to do so?{{< /spoiler >}}
-
-To me, the brilliance of _Ace Attorney_ lies in introducing a "philosophical perspective of reversal" rather than "logical reasoning."
-(There are certainly flaws to be found in the cases if you look for them.)
-
-## Rhythmic Expression
-
-Using debate as its vehicle, *Ace Attorney* captivates players by exposing contradictions in testimonies and leveraging evidence to launch decisive attacks. The courtroom battles are punctuated with the iconic "Hold it! Objection! Take that!" sound effects, giving players the exhilarating sensation of turn-based combat.
-
-![Invincible Speech Bubble](/img/逆转裁判.zh-cn-20240810201607661.webp)
-
-Each character boasts unique animations (with frequent controller vibrations!), adding to the drama. The seamless blend of case progression, character performance, and perfectly timed BGM needs no further praise. The only drawback is that when multiple pieces of evidence relate to multiple testimonies in a one-to-one manner, it can sometimes lead to confusion.
-
-The plot leans more towards suspense rather than pure logic, meaning the game's true satisfaction lies in "recognizing the foreshadowing's payoff" rather than "predicting the key twists." When the finale ties everything together, that's when true men shed tears.
-A true ending is always written for those who see the story through to the end, and this is where Shu Takumi's storytelling shines the brightest.
+To me, the elegance of *Ace Attorney* lies in the way it brings in a turnabout-like philosophical perspective rather than airtight logical deduction.
+(If you want to pick apart the cases, you definitely can.)
 
 
-What I truly appreciate is the thematic crescendo in the cases throughout the first three games.
+## Rhythmic expression
 
-**First Layer: The Lawyer's Stance—Pursuing Innocence.**
+Using courtroom debate as its core mechanic, *Ace Attorney* attacks by finding holes in testimony and presenting evidence. Paired with the "Hold it! Objection! Take that!" voice clips, the trials give you the thrill of trading moves in a turn-based battle.
 
-At this stage, the focus is on letting the evidence speak, fighting to the end, and never giving up on the defense.
+![The unbeatable speech bubble](/img/逆转裁判.zh-cn-20240810201607661.webp)
 
-**Second Layer: Introducing the Prosecution—Pursuing Truth and Trust.**
+Every character has a distinct animation set, and the controller rumbles a lot, too. As for the way each case builds, the way the characters perform, and the way the BGM rises at exactly the right time, there is not much more I need to add. The one weak point is that when several pieces of evidence relate to several statements, the game often expects a strict one-to-one match, and that can be misleading.
 
-After the groundwork is laid in the first game, the lawyer appears as a towering figure. But what about the prosecution, responsible for securing convictions?
-The lawyer seeks to prove innocence, while the prosecution seeks to prove guilt.
-It's through this clash over the same piece of evidence that a more objective perspective is gained.
-Thus, the truth is born from the battle between guilt and innocence.
-The key to the courtroom system is ensuring that both sides place their trust in it.
-When both parties adhere to their convictions, truth emerges from their collision.
+The story works more as suspense than deduction. In other words, the pleasure comes from seeing earlier setup pay off, not from predicting the big reversal in advance.
+When the ending suddenly runs through everything that came before it, that is the moment when even the toughest player starts tearing up.
+The true ending is always written for the people who stay with the whole story. That is where Shu Takumi is strongest.
 
-**Third Layer: The Player's Own Ethical Perspective.**
+What I like even more is the rhythm of thematic escalation across the cases in games 1 through 3.
 
-Though the story takes place in a fictional world, ethical philosophy often shines brightest in thought experiments.
-In the game, the pursuit of innocence by the player usually leads to a happy ending.
-But what happens when innocence is tied to a bad ending?
-This is the "contradiction" that the lawyer faces.
-Innocence that wounds the heart versus guilt that comforts it—the game presents the dilemma without offering a clear answer.
-(But the bonds of friendship still ignite a classic, heartwarming fire!)
+**First layer: the lawyer's stance, the pursuit of innocence.**
 
-## The Never-Ending Tale of Visual Novels
+At this stage, the core idea is to let the evidence speak, fight to the very end, and never give up on the defense.
 
-Though Ace Attorney isn't a galgame, the pixel art and looping BGM always remind me of the "16-bit era's charm"—proof that even with humble technology, great stories can be born.
-Even if the story has long since reached its conclusion,
-A moment of persistence might still spark a miraculous flame!
+**Second layer: the prosecution enters, and the focus shifts to truth and trust**
 
-As a lawyer, the more perilous the situation, the more you must smile—perhaps this is the essence of the final turnabout spirit.
-Trust in your client, trust in your opponent, delve into contradictions, pursue the truth, and never give up...
-All of this can begin with a single phrase—
+After the first game lays the groundwork, the defense attorney feels almost heroic. But then what about the prosecution, the side responsible for securing a conviction?
+The defense pursues innocence, and the prosecution pursues guilt.
+When the same piece of evidence is pulled back and forth by both sides, it becomes possible to see it from a more objective angle.
+Truth is born from that struggle between guilt and innocence.
+What matters in a courtroom system is that both sides can trust it.
+If each side fully carries through its own convictions, truth has a chance to emerge from the collision.
+
+**Third layer: the player's own sense of ethics**
+
+The setting may be fictional, but ethical philosophy always shines in thought experiments.
+In the game, innocence is the result the player chases, and it usually lines up with a happy ending.
+But what if innocence leads to the bad ending instead?
+That is the contradiction the defense has to face.
+An innocent verdict that hurts people, and a guilty verdict that comforts them: the game throws out the question and refuses to hand over an answer.
+(Still, when the friendship-and-bonds energy kicks in, it absolutely works.)
+
+## Visual novels never really end
+
+Even though *Ace Attorney* is not a galgame, its pixel look and looping BGM always remind me of *16bit Sensation*. Even rough technology can still produce a great story.
+Even if the story has already drawn to a close,
+a brief moment of persistence might still spark a miracle.
+
+A lawyer should smile more when things get dangerous. Maybe that is the final turnabout spirit.
+Trust in your client, trust in your opponent, digging into contradictions, pursuing the truth, the will to never give up......
+It can all begin with a single line—
 
 "異議あり!"
 
-![異議あり!](/img/逆转裁判.zh-cn-20240810201920520.webp)
+![Objection!](/img/逆转裁判.zh-cn-20240810201920520.webp)
 
-## Related Links
+## Related links
 
 - [Ace Attorney Simulator](https://objection.lol/maker)
-- [Ace Attorney Resources](http://www.court-records.net/sprites1.htm)
+- [Ace Attorney assets](http://www.court-records.net/sprites1.htm)
+
