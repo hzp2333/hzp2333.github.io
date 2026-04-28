@@ -1,57 +1,58 @@
-# Transfer Guide at Tianhe Airport: Speedy Visit to the Yellow Crane Tower (6h)
+# Tianhe Airport Layover Guide: A Quick Trip to Yellow Crane Tower (6 h)
 
 
 {{< music url="/music/春日影-CRYCHIC.mp3" name="春日影" artist= "CRYCHIC" cover="/images/默认.jpg" >}} 
 
-**Time: March 2024. Flight arrives in Wuhan at 11 a. m., next flight departs at 5:10 p. m., with a 6 hour 50 minute transfer time.**
+**Time: March 2024. I landed in Wuhan at 11:00 and my next flight was at 17:10, which gave me 6 hours and 50 minutes for the layover.**
 
-Wuhan is one of the important transfer hubs in China, with many flights having long layovers. The Yellow Crane Tower in Wuhan is famous worldwide and is directly connected by subway to the airport. During a layover, you might as well pay a quick visit to the Yellow Crane Tower.
+Wuhan is one of the main transfer airports for northbound flights in China, and plenty of routes come with a long layover here. Yellow Crane Tower is famous, and the airport connects directly to it by metro, so if you have the time, it's worth doing a quick run.
 
-## I. Airport Preparation
+## I. Airport prep
 
-Follow the WeChat account "Transfer Passenger Service" —— Transfer services offer free transfer meals and luggage storage. You can also book transfer luggage straight through (seamless托运).
+Follow the WeChat account "**Transfer Passenger Service**". The transfer service gives out free meal vouchers and luggage storage, and you can also book through-check baggage in advance.
 
-- **Luggage Straight Through:** Requires advance booking and allows seamless transfer of luggage.
-- **Transfer Meal:** Click to obtain a QR code. Located in the departure hall outside security, at the end of corridor A, the restaurant can be used, and a meal voucher worth 30 yuan or a souvenir can be redeemed. I chose the "Food Pavilion" 30 yuan chicken set meal, which also came with an egg and soy milk. My同行ordered a 26 yuan hot dry noodles set (completely lost compared to the chicken set meal!).
+-   **Through-checked baggage**: This needs to be booked ahead of time and lets your checked luggage transfer seamlessly to the next flight.
+-   **Transit meal**: Tap to get the QR code. It can be used at the restaurant at the end of Corridor A in the departure hall outside security. You can redeem either a 30-yuan meal voucher or a small gift. I picked the 30-yuan chicken set at "食尚坊," which also came with an egg and soy milk. My companion ordered a 26-yuan plate of hot dry noodles instead. Compared with the chicken set, that felt like a terrible deal.
 
-![The Food Pavilion's 30 yuan chicken set meal: stewed chicken with mushrooms, steamed egg, rice, plus an egg and soy milk](/img/速通黄鹤楼.zh-cn-20240523111540677.webp)
+![The 30-yuan chicken set at "食尚坊": chicken stewed with mushrooms, steamed egg, rice, plus the extra egg and soy milk](/img/速通黄鹤楼.zh-cn-20240523111540677.webp)
 
-- **Luggage Storage:** Click to obtain a QR code. Located in the departure hall outside security, at the end of corridor F, JD Express. Storage requirements: same as airport security, ID registration required, no storage of items not allowed in luggage such as power banks.
+-   **Luggage storage**: Tap to get the QR code. The storage point is at the JD Express counter at the end of Corridor F in the departure hall outside security. Requirements: registration with your ID card, just like airport security. Items that cannot be checked, such as power banks, are not accepted for storage.
 
-![Forgive my phone's overexposure](/img/速通黄鹤楼.zh-cn-20240523111601805.webp)
+![Please forgive the overexposure on my phone camera](/img/速通黄鹤楼.zh-cn-20240523111601805.webp)
 
-This quick visit did not use the luggage straight through service. After landing at 11 a. m., retrieving luggage, storing it, and finishing lunch, it was exactly 12 p. m.
+I did not use through-checked baggage on this quick trip. I landed at 11:00, picked up my luggage, stored it, had lunch, and by then it was exactly 12:00.
 
-## II. Subway to the Yellow Crane Tower
+## II. Metro ride
 
-Subway route: Take line rail transit → Jiyuqiao → Peng Liu Yang subway exit → walk to the Yellow Crane Tower.
+Metro route: Line 2 $ \rightarrow$ Jiyuqiao $\rightarrow$ Pengliuyang Metro Station $ \xrightarrow {步行} $ Yellow Crane Tower
 
-Peng Liu Yang subway exit: Both exits A and C lead directly to the Yellow Crane Tower. Exit C is recommended as it is the location of the Internet celebrity wall.
+Pengliuyang Metro Station: both Exit A and Exit C work if you want to get out and spot Yellow Crane Tower right away, but I recommend Exit C because that is where the internet-famous wall is.
 
-At 12 p. m., board the airport subway, and arrive at the Yellow Crane Tower entrance at 1:10 p. m.
+I got on the airport metro at 12:00 sharp and reached the entrance to the Yellow Crane Tower scenic area at 13:10.
 
-![The网红墙, blurring for privacy](/img/速通黄鹤楼.zh-cn-20240523111619025.webp)
+![The internet-famous wall. I blurred the photo a bit for portrait privacy.](/img/速通黄鹤楼.zh-cn-20240523111619025.webp)
 
-## III. Visit the Yellow Crane Tower
+## III. The tower
 
-Purchase tickets via WeChat mini program, student tickets are half price at 35 yuan. Without a student ID, proof can be obtained through the Education Link (WeChat mini program). Special thanks to classmate [@leland](https://blog.yllhwa.com/) for guiding.
+You can buy tickets through a WeChat mini-program. Student tickets are half price at 35 yuan. If you do not have your student ID with you, you can verify your status through Xuexin (also via WeChat mini-program). Special thanks to [@leland](https://blog.yllhwa.com/) for being my guide.
 
-The Yellow Crane Tower has one path up, with each floor requiring a full circle to the next staircase, and a continuous corridor downstairs.
+There is one main route up the tower. On each floor, you circle around once before reaching the staircase to the next level. The way down is a different corridor, and it leads straight down continuously.
 
-![Nothing much to see](/img/速通黄鹤楼.zh-cn-20240523111639884.webp)
+![Honestly, there is not that much to do inside](/img/速通黄鹤楼.zh-cn-20240523111639884.webp)
 
-From the higher floors of the Yellow Crane Tower, you can see both the new (red) and old (white) Yangtze River bridges. (Forgot to take a photo.)
+From the higher levels of Yellow Crane Tower, you can look out over both the newer red bridge and the older white bridge spanning the Yangtze. (I forgot to take a photo.)
 
-After visiting the Yellow Crane Tower, walk back to the subway exit, taking no more than 40 minutes, at which time it is 1:50 p. m.
+After finishing the visit, I walked back to the metro station. The whole visit took no more than 40 minutes, and the time was 13:50.
 
-Take the subway for one hour back, arriving at the airport around 3 p. m., leaving one hour to retrieve stored luggage, pass through security, and complete the quick visit by 4 p. m.
+I then spent about an hour on the metro back and got to the airport around 15:00. That still left an hour to retrieve my stored luggage, clear security, and get ready to board. By 16:00, the quick run was complete.
 
-## IV. Quick Summary: 5 hours are sufficient for a speedy visit to the Yellow Crane Tower
+## IV. In short
 
-Upon arrival at the airport,
+After arriving at the airport,
 
-- Spend one hour completing luggage storage and having lunch.
-- Spend one hour taking the subway and walking to the Yellow Crane Tower.
-- 40 minutes is sufficient to visit the Yellow Crane Tower.
-- Spend one hour returning to the airport.
-- Spend one hour at the airport handling return procedures.
+-   Spend one hour storing your luggage and eating lunch.
+-   Spend one hour taking the metro and walking to Yellow Crane Tower.
+-   Forty minutes is enough to see Yellow Crane Tower.
+-   Spend one hour heading back from Yellow Crane Tower.
+-   Spend one hour at the airport handling the return procedures.
+

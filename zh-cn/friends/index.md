@@ -169,6 +169,17 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
     
 
+
+{{< friend   
+	name="破博客"
+	url="https://www.poboke.com"
+	logo="https://www.poboke.com/assets/info/avatar.jpg"
+	word="网络中的魔术师"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
 {{< friend   
 	name="Yuteng Yan"
 	url="https://blog.yanyuteng.cn/"

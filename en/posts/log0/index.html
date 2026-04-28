@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Econometrics: Is the Log (y&#43;1) Transformation Reliable? - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Econometrics: Is the Log (y&#43;1) Transformation Reliable?" />
-<meta property="og:description" content="Reading of the paper &ldquo;Logs with Zeros? Some Problems and Solutions&rdquo;. When the explanatory variable contains 0, the logarithmic transformation log (y&#43;1) has some limitations in estimating treatment effects." />
+        <title>Econometrics: Is the log(y&#43;1) transformation reliable? - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Econometrics: Is the log(y&#43;1) transformation reliable?" />
+<meta property="og:description" content="Reading notes on &lsquo;Logs with Zeros? Some Problems and Solutions&rsquo;. When the variable being transformed includes zeros, the log(y&#43;1) transformation has some limits in treatment-effect estimation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/log0/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-05-12T17:59:49+08:00" />
 <meta property="article:modified_time" content="2024-05-12T17:59:49+08:00" /><meta property="og:site_name" content="My cool site" />
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Econometrics: Is the Log (y&#43;1) Transformation Reliable?"/>
-<meta name="twitter:description" content="Reading of the paper &ldquo;Logs with Zeros? Some Problems and Solutions&rdquo;. When the explanatory variable contains 0, the logarithmic transformation log (y&#43;1) has some limitations in estimating treatment effects."/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Econometrics: Is the log(y&#43;1) transformation reliable?"/>
+<meta name="twitter:description" content="Reading notes on &lsquo;Logs with Zeros? Some Problems and Solutions&rsquo;. When the variable being transformed includes zeros, the log(y&#43;1) transformation has some limits in treatment-effect estimation."/>
 <meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -23,12 +23,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Econometrics: Is the Log (y+1) Transformation Reliable?",
+        "headline": "Econometrics: Is the log(y+1) transformation reliable?",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/log0\/"
-        },"genre": "posts","keywords": "Literature Review","wordcount":  1285 ,
+        },"genre": "posts","keywords": "Literature Review","wordcount":  1264 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/log0\/","datePublished": "2024-05-12T17:59:49+08:00","dateModified": "2024-05-12T17:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -246,10 +246,10 @@ loadMathJax();
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Econometrics: Is the Log (y+1) Transformation Reliable?</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Econometrics: Is the log(y+1) transformation reliable?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-12">2024-05-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1285 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-12">2024-05-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1264 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
     
 
@@ -282,28 +282,28 @@ loadMathJax();
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#abstract">Abstract</a></li>
-    <li><a href="#summary">Summary</a></li>
-    <li><a href="#code-example">Code Example</a></li>
+    <li><a href="#the-short-version">The short version</a></li>
+    <li><a href="#a-code-example">A code example</a></li>
     <li><a href="#explanation">Explanation</a>
       <ul>
         <li>
           <ul>
-            <li><a href="#understanding-logarithmic-transformation">Understanding Logarithmic Transformation</a></li>
-            <li><a href="#limitations-of-logarithmic-transformation">Limitations of Logarithmic Transformation</a></li>
+            <li><a href="#how-we-usually-interpret-log-transformations">How we usually interpret log transformations</a></li>
+            <li><a href="#the-limits-of-log-transformations">The limits of log transformations</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#conclusion-and-solutions">Conclusion and Solutions</a>
+    <li><a href="#conclusions-and-possible-fixes">Conclusions and possible fixes</a>
       <ul>
-        <li><a href="#conclusion">Conclusion</a></li>
-        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#main-takeaway">Main takeaway</a></li>
+        <li><a href="#possible-fixes">Possible fixes</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="is-the-log-y1-transformation-reliable">Is the Log (y+1) Transformation Reliable?</h1>
+            </div><div class="content" id="content"><h1 id="is-the-logy1-transformation-reliable">Is the log(y+1) transformation reliable?</h1>
 <h2 id="abstract">Abstract</h2>
 <table>
 <thead>
@@ -313,26 +313,26 @@ loadMathJax();
 </thead>
 <tbody>
 <tr>
-<td><strong>Authors:</strong>  Jiafeng Chen; Jonathan Roth</td>
+<td><strong>Authors:</strong> Jiafeng Chen; Jonathan Roth</td>
 </tr>
 <tr>
-<td><strong>Journal:</strong>  The Quarterly Journal of Economics  (2024/3/30)</td>
+<td><strong>Journal:</strong> The Quarterly Journal of Economics (2024/3/30)</td>
 </tr>
 <tr>
-<td><strong>DOI:</strong>  <a href="https://academic.oup.com/qje/article-abstract/139/2/891/7473710?redirectedFrom=fulltext" target="_blank" rel="noopener noreffer ">10.1093/qje/qjad054</a></td>
+<td><strong>DOI:</strong> <a href="https://academic.oup.com/qje/article-abstract/139/2/891/7473710?redirectedFrom=fulltext" target="_blank" rel="noopener noreffer ">10.1093/qje/qjad054</a></td>
 </tr>
 <tr>
-<td><strong>Abstract Translation:</strong>   When studying an outcome variable Y that can equal 0 (e.g., earnings), most researchers typically use a transformed average treatment effect (ATE) for estimation. This transformation can be represented as log (Y) when the outcome variable Y is large, and log (1 + Y) is usually used when Y equals 0. Our research finds that such logarithmic transformations of the average treatment effect should not be interpreted as percentage effects because the outcome itself is not a percentage, and the estimated average treatment effect depends on the units of the outcome variable. In fact, our study shows that if the actual units of Y are changed before performing a logarithmic transformation, treatment effects of any size can be obtained. This result arises because, for samples where the outcome changes from zero to non-zero during estimation, the percentage effect at the sample level is not well-defined, and the units of the outcome implicitly determine the weight given to the extensive margin in the logarithmic transformation of the average treatment effect. Further research reveals an &ldquo;impossible triangle&rdquo;: when the outcome variable can equal zero, it is impossible to simultaneously satisfy the estimation result as the sample&rsquo;s average treatment effect, keep the units of Y unchanged (or independent of unit changes), and achieve point identification. We discuss several alternative methods that may be reasonable and feasible in settings with both intensive and extensive margins, including (1) expressing the average treatment effect in percentage terms (e.g., using Poisson regression), (2) explicitly calibrating samples on the intensive and extensive margins, and (3) separately estimating the actual treatment effects on the extensive and intensive margins (e.g., using Lee bounds). We illustrate these methods in three empirical applications.</td>
+<td><strong>Translated abstract:</strong> When studying an outcome variable $Y$ that can equal 0 (for example, earnings), many researchers estimate the average treatment effect (ATE) after applying a transformation that behaves like $\log(Y)$ when $Y$ is large and is defined at zero by using $\log(1+Y)$. Our paper shows that the average treatment effect under this kind of log-like transformation should not be interpreted as a percentage effect, because the estimate depends on the units in which the outcome is measured. In fact, we show that one can obtain treatment effects of arbitrary magnitude simply by changing the units of $Y$ before applying the transformation. This happens because, for observations whose outcome moves from zero to nonzero, the individual-level percentage effect is not well defined, and the units of the outcome implicitly determine how much weight the transformed ATE places on the extensive margin. More generally, we uncover an &ldquo;impossibility triangle&rdquo;: when the outcome variable can equal zero, one cannot simultaneously have an estimand that is an average treatment effect, is invariant to the units of $Y$, and is point identified. We discuss several alternative approaches that may be reasonable in settings with both intensive and extensive margins, including (1) estimating average treatment effects in levels and then expressing them in percentage terms afterward (for example, with Poisson regression), (2) explicitly calibrating the weight placed on the intensive and extensive margins, and (3) estimating intensive-margin and extensive-margin treatment effects separately (for example, with Lee bounds). We illustrate these methods in three empirical applications.</td>
 </tr>
 <tr>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="summary">Summary</h2>
-<p>Discussion on whether <strong>logarithmic transformation with zero values</strong> is reliable, such as $log(1+y)$ and $arcsinh(y)=\sqrt{1+y^2}+y$.</p>
-<h2 id="code-example">Code Example</h2>
-<p>The code results show that when the data contains zeros, the regression significance can be affected by modifying the units of the logarithmically transformed $y$.</p>
+<h2 id="the-short-version">The short version</h2>
+<p>This post asks whether log transformations with zeros, such as $log(1+y)$ and $arcsinh(y)=\sqrt{1+y^2}+y$, are actually reliable.</p>
+<h2 id="a-code-example">A code example</h2>
+<p>The output below shows that when the data contain zeros, changing the units of $y$ before taking logs can change the statistical significance of the regression.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -371,7 +371,7 @@ loadMathJax();
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">sysuse</span><span class="w"> </span><span class="n">nlsw88</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">wage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">_n</span><span class="o">&lt;=</span><span class="mi">400</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">wage</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">first</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="n">observations</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">wage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">_n</span><span class="o">&lt;=</span><span class="mi">400</span><span class="w"> </span><span class="o">//</span><span class="err">前</span><span class="mi">400</span><span class="err">个观测值的工资改为</span><span class="mi">0</span><span class="err">值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">.</span><span class="mi">128683</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">lnwage2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ln</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">.</span><span class="mi">7744329</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wage</span><span class="p">)</span><span class="w">
@@ -393,8 +393,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">esttab</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">m5</span><span class="p">,</span><span class="w"> </span><span class="n">keep</span><span class="p">(</span><span class="n">tenure</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">compress</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*-------------------------------------------------------------------------
-</span></span></span><span class="line"><span class="cl"><span class="cm">                 (1)          (2)          (3)          (4)          (5)   
-</span></span></span><span class="line"><span class="cl"><span class="cm">             lnwage1      lnwage2      lnwage3      lnwage4      lnwage5   
+</span></span></span><span class="line"><span class="cl"><span class="cm">             (1)          (2)          (3)          (4)          (5)   
+</span></span></span><span class="line"><span class="cl"><span class="cm">         lnwage1      lnwage2      lnwage3      lnwage4      lnwage5   
 </span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------
 </span></span></span><span class="line"><span class="cl"><span class="cm">tenure         0.010***     0.020***     0.030**      0.050        0.100   
 </span></span></span><span class="line"><span class="cl"><span class="cm">             (0.001)      (0.003)      (0.010)      (0.032)      (0.090)   
@@ -404,134 +404,134 @@ loadMathJax();
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="explanation">Explanation</h2>
-<h4 id="understanding-logarithmic-transformation">Understanding Logarithmic Transformation</h4>
-<p>It is generally believed that the economic significance of logarithmic transformation reflects <strong>percentage changes</strong>.</p>
+<h4 id="how-we-usually-interpret-log-transformations">How we usually interpret log transformations</h4>
+<p>The standard view is that, once you take logs, the coefficient has a <strong>percentage</strong> interpretation.</p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Meaning of Coefficients After Logarithmic Transformation<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>What a log coefficient means<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>After taking the logarithm of a variable, it is generally believed that the coefficient reflects the percentage change. For example, lnGDP in a regression represents the percentage change in GDP. If it is <code>reg lny lnx</code>, the economic meaning of the coefficient is elasticity. See <a href="https://www.zhihu.com/question/27588499/answer/588450047" target="_blank" rel="noopener noreffer ">The Meaning of Taking Logarithms</a>.</p>
-<p>For the following regression equation
+            <div class="admonition-content"><p>After taking logs, we usually read the coefficient as a percentage change. For example, with lnGDP, the coefficient in a regression is often read as the percentage change in GDP. If the model is <code>reg lny lnx</code>, then the coefficient is an elasticity. See <a href="https://www.zhihu.com/question/27588499/answer/588450047" target="_blank" rel="noopener noreffer ">What taking logs means</a>.</p>
+<p>For the regression below,
 $$
 \ln y_n=\alpha+\beta x_n +\varepsilon
 $$
-the coefficient has the following economic meaning
+the coefficient has the following economic meaning:
 $$
 \begin{align}
-\beta &amp; = \frac{\ln Y_{n+1}-\ln Y_{n}}{X_{n+1}-X_{n}}\\
-&amp;=\frac{\ln \frac{Y_{n+1}}{Y_{n}}}{X_{n+1}-X_{n}}=  \frac{\ln (1+\frac{Y_{n+1}-Y_{n}}{Y_{n}})}{\Delta X}\\
+\beta &amp; = \frac{\ln Y_{n+1}-\ln Y_{n}}{X_{n+1}-X_{n}}\
+&amp;=\frac{\ln \frac{Y_{n+1}}{Y_{n}}}{X_{n+1}-X_{n}}=  \frac{\ln (1+\frac{Y_{n+1}-Y_{n}}{Y_{n}})}{\Delta X}\
 &amp;= \frac{\ln (1+\Delta Y \% )}{\Delta X} \approx\frac{\Delta Y \% }{\Delta X}
 \end{align}
 $$
-Sometimes researchers perform logarithmic transformation because the data exhibits a long-tailed distribution, and logarithmic transformation makes the data more compact.</p>
+Sometimes researchers also take logs because the data are long-tailed, and logging them makes the distribution more compact.</p>
 </div>
         </div>
     </div>
-<h4 id="limitations-of-logarithmic-transformation">Limitations of Logarithmic Transformation</h4>
-<p>The core conclusion of the paper is that <strong>when the data contains zeros and the scaling units change</strong> (e.g., in labor economics, hourly wages, monthly wages, and weekly wages are often used, which involves unit conversion), the estimation of logarithmic transformation will change, making it unreliable.</p>
-<p>It is generally believed that the treatment effect obtained after logarithmic transformation is a percentage and is independent of the scaling parameter $\alpha$.
+<h4 id="the-limits-of-log-transformations">The limits of log transformations</h4>
+<p>The paper&rsquo;s main point is this: <strong>when the data contain zeros and the unit of measurement changes</strong> (for example, hourly wages, monthly wages, and weekly wages in labor economics), the estimated effect from the log transformation changes too, which makes the result hard to trust.</p>
+<p>We usually think the treatment effect after logging is a kind of percentage effect and should not depend on the scaling parameter $\alpha$.
 $$
 \small
 ATE=E[\log(1+aY(1))-\log(1+aY(0))]=E\left[\log\left(\frac{1+aY(1)}{1+aY(0)}\right)\right]
 $$</p>
-<p>Further considering the data structure, changes will occur
+<p>But once we look more carefully at the structure of the data, things change:
 $$
 \begin{aligned}
-\lim_{a\to\infty}\log\left(\frac{1+aY(1)}{1+aY(0)}\right)=\begin{cases}\log\left(\frac{Y(1)}{Y(0)}\right)&amp;\text{if }Y(1)&gt;0,Y(0)&gt;0\\
-0&amp;\text{if }Y(1)=0,Y(0)=0\\
-\infty&amp;\text{if }Y(1)&gt;0,Y(0)=0\\
+\lim_{a\to\infty}\log\left(\frac{1+aY(1)}{1+aY(0)}\right)=\begin{cases}\log\left(\frac{Y(1)}{Y(0)}\right)&amp;\text{if }Y(1)&gt;0,Y(0)&gt;0\
+0&amp;\text{if }Y(1)=0,Y(0)=0\
+\infty&amp;\text{if }Y(1)&gt;0,Y(0)=0\
 -\infty&amp;\text{if }Y(1)=0,Y(0)&gt;0
 \end{cases}
 \end{aligned}
 $$
-The latter three cases in the above equation show that the estimated treatment effect may be affected.</p>
-<p>The paper&rsquo;s discussion on the bias of logarithmic transformation is similar to the <strong>Local Average Treatment Effect (LATE)</strong>.</p>
+The last three cases show exactly where the treatment-effect estimate can be distorted.</p>
+<p>The paper&rsquo;s discussion of this bias is somewhat similar to <strong>Local Average Treatment Effects (LATE)</strong>.</p>
 <p>
-<figure class="center-figure"><a class="lightgallery" href="/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp" title="Taking Employment Policy as the Research Object" data-thumbnail="/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp" data-sub-html="<h2> </h2><p>Taking Employment Policy as the Research Object</p>">
+<figure class="center-figure"><a class="lightgallery" href="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp" title="Suppose the policy being studied is an employment policy" data-thumbnail="/img/包含0值的对数化是否可靠-20240523094100269.webp" data-sub-html="<h2> </h2><p>Suppose the policy being studied is an employment policy</p>">
         <img
             class="lazyload center-image"
             src="/svg/loading.min.svg"
-            data-src="/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp"
-            data-srcset="/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp, /img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp 1.5x, /img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp 2x"
+            data-src="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp"
+            data-srcset="/img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp 1.5x, /img/%e5%8c%85%e5%90%ab0%e5%80%bc%e7%9a%84%e5%af%b9%e6%95%b0%e5%8c%96%e6%98%af%e5%90%a6%e5%8f%af%e9%9d%a0-20240523094100269.webp 2x"
             data-sizes="auto"
-            alt="/img/IstheLogarithmicTransformationwithZeroValuesReliable-20240523094100269.webp" />
-    </a><figcaption class="image-caption">Taking Employment Policy as the Research Object</figcaption>
+            alt="/img/包含0值的对数化是否可靠-20240523094100269.webp" />
+    </a><figcaption class="image-caption">Suppose the policy being studied is an employment policy</figcaption>
     </figure></p>
-<p>Taking employment policy as the object, <strong>the policy shock brings different responses to the treatment group</strong>.</p>
+<p>Take an employment policy as the example. <strong>The policy shock makes the treated group respond in different ways.</strong></p>
 <blockquote>
-<p>0 represents the unemployed state, and 1 represents the employed state.</p>
+<p>0 means unemployed, and 1 means employed.</p>
 </blockquote>
-<p>Originally, the treatment group had unemployed people 0 and employed people 1, but after the policy shock, all became employed people 1.</p>
+<p>Originally, the treated group contains both unemployed people (0) and employed people (1). After the policy shock, everyone ends up employed (1).</p>
 <ul>
-<li>Originally in state 1 (employed), after the shock, still in state 1 (employed), but income still increased. At this time, the change in the explanatory variable is directly brought by the policy shock, which is the <strong>intensive margin</strong>.</li>
-<li>Originally in state 0, after the shock, became 1. The change in the explanatory variable is not only due to the policy shock but also due to the change in their own state, which is the <strong>extensive margin</strong>.</li>
+<li>If someone is already employed (1) and remains employed (1) after the shock, but income still rises, then the change in the variable comes directly from the policy shock. This is the <strong>intensive margin</strong>.</li>
+<li>If someone starts at 0 and moves to 1 after the shock, then the change in the variable comes not only from the policy shock but also from the change in status itself. This is the <strong>extensive margin</strong>.</li>
 </ul>
-<p>Thus, the measurement of the treatment effect becomes the following situation:</p>
+<p>So the treatment effect can be thought of like this:</p>
 <div class="mermaid" id="id-1"></div>
-<p>Therefore, the average treatment effect is also the sum of the mathematical expectations of the two marginal effects</p>
+<p>So the average treatment effect is the sum of the expected values of those two margin effects:</p>
 <p>$$
 ATT=E(ATT^{int})+E(ATT^{ext})
 $$</p>
-<p>If $lg(1+x)$ is used for transformation and the units are scaled, from thousands to units</p>
-<p>For the <strong>intensive margin</strong>,
+<p>Now suppose we use $lg(1+x)$ and rescale the unit from thousands of yuan to yuan.</p>
+<p>For the <strong>intensive margin</strong>, we have:
 $$
 \begin{aligned}
-ATT_{1000}^{int}&amp; =E{log(1000Y^{int}(1))-log(1000Y^{int}(0))}  \\
-&amp;=E{log(1000)+logY^{int}(1))-log(1000)-logY^{int}(0))} \\
+ATT_{1000}^{int}&amp; =E{log(1000Y^{int}(1))-log(1000Y^{int}(0))}  \
+&amp;=E{log(1000)+logY^{int}(1))-log(1000)-logY^{int}(0))} \
 &amp;=E{log(Y^{int}(1))-log(Y^{int}(0))}=ATT^{int}
 \end{aligned}
 $$
-For the <strong>extensive margin</strong>,</p>
+For the <strong>extensive margin</strong>, though,</p>
 <blockquote>
-<p>This part is the part where the state changes from 0 to 1. After using $ln(y+1)$ for logarithmic transformation, the part that was originally 0 is still 0.</p>
+<p>This is the part that moves from 0 to 1. After applying the $ln(y+1)$ transformation, the observations that were originally 0 are still 0.</p>
 </blockquote>
 <p>$$
 \begin{aligned}
 ATT_{1000}^{ext}
-&amp; =E{log(1000Y^{ext}(1))-log(1000Y^{ext}(0))}  \\
-&amp;=E{log(1000)+logY^{ext}(1))-0} \\
+&amp; =E{log(1000Y^{ext}(1))-log(1000Y^{ext}(0))}  \
+&amp;=E{log(1000)+logY^{ext}(1))-0} \
 &amp;=ATT^{ext}+\color{red}{log(1000)}
 \end{aligned}
 $$</p>
-<p>The overall treatment effect is the sum of the mathematical expectations of the above two parts
+<p>The overall treatment effect is the sum of the expected values of those two parts:
 $$
 \begin{align}
-ATT&amp;=P \times ATT^{ext}+(1-P)\times ATT^{int}\\
+ATT&amp;=P \times ATT^{ext}+(1-P)\times ATT^{int}\
 &amp;=ATT+\color{blue}{P\times log(a)}
 \end{align}
 $$
-where $\color{blue}{P\times log(a)}$ is the biased part that changes the regression results.</p>
-<p>It is because of this bias that many articles will treat zero values as part of robustness testing.</p>
-<p>There are other more complex situations discussed, but I cannot understand them.</p>
-<h2 id="conclusion-and-solutions">Conclusion and Solutions</h2>
-<h3 id="conclusion">Conclusion</h3>
-<p>When facing <strong>samples with explanatory variables containing 0</strong>!</p>
-<p>Many marketing accounts exaggerate the conclusions of the article. The article criticizes the <strong>logarithmic transformation of explanatory variables containing 0</strong>. In fact, there is an impossible triangle in the estimation of treatment effects.</p>
+where $\color{blue}{P\times log(a)}$ is the bias term created by changing the measurement unit.</p>
+<p>That is why many papers treat the handling of zeros as part of their robustness checks.</p>
+<p>The paper also discusses more complicated cases, but honestly, I couldn&rsquo;t really follow those parts.</p>
+<h2 id="conclusions-and-possible-fixes">Conclusions and possible fixes</h2>
+<h3 id="main-takeaway">Main takeaway</h3>
+<p>When you&rsquo;re dealing with a sample where the variable being transformed contains zeros:</p>
+<p>A lot of social-media summaries overstate what this paper says. The paper is criticizing <strong>log transformations when the variable contains zeros</strong>, and the real issue is an impossibility triangle in treatment-effect estimation.</p>
 <div class="mermaid" id="id-2"></div>
-<h3 id="solutions">Solutions</h3>
+<h3 id="possible-fixes">Possible fixes</h3>
 <blockquote>
-<p>Each of the following methods makes a trade-off in the impossible triangle.</p>
+<p>Each method below amounts to making a trade-off within that impossibility triangle.</p>
 </blockquote>
 <ol>
-<li>Use common normalization and standardization to remove dimensions, so there is no unit effect.</li>
-<li>Poisson regression maximum likelihood estimation.</li>
-<li>Remove samples with zero values.</li>
-<li>Clarify the sample distribution and further decompose the intensive and extensive margins.</li>
-<li>Use other parameters like Lee bounds (I didn&rsquo;t understand how to do this).</li>
+<li>Use standard normalization or standardization to remove unit effects.</li>
+<li>Use Poisson regression with maximum likelihood.</li>
+<li>Drop the zero-value observations.</li>
+<li>Work out the sample distribution more carefully and separate the intensive and extensive margins.</li>
+<li>Use other approaches such as Lee bounds (I still haven&rsquo;t figured out exactly how to do this one).</li>
 </ol>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://jiafengkevinchen.github.io/publications" target="_blank" rel="noopener noreffer ">Blog of one of the paper&rsquo;s authors</a></li>
-<li><a href="https://mp.weixin.qq.com/s/linHQsAq2tXV3LXA9gNPZQ" target="_blank" rel="noopener noreffer ">Your teacher may have been teaching it wrong: You can no longer use log(Y+0.0000000001)</a></li>
-<li><a href="https://mp.weixin.qq.com/s/ki4zxiqyghx89wHBSbedKA" target="_blank" rel="noopener noreffer ">TOP5 questioned for using log(1+x) data transformation, fixed effects, double difference event graphs, conclusions unreliable!</a></li>
-<li><a href="https://mp.weixin.qq.com/s/3SXhDaahX54DvTlqPN6UYw" target="_blank" rel="noopener noreffer ">TOP5 latest: Do not accept log(y+1) or arcsinh(y) transformation, absolutely not!</a></li>
-<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">Taking logarithms: How to deal with zero and negative values</a></li>
-<li><a href="https://mp.weixin.qq.com/s/LoXCQhvSqIq9EEhYj4teoA" target="_blank" rel="noopener noreffer ">The End of Logarithms</a></li>
-<li><a href="https://blog.huaxiangshan.com/zh-cn/posts/effect/" target="_blank" rel="noopener noreffer ">Causal Effects</a></li>
-<li><a href="https://mp.weixin.qq.com/s/4dZBIELlT4NtVwwYKdFfJw" target="_blank" rel="noopener noreffer ">Top Journal Overview: QJE The End of Logarithms</a></li>
-<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">How to Handle Non-Positive Values</a></li>
-<li><a href="https://github.com/jiafengkevinchen/logs-public" target="_blank" rel="noopener noreffer ">Code for the log with zero paper</a></li>
+<li>One of the authors&rsquo; <a href="https://jiafengkevinchen.github.io/publications" target="_blank" rel="noopener noreffer ">blog</a></li>
+<li><a href="https://mp.weixin.qq.com/s/linHQsAq2tXV3LXA9gNPZQ" target="_blank" rel="noopener noreffer ">Maybe your teacher has been teaching this wrong all along: stop using log(Y+0.0000000001)</a></li>
+<li><a href="https://mp.weixin.qq.com/s/ki4zxiqyghx89wHBSbedKA" target="_blank" rel="noopener noreffer ">A top-5 paper questioned for using log(1+x), fixed effects, and event-study DiD: maybe the conclusions are not reliable</a></li>
+<li><a href="https://mp.weixin.qq.com/s/3SXhDaahX54DvTlqPN6UYw" target="_blank" rel="noopener noreffer ">Top-5 journals now reject log(y+1) and arcsinh(y): absolutely reject them!</a></li>
+<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">Taking logs: how to deal with zeros and negative values</a></li>
+<li><a href="https://mp.weixin.qq.com/s/LoXCQhvSqIq9EEhYj4teoA" target="_blank" rel="noopener noreffer ">The day logs died</a></li>
+<li><a href="https://blog.huaxiangshan.com/en/posts/effect/" target="_blank" rel="noopener noreffer ">Causal effects</a></li>
+<li><a href="https://mp.weixin.qq.com/s/4dZBIELlT4NtVwwYKdFfJw" target="_blank" rel="noopener noreffer ">A quick read: QJE and the end of log transformations</a></li>
+<li><a href="https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ" target="_blank" rel="noopener noreffer ">How to deal with non-positive values</a></li>
+<li><a href="https://github.com/jiafengkevinchen/logs-public" target="_blank" rel="noopener noreffer ">Code for the &ldquo;logs with zeros&rdquo; paper</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -544,7 +544,7 @@ where $\color{blue}{P\times log(a)}$ is the biased part that changes the regress
                             <a class="link-to-markdown" href="/en/posts/log0/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the Log (y&#43;1) Transformation Reliable?" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the Log (y&#43;1) Transformation Reliable?"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the Log (y&#43;1) Transformation Reliable?"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the Log (y&#43;1) Transformation Reliable?" data-image="/img/包含0值的对数化是否可靠-20240523094150322.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-image="/img/包含0值的对数化是否可靠-20240523094150322.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -926,7 +926,7 @@ where $\color{blue}{P\times log(a)}$ is the biased part that changes the regress
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;66 posts, 113185 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;66 posts, 113227 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -982,7 +982,7 @@ where $\color{blue}{P\times log(a)}$ is the biased part that changes the regress
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":" graph LR\n A(Exogenous Policy Shock 01 Variable Z)--Treatment Group--\u003eC{01 Object Response}\n C{Object Response D}--extensive margin--\u003eD(State from 0 to 1)\n C{Object Response D}--intensive margin--\u003eE(State from 1 to 1)\n D(State from 0 to 1)--\u003eF{Explanatory Variable}\n E(State from 1 to 1)--\u003eF{Explanatory Variable}","id-2":"graph LR\nA(Estimate Individual Average Treatment Effect)------B(Treatment Effect Remains Unchanged After Unit Transformation)\nB(Treatment Effect Remains Unchanged After Unit Transformation)------ C(Point Identification Based on Marginal Distribution of Potential Outcomes)\nC(Point Identification Based on Marginal Distribution of Potential Outcomes)------A(Estimate Individual Average Treatment Effect)","id-3":"HXS'S BLOG","id-4":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-3":["id-3"],"id-4":["id-4"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":" graph LR\n A(Exogenous policy shock: binary variable Z)--treated group--\u003eC{How the individual responds}\n C--extensive margin--\u003eD(From 0 to 1)\n C--intensive margin--\u003eE(From 1 to 1)\n D--\u003eF{Outcome variable}\n E--\u003eF{Outcome variable}","id-2":"graph LR\nA(Estimate the individual average treatment effect)------B(Treatment effect stays unchanged after changing units)\nB------ C(Point identification from the marginal distributions of potential outcomes)\nC------A","id-3":"HXS'S BLOG","id-4":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-3":["id-3"],"id-4":["id-4"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
