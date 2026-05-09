@@ -167,6 +167,28 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+
+{{< friend   
+	name="Rhizome"
+	url="https://unfinished-wenai.vercel.app/"
+	logo="https://unfinished-wenai.vercel.app/images/remote/game-icons:dead-eye_6327486055679874920.svg"
+	word="一世风尘，也只如雪泥打他人脚底经过"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend   
+	name="极客死亡计划"
+	url="https://www.geedea.pro/"
+	logo="https://img.eltr.ac/geedeapro/header.avif"
+	word="这里只有真情流露和赤裸的思考"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
     
 
 
@@ -199,28 +221,14 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend  
-	name="LS-Shandong"
-	url="https://ls-shandong.codeberg.page/"
-	logo=""
-	word="LS-Shandong 的博客网站"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
+
+
 
 {{< friend   
 	name="赫赫文王"
 	url="https://kqh.me/"
 	logo="https://pic1.imgdb.cn/item/634b525616f2c2beb179e04b.jpg"
 	word="自然科學史研究"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   name="寒夏摸鱼站"
-    url="https://blog.rainiar.top"
-    logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
-    word="稀奇古怪技术集散地"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
@@ -244,6 +252,29 @@ img-animation="rotate"    border-animation="shadow"  >}}
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
+
+
+
+{{< friend  
+	name="LS-Shandong"
+	url="https://ls-shandong.codeberg.page/"
+	logo=""
+	word="LS-Shandong 的博客网站"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
+{{< friend   name="寒夏摸鱼站"
+    url="https://blog.rainiar.top"
+    logo="https://gravatar.loli.net/avatar/1beae7b1b3ca799888552bfcf9930a4e"
+    word="稀奇古怪技术集散地"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
 
 {{< friend   name="蓝小柠"
     url="https://bleshi.com/"
@@ -292,14 +323,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     border-animation="shadow"  >}}
 
 
-{{< friend   
-	name="Rhizome"
-	url="https://dongrentianyu.github.io/rhizome/#:%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"
-	logo=""
-	word="一世风尘，也只如雪泥打他人脚底经过"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 
 {{< friend   
@@ -326,6 +349,16 @@ img-animation="rotate"    border-animation="shadow"  >}}
     url="https://shutterzor.cn/"
     logo="https://shutterzor.github.io/images/profile2.jpg"
     word="热衷于 Stata 和 Python 方法的开源共享"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+{{< friend   
+	name="Rhizome（wiki）"
+	url="https://dongrentianyu.github.io/rhizome/#:%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"
+	logo="https://unfinished-wenai.vercel.app/images/remote/game-icons:dead-eye_6327486055679874920.svg"
+	word="一世风尘，也只如雪泥打他人脚底经过"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
