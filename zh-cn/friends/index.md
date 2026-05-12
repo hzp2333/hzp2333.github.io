@@ -170,7 +170,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend   
-	name="Rhizome"
+	name="Unfinished"
 	url="https://unfinished-wenai.vercel.app/"
 	logo="https://unfinished-wenai.vercel.app/images/remote/game-icons:dead-eye_6327486055679874920.svg"
 	word="一世风尘，也只如雪泥打他人脚底经过"
@@ -355,8 +355,8 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend   
-	name="Rhizome（wiki）"
-	url="https://dongrentianyu.github.io/rhizome/#:%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99"
+	name="Rhizome"
+	url="https://dongrentianyu.github.io/rhizome/#:"
 	logo="https://unfinished-wenai.vercel.app/images/remote/game-icons:dead-eye_6327486055679874920.svg"
 	word="一世风尘，也只如雪泥打他人脚底经过"
     primary-color="default"
