@@ -357,7 +357,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 {{< friend   
 	name="Rhizome"
 	url="https://dongrentianyu.github.io/rhizome/#:"
-	logo="https://unfinished-wenai.vercel.app/images/remote/game-icons:dead-eye_6327486055679874920.svg"
+	logo=""
 	word="一世风尘，也只如雪泥打他人脚底经过"
     primary-color="default"
     img-animation="rotate"
