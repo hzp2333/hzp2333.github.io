@@ -131,6 +131,8 @@
 2. **社会性验证成本并没有消失**。数据质量、理论可解释性、同行说服、训练门槛、制度激励，依然是 ai 不能达到的地方；
 3. **品味的载体正在变化**。过去它更多体现为少数专家的个人判断；现在它也越来越嵌入数据集、引用网络、模型权重、推荐系统与共同体反馈之中。
 
+例如过去经典文献形成的例子是：作者阅读文献、引用文献、被其他人检索。现在人们可能让 ai 推荐文献，或者让 ai 阅读文献。是否未来更利好 ai 的文献形式影响力更大，例如配置有代码语言包、md 说明文档、有复现 github 仓库的文献。真实世界的文献影响和 ai 权重的文献影响可能成为相互交错的两套系统。
+
 科研品味不是通向真理的捷径。宏观上，真理未必由品味决定；微观上，品味仍是有限资源下的生存策略。AI 改变的，不是求真本身，而是真理被发现、筛选、传播和投资的方式。
 
 也许，这才是更接近今天处境的“哥白尼时刻”。
@@ -140,6 +142,12 @@
 - [在 AI 时代教计量经济学](https://mp.weixin.qq.com/s/XvOtDKTJTsb9uUHyM6vdMw)
 - [Some Thoughts on AI and Research](https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf)
 - [The Consequences of Abundant Intelligence](https://www.citriniresearch.com/p/2028gic)
+- [数学品味可以量化吗？](https://zhuanlan.zhihu.com/p/2034764658003943982)
+- [如果论文的主要读者不再是人](https://zhuanlan.zhihu.com/p/2040070769791787736)
+- [科学进步只能靠“熬走”老一代？《Science》研究揭开学术界残酷真相](https://mp.weixin.qq.com/s/06jBFVLBsxNIPXGZbfNkBg)
+
+
+
 
 
 [^3]: 一个有趣的哲学实验是：统计证据能否直接充当法律证据？数学模型与概率模型的证明方式究竟有什么不同？

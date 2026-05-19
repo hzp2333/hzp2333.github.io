@@ -1,147 +1,151 @@
-# A Copernican Moment and Research Taste
+# The Copernican Moment and Academic Taste
 
 
-{{< music url="/music/Travelers_encore.mp3" name="Travelers_encore" artist="星际拓荒" cover="/images/星际拓荒.webp" >}} 
+{{< music url="/music/Travelers_encore.mp3" name="Travelers_encore" artist="Outer Wilds" cover="/images/星际拓荒.webp" >}} 
 
-When we talk about what AI can do, we are really reopening a deeper question: **what, exactly, is uniquely human in research?**
+When we talk about what AI can do, we are really circling back to an older question: **what, exactly, is irreducibly human about research?**
 
-Lately, a line you hear more and more in academia is this: once AI becomes a research assistant, **research taste will matter even more**. But I have always felt there is something oddly self-contradictory about that phrase.
+A refrain that keeps getting louder in academia goes something like this: now that AI has become a research assistant, *academic taste will matter more than ever*. I find that phrase — "academic taste" — deeply contradictory.
 
-- On the one hand, "research taste" is too vague. It runs against the basic demand that research should make things clear, concrete, and intelligible.
-- On the other hand, that vagueness can provide a kind of flexible practical wisdom, but it can just as easily curdle into survivor bias or the smugness of identity politics.
+- On one hand, it is maddeningly vague. It runs against everything research is supposed to be: making things clear, making things precise, making things accessible.
+- On the other, that very vagueness, while it can encode genuine practical wisdom, slips all too easily into survivor bias and the kind of condescension that comes wrapped in institutional identity.
 
-If we insist on talking about taste, then we need to say what we mean. Otherwise it becomes little more than a new religious term dressed up for academia.
+A recent conversation between Terence Tao and the YouTuber Dwarkesh Patel gave me a fresh angle on this. Maybe what we casually call "academic taste" really is a phantom category — just one that operates at different levels.
 
-Recently, Terence Tao gave me a new angle on this in his interview with the YouTube creator Dwarkesh Patel. Maybe what we usually call "research taste" really is a pseudo-problem. Different layers are getting mixed together, and those layers do different work.
+- **Macro level**: How is truth actually discovered?
+- **Micro level**: Which theories get picked up, propagated, and funded first?
 
-- **At the macro level**: how is truth actually discovered?
-- **At the micro level**: which theories get selected first, circulated first, and funded first?
+At the macro level, academic taste has nothing to do with where truth comes from. At the micro level, taste is real enough — but it functions less as a faculty of judgment and more as in-group shorthand.
 
-At the macro level, research taste is not the source of truth. At the micro level, it certainly exists, but mostly as a bit of club language inside research communities.
+- Original interview: [Terence Tao – How the world's top mathematician uses AI](https://www.youtube.com/watch?v=Q8Fkpi18QXU&list=PLd7-bHaQwnthaNDpZ32TtYONGVk95-fhF&index=1)
+- Chinese summaries: [量子位](https://www.qbitai.com/2026/03/391515.html), [网易](https://www.163.com/dy/article/KOKK6P3O0516EPQ9.html), [51CTO](https://www.51cto.com/article/838842.html).
 
-- Original YouTube video: [Terence Tao – How the world's top mathematician uses AI](https://www.youtube.com/watch?v=Q8Fkpi18QXU&list=PLd7-bHaQwnthaNDpZ32TtYONGVk95-fhF&index=1)
-- Chinese text reposts include [QbitAI](https://www.qbitai.com/2026/03/391515.html), [NetEase](https://www.163.com/dy/article/KOKK6P3O0516EPQ9.html), and [51CTO](https://www.51cto.com/article/838842.html).
+## Revisiting the "Copernican Moment"
 
-## Looking back at the "Copernican moment"
+Strictly speaking, the "Copernican moment" I am talking about here belongs more to **Kepler — the one who actually corrected the model of planetary motion.**
 
-Strictly speaking, the so-called "Copernican moment" here is closer to the moment when **Kepler actually corrected the laws of planetary motion**.
+Copernicus proposed heliocentrism, sure. But he never let go of perfect circles.
 
-Copernicus proposed heliocentrism, but he still insisted that planets moved in perfect circles.
+![Source: the anime *Orb: On the Movements of the Earth*. Mars observation records played a decisive role in early astronomy and cosmology.](/img/科研品味与ai.zh-cn-1775292996247.webp)
 
-![Image source: the animation *Motion of the Earth*. Observations of Mars played a decisive role in early astronomical cosmology.](/img/科研品味与ai.zh-cn-1775292996247.webp)
+Kepler, for a long time, believed planetary orbits had to conform to some deeply harmonious geometric structure — Platonic solids, even. What he lacked was a high-quality observational dataset. So he got one from Tycho Brahe.
 
-Kepler, for a time, believed planetary orbits ought to fit some highly harmonious geometric structure, perhaps even something related to the Platonic solids. But he lacked a high-quality dataset of observations, so he turned to Tycho Brahe for one.
+The planets do not move in circles. They do not trace out regular polyhedra. Kepler spent years trying everything: shifting the circle's center, tweaking parameters, searching for a fit that would not come. What finally broke the impasse was data: the ellipse was the shape that worked.
 
-The planets do not move according to circles or regular polyhedra. Kepler spent years trying different fixes, shifting circles around, adjusting them here and there, and still nothing quite worked. In the end, it was a data-driven process that led him to suspect the ellipse might be the right answer.
+Translated into the language of modern empirical science, the process looks like this:
 
-In more modern empirical language, the process looks something like this:
+1. **High-quality data**: Tycho's long-run observational records.
+2. **Model assumptions**: circular orbits, geometric harmony, and other prior commitments.
+3. **Residual analysis**: the model could not account for a crucial deviation in Mars's orbit.
+4. **Iterative revision**: shifting circles, adjusting parameters, trying new geometries.
+5. **Abandoning the old assumption**: accepting that "the circle" itself might be wrong.
+6. **Abstracting a new law**: elliptical orbits, and eventually the general laws of planetary motion.
 
-1. **High-quality data**: Tycho's long-run observational records;
-2. **Model assumptions**: circular orbits, geometric harmony, and other priors;
-3. **Residual analysis**: the model could not account for the key deviations in the orbit of Mars;
-4. **Repeated revision**: move the circle, change the parameters, try a different structure;
-5. **Abandon the old assumption**: admit that the "circle" itself may simply have been wrong;
-6. **Abstract a new law**: elliptical orbits, and eventually a more general law of planetary motion.
+The history of science tends to magnify the "moment of discovery" while shrinking the long, grinding stretch of failure, trial, and data accumulation that came before it. In that light, the macro-level pursuit of truth is less about "a person of taste seeing through to the essence at a glance" and more about **who has better data, who can afford a longer chain of failed attempts, and who is willing to delete an old assumption — until the truth finally comes into view.**
 
-The history of science tends to magnify the dramatic instant of discovery while downplaying the long stretch of failure, trial and error, and data accumulation that came before it. In that sense, the macro-level search for truth has never been just **a matter of someone with refined taste seeing the essence at a glance**. It is usually the people with better data, more time to fail, and more willingness to delete old assumptions who get closer to the truth.
+## Taste and the cost of trial and error
 
-## Taste and the cost of trial and error?
+Why does academia keep invoking taste and intuition? Strip away the mystique, and they serve a single function: **lowering the cost of trial and error.**
 
-In academia, when people talk about research taste or research intuition, what they usually mean in practice is simple enough: **reduce the cost of trial and error**.
+Every day, scientists face an infinite space of theoretical conjectures and a finite budget of attention. Peer review exists to filter that space into something more tractable. But in a world shaped by data-driven methods and AI, the cost of *verification* is racing toward zero. That shifts the advantage toward whoever can:
 
-Scientists face an unlimited supply of theoretical conjectures and a limited amount of time and energy to test them. That is one reason peer review exists: to filter the pile down to theories that seem more reliable. But in an environment shaped by data-driven work and AI, the cost of verification is drifting closer and closer to zero. So the real research advantage now starts to look more like this:
+- marshal higher-quality data;
+- expose the weaknesses of old models faster;
+- admit that a cherished assumption is wrong;
+- hold onto something rough but right through a long sequence of failures.
 
-- who has better data;
-- who can expose the weaknesses of old models faster;
-- who is willing to admit that a cherished assumption is actually wrong;
-- who can preserve one rough but correct idea amid a mountain of failed ones.
+This naturally calls to mind that perennial question in the social sciences: why didn't the Industrial Revolution happen in China (or Asia more broadly)? The question travels under different names in different fields — the Needham Question, the Weber Thesis, the Great Divergence, the Qian Xuesen Question —
 
-That line of thought naturally brings to mind one of the classic questions in social science: why didn't the Industrial Revolution happen in China, or in Asia more broadly? Different fields and periods have given that question different names: the Needham question, the Weber question, the Great Divergence, the Qian Xuesen question, and so on.
+Justin Yifu Lin's [classic answer](https://www.jstor.org/stable/1154499) runs like this: science, at bottom, raises productivity. China had abundant labor and scarce capital; Europe had the reverse. Europe therefore had incentives to invest in science, while China developed the imperial examination system. China's early growth came from empirical know-how accumulated at population scale. The Industrial Revolution needed something else: an institutional environment that steered elites toward scientific enterprise.
 
-Justin Yifu Lin's [classic answer](https://www.jstor.org/stable/1154499) is that the essence of science is raising productivity. China had abundant labor and scarce capital; Europe had the reverse. Europe therefore had stronger incentives to invest in science, while China developed the examination system. China's earlier development rested on accumulated practical knowledge under high population density. The Industrial Revolution, by contrast, required institutions that would push elites into scientific work.
+A sharper follow-up: was the Industrial Revolution driven by the masses or by elites? In the long arc of history, it is tempting to see it as a dialectical wave of its time — yet spatial inequality hints that the story is not so tidy. If we suppose that scientific development has bottleneck phases, could *that* be where AI and the Industrial Revolution share a theoretical logic? There seems to be an inverted-U relationship between trial-and-error cost and population quality:
 
-A crucial follow-up question is this: who really drives an Industrial Revolution, ordinary people or elites? In time, it is tempting to tell a dialectical-materialist story about historical tides. But the inequalities we see across space suggest that things are not that simple. If we assume that scientific development has bottleneck periods, is this where the analogy between AI and the Industrial Revolution begins to make sense? There may be an inverted-U relationship between the cost of trial and error and the quality of the population:
-
-When the **cost of trial and error is low**, scale and broad experimentation matter more. When the **cost of trial and error is high**, elite filtering and intensive training matter more. And when **AI begins to cut part of the cognitive cost of trial and error in a noticeable way**, the filtering structure once held together by the "taste" of a small number of people may start to loosen. What changes at the macro level is not that truth suddenly begins to depend on taste. It is that **the way we organize trial and error in order to approach truth is changing.**
+When **the cost of trial and error is low**, volume and breadth of attempts matter most. When **the cost of trial and error is high**, elite selection and intensive training matter most. And when **AI starts driving down the cognitive cost of certain kinds of trial and error**, the filtering structures that once relied on the "taste" of a small number of people may begin to crack. What is really changing at the macro level is not that truth has suddenly become a matter of taste — it is that **the organizational form through which we approach truth, through trial and error, is transforming.**
 
 ## Taste and selection mechanisms
 
-Unfortunately, scientists do not live inside macro-history. They live in the present, before the submission deadline, inside grant applications and peer review.[^4]
+The uncomfortable fact is that scientists do not live inside macro-history. They live inside today: inside deadlines, inside grant cycles, inside peer review.[^4]
 
-Liu Cixin gives a beautiful metaphor for this in his short story [Poetry Cloud](https://book.douban.com/subject/36053919/): an advanced civilization can exhaust every possible combination of Chinese characters and still not know which poem will one day truly surpass Li Bai. The question is not just "**can it be generated**" but "**which one should we trust**".
+Liu Cixin wrote a beautiful metaphor for this in his short story "[The Poetry Cloud](https://book.douban.com/subject/36053919/)." An advanced alien civilization brute-forces every possible combination of Chinese characters — and still cannot tell which poem will, in some future age, truly surpass Li Bai. The problem is not just *can it be generated.* It is also *which one should be believed.*
 
-The world of theory works the same way. We often cannot know, in the present, which theory will become important later. The value of a theory never depends only on whether it looks elegant, mature, or complete right now. It also depends on whether time will later show it to be more powerful in explanation.
+The world of theory is the same. We can rarely tell, in the present, which theory will matter later — because a theory's value is never just about whether it looks elegant, mature, or complete right now. It also depends on whether it turns out, in the future, to carry more explanatory power.
 
-The history of economic thought offers plenty of examples. Many people at the time could not accept Augustin Cournot's use of mathematics in *Researches into the Mathematical Principles of the Theory of Wealth* to express the relation between price and demand. Frank Ramsey had already touched on the endogenization of the saving rate before the Solow growth model, but the importance of that move only became clear within later theoretical frameworks. Here, "taste" means something more like this:
+The history of economic thought is full of such cases. Many contemporaries could not accept Augustin Cournot's use of mathematics in *Researches into the Mathematical Principles of the Theory of Wealth* to express the price–demand relationship. Ramsey touched on the endogenization of the savings rate long before the Solow growth model, but his insight only became visible inside a later theoretical frame. In these examples, "taste" starts to look more like:
 
-- sensitivity to the problems of the present;
-- a hazy forecast about the future explanatory power of a theory;
-- the ability to tolerate the difference between "roughly right" and "beautifully wrong."
+- sensitivity to the questions of one's own time;
+- a rough, pre-theoretical hunch about a theory's future explanatory reach;
+- tolerance for the gap between "roughly right" and "elegantly wrong."
 
-## Roughly right and beautifully wrong
+## Roughly right and elegantly wrong
 
-Tao has a wonderful passage on this:
+Terence Tao put this wonderfully:
 
-> Science is always moving forward. When you only have a partial answer, it may look worse than a theory that is wrong but polished enough to answer every question. Newtonian theory had many mysteries, and those were not resolved until centuries later by a conceptually quite different approach. Progress often comes not from adding more theory, but from deleting some of the assumptions in your head.
+> Science is always advancing. When you only have a partial answer, it can look worse than a theory that is wrong but has been refined to the point where it seems to answer everything. Newton's theory was full of puzzles — puzzles that took centuries to resolve, and only through a conceptually different approach. Progress often comes not from adding more theory but from deleting an assumption you have been carrying in your head.
 
-That passage also helps explain why "taste" keeps coming up at the micro level.
+This passage explains, almost exactly, why "taste" keeps getting invoked at the micro level.
 
-Because real researchers are often facing two kinds of things at once:
+Because researchers, in practice, are constantly staring at two kinds of things:
 
-- **highly mature but wrong theories**;
-- **highly rough but correct theories**.
+- **a very polished wrong theory**;
+- **a very rough right theory.**
 
-From the vantage point of the long run, time may eventually vindicate the correct theory. But from the standpoint of a present-day career, disciplinary division of labor, and the allocation of resources, researchers have to choose before the evidence is complete. In that setting, "taste" is not some sacred faculty. It is a practical capacity to place bets.
+Seen from the endpoint of history, time may eventually vindicate the right theory. But seen from the middle of a career — with its disciplinary divisions, its resource constraints, its professional incentives — researchers have to choose before the evidence is complete. Taste, then, is not some sacred faculty. It is the capacity to place a bet.
 
 ## Taste and narrative
 
-If all we notice is that data keeps growing and models keep getting stronger, it is easy to slip into an illusion: if machines can generate hypotheses and test patterns faster and faster, will theoretical competition eventually collapse into a pure contest of data?
+If all you see is "more data, stronger models," it is easy to drift into the illusion that theoretical competition will eventually collapse into a pure data race.
 
-Tao's answer is no.
+Tao pushes back:
 
-> The art of exposition, the organization of argument, the construction of narrative — these are also important parts of science. Data helps, of course, but people still need to be persuaded. Otherwise they will not push the direction forward. They need to make an initial investment to learn your theory and actually explore it.
+> The art of exposition, the organization of arguments, the construction of a narrative — these are also essential parts of science. Data helps, of course. But people need to be persuaded, or they will not invest in moving a direction forward. They need to make that initial investment to learn your theory and really explore it.
 
-That gets at another micro-level fact: **science is not just a process of discovery. It is also a process of organization.**
+This gets at something real about the micro level: **science is not only a process of discovery; it is also a process of organization.**
 
-Data does not persuade people on its own. A theory may be closer to the truth in some sense, but it still needs to be explained, circulated, learned, brought into courses, written into papers, and backed with new research resources. Even in empirical economics, a p-value is only one test statistic among many necessary conditions.[^3] What we really have to persuade others of is why this particular combination of necessary conditions deserves trust. See [The Rhetoric of Economics](https://blog.huaxiangshan.com/en/posts/jjxxc/) and [Empirical economics: intuitive does not mean obvious](https://blog.huaxiangshan.com/en/posts/fs2/).
+Data does not persuade on its own. A theory can be, in some sense, closer to the truth — and still need to be explained, transmitted, learned, put into curricula, written into papers, and funded for further exploration. Even in empirical economics, a p-value is just one check among many necessary conditions;[^3] what we really need to convince others of is why the combination of those conditions is credible enough. See "[The Rhetoric of Economics](https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/)" and "[Empirical Economics: Intuitive ≠ Obvious](https://blog.huaxiangshan.com/zh-cn/posts/fs2/)."
 
-For example, take the same topic: long-term use of AI may lead to deterioration in human cognitive ability, or perhaps skill, or attention. You can find versions of that topic in statistics, economics, the life sciences, and medicine. The theme is the same, but the methods and narrative angles differ. Even with the same topic, some people can package it for a top journal while others can only place it in lower-tier outlets. The gap there is often much larger than the supposedly tasteful question of what is worth studying in the first place.
+Take a single topic — say, the idea that long-term AI use erodes cognitive ability (or skills, or attention). You can find versions of this same question across statistics, economics, life sciences, and medicine. Different methods, different narrative angles. Some people manage to wrap it into a top-tier publication; others end up in a low-tier journal. The gap between them is bigger than anything the word "taste" can capture.
 
-There is also a contradiction in the macro-level idea of "research taste." The spirit of science popularization many of us grew up with says that **even the most trivial phenomenon may conceal something profound**. Yet the language of taste can easily decay into a habit of treating certain directions of research as simply boring and therefore beneath notice.
+Academic taste at the macro level carries a built-in contradiction. The spirit of science we absorb growing up is that **behind any seemingly trivial phenomenon lies a deep mystery.** Taste, meanwhile, is easily co-opted into something cruder: the impulse to dismiss an entire line of inquiry as simply boring.
 
 ![Microfoundations of macroeconomics?](/img/科研品味与ai.zh-cn-1775300898050.webp)
 
-At the micro level, "taste" carries a strong communal coloring. It is not just a matter of personal judgment. It is also a kind of club culture within a discipline: which questions count as worth doing, which evidence counts as decisive, which forms of expression count as serious, which assumptions feel "natural". None of that is purely individual.
+At the micro level, "taste" takes on an unmistakably communal flavor. It is not just individual judgment. It is club culture inside a discipline: which questions are worth asking, which evidence counts as decisive, which style of expression reads as serious, which assumptions feel "natural" — none of these are purely personal decisions.
 
-In that club setting, research taste is less about whether a topic is dull or interesting than about whether the research **fits in**.
+In that club setting, academic taste is less about a topic being boring or uninteresting. It is more about the research being **out of step with the group.**
 
-Take a more pointed example. For labor economists, gender may be a basic dimension for analyzing social structure. But some sociologists working on LGBT issues may not accept that same framing of the problem. New structural economists may treat factor endowments as the primary constraint, while institutional economists may strongly reject that view. The disagreement is not entirely about who is "truer." It is also about what each community chooses to foreground, how it organizes its questions, and where it directs attention.
+To sharpen the point: for a labor economist, gender may be a fundamental dimension for analyzing social structure. A sociologist working on LGBT issues may not accept the same framing at all. A new structural economist may treat endowments as the primary constraint; an institutional economist will push back hard. The disagreement here is not simply about who is "more right." It is about which community prioritizes what, how they organize questions, and how they allocate attention.
 
-So yes, at the micro level, "research taste" exists. But it looks much more like a piece of club vocabulary.[^5]
+So yes — at the micro level, "academic taste" exists. But it functions mostly as club vocabulary.[^5]
 
-## AI and the question itself
+## AI and the question
 
-At the macro level, taste is really a rather empty word. Wrong theories can be highly mature, and correct theories can be very rough. Taste has never had much to do with truth, because even if peer review has developed as far as it has today, that still does not guarantee that important research will necessarily rise to the top.
+At the macro level, taste is an empty word. Wrong theories can be exquisitely polished; right theories can be embarrassingly rough. Taste has never had anything to do with truth — because even with peer review as refined as it is today, important research does not automatically rise to the top.
 
-At the micro level, taste really does matter. Researchers cannot wait for "history's final verdict" before deciding what to read, what to do, what to submit, or what to teach today. Limited resources force each community to build its own pre-screening rules, and "taste" is often just the everyday name for those rules.
+At the micro level, taste is genuinely consequential. No researcher can wait for "the verdict of history" before deciding what to read today, what to work on, what to submit, what to teach. Finite resources force every community to develop its own pre-filtering rules — and "taste" is often just the everyday name for those rules.
 
-That is why the change brought by AI is not that "research taste matters more" or that "research taste matters less." A more precise way to put it might be this:
+That is why the change AI brings is not "academic taste matters more" or "academic taste no longer matters." A more precise way to put it might be:
 
-1. **The technical cost of trial and error is falling.** AI can help generate candidate ideas, search the literature, check derivations, and compress lower-level labor even further;
-2. **The social cost of validation has not disappeared.** Data quality, theoretical interpretability, peer persuasion, training thresholds, and institutional incentives remain places AI cannot simply replace;
-3. **The carrier of taste is changing.** In the past, it showed up more as the personal judgment of a small number of experts. Now it is increasingly embedded in datasets, citation networks, model weights, recommendation systems, and community feedback.
+1. **The technical cost of trial and error is falling.** AI can help generate candidate ideas, search the literature, check derivations, and further compress low-level labor.
+2. **The social cost of verification has not gone away.** Data quality, theoretical interpretability, peer persuasion, training barriers, institutional incentives — AI does not reach any of these.
+3. **The carrier of taste is shifting.** It used to be embodied disproportionately in the individual judgment of a small number of experts. Now it is increasingly embedded in datasets, citation networks, model weights, recommendation systems, and community feedback loops.
 
-Research taste is not a shortcut to truth. At the macro level, truth is not determined by taste. At the micro level, taste remains a survival strategy under conditions of scarce resources. What AI changes is not truth-seeking itself, but the way truth gets discovered, selected, circulated, and funded.
+Consider how canonical literature used to form: an author reads papers, cites them, and gets discovered by others through search. Now people may ask an AI to recommend papers, or have an AI read them. Should we expect that, going forward, papers in formats more legible to AI — those shipping with code libraries, Markdown documentation, reproducible GitHub repositories — will carry more weight? The real-world influence of literature and its AI-mediated influence may split into two interlocking but distinct systems.
 
-Maybe that is the version of the "Copernican moment" that comes closest to where we are now.
+Academic taste is not a shortcut to truth. At the macro level, truth is not decided by taste. At the micro level, taste remains a survival strategy under finite resources. What AI is changing is not the pursuit of truth itself, but the way truth is discovered, filtered, propagated, and invested in.
 
-## Other recommended reading
+Maybe that, more than anything, is the Copernican moment we are actually living through.
+
+## Further reading
 
 - [Teaching Econometrics in the Age of AI](https://mp.weixin.qq.com/s/XvOtDKTJTsb9uUHyM6vdMw)
 - [Some Thoughts on AI and Research](https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf)
 - [The Consequences of Abundant Intelligence](https://www.citriniresearch.com/p/2028gic)
+- [Can Mathematical Taste Be Quantified?](https://zhuanlan.zhihu.com/p/2034764658003943982)
+- [If the Primary Audience for Papers Is No Longer Human](https://zhuanlan.zhihu.com/p/2040070769791787736)
+- [Does Scientific Progress Depend on "Outliving" the Old Guard? A *Science* Study Reveals Academia's Brutal Truth](https://mp.weixin.qq.com/s/06jBFVLBsxNIPXGZbfNkBg)
 
 
-[^3]: A fun philosophical experiment is this: can statistical evidence directly serve as legal evidence? And what exactly separates proof in mathematical models from proof in probabilistic models?
+[^3]: A fun philosophical experiment: can statistical evidence serve directly as legal evidence? What exactly is the difference between how mathematical models and probabilistic models "prove" something?
 [^4]: Keynes: in the long run, we are all dead.
-[^5]: At least personally, I feel that when judging whether any question deserves study, one ought to keep a certain sense of reverence.
+[^5]: At the very least, my own feeling is that evaluating whether a question is worth studying requires a certain humility — a posture of restraint.
+
