@@ -135,9 +135,17 @@ So even with frictionless population mobility, the resulting urban pattern may s
 
 ## Recommended Online Materials
 
+### Physical Intuition
+
 - [Why Is Zipf's Law So Pervasive? From the Principle of Least Effort to Maximizing Diversity](https://swarma.org/?p=29556)
 - [Choice Matters More Than Effort (Power-Law Distributions)](https://www.bilibili.com/video/BV1qUmMBBErp/?spm_id_from=333.1387.homepage.video_card.click&vd_source=0e137afa81fa006aaa9f39b597699a06)
 - [Quantum Mechanics Tells Us That Matter Takes All Paths](https://www.bilibili.com/video/BV1ZxQcYvEVU/?spm_id_from=333.337.search-card.all.click&vd_source=0e137afa81fa006aaa9f39b597699a06)
+
+### Lu Ming on the Practice of Economic Research
+
+- [Lu Ming: China's Economics Research Has Become Seriously Disconnected from Reality](https://mp.weixin.qq.com/s/cFw-yl-OQ6bYyeGKku_Drw)
+- [Lu Ming: Revisiting "Taking Empirical Research All the Way"](https://mp.weixin.qq.com/s/Vq0szd0a_1tSkLxLGiD6QQ)
+- [Lu Ming: Reality, Theory, and Evidence — On How to Do Research and Write Papers](https://mp.weixin.qq.com/s/c-Ayq0uUvOYII8PBm1J-6w)
 
 
 [^1]: Lu Ming notes that Professor Wang Yongqin's phrasing of this perspective is particularly apt.
