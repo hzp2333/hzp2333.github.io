@@ -101,6 +101,10 @@
 
 这段话点出了微观层面的另一个事实：**科学不只是发现过程，也是组织过程** 。
 
+一个经典问题是：
+- [杨振宁谈数学本质究竟是发现还是创造](https://www.bilibili.com/video/BV1Cy4y1M7hj/?spm_id_from=333.337.search-card.all.click&vd_source=0e137afa81fa006aaa9f39b597699a06)。
+- [如何判断一部作品是否「原创」？（选答：如何看待「没有真正的原创，一切都是混搭」的观点？）？](https://www.zhihu.com/question/401277188)
+
 数据不会自动说服人。一个理论即便在某种意义上更接近真理，也仍然需要被解释、被传播、被学习、被纳入课程、被写进论文、被投入新的研究资源。即便在实证经济学中，p 值也只是诸多必要条件中的一个检验参数[^3]；我们真正需要说服别人的，是这些必要条件的组合为什么足够可信。参见《[经济学的修辞](https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/)》和《[实证经济学：符合直觉≠显而易见](https://blog.huaxiangshan.com/zh-cn/posts/fs2/)》。
 
 
