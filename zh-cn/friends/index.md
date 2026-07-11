@@ -246,6 +246,29 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 
+{{< friend   
+	name="萌豚 Moechu"
+	url="https://moechu.cn"
+	logo="https://cravatar.cn/avatar/294fc41a0551cb235455b29356002f46?s=500&r=X"
+	word="一个不走心的个人站点"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
+{{< friend  name="MonkeyKe's Blog"
+url="https://blog.huaxiangshan.com/"
+logo="https://cn.cravatar.com/avatar/dee014ecea51d0dc08dbb1aaec046b47"
+word="一个热爱探索的开发者"   
+	primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
 
 {{< friend   name="第三夏尔"
     url="https://thirdshire.com"
@@ -296,14 +319,6 @@ img-animation="rotate"    border-animation="shadow"  >}}
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-{{< friend   
-	name="萌豚 Moechu"
-	url="https://moechu.cn"
-	logo="https://cravatar.cn/avatar/294fc41a0551cb235455b29356002f46?s=500&r=X"
-	word="一个不走心的个人站点"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 
 {{< friend   
