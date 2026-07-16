@@ -12,7 +12,7 @@
 
 ### 活在社会（媒体）联系中的我：
 
-- [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。目前研究主要为制度经济学、产业经济学方向。
+- [Zotero](https://www.zotero.org/groups/literature-notes)：最向往经济增长相关研究，最常看发展经济学相关研究，总被因果推断实证论文刷新世界认知。目前研究主要为法院改革，招投标公共经济方向。
 - [Steam](https://steamcommunity.com/id/flytothemoon2333/)：开放世界、角色扮演、卡牌策略、轻动作类玩家。
 - [Bilibili](https://space.bilibili.com/39033282)：偏好世界系、推理、奇幻、科幻要素。
 - [Zhihu](https://www.zhihu.com/people/nan-yang-xi-shu)：啥都看看。

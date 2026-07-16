@@ -267,9 +267,6 @@ word="一个热爱探索的开发者"
     border-animation="shadow"  >}}
 
 
-
-
-
 {{< friend   name="第三夏尔"
     url="https://thirdshire.com"
     logo="https://thirdshire.com/blackcat_avatar.jpg"
@@ -277,19 +274,6 @@ word="一个热爱探索的开发者"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-
-
-
-{{< friend  
-	name="LS-Shandong"
-	url="https://ls-shandong.codeberg.page/"
-	logo=""
-	word="LS-Shandong 的博客网站"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-
 
 
 {{< friend   name="寒夏摸鱼站"
@@ -300,14 +284,6 @@ word="一个热爱探索的开发者"
     img-animation="rotate"
     border-animation="shadow"  >}}
 
-
-{{< friend   name="蓝小柠"
-    url="https://bleshi.com/"
-    logo="https://cloudcache.bleshi.com/links.jpg"
-    word="00 后，坐标 Edinburgh ，研一"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
 
 
 {{< friend   
@@ -322,15 +298,6 @@ word="一个热爱探索的开发者"
 
 
 {{< friend   
-	name="ImCaO"
-	url="https://www.imcao.cn/"
-	logo="https://www.imcao.cn/assets/img/avatar.png"
-	word="花有重开日，人无再少年"
-    primary-color="default"
-    img-animation="rotate"
-    border-animation="shadow"  >}}
-
-{{< friend   
 	name="xkcd"
 	url="https://xkcd.com/1922/"
 	logo="https://imgs.xkcd.com/news/harris_news@2x.png"
@@ -338,7 +305,6 @@ word="一个热爱探索的开发者"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
-
 
 
 
@@ -376,6 +342,28 @@ word="一个热爱探索的开发者"
 	url="https://dongrentianyu.github.io/rhizome/#:"
 	logo=""
 	word="一世风尘，也只如雪泥打他人脚底经过"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+{{< friend  
+	name="LS-Shandong"
+	url="https://ls-shandong.codeberg.page/"
+	logo=""
+	word="LS-Shandong 的博客网站"
+    primary-color="default"
+    img-animation="rotate"
+    border-animation="shadow"  >}}
+
+
+
+
+{{< friend   name="蓝小柠"
+    url="https://bleshi.com/"
+    logo="https://cloudcache.bleshi.com/links.jpg"
+    word="00 后，坐标 Edinburgh ，研一"
     primary-color="default"
     img-animation="rotate"
     border-animation="shadow"  >}}
