@@ -259,7 +259,7 @@ img-animation="rotate"    border-animation="shadow"  >}}
 
 
 {{< friend  name="MonkeyKe's Blog"
-url="https://blog.huaxiangshan.com/"
+url="https://monkeyke.com"
 logo="https://cn.cravatar.com/avatar/dee014ecea51d0dc08dbb1aaec046b47"
 word="一个热爱探索的开发者"   
 	primary-color="default"
