@@ -173,6 +173,16 @@ Journal of Labor Economics （简称 JLE）劳动经济学领域
 https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jole
 ```
 
+######  RSS Feeds
+
+N、S 刊物之下目前认可度最高的综合类型刊物。其子刊多种多样，在 [PNAS RSS Feeds](https://www.pnas.org/about/rss) 中。
+
+
+其中社会科学板块的 rss 为
+
+```
+https://www.pnas.org/action/showFeed?type=searchTopic&taxonomyCode=topic&tagCode=soc-sci
+```
 ###### National Bureau of Economic Research
 
 著名的经济研究组织机构，发表的论文不少后来都登上了顶级刊物。
