@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -259,7 +268,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124553835.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124553835.webp" />
     </a><figcaption class="image-caption">面包猎人DIO</figcaption>
@@ -276,7 +285,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124632737.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124632737.webp" />
     </a><figcaption class="image-caption">《Life cycle wage growth across countries》（Lagakos等，2018）工资与工作经验相关图</figcaption>
@@ -316,7 +325,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124703341.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124703341.webp" />
     </a><figcaption class="image-caption">time</figcaption>
@@ -384,7 +393,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124800357.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124800357.webp" />
     </a><figcaption class="image-caption">数据源（局部）：户籍制度下劳动力的经验人力资本:生命周期视角《中国工业经济》图中d3star和d4star就是估计出的年份效应标准化处理后的虚拟变量</figcaption>
@@ -467,7 +476,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124827869.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124827869.webp" />
     </a><figcaption class="image-caption">HLT</figcaption>
@@ -481,7 +490,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp"
-            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp 1.5x, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp 2x"
+            data-srcset="/img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp, /img/HLT%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e4%b8%8e%e5%b7%a5%e8%b5%84%e5%88%86%e8%a7%a3.zh-cn-20240523124905961.webp 1.5x"
             data-sizes="auto"
             alt="/img/HLT生命周期与工资分解.zh-cn-20240523124905961.webp" />
     </a><figcaption class="image-caption">数据源：《户籍制度下劳动力的经验人力资本:生命周期视角》确实可以看出根据不同省份不同年份的抽样进行了加总。其实如果更严格应该按照年龄段的抽样进行加权，但这样显然是极难实现的。</figcaption>
@@ -606,7 +615,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

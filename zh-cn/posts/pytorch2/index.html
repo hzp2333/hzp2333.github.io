@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -260,7 +269,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757765821937.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757765821937.webp, /img/Pytorch2.zh-cn-1757765821937.webp 1.5x, /img/Pytorch2.zh-cn-1757765821937.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757765821937.webp, /img/Pytorch2.zh-cn-1757765821937.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757765821937.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -282,7 +291,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757766371428.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757766371428.webp, /img/Pytorch2.zh-cn-1757766371428.webp 1.5x, /img/Pytorch2.zh-cn-1757766371428.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757766371428.webp, /img/Pytorch2.zh-cn-1757766371428.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757766371428.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -296,7 +305,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757767740739.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757767740739.webp, /img/Pytorch2.zh-cn-1757767740739.webp 1.5x, /img/Pytorch2.zh-cn-1757767740739.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757767740739.webp, /img/Pytorch2.zh-cn-1757767740739.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757767740739.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -352,7 +361,7 @@
 <li>下载 python 可以适当关闭火绒等防护软件，这些软件会减少磁盘写入速度。</li>
 </ul>
 </blockquote>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -406,7 +415,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757780750775.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757780750775.webp, /img/Pytorch2.zh-cn-1757780750775.webp 1.5x, /img/Pytorch2.zh-cn-1757780750775.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757780750775.webp, /img/Pytorch2.zh-cn-1757780750775.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757780750775.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -418,7 +427,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757780923229.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757780923229.webp, /img/Pytorch2.zh-cn-1757780923229.webp 1.5x, /img/Pytorch2.zh-cn-1757780923229.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757780923229.webp, /img/Pytorch2.zh-cn-1757780923229.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757780923229.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -430,7 +439,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch2.zh-cn-1757780848834.webp"
-            data-srcset="/img/Pytorch2.zh-cn-1757780848834.webp, /img/Pytorch2.zh-cn-1757780848834.webp 1.5x, /img/Pytorch2.zh-cn-1757780848834.webp 2x"
+            data-srcset="/img/Pytorch2.zh-cn-1757780848834.webp, /img/Pytorch2.zh-cn-1757780848834.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch2.zh-cn-1757780848834.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -499,7 +508,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -302,7 +311,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181734292.webp" />
     </a><figcaption class="image-caption">如图,世界人均收入，人们一般划分两个时期，马尔萨斯前和马尔萨斯后</figcaption>
@@ -313,7 +322,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181710751.webp" />
     </a><figcaption class="image-caption">如图,身高数据似乎也是同步的</figcaption>
@@ -326,7 +335,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118180725493.webp" />
     </a><figcaption class="image-caption">图源 wiki 百科。麦迪逊对1500年至1950年间选定的欧洲和亚洲国家以1990年国际美元购买力平价计算的人均GDP的估计 。显示了19世纪西欧和日本的爆炸性增长。</figcaption>
@@ -354,7 +363,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118214826184.webp" />
     </a><figcaption class="image-caption">顺便记录下过去本科时关于方法论的作业</figcaption>
@@ -392,7 +401,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181630328.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -428,7 +437,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118190245891.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -471,7 +480,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118193222032.webp" />
     </a><figcaption class="image-caption">计算机模拟结果图</figcaption>
@@ -508,7 +517,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118200017478.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -550,7 +559,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118201827549.webp" />
     </a><figcaption class="image-caption">计算机模拟结果</figcaption>
@@ -572,7 +581,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118224501199.webp" />
     </a><figcaption class="image-caption">最近看了《剑来》，所以这方面的感触颇深</figcaption>
@@ -604,7 +613,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118201943319.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -732,7 +741,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

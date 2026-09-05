@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -264,7 +273,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp"
-            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 1.5x, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 2x"
+            data-srcset="/img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp, /img/%e5%be%ae%e8%a7%82%e7%bb%8f%e6%b5%8e%ef%bc%9a%e7%bd%97%e4%bc%8a%e3%80%81%e9%9c%8d%e5%a4%aa%e6%9e%97%e3%80%81%e8%b0%a2%e6%b3%bc%e5%be%b7.zh-cn-20240523112139178.webp 1.5x"
             data-sizes="auto"
             alt="/img/微观经济：罗伊、霍太林、谢泼德.zh-cn-20240523112139178.webp" />
     </a><figcaption class="image-caption">A Hicksian demand function spanning various knowledge points</figcaption>

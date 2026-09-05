@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -275,7 +284,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp"
-            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp 1.5x, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp 2x"
+            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620154618867.webp 1.5x"
             data-sizes="auto"
             alt="/img/事件研究法.zh-cn-20240620154618867.webp" />
     </a><figcaption class="image-caption">Earnings losses of displaced workers</figcaption>
@@ -297,7 +306,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp"
-            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp 1.5x, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp 2x"
+            data-srcset="/img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp, /img/%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620155803548.webp 1.5x"
             data-sizes="auto"
             alt="/img/事件研究法.zh-cn-20240620155803548.webp" />
     </a><figcaption class="image-caption">英语听力考试与教育不平等</figcaption>
@@ -401,7 +410,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp"
-            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp 2x"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620180847975.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata事件研究法.zh-cn-20240620180847975.webp" />
     </a><figcaption class="image-caption">二次加权拟合，更能反映一种趋势变化</figcaption>
@@ -431,7 +440,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp"
-            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp 2x"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621002113002.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata事件研究法.zh-cn-20240621002113002.webp" />
     </a><figcaption class="image-caption">论文有关讲解中举例的一些趋势变化</figcaption>
@@ -443,7 +452,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp"
-            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp 2x"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240620184506612.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata事件研究法.zh-cn-20240620184506612.webp" />
     </a><figcaption class="image-caption">个人画过的一个平行趋势检验的图，虽然勉强通过，但可以看出很明显的事前趋势，因此说服力会稍微次一点</figcaption>
@@ -463,7 +472,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp"
-            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp 2x"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621001023449.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata事件研究法.zh-cn-20240621001023449.webp" />
     </a><figcaption class="image-caption">左图没有加入时间趋势，右侧加入时间趋势后——这种对比逻辑就是双重差分法的逻辑。来源：论文作者的油管视频讲解</figcaption>
@@ -486,7 +495,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp"
-            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp 1.5x, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp 2x"
+            data-srcset="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp, /img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95.zh-cn-20240621003012668.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata事件研究法.zh-cn-20240621003012668.webp" />
     </a><figcaption class="image-caption">事件研究法由于固定效应和趋势没有估计到会产生偏差，文章使用了一种估计手段让其估计更准确（这里我没看懂）。</figcaption>
@@ -602,7 +611,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

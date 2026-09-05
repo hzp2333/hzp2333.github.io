@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -277,7 +286,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231230828.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319231230828.webp" />
     </a><figcaption class="image-caption">Image source: &ldquo;Mayors’ promotion incentives and subnational-level GDP manipulation&rdquo; (JUE, 2024) |585</figcaption>
@@ -292,7 +301,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319231856590.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319231856590.webp" />
     </a><figcaption class="image-caption">Source: &ldquo;Tax Cuts and Local Government Debt: Evidence from VAT Rate Reductions&rdquo; (<em>Economic Research Journal</em>, 2024)</figcaption>
@@ -309,7 +318,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232000010.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319232000010.webp" />
     </a><figcaption class="image-caption">Source: &ldquo;Tax Cuts and Local Government Debt: Evidence from VAT Rate Reductions&rdquo; (<em>Economic Research Journal</em>, 2024)</figcaption>
@@ -322,7 +331,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232210083.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319232210083.webp" />
     </a><figcaption class="image-caption">“Local Bias and the Construction of a Unified Domestic Market: Evidence from Chinese Traffic-Accident Judgments” (<em>China Economic Quarterly</em>, 2024)</figcaption>
@@ -334,7 +343,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232516601.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319232516601.webp" />
     </a><figcaption class="image-caption">“Policy Orientation, Official Turnover, and Corporate Bankruptcy: Evidence from Judicial Documents” (<em>China Economic Quarterly</em>, 2024)</figcaption>
@@ -346,7 +355,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319232846320.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319232846320.webp" />
     </a><figcaption class="image-caption">After the reform, the local win rate fell by about 7%.</figcaption>
@@ -358,7 +367,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233050961.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319233050961.webp" />
     </a><figcaption class="image-caption"><em>Judicial institutions, local protection and market segmentation: Evidence from the establishment of interprovincial circuit tribunals in China</em> (CER, 2022)</figcaption>
@@ -374,7 +383,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319233431661.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319233431661.webp" />
     </a><figcaption class="image-caption"><em>Tradeoff between local protection and public sector performance: Lessons from judicial fiscal centralization</em> (JBOE, 2024)</figcaption>
@@ -399,7 +408,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234643581.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319234643581.webp" />
     </a><figcaption class="image-caption">Kuhn-Tucker conditions</figcaption>
@@ -413,7 +422,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319234749707.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319234749707.webp" />
     </a><figcaption class="image-caption">The conclusion is shown below.</figcaption>
@@ -436,7 +445,7 @@ Why did the Three Kingdoms period last so long? Once one kingdom was destroyed, 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp"
-            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp 1.5x, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp 2x"
+            data-srcset="/img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp, /img/%e8%ae%a9%e6%94%bf%e7%ad%96%e8%af%84%e4%bc%b0%e5%8f%98%e5%be%97%e6%9c%89%e8%b6%a3.zh-cn-20250319235341696.webp 1.5x"
             data-sizes="auto"
             alt="/img/让政策评估变得有趣.zh-cn-20250319235341696.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>

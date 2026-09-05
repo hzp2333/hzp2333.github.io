@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -245,7 +254,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp"
-            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp 2x"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523104952423.webp 1.5x"
             data-sizes="auto"
             alt="/img/看展：时代的容颜.zh-cn-20240523104952423.webp" />
     </a><figcaption class="image-caption">Painting as a Medium for the Dissemination of Religious and Mythological Stories</figcaption>
@@ -258,7 +267,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp"
-            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp 2x"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105040117.webp 1.5x"
             data-sizes="auto"
             alt="/img/看展：时代的容颜.zh-cn-20240523105040117.webp" />
     </a><figcaption class="image-caption">The reality is that he rode a donkey</figcaption>
@@ -272,7 +281,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp"
-            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp 2x"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105110495.webp 1.5x"
             data-sizes="auto"
             alt="/img/看展：时代的容颜.zh-cn-20240523105110495.webp" />
     </a><figcaption class="image-caption">Among them is a unique brushstroke</figcaption>
@@ -290,7 +299,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp"
-            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 1.5x, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 2x"
+            data-srcset="/img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp, /img/%e7%9c%8b%e5%b1%95%ef%bc%9a%e6%97%b6%e4%bb%a3%e7%9a%84%e5%ae%b9%e9%a2%9c.zh-cn-20240523105140425.webp 1.5x"
             data-sizes="auto"
             alt="/img/看展：时代的容颜.zh-cn-20240523105140425.webp" />
     </a><figcaption class="image-caption">apple man</figcaption>

@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -303,7 +312,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181734292.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181734292.webp" />
     </a><figcaption class="image-caption">As the chart shows, world per capita income is usually divided into two periods: before Malthus and after Malthus</figcaption>
@@ -314,7 +323,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181710751.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181710751.webp" />
     </a><figcaption class="image-caption">Height data seems to move in sync as well</figcaption>
@@ -327,7 +336,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118180725493.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118180725493.webp" />
     </a><figcaption class="image-caption">Image source: Wikipedia. Maddison&rsquo;s estimates of per capita GDP for selected European and Asian countries from 1500 to 1950, measured in 1990 international dollars at purchasing power parity. It shows the explosive growth of Western Europe and Japan in the nineteenth century.</figcaption>
@@ -355,7 +364,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118214826184.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118214826184.webp" />
     </a><figcaption class="image-caption">Just recording an old undergraduate methods assignment here</figcaption>
@@ -393,7 +402,7 @@ A new equilibrium is eventually formed.</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118181630328.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118181630328.webp" />
     </a><figcaption class="image-caption">As shown</figcaption>
@@ -429,7 +438,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118190245891.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118190245891.webp" />
     </a><figcaption class="image-caption">As shown</figcaption>
@@ -472,7 +481,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118193222032.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118193222032.webp" />
     </a><figcaption class="image-caption">Computer simulation result</figcaption>
@@ -509,7 +518,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118200017478.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118200017478.webp" />
     </a><figcaption class="image-caption">As shown</figcaption>
@@ -551,7 +560,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201827549.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118201827549.webp" />
     </a><figcaption class="image-caption">Computer simulation result</figcaption>
@@ -573,7 +582,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118224501199.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118224501199.webp" />
     </a><figcaption class="image-caption">I recently read <em>Jianlai</em>, so this hit me especially hard</figcaption>
@@ -605,7 +614,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp"
-            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 1.5x, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 2x"
+            data-srcset="/img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp, /img/%e5%af%8c%e7%a7%8d%e8%b5%b7%e6%ba%90-20250118201943319.webp 1.5x"
             data-sizes="auto"
             alt="/img/富种起源-20250118201943319.webp" />
     </a><figcaption class="image-caption">As shown</figcaption>

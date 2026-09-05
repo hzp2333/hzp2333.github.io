@@ -140,3 +140,4 @@ As shown in the images, we had perfect sunny weather during our ascent with snow
 [^1]: [See Wikipedia](https://zh.wikipedia.org/wiki/%E5%9B%9B%E5%A7%91%E5%A8%98%E5%B1%B1)
 [^2]:  [Only 41 successful summits in 40 years: Revealing why Siguniang Mountain's youngest sister peak is "difficult to climb"](https://www.sc.chinanews.com.cn/bwbd/2021-09-13/155234.html)
 [^3]: For amateur hikers and ordinary tourists, Muluozi is the endpoint
+

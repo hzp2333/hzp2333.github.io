@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -293,7 +302,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761472496361.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761472496361.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -423,7 +432,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488424185.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761488424185.webp" />
     </a><figcaption class="image-caption">如图,两个区域地形海拔、民族组成、gdp、工业产值、税收、城镇化率差异并不统计显著</figcaption>
@@ -434,7 +443,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761488841977.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761488841977.webp" />
     </a><figcaption class="image-caption">边界两侧灯光数据</figcaption>
@@ -447,7 +456,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761487797701.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761487797701.webp" />
     </a><figcaption class="image-caption">实验组和对照组先限制分界线30km内</figcaption>
@@ -458,7 +467,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489007234.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761489007234.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -469,7 +478,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489056820.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761489056820.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -482,7 +491,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489231984.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761489231984.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -497,7 +506,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489493160.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761489493160.webp" />
     </a><figcaption class="image-caption">排除边界点</figcaption>
@@ -510,7 +519,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761489908299.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761489908299.webp" />
     </a><figcaption class="image-caption">排除边界点</figcaption>
@@ -523,7 +532,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490252878.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761490252878.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -536,7 +545,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490405984.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761490405984.webp" />
     </a><figcaption class="image-caption">邻接区域</figcaption>
@@ -547,7 +556,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490530613.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761490530613.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -561,7 +570,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761490628730.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761490628730.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -580,7 +589,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491091834.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761491091834.webp" />
     </a><figcaption class="image-caption">左行政支出；右基础设施投入</figcaption>
@@ -593,7 +602,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491221901.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761491221901.webp" />
     </a><figcaption class="image-caption">审计年鉴中被问责的县作为y</figcaption>
@@ -606,7 +615,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491862787.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761491862787.webp" />
     </a><figcaption class="image-caption">使用谷歌地图统计</figcaption>
@@ -620,7 +629,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761491991726.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761491991726.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -638,7 +647,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492334924.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761492334924.webp" />
     </a><figcaption class="image-caption">对比湖北省宜昌市</figcaption>
@@ -653,7 +662,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492614204.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761492614204.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -665,7 +674,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp"
-            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp 1.5x, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp 2x"
+            data-srcset="/img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp, /img/%e8%a1%8c%e6%94%bf%e8%a7%84%e5%88%92%e4%b8%8e%e7%bb%8f%e6%b5%8e%e5%8f%91%e5%b1%95.zh-cn-1761492851101.webp 1.5x"
             data-sizes="auto"
             alt="/img/行政规划与经济发展.zh-cn-1761492851101.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -773,7 +782,7 @@ $$Y_{i}\equiv ln(0.01+LightIntensity_{i,2013})-ln(0.01+LightIntensity_{i,1996})$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

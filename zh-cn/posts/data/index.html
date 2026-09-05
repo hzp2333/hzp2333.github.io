@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -282,7 +291,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-1765803069193.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-1765803069193.webp" />
     </a><figcaption class="image-caption">微观数据库例子</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112730736.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523112730736.webp" />
     </a><figcaption class="image-caption">CMDS已经停止更新</figcaption>
@@ -337,7 +346,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112757079.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523112757079.webp" />
     </a><figcaption class="image-caption">经济学还有以上付费数据库，可以看自己学校有没有购买</figcaption>
@@ -368,7 +377,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112821041.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523112821041.webp" />
     </a><figcaption class="image-caption">流程</figcaption>
@@ -421,7 +430,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112842109.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523112842109.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -484,7 +493,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523112901832.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523112901832.webp" />
     </a><figcaption class="image-caption">在python拥有这种窗口前我不会认为跑回归这事它优于stata</figcaption>
@@ -562,7 +571,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113029310.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113029310.webp" />
     </a><figcaption class="image-caption">2是华为，1是苹果，销量是nurmber，日期是year那列</figcaption>
@@ -583,7 +592,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113049973.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113049973.webp" />
     </a><figcaption class="image-caption">绿色是苹果，金色是华为。可以看到date被处理后变成特殊的日期形式，而且可以直接用stata画散点图。原始图不见了，就简单重画了，请勿在意这鬼畜的配色</figcaption>
@@ -596,7 +605,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113109413.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113109413.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -615,7 +624,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113125783.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113125783.webp" />
     </a><figcaption class="image-caption">根据这个图很容易发现季节上的周期性</figcaption>
@@ -642,7 +651,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113145919.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113145919.webp" />
     </a><figcaption class="image-caption">根据季节分类进行拟合会发现线性趋势更加明显。我们发现温度和污染具有相关性所以前一个图呈现周期性，我们也可以提出假设温度越低，暖气、热炕、煤炭的使用导致空气污染增多</figcaption>
@@ -759,7 +768,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113214106.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113214106.webp" />
     </a><figcaption class="image-caption">气泡散点图</figcaption>
@@ -947,7 +956,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113529088.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113529088.webp" />
     </a><figcaption class="image-caption">蛛网图</figcaption>
@@ -1014,7 +1023,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113247442.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113247442.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -1053,7 +1062,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp"
-            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp 1.5x, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp 2x"
+            data-srcset="/img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp, /img/%e4%b8%80%e4%bb%bd%e7%bb%8f%e6%b5%8e%e5%be%ae%e8%a7%82%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97%e5%bf%ab%e9%80%9f%e6%8c%87%e5%8d%97.zh-cn-20240523113308920.webp 1.5x"
             data-sizes="auto"
             alt="/img/一份经济微观数据库的数据清洗快速指南.zh-cn-20240523113308920.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -1178,7 +1187,7 @@ ps: 当时顺便找了中日俄美的出口贸易数据，数据来源<a href="h
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

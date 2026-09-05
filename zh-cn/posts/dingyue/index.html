@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -255,7 +264,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104059529.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.en-20240523104059529.webp" />
     </a><figcaption class="image-caption">TVbox</figcaption>
@@ -266,7 +275,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104120602.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.en-20240523104120602.webp" />
     </a><figcaption class="image-caption">setting</figcaption>
@@ -302,7 +311,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104152090.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.en-20240523104152090.webp" />
     </a><figcaption class="image-caption">my xiaomi TV</figcaption>
@@ -321,7 +330,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.en-20240523104218380.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.en-20240523104218380.webp" />
     </a><figcaption class="image-caption">Tachiyomi</figcaption>
@@ -335,7 +344,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20240523104410804.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.zh-cn-20240523104410804.webp" />
     </a><figcaption class="image-caption">zotero</figcaption>
@@ -349,7 +358,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp"
-            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp 1.5x, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp 2x"
+            data-srcset="/img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp, /img/%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85%ef%bc%9a%e5%bd%b1%e8%a7%86%e3%80%81%e6%bc%ab%e7%94%bb%e3%80%81%e6%96%87%e7%8c%ae%e8%87%aa%e7%94%b1.zh-cn-20241215191304742.webp 1.5x"
             data-sizes="auto"
             alt="/img/聚合订阅：影视、漫画、文献自由.zh-cn-20241215191304742.webp" />
     </a><figcaption class="image-caption">而且支持多客户端适配</figcaption>
@@ -445,7 +454,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -278,7 +287,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间正在经济学.zh-cn-1779182991782.webp" />
     </a><figcaption class="image-caption">发展理论</figcaption>
@@ -312,7 +321,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779185250825.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间正在经济学.zh-cn-1779185250825.webp" />
     </a><figcaption class="image-caption">日本与中国的城市人口规模分布，齐夫分布拟合图</figcaption>
@@ -324,7 +333,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779197635391.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间政治经济学.zh-cn-1779197635391.webp" />
     </a><figcaption class="image-caption">《最省力原则——人类行为生态导论》目录。我心目中最顶级的交叉学科成果</figcaption>
@@ -348,7 +357,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779182991782.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间正在经济学.zh-cn-1779182991782.webp" />
     </a><figcaption class="image-caption">发展理论</figcaption>
@@ -367,7 +376,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp, /img/%e7%a9%ba%e9%97%b4%e6%ad%a3%e5%9c%a8%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1779188305878.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间正在经济学.zh-cn-1779188305878.webp" />
     </a><figcaption class="image-caption">《犯罪与执法经济》:安东尼教授面向本科生的计量犯罪学讲义</figcaption>
@@ -398,7 +407,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp"
-            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp 1.5x, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp 2x"
+            data-srcset="/img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp, /img/%e7%a9%ba%e9%97%b4%e6%94%bf%e6%b2%bb%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1787149753414.webp 1.5x"
             data-sizes="auto"
             alt="/img/空间政治经济学.zh-cn-1787149753414.webp" />
     </a><figcaption class="image-caption">书籍《经济学家请回答——理解当今世界的90个经济问题》</figcaption>
@@ -512,7 +521,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

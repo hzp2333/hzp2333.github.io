@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -260,7 +269,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730124500266.webp" />
     </a><figcaption class="image-caption">Image, summarized using Google AI</figcaption>
@@ -283,7 +292,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730125427517.webp" />
     </a><figcaption class="image-caption">Source: Backpacker Inn, https://www.backpackers.com.tw/forum/showthread.php?t=10606664#post12439890|668</figcaption>
@@ -300,7 +309,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730162646495.webp" />
     </a><figcaption class="image-caption">This image shows a corner outside the Siguniang Mountain scenic area</figcaption>
@@ -312,7 +321,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730160950934.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -324,7 +333,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730162838307.webp" />
     </a><figcaption class="image-caption">Horses at Siguniang Mountain</figcaption>
@@ -340,7 +349,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730224110815.webp" />
     </a><figcaption class="image-caption">WeChat step count for reference only</figcaption>
@@ -356,7 +365,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730160003154.webp" />
     </a><figcaption class="image-caption">Snow mountains at the entrance</figcaption>
@@ -369,7 +378,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730155929661.webp" />
     </a><figcaption class="image-caption">Forest and river in the boardwalk section</figcaption>
@@ -380,7 +389,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161940908.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -392,7 +401,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161058625.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -404,7 +413,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161721046.webp" />
     </a><figcaption class="image-caption">Chongchong Waterfall</figcaption>
@@ -415,7 +424,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161853671.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -427,7 +436,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730163552845.webp" />
     </a><figcaption class="image-caption">Snow mountains at Muluozi, right at the endpoint when you look up, with stunning scenery ahead</figcaption>
@@ -440,7 +449,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730163600023.webp" />
     </a><figcaption class="image-caption">Be careful with these yaks—they can attack, so don&rsquo;t get too close</figcaption>
@@ -459,7 +468,7 @@ The route is divided into boardwalks and horse trails. Horse trails allow paid h
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730164756524.webp" />
     </a><figcaption class="image-caption">Smartwatch values are for reference only and don&rsquo;t represent rigorous medical measurements</figcaption>
@@ -473,7 +482,7 @@ After ascending the mountain, my awake blood oxygen dropped to around 96%, with 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730165050358.webp" />
     </a><figcaption class="image-caption">Bread brought along, crazily expanded due to pressure difference</figcaption>
@@ -501,7 +510,7 @@ After ascending the mountain, my awake blood oxygen dropped to around 96%, with 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730170434397.webp" />
     </a><figcaption class="image-caption">Weather determines viewing quality. Left image shows clear morning weather during ascent; right image shows rainy conditions beginning during descent. Both locations are at the entrance visitor center</figcaption>

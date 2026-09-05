@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -273,7 +282,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824235924254.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-20250824235924254.webp" />
     </a><figcaption class="image-caption">空手道俱乐部数据集可视化，来源 wiki 百科</figcaption>
@@ -286,7 +295,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824230329625.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-20250824230329625.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -298,7 +307,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824231228354.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-20250824231228354.webp" />
     </a><figcaption class="image-caption">raddit 的社群网络</figcaption>
@@ -311,7 +320,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120837358.webp" />
     </a><figcaption class="image-caption">二次元主题，可以发现B站、初音未来也是三级关键词（homo是这样的）</figcaption>
@@ -683,7 +692,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-20250824180041018.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-20250824180041018.webp" />
     </a><figcaption class="image-caption">LDA 生成主题|444x221</figcaption>
@@ -695,7 +704,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046125538.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-1759046125538.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -706,7 +715,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp, /img/%e7%a4%be%e4%bc%9a%e7%bd%91%e7%bb%9c.zh-cn-1759046196231.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会网络.zh-cn-1759046196231.webp" />
     </a><figcaption class="image-caption">15个主题</figcaption>
@@ -1053,7 +1062,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

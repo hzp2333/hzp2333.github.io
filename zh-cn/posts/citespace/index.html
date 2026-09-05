@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -271,7 +280,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120746354.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120746354.webp" />
     </a><figcaption class="image-caption">以“财政预算”为关键词，知网引用前500份文献可视化。</figcaption>
@@ -283,7 +292,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120837358.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120837358.webp" />
     </a><figcaption class="image-caption">二次元主题，可以发现B站、初音未来也是三级关键词（homo是这样的）</figcaption>
@@ -295,7 +304,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120855576.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120855576.webp" />
     </a><figcaption class="image-caption">这是时序图，还真发现点东西，例如财政预算主题的变化：财政改革、预算公开、预算程序、支出结构、债务管理</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120913562.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120913562.webp" />
     </a><figcaption class="image-caption">热点词趋势，红色的就是主题词集中出现的时间段</figcaption>
@@ -324,7 +333,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523120943632.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523120943632.webp" />
     </a><figcaption class="image-caption">先是黑框，然后等待后弹出初始页面，以后每一次都会重新从这个页面开始进入</figcaption>
@@ -335,7 +344,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121014349.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121014349.webp" />
     </a><figcaption class="image-caption">顺便一提，可以从最上面看到我的电脑用户名叫pluck，第一次知道这个单词是因为JOJO</figcaption>
@@ -348,7 +357,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121031639.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121031639.webp" />
     </a><figcaption class="image-caption">来源：CiteSpace科技文本挖掘及可视化（第三版）</figcaption>
@@ -374,7 +383,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121058311.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121058311.webp" />
     </a><figcaption class="image-caption">知网</figcaption>
@@ -386,7 +395,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121119069.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121119069.webp" />
     </a><figcaption class="image-caption">Refworks</figcaption>
@@ -398,7 +407,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121134595.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121134595.webp" />
     </a><figcaption class="image-caption">选择路径</figcaption>
@@ -409,7 +418,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121155613.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121155613.webp" />
     </a><figcaption class="image-caption">知网自带的可视化分析，注意时间</figcaption>
@@ -423,7 +432,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121215715.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121215715.webp" />
     </a><figcaption class="image-caption">按顺序做</figcaption>
@@ -439,7 +448,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121232653.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121232653.webp" />
     </a><figcaption class="image-caption">选择</figcaption>
@@ -458,7 +467,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121253027.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121253027.webp" />
     </a><figcaption class="image-caption">开始分析</figcaption>
@@ -472,7 +481,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121447548.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121447548.webp" />
     </a><figcaption class="image-caption">选择核心合集库</figcaption>
@@ -488,7 +497,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121504011.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121504011.webp" />
     </a><figcaption class="image-caption">（如果没有出现这个选项，就说明里面混进了图书，所以前文提醒了要在“核心合集库”中筛选）</figcaption>
@@ -499,7 +508,7 @@ $$</p>
         class="lazyload center-image"
         src="/svg/loading.min.svg"
         data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp"
-        data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp 2x"
+        data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121521533.webp 1.5x"
         data-sizes="auto"
         alt="/img/Citespace文献可视化.zh-cn-20240523121521533.webp"
         title="Citespace文献可视化.zh-cn-20240523121521533.webp" /></p>
@@ -510,7 +519,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121536973.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121536973.webp" />
     </a><figcaption class="image-caption">来源：《CiteSpace科技文本挖掘及可视化（第2版）》，最新版是第3版</figcaption>
@@ -524,7 +533,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20250125211700404.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20250125211700404.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -538,7 +547,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121557554.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121557554.webp" />
     </a><figcaption class="image-caption">新版背后的大水印无法去掉</figcaption>
@@ -549,7 +558,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121620776.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121620776.webp" />
     </a><figcaption class="image-caption">图形阶段，我们一般如下操作：</figcaption>
@@ -573,7 +582,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121636338.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121636338.webp" />
     </a><figcaption class="image-caption">样式如图</figcaption>
@@ -585,7 +594,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121711007.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121711007.webp" />
     </a><figcaption class="image-caption">选择</figcaption>
@@ -597,7 +606,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121729170.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121729170.webp" />
     </a><figcaption class="image-caption">更细节的操作</figcaption>
@@ -610,7 +619,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121745298.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121745298.webp" />
     </a><figcaption class="image-caption">时序图</figcaption>
@@ -621,7 +630,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121800821.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121800821.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -635,7 +644,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121819424.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121819424.webp" />
     </a><figcaption class="image-caption">这个页面可以复制粘贴，是Word的表格形式</figcaption>
@@ -656,7 +665,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121834921.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121834921.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -668,7 +677,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121851853.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121851853.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -683,7 +692,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121909016.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121909016.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -698,7 +707,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121927192.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121927192.webp" />
     </a><figcaption class="image-caption">只支持zotero6版本，zotero7已删除这个功能</figcaption>
@@ -711,7 +720,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523121942947.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523121942947.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -726,7 +735,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp"
-            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp 1.5x, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp 2x"
+            data-srcset="/img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp, /img/Citespace%e6%96%87%e7%8c%ae%e5%8f%af%e8%a7%86%e5%8c%96.zh-cn-20240523122000571.webp 1.5x"
             data-sizes="auto"
             alt="/img/Citespace文献可视化.zh-cn-20240523122000571.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -854,7 +863,7 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -262,7 +271,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp"
-            data-srcset="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp 1.5x, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp 2x"
+            data-srcset="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775292996247.webp 1.5x"
             data-sizes="auto"
             alt="/img/科研品味与ai.zh-cn-1775292996247.webp" />
     </a><figcaption class="image-caption">Source: the anime <em>Orb: On the Movements of the Earth</em>. Mars observation records played a decisive role in early astronomy and cosmology.</figcaption>
@@ -330,7 +339,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp"
-            data-srcset="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp 1.5x, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp 2x"
+            data-srcset="/img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp, /img/%e7%a7%91%e7%a0%94%e5%93%81%e5%91%b3%e4%b8%8eai.zh-cn-1775300898050.webp 1.5x"
             data-sizes="auto"
             alt="/img/科研品味与ai.zh-cn-1775300898050.webp" />
     </a><figcaption class="image-caption">Microfoundations of macroeconomics?</figcaption>

@@ -109,7 +109,10 @@ From the 2015 emphasis on **rural preferential treatment** to the actual promulg
 
 > The Ask Sichuan Government platform is a good channel for public supervision and assistance! 👍
 
-![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3899023](/img/科层治理的文件裁量.zh-cn-1787316301453.webp)![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3899023](/img/科层治理的文件裁量.zh-cn-1787316335734.webp)![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3766710](/img/科层治理的文件裁量.zh-cn-1787316436385.webp)![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3766710](/img/科层治理的文件裁量.zh-cn-1787316497651.webp)
+![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3899023](/img/科层治理的文件裁量.zh-cn-1787316301453.webp)
+![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3899023](/img/科层治理的文件裁量.zh-cn-1787316335734.webp)
+![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3766710](/img/科层治理的文件裁量.zh-cn-1787316436385.webp)
+![Ask Sichuan Government-https://ly.scol.com.cn/thread/details/3766710](/img/科层治理的文件裁量.zh-cn-1787316497651.webp)
 Other, more general feedback examples from Ask Sichuan Government:
 
 - Suining City, Anju District: [*The Deteriorating Educational Ecology*](https://ly.scol.com.cn/thread/details/3937079)

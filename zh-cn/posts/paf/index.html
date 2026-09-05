@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -316,7 +325,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp"
-            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp 2x"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240712020948263.webp 1.5x"
             data-sizes="auto"
             alt="/img/养老金和生育率-20240712020948263.webp" />
     </a><figcaption class="image-caption"> Lexis 图（图片来源维基百科）</figcaption>
@@ -387,7 +396,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp"
-            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp 2x"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240716234809029.webp 1.5x"
             data-sizes="auto"
             alt="/img/养老金和生育率-20240716234809029.webp" />
     </a><figcaption class="image-caption">我也邮件询问了两位作者，得到了如下回信（片段）</figcaption>
@@ -405,7 +414,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp"
-            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp 2x"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210232124.webp 1.5x"
             data-sizes="auto"
             alt="/img/养老金和生育率-20240713210232124.webp" />
     </a><figcaption class="image-caption">工具变量部分</figcaption>
@@ -418,7 +427,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp"
-            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp 2x"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713202608425.webp 1.5x"
             data-sizes="auto"
             alt="/img/养老金和生育率-20240713202608425.webp" />
     </a><figcaption class="image-caption">描述统计可以看出，婚姻率，教育，医疗保健，收入，财富和就业的趋势没有随着改革产生突然变化，同时农村和城市有着相同的趋势</figcaption>
@@ -429,7 +438,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp"
-            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp 1.5x, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp 2x"
+            data-srcset="/img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp, /img/%e5%85%bb%e8%80%81%e9%87%91%e5%92%8c%e7%94%9f%e8%82%b2%e7%8e%87-20240713210539697.webp 1.5x"
             data-sizes="auto"
             alt="/img/养老金和生育率-20240713210539697.webp" />
     </a><figcaption class="image-caption">附录A15 同样，在实施绝育政策的背景下，绝育也是从政策实施后出现大幅波动</figcaption>
@@ -531,7 +540,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -292,7 +301,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523115915540.webp" />
     </a><figcaption class="image-caption">Oshi no Ko</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523115942537.webp" />
     </a><figcaption class="image-caption">Manga Oshi no Ko</figcaption>
@@ -369,7 +378,7 @@ In <em>Your Name</em>, Mitsuha and Taki meet across displaced time and space als
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523120004409.webp" />
     </a><figcaption class="image-caption">Gradually默契的 bickering couple in Nisekoi</figcaption>

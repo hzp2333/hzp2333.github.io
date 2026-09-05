@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -243,7 +252,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch.zh-cn-20240813151919593.webp"
-            data-srcset="/img/Pytorch.zh-cn-20240813151919593.webp, /img/Pytorch.zh-cn-20240813151919593.webp 1.5x, /img/Pytorch.zh-cn-20240813151919593.webp 2x"
+            data-srcset="/img/Pytorch.zh-cn-20240813151919593.webp, /img/Pytorch.zh-cn-20240813151919593.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch.zh-cn-20240813151919593.webp" />
     </a><figcaption class="image-caption">图源维基百科</figcaption>
@@ -267,7 +276,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch.zh-cn-20240813150143605.webp"
-            data-srcset="/img/Pytorch.zh-cn-20240813150143605.webp, /img/Pytorch.zh-cn-20240813150143605.webp 1.5x, /img/Pytorch.zh-cn-20240813150143605.webp 2x"
+            data-srcset="/img/Pytorch.zh-cn-20240813150143605.webp, /img/Pytorch.zh-cn-20240813150143605.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch.zh-cn-20240813150143605.webp" />
     </a><figcaption class="image-caption">第一次地址选择</figcaption>
@@ -279,7 +288,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch.zh-cn-20240813150252949.webp"
-            data-srcset="/img/Pytorch.zh-cn-20240813150252949.webp, /img/Pytorch.zh-cn-20240813150252949.webp 1.5x, /img/Pytorch.zh-cn-20240813150252949.webp 2x"
+            data-srcset="/img/Pytorch.zh-cn-20240813150252949.webp, /img/Pytorch.zh-cn-20240813150252949.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch.zh-cn-20240813150252949.webp" />
     </a><figcaption class="image-caption">第二次地址选择</figcaption>
@@ -298,7 +307,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch.zh-cn-20240813150731276.webp"
-            data-srcset="/img/Pytorch.zh-cn-20240813150731276.webp, /img/Pytorch.zh-cn-20240813150731276.webp 1.5x, /img/Pytorch.zh-cn-20240813150731276.webp 2x"
+            data-srcset="/img/Pytorch.zh-cn-20240813150731276.webp, /img/Pytorch.zh-cn-20240813150731276.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch.zh-cn-20240813150731276.webp" />
     </a><figcaption class="image-caption">明明严格按照教程却还是报错？</figcaption>
@@ -316,7 +325,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Pytorch.zh-cn-20240813151629739.webp"
-            data-srcset="/img/Pytorch.zh-cn-20240813151629739.webp, /img/Pytorch.zh-cn-20240813151629739.webp 1.5x, /img/Pytorch.zh-cn-20240813151629739.webp 2x"
+            data-srcset="/img/Pytorch.zh-cn-20240813151629739.webp, /img/Pytorch.zh-cn-20240813151629739.webp 1.5x"
             data-sizes="auto"
             alt="/img/Pytorch.zh-cn-20240813151629739.webp" />
     </a><figcaption class="image-caption">下载组间</figcaption>
@@ -390,7 +399,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

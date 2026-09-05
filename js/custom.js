@@ -138,21 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 添加图片预加载
-  const images = document.querySelectorAll('img[data-src]');
-  images.forEach(img => {
-    const src = img.getAttribute('data-src');
-    if (src) {
-      const newImg = new Image();
-      newImg.onload = function() {
-        img.src = src;
-        img.classList.remove('lazyload');
-        img.classList.add('lazyloaded');
-      };
-      newImg.src = src;
-    }
-  });
-
   // 添加图片加载错误处理（跳过已有自定义处理的图片）
   document.querySelectorAll('img').forEach(img => {
     // 跳过friend logo类和已有onerror处理的图片
@@ -210,4 +195,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
-

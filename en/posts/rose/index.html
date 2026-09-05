@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -251,7 +260,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617173944541.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617173944541.webp" />
     </a><figcaption class="image-caption">The Three Peaks Traverse: from Dajue Temple in Haidian District to Yangtai Mountain and finally to Miaofeng Mountain.</figcaption>
@@ -265,7 +274,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.en-20240617185932592.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.en-20240617185932592.webp" />
     </a><figcaption class="image-caption">Miaofeng Mountain</figcaption>
@@ -280,7 +289,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617180320895.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617180320895.webp" />
     </a><figcaption class="image-caption">The starting point of the climb is hidden among the residential streets at the foot of the mountain.</figcaption>
@@ -292,7 +301,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617181536708.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617181536708.webp" />
     </a><figcaption class="image-caption">Lingguan Temple on the mountainside</figcaption>
@@ -305,7 +314,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182503208.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617182503208.webp" />
     </a><figcaption class="image-caption">gate</figcaption>
@@ -316,7 +325,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182530844.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617182530844.webp" />
     </a><figcaption class="image-caption">save point</figcaption>
@@ -329,7 +338,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182329436.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617182329436.webp" />
     </a><figcaption class="image-caption">attract wealth and treasure</figcaption>
@@ -345,7 +354,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182013460.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617182013460.webp" />
     </a><figcaption class="image-caption">Standing on the top of the mountain overlooking the first floor</figcaption>
@@ -356,7 +365,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%b1%b1%e4%b8%8e%e7%ba%a2%e7%8e%ab%e7%91%b0.zh-cn-20240617182031544.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：山与红玫瑰.zh-cn-20240617182031544.webp" />
     </a><figcaption class="image-caption">Standing on the top of the mountain overlooking the first floor</figcaption>

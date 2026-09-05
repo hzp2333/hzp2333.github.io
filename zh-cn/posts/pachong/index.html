@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -253,7 +262,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132508772.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132508772.webp" />
     </a><figcaption class="image-caption">爬虫流程</figcaption>
@@ -271,7 +280,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132529559.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132529559.webp" />
     </a><figcaption class="image-caption">网站</figcaption>
@@ -283,7 +292,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132608238.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132608238.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -295,7 +304,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132637510.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132637510.webp" />
     </a><figcaption class="image-caption">源代码</figcaption>
@@ -351,7 +360,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523132656233.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523132656233.webp" />
     </a><figcaption class="image-caption">stata</figcaption>
@@ -389,7 +398,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133224742.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523133224742.webp" />
     </a><figcaption class="image-caption">切割</figcaption>
@@ -453,7 +462,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp"
-            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 1.5x, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 2x"
+            data-srcset="/img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp, /img/stata%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a0.zh-cn-20240523133244093.webp 1.5x"
             data-sizes="auto"
             alt="/img/stata爬虫学习.zh-cn-20240523133244093.webp" />
     </a><figcaption class="image-caption">起始价和交易价部分使用的js进行加密，所以无法爬取，本文主要是记录爬虫原理和流程</figcaption>
@@ -635,7 +644,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

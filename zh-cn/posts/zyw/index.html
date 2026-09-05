@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -291,7 +300,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115915540.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523115915540.webp" />
     </a><figcaption class="image-caption">《我推的偶像》</figcaption>
@@ -305,7 +314,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523115942537.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523115942537.webp" />
     </a><figcaption class="image-caption">漫画《我推的孩子》</figcaption>
@@ -368,7 +377,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp"
-            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 2x"
+            data-srcset="/img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp, /img/%e7%9c%9f%e7%89%a9%e4%b8%8e%e4%bc%aa%e7%89%a9.zh-cn-20240523120004409.webp 1.5x"
             data-sizes="auto"
             alt="/img/真物与伪物.zh-cn-20240523120004409.webp" />
     </a><figcaption class="image-caption">《伪恋》中逐渐默契的欢喜冤家</figcaption>
@@ -459,7 +468,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

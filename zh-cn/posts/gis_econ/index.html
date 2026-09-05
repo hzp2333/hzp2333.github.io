@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -287,7 +296,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762174389527.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762174389527.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762175832065.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762175832065.webp" />
     </a><figcaption class="image-caption">左侧是地图的内容，主要是图层显示管理 ，右侧是目录、工具栏</figcaption>
@@ -317,7 +326,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1764340185120.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1764340185120.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -344,7 +353,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762177414904.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762177414904.webp" />
     </a><figcaption class="image-caption">编辑自建点数据，同理也可以自建面数据</figcaption>
@@ -356,7 +365,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762176623535.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762176623535.webp" />
     </a><figcaption class="image-caption">缓冲区分析结果</figcaption>
@@ -372,7 +381,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762178817771.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762178817771.webp" />
     </a><figcaption class="image-caption">分析距离最近的点数据</figcaption>
@@ -384,7 +393,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1762181791273.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1762181791273.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -398,7 +407,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129086988.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129086988.webp" />
     </a><figcaption class="image-caption">如图,这是一个人口密度的点集矢量数据</figcaption>
@@ -410,7 +419,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129127588.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129127588.webp" />
     </a><figcaption class="image-caption">直接对点数据转栅格</figcaption>
@@ -422,7 +431,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129200989.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129200989.webp" />
     </a><figcaption class="image-caption">反距离权重法对点数据进行插值</figcaption>
@@ -434,7 +443,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129405819.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129405819.webp" />
     </a><figcaption class="image-caption">核密度</figcaption>
@@ -446,7 +455,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129520527.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129520527.webp" />
     </a><figcaption class="image-caption">等高线和核密度</figcaption>
@@ -458,7 +467,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129597060.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129597060.webp" />
     </a><figcaption class="image-caption">符号系统可以修改分组层次</figcaption>
@@ -470,7 +479,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129832685.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129832685.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -482,7 +491,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp"
-            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 1.5x, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 2x"
+            data-srcset="/img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp, /img/Gispro%e6%93%8d%e4%bd%9c%e7%ae%80%e8%a6%81.zh-cn-1763129840413.webp 1.5x"
             data-sizes="auto"
             alt="/img/Gispro操作简要.zh-cn-1763129840413.webp" />
     </a><figcaption class="image-caption">我随意选了些栅格做了地图几何运算，灰黑色部分就是几个栅格信息都最终计算结果。</figcaption>
@@ -552,7 +561,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

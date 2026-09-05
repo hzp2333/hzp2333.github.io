@@ -67,12 +67,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -205,7 +214,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/commentary/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Commentary</a></span></div><div class="content">The mountain passes are hard to cross; who pities the wayfarer who has lost his way?</div><div class="post-footer">
         <a href="/en/posts/zcpx/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/current-affairs/">Current Affairs</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/involution_econ/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -221,7 +231,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economics-study/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economics Study</a>&nbsp;<a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">Local optima everywhere do not necessarily add up to a global optimum</div><div class="post-footer">
         <a href="/en/posts/involution_econ/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/development-economics/">Development Economics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/innovation/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -237,7 +248,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">What is innovation? Why innovate? How do we innovate?</div><div class="post-footer">
         <a href="/en/posts/innovation/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reflection/">Reflection</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/kjzz_econ/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -253,7 +265,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economics</a></span></div><div class="content">Balancing through Agglomeration</div><div class="post-footer">
         <a href="/en/posts/kjzz_econ/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/regional-economics/">Regional Economics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/bgls/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -269,7 +282,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">The moment you witness a miracle</div><div class="post-footer">
         <a href="/en/posts/bgls/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reading/">Reading</a>,&nbsp;<a href="/en/tags/magic/">Magic</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/taste_ai/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -285,7 +299,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/%E9%98%85%E8%AF%BB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>阅读</a>&nbsp;<a href="/en/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div><div class="content">Then as now, history rhymes.</div><div class="post-footer">
         <a href="/en/posts/taste_ai/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/%E9%98%85%E8%AF%BB/">阅读</a>,&nbsp;<a href="/en/tags/%E5%8F%8D%E6%80%9D/">反思</a>,&nbsp;<a href="/en/tags/%E8%BD%AC%E8%BD%BD/">转载</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/stata_auto/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -301,7 +316,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a></span></div><div class="content">In 2026, empirical researchers are weaving AI into their data workflows every day.</div><div class="post-footer">
         <a href="/en/posts/stata_auto/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/stata/">Stata</a>,&nbsp;<a href="/en/tags/software-recommendations/">Software Recommendations</a>,&nbsp;<a href="/en/tags/obsidian/">Obsidian</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/rsc_econ/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -317,7 +333,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Do institutions matter more than geography?</div><div class="post-footer">
         <a href="/en/posts/rsc_econ/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/regional-economics/">Regional Economics</a>,&nbsp;<a href="/en/tags/gis/">GIS</a></div></div>
-</article><ul class="pagination"><li class="page-item active">
+</article>
+<ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/en/">1</a>
                     </span>

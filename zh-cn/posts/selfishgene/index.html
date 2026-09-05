@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -291,7 +300,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092624575.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092624575.webp" />
     </a><figcaption class="image-caption">网图，数码宝贝进化路线：对个体选择理论来说，自然选择就像数码宝贝超进化，为了生存，个体的性状发生了变化</figcaption>
@@ -303,7 +312,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092656110.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092656110.webp" />
     </a><figcaption class="image-caption">自绘图，一个基因沙漏：对基因选择理论来说，个体只是基因的载体，自然选择是本就存在的基因们经过筛选，然后重新组合成更加稳定状态的过程。本书将生物称为基因的生存机器。</figcaption>
@@ -316,7 +325,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092732445.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092732445.webp" />
     </a><figcaption class="image-caption">自绘图：有点像选观察坐标。人人都知道自然选择的存在，但是从什么视角来观察？这也是个大难题</figcaption>
@@ -361,7 +370,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092807957.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092807957.webp" />
     </a><figcaption class="image-caption">自绘图，逻辑范式：本书的逻辑是，不是从a上看b，是对比自然对所有物种的筛选，从进化过程中看基因，先找出基因、行为的相关性，再进行脑海中的模型干预，最后筛查出因果。</figcaption>
@@ -380,7 +389,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092837653.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092837653.webp" />
     </a><figcaption class="image-caption">自绘图：更具体分解的每章内容框架</figcaption>
@@ -400,7 +409,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092909498.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092909498.webp" />
     </a><figcaption class="image-caption">看起来正面研究也不多</figcaption>
@@ -414,7 +423,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523092941784.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523092941784.webp" />
     </a><figcaption class="image-caption">经常称之为&quot;模因&quot;，在我看的中信出版社版本中，其被翻译为“觅母”。</figcaption>
@@ -426,7 +435,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093012475.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523093012475.webp" />
     </a><figcaption class="image-caption">meme</figcaption>
@@ -458,7 +467,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093041798.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523093041798.webp" />
     </a><figcaption class="image-caption">文章最犀利的观点无非是认为所哟我们假定的利他行为其实都是基因上的自私，那么这真的包含了所有的道德吗？</figcaption>
@@ -537,7 +546,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093303080.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523093303080.webp" />
     </a><figcaption class="image-caption">自绘图，经济是方式打开均衡点：种族选择理论是个人生育需求与其他人生育供给的博弈；而基因选择是个人在生育和养育间的分配。个人认为，其实是完善而非反驳。类比经济学，基因选择的理论的养育成本变化一部分来自其他人的生育情况。</figcaption>
@@ -597,7 +606,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093132700.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523093132700.webp" />
     </a><figcaption class="image-caption">书中是把这个博弈拆解成两个，这里直接整合成一个</figcaption>
@@ -614,7 +623,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp"
-            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp 1.5x, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp 2x"
+            data-srcset="/img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp, /img/%e3%80%8a%e8%87%aa%e7%a7%81%e7%9a%84%e5%9f%ba%e5%9b%a0%e3%80%8b%ef%bc%9a%e5%88%a9%e4%bb%96%e9%81%93%e5%be%b7%e4%b9%8b%e9%97%ae.zh-cn-20240523093337516.webp 1.5x"
             data-sizes="auto"
             alt="/img/《自私的基因》：利他道德之问.zh-cn-20240523093337516.webp" />
     </a><figcaption class="image-caption">昆虫繁殖循环图</figcaption>
@@ -736,7 +745,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

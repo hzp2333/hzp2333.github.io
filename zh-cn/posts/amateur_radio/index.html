@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -302,7 +311,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp"
-            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp 2x"
+            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604184257572.webp 1.5x"
             data-sizes="auto"
             alt="/img/业余无线电-20250604184257572.webp" />
     </a><figcaption class="image-caption">微信小程序 HAM 模拟考试小程序</figcaption>
@@ -318,7 +327,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp"
-            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp 2x"
+            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604190500295.webp 1.5x"
             data-sizes="auto"
             alt="/img/业余无线电-20250604190500295.webp" />
     </a><figcaption class="image-caption">设备页面</figcaption>
@@ -338,7 +347,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp"
-            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp 2x"
+            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604191207619.webp 1.5x"
             data-sizes="auto"
             alt="/img/业余无线电-20250604191207619.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -376,7 +385,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp"
-            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp 2x"
+            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250604202118932.webp 1.5x"
             data-sizes="auto"
             alt="/img/业余无线电-20250604202118932.webp" />
     </a><figcaption class="image-caption">字母解释法，来源：http://www.scraa.org.cn/rumen/291.html</figcaption>
@@ -396,7 +405,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp"
-            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp 1.5x, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp 2x"
+            data-srcset="/img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp, /img/%e4%b8%9a%e4%bd%99%e6%97%a0%e7%ba%bf%e7%94%b5-20250605072858682.webp 1.5x"
             data-sizes="auto"
             alt="/img/业余无线电-20250605072858682.webp" />
     </a><figcaption class="image-caption">如图，来源： https://jjxxw.cq.gov.cn/zwgk_213/fdzdgknr/zcwj/fg/202412/W020241211415991928096.pdf</figcaption>
@@ -465,7 +474,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

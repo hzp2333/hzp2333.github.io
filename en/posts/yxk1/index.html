@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -338,7 +347,7 @@ So let&rsquo;s return to classical operations research and control theory, and Y
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp"
-            data-srcset="/img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp, /img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp 1.5x, /img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp 2x"
+            data-srcset="/img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp, /img/%e5%8f%91%e5%b1%95%e7%bb%8f%e6%b5%8e%e5%ad%a6%ef%bc%9a%e8%b6%85%e8%be%b9%e9%99%85%e5%88%86%e6%9e%90%ef%bc%88%e5%af%bc%e8%ae%ba%ef%bc%89%ef%bc%88%e6%9d%a8%e5%b0%8f%e5%87%af%ef%bc%89-20240523100624130.webp 1.5x"
             data-sizes="auto"
             alt="/img/发展经济学：超边际分析（导论）（杨小凯）-20240523100624130.webp" />
     </a><figcaption class="image-caption">A very dated book. Yang Xiaokai&rsquo;s books seem quite collectible, and second-hand ones are expensive. I chose to borrow from the library. If anyone has one at home, please keep it well; it seems to hold its value.</figcaption>

@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -278,7 +287,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524184612776.webp" />
     </a><figcaption class="image-caption">打开页面</figcaption>
@@ -291,7 +300,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524191650737.webp" />
     </a><figcaption class="image-caption">页面如下</figcaption>
@@ -331,7 +340,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524194922250.webp" />
     </a><figcaption class="image-caption">设置页面，外观部分可以更换主题，第三方插件设置安装和开启</figcaption>
@@ -347,7 +356,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524200110588.webp" />
     </a><figcaption class="image-caption">一些插件需要命令调用</figcaption>
@@ -359,7 +368,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525005836916.webp" />
     </a><figcaption class="image-caption">出现添加命令的地方</figcaption>
@@ -389,7 +398,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524205940959.webp" />
     </a><figcaption class="image-caption">文档属性例子</figcaption>
@@ -405,7 +414,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165250508.webp" />
     </a><figcaption class="image-caption">往下找到模型设置，选择自己想要的模型，我推荐选择 OPEENROUTER. AI</figcaption>
@@ -417,7 +426,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165713463.webp" />
     </a><figcaption class="image-caption">往下找到模型设置，选择自己想要的模型</figcaption>
@@ -431,7 +440,7 @@ Openrouter. Ai 的 api key <a href="https://openrouter.ai/keys" target="_blank" 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526170748976.webp" />
     </a><figcaption class="image-caption">选择自己想要的free模型名称</figcaption>
@@ -493,7 +502,7 @@ Openrouter. Ai 的 api key <a href="https://openrouter.ai/keys" target="_blank" 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524211004569.webp" />
     </a><figcaption class="image-caption">左右开弓！</figcaption>
@@ -516,7 +525,7 @@ Openrouter. Ai 的 api key <a href="https://openrouter.ai/keys" target="_blank" 
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp" />
     </a><figcaption class="image-caption">青柠学术的插件对接。想要图片丝滑无缝传递，无论如何都得搭建图床</figcaption>
@@ -593,7 +602,7 @@ Openrouter. Ai 的 api key <a href="https://openrouter.ai/keys" target="_blank" 
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -67,12 +67,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -205,7 +214,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Reading notes on &lsquo;Logs with Zeros? Some Problems and Solutions&rsquo;. When the variable being transformed includes zeros, the log(y+1) transformation has some limits in treatment-effect estimation.</div><div class="post-footer">
         <a href="/en/posts/log0/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/bff/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -221,7 +231,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">A study note on the calculus of variations based on Alpha C. Chiang&rsquo;s textbook on dynamic optimization, covering the catenary problem, the brachistochrone problem, and monopoly pricing.</div><div class="post-footer">
         <a href="/en/posts/bff/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/calculus-of-variations/">Calculus of Variations</a>,&nbsp;<a href="/en/tags/dynamic-optimization/">Dynamic Optimization</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/yxk1/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -237,7 +248,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">This article reviews the introduction to Yang Xiaokai&rsquo;s work on inframarginal analysis in development economics and highlights several arguments about division of labor, growth, and the history of development theory.</div><div class="post-footer">
         <a href="/en/posts/yxk1/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/macroeconomics/">Macroeconomics</a>,&nbsp;<a href="/en/tags/development-economics/">Development Economics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/fs/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -253,7 +265,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Reflecting on the attitude towards the study of economics—what constitutes enthusiasm? What embodies a love for the discipline? Documenting my own hierarchy of disdain in the realm of economic learning.</div><div class="post-footer">
         <a href="/en/posts/fs/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/self-questioning/">Self-questioning</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/regout/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -269,7 +282,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a>&nbsp;<a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a></span></div><div class="content">GPT Summary: This article introduces commonly used table output commands in economic empirical papers, including estout, asdoc, logout, outreg2, putdocx series, and etable. Each command has its features and applicable scenarios, such as estout for versatile custom effects and LaTeX output, asdoc for descriptive statistics, logout for diverse statistical result outputs, outreg2 for aesthetically pleasing regression result outputs, the putdocx series for exporting multiple tables into a single Word file, and etable, which supports Chinese encoding in Stata 17. Example codes demonstrate the basic usage and output effects of each command, helping readers select suitable commands for table outputs.</div><div class="post-footer">
         <a href="/en/posts/regout/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/stata/">Stata</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/anaconda/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -285,7 +299,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a></span></div><div class="content">[Anaconda Error] Anaconda bytes object has no attribute get</div><div class="post-footer">
         <a href="/en/posts/anaconda/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/anaconda/">Anaconda</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/hxl/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -301,7 +316,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/travelogue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Travelogue</a></span></div><div class="content">A concise layover guide based on a transfer in Wuhan: how to use the airport&rsquo;s transit services, take the metro to Yellow Crane Tower, and finish the round trip in about five hours.</div><div class="post-footer">
         <a href="/en/posts/hxl/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/travel/">Travel</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/kj_2024/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -317,7 +333,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/film-and-tv/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Film and TV</a></span></div><div class="content">A personal 2024 viewing roundup that reads Blossoms Shanghai, The Long Season, Only the River Flows, and Journey to the West through the lens of fate, madness, compromise, and reconciliation.</div><div class="post-footer">
         <a href="/en/posts/kj_2024/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/tv-series/">TV Series</a></div></div>
-</article><ul class="pagination"><li class="page-item ">
+</article>
+<ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/">1</a>
                     </span>

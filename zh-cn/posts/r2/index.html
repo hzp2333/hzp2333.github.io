@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -498,7 +507,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131432548.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131432548.webp" />
     </a><figcaption class="image-caption">数据库$列名是指定列变量的方式，Rstudio的很多功能还是挺好用的</figcaption>
@@ -672,7 +681,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131456173.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131456173.webp" />
     </a><figcaption class="image-caption">横向</figcaption>
@@ -683,7 +692,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131512036.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131512036.webp" />
     </a><figcaption class="image-caption">纵向</figcaption>
@@ -867,7 +876,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131531461.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131531461.webp" />
     </a><figcaption class="image-caption">散点图加拟合线</figcaption>
@@ -878,7 +887,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131547470.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131547470.webp" />
     </a><figcaption class="image-caption">切片以后</figcaption>
@@ -931,7 +940,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131606940.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131606940.webp" />
     </a><figcaption class="image-caption">内部再分组的直方图</figcaption>
@@ -964,7 +973,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131624349.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131624349.webp" />
     </a><figcaption class="image-caption">加上核密度线后的直方图</figcaption>
@@ -991,7 +1000,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131646647.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131646647.webp" />
     </a><figcaption class="image-caption">midwest是自带数据库</figcaption>
@@ -1010,7 +1019,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131701808.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131701808.webp" />
     </a><figcaption class="image-caption">wordcloud2包自带的数据库</figcaption>
@@ -1047,7 +1056,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131720601.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131720601.webp" />
     </a><figcaption class="image-caption">相关系数热力图</figcaption>
@@ -1087,7 +1096,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131735035.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131735035.webp" />
     </a><figcaption class="image-caption">气泡图</figcaption>
@@ -1200,7 +1209,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131750366.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131750366.webp" />
     </a><figcaption class="image-caption">2*2的分割</figcaption>
@@ -1229,7 +1238,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131811114.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131811114.webp" />
     </a><figcaption class="image-caption">输出效果</figcaption>
@@ -1255,7 +1264,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131825614.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131825614.webp" />
     </a><figcaption class="image-caption">bruceR的相关性分析，第一次使用时我惊呆了！</figcaption>
@@ -1308,7 +1317,7 @@ Ggplot 2 的作图一般步骤为：</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp"
-            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp 1.5x, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp 2x"
+            data-srcset="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp, /img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%802.zh-cn-20240523131847113.webp 1.5x"
             data-sizes="auto"
             alt="/img/R语言基础2.zh-cn-20240523131847113.webp" />
     </a><figcaption class="image-caption">回归结果</figcaption>
@@ -1377,7 +1386,7 @@ Ggplot 2 的作图一般步骤为：</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

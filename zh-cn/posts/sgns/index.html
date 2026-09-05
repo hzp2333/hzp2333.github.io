@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -259,7 +268,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730124500266.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730124500266.webp" />
     </a><figcaption class="image-caption">如图,使用谷歌的ai总结一下</figcaption>
@@ -282,7 +291,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730125427517.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730125427517.webp" />
     </a><figcaption class="image-caption">图源，背包客栈，https://www.backpackers.com.tw/forum/showthread.php?t=10606664#post12439890|668</figcaption>
@@ -299,7 +308,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162646495.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730162646495.webp" />
     </a><figcaption class="image-caption">这张图是四姑娘山景区外的一角</figcaption>
@@ -311,7 +320,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160950934.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730160950934.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -323,7 +332,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730162838307.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730162838307.webp" />
     </a><figcaption class="image-caption">四姑娘山的马</figcaption>
@@ -339,7 +348,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730224110815.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730224110815.webp" />
     </a><figcaption class="image-caption">微信步数仅供参考</figcaption>
@@ -355,7 +364,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730160003154.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730160003154.webp" />
     </a><figcaption class="image-caption">进门处的雪山</figcaption>
@@ -368,7 +377,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730155929661.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730155929661.webp" />
     </a><figcaption class="image-caption">有栈道部分的森林和河流</figcaption>
@@ -379,7 +388,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161940908.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161940908.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -391,7 +400,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161058625.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161058625.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -403,7 +412,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161721046.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161721046.webp" />
     </a><figcaption class="image-caption">虫虫瀑布</figcaption>
@@ -414,7 +423,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730161853671.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730161853671.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -426,7 +435,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163552845.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730163552845.webp" />
     </a><figcaption class="image-caption">木骡子处的雪山，就在终点抬头处，前有绝景</figcaption>
@@ -439,7 +448,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730163600023.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730163600023.webp" />
     </a><figcaption class="image-caption">小心这些耗牛，还是会攻击人的，不要靠太近</figcaption>
@@ -458,7 +467,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730164756524.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730164756524.webp" />
     </a><figcaption class="image-caption">手环数值只是参考值，不代表严谨的医学测量</figcaption>
@@ -472,7 +481,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730165050358.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730165050358.webp" />
     </a><figcaption class="image-caption">带过去的面包，由于气压差疯狂膨胀</figcaption>
@@ -499,7 +508,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp"
-            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 1.5x, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 2x"
+            data-srcset="/img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp, /img/%e5%9b%9b%e5%a7%91%e5%a8%98%e5%b1%b1.zh-cn-20250730170434397.webp 1.5x"
             data-sizes="auto"
             alt="/img/四姑娘山.zh-cn-20250730170434397.webp" />
     </a><figcaption class="image-caption">如图，我们去时大晴天，一路都可以看见雪山，但是返程时开始下雨，整个雪山都掩埋在了乌云之中。位置都在进门处游客中心</figcaption>
@@ -582,7 +591,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

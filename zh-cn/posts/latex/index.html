@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -266,7 +275,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115505904.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门-20240804115505904.webp" />
     </a><figcaption class="image-caption">插入emoji，Word就不会插入的这么自然啦~</figcaption>
@@ -278,7 +287,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115702301.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门-20240804115702301.webp" />
     </a><figcaption class="image-caption">word排版</figcaption>
@@ -289,7 +298,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115745943.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门-20240804115745943.webp" />
     </a><figcaption class="image-caption">LaTeX排版</figcaption>
@@ -300,7 +309,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp, /img/LaTeX%e5%85%a5%e9%97%a8-20240804115849727.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门-20240804115849727.webp" />
     </a><figcaption class="image-caption">我们队在一次数学建模比赛中描写排队模型，LaTeX排</figcaption>
@@ -928,7 +937,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

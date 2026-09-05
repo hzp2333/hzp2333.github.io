@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -280,7 +289,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114257162.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114257162.webp" />
     </a><figcaption class="image-caption">把线段分成三段</figcaption>
@@ -297,7 +306,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114320984.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114320984.webp" />
     </a><figcaption class="image-caption">线性规划那味儿</figcaption>
@@ -320,7 +329,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114343772.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114343772.webp" />
     </a><figcaption class="image-caption">当针与平行线相交时，取针的中点向垂直方向投影，投影的垂线线段就被分成了两个部分</figcaption>
@@ -337,7 +346,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114404674.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114404674.webp" />
     </a><figcaption class="image-caption">通过两个参数建立坐标系</figcaption>
@@ -389,7 +398,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114437265.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114437265.webp" />
     </a><figcaption class="image-caption">veen图，左边普通条件概率，右边全概率公式（绘图：latex的tikz）</figcaption>
@@ -406,7 +415,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp"
-            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp 1.5x, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp 2x"
+            data-srcset="/img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp, /img/%e6%a6%82%e7%8e%87%e8%ae%ba%e8%8c%86%e8%af%97%e6%9d%be%e7%ac%94%e8%ae%b0.zh-cn-20240523114455242.webp 1.5x"
             data-sizes="auto"
             alt="/img/概率论茆诗松笔记.zh-cn-20240523114455242.webp" />
     </a><figcaption class="image-caption">调查者只需要回答以下两个问题中的一个就行</figcaption>
@@ -548,7 +557,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

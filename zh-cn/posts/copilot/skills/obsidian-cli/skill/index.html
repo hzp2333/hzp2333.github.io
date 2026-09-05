@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> - 滑翔闪&#39;S BLOG</title><meta name="Description" content="Use the official Obsidian CLI when a task needs Obsidian&#39;s running app, index, configured features, command registry, or developer runtime. Use for currently open notes and tabs, workspace state, daily notes, typed properties, tasks, links/backlinks, Bases queries, template resolution, link-aware moves, plugin commands, and plugin/theme debugging; do not use it for ordinary filesystem operations."><meta property="og:title" content="" />
+<meta property="og:description" content="Use the official Obsidian CLI when a task needs Obsidian&#39;s running app, index, configured features, command registry, or developer runtime. Use for currently open notes and tabs, workspace state, daily notes, typed properties, tasks, links/backlinks, Bases queries, template resolution, link-aware moves, plugin commands, and plugin/theme debugging; do not use it for ordinary filesystem operations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" /><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Use the official Obsidian CLI when a task needs Obsidian&#39;s running app, index, configured features, command registry, or developer runtime. Use for currently open notes and tabs, workspace state, daily notes, typed properties, tasks, links/backlinks, Bases queries, template resolution, link-aware moves, plugin commands, and plugin/theme debugging; do not use it for ordinary filesystem operations."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Ma&#43;Shan&#43;Zheng&amp;family=Madimi&#43;One&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;family=Noto&#43;Serif&#43;SC&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://fonts.googleapis.com/css?family=Fira&#43;Mono:400,700&amp;display=swap&amp;subset=latin-ext" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Serif+SC&display=swap">
+</noscript><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/obsidian-cli\/skill\/"
+        },"genre": "posts","wordcount":  1161 ,
+        "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/obsidian-cli\/skill\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xxxx"
+            },"description": "Use the official Obsidian CLI when a task needs Obsidian's running app, index, configured features, command registry, or developer runtime. Use for currently open notes and tabs, workspace state, daily notes, typed properties, tasks, links/backlinks, Bases queries, template resolution, link-aware moves, plugin commands, and plugin/theme debugging; do not use it for ordinary filesystem operations."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <div id="mask"></div><div class="wrapper">
+
+
+
+
+
+
+<style>
+  #sakana-widget-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 268px;
+    height: 268px;
+  }
+
+  #sakana-widget {
+    width: 100%;
+    height: 100%;
+  }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    
+    var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
+      var container = document.createElement('div');
+      container.id = 'sakana-widget-container';
+      container.setAttribute('aria-hidden', 'true');
+      container.innerHTML = '<div id="sakana-widget"></div>';
+      document.body.appendChild(container);
+
+      window.initSakanaWidget = function () {
+        var target = document.getElementById('sakana-widget');
+        if (!target || typeof SakanaWidget === 'undefined') return;
+        new SakanaWidget({
+          size: 300, autoFit: true, character: 'chisato', controls: true,
+          rod: true, draggable: true, stroke: { color: '#b4b4b4', width: 10 },
+          threshold: 0.1, rotate: 0, title: false
+        }).mount('#sakana-widget');
+      };
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.onload = window.initSakanaWidget;
+      script.src = 'https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js';
+      document.head.appendChild(script);
+    };
+    window.addEventListener('load', function () {
+      window.setTimeout(load, 4000);
+    }, { once: true });
+  })();
+</script>
+
+
+
+<header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i> 文章 </a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i> 标签 </a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i> 分类 </a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i> 友链  </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i> 关于 </a><a class="menu-item" href="/zh-cn/analysis/" title="博客分析报告"><i class='fa fa-chart-line'></i> 分析 </a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i> 开往  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/copilot/skills/obsidian-cli/skill/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="滑翔闪&#39;S BLOG"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
+        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
+        data-sizes="auto"
+        alt="/images/%E7%9F%9B%E7%9B%BE.png"
+        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="吾将上下而求索" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="书中自有黄金屋"><i class='fa fa-solid fa-book'></i>文章</a><a class="menu-item" href="/zh-cn/tags/" title="定义文章，不定义世界"><i class='fa fa-tag'></i>标签</a><a class="menu-item" href="/zh-cn/categories/" title="分类是种视角"><i class='fa fa-archive'></i>分类</a><a class="menu-item" href="/zh-cn/friends/" title="有朋自远方来"><i class='fa fa-user-group'></i>友链 </a><a class="menu-item" href="/zh-cn/about/" title="人穷其一生寻找自己"> <i class='fa fa-address-card'></i>关于</a><a class="menu-item" href="/zh-cn/analysis/" title="博客分析报告"><i class='fa fa-chart-line'></i>分析</a><a class="menu-item" href="https://www.travellings.cn/go.html" title="漫长的列车驶向未来" rel="noopener noreffer" target="_blank"><i class='fa fa-train-subway'></i>开往 </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/copilot/skills/obsidian-cli/skill/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"></h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span></div>
+
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1161 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+
+</div>
+
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#capability-probe-and-fallback">Capability probe and fallback</a></li>
+    <li><a href="#target-precisely">Target precisely</a></li>
+    <li><a href="#high-value-indexed-and-configured-operations">High-value indexed and configured operations</a>
+      <ul>
+        <li><a href="#inspect-open-notes">Inspect open notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#obsidian-and-plugin-commands">Obsidian and plugin commands</a></li>
+    <li><a href="#plugin-and-theme-development">Plugin and theme development</a></li>
+    <li><a href="#preserve-the-host-session">Preserve the host session</a></li>
+    <li><a href="#risky-operations-require-explicit-intent">Risky operations require explicit intent</a></li>
+    <li><a href="#exclusions">Exclusions</a></li>
+    <li><a href="#attribution">Attribution</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="obsidian-cli">Obsidian CLI</h1>
+<p>Use the CLI only for behavior that depends on Obsidian&rsquo;s running application,
+indexes, settings, command registry, or developer runtime. Use normal shell
+filesystem tools for ordinary file reads, writes, directory listing, and text
+search.</p>
+<h2 id="capability-probe-and-fallback">Capability probe and fallback</h2>
+<p>Copilot exposes the terminal-capable executable from the running Obsidian
+installation as <code>COPILOT_OBSIDIAN_CLI</code> when it can resolve one.
+Prefer that exact path over <code>obsidian</code> from <code>PATH</code>, and
+always invoke it as a quoted executable rather than constructing a command
+string. Before relying on the CLI, probe it using the active shell:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">obsidian_cli</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">COPILOT_OBSIDIAN_CLI</span><span class="k">:-</span><span class="nv">obsidian</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;</span><span class="nv">$obsidian_cli</span><span class="s2">&#34;</span> version</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-powershell">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$obsidianCli</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$env:COPILOT_OBSIDIAN_CLI</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$env:COPILOT_OBSIDIAN_CLI</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="s2">&#34;obsidian&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="nv">$obsidianCli</span> <span class="n">version</span></span></span></code></pre></div></div>
+<p>A command being present on PATH is not sufficient: the probe must exit
+successfully. Use the selected executable in place of <code>obsidian</code> in
+the examples below, resolving it again in a later shell call when necessary. If
+the probe fails, continue with ordinary filesystem tools where they can satisfy
+the request. Briefly tell the user only when the missing runtime capability
+matters. Do not install Obsidian, change PATH, register the CLI, or raise the
+plugin&rsquo;s minimum Obsidian version on the user&rsquo;s behalf.</p>
+<p>The CLI requires a compatible Obsidian installer and a running app. Commands
+can differ by version, so inspect live help before using a command whose syntax
+is not already established:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nb">help</span> &lt;command&gt;</span></span></code></pre></div></div>
+<p>When a request truly needs the runtime capability and the probe fails, tell the
+user to open Obsidian and enable <strong>Settings → General → Command line
+interface</strong> using a compatible installer. Leave registration and any platform
+repair steps to the user.</p>
+<h2 id="target-precisely">Target precisely</h2>
+<p>Put <code>vault=&lt;name-or-id&gt;</code> before the command whenever the vault is
+known. Use <code>path=</code> for an exact vault-relative path. Use
+<code>file=</code> only when Obsidian&rsquo;s wikilink-style name resolution is
+desired. Do not rely on the active vault or active file when a precise target
+is available.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> backlinks <span class="nv">path</span><span class="o">=</span><span class="s2">&#34;Projects/Plan.md&#34;</span> <span class="nv">format</span><span class="o">=</span>json</span></span></code></pre></div></div>
+<p>Parameters use <code>name=value</code>; boolean flags have no value. Quote
+values containing spaces or shell-special characters.</p>
+<h2 id="high-value-indexed-and-configured-operations">High-value indexed and configured operations</h2>
+<p>Use live help for exact parameters, then prefer these families when they add
+meaning beyond raw files:</p>
+<ul>
+<li>Configured daily notes: <code>daily</code>, <code>daily:path</code>,
+<code>daily:read</code>, <code>daily:append</code>,
+<code>daily:prepend</code>.</li>
+<li>Typed properties and parsed metadata: <code>properties</code>,
+<code>property:read</code>, <code>property:set</code>,
+<code>property:remove</code>, <code>tags</code>, <code>tag</code>, and
+<code>aliases</code>. Supply a <code>type=</code> to
+<code>property:set</code> when the property is not plain text.</li>
+<li>Tasks: <code>tasks</code> for indexed listing and <code>task</code> with a
+stable <code>ref=path:line</code> or exact file/line for status changes.</li>
+<li>Link graph: <code>backlinks</code>, <code>links</code>,
+<code>unresolved</code>, <code>orphans</code>, and <code>deadends</code>.</li>
+<li>Bases: <code>bases</code>, <code>base:views</code>, and
+<code>base:query</code>. Prefer <code>format=json</code> for structured agent
+consumption.</li>
+<li>Templates: <code>templates</code> and <code>template:read &hellip; resolve</code>
+when configured template resolution is required.</li>
+<li>Live workspace state: <code>tabs ids</code> lists the currently open tabs and
+their IDs, while <code>workspace ids</code> shows the workspace tree and its
+item IDs.</li>
+<li>Link-aware refactors: <code>move</code> and <code>rename</code> when the vault
+setting to update internal links should be honored.</li>
+</ul>
+<h3 id="inspect-open-notes">Inspect open notes</h3>
+<p>When the user asks about notes currently open in Obsidian:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> tabs ids
+</span></span><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> workspace ids</span></span></code></pre></div></div>
+<p>Use <code>tabs ids</code> as the source of truth for open tabs. Keep entries
+verbatim and classify them only when the output provides enough evidence:</p>
+<ul>
+<li>a Markdown note has an explicit vault path ending in <code>.md</code>
+(case-insensitive)</li>
+<li>another file-backed tab has an explicit vault path with a different extension</li>
+<li>a non-file view, such as search, graph, settings, or a plugin view, has no
+vault path</li>
+</ul>
+<p>Do not infer a path from a display title, view type, or tab ID, and do not
+discard entries that cannot be classified. For a request about open notes,
+extract the Markdown paths while retaining the other tabs as workspace context.
+Use <code>workspace ids</code> when tab groups or workspace hierarchy matter. Do
+not substitute <code>recents</code>, which includes files that are no longer open.</p>
+<p>If the tab output does not expose paths or view types clearly, correlate its tab
+IDs with this read-only, structured workspace query:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> <span class="nb">eval</span> <span class="nv">code</span><span class="o">=</span><span class="s1">&#39;JSON.stringify((()=&gt;{const tabs=[];const active=app.workspace.getMostRecentLeaf();app.workspace.iterateAllLeaves(leaf=&gt;{const path=leaf.view.file?.path??null;tabs.push({id:leaf.id,title:leaf.getDisplayText(),viewType:leaf.view.getViewType(),path,kind:path===null?&#34;view&#34;:path.toLowerCase().endsWith(&#34;.md&#34;)?&#34;markdown&#34;:&#34;file&#34;,active:leaf===active})});return tabs})())&#39;</span></span></span></code></pre></div></div>
+<p>The workspace query also returns sidebar and floating leaves. Only call an entry
+an open tab when its ID appears in <code>tabs ids</code>; retain query-only
+entries separately as workspace context. Preserve tab entries that have no
+matching workspace entry instead of guessing their identity.</p>
+<p>If the user asks for the single currently focused note and the tab output does
+not identify it, use a read-only app query:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> <span class="nb">eval</span> <span class="nv">code</span><span class="o">=</span><span class="s2">&#34;app.workspace.getMostRecentLeaf()?.view.file?.path ?? &#39;&#39;&#34;</span></span></span></code></pre></div></div>
+<p>Use normal filesystem tools only for explicit paths returned by Obsidian, and
+choose a reader appropriate to the file type. Do not read every open note when
+paths or titles alone answer the request.</p>
+<h2 id="obsidian-and-plugin-commands">Obsidian and plugin commands</h2>
+<p><code>commands</code> lists registered command IDs, including commands provided
+by plugins. Filter by an ID prefix, then execute the selected command with
+<code>command id=&lt;command-id&gt;</code>. Never guess a command ID when it can be
+discovered. Do not execute a discovered command whose effect is prohibited by
+the host-session rules below.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> commands <span class="nv">filter</span><span class="o">=</span><span class="s2">&#34;my-plugin:&#34;</span>
+</span></span><span class="line"><span class="cl">obsidian <span class="nv">vault</span><span class="o">=</span><span class="s2">&#34;My Vault&#34;</span> <span class="nb">command</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&#34;my-plugin:run-action&#34;</span></span></span></code></pre></div></div>
+<h2 id="plugin-and-theme-development">Plugin and theme development</h2>
+<p>Use the CLI as the first choice for runtime verification after the normal build
+or test command has produced artifacts:</p>
+<ol>
+<li>For a plugin other than Copilot, reload with
+<code>plugin:reload id=&lt;plugin-id&gt;</code> when needed. Never reload the
+Copilot plugin from a Copilot-hosted agent session.</li>
+<li>Inspect <code>dev:errors</code> and <code>dev:console level=error</code>.</li>
+<li>Verify UI state with <code>dev:screenshot path=&hellip;</code>,
+<code>dev:dom selector=&hellip;</code>, and <code>dev:css selector=&hellip;</code>.</li>
+<li>Use <code>dev:mobile on</code> only when mobile emulation is relevant, and
+turn it off afterward.</li>
+</ol>
+<p>Read-only <code>eval</code> and <code>dev:cdp</code> queries are appropriate for
+state that the documented inspection commands cannot expose. Keep expressions
+small and return serializable values. Treat any expression or CDP call that
+mutates application state as a risky operation requiring explicit user intent.</p>
+<h2 id="preserve-the-host-session">Preserve the host session</h2>
+<p>Never reload or restart the Obsidian app or window from an agent session. Never
+reload, disable, or uninstall the Copilot plugin that is hosting the agent. In
+particular, do not use:</p>
+<ul>
+<li>any CLI command that reloads or restarts the app, window, or renderer</li>
+<li>any plugin reload, disable, or uninstall operation targeting Copilot</li>
+<li>any restricted-mode change</li>
+<li>a command ID, JavaScript expression, or CDP call that performs an equivalent
+app, window, renderer, or Copilot-plugin teardown</li>
+</ul>
+<p>These actions terminate the in-flight agent and can discard its work. This is a
+hard prohibition, not a confirmation-gated operation. If verification requires
+one, finish all non-destructive checks and tell the user to perform the reload
+manually after the agent session has ended.</p>
+<h2 id="risky-operations-require-explicit-intent">Risky operations require explicit intent</h2>
+<p>Do not perform the following merely because they are available:</p>
+<ul>
+<li>permanent deletion</li>
+<li>local-history or Sync restoration</li>
+<li>publishing or unpublishing</li>
+<li>plugin or theme installation/uninstallation</li>
+<li>mutating JavaScript evaluation or CDP calls</li>
+</ul>
+<p>Confirm that the user&rsquo;s request clearly authorizes the exact target and effect.
+Prefer reversible variants, such as trash-backed deletion, when they satisfy
+the request. Explicit intent does not override the host-session prohibition
+above.</p>
+<h2 id="exclusions">Exclusions</h2>
+<p>Do not teach or use the TUI, clipboard output, undocumented flags, platform
+registration repairs, or CLI equivalents of generic filesystem operations in
+this skill.</p>
+<h2 id="attribution">Attribution</h2>
+<p>Adapted from <code>kepano/obsidian-skills</code> at revision
+<code>a1dc48e68138490d522c04cbf5822214c6eb1202</code>. See <code>LICENSE</code>.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 0001-01-01</span>
+            </div><div id="page-views" class="post-info-mod">
+            </div><div class="post-info-license">
+                <span>MIT</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/copilot/skills/obsidian-cli/skill/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title=""><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title=""><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title=""><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title=""><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-cli/skill/" data-title="" data-description="Use the official Obsidian CLI when a task needs Obsidian&#39;s running app, index, configured features, command registry, or developer runtime. Use for currently open notes and tabs, workspace state, daily notes, typed properties, tasks, links/backlinks, Bases queries, template resolution, link-aware moves, plugin commands, and plugin/theme debugging; do not use it for ordinary filesystem operations."><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fcopilot%2fskills%2fobsidian-cli%2fskill%2f&amp;text=" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/copilot/skills/obsidian-markdown/references/callouts/" class="prev" rel="prev" title=""><i class="fas fa-angle-left" aria-hidden="true"></i></a>
+            <a href="/zh-cn/posts/copilot/skills/obsidian-bases/skill/" class="next" rel="next" title=""><i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
+            </noscript></div></article></div>
+            </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time" data-i18n="runtime"></span>
+            </div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div>
+
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div>
+
+            <style>
+                .footerImg {
+                    height: 20px;
+                }
+            </style>
+            <div class="footer-line custom">
+                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
+                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
+                </a>
+            </div>
+
+            <div class="footer-line custom">
+                <a href="https://www.travellings.cn/go.html" target="_blank">
+                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
+                </a>
+                <a href="https://www.foreverblog.cn/" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
+                </a>
+                <a href="https://www.foreverblog.cn/go.html" target="_blank">
+                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
+                </a>
+            </div><div class="footer-line">
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
+    
+        
+        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+
+</div>
+    </footer>
+ 
+
+    
+    <script defer src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
+        data-color="0,0,0" 
+        data-count="150" 
+        data-zIndex="-1">
+    </script>
+</body>
+</html>
+
+
+</div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script defer type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+</html>

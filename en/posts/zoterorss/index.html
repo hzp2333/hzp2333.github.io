@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -260,7 +269,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134830568.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523134830568.webp" />
     </a><figcaption class="image-caption">Zotero: Importing RSS Subscriptions</figcaption>
@@ -270,7 +279,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134843505.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523134843505.webp" />
     </a><figcaption class="image-caption">example</figcaption>
@@ -282,7 +291,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134857161.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523134857161.webp" />
     </a><figcaption class="image-caption">右键订阅目录标题。不过我的zotero这时候总是无法响应？解决办法是重启zotero后再右键点击这里</figcaption>
@@ -304,7 +313,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134914916.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523134914916.webp" />
     </a><figcaption class="image-caption">《The Quarterly Journal of Economics》rss</figcaption>
@@ -487,7 +496,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523134939027.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523134939027.webp" />
     </a><figcaption class="image-caption">Elsevier</figcaption>
@@ -499,7 +508,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135000418.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523135000418.webp" />
     </a><figcaption class="image-caption">result</figcaption>
@@ -516,7 +525,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135019212.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523135019212.webp" />
     </a><figcaption class="image-caption">CNKI</figcaption>
@@ -527,7 +536,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp"
-            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp 1.5x, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp 2x"
+            data-srcset="/img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp, /img/Zotero%ef%bc%9aRSS%e8%81%9a%e5%90%88%e8%ae%a2%e9%98%85.en-20240523135034567.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero：RSS聚合订阅.en-20240523135034567.webp" />
     </a><figcaption class="image-caption">rss</figcaption>

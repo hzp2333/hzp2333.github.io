@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -264,7 +273,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193057705.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193057705.webp" />
     </a><figcaption class="image-caption">老猴子神影图|424</figcaption>
@@ -281,7 +290,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193159625.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193159625.webp" />
     </a><figcaption class="image-caption">黄眉神影图</figcaption>
@@ -294,7 +303,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193244721.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193244721.webp" />
     </a><figcaption class="image-caption">第二回动画 CG</figcaption>
@@ -309,7 +318,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193328373.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193328373.webp" />
     </a><figcaption class="image-caption">老猴子神影图</figcaption>
@@ -325,7 +334,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193422533.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193422533.webp" />
     </a><figcaption class="image-caption">一结局动画，老猴子和天命人的动作是佛教的合掌</figcaption>
@@ -344,7 +353,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193518534.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193518534.webp" />
     </a><figcaption class="image-caption">黑风山土地的神影图</figcaption>
@@ -356,7 +365,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193545297.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193545297.webp" />
     </a><figcaption class="image-caption">菩提叶</figcaption>
@@ -374,7 +383,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193725489.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193725489.webp" />
     </a><figcaption class="image-caption">净瓶柳叶</figcaption>
@@ -386,7 +395,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193758446.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193758446.webp" />
     </a><figcaption class="image-caption">黑熊精战败 CG 动画</figcaption>
@@ -417,7 +426,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp"
-            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp 1.5x, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp 2x"
+            data-srcset="/img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp, /img/%e9%bb%91%e7%a5%9e%e8%af%9d%e6%82%9f%e7%a9%ba.zh-cn-20240907193950443.webp 1.5x"
             data-sizes="auto"
             alt="/img/黑神话悟空.zh-cn-20240907193950443.webp" />
     </a><figcaption class="image-caption">意见欲</figcaption>
@@ -500,7 +509,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

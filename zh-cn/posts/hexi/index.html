@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -238,7 +247,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp"
-            data-srcset="/img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp, /img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp 1.5x, /img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp 2x"
+            data-srcset="/img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp, /img/%e6%b2%b3%e8%a5%bf%e8%b5%b0%e5%bb%8a.zh-cn-20240523114609912.webp 1.5x"
             data-sizes="auto"
             alt="/img/河西走廊.zh-cn-20240523114609912.webp" />
     </a><figcaption class="image-caption">河西走廊</figcaption>
@@ -307,7 +316,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

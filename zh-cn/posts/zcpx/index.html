@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -260,7 +269,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787303812091.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787303812091.webp" />
     </a><figcaption class="image-caption">义务教育阶段教师晋升的金字塔</figcaption>
@@ -329,14 +338,14 @@
 </blockquote>
 <p>也就是只要农村教师教龄 25 年以上，且这 25 年中，包含了 3 年的城镇轮岗经济，就可以走绿色通道。也就是地方传言中的 22+3 绿色通道。</p>
 <p>那快退休的老师怎么解决呢？都要退休了，还要求三年轮岗可能就不太公平，因此又补充了一个文件：</p>
-<p>（川人社办发〔2024〕56 号）。更让人震惊的是，这么重要的两个文件，我们无法在四川省的政府相关网站里查到，只能通过问政四川、地方政府二次引用知道文件的要求。
-
+<p>（川人社办发〔2024〕56 号）。更让人震惊的是，这么重要的两个文件，我们无法在四川省的政府相关网站里查到，只能通过问政四川、地方政府二次引用知道文件的要求。</p>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp" title="来源，问政四川-川人社办发〔2024〕56号" data-thumbnail="/img/科层治理的文件裁量.zh-cn-1787315073429.webp" data-sub-html="<h2> </h2><p>来源，问政四川-川人社办发〔2024〕56号</p>">
         <img
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787315073429.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787315073429.webp" />
     </a><figcaption class="image-caption">来源，问政四川-川人社办发〔2024〕56号</figcaption>
@@ -347,12 +356,12 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787314998488.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787314998488.webp" />
     </a><figcaption class="image-caption">《九条措施》就是川人社办发〔2023〕95 号文件</figcaption>
-    </figure>
-由于九条措施给农村教师的绿色通道需要轮岗，因此这个文件需要考虑退休教师，再次给快退休的老师划分了优惠条件：</p>
+    </figure></p>
+<p>由于九条措施给农村教师的绿色通道需要轮岗，因此这个文件需要考虑退休教师，再次给快退休的老师划分了优惠条件：</p>
 <p>以《九条措施》（川人社发(2023)95 号）为时间节点，也就是 2024 年 1 月 1 号那个时间点，针对农村教师<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>：</p>
 <ol>
 <li>聘用时间 25 年以下的，正常参加职称名额的竞选，对应的就是走 22+3（至少 25 年农村教龄，其中 3 年城镇轮岗）</li>
@@ -368,7 +377,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316098620.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787316098620.webp" />
     </a><figcaption class="image-caption">问政四川（https://ly.scol.com.cn/thread/details/3586246）</figcaption>
@@ -378,14 +387,14 @@
 <blockquote>
 <p>问政网页是群众监督和求助的好平台！👍</p>
 </blockquote>
-<p>事实就是，中央的理念落实到地方，考核从以前的资历、获奖变成了卡轮岗交换的名额，而地方的轮岗交换是极其不透明的。
-
+<p>事实就是，中央的理念落实到地方，考核从以前的资历、获奖变成了卡轮岗交换的名额，而地方的轮岗交换是极其不透明的。</p>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp" title="问政四川-https://ly.scol.com.cn/thread/details/3899023" data-thumbnail="/img/科层治理的文件裁量.zh-cn-1787316301453.webp" data-sub-html="<h2> </h2><p>问政四川-https://ly.scol.com.cn/thread/details/3899023</p>">
         <img
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316301453.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787316301453.webp" />
     </a><figcaption class="image-caption">问政四川-https://ly.scol.com.cn/thread/details/3899023</figcaption>
@@ -395,7 +404,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316335734.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787316335734.webp" />
     </a><figcaption class="image-caption">问政四川-https://ly.scol.com.cn/thread/details/3899023</figcaption>
@@ -405,7 +414,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316436385.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787316436385.webp" />
     </a><figcaption class="image-caption">问政四川-https://ly.scol.com.cn/thread/details/3766710</figcaption>
@@ -415,12 +424,12 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp"
-            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp 1.5x, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp 2x"
+            data-srcset="/img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp, /img/%e7%a7%91%e5%b1%82%e6%b2%bb%e7%90%86%e7%9a%84%e6%96%87%e4%bb%b6%e8%a3%81%e9%87%8f.zh-cn-1787316497651.webp 1.5x"
             data-sizes="auto"
             alt="/img/科层治理的文件裁量.zh-cn-1787316497651.webp" />
     </a><figcaption class="image-caption">问政四川-https://ly.scol.com.cn/thread/details/3766710</figcaption>
-    </figure>
-其他更一般的问政四川的反馈例子：</p>
+    </figure></p>
+<p>其他更一般的问政四川的反馈例子：</p>
 <ul>
 <li>遂宁市安居区 <a href="https://ly.scol.com.cn/thread/details/3937079" target="_blank" rel="noopener noreffer ">《糟糕的教育生态》</a></li>
 <li>广汉市 <a href="https://ly.scol.com.cn/thread/details/3580680" target="_blank" rel="noopener noreffer ">《有关乡村教师进城轮岗问题》</a></li>
@@ -542,7 +551,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

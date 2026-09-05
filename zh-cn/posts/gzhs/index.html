@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -261,7 +270,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp"
-            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp 2x"
+            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758790604961.webp 1.5x"
             data-sizes="auto"
             alt="/img/谷子经济的函数.zh-cn-1758790604961.webp" />
     </a><figcaption class="image-caption">图1——某一期的《看天下》</figcaption>
@@ -274,7 +283,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp"
-            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp 2x"
+            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758791870185.webp 1.5x"
             data-sizes="auto"
             alt="/img/谷子经济的函数.zh-cn-1758791870185.webp" />
     </a><figcaption class="image-caption">图2 ——6月19日千岛APP数据</figcaption>
@@ -299,7 +308,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp"
-            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp 2x"
+            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758792923656.webp 1.5x"
             data-sizes="auto"
             alt="/img/谷子经济的函数.zh-cn-1758792923656.webp" />
     </a><figcaption class="image-caption">图3</figcaption>
@@ -364,7 +373,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp"
-            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp 2x"
+            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758797043385.webp 1.5x"
             data-sizes="auto"
             alt="/img/谷子经济的函数.zh-cn-1758797043385.webp" />
     </a><figcaption class="image-caption">图4</figcaption>
@@ -435,7 +444,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp"
-            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp 1.5x, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp 2x"
+            data-srcset="/img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp, /img/%e8%b0%b7%e5%ad%90%e7%bb%8f%e6%b5%8e%e7%9a%84%e5%87%bd%e6%95%b0.zh-cn-1758800795086.webp 1.5x"
             data-sizes="auto"
             alt="/img/谷子经济的函数.zh-cn-1758800795086.webp" />
     </a><figcaption class="image-caption">截图来自威廉森的《宏观经济学》</figcaption>
@@ -536,7 +545,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

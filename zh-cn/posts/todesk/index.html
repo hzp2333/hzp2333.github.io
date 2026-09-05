@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -271,7 +280,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134253440.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134253440.webp" />
     </a><figcaption class="image-caption">输入gpedit.msc命令</figcaption>
@@ -283,7 +292,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134313370.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134313370.webp" />
     </a><figcaption class="image-caption">打开本地组策略编辑器界面</figcaption>
@@ -295,7 +304,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134330911.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134330911.webp" />
     </a><figcaption class="image-caption">选择配置</figcaption>
@@ -307,7 +316,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134530406.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134530406.webp" />
     </a><figcaption class="image-caption">找到允许音频和视频播放重定向选项</figcaption>
@@ -319,7 +328,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134555054.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134555054.webp" />
     </a><figcaption class="image-caption">选择启用</figcaption>
@@ -332,7 +341,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134617698.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134617698.webp" />
     </a><figcaption class="image-caption">键盘符号左侧的展开键</figcaption>
@@ -345,7 +354,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp"
-            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp 1.5x, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp 2x"
+            data-srcset="/img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp, /img/Todek%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6.zh-cn-20240523134632726.webp 1.5x"
             data-sizes="auto"
             alt="/img/Todek远程控制.zh-cn-20240523134632726.webp" />
     </a><figcaption class="image-caption">开启和关闭声音</figcaption>
@@ -446,7 +455,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

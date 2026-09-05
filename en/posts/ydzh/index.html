@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -259,7 +268,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002041245.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002041245.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -274,7 +283,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002110402.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002110402.webp" />
     </a><figcaption class="image-caption">Mother and child gaze, mutual redemption</figcaption>
@@ -315,7 +324,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002219425.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002219425.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -329,7 +338,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002233055.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002233055.webp" />
     </a><figcaption class="image-caption">Ancient Dragons and Red-Eye Disease</figcaption>
@@ -347,7 +356,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002355317.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002355317.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -358,7 +367,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002408787.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002408787.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -391,7 +400,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002429514.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002429514.webp" />
     </a><figcaption class="image-caption">Image|344</figcaption>
@@ -403,7 +412,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002441836.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002441836.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -431,7 +440,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002457820.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002457820.webp" />
     </a><figcaption class="image-caption">Image</figcaption>
@@ -467,7 +476,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp"
-            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 1.5x, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 2x"
+            data-srcset="/img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp, /img/%e6%9c%9d%e8%8a%b1%e5%a4%95%e8%aa%93.zh-cn-20250119002516733.webp 1.5x"
             data-sizes="auto"
             alt="/img/朝花夕誓.zh-cn-20250119002516733.webp" />
     </a><figcaption class="image-caption">Image</figcaption>

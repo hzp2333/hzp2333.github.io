@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -259,7 +268,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/texstudio.zh-cn.md-1760090933518.webp"
-            data-srcset="/img/texstudio.zh-cn.md-1760090933518.webp, /img/texstudio.zh-cn.md-1760090933518.webp 1.5x, /img/texstudio.zh-cn.md-1760090933518.webp 2x"
+            data-srcset="/img/texstudio.zh-cn.md-1760090933518.webp, /img/texstudio.zh-cn.md-1760090933518.webp 1.5x"
             data-sizes="auto"
             alt="/img/texstudio.zh-cn.md-1760090933518.webp" />
     </a><figcaption class="image-caption">Triggers are format detection that automatically activate when regular expressions match</figcaption>
@@ -345,7 +354,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/texstudio.zh-cn.md-1760491203042.webp"
-            data-srcset="/img/texstudio.zh-cn.md-1760491203042.webp, /img/texstudio.zh-cn.md-1760491203042.webp 1.5x, /img/texstudio.zh-cn.md-1760491203042.webp 2x"
+            data-srcset="/img/texstudio.zh-cn.md-1760491203042.webp, /img/texstudio.zh-cn.md-1760491203042.webp 1.5x"
             data-sizes="auto"
             alt="/img/texstudio.zh-cn.md-1760491203042.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -358,7 +367,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758093039527.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门.zh-cn-1758093039527.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -375,7 +384,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092612033.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门.zh-cn-1758092612033.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -387,7 +396,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092768418.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门.zh-cn-1758092768418.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -400,7 +409,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092931198.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门.zh-cn-1758092931198.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -412,7 +421,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp, /img/LaTeX%e5%85%a5%e9%97%a8.zh-cn-1758092975675.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门.zh-cn-1758092975675.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -434,7 +443,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/texstudio.zh-cn.md-1760092010830.webp"
-            data-srcset="/img/texstudio.zh-cn.md-1760092010830.webp, /img/texstudio.zh-cn.md-1760092010830.webp 1.5x, /img/texstudio.zh-cn.md-1760092010830.webp 2x"
+            data-srcset="/img/texstudio.zh-cn.md-1760092010830.webp, /img/texstudio.zh-cn.md-1760092010830.webp 1.5x"
             data-sizes="auto"
             alt="/img/texstudio.zh-cn.md-1760092010830.webp" />
     </a><figcaption class="image-caption">As shown in the image</figcaption>
@@ -448,7 +457,7 @@ Press <code>Ctrl</code> key and click on PDF position to jump to code editing po
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/texstudio.zh-cn.md-1760238587723.webp"
-            data-srcset="/img/texstudio.zh-cn.md-1760238587723.webp, /img/texstudio.zh-cn.md-1760238587723.webp 1.5x, /img/texstudio.zh-cn.md-1760238587723.webp 2x"
+            data-srcset="/img/texstudio.zh-cn.md-1760238587723.webp, /img/texstudio.zh-cn.md-1760238587723.webp 1.5x"
             data-sizes="auto"
             alt="/img/texstudio.zh-cn.md-1760238587723.webp" />
     </a><figcaption class="image-caption">TexStudio supports inline preview. <code>Alt+P</code> to start</figcaption>

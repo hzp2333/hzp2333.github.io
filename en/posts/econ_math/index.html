@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -276,7 +285,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp"
-            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 2x"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250102155048117.webp 1.5x"
             data-sizes="auto"
             alt="/img/经济学与数学-20250102155048117.webp" />
     </a><figcaption class="image-caption">The protagonist of the 2018 National Volume 2 essay question is Wald. Unfortunately, Wald died in a plane crash.</figcaption>
@@ -319,7 +328,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp"
-            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 1.5x, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 2x"
+            data-srcset="/img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp, /img/%e7%bb%8f%e6%b5%8e%e5%ad%a6%e4%b8%8e%e6%95%b0%e5%ad%a6-20250111203831787.webp 1.5x"
             data-sizes="auto"
             alt="/img/经济学与数学-20250111203831787.webp" />
     </a><figcaption class="image-caption">Question source: https://drive.google.com/file/d/1PycYJ6QKeRSYQl9jVeNexlqtKBFlwxpl/view</figcaption>

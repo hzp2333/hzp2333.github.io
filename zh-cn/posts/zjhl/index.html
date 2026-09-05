@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -279,7 +288,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115422923.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20240523115422923.webp" />
     </a><figcaption class="image-caption">忧太爸爸：“忧太，你的妈妈脾气很差，你最后没去看她，她还埋怨你直到最后还没用，但你把他拍得很漂亮，你拥有创造回忆的能力。”</figcaption>
@@ -296,7 +305,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115442574.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20240523115442574.webp" />
     </a><figcaption class="image-caption">绘梨的朋友：“绘梨平时都戴着眼镜吧，而且脾气没这么好，你美化过度了，但还是感谢你，那将是我以后记住的绘梨”</figcaption>
@@ -349,7 +358,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155833983.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20250519155833983.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -360,7 +369,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20250519155837196.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20250519155837196.webp" />
     </a><figcaption class="image-caption">细节被p掉的抽烟</figcaption>
@@ -384,7 +393,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115506321.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20240523115506321.webp" />
     </a><figcaption class="image-caption">不真实就不值得追求吗？这不是一件非常美妙的事情吗？</figcaption>
@@ -410,7 +419,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp"
-            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp 1.5x, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp 2x"
+            data-srcset="/img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp, /img/%e5%86%8d%e8%a7%81%e7%bb%98%e6%a2%a8.zh-cn-20240523115526326.webp 1.5x"
             data-sizes="auto"
             alt="/img/再见绘梨.zh-cn-20240523115526326.webp" />
     </a><figcaption class="image-caption">现在，你能理解吗？一个人愿意活在世上，是因为他建立起了一种心态。所谓奇幻和电影只是其中一种外显。希望你能认识这种奇幻，不是塑造他人，而是认识你自己。</figcaption>
@@ -479,7 +488,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

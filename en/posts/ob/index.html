@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -279,7 +288,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524184612776.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524184612776.webp" />
     </a><figcaption class="image-caption">Startup screen</figcaption>
@@ -292,7 +301,7 @@ After you choose a vault location, an extra <code>.obsidian</code> folder appear
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524191650737.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524191650737.webp" />
     </a><figcaption class="image-caption">My interface layout</figcaption>
@@ -332,7 +341,7 @@ After you choose a vault location, an extra <code>.obsidian</code> folder appear
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524194922250.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524194922250.webp" />
     </a><figcaption class="image-caption">Settings page: you can change themes under Appearance, and install or enable community plugins here</figcaption>
@@ -348,7 +357,7 @@ You can also check for plugin updates and browse the community plugin marketplac
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2-20240524200110588.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客-20240524200110588.webp" />
     </a><figcaption class="image-caption">Some plugins need to be called through commands</figcaption>
@@ -360,7 +369,7 @@ You can also check for plugin updates and browse the community plugin marketplac
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525005836916.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525005836916.webp" />
     </a><figcaption class="image-caption">Where you add a command button</figcaption>
@@ -390,7 +399,7 @@ You can also check for plugin updates and browse the community plugin marketplac
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524205940959.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524205940959.webp" />
     </a><figcaption class="image-caption">Example of document properties</figcaption>
@@ -406,7 +415,7 @@ You can also check for plugin updates and browse the community plugin marketplac
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165250508.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165250508.webp" />
     </a><figcaption class="image-caption">Scroll down to the model settings and choose the model you want. I recommend OPEENROUTER. AI</figcaption>
@@ -418,7 +427,7 @@ You can also check for plugin updates and browse the community plugin marketplac
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526165713463.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526165713463.webp" />
     </a><figcaption class="image-caption">Scroll down to find the model settings and choose the one you want</figcaption>
@@ -432,7 +441,7 @@ Openrouter. Ai API key <a href="https://openrouter.ai/keys" target="_blank" rel=
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240526170748976.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240526170748976.webp" />
     </a><figcaption class="image-caption">Choose the free model name you want</figcaption>
@@ -494,7 +503,7 @@ Openrouter. Ai API key <a href="https://openrouter.ai/keys" target="_blank" rel=
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240524211004569.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240524211004569.webp" />
     </a><figcaption class="image-caption">Best of both worlds!</figcaption>
@@ -517,7 +526,7 @@ Openrouter. Ai API key <a href="https://openrouter.ai/keys" target="_blank" rel=
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp"
-            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 1.5x, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 2x"
+            data-srcset="/img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp, /img/Obsidian%e9%85%8d%e5%90%88%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e5%92%8c%e5%8d%9a%e5%ae%a2.zh-cn-20240525000044724.webp 1.5x"
             data-sizes="auto"
             alt="/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp" />
     </a><figcaption class="image-caption">Qingning Academic plugin integration. If you want image transfer to feel truly seamless, you pretty much need to set up image hosting no matter what</figcaption>

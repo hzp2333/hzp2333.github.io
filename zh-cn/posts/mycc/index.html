@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -241,7 +250,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604180224472.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604180224472.webp" />
     </a><figcaption class="image-caption">密云的水资源非常丰富</figcaption>
@@ -253,7 +262,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604175519923.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604175519923.webp" />
     </a><figcaption class="image-caption">明长城，接着司马台长城，山海关前的一站</figcaption>
@@ -267,7 +276,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604183110163.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604183110163.webp" />
     </a><figcaption class="image-caption">到达的第一处比较完整的烽火台。4 点左右，天空已经泛起红光。</figcaption>
@@ -281,7 +290,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184122676.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604184122676.webp" />
     </a><figcaption class="image-caption">日出景色</figcaption>
@@ -292,7 +301,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184027113.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604184027113.webp" />
     </a><figcaption class="image-caption">这时候拍照有剪影的感觉——其他同学的拍照技术太好了。我手中是随手捡起来的木棍（</figcaption>
@@ -310,7 +319,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e5%a4%9c%e7%88%ac%e5%a4%9c%e9%95%bf%e5%9f%8e.zh-cn-20240604184001951.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：夜爬夜长城.zh-cn-20240604184001951.webp" />
     </a><figcaption class="image-caption">四点四十六分正式日出</figcaption>
@@ -438,7 +447,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

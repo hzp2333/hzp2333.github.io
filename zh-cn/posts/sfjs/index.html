@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -260,7 +269,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp"
-            data-srcset="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp 1.5x, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp 2x"
+            data-srcset="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420140833977.webp 1.5x"
             data-sizes="auto"
             alt="/img/山西大同「订婚强奸案」二审：一个经济学视角.zh-cn-20250420140833977.webp" />
     </a><figcaption class="image-caption">《法院二审改判率极低，不符合司法规律》来源：财新新闻</figcaption>
@@ -296,7 +305,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp"
-            data-srcset="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp 1.5x, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp 2x"
+            data-srcset="/img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp, /img/%e5%b1%b1%e8%a5%bf%e5%a4%a7%e5%90%8c%e3%80%8c%e8%ae%a2%e5%a9%9a%e5%bc%ba%e5%a5%b8%e6%a1%88%e3%80%8d%e4%ba%8c%e5%ae%a1%ef%bc%9a%e4%b8%80%e4%b8%aa%e7%bb%8f%e6%b5%8e%e5%ad%a6%e8%a7%86%e8%a7%92.zh-cn-20250420142041324.webp 1.5x"
             data-sizes="auto"
             alt="/img/山西大同「订婚强奸案」二审：一个经济学视角.zh-cn-20250420142041324.webp" />
     </a><figcaption class="image-caption">要注意的是，在本案中，证据链是有的。大家都知道，经济学论文天天被骂因果推断的内生性，但是如果要统一一个标准？多少证据才能证明一件事?我们或许永远不会知道。</figcaption>
@@ -404,7 +413,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

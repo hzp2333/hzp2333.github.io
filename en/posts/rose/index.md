@@ -78,3 +78,4 @@ Hawthorn and red fruit [^3] are also local specialty produce, and both are <font
 [^1]: What determines my ranking is the attributive!
 [^2]: The gates of the scenic area are opened because the staff on the mountain came down to repair the mountain road.
 [^3]: It tastes no different from hawthorn.
+

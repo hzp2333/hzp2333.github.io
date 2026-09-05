@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -351,7 +360,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp"
-            data-srcset="/img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp, /img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp 1.5x, /img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp 2x"
+            data-srcset="/img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp, /img/AI%e4%b8%8e%e6%a2%a6%e5%a2%83.zh-cn-20241204115352313.webp 1.5x"
             data-sizes="auto"
             alt="/img/AI与梦境.zh-cn-20241204115352313.webp" />
     </a><figcaption class="image-caption">最近去过的金沙博物馆与太阳鸟图腾</figcaption>
@@ -749,7 +758,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -288,7 +297,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936307007.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758936307007.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -305,7 +314,7 @@ The figure shows that by 1990, 40% of federal judges had attended the program. B
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936459137.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758936459137.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -318,7 +327,7 @@ The figure shows that by 1990, 40% of federal judges had attended the program. B
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936601073.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758936601073.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -333,7 +342,7 @@ The figure shows that by 1990, 40% of federal judges had attended the program. B
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936756415.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758936756415.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -361,7 +370,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758936994112.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758936994112.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -374,7 +383,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937037349.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937037349.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -385,7 +394,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937057925.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937057925.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -397,7 +406,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937083026.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937083026.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -413,7 +422,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937167465.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937167465.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -427,7 +436,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937251184.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937251184.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -440,7 +449,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937287136.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937287136.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -453,7 +462,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937323563.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937323563.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -466,7 +475,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937357991.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937357991.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>
@@ -478,7 +487,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp"
-            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp 1.5x, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp 2x"
+            data-srcset="/img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp, /img/%e5%bd%93%e6%b3%95%e5%ae%98%e5%ad%a6%e4%b9%a0%e4%ba%86%e7%bb%8f%e6%b5%8e%e5%ad%a6.zh-cn-1758937378423.webp 1.5x"
             data-sizes="auto"
             alt="/img/当法官学习了经济学.zh-cn-1758937378423.webp" />
     </a><figcaption class="image-caption">As shown below.</figcaption>

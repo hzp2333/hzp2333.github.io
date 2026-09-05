@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -261,7 +270,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp"
-            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp 1.5x, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp 2x"
+            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125813891.webp 1.5x"
             data-sizes="auto"
             alt="/img/Hugo自定义字体.zh-cn-20240523125813891.webp" />
     </a><figcaption class="image-caption">黑体</figcaption>
@@ -282,7 +291,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp"
-            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp 1.5x, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp 2x"
+            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125828278.webp 1.5x"
             data-sizes="auto"
             alt="/img/Hugo自定义字体.zh-cn-20240523125828278.webp" />
     </a><figcaption class="image-caption">Ma Shan Zheng字体</figcaption>
@@ -315,7 +324,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp"
-            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp 1.5x, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp 2x"
+            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125918877.webp 1.5x"
             data-sizes="auto"
             alt="/img/Hugo自定义字体.zh-cn-20240523125918877.webp" />
     </a><figcaption class="image-caption">fonts.google</figcaption>
@@ -327,7 +336,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp"
-            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp 1.5x, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp 2x"
+            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523125942865.webp 1.5x"
             data-sizes="auto"
             alt="/img/Hugo自定义字体.zh-cn-20240523125942865.webp" />
     </a><figcaption class="image-caption">Get embed code</figcaption>
@@ -342,7 +351,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp"
-            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp 1.5x, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp 2x"
+            data-srcset="/img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp, /img/Hugo%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e4%bd%93.zh-cn-20240523130007169.webp 1.5x"
             data-sizes="auto"
             alt="/img/Hugo自定义字体.zh-cn-20240523130007169.webp" />
     </a><figcaption class="image-caption">选择web-@import</figcaption>
@@ -351,7 +360,7 @@
 <p>中文字体 api 也可考虑<a href="https://chinese-font.netlify.app/cdn/" target="_blank" rel="noopener noreffer ">字图网</a>。（目前已经停止运行）</p>
 <p>国内开源字体比较火的是<a href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener noreffer ">霞鹜文楷</a>。</p>
 <h3 id="本站所用字体">本站所用字体</h3>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-css">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -454,7 +463,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

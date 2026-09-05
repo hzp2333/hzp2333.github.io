@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -398,7 +407,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117191819611.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会选择理论.zh-cn-20241117191819611.webp" />
     </a><figcaption class="image-caption">Source: Wikipedia</figcaption>
@@ -525,7 +534,7 @@ Single-peaked preferences need to be convex in a closed continuous interval.</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp"
-            data-srcset="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp 1.5x, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp 2x"
+            data-srcset="/img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp, /img/%e7%a4%be%e4%bc%9a%e9%80%89%e6%8b%a9%e7%90%86%e8%ae%ba.zh-cn-20241117223055375.webp 1.5x"
             data-sizes="auto"
             alt="/img/社会选择理论.zh-cn-20241117223055375.webp" />
     </a><figcaption class="image-caption">Single-peaked preferences (Source: &ldquo;Advanced Microeconomics (Second Edition)&rdquo; (Jiang Chundian)), multi-peaked is the triangle inverted</figcaption>

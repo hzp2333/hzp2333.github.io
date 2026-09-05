@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -283,7 +292,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215122155891.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215122155891.webp" />
     </a><figcaption class="image-caption">NASA R&amp;D spending: a sudden surge</figcaption>
@@ -330,7 +339,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215124409891.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215124409891.webp" />
     </a><figcaption class="image-caption">Event-study results: even after the investment ended, the multiplier effect remained (after the red line)</figcaption>
@@ -391,7 +400,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215135645228.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215135645228.webp" />
     </a><figcaption class="image-caption">Some comparison exercises</figcaption>
@@ -409,7 +418,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142527857.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215142527857.webp" />
     </a><figcaption class="image-caption">The paper makes very good use of event-study analysis</figcaption>
@@ -443,7 +452,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141314287.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215141314287.webp" />
     </a><figcaption class="image-caption">Comparison figure</figcaption>
@@ -455,7 +464,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141352633.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215141352633.webp" />
     </a><figcaption class="image-caption">Comparison between the top 5% and bottom 5% of OSRD investment: the gap in both short-run and long-run effects is large, and the strongest effects appear in electronics and electrical technologies, the patent classes most closely tied to the war</figcaption>
@@ -471,7 +480,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215141518915.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215141518915.webp" />
     </a><figcaption class="image-caption">Spillover effects</figcaption>
@@ -487,7 +496,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215142021822.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215142021822.webp" />
     </a><figcaption class="image-caption">Example</figcaption>
@@ -510,7 +519,7 @@ $$
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp"
-            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp 1.5x, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp 2x"
+            data-srcset="/img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp, /img/%e6%94%bf%e5%ba%9c%e4%b8%80%e6%ac%a1%e6%80%a7%e6%8a%95%e8%b5%84%e4%b8%8e%e4%ba%a7%e4%b8%9a%e9%95%bf%e6%9c%9f%e5%8f%91%e5%b1%95.zh-cn-20241215145332839.webp 1.5x"
             data-sizes="auto"
             alt="/img/政府一次性投资与产业长期发展.zh-cn-20241215145332839.webp" />
     </a><figcaption class="image-caption">Cross-country comparison</figcaption>

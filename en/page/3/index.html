@@ -67,12 +67,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -205,7 +214,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">This post draws on <em>Tuili Da Wuxian</em> to think about the narrative appeal of detective fiction and, above all, its relationship to modernity.</div><div class="post-footer">
         <a href="/en/posts/ztxs/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature/">Literature</a>,&nbsp;<a href="/en/tags/microhistory/">Microhistory</a>,&nbsp;<a href="/en/tags/reading/">Reading</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/fs4/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -221,7 +231,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Some reflections on my existential crisis last year, together with a few memorable lines, ending with a meditation on the value of studying the social sciences.</div><div class="post-footer">
         <a href="/en/posts/fs4/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/self-questioning/">Self-questioning</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/fzqy/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -237,7 +248,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">The Origin of Rich Species challenges the mainstream academic reading of the Malthusian trap and builds a Darwinian view of economic history.</div><div class="post-footer">
         <a href="/en/posts/fzqy/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reading/">Reading</a>,&nbsp;<a href="/en/tags/microhistory/">Microhistory</a>,&nbsp;<a href="/en/tags/macroeconomics/">Macroeconomics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/econ_math/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -253,7 +265,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/reading/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Reading</a></span></div><div class="content">Reading notes on Shi Shuzhong&rsquo;s book about the development of mathematical tools in economics.</div><div class="post-footer">
         <a href="/en/posts/econ_math/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reading/">Reading</a>,&nbsp;<a href="/en/tags/microeconomics/">microeconomics</a>,&nbsp;<a href="/en/tags/macroeconomics/">Macroeconomics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/zftz/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -269,7 +282,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Three papers on government investment and long-run economic effects</div><div class="post-footer">
         <a href="/en/posts/zftz/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a>,&nbsp;<a href="/en/tags/development-economics/">Development Economics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/ai_m/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -285,7 +299,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/travelogue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Travelogue</a></span></div><div class="content">Recording a dream and interpretations by different AIs</div><div class="post-footer">
         <a href="/en/posts/ai_m/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/dream/">Dream</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/shxz/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -301,7 +316,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Historical Context of Political Economy, Institutional Economics, and Arrow&rsquo;s Impossibility Theorem</div><div class="post-footer">
         <a href="/en/posts/shxz/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/institutional-economics/">Institutional Economics</a>,&nbsp;<a href="/en/tags/microeconomics/">microeconomics</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/posts/fs3/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -317,7 +333,8 @@
             </span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div><div class="content">Some recent reflections from classes, the internet, and conversations with teachers, classmates, and senior students.</div><div class="post-footer">
         <a href="/en/posts/fs3/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/reflection/">Reflection</a></div></div>
-</article><ul class="pagination"><li class="page-item ">
+</article>
+<ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/">1</a>
                     </span>

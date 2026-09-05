@@ -75,12 +75,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -254,7 +263,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201024276.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：云南昭通-20240604201024276.webp" />
     </a><figcaption class="image-caption">A  &ldquo;first-tier&rdquo; city built along rivers and canyons</figcaption>
@@ -266,7 +275,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201058779.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：云南昭通-20240604201058779.webp" />
     </a><figcaption class="image-caption">local square at night</figcaption>
@@ -280,7 +289,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201305303.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：云南昭通-20240604201305303.webp" />
     </a><figcaption class="image-caption">Waterways, Roads, Plank Roads, Railways, Subways</figcaption>
@@ -291,7 +300,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp"
-            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp 1.5x, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp 2x"
+            data-srcset="/img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp, /img/%e8%b0%83%e7%a0%94%e5%b0%8f%e8%ae%b0%ef%bc%9a%e4%ba%91%e5%8d%97%e6%98%ad%e9%80%9a-20240604201440600.webp 1.5x"
             data-sizes="auto"
             alt="/img/调研小记：云南昭通-20240604201440600.webp" />
     </a><figcaption class="image-caption">The word &ldquo;僰&rdquo; in Chinese carries the ideographic meaning of people pulling a vine strip to swing.</figcaption>

@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -256,7 +265,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240923153250443.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240923153250443.webp, /img/arcGIS.zh-cn-20240923153250443.webp 1.5x, /img/arcGIS.zh-cn-20240923153250443.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240923153250443.webp, /img/arcGIS.zh-cn-20240923153250443.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240923153250443.webp" />
     </a><figcaption class="image-caption">软件示意图</figcaption>
@@ -278,7 +287,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240923154317568.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240923154317568.webp, /img/arcGIS.zh-cn-20240923154317568.webp 1.5x, /img/arcGIS.zh-cn-20240923154317568.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240923154317568.webp, /img/arcGIS.zh-cn-20240923154317568.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240923154317568.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -292,7 +301,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240923155140485.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240923155140485.webp, /img/arcGIS.zh-cn-20240923155140485.webp 1.5x, /img/arcGIS.zh-cn-20240923155140485.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240923155140485.webp, /img/arcGIS.zh-cn-20240923155140485.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240923155140485.webp" />
     </a><figcaption class="image-caption">批处理</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925111328464.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925111328464.webp, /img/arcGIS.zh-cn-20240925111328464.webp 1.5x, /img/arcGIS.zh-cn-20240925111328464.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925111328464.webp, /img/arcGIS.zh-cn-20240925111328464.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925111328464.webp" />
     </a><figcaption class="image-caption">人口数据tif文件</figcaption>
@@ -324,7 +333,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925112642775.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925112642775.webp, /img/arcGIS.zh-cn-20240925112642775.webp 1.5x, /img/arcGIS.zh-cn-20240925112642775.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925112642775.webp, /img/arcGIS.zh-cn-20240925112642775.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925112642775.webp" />
     </a><figcaption class="image-caption">新建工具箱</figcaption>
@@ -336,7 +345,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925112729074.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925112729074.webp, /img/arcGIS.zh-cn-20240925112729074.webp 1.5x, /img/arcGIS.zh-cn-20240925112729074.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925112729074.webp, /img/arcGIS.zh-cn-20240925112729074.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925112729074.webp" />
     </a><figcaption class="image-caption">新建模型</figcaption>
@@ -348,7 +357,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925113051718.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925113051718.webp, /img/arcGIS.zh-cn-20240925113051718.webp 1.5x, /img/arcGIS.zh-cn-20240925113051718.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925113051718.webp, /img/arcGIS.zh-cn-20240925113051718.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925113051718.webp" />
     </a><figcaption class="image-caption">拖入工具箱</figcaption>
@@ -360,7 +369,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925113609908.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925113609908.webp, /img/arcGIS.zh-cn-20240925113609908.webp 1.5x, /img/arcGIS.zh-cn-20240925113609908.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925113609908.webp, /img/arcGIS.zh-cn-20240925113609908.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925113609908.webp" />
     </a><figcaption class="image-caption">插入-迭代器-栅格</figcaption>
@@ -372,7 +381,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925113808126.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925113808126.webp, /img/arcGIS.zh-cn-20240925113808126.webp 1.5x, /img/arcGIS.zh-cn-20240925113808126.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925113808126.webp, /img/arcGIS.zh-cn-20240925113808126.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925113808126.webp" />
     </a><figcaption class="image-caption">栅格数据格式选择 TIF</figcaption>
@@ -384,7 +393,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925113904528.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925113904528.webp, /img/arcGIS.zh-cn-20240925113904528.webp 1.5x, /img/arcGIS.zh-cn-20240925113904528.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925113904528.webp, /img/arcGIS.zh-cn-20240925113904528.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925113904528.webp" />
     </a><figcaption class="image-caption">解析路径</figcaption>
@@ -396,7 +405,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925114033696.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925114033696.webp, /img/arcGIS.zh-cn-20240925114033696.webp 1.5x, /img/arcGIS.zh-cn-20240925114033696.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925114033696.webp, /img/arcGIS.zh-cn-20240925114033696.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925114033696.webp" />
     </a><figcaption class="image-caption">区县行政区</figcaption>
@@ -408,7 +417,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925114207152.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925114207152.webp, /img/arcGIS.zh-cn-20240925114207152.webp 1.5x, /img/arcGIS.zh-cn-20240925114207152.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925114207152.webp, /img/arcGIS.zh-cn-20240925114207152.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925114207152.webp" />
     </a><figcaption class="image-caption">链接工具</figcaption>
@@ -420,7 +429,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925114320208.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925114320208.webp, /img/arcGIS.zh-cn-20240925114320208.webp 1.5x, /img/arcGIS.zh-cn-20240925114320208.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925114320208.webp, /img/arcGIS.zh-cn-20240925114320208.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925114320208.webp" />
     </a><figcaption class="image-caption">连向</figcaption>
@@ -435,7 +444,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925114530352.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925114530352.webp, /img/arcGIS.zh-cn-20240925114530352.webp 1.5x, /img/arcGIS.zh-cn-20240925114530352.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925114530352.webp, /img/arcGIS.zh-cn-20240925114530352.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925114530352.webp" />
     </a><figcaption class="image-caption">解析路径</figcaption>
@@ -453,7 +462,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925114744988.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925114744988.webp, /img/arcGIS.zh-cn-20240925114744988.webp 1.5x, /img/arcGIS.zh-cn-20240925114744988.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925114744988.webp, /img/arcGIS.zh-cn-20240925114744988.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925114744988.webp" />
     </a><figcaption class="image-caption">img</figcaption>
@@ -465,7 +474,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925115208041.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925115208041.webp, /img/arcGIS.zh-cn-20240925115208041.webp 1.5x, /img/arcGIS.zh-cn-20240925115208041.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925115208041.webp, /img/arcGIS.zh-cn-20240925115208041.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925115208041.webp" />
     </a><figcaption class="image-caption">名称</figcaption>
@@ -480,7 +489,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925115531431.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925115531431.webp, /img/arcGIS.zh-cn-20240925115531431.webp 1.5x, /img/arcGIS.zh-cn-20240925115531431.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925115531431.webp, /img/arcGIS.zh-cn-20240925115531431.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925115531431.webp" />
     </a><figcaption class="image-caption">模型参数</figcaption>
@@ -492,7 +501,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925115734046.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925115734046.webp, /img/arcGIS.zh-cn-20240925115734046.webp 1.5x, /img/arcGIS.zh-cn-20240925115734046.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925115734046.webp, /img/arcGIS.zh-cn-20240925115734046.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925115734046.webp" />
     </a><figcaption class="image-caption">模型参数</figcaption>
@@ -504,7 +513,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925115801305.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925115801305.webp, /img/arcGIS.zh-cn-20240925115801305.webp 1.5x, /img/arcGIS.zh-cn-20240925115801305.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925115801305.webp, /img/arcGIS.zh-cn-20240925115801305.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925115801305.webp" />
     </a><figcaption class="image-caption">自动布局</figcaption>
@@ -518,7 +527,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925115924493.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925115924493.webp, /img/arcGIS.zh-cn-20240925115924493.webp 1.5x, /img/arcGIS.zh-cn-20240925115924493.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925115924493.webp, /img/arcGIS.zh-cn-20240925115924493.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925115924493.webp" />
     </a><figcaption class="image-caption">表转 Excel</figcaption>
@@ -530,7 +539,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925120016912.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925120016912.webp, /img/arcGIS.zh-cn-20240925120016912.webp 1.5x, /img/arcGIS.zh-cn-20240925120016912.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925120016912.webp, /img/arcGIS.zh-cn-20240925120016912.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925120016912.webp" />
     </a><figcaption class="image-caption">表转 Excel</figcaption>
@@ -542,7 +551,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925120246941.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925120246941.webp, /img/arcGIS.zh-cn-20240925120246941.webp 1.5x, /img/arcGIS.zh-cn-20240925120246941.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925120246941.webp, /img/arcGIS.zh-cn-20240925120246941.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925120246941.webp" />
     </a><figcaption class="image-caption">路径的文件夹</figcaption>
@@ -554,7 +563,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/arcGIS.zh-cn-20240925120948913.webp"
-            data-srcset="/img/arcGIS.zh-cn-20240925120948913.webp, /img/arcGIS.zh-cn-20240925120948913.webp 1.5x, /img/arcGIS.zh-cn-20240925120948913.webp 2x"
+            data-srcset="/img/arcGIS.zh-cn-20240925120948913.webp, /img/arcGIS.zh-cn-20240925120948913.webp 1.5x"
             data-sizes="auto"
             alt="/img/arcGIS.zh-cn-20240925120948913.webp" />
     </a><figcaption class="image-caption">点击模型确定即可运行</figcaption>
@@ -631,7 +640,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

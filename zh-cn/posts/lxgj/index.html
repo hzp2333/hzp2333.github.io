@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -242,7 +251,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000652869.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000652869.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -265,7 +274,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000722089.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000722089.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -279,7 +288,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000740654.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000740654.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -293,7 +302,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000809781.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000809781.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -304,7 +313,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000846230.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000846230.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -324,7 +333,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000901986.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000901986.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -336,7 +345,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000921254.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000921254.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -352,7 +361,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119000940161.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119000940161.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -370,7 +379,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp"
-            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp 1.5x, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp 2x"
+            data-srcset="/img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp, /img/%e9%b2%81%e8%bf%85%e6%95%85%e5%b1%85.zh-cn-20250119001005056.webp 1.5x"
             data-sizes="auto"
             alt="/img/鲁迅故居.zh-cn-20250119001005056.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -439,7 +448,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

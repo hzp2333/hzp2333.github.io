@@ -56,12 +56,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -170,7 +179,7 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><div class="page archive"><h2 class="single-title animated pulse faster">所有文章<sup>102</sup>
+                <div class="container"><div class="page archive"><h2 class="single-title animated pulse faster">所有文章<sup>118</sup>
     </h2><h3 class="group-title">2024 <sup>8</sup></h3><article class="archive-item">
                         <a href="/zh-cn/posts/hxl/" class="archive-item-link">天河机场转机攻略：速通黄鹤楼（6 h)</a>
                         <span class="archive-item-date">03-10</span>
@@ -242,6 +251,10 @@
                     <span class="page-link">
                         <a href="/zh-cn/posts/page/7/">7</a>
                     </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/zh-cn/posts/page/8/">8</a>
+                    </span>
                 </li></ul></div></div>
             </main>
     <footer class="footer">
@@ -277,7 +290,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

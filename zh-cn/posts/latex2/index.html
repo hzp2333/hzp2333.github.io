@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -249,7 +258,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203258581.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103203258581.webp" />
     </a><figcaption class="image-caption">tikzit</figcaption>
@@ -264,7 +273,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203412739.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103203412739.webp" />
     </a><figcaption class="image-caption">本段文字就在下载页面的插入latex部分，注意里面的蓝色超链接字体，点进去即可下载。</figcaption>
@@ -278,7 +287,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203444252.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103203444252.webp" />
     </a><figcaption class="image-caption">将下载好的tikzit.sty和latex论文软件放在同一主体下</figcaption>
@@ -298,13 +307,13 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203736095.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103203736095.webp" />
     </a><figcaption class="image-caption">自动生成</figcaption>
     </figure></p>
 <p>整体环境代码如下：</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-LaTeX">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -338,7 +347,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103203827922.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103203827922.webp" />
     </a><figcaption class="image-caption">页面</figcaption>
@@ -359,7 +368,7 @@
 <blockquote>
 <p>其中 <code>\tikzfig{ddd} </code> 和 <code>\ctikzfig{ddd} </code> 就是两种引用图片的方式，大括号{}里面就是保存在 figures 文件夹里的图片文件名。</p>
 </blockquote>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-LaTeX">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -385,7 +394,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204125035.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103204125035.webp" />
     </a><figcaption class="image-caption">效果如图</figcaption>
@@ -415,7 +424,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204450111.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103204450111.webp" />
     </a><figcaption class="image-caption">LaTeXdraw</figcaption>
@@ -428,7 +437,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204534530.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103204534530.webp" />
     </a><figcaption class="image-caption">tikzedit</figcaption>
@@ -447,13 +456,13 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp"
-            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp 1.5x, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp 2x"
+            data-srcset="/img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp, /img/LaTeX%e5%85%a5%e9%97%a82.zh-cn-20250103204622722.webp 1.5x"
             data-sizes="auto"
             alt="/img/LaTeX入门2.zh-cn-20250103204622722.webp" />
     </a><figcaption class="image-caption">这个是我使用processon网页版随便画的图，不过里面的latex公式保存为PDF会失真，其他中文格式不会</figcaption>
     </figure></p>
 <p>以下是插入剪切后的 PDF 的局部环境</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-LaTeX">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
@@ -537,7 +546,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

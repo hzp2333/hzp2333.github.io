@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -254,7 +263,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp"
-            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp 2x"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113749633.webp 1.5x"
             data-sizes="auto"
             alt="/img/因果效应.zh-cn-20240523113749633.webp" />
     </a><figcaption class="image-caption">相关不等于因果，相关性并不讨论方向。因果性是单向的，因此我们要有单向路径图指导。寻找路径后，再通过分析想像出“反事实”的世界。</figcaption>
@@ -339,7 +348,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp"
-            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp 2x"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113840073.webp 1.5x"
             data-sizes="auto"
             alt="/img/因果效应.zh-cn-20240523113840073.webp" />
     </a><figcaption class="image-caption">图源：《因果推断实用计量方法 》(邱嘉平)我们想研究的变量D并不随机，于是我们找到了一个随机变量Z，同时Z和D之间具有因果关系。</figcaption>
@@ -351,7 +360,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp"
-            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 2x"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113902945.webp 1.5x"
             data-sizes="auto"
             alt="/img/因果效应.zh-cn-20240523113902945.webp" />
     </a><figcaption class="image-caption">论文其实就是用了2SLS</figcaption>
@@ -372,7 +381,7 @@ $$</p>
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp"
-            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 1.5x, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 2x"
+            data-srcset="/img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp, /img/%e5%9b%a0%e6%9e%9c%e6%95%88%e5%ba%94.zh-cn-20240523113950695.webp 1.5x"
             data-sizes="auto"
             alt="/img/因果效应.zh-cn-20240523113950695.webp" />
     </a><figcaption class="image-caption">图源牛津课件（w4节)：https://andy.egge.rs/teaching/causal_inference/</figcaption>
@@ -495,7 +504,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

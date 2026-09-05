@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -253,7 +262,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp"
-            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp 2x"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135612745.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero7Betternote模板.zh-cn-20240523135612745.webp" />
     </a><figcaption class="image-caption">better note 经典的 sci 阅读模板，以上信息来自文件元信息读取</figcaption>
@@ -270,7 +279,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp"
-            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp 2x"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135630670.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero7Betternote模板.zh-cn-20240523135630670.webp" />
     </a><figcaption class="image-caption">内容是我自己阅读完写的，本模板不支持元数据自动导入，但小白也看得懂怎么修改代码标题</figcaption>
@@ -313,7 +322,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp"
-            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp 2x"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135644862.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero7Betternote模板.zh-cn-20240523135644862.webp" />
     </a><figcaption class="image-caption">主要加了表格和修改标题</figcaption>
@@ -328,7 +337,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp"
-            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp 2x"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135706608.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero7Betternote模板.zh-cn-20240523135706608.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -359,7 +368,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp"
-            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp 1.5x, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp 2x"
+            data-srcset="/img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp, /img/Zotero7Betternote%e6%a8%a1%e6%9d%bf.zh-cn-20240523135728403.webp 1.5x"
             data-sizes="auto"
             alt="/img/Zotero7Betternote模板.zh-cn-20240523135728403.webp" />
     </a><figcaption class="image-caption">右侧条目笔记一排的加号-从模板新建条目笔记</figcaption>
@@ -463,7 +472,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

@@ -74,12 +74,21 @@
     width: 100%;
     height: 100%;
   }
+
+   
+  @media screen and (max-width: 960px) {
+    #sakana-widget-container {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
   (function () {
     
     var load = function () {
+      if (window.matchMedia('(max-width: 960px)').matches) return;
+
       var container = document.createElement('div');
       container.id = 'sakana-widget-container';
       container.setAttribute('aria-hidden', 'true');
@@ -287,7 +296,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771516675297.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771516675297.webp, /img/Stata_auto.zh-cn-1771516675297.webp 1.5x, /img/Stata_auto.zh-cn-1771516675297.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771516675297.webp, /img/Stata_auto.zh-cn-1771516675297.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771516675297.webp" />
     </a><figcaption class="image-caption">插件名称</figcaption>
@@ -306,7 +315,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771516985076.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771516985076.webp, /img/Stata_auto.zh-cn-1771516985076.webp 1.5x, /img/Stata_auto.zh-cn-1771516985076.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771516985076.webp, /img/Stata_auto.zh-cn-1771516985076.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771516985076.webp" />
     </a><figcaption class="image-caption">自己安装 stata 的文件夹目录</figcaption>
@@ -318,7 +327,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771517247069.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771517247069.webp, /img/Stata_auto.zh-cn-1771517247069.webp 1.5x, /img/Stata_auto.zh-cn-1771517247069.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771517247069.webp, /img/Stata_auto.zh-cn-1771517247069.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771517247069.webp" />
     </a><figcaption class="image-caption">按键|127</figcaption>
@@ -387,7 +396,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771517125007.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771517125007.webp, /img/Stata_auto.zh-cn-1771517125007.webp 1.5x, /img/Stata_auto.zh-cn-1771517125007.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771517125007.webp, /img/Stata_auto.zh-cn-1771517125007.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771517125007.webp" />
     </a><figcaption class="image-caption">运行界面</figcaption>
@@ -401,7 +410,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1774196570649.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1774196570649.webp, /img/Stata_auto.zh-cn-1774196570649.webp 1.5x, /img/Stata_auto.zh-cn-1774196570649.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1774196570649.webp, /img/Stata_auto.zh-cn-1774196570649.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1774196570649.webp" />
     </a><figcaption class="image-caption">如图,我从csmar下载了四个企业变量数据，然后通过codex让其合并并进行探索性的回归分析</figcaption>
@@ -466,7 +475,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771587415799.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771587415799.webp, /img/Stata_auto.zh-cn-1771587415799.webp 1.5x, /img/Stata_auto.zh-cn-1771587415799.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771587415799.webp, /img/Stata_auto.zh-cn-1771587415799.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771587415799.webp" />
     </a><figcaption class="image-caption">GLM 注册送的资源包。不过我两天就用得差不多了。</figcaption>
@@ -492,7 +501,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771921574690.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771921574690.webp, /img/Stata_auto.zh-cn-1771921574690.webp 1.5x, /img/Stata_auto.zh-cn-1771921574690.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771921574690.webp, /img/Stata_auto.zh-cn-1771921574690.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771921574690.webp" />
     </a><figcaption class="image-caption">一些免费模型</figcaption>
@@ -503,7 +512,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771695202842.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771695202842.webp, /img/Stata_auto.zh-cn-1771695202842.webp 1.5x, /img/Stata_auto.zh-cn-1771695202842.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771695202842.webp, /img/Stata_auto.zh-cn-1771695202842.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771695202842.webp" />
     </a><figcaption class="image-caption">OpenRouter用户数据总体可视化做得相当不错，可以在上面参考现在的消费者主要用什么模型，做的任务主要是什么</figcaption>
@@ -517,7 +526,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771695412057.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771695412057.webp, /img/Stata_auto.zh-cn-1771695412057.webp 1.5x, /img/Stata_auto.zh-cn-1771695412057.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771695412057.webp, /img/Stata_auto.zh-cn-1771695412057.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771695412057.webp" />
     </a><figcaption class="image-caption">图片显示了过去六个月内发布的模型性能分布，该分布基于智能指数(IntelligenceIndex)绘制。红线为模型智能中位数，深灰色和浅灰色阴影区域分别表示第25-75百分位数和第10-90百分位数范围。分布的扩大进一步反映了前沿领域的进步：当今表现最好的模型达到了样本中最早模型性能的约六倍。</figcaption>
@@ -528,7 +537,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771695452859.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771695452859.webp, /img/Stata_auto.zh-cn-1771695452859.webp 1.5x, /img/Stata_auto.zh-cn-1771695452859.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771695452859.webp, /img/Stata_auto.zh-cn-1771695452859.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771695452859.webp" />
     </a><figcaption class="image-caption">纵坐标为每百万tokens价格的对数值。在2023年中期至2024年初急剧下降之后，即使更新、更强大的模型进入市场，价格也保持相对稳定。在任何给定的时间点，最低十分位数的模型比最高十分位数的模型便宜50到150倍。</figcaption>
@@ -541,7 +550,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771695660257.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771695660257.webp, /img/Stata_auto.zh-cn-1771695660257.webp 1.5x, /img/Stata_auto.zh-cn-1771695660257.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771695660257.webp, /img/Stata_auto.zh-cn-1771695660257.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771695660257.webp" />
     </a><figcaption class="image-caption"> 每个点代表 OpenRouter 提供的模型，按源类型着色。闭源模型趋向高成本高使用象限，而开源模型则主导低成本、高流量的区域。虚线趋势线几乎平坦，显示成本与总使用量之间的相关性有限。</figcaption>
@@ -573,7 +582,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771595992572.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771595992572.webp, /img/Stata_auto.zh-cn-1771595992572.webp 1.5x, /img/Stata_auto.zh-cn-1771595992572.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771595992572.webp, /img/Stata_auto.zh-cn-1771595992572.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771595992572.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -591,7 +600,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771596445258.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771596445258.webp, /img/Stata_auto.zh-cn-1771596445258.webp 1.5x, /img/Stata_auto.zh-cn-1771596445258.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771596445258.webp, /img/Stata_auto.zh-cn-1771596445258.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771596445258.webp" />
     </a><figcaption class="image-caption">经济学skills</figcaption>
@@ -603,7 +612,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771596774086.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771596774086.webp, /img/Stata_auto.zh-cn-1771596774086.webp 1.5x, /img/Stata_auto.zh-cn-1771596774086.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771596774086.webp, /img/Stata_auto.zh-cn-1771596774086.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771596774086.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
@@ -630,7 +639,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771684866236.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771684866236.webp, /img/Stata_auto.zh-cn-1771684866236.webp 1.5x, /img/Stata_auto.zh-cn-1771684866236.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771684866236.webp, /img/Stata_auto.zh-cn-1771684866236.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771684866236.webp" />
     </a><figcaption class="image-caption">下载这个skill后识别确实更加顺畅了</figcaption>
@@ -649,7 +658,7 @@
             class="lazyload center-image"
             src="/svg/loading.min.svg"
             data-src="/img/Stata_auto.zh-cn-1771518187683.webp"
-            data-srcset="/img/Stata_auto.zh-cn-1771518187683.webp, /img/Stata_auto.zh-cn-1771518187683.webp 1.5x, /img/Stata_auto.zh-cn-1771518187683.webp 2x"
+            data-srcset="/img/Stata_auto.zh-cn-1771518187683.webp, /img/Stata_auto.zh-cn-1771518187683.webp 1.5x"
             data-sizes="auto"
             alt="/img/Stata_auto.zh-cn-1771518187683.webp" />
     </a><figcaption class="image-caption">漫改电影《百米》：跑得快不一定能解决所有事，但只要在100米内跑得比任何人都快，那就能解决任何事情。</figcaption>
@@ -744,7 +753,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344620 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348533 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
