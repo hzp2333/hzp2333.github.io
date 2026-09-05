@@ -7,13 +7,11 @@ window.onload = function() {
   var titleTime;
   document.addEventListener('visibilitychange', function() {
     if(document.hidden) {
-      $('[rel="icon"]').attr('href', "/failure.ico");
-      $('[rel="shortcut icon"]').attr('href', "/failure.ico");
+      document.querySelectorAll('[rel="icon"], [rel="shortcut icon"]').forEach(function(icon) { icon.href = "/failure.ico"; });
       document.title = '智慧树上智慧果';
       clearTimeout(titleTime);
     } else {
-      $('[rel="icon"]').attr('href', "/favicon-32x32.png");
-      $('[rel="shortcut icon"]').attr('href', "/favicon-32x32.png");
+      document.querySelectorAll('[rel="icon"], [rel="shortcut icon"]').forEach(function(icon) { icon.href = "/favicon-32x32.png"; });
       document.title = '智慧树下你和我';
       titleTime = setTimeout(function() {
         document.title = OriginTitile;
@@ -212,6 +210,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
-
-
 
