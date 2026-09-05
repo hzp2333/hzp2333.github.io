@@ -15,7 +15,8 @@
 <meta name="twitter:description" content="Reading notes on &lsquo;Logs with Zeros? Some Problems and Solutions&rsquo;. When the variable being transformed includes zeros, the log(y&#43;1) transformation has some limits in treatment-effect estimation."/>
 <meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/log0/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/bff/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/ob/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -28,16 +29,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/log0\/"
-        },"genre": "posts","keywords": "Literature Review","wordcount":  1264 ,
+        },"genre": "posts","keywords": "Literature Review","wordcount":  1232 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/log0\/","datePublished": "2024-05-12T17:59:49+08:00","dateModified": "2024-05-12T17:59:49+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -248,7 +260,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Econometrics: Is the log(y+1) transformation reliable?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-12">2024-05-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1264 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-05-12">2024-05-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1232 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;
     
 
@@ -332,43 +344,12 @@ loadMathJax();
 <p>This post asks whether log transformations with zeros, such as $log(1+y)$ and $arcsinh(y)=\sqrt{1+y^2}+y$, are actually reliable.</p>
 <h2 id="a-code-example">A code example</h2>
 <p>The output below shows that when the data contain zeros, changing the units of $y$ before taking logs can change the statistical significance of the regression.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">sysuse</span><span class="w"> </span><span class="n">nlsw88</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">sysuse</span><span class="w"> </span><span class="n">nlsw88</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">replace</span><span class="w"> </span><span class="n">wage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">_n</span><span class="o">&lt;=</span><span class="mi">400</span><span class="w"> </span><span class="o">//</span><span class="err">前</span><span class="mi">400</span><span class="err">个观测值的工资改为</span><span class="mi">0</span><span class="err">值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -399,15 +380,13 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="cm">             (0.001)      (0.003)      (0.010)      (0.032)      (0.090)   
 </span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------
 </span></span></span><span class="line"><span class="cl"><span class="cm">N               2229         2229         2229         2229         2229   
-</span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------*/</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="explanation">Explanation</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">---------------------------------------------------------------------------*/</span></span></span></code></pre></div></div>
+<h2 id="explanation">Explanation</h2>
 <h4 id="how-we-usually-interpret-log-transformations">How we usually interpret log transformations</h4>
 <p>The standard view is that, once you take logs, the coefficient has a <strong>percentage</strong> interpretation.</p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>What a log coefficient means<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>What a log coefficient means<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>After taking logs, we usually read the coefficient as a percentage change. For example, with lnGDP, the coefficient in a regression is often read as the percentage change in GDP. If the model is <code>reg lny lnx</code>, then the coefficient is an elasticity. See <a href="https://www.zhihu.com/question/27588499/answer/588450047" target="_blank" rel="noopener noreffer ">What taking logs means</a>.</p>
@@ -537,26 +516,27 @@ where $\color{blue}{P\times log(a)}$ is the bias term created by changing the me
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>Updated on 2024-05-12</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/en/posts/log0/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-hashtag="Literature Review"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-image="/img/包含0值的对数化是否可靠-20240523094150322.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-via="ygVNLSZ1omFBCeB" data-hashtags="Literature Review"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-hashtag="Literature Review"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-image="/img/包含0值的对数化是否可靠-20240523094150322.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/en/posts/log0/" data-title="Econometrics: Is the log(y&#43;1) transformation reliable?" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fen%2fposts%2flog0%2f&amp;text=Econometrics%3a%20Is%20the%20log%28y%2b1%29%20transformation%20reliable%3f" target="_blank" title="Share on Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/en/tags/literature-review/">Literature Review</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/en/posts/bff/" class="prev" rel="prev" title="Notes on Learning Calculus of Variations"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Notes on Learning Calculus of Variations</a>
-            <a href="/en/posts/ob/" class="next" rel="next" title="Using Obsidian for Literature Reading and Blog Writing">Using Obsidian for Literature Reading and Blog Writing<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/posts/bff/" class="prev" rel="prev" title="Notes on Learning Calculus of Variations"><i class="fas fa-angle-left" aria-hidden="true"></i>Notes on Learning Calculus of Variations</a>
+            <a href="/en/posts/ob/" class="next" rel="next" title="Using Obsidian for Literature Reading and Blog Writing">Using Obsidian for Literature Reading and Blog Writing<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -925,7 +905,7 @@ where $\color{blue}{P\times log(a)}$ is the bias term created by changing the me
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;70 posts, 120227 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;70 posts, 118846 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -977,12 +957,24 @@ where $\color{blue}{P\times log(a)}$ is the bias term created by changing the me
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":" graph LR\n A(Exogenous policy shock: binary variable Z)--treated group--\u003eC{How the individual responds}\n C--extensive margin--\u003eD(From 0 to 1)\n C--intensive margin--\u003eE(From 1 to 1)\n D--\u003eF{Outcome variable}\n E--\u003eF{Outcome variable}","id-2":"graph LR\nA(Estimate the individual average treatment effect)------B(Treatment effect stays unchanged after changing units)\nB------ C(Point identification from the marginal distributions of potential outcomes)\nC------A","id-3":"HXS'S BLOG","id-4":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-3":["id-3"],"id-4":["id-4"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":" graph LR\n A(Exogenous policy shock: binary variable Z)--treated group--\u003eC{How the individual responds}\n C--extensive margin--\u003eD(From 0 to 1)\n C--intensive margin--\u003eE(From 1 to 1)\n D--\u003eF{Outcome variable}\n E--\u003eF{Outcome variable}","id-2":"graph LR\nA(Estimate the individual average treatment effect)------B(Treatment effect stays unchanged after changing units)\nB------ C(Point identification from the marginal distributions of potential outcomes)\nC------A","id-3":"HXS'S BLOG","id-4":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-3":["id-3"],"id-4":["id-4"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

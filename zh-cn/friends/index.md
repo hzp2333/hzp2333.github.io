@@ -1,8 +1,8 @@
 # 有朋自远方来
 
 
+{{< music url="/music/知我.mp3" name="知我" artist="国风堂/哦漏" cover="/images/剑来.png" >}} 
 
-{{< music netease song 1394167216>}}
 
 > 高山流水只为君挽  
 > 残梦回还曲终不复弹  

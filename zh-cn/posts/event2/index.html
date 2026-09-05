@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=" 计量：事件研究法 2"/>
 <meta name="twitter:description" content="参考《An Introductory Guide to Event Study Models》总结下事件研究法的代码使用。"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/event2/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/event1/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/paf/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event2\/"
-        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  7442 ,
+        },"genre": "posts","keywords": "因果效应, 文献阅读","wordcount":  6882 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/event2\/","datePublished": "2024-06-24T07:52:19+08:00","dateModified": "2024-06-24T07:52:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -247,8 +259,8 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> 计量：事件研究法 2</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-06-24">2024-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7442 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-06-24">2024-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6882 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 14 分钟&nbsp;
     
 
     
@@ -320,110 +332,12 @@ loadMathJax();
     </figure></p>
 <p>代码如下，结构是生成数据-画频率图-画累计图。原文累计图先使用 <code>cumul</code> 计算积累比例值，然后通过 <code>twoway</code> 画折线图。太复杂了，这里修改成 <code>cdfplot</code> 命令一步到位。</p>
 <p>结果图片和原文不同也不用意外——原文代码在两侧额外插值插入了端点值，我删去了这部分。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
-</span><span class="lnt">98
-</span><span class="lnt">99
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="err">生成双重差分面板随机数据</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -521,10 +435,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="n">cr</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*-</span><span class="err">合并展示以上图</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">graph</span><span class="w"> </span><span class="n">combine</span><span class="w"> </span><span class="n">histogram4</span><span class="w"> </span><span class="n">CDF4</span><span class="w"> </span><span class="n">histogram5</span><span class="w"> </span><span class="n">CDF5</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">iscale</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span><span class="w"> </span><span class="o">//</span><span class="err">图片比例缩小为四分之一</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="附录-btiming-based-的参数限制">附录 B：Timing-based 的参数限制</h2>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">iscale</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span><span class="w"> </span><span class="o">//</span><span class="err">图片比例缩小为四分之一</span></span></span></code></pre></div></div>
+<h2 id="附录-btiming-based-的参数限制">附录 B：Timing-based 的参数限制</h2>
 <p>在估计 DID 的事件效应时，一般不加入时间趋势，但会加入个体固定和时间固定，这些固定效应的作用是分解<strong>截距</strong>。处理共线性的方法一般是默认 $t_{-1}$ 为 0 、合并删除部分变量、施加其他约束、非线性化&hellip;&hellip;</p>
 <p>对于 Timing-based 的数据形式，由于没有对照组，我们只能在实验组内部进行比较。<strong>需要的加入的参数限制会更多</strong>。</p>
 <ul>
@@ -559,173 +471,12 @@ loadMathJax();
 <p>本来预期，时间差异给定的情况下，个体分组越多，额外参数需求越小，没想到只有第五列出现了这种情况，所以论文情况说这很奇怪，也值得研究，但他也不知道为什么。</p>
 </blockquote>
 <p>以下代码通过 GPT 加入注释：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="p">;</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cap</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">close</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -886,10 +637,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="s2">
 </span></span></span><span class="line"><span class="cl"><span class="s2">
 </span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">bigone ;
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>那么，当我们需要额外约束时，可以怎么添加呢？</p>
+</span></span></span><span class="line"><span class="cl"><span class="s2">bigone ;</span></span></span></code></pre></div></div>
+<p>那么，当我们需要额外约束时，可以怎么添加呢？</p>
 <ul>
 <li>方法 1：相加为 0—— $r_1+r_2=0$</li>
 <li>方法 2：等差数列—— $r_2-r_1=r_0-r_{-1}$</li>
@@ -918,229 +667,12 @@ loadMathJax();
 <p>左侧的约束条件选择了规范化事件前一期，右侧的约束条件选择了约束事前虚拟时间变量，可以发现右侧更接近实际治疗效应（红线）。</p>
 <p>以下代码由 GPT 进行注释，个人进行了部分修正。</p>
 <p>代码结构：设置数据结构生成函数和约束条件选择函数，绘图</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
-</span><span class="lnt">180
-</span><span class="lnt">181
-</span><span class="lnt">182
-</span><span class="lnt">183
-</span><span class="lnt">184
-</span><span class="lnt">185
-</span><span class="lnt">186
-</span><span class="lnt">187
-</span><span class="lnt">188
-</span><span class="lnt">189
-</span><span class="lnt">190
-</span><span class="lnt">191
-</span><span class="lnt">192
-</span><span class="lnt">193
-</span><span class="lnt">194
-</span><span class="lnt">195
-</span><span class="lnt">196
-</span><span class="lnt">197
-</span><span class="lnt">198
-</span><span class="lnt">199
-</span><span class="lnt">200
-</span><span class="lnt">201
-</span><span class="lnt">202
-</span><span class="lnt">203
-</span><span class="lnt">204
-</span><span class="lnt">205
-</span><span class="lnt">206
-</span><span class="lnt">207
-</span><span class="lnt">208
-</span><span class="lnt">209
-</span><span class="lnt">210
-</span><span class="lnt">211
-</span><span class="lnt">212
-</span><span class="lnt">213
-</span><span class="lnt">214
-</span><span class="lnt">215
-</span><span class="lnt">216
-</span><span class="lnt">217
-</span><span class="lnt">218
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="p">;</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cap</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">close</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -1357,10 +889,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="s2">end ;
 </span></span></span><span class="line"><span class="cl"><span class="s2">
 </span></span></span><span class="line"><span class="cl"><span class="s2">
-</span></span></span><span class="line"><span class="cl"><span class="s2">runme ;
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>C 部分剩余部分是 Timing-based 的数据仿真实验，代码结结构式一样的，只是数据结构和约束方式不一样，这里不再重复，只放出效果图。</p>
+</span></span></span><span class="line"><span class="cl"><span class="s2">runme ;</span></span></span></code></pre></div></div>
+<p>C 部分剩余部分是 Timing-based 的数据仿真实验，代码结结构式一样的，只是数据结构和约束方式不一样，这里不再重复，只放出效果图。</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240623235118903.webp" title="Timing-based结构数据" data-thumbnail="/img/stata事件研究法2.zh-cn-20240623235118903.webp" data-sub-html="<h2> </h2><p>Timing-based结构数据</p>">
         <img
@@ -1378,48 +908,24 @@ loadMathJax();
 <li>左下角是约束事前事后最两侧三期虚拟变量系数相同。</li>
 <li>右下角是约束事前预期效应虚拟变量系数加总为 0。</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">D_m11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m10</span><span class="w"> </span><span class="p">;</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">D_m11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m10</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">D_m10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m9</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="n">D_m9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m8</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">D_m8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m7</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="附录-d-接近原始数据">附录 D: 接近原始数据</h2>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">D_m8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m7</span><span class="w"> </span><span class="p">;</span></span></span></code></pre></div></div>
+<h2 id="附录-d-接近原始数据">附录 D: 接近原始数据</h2>
 <p>DID 又又又封神啦🤣（</p>
 <p>附录 D 本质可以理解为加入了时间趋势（斜率对比）的分解。和前文代码结构依旧相同，这次增加点的是反事实组的预测，通过反事实组再次对比强化因果论证。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* 创建反事实预测值 cf_ES2 */</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* 创建反事实预测值 cf_ES2 */</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">cf_ES2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">将</span><span class="w"> </span><span class="n">cf_ES2</span><span class="w"> </span><span class="err">初始化为观测变量</span><span class="w"> </span><span class="n">y</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 按时间范围循环处理 */</span><span class="w">
@@ -1438,10 +944,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 按单元类型和时间求反事实预测均值 */</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">egen</span><span class="w"> </span><span class="n">meancf_ES2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">cf_ES2</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="n">unittype</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">按</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="n">unittype</span><span class="w"> </span><span class="err">求</span><span class="w"> </span><span class="n">cf_ES2</span><span class="w"> </span><span class="err">的均值</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">egen</span><span class="w"> </span><span class="n">meancf_ES2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">cf_ES2</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="n">unittype</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">按</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="n">unittype</span><span class="w"> </span><span class="err">求</span><span class="w"> </span><span class="n">cf_ES2</span><span class="w"> </span><span class="err">的均值</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624001457407.webp" title="使用前后的系数差异再次相减得到结果" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624001457407.webp" data-sub-html="<h2> </h2><p>使用前后的系数差异再次相减得到结果</p>">
         <img
             class="lazyload center-image"
@@ -1457,43 +961,12 @@ loadMathJax();
 <p><strong>做法 1</strong>是约束事件虚拟变量的系数（$\gamma_1=\gamma_2$）相同：</p>
 <p>如下约束就是分别为两期一组、三期一组、四期一组的分段。</p>
 <p>以下是约束代码的例子:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="p">;</span><span class="w"> 
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">#</span><span class="n">delimit</span><span class="p">;</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*两期一组*/</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">D_m10</span><span class="o">=</span><span class="n">D_m9</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">D_m8</span><span class="o">=</span><span class="n">D_m7</span><span class="p">;</span><span class="w">
@@ -1524,10 +997,8 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">D_p3</span><span class="o">=</span><span class="n">D_p5</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="n">D_p6</span><span class="o">=</span><span class="n">D_p7</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">D_p6</span><span class="o">=</span><span class="n">D_p8</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">D_p6</span><span class="o">=</span><span class="n">D_p8</span><span class="p">;</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624121424373.webp" title="做法一：约束事件时间虚拟变量间的值相等" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624121424373.webp" data-sub-html="<h2> </h2><p>做法一：约束事件时间虚拟变量间的值相等</p>">
         <img
             class="lazyload center-image"
@@ -1540,21 +1011,16 @@ loadMathJax();
     </figure>
 <strong>做法 2</strong> 是约束系数与系数间的斜率（$\gamma_1-\gamma_0=\gamma_2-\gamma_1$）相等</p>
 <p>以下是约束代码的例子:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">D_m10</span><span class="o">=</span><span class="n">D_m9</span><span class="p">;</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">D_m10</span><span class="o">=</span><span class="n">D_m9</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">D_m8</span><span class="o">=</span><span class="n">D_m7</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="n">D_m6</span><span class="o">=</span><span class="n">D_m5</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="n">D_m4</span><span class="o">=</span><span class="n">D_m3</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="n">D_m4</span><span class="o">=</span><span class="n">D_m3</span><span class="p">;</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624122552395.webp" title="系数间都斜率相等的约束" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624122552395.webp" data-sub-html="<h2> </h2><p>系数间都斜率相等的约束</p>">
         <img
             class="lazyload center-image"
@@ -1575,21 +1041,16 @@ loadMathJax();
 <p>本文研究的是——是否加入时间趋势的控制和其他约束。</p>
 <h3 id="did一个个体两个时间">DID：一个个体，两个时间</h3>
 <p>两种约束，一种是加入趋势控制——控制变量加入 <code>trend_group2</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">趋势控制变量</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">趋势控制变量</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">group2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">trend_group2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">group2</span><span class="w"> </span><span class="err">相同的约束</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">其他约束类型和前文相同，保证事件虚拟时间系数相等或者斜率相等</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">其他约束类型和前文相同，保证事件虚拟时间系数相等或者斜率相等</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624142702710.webp" title="施加的约束包含加入趋势控制和事件时间虚拟变量的约束" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624142702710.webp" data-sub-html="<h2> </h2><p>施加的约束包含加入趋势控制和事件时间虚拟变量的约束</p>">
         <img
             class="lazyload center-image"
@@ -1617,21 +1078,16 @@ loadMathJax();
 <li>事后末期斜率相同</li>
 <li>加权事前趋势为 0</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="err">\\我没看明白这里约束</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="err">的基期怎么来的？</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="err">\\我没看明白这里约束</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="err">的基期怎么来的？</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">9</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">7</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m7</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m4</span><span class="w"> </span><span class="o">+</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> 
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624144455930.webp" title="time-based的仿真实验" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624144455930.webp" data-sub-html="<h2> </h2><p>time-based的仿真实验</p>">
         <img
             class="lazyload center-image"
@@ -1663,30 +1119,23 @@ loadMathJax();
 <p>对于多期 DID 来说，加入<strong>多个事件时间的趋势加权约束为 0</strong>则会使得估计更加有效。如图：</p>
 <p>第一列是普通估计，没有施加个体时间双向固定以外的限制
 第二列是在第一列基础上加入了事件事前趋势加总为 0 的约束：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">事件日期依旧是</span><span class="mi">10</span><span class="err">和</span><span class="mi">5</span><span class="err">两期，个人没有看懂</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="err">的基期设置怎么来的</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">事件日期依旧是</span><span class="mi">10</span><span class="err">和</span><span class="mi">5</span><span class="err">两期，个人没有看懂</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="err">的基期设置怎么来的</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="n">D_m10</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="n">D_m9</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="w"> </span><span class="n">D_m8</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="w"> </span><span class="n">D_m7</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">-</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="n">D_m6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m5</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m4</span><span class="w"> </span><span class="o">+</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>第三列是加入了类型控制</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">gen</span><span class="w"> </span><span class="n">treated_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> 
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span></span></span></code></pre></div></div>
+<p>第三列是加入了类型控制</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">gen</span><span class="w"> </span><span class="n">treated_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/stata%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%952.zh-cn-20240624151534335.webp" title="DID估计：橙色部分是基于残差预测的反事实组" data-thumbnail="/img/stata事件研究法2.zh-cn-20240624151534335.webp" data-sub-html="<h2> </h2><p>DID估计：橙色部分是基于残差预测的反事实组</p>">
         <img
             class="lazyload center-image"
@@ -1711,36 +1160,26 @@ loadMathJax();
     </figure>
 上面全是实验组的 Time -based 结构中，但是这次多了个体差异。</p>
 <p>第二列比第一列多了个体分组和时间加权趋势为 0</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">个体分组</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="err">个体分组</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Egen</span><span class="w"> </span><span class="n">unittype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="p">(</span><span class="n">E_i</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Egen</span><span class="w"> </span><span class="n">meany</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="n">unittype</span><span class="p">)</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">时间趋势加权，我还是没看懂</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="err">的基期是怎么出来的</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">103</span><span class="w">   </span><span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m5</span><span class="w"> </span><span class="o">+</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="p">;</span><span class="w"> 
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>第三列比第二列多了系数约束</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">D_m7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m6</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">D_m6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m5</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="总结">总结</h2>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">D_m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="p">;</span><span class="w"> </span></span></span></code></pre></div></div>
+<p>第三列比第二列多了系数约束</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SQL">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">D_m7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m6</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">constraint</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">D_m6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_m5</span><span class="w"> </span><span class="p">;</span></span></span></code></pre></div></div>
+<h2 id="总结">总结</h2>
 <p>事件分析法是 DID 的一种推广。</p>
 <blockquote>
 <p>个人理解是，事件分析法会基于 DID 进一步进行时间切片。由于时间虚拟变量增多，求解也需要更多的约束，因此我们得根据研究背景添加时间趋势的控制。</p>
@@ -1761,26 +1200,27 @@ loadMathJax();
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2024-06-24</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/event2/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2" data-hashtags="因果效应,文献阅读"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2" data-image="/img/stata事件研究法2.zh-cn-20240624163058043.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2" data-hashtags="因果效应,文献阅读"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-hashtag="因果效应"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2" data-image="/img/stata事件研究法2.zh-cn-20240624163058043.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/event2/" data-title=" 计量：事件研究法 2" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fevent2%2f&amp;text=%20%e8%ae%a1%e9%87%8f%ef%bc%9a%e4%ba%8b%e4%bb%b6%e7%a0%94%e7%a9%b6%e6%b3%95%202" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/event1/" class="prev" rel="prev" title=" 计量：事件研究法 1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i> 计量：事件研究法 1</a>
-            <a href="/zh-cn/posts/paf/" class="next" rel="next" title=" 养老金和生育率"> 养老金和生育率<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/event1/" class="prev" rel="prev" title=" 计量：事件研究法 1"><i class="fas fa-angle-left" aria-hidden="true"></i> 计量：事件研究法 1</a>
+            <a href="/zh-cn/posts/paf/" class="next" rel="next" title=" 养老金和生育率"> 养老金和生育率<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -2149,7 +1589,7 @@ loadMathJax();
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -2201,12 +1641,24 @@ loadMathJax();
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

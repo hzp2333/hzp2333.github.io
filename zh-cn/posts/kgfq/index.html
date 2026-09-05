@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="客观赋权：PCA、CRITIC、EWM、COV"/>
 <meta name="twitter:description" content="经济学赋权打分方法：PCA、CRITIC、EWM、COV。并且记录了一些易错点"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/h/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/wxb/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/kgfq\/"
-        },"genre": "posts","keywords": "Stata","wordcount":  5733 ,
+        },"genre": "posts","keywords": "Stata","wordcount":  5535 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/kgfq\/","datePublished": "2023-11-20T15:27:17+08:00","dateModified": "2023-11-20T15:27:17+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -247,7 +259,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">客观赋权：PCA、CRITIC、EWM、COV</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-20">2023-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5733 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-20">2023-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5535 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;
     
 
@@ -378,59 +390,28 @@ $$</p>
 <p>面板数据，五个指标衡量数字经济</p>
 <p><strong>有很多途径可以实现极差法的归一化。</strong></p>
 <p><strong>方法一：Norm 指令组</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">ssc install norm //指令安装
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">ssc install norm //指令安装
 </span></span><span class="line"><span class="cl">norm x1 x2 x3 , method(mmx) 
 </span></span><span class="line"><span class="cl">* 对应是计算方法是：[Xi - <span class="k">X</span>(min)]/ [<span class="k">X</span>(max)-<span class="k">X</span>(min)]
-</span></span><span class="line"><span class="cl">* 如果想要一个截面一个截面的分组标准化，名字则为 norm x1 x2 x3, <span class="k">by</span>(year) method(mmx)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这个命令的<strong>缺点</strong>是，<strong>mmx 只提供了正向指标的线性变化，不能用于负向指标</strong>。</p>
+</span></span><span class="line"><span class="cl">* 如果想要一个截面一个截面的分组标准化，名字则为 norm x1 x2 x3, <span class="k">by</span>(year) method(mmx)</span></span></code></pre></div></div>
+<p>这个命令的<strong>缺点</strong>是，<strong>mmx 只提供了正向指标的线性变化，不能用于负向指标</strong>。</p>
 <p>也就是只有 $\small X_{正指标}=\frac{X_{ij}-\min X_j }{\max X_j-\min X_j}$ 的变化，没有负指标 X 负指标$\small X_{负指标}=\frac{\max X_j-X_{ij}}{\max X_j-\min X_j} $的变化。</p>
 <p>理论上也有<strong>解决方法</strong>：通过 $1-x_{负向指标}、\frac{1}{x_{负向指标}}$ 的变形把负向指标转化为正向指标再统一执行。</p>
 <blockquote>
 <p>提醒：所有数据最后是打分，都需要为正。</p>
 </blockquote>
 <p><strong>方法二：循环加分组（通用）</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">*定义正向指标与负向指标
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sas">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">*定义正向指标与负向指标
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">global positive_var x1  x3 x4 x5 x6  x8 x9 x10 
 </span></span><span class="line"><span class="cl">
@@ -456,29 +437,23 @@ $$</p>
 </span></span></span><span class="line"><span class="cl"><span class="s">    qui sum `i&#39;</span>
 </span></span><span class="line"><span class="cl">    gen x_`i<span class="s">&#39;=(r(max)-`i&#39;</span>)/(r(max)-r(min)) //负向指标标准化处理
 </span></span><span class="line"><span class="cl">    <span class="k">replace</span> x_`i<span class="s">&#39;=0.000001 if x_`i&#39;</span>==<span class="m">0</span>    //避免出现0值
-</span></span><span class="line"><span class="cl">  }
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2标准化standardization">2、标准化（Standardization）</h3>
+</span></span><span class="line"><span class="cl">  }</span></span></code></pre></div></div>
+<h3 id="2标准化standardization">2、标准化（Standardization）</h3>
 <p>$\boxed{Z-score}:$ 中心极限定理告诉我们分布函数会趋于正态分布，我们常用的是概率统计里的<strong>标准正态化</strong>。</p>
 <p>$$
 \begin{cases} X_{正指标}=\frac{x-\mu}\sigma \newline
 X_{负指标}=\frac{\mu-x}\sigma  \end{cases}
 $$</p>
 <h3 id="2-1标准化-stata-代码">2-1、标准化 stata 代码</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">zscore x1
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sas">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">zscore x1
 </span></span><span class="line"><span class="cl">* 标准化后的变量为命名为z_x1
-</span></span><span class="line"><span class="cl">* 负向指标需要在变形后再在前面加个负号
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="什么时候需要标准化和归一化呢">什么时候需要标准化和归一化呢？</h3>
+</span></span><span class="line"><span class="cl">* 负向指标需要在变形后再在前面加个负号</span></span></code></pre></div></div>
+<h3 id="什么时候需要标准化和归一化呢">什么时候需要标准化和归一化呢？</h3>
 <blockquote>
 <p><strong>省流</strong>：对机器学习来说，具体对象具体诉求具体使用，对于经济学来说，无脑使用问题不大。</p>
 </blockquote>
@@ -516,81 +491,12 @@ $$
 W_{i}=\frac{1-E_{i}}{k-\sum E_{i}}(i=1,2,\ldots,k)
 $$</p>
 <h3 id="2熵权法-stata-代码">2、熵权法 stata 代码</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*Step0:定义正向指标与负向指标
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*Step0:定义正向指标与负向指标
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">*定义正向指标与负向指标
 </span></span><span class="line"><span class="cl">
@@ -659,10 +565,8 @@ $$</p>
 </span></span></span><span class="line"><span class="cl"><span class="s">  }
 </span></span></span><span class="line"><span class="cl"><span class="s">
 </span></span></span><span class="line"><span class="cl"><span class="s">egen Score=rowtotal(Score_*)   //求和
-</span></span></span><span class="line"><span class="cl"><span class="s">******************************************************************
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="三变异系数法-cov">三、变异系数法 （COV）</h2>
+</span></span></span><span class="line"><span class="cl"><span class="s">******************************************************************</span></span></span></code></pre></div></div>
+<h2 id="三变异系数法-cov">三、变异系数法 （COV）</h2>
 <h3 id="1理论步骤-1">1、理论步骤</h3>
 <p>省时省力，变异系数变异系数$\boxed{变异系数} $就是每组的 标准差均值标准差均值$ \frac{标准差}{均值}$ 。</p>
 <p>计算每个指标内部的变异系数，然后把每组指标的变异系数占比作为权重。
@@ -673,66 +577,12 @@ $$</p>
 w_i = \frac{v_i}{\sum _{i}^{n} v_i}
 $$</p>
 <h3 id="2变异系数法-stata-代码">2、变异系数法 stata 代码</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">*Step0:定义正向指标与负向指标
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sas">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sas" data-lang="sas"><span class="line"><span class="cl">*Step0:定义正向指标与负向指标
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">*定义正向指标与负向指标
 </span></span><span class="line"><span class="cl">
@@ -786,10 +636,8 @@ $$</p>
 </span></span></span><span class="line"><span class="cl"><span class="s">foreach i in $xlist {
 </span></span></span><span class="line"><span class="cl"><span class="s">   gen Score_b_`i&#39;</span>= x_`i<span class="s">&#39;*w_b_`i&#39;</span>
 </span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">egen Score_b=rowtotal(Score_b_*)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>个人感觉对比下来变化差异不大</p>
+</span></span><span class="line"><span class="cl">egen Score_b=rowtotal(Score_b_*)</span></span></code></pre></div></div>
+<p>个人感觉对比下来变化差异不大</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152659188.webp" title="数字经济指标，个人找数据补到了2021年，额外进行了分组绘图。（左变异系数、右主成分法，总体排序基本是稳定的）" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152659188.webp" data-sub-html="<h2> </h2><p>数字经济指标，个人找数据补到了2021年，额外进行了分组绘图。（左变异系数、右主成分法，总体排序基本是稳定的）</p>">
         <img
@@ -889,22 +737,12 @@ $$</p>
 <blockquote>
 <p>这些检验一般也没必要在论文里说明</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">//相关系数分析，一般大于0<span class="m">.</span>4即可
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">//相关系数分析，一般大于0<span class="m">.</span>4即可
 </span></span><span class="line"><span class="cl">//相关系数高，说明n个指标有些重复信息，这样才有降维分解成k个的价值
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">pwcorr_a x1-x4
@@ -914,32 +752,23 @@ $$</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">factortest x1-x4
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//其中若Bartlett值显著（P值接近0）；且KMO值大于0<span class="m">.5</span>，则可以使用主成分分析。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过检验后，开始进行主成分分解</p>
+</span></span><span class="line"><span class="cl">//其中若Bartlett值显著（P值接近0）；且KMO值大于0<span class="m">.5</span>，则可以使用主成分分析。</span></span></code></pre></div></div>
+<p>通过检验后，开始进行主成分分解</p>
 <blockquote>
 <p>PCA 命令自带规范化处理。</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">pca x1-x4
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">pca x1-x4
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">* Eigenvalue :特征值 
 </span></span><span class="line"><span class="cl">* Proportion ：贡献率
 </span></span><span class="line"><span class="cl">* Cumulative：累计贡献率
-</span></span><span class="line"><span class="cl">* Comp 特征向量、载荷矩阵
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">* Comp 特征向量、载荷矩阵</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152756051.webp" title="数据源就是前文附件的excel:《数字经济、创业活跃度与高质量发展——来自中国城市的经验证据》" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152756051.webp" data-sub-html="<h2> </h2><p>数据源就是前文附件的excel:《数字经济、创业活跃度与高质量发展——来自中国城市的经验证据》</p>">
         <img
             class="lazyload center-image"
@@ -952,17 +781,14 @@ $$</p>
     </figure></p>
 <p><strong>一般要求特征值要大于 1</strong>，小于 1 的话说明特征变量的解释能力还不如原变量。若三个变量特征值均大于 1，则要提取的主成分有三个。图中大于 1 的只有一个，说明我们只需要提取一个主成分。</p>
 <p>我们也可以通过画图来展示以上结论，这个图就是碎石图。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">screeplot,yline(<span class="m">1</span>) 
-</span></span><span class="line"><span class="cl">*碎石图，选出大于1的对应主成分
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">screeplot,yline(<span class="m">1</span>) 
+</span></span><span class="line"><span class="cl">*碎石图，选出大于1的对应主成分</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152809750.webp" title="碎石图，选出大于1的对应主成分" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152809750.webp" data-sub-html="<h2> </h2><p>碎石图，选出大于1的对应主成分</p>">
         <img
             class="lazyload center-image"
@@ -973,20 +799,12 @@ $$</p>
             alt="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152809750.webp" />
     </a><figcaption class="image-caption">碎石图，选出大于1的对应主成分</figcaption>
     </figure></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*step4计算主成分得分
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*step4计算主成分得分
 </span></span><span class="line"><span class="cl">predict f1
 </span></span><span class="line"><span class="cl">*这里我们只需要1个主成分所以只需要生成f1
 </span></span><span class="line"><span class="cl">
@@ -994,10 +812,8 @@ $$</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">*step5：使用综合指标
 </span></span><span class="line"><span class="cl">//按照个主成分的方差贡献率占所提取的主成分的累计方差贡献率的比重，生成综合性指标。
-</span></span><span class="line"><span class="cl">//Score=(方差贡献率/累计方差贡献率)*f1+(方差贡献率/累计方差贡献率)*f2+......(方差贡献率/累计方差贡献率)*fn
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">//Score=(方差贡献率/累计方差贡献率)*f1+(方差贡献率/累计方差贡献率)*f2+......(方差贡献率/累计方差贡献率)*fn</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152822506.webp" title="结果" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152822506.webp" data-sub-html="<h2> </h2><p>结果</p>">
         <img
             class="lazyload center-image"
@@ -1009,47 +825,35 @@ $$</p>
     </a><figcaption class="image-caption">结果</figcaption>
     </figure></p>
 <p>由于我们只需要一个主成分，所以最后得到总分：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-abap" data-lang="abap"><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8115</span><span class="p">/</span><span class="mi">0</span><span class="p">.</span><span class="mi">8115</span><span class="o">*</span><span class="nv">f1</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-abap">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-abap" data-lang="abap"><span class="line"><span class="cl"><span class="nv">gen</span> <span class="nv">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8115</span><span class="p">/</span><span class="mi">0</span><span class="p">.</span><span class="mi">8115</span><span class="o">*</span><span class="nv">f1</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">* 如果存在小于0的score就自己sum一下然后整体加个常数保证全部大于0就行</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>假设我们分析得到需要两个主成分，那么总分的式子就应该变为</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">gen score = 0.8115/0.9315*f1+0.1200/0.9315*f2
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>必要部分完成，接下来是非必要部分，也就是因子分析和得分图分析</p>
+</span></span><span class="line"><span class="cl"><span class="c1">* 如果存在小于0的score就自己sum一下然后整体加个常数保证全部大于0就行</span></span></span></code></pre></div></div>
+<p>假设我们分析得到需要两个主成分，那么总分的式子就应该变为</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">gen score = 0.8115/0.9315*f1+0.1200/0.9315*f2</span></span></code></pre></div></div>
+<p>必要部分完成，接下来是非必要部分，也就是因子分析和得分图分析</p>
 <h3 id="非必要部分">非必要部分</h3>
 <p>假设我们有四个指标，四个指标特征值都大于 1，也就是我们四个主成分都可以用，也就可以通过<strong>得分图</strong>来聚类。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">predict f1 f2 f3 f4
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">predict f1 f2 f3 f4
 </span></span><span class="line"><span class="cl"> scoreplot,combined factors(<span class="m">4</span>)mlabel(city) yline(<span class="m">0</span>) xline(<span class="m">0</span>)
 </span></span><span class="line"><span class="cl">*mlabel是选定描述统计量名称
 </span></span><span class="line"><span class="cl">*factors(<span class="m">4</span>)是要前几个主成分，然后两两排列来展现
-</span></span><span class="line"><span class="cl">*两个节点距离越近说明越相似
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">*两个节点距离越近说明越相似</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152840677.webp" title="得分分析" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152840677.webp" data-sub-html="<h2> </h2><p>得分分析</p>">
         <img
             class="lazyload center-image"
@@ -1062,17 +866,14 @@ $$</p>
     </figure></p>
 <p>对于得分图来说，<strong>距离越近越相似</strong>，由于我们选择了参数 factors （4），那么四个主成分两两组合，就会产生 $C_4^2=6$ 个得分图。我们使用的是面板数据，我们按照的地域标签，确实可以看出**不同年份的同一个城市（北京、重庆）**总是聚类在一起。</p>
 <p><strong>因子载荷图</strong>命令如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">loadingplot, factors(4) yline(0) xline(0) //荷载图
-</span></span><span class="line"><span class="cl">*factors(4)也是分析几个因子的设定。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>由于我们选择了参数 factors （4），那么四个主成分两两组合，就会产生 $C_4^2=6$ 个因子载荷图</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">loadingplot, factors(4) yline(0) xline(0) //荷载图
+</span></span><span class="line"><span class="cl">*factors(4)也是分析几个因子的设定。</span></span></code></pre></div></div>
+<p>由于我们选择了参数 factors （4），那么四个主成分两两组合，就会产生 $C_4^2=6$ 个因子载荷图</p>
 <p>它反映了不同组成分下指标的聚类程度。</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV.zh-cn-20250114152851282.webp" title="因为是对称的，所以只看一侧就行，也就是有6个图" data-thumbnail="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152851282.webp" data-sub-html="<h2> </h2><p>因为是对称的，所以只看一侧就行，也就是有6个图</p>">
@@ -1124,26 +925,27 @@ $$</p>
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2023-11-20</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/kgfq/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV" data-hashtags="Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-hashtag="Stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV" data-image="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152517555.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV" data-hashtags="Stata"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-hashtag="Stata"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV" data-image="/img/客观赋权：PCA、CRITIC、EWM、COV.zh-cn-20250114152517555.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/kgfq/" data-title="客观赋权：PCA、CRITIC、EWM、COV" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fkgfq%2f&amp;text=%e5%ae%a2%e8%a7%82%e8%b5%8b%e6%9d%83%ef%bc%9aPCA%e3%80%81CRITIC%e3%80%81EWM%e3%80%81COV" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/h/" class="prev" rel="prev" title="《河边的错误》是什么"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>《河边的错误》是什么</a>
-            <a href="/zh-cn/posts/wxb/" class="next" rel="next" title="经世济民 or 因为山在那">经世济民 or 因为山在那<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/h/" class="prev" rel="prev" title="《河边的错误》是什么"><i class="fas fa-angle-left" aria-hidden="true"></i>《河边的错误》是什么</a>
+            <a href="/zh-cn/posts/wxb/" class="next" rel="next" title="经世济民 or 因为山在那">经世济民 or 因为山在那<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -1512,7 +1314,7 @@ $$</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -1564,12 +1366,24 @@ $$</p>
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

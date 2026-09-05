@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="hugo 美化 2"/>
 <meta name="twitter:description" content="在博客页脚添加总字数统计和建站时间并且能自动中英切换。"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/pytorch2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/fs2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  4886 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  4425 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/runtime\/","datePublished": "2024-08-10T15:45:18+08:00","dateModified": "2024-08-10T15:45:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -247,8 +259,8 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">hugo 美化 2</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/hugo-%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hugo 搭建记录</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4886 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4425 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;
     
 
     
@@ -334,72 +346,47 @@ loadMathJax();
 <h4 id="添加博客总字数统计">添加博客总字数统计</h4>
 <p>找到 <code>&lt;你的博客文件&gt;\layouts\partials\footer.html</code>，</p>
 <p>在里面添加以下代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-HTML">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">{{ $articleCount := len .Site.RegularPages }}
 </span></span><span class="line"><span class="cl">{{ $totalWordCount := 0 }}
 </span></span><span class="line"><span class="cl">{{ range .Site.Pages }}
 </span></span><span class="line"><span class="cl">{{ $totalWordCount = add $totalWordCount .WordCount }}
 </span></span><span class="line"><span class="cl">{{ end }}
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{ i18n &#34;articleCount&#34; (dict &#34;Count&#34; $articleCount) }}，{{ i18n &#34;totalWordCount&#34; (dict &#34;WordCount&#34; $totalWordCount) }}。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
+</span></span><span class="line"><span class="cl">{{ i18n &#34;articleCount&#34; (dict &#34;Count&#34; $articleCount) }}，{{ i18n &#34;totalWordCount&#34; (dict &#34;WordCount&#34; $totalWordCount) }}。</span></span></code></pre></div></div>
+<p>然后找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
 <p>在 <code>zh-CN.toml</code> 里添加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-HTML">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[articleCount]
 </span></span><span class="line"><span class="cl">other = &#34;发布了 {{ .Count }} 篇文章&#34;
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[totalWordCount]
-</span></span><span class="line"><span class="cl">other = &#34;共 {{ .WordCount }} 字&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 <code>en.toml</code> 里添加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
+</span></span><span class="line"><span class="cl">other = &#34;共 {{ .WordCount }} 字&#34;</span></span></code></pre></div></div>
+<p>在 <code>en.toml</code> 里添加</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-HTML">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"># === footer/wordcount ===
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[articleCount]
 </span></span><span class="line"><span class="cl">other = &#34;published {{ .Count }} posts&#34;
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[totalWordCount]
-</span></span><span class="line"><span class="cl">other = &#34;total {{ .WordCount }} words&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span><span class="line"><span class="cl">other = &#34;total {{ .WordCount }} words&#34;</span></span></code></pre></div></div>
+<blockquote>
 <p>多语言切换显然是一对一的字符识别。</p>
 <p>因此，在 <code>i18n</code> 文件中，每个[调用名称]下只能有一个 <code>other=</code>，同时[调用名称]不能重复，这样才能一对一自动切换字符。</p>
 </blockquote>
@@ -409,7 +396,7 @@ loadMathJax();
 <p>Hugo 自带的字数统计会和 aplayer 发生冲突。纯音乐的播放器会消失，带歌词的播放器可能会继续保留，原因不明。本地渲染时，更新博客内容触发刷新后，音乐播放器就会出现，但上传到 github 渲染后却不行。</p>
 <div class="details admonition bug">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-bug fa-fw" aria-hidden="true"></i>2026年2月21日更新<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-bug" aria-hidden="true"></i>2026年2月21日更新<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>最近借助 claude code 加 deepseek v3.2 模型测试了下这个 bug。</p>
@@ -420,47 +407,36 @@ loadMathJax();
 <li><code>assets.html</code> 中检查：<code>{{- if (.Scratch.Get &quot;this&quot;).music -}}</code> 来加载音乐资源。</li>
 </ul>
 <p><code>wordcount.html</code> 引入了一个<strong>变化</strong>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">posts</span> <span class="o">:=</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">RegularPages</span> <span class="s">&#34;Type&#34;</span> <span class="s">&#34;posts&#34;</span> <span class="o">-</span><span class="p">}}</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">posts</span> <span class="o">:=</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">RegularPages</span> <span class="s">&#34;Type&#34;</span> <span class="s">&#34;posts&#34;</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="k">range</span> <span class="err">$</span><span class="nx">posts</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">totalWords</span> <span class="p">=</span> <span class="nx">add</span> <span class="err">$</span><span class="nx">totalWords</span> <span class="p">.</span><span class="nx">WordCount</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">-</span> <span class="err">$</span><span class="nx">totalPosts</span> <span class="p">=</span> <span class="nx">add</span> <span class="err">$</span><span class="nx">totalPosts</span> <span class="mi">1</span> <span class="o">-</span><span class="p">}}</span>
-</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="nx">end</span> <span class="o">-</span><span class="p">}}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>当Hugo执行<code>.Site.RegularPages</code>时：</p>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="nx">end</span> <span class="o">-</span><span class="p">}}</span></span></span></code></pre></div></div>
+<p>当Hugo执行<code>.Site.RegularPages</code>时：</p>
 <p>Hugo 为了获取 WordCount 需要计算每篇文章的内容，这会重置页面的 Scratch 状态。然而在这个过程中，原本在单次渲染流程中保持的 Scratch 状态被干扰。</p>
 <p>个人观察是否安装了评论区插件也会影响这个 bug，原因似乎也是同样的——Scratch 状态值似乎被清空了。</p>
 <p>在评论区加载部分<code>layouts/partials/comment.html</code>存在这样的代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- dict &#34;comment&#34; $commentConfig | dict &#34;config&#34; | merge (.Scratch.Get &#34;this&#34;) | .Scratch.Set &#34;this&#34; -}}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>本地渲染可以通过更新网站重新加载 scratch 中的 <code>this</code> 映射，但上传到 github 后容易被映射为空。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- dict &#34;comment&#34; $commentConfig | dict &#34;config&#34; | merge (.Scratch.Get &#34;this&#34;) | .Scratch.Set &#34;this&#34; -}}</span></span></code></pre></div></div>
+<p>本地渲染可以通过更新网站重新加载 scratch 中的 <code>this</code> 映射，但上传到 github 后容易被映射为空。</p>
 <p>修改流程：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">之前的流程：音乐短代码 → Scratch设置 → 主题条件判断 → 加载资源
-</span></span><span class="line"><span class="cl">修改后的流程：直接检测DOM → 动态加载资源 → 自主初始化
-</span></span></code></pre></td></tr></table>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-txt">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">之前的流程：音乐短代码 → Scratch设置 → 主题条件判断 → 加载资源
+</span></span><span class="line"><span class="cl">修改后的流程：直接检测DOM → 动态加载资源 → 自主初始化</span></span></code></pre></div></div>
 </div>
-</div></div>
         </div>
     </div>
 <p>回过头来看，这个 bug 和<a href="https://blog.huaxiangshan.com/zh-cn/posts/toc/" target="_blank" rel="noopener noreffer ">中文博客目录跳转失败</a>的原因相当类似。</p>
@@ -468,63 +444,12 @@ loadMathJax();
 <h4 id="添加自定义的-customjs">添加自定义的 <code>custom.js</code></h4>
 <p>在站点根目录下创建一个自定义的 JavaScript 文件 <code>\static\js\custom.js</code>。</p>
 <p>写入如下代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 站点运行时间 */</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 站点运行时间 */</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 获取当前语言设置
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">getCurrentLanguage</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 假设你有一个全局变量或方法来获取当前语言
@@ -575,84 +500,49 @@ loadMathJax();
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;run-time&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">runtimeText</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">runtime</span><span class="p">();</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>感兴趣的也可以看看本站完整的 <a href="https://github.com/hzp2333/hzp2333.github.io/blob/master/js/custom.js" target="_blank" rel="noopener noreffer ">custom.js</a>。</p>
+</span></span><span class="line"><span class="cl"><span class="nx">runtime</span><span class="p">();</span></span></span></code></pre></div></div>
+<p>感兴趣的也可以看看本站完整的 <a href="https://github.com/hzp2333/hzp2333.github.io/blob/master/js/custom.js" target="_blank" rel="noopener noreffer ">custom.js</a>。</p>
 <p>找到 <code>&lt;你的博客文件&gt;\layouts\partials\assets.html</code>，在最末尾的 <code>{{- partial &quot;plugin/analytics.html&quot; . -}}</code> 的上一行添加如下代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">{{- /* 自定义的js文件 */ -}}
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/custom.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这样博客就可以调用自定义的 js 文件了。其他 js 文件也可以写在这里面。</p>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/custom.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></span></span></code></pre></div></div>
+<p>这样博客就可以调用自定义的 js 文件了。其他 js 文件也可以写在这里面。</p>
 <h4 id="修改-i18n">修改 <code>i18n</code></h4>
 <p>找到 <code>&lt;你的博客文件&gt;\i18n</code></p>
 <p>在 <code>zh-CN.toml</code> 里添加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
-</span></span><span class="line"><span class="cl">other = &#34;本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 <code>en.toml</code> 里添加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
-</span></span><span class="line"><span class="cl">other = &#34;The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .Minutes }} minutes {{ .Seconds }} seconds&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="背景">背景</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-HTML">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
+</span></span><span class="line"><span class="cl">other = &#34;本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒&#34;</span></span></code></pre></div></div>
+<p>在 <code>en.toml</code> 里添加</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-HTML">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl">[runtime]
+</span></span><span class="line"><span class="cl">other = &#34;The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .Minutes }} minutes {{ .Seconds }} seconds&#34;</span></span></code></pre></div></div>
+<h2 id="背景">背景</h2>
 <h3 id="博客背景">博客背景</h3>
 <p>我们可以通过直接在 <code>footer.html</code> 添加 js 文件的方式设置博客背景。</p>
 <p>本文使用的蜂窝条形网络。还有其他 js，例如网格、球形、波浪、带状&hellip;&hellip;</p>
 <p>效果图可以参考：<a href="https://herenpeng.github.io/2023/03/14/javascript/%E6%8E%A8%E8%8D%90%E5%87%A0%E7%A7%8D%E7%AE%80%E6%B4%81%E7%BE%8E%E8%A7%82%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C/" target="_blank" rel="noopener noreffer ">推荐几种简洁美观的博客背景效果</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">彩带</span><span class="err">：</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">彩带</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;ribbon&#34;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;150&#34;</span> <span class="nx">alpha</span><span class="o">=</span><span class="s1">&#39;0.9&#39;</span> <span class="nx">zIndex</span><span class="o">=</span><span class="s2">&#34;-2&#34;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -673,10 +563,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl"><span class="nx">光球</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_sphere.min.js&#34;</span> <span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="注意事项">注意事项</h3>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_sphere.min.js&#34;</span> <span class="o">&gt;&lt;</span><span class="err">/script&gt;</span></span></span></code></pre></div></div>
+<h3 id="注意事项">注意事项</h3>
 <p>引入 js 背景需要限制范围</p>
 <p>例如在页脚引入，如果不定义范围，那么页脚的链接会被覆盖，导致无法点击。</p>
 <p>
@@ -691,117 +579,38 @@ loadMathJax();
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
 <p>最好在页脚开头定义一个环境体用来分层</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">页脚</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">footer</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer-container&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer-line&#34;</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>最后将引入的 js 设置为<strong>最底层</strong>即可：<code>data-zIndex=&quot;-1&quot;</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="c">&lt;!--</span> <span class="nx">引入</span> <span class="nx">canvas</span><span class="o">-</span><span class="nx">nest</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">js</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;footer-line&#34;</span><span class="o">&gt;</span></span></span></code></pre></div></div>
+<p>最后将引入的 js 设置为<strong>最底层</strong>即可：<code>data-zIndex=&quot;-1&quot;</code></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="c">&lt;!--</span> <span class="nx">引入</span> <span class="nx">canvas</span><span class="o">-</span><span class="nx">nest</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">js</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&#34;</span> 
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">color</span><span class="o">=</span><span class="s2">&#34;0,0,0&#34;</span> 
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">count</span><span class="o">=</span><span class="s2">&#34;150&#34;</span> 
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">-</span><span class="nx">zIndex</span><span class="o">=</span><span class="s2">&#34;-1&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/body&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/html&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="看板娘">看板娘</h2>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/html&gt;</span></span></span></code></pre></div></div>
+<h2 id="看板娘">看板娘</h2>
 <p>个人是在 <code>header.html</code> 中加入的：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;zh&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
@@ -865,10 +674,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl">    <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="标题样式">标题样式</h2>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></div></div>
+<h2 id="标题样式">标题样式</h2>
 <h3 id="更改特点">更改特点</h3>
 <p>个人更改的标题样式：</p>
 <ul>
@@ -906,251 +713,12 @@ loadMathJax();
 <blockquote>
 <p>以前自定义过标题样式记得删去。</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
-</span><span class="lnt">180
-</span><span class="lnt">181
-</span><span class="lnt">182
-</span><span class="lnt">183
-</span><span class="lnt">184
-</span><span class="lnt">185
-</span><span class="lnt">186
-</span><span class="lnt">187
-</span><span class="lnt">188
-</span><span class="lnt">189
-</span><span class="lnt">190
-</span><span class="lnt">191
-</span><span class="lnt">192
-</span><span class="lnt">193
-</span><span class="lnt">194
-</span><span class="lnt">195
-</span><span class="lnt">196
-</span><span class="lnt">197
-</span><span class="lnt">198
-</span><span class="lnt">199
-</span><span class="lnt">200
-</span><span class="lnt">201
-</span><span class="lnt">202
-</span><span class="lnt">203
-</span><span class="lnt">204
-</span><span class="lnt">205
-</span><span class="lnt">206
-</span><span class="lnt">207
-</span><span class="lnt">208
-</span><span class="lnt">209
-</span><span class="lnt">210
-</span><span class="lnt">211
-</span><span class="lnt">212
-</span><span class="lnt">213
-</span><span class="lnt">214
-</span><span class="lnt">215
-</span><span class="lnt">216
-</span><span class="lnt">217
-</span><span class="lnt">218
-</span><span class="lnt">219
-</span><span class="lnt">220
-</span><span class="lnt">221
-</span><span class="lnt">222
-</span><span class="lnt">223
-</span><span class="lnt">224
-</span><span class="lnt">225
-</span><span class="lnt">226
-</span><span class="lnt">227
-</span><span class="lnt">228
-</span><span class="lnt">229
-</span><span class="lnt">230
-</span><span class="lnt">231
-</span><span class="lnt">232
-</span><span class="lnt">233
-</span><span class="lnt">234
-</span><span class="lnt">235
-</span><span class="lnt">236
-</span><span class="lnt">237
-</span><span class="lnt">238
-</span><span class="lnt">239
-</span><span class="lnt">240
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 标题 **************************/</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/* 标题 **************************/</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="cm">/* ====================================================================== */</span>
 </span></span><span class="line"><span class="cl"><span class="cm">/* H2 二级标题：居中 + 渐变 + 左右 # 装饰 */</span>
@@ -1389,10 +957,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">theme</span><span class="o">=</span><span class="s2">&#34;dark&#34;</span><span class="p">]</span> <span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">single</span> <span class="nx">h6</span><span class="o">:</span><span class="nx">hover</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="err">#</span><span class="mi">50</span><span class="nx">c9c3</span> <span class="o">!</span><span class="nx">important</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="在博客中渲染数学公式">在博客中渲染数学公式</h2>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h2 id="在博客中渲染数学公式">在博客中渲染数学公式</h2>
 <p>虽然 <strong><a href="https://hugoloveit.com/zh-cn/theme-documentation-content/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F" target="_blank" rel="noopener noreffer ">LoveIt</a></strong> 主题通过 <a href="https://katex.org/" target="_blank" rel="noopener noreffer ">KaTeX</a> 提供数学公式的支持，但个人觉得使用体验不如 <a href="https://www.mathjax.org/" target="_blank" rel="noopener noreffer ">MathJax</a> 。</p>
 <p>使用 <code>MathJax</code> 的方法首先是在 <code>&lt;你的博客&gt;\layouts\partials</code> 中创建 <code>mathjax.html</code>。</p>
 <p><code>mathjax.html</code>: 右键点击网站公式支持公式代码复制。</p>
@@ -1407,33 +973,12 @@ loadMathJax();
             alt="/img/Hugo中英文建站.zh-cn-1759032235608.webp" />
     </a><figcaption class="image-caption">如图</figcaption>
     </figure></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .Params.math }}
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .Params.math }}
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">tex</span><span class="o">:</span> <span class="p">{</span>
@@ -1454,28 +999,22 @@ loadMathJax();
 </span></span><span class="line"><span class="cl">  <span class="na">async</span>
 </span></span><span class="line"><span class="cl">  <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">{{ end }}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后在 <code>&lt;你的博客&gt;\layouts\partials\header.html</code> 中添加调用命令即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;mathjax.html&#34; . }}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在每篇文章中，想要启用数学公式渲染，就在开头使用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Math = true
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>由于 Hugo 在渲染 Markdown 文档时会根据 <code>_</code>/<code>*</code>/<code>&gt;&gt;</code> 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 （如 <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>） 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:</p>
+</span></span><span class="line"><span class="cl">{{ end }}</span></span></code></pre></div></div>
+<p>然后在 <code>&lt;你的博客&gt;\layouts\partials\header.html</code> 中添加调用命令即可。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;mathjax.html&#34; . }}</span></span></code></pre></div></div>
+<p>在每篇文章中，想要启用数学公式渲染，就在开头使用：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Math = true</span></span></code></pre></div></div>
+<p>由于 Hugo 在渲染 Markdown 文档时会根据 <code>_</code>/<code>*</code>/<code>&gt;&gt;</code> 之类的语法生成 HTML 文档, 并且有些转义字符形式的文本内容 （如 <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>） 会自动进行转义处理, 因此需要对这些地方进行额外的转义字符表达来实现自动渲染:</p>
 <ul>
 <li><code>_</code> -&gt; <code>\_</code></li>
 <li><code>*</code> -&gt; <code>\*</code></li>
@@ -1487,36 +1026,28 @@ loadMathJax();
 <li><code>\\</code> -&gt; <code>\\\\</code></li>
 </ul>
 <p>例如我渲染以下公式：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\<span class="p">[</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\<span class="p">[</span>
 </span></span><span class="line"><span class="cl"><span class="n">V</span><span class="p">(</span>\<span class="n">varepsilon</span><span class="p">)</span><span class="o">=</span>\<span class="n">int_</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="o">^</span><span class="p">{</span><span class="n">T</span><span class="p">}</span><span class="n">F</span><span class="p">[</span><span class="n">t</span><span class="p">,</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span><span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)},</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span><span class="o">^</span><span class="p">{</span>\<span class="n">prime</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span><span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="err">’</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}]</span><span class="n">dt</span>
-</span></span><span class="line"><span class="cl">\<span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>实际情况会变成：</p>
+</span></span><span class="line"><span class="cl">\<span class="p">]</span></span></span></code></pre></div></div>
+<p>实际情况会变成：</p>
 <p>[
 V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{<em>}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{</em>}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{’}\left （t\right）}]dt
 ]</p>
 <p>只有转化为 <code>\_</code> <code>^\*</code> <code>\\[ \\]</code> 才是正确的：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\\<span class="p">[</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">\\<span class="p">[</span>
 </span></span><span class="line"><span class="cl"><span class="n">V</span><span class="p">(</span>\<span class="n">varepsilon</span><span class="p">)</span><span class="o">=</span>\<span class="ne">int</span>\<span class="n">_</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="o">^</span><span class="p">{</span><span class="n">T</span><span class="p">}</span><span class="n">F</span><span class="p">[</span><span class="n">t</span><span class="p">,</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span>\<span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span>\<span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)},</span>\<span class="n">underbrace</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span>\<span class="o">*</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)</span><span class="o">+</span>\<span class="n">varepsilon</span> <span class="n">p</span><span class="o">^</span><span class="p">{</span>\<span class="n">prime</span><span class="p">}</span>\<span class="n">left</span><span class="p">(</span><span class="n">t</span>\<span class="n">right</span><span class="p">)}</span>\<span class="n">_</span><span class="p">{</span><span class="n">y</span><span class="o">^</span><span class="p">{</span><span class="s1">&#39;}\left(t</span><span class="se">\r</span><span class="s1">ight)}]dt</span>
-</span></span><span class="line"><span class="cl">\\<span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>\[
+</span></span><span class="line"><span class="cl">\\<span class="p">]</span></span></span></code></pre></div></div>
+<p>\[
 V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{&rsquo;}\left （t\right）}]dt
 \]</p>
 <p>但就我个人使用体验而言，有时候只转化式子的一半命令也可以渲染——转化多少命令似乎与渲染复杂度相关。</p>
@@ -1533,26 +1064,27 @@ V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\vareps
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2024-08-10</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/runtime/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-hashtags="Hugo"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-hashtag="Hugo"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-image="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-hashtags="Hugo"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-hashtag="Hugo"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-image="/img/Hugo中英文建站.zh-cn-20240810172249058.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/runtime/" data-title="hugo 美化 2" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fruntime%2f&amp;text=hugo%20%e7%be%8e%e5%8c%96%202" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/hugo/">Hugo</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/hugo/">Hugo</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/pytorch2/" class="prev" rel="prev" title="anaconda 的卸载与安装"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>anaconda 的卸载与安装</a>
-            <a href="/zh-cn/posts/fs2/" class="next" rel="next" title=" 实证经济学：符合直觉≠显而易见"> 实证经济学：符合直觉≠显而易见<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/pytorch2/" class="prev" rel="prev" title="anaconda 的卸载与安装"><i class="fas fa-angle-left" aria-hidden="true"></i>anaconda 的卸载与安装</a>
+            <a href="/zh-cn/posts/fs2/" class="next" rel="next" title=" 实证经济学：符合直觉≠显而易见"> 实证经济学：符合直觉≠显而易见<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -1921,7 +1453,7 @@ V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\vareps
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -1973,12 +1505,24 @@ V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\vareps
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script src="/lib/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

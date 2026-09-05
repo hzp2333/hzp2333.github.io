@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Stata 绘制 Gis 着色图"/>
 <meta name="twitter:description" content="使用 Stata 绘制 GIS 着色图，包括九段线、省县市的模板"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/toc/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/fs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/statagis\/"
-        },"genre": "posts","keywords": "Stata, Gis","wordcount":  8252 ,
+        },"genre": "posts","keywords": "Stata, Gis","wordcount":  7849 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/statagis\/","datePublished": "2024-03-22T19:39:56+08:00","dateModified": "2024-03-22T19:39:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -203,8 +215,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Stata 绘制 Gis 着色图</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-22">2024-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8252 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-03-22">2024-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7849 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;
     
 
     
@@ -329,48 +341,24 @@
 <h3 id="下载相关命令">下载相关命令</h3>
 <p>包含 <code>主文件 (.shp)</code> 和 <code>表文件 (.dbf)</code> 即可。</p>
 <p>提前在 stata 下载相关命令。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">shp2dta</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">   </span><span class="o">//</span><span class="err">文件转化命令</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">shp2dta</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">   </span><span class="o">//</span><span class="err">文件转化命令</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">mif2dta</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">  </span><span class="o">//</span><span class="err">文件转化命令</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">spmap</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">  </span><span class="o">//</span><span class="n">GIS画图命令</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="转译和编译乱码">转译和编译乱码</h3>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">spmap</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">  </span><span class="o">//</span><span class="n">GIS画图命令</span></span></span></code></pre></div></div>
+<h3 id="转译和编译乱码">转译和编译乱码</h3>
 <p>使用 B 站一位用户用 GIS 画的文件：<a href="https://pan.baidu.com/s/1lybhxKO3EL5JKATULS-0CA?pwd=zkks" target="_blank" rel="noopener noreffer ">2019中国地图-审图号GS(2019)1822号</a></p>
 <p>这里个人使用的举例数据是：<a href="https://idf.pku.edu.cn/yjcg/zsbg/513800.htm" target="_blank" rel="noopener noreffer ">北大数字普惠金融指数2011_2020</a></p>
 <p>这里要转译的有两个文件，中国地图文件 <code>市</code> 和九段线文件 <code>九段线</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w"> 
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cd</span><span class="w"> </span><span class="n">F</span><span class="p">:</span><span class="err">\桌面\</span><span class="n">GIS_sum</span><span class="err">\</span><span class="mi">2019</span><span class="err">中国地图审图号\例子</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">设置工作环境文件夹，因为</span><span class="n">gis一些命令参数使用相对路径更好用些</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -390,28 +378,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">analyze</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">unicode</span><span class="w"> </span><span class="k">translate</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">invalid</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">部分中文乱码重新编译</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">一次性命令，若要重新使用需要删掉目录生成的编码文件</span><span class="n">bak</span><span class="p">.</span><span class="n">stunicode</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>若文件无法被转化，例如阿里云的地图，似乎 gis 做的地图也无法被 <code>shp2dta</code> 转化。这里就是使用的 <code>spshape2dta</code> 转化。</p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">一次性命令，若要重新使用需要删掉目录生成的编码文件</span><span class="n">bak</span><span class="p">.</span><span class="n">stunicode</span></span></span></code></pre></div></div>
+<p>若文件无法被转化，例如阿里云的地图，似乎 gis 做的地图也无法被 <code>shp2dta</code> 转化。这里就是使用的 <code>spshape2dta</code> 转化。</p>
 <blockquote>
 <p>两个命令除了这一点外<a href="https://www.cda.cn/discuss/post/details/61cd24316276b453ec6f9bc2" target="_blank" rel="noopener noreffer ">区别不大</a>。<code>spshape2dta</code> 命令缺点是不能自定义名字，后面直接跟文件名即可，会自动生成两个需要的文件。标签文件为 <code>.dta</code>, 轮廓文件为 <code>_shp.dta</code></p>
 </blockquote>
 <h3 id="匹配数据和标签文件">匹配数据和标签文件</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">use</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">use</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">rename</span><span class="w"> </span><span class="n">__</span><span class="w"> </span><span class="n">ct_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">save</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="w"> </span><span class="p">,</span><span class="k">replace</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -419,26 +397,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">merge</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="n">ct_name</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">市</span><span class="p">.</span><span class="n">dta</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">drop</span><span class="w"> </span><span class="n">_merge</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">=</span><span class="n">_ID</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">save</span><span class="w"> </span><span class="n">city_data2020</span><span class="p">,</span><span class="k">replace</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="绘图命令">绘图命令</h3>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">save</span><span class="w"> </span><span class="n">city_data2020</span><span class="p">,</span><span class="k">replace</span></span></span></code></pre></div></div>
+<h3 id="绘图命令">绘图命令</h3>
 <p>开始绘图，基本绘图命令如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">grmap</span><span class="w"> </span><span class="n">digitization_level</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">市</span><span class="n">_shp</span><span class="p">.</span><span class="n">dta</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">grmap</span><span class="w"> </span><span class="n">digitization_level</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="err">市</span><span class="n">_shp</span><span class="p">.</span><span class="n">dta</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">id</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span><span class="w"> </span><span class="n">osize</span><span class="p">(</span><span class="n">vvthin</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="n">ocolor</span><span class="p">(</span><span class="n">white</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">clmethod</span><span class="p">(</span><span class="n">custom</span><span class="p">)</span><span class="w"> </span><span class="n">clbreaks</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">190</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="mi">280</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="mi">350</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">fcolor</span><span class="p">(</span><span class="n">gray</span><span class="w"> </span><span class="s2">&#34;224 242 241&#34;</span><span class="w"> </span><span class="s2">&#34;178 223 219&#34;</span><span class="w"> </span><span class="s2">&#34;128 203 196&#34;</span><span class="w"> </span><span class="s2">&#34;77 182 172&#34;</span><span class="w"> </span><span class="s2">&#34;38 166 154&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
@@ -447,10 +414,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">line</span><span class="p">(</span><span class="k">data</span><span class="p">(</span><span class="err">九段线</span><span class="n">_shp</span><span class="p">.</span><span class="n">dta</span><span class="p">))</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ti</span><span class="p">(</span><span class="s2">&#34;2020 年数字普惠金融指数&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">subti</span><span class="p">(</span><span class="s2">&#34;二级标题&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">caption</span><span class="p">(</span><span class="s2">&#34;数据来源：北大数字普惠金融指数&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">caption</span><span class="p">(</span><span class="s2">&#34;数据来源：北大数字普惠金融指数&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/Stata%e7%bb%98%e5%88%b6Gis%e7%9d%80%e8%89%b2%e5%9b%be.zh-cn-20240523132211710.webp" title="就画图命令而言，spmap和grmap似乎没有区别" data-thumbnail="/img/Stata绘制Gis着色图.zh-cn-20240523132211710.webp" data-sub-html="<h2> </h2><p>就画图命令而言，spmap和grmap似乎没有区别</p>">
         <img
             class="lazyload center-image"
@@ -547,7 +512,7 @@
 
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>文件简介<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>文件简介<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>地图轮廓数据：</p>
@@ -564,65 +529,12 @@
         </div>
     </div>
 <h3 id="正式绘图">正式绘图</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">ac</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="err">系列课程</span><span class="o">/</span><span class="err">使用</span><span class="n">Stata绘制中国省级地图</span><span class="err">（版本</span><span class="mi">4</span><span class="err">）</span><span class="o">/</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">ac</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="err">系列课程</span><span class="o">/</span><span class="err">使用</span><span class="n">Stata绘制中国省级地图</span><span class="err">（版本</span><span class="mi">4</span><span class="err">）</span><span class="o">/</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="err">离散变量的绘制</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="n">chinaprov40_db</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">encode</span><span class="w"> </span><span class="err">类型</span><span class="p">,</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="k">type</span><span class="p">)</span><span class="w">
@@ -675,10 +587,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ti</span><span class="p">(</span><span class="s2">&#34;title1: China’s provincial administrative divisions in 2019&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">subti</span><span class="p">(</span><span class="s2">&#34;title2&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">caption</span><span class="p">(</span><span class="s2">&#34;Use Stata to draw provincial maps of China&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic2</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic2</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/Stata%e7%bb%98%e5%88%b6Gis%e7%9d%80%e8%89%b2%e5%9b%be.zh-cn-20240523132257418.webp" title="使用 Stata 绘制 2019 年中国省级行政区划" data-thumbnail="/img/Stata绘制Gis着色图.zh-cn-20240523132257418.webp" data-sub-html="<h2> </h2><p>使用 Stata 绘制 2019 年中国省级行政区划</p>">
         <img
             class="lazyload center-image"
@@ -690,208 +600,12 @@
     </a><figcaption class="image-caption">使用 Stata 绘制 2019 年中国省级行政区划</figcaption>
     </figure></p>
 <h3 id="其他例子">其他例子</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
-</span><span class="lnt">180
-</span><span class="lnt">181
-</span><span class="lnt">182
-</span><span class="lnt">183
-</span><span class="lnt">184
-</span><span class="lnt">185
-</span><span class="lnt">186
-</span><span class="lnt">187
-</span><span class="lnt">188
-</span><span class="lnt">189
-</span><span class="lnt">190
-</span><span class="lnt">191
-</span><span class="lnt">192
-</span><span class="lnt">193
-</span><span class="lnt">194
-</span><span class="lnt">195
-</span><span class="lnt">196
-</span><span class="lnt">197
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">*</span><span class="w"> </span><span class="err">绘图示例：</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">*</span><span class="w"> </span><span class="err">绘图示例：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="mi">2020</span><span class="w"> </span><span class="err">年中国各省市地区生产总值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">import</span><span class="w"> </span><span class="n">delimited</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="s2">&#34;2020年中国各省市地区生产总值.csv&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="k">encoding</span><span class="p">(</span><span class="n">utf8</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gen</span><span class="w"> </span><span class="n">prov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">substr</span><span class="p">(</span><span class="err">省份</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w">
@@ -1087,98 +801,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ti</span><span class="p">(</span><span class="s2">&#34;2015 年中国各省平均人口密度&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">subti</span><span class="p">(</span><span class="s2">&#34;二级标题&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">caption</span><span class="p">(</span><span class="s2">&#34;数据来源：中国科学院资源环境科学与数据中心&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic7</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="调节指南针和图例">调节指南针和图例</h3>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic7</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span></span></span></code></pre></div></div>
+<h3 id="调节指南针和图例">调节指南针和图例</h3>
 <p>通过识别相应数据的标识，更改坐标数实现更改效果。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">*</span><span class="w"> </span><span class="err">移动指北针的位置到右上方</span><span class="w">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">*</span><span class="w"> </span><span class="err">移动指北针的位置到右上方</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="n">chinaprov40_line_db</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="err">指北针对应的</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="err">是</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="mi">41</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="n">chinaprov40_line_coord</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">clear</span><span class="w">
@@ -1259,10 +890,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ti</span><span class="p">(</span><span class="s2">&#34;使用 Stata 绘制 2019 年中国省级行政区划&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">subti</span><span class="p">(</span><span class="s2">&#34;二级标题&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">///</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">caption</span><span class="p">(</span><span class="s2">&#34;版本：使用 Stata 绘制中国省级地图数据包 4.0&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">(</span><span class="o">*</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic9</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="国内市级">国内市级</h2>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gr</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">pic9</span><span class="p">.</span><span class="n">png</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="n">width</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span></span></span></code></pre></div></div>
+<h2 id="国内市级">国内市级</h2>
 <p>参考 <a href="https://zhuanlan.zhihu.com/p/591146315" target="_blank" rel="noopener noreffer ">Stata学习：如何绘制省级市级填色地图十段线版？</a></p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/Stata%e7%bb%98%e5%88%b6Gis%e7%9d%80%e8%89%b2%e5%9b%be.zh-cn-20240523132320168.webp" title="Using machine learning to model technological heterogeneity in carbon  emission efficiency evaluation: The case of China’s cities " data-thumbnail="/img/Stata绘制Gis着色图.zh-cn-20240523132320168.webp" data-sub-html="<h2> </h2><p>Using machine learning to model technological heterogeneity in carbon  emission efficiency evaluation: The case of China’s cities </p>">
@@ -1284,37 +913,23 @@
 <p><a href="https://github.com/benjann/geoplot" target="_blank" rel="noopener noreffer ">数据源</a></p>
 <p><a href="https://medium.com/the-stata-guide/maps-in-stata-iii-geoplot-a764cf42688a" target="_blank" rel="noopener noreffer ">推荐教程</a></p>
 <h3 id="下载相关命令-1">下载相关命令</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">clear</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">geoplot</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">palettes</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">colrspace</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">moremata</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="载入数据">载入数据</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">cd</span><span class="w"> </span><span class="n">F</span><span class="p">:</span><span class="err">\桌面\</span><span class="n">GIS_sum</span><span class="err">\</span><span class="n">geoplot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssc</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">moremata</span><span class="p">,</span><span class="w"> </span><span class="k">replace</span></span></span></code></pre></div></div>
+<h3 id="载入数据">载入数据</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">cd</span><span class="w"> </span><span class="n">F</span><span class="p">:</span><span class="err">\桌面\</span><span class="n">GIS_sum</span><span class="err">\</span><span class="n">geoplot</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">local</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">fmwww</span><span class="p">.</span><span class="n">bc</span><span class="p">.</span><span class="n">edu</span><span class="o">/</span><span class="n">repec</span><span class="o">/</span><span class="n">bocode</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">geoframe</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">regions</span><span class="w">  </span><span class="o">`</span><span class="n">url</span><span class="s1">&#39;Italy-RegionsData.dta, id(id) coord(xcoord ycoord) ///
@@ -1322,10 +937,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">geoframe create country  `url&#39;</span><span class="n">Italy</span><span class="o">-</span><span class="n">OutlineCoordinates</span><span class="p">.</span><span class="n">dta</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">geoframe</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">capitals</span><span class="w"> </span><span class="o">`</span><span class="n">url</span><span class="s1">&#39;Italy-Capitals.dta, coord(xcoord ycoord)
 </span></span></span><span class="line"><span class="cl"><span class="s1">geoframe create lakes    `url&#39;</span><span class="n">Italy</span><span class="o">-</span><span class="n">Lakes</span><span class="p">.</span><span class="n">dta</span><span class="p">,</span><span class="w"> </span><span class="n">feature</span><span class="p">(</span><span class="n">water</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">geoframe</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">rivers</span><span class="w">   </span><span class="o">`</span><span class="n">url</span><span class="s1">&#39;Italy-Rivers.dta, feature(water)
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>含义解释：</p>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">geoframe</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">rivers</span><span class="w">   </span><span class="o">`</span><span class="n">url</span><span class="s1">&#39;Italy-Rivers.dta, feature(water)</span></span></span></code></pre></div></div>
+<p>含义解释：</p>
 <blockquote>
 <p>Geoframe create 调用名字地图标签文件和, id （独特标识） coord （经度纬度） ///
 Shpfile （地图轮廓文件）</p>
@@ -1335,15 +948,13 @@ Shpfile （地图轮廓文件）</p>
 <h3 id="画图">画图</h3>
 <h4 id="基本命令">基本命令</h4>
 <p>命令优势在于使用简单的括号就满足了图层叠加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">geoplot (area regions fortell, label(&#34;@lb-@ub (N=@n)&#34;)) (line regions)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">geoplot (area regions fortell, label(&#34;@lb-@ub (N=@n)&#34;)) (line regions)</span></span></code></pre></div></div>
+<blockquote>
 <ul>
 <li><code>area</code> 表示这里是画区域图，使用 regions 宏名字的地图轮廓，绘图变量是 fortell</li>
 <li><code>label</code>：在地图中，这些变量将被替换为实际的数值。例如，如果某个区域的下限值为 <code>20</code>，上限值为 <code>50</code>，并且该区域包含 <code>100</code> 个单元格，则最终的标签将显示为 <code>&quot;20-50 (N=100)&quot;</code>。</li>
@@ -1354,23 +965,17 @@ Shpfile （地图轮廓文件）</p>
 </ul>
 </blockquote>
 <h4 id="气泡图">气泡图</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	geoplot ///
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	geoplot ///
 </span></span><span class="line"><span class="cl">    (area regions) ///
 </span></span><span class="line"><span class="cl">    (point capitals i.size [w=pop98], color(Set1, opacity(50)) mlcolor(%0)) ///
 </span></span><span class="line"><span class="cl">    (label capitals city if pop98&gt;250000, color(black)) ///
-</span></span><span class="line"><span class="cl">    , legend compass sbar(length(300) units(km))
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">    , legend compass sbar(length(300) units(km))</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/Stata%e7%bb%98%e5%88%b6Gis%e7%9d%80%e8%89%b2%e5%9b%be.zh-cn-20240523132340342.webp" title="气泡图" data-thumbnail="/img/Stata绘制Gis着色图.zh-cn-20240523132340342.webp" data-sub-html="<h2> </h2><p>气泡图</p>">
         <img
             class="lazyload center-image"
@@ -1388,27 +993,19 @@ Shpfile （地图轮廓文件）</p>
 <li><code>, legend compass sbar(length(300) units(km))</code>：添加图例、指南针和比例尺。比例尺的长度设置为 <code>300</code> 单位，单位为公里。</li>
 </ol>
 <h4 id="局部放大图">局部放大图</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">geoplot</span><span class="w"> </span><span class="p">(</span><span class="n">area</span><span class="w"> </span><span class="n">regions</span><span class="p">)</span><span class="w">                                           </span><span class="o">///</span><span class="w"> 
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">geoplot</span><span class="w"> </span><span class="p">(</span><span class="n">area</span><span class="w"> </span><span class="n">regions</span><span class="p">)</span><span class="w">                                           </span><span class="o">///</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="n">area</span><span class="w"> </span><span class="n">regions</span><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="n">id</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">(</span><span class="n">Coral</span><span class="o">*</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="n">lc</span><span class="p">(</span><span class="n">gray</span><span class="p">))</span><span class="w">       </span><span class="o">///</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="n">label</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">id</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">(</span><span class="n">black</span><span class="p">))</span><span class="w">                </span><span class="o">///</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="n">area</span><span class="w"> </span><span class="n">regions</span><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="n">id</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fc</span><span class="p">(</span><span class="n">Coral</span><span class="p">)</span><span class="w"> </span><span class="n">lc</span><span class="p">(</span><span class="n">gray</span><span class="p">)</span><span class="w"> </span><span class="cm">/*
 </span></span></span><span class="line"><span class="cl"><span class="cm">                                 */</span><span class="w"> </span><span class="n">box</span><span class="p">(</span><span class="n">circle</span><span class="w"> </span><span class="k">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="n">fc</span><span class="p">(</span><span class="n">gs14</span><span class="p">)))</span><span class="w"> </span><span class="o">///</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="n">pie</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">relig1</span><span class="w"> </span><span class="n">relig2</span><span class="w"> </span><span class="n">relig3</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">id</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">lab</span><span class="p">(,</span><span class="w"> </span><span class="n">reverse</span><span class="p">))</span><span class="w">  </span><span class="o">///</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="w"> </span><span class="n">rowgap</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="n">zoom</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="mi">210</span><span class="p">)</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="p">(</span><span class="n">pos</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="w"> </span><span class="n">rowgap</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="n">zoom</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="mi">210</span><span class="p">)</span></span></span></code></pre></div></div>
+<ul>
 <li><code>(area regions)</code>：绘制地图区域，表示地理区域的边界或范围。</li>
 <li><code>(area regions if id==1, fc(Coral*.5) lc(gray))</code>：根据条件 <code>id==1</code> 绘制特定区域的地图区域，填充颜色为 <code>Coral*.5</code>，边界线颜色为灰色。</li>
 <li><code>(label regions region if id==1, color(black))</code>：标记特定区域的名称，但只对 <code>id==1</code> 的区域进行标记，标签颜色为黑色。</li>
@@ -1451,26 +1048,27 @@ Shpfile （地图轮廓文件）</p>
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2024-03-22</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/statagis/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图" data-hashtags="Stata,Gis"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-hashtag="Stata"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图" data-image="/img/Stata绘制Gis着色图.zh-cn-20240523132359071.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图" data-hashtags="Stata,Gis"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-hashtag="Stata"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图" data-image="/img/Stata绘制Gis着色图.zh-cn-20240523132359071.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/statagis/" data-title="Stata 绘制 Gis 着色图" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fstatagis%2f&amp;text=Stata%20%e7%bb%98%e5%88%b6%20Gis%20%e7%9d%80%e8%89%b2%e5%9b%be" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a>,&nbsp;<a href="/zh-cn/tags/gis/">GIS</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stata/">Stata</a>,&nbsp;<a href="/zh-cn/tags/gis/">GIS</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/toc/" class="prev" rel="prev" title="中文博客目录跳转失败"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>中文博客目录跳转失败</a>
-            <a href="/zh-cn/posts/fs/" class="next" rel="next" title="反思：鄙视链中的经济学习心态">反思：鄙视链中的经济学习心态<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/toc/" class="prev" rel="prev" title="中文博客目录跳转失败"><i class="fas fa-angle-left" aria-hidden="true"></i>中文博客目录跳转失败</a>
+            <a href="/zh-cn/posts/fs/" class="next" rel="next" title="反思：鄙视链中的经济学习心态">反思：鄙视链中的经济学习心态<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -1839,7 +1437,7 @@ Shpfile （地图轮廓文件）</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -1891,12 +1489,24 @@ Shpfile （地图轮廓文件）</p>
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

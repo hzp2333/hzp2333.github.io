@@ -15,7 +15,8 @@
 <meta name="twitter:description" content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."/>
 <meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/ji_sata/" /><link rel="prev" href="https://blog.huaxiangshan.com/en/posts/zyw/" /><link rel="next" href="https://blog.huaxiangshan.com/en/posts/zoterorss/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -28,16 +29,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "Causal Effects, Stata","wordcount":  4419 ,
+        },"genre": "posts","keywords": "Causal Effects, Stata","wordcount":  4384 ,
         "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -248,7 +260,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Grouping and Measurement of Econometric Data (STATA Version)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a>&nbsp;<a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4419 words
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4384 words
                 <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;
     
 
@@ -308,22 +320,12 @@ loadMathJax();
 <h3 id="simpsons-paradox">Simpson&rsquo;s Paradox</h3>
 <p>Suppose we want to study the relationship between &ldquo;coffee consumption and income.&rdquo; We have data on 4 men and 4 women, along with their income and coffee consumption.</p>
 <p>STATA data generation is as follows:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
 </span></span><span class="line"><span class="cl"><span class="k">input</span> str6 gender income coffee
 </span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">8</span> <span class="m">1</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">9</span> <span class="m">2</span>
@@ -333,10 +335,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">2</span> <span class="m">7</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">3</span> <span class="m">8</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">4</span> <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="k">end</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>We can then plot a scatter plot and perform <strong>three different sample fits</strong>: one for the overall data, one for men, and one for women.</p>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div></div>
+<p>We can then plot a scatter plot and perform <strong>three different sample fits</strong>: one for the overall data, one for men, and one for women.</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp" title="Using this style, STATA can achieve similar effects to R—plotting code is provided below:" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" data-sub-html="<h2> </h2><p>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</p>">
         <img
@@ -349,20 +349,12 @@ loadMathJax();
     </a><figcaption class="image-caption">Using this style, STATA can achieve similar effects to R—plotting code is provided below:</figcaption>
     </figure></p>
 <p>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //Painting style command
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //Painting style command
 </span></span><span class="line"><span class="cl">*For more details, see: https://www<span class="m">.</span>lianxh<span class="m">.</span>cn/news/e76a8a7e3c6c4<span class="m">.</span>html
 </span></span><span class="line"><span class="cl">  <span class="k">set</span> scheme gg_w3d
 </span></span><span class="line"><span class="cl">  
@@ -370,10 +362,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl">		legend(<span class="k">order</span>(<span class="m">1</span> <span class="s">&#34;Men&#34;</span> <span class="m">2</span> <span class="s">&#34;Women&#34;</span> <span class="m">3</span> <span class="s">&#34;Men Fit&#34;</span>  <span class="m">4</span> <span class="s">&#34;Women Fit&#34;</span>  <span class="m">5</span> <span class="s">&#34;Overall Fit&#34;</span> )) ///
 </span></span><span class="line"><span class="cl">		xtitle(<span class="s">&#34;income&#34;</span>) ytitle(<span class="s">&#34;coffee&#34;</span>) ///
 </span></span><span class="line"><span class="cl">		<span class="k">title</span>(stata style：gg_w3d) ///
-</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>If we ignore the details and directly perform regression on the overall data, we might conclude that <strong>higher income leads to lower coffee consumption</strong>. However, if we perform separate regressions for men and women, the conclusion is the opposite—<strong>higher income leads to higher coffee consumption</strong>. Clearly, the latter aligns more with reality.</p>
+</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)</span></span></code></pre></div></div>
+<p>If we ignore the details and directly perform regression on the overall data, we might conclude that <strong>higher income leads to lower coffee consumption</strong>. However, if we perform separate regressions for men and women, the conclusion is the opposite—<strong>higher income leads to higher coffee consumption</strong>. Clearly, the latter aligns more with reality.</p>
 <p>This is $\boxed{Simpson&rsquo;s Paradox}$: local correlations and overall correlations can present completely different results.</p>
 <p>Simpson&rsquo;s Paradox is ubiquitous in life, such as measuring the efficacy of drugs across different age groups, gender discrimination in college admissions, or racial bias in police enforcement.</p>
 <ul>
@@ -410,15 +400,13 @@ Long/short (whether the number of spaces is less than the number of times)
 \end{cases}\newline
 $$</p>
 <p>For panel data, we first need to clarify which dimension corresponds to time and which corresponds to space/object. It&rsquo;s essentially a grouping process—you can group by industry or assign each individual a unique ID. In STATA terms, this is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="3-residuals-economic-mathematical-and-statistical-meanings">3. Residuals: Economic, Mathematical, and Statistical Meanings</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ada">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span></span></span></code></pre></div></div>
+<h2 id="3-residuals-economic-mathematical-and-statistical-meanings">3. Residuals: Economic, Mathematical, and Statistical Meanings</h2>
 <p>The ordinary regression equation <strong>OLS</strong> is:
 $$
 Y=\alpha X +u
@@ -519,7 +507,7 @@ $$
 <p>The average is taken for the same variable, averaging values across different years: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$</p>
 <p><div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Supplement<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>Supplement<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Variance analysis of panel data. After setting <code>xtset id year</code>, <code>id</code> could be a spatial, industry, or individual identifier, giving us n groups. Each group has internal variance, which is within-group variance; there is also variance between groups, which is between-group variance. Variance analysis helps confirm whether our grouping is appropriate.
@@ -579,20 +567,12 @@ We find that $\dot \beta=\beta_1$, and through this indirect estimation, we esti
 <p>FWL proves that first-difference estimation and dummy variable estimation are equal.</p>
 </blockquote>
 <p>If you want to try it yourself, you can use STATA&rsquo;s built-in data for testing[^6]:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">*Use STATA&#39;s built-in xtpcse command example data
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">*Use STATA&#39;s built-in xtpcse command example data
 </span></span></span><span class="line"><span class="cl"><span class="cm">webuse grunfeld,clear
 </span></span></span><span class="line"><span class="cl"><span class="cm">*If there&#39;s no network import, it might be a network issue;</span> you need a VPN.
 </span></span><span class="line"><span class="cl">*Database site: *https://www<span class="m">.</span>stata-press<span class="m">.</span>com/data/r10/xt<span class="m">.</span>html
@@ -600,10 +580,8 @@ We find that $\dot \beta=\beta_1$, and through this indirect estimation, we esti
 </span></span><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company
 </span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe
 </span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)
-</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The code blocks use four commands to perform fixed effects, <strong>fixing individual effects but not time effects</strong>. The results are shown below, and you can see that their <strong>coefficient estimates are identical</strong>.</p>
+</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)</span></span></code></pre></div></div>
+<p>The code blocks use four commands to perform fixed effects, <strong>fixing individual effects but not time effects</strong>. The results are shown below, and you can see that their <strong>coefficient estimates are identical</strong>.</p>
 <blockquote>
 <p><strong>Why are the intercepts (constant terms) different?</strong>—No explanation was found in any practical books. Personally, I believe[^7] it&rsquo;s due to different residual calculation methods across commands.</p>
 <p>(1) Pooled OLS calculates residuals for one regression equation and all points.</p>
@@ -624,23 +602,17 @@ Why are $R^2$ different:</p>
     </a><figcaption class="image-caption">Regression Table</figcaption>
     </figure></p>
 <p>By the way, when we change the code to the following, the situation also changes:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
 </span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe r 
 </span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)  vce(cluster company)
 </span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company) 
-</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp" title="Regression Table" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" data-sub-html="<h2> </h2><p>Regression Table</p>">
         <img
             class="lazyload center-image"
@@ -735,7 +707,7 @@ Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u
 $$
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>What&#39;s the difference between interaction terms and grouped regression?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>What&#39;s the difference between interaction terms and grouped regression?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>Generally, interaction terms emphasize moderating effects, while grouped regression emphasizes heterogeneity. Jiang Ting (2022) believes they are the same. However, there are still some differences:</p>
@@ -752,7 +724,7 @@ $$
     </div></p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>What kind of variables are suitable for interactions?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>What kind of variables are suitable for interactions?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>From a mathematical perspective, addition affects intercepts, while multiplication affects slopes.</p>
@@ -774,7 +746,7 @@ $$
     </div>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Can we delete lower-order terms?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>Can we delete lower-order terms?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Which of the following two estimation equations should we choose? Can we remove the lower-order terms $X$ and $D$ after including the interaction term $XD$?
@@ -788,7 +760,7 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
 <p>The above references are from[^2 d]</p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>How many terms can be multiplied in an interaction?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>How many terms can be multiplied in an interaction?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Generally, no more than three. The reason is that three or fewer terms align more with intuitive controlled experiments, and beyond three, authors struggle to explain the experimental conclusions.</div>
@@ -835,26 +807,27 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>Updated on 2023-12-26</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/en/posts/ji_sata/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-via="ygVNLSZ1omFBCeB" data-hashtags="Causal Effects,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-hashtag="Causal Effects"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-via="ygVNLSZ1omFBCeB" data-hashtags="Causal Effects,Stata"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-hashtag="Causal Effects"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fen%2fposts%2fji_sata%2f&amp;text=Grouping%20and%20Measurement%20of%20Econometric%20Data%20%28STATA%20Version%29" target="_blank" title="Share on Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/causal-effects/">Causal Effects</a>,&nbsp;<a href="/en/tags/stata/">Stata</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/en/tags/causal-effects/">Causal Effects</a>,&nbsp;<a href="/en/tags/stata/">Stata</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/en/posts/zyw/" class="prev" rel="prev" title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>On Motivation: The Genuine and Counterfeit in Anime and Manga</a>
-            <a href="/en/posts/zoterorss/" class="next" rel="next" title="Zotero: RSS Feed Aggregation Subscription">Zotero: RSS Feed Aggregation Subscription<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/posts/zyw/" class="prev" rel="prev" title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><i class="fas fa-angle-left" aria-hidden="true"></i>On Motivation: The Genuine and Counterfeit in Anime and Manga</a>
+            <a href="/en/posts/zoterorss/" class="next" rel="next" title="Zotero: RSS Feed Aggregation Subscription">Zotero: RSS Feed Aggregation Subscription<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -1223,7 +1196,7 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;70 posts, 120227 words total</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;70 posts, 118846 words total</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -1275,12 +1248,24 @@ The answer is that $\beta_3 D$ should be included. In the first equation, $\beta
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

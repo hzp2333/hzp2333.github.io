@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="R 语言基础 1：界面介绍与语法结构"/>
 <meta name="twitter:description" content="R 语言的基本代码引入，包含下载、教程、数据类型结构、语法、数据导入导出的代码"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/r1/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/yxk2/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/r2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r1\/"
-        },"genre": "posts","keywords": "R","wordcount":  6116 ,
+        },"genre": "posts","keywords": "R","wordcount":  5661 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/r1\/","datePublished": "2024-04-20T10:11:52+08:00","dateModified": "2024-04-20T10:11:52+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -203,8 +215,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">R 语言基础 1：界面介绍与语法结构</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-04-20">2024-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6116 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-04-20">2024-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5661 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;
     
 
     
@@ -812,28 +824,12 @@
 <p>R 语言作为统计学家的语言，个人感觉本体程序语法不太优雅，但开源加载适合的包后就无比痛快了。</p>
 </blockquote>
 <p>例如我们要安装 car 这个包，可以使用以下命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 包的安装</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 包的安装</span>
 </span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;car&#34;</span><span class="p">)</span> <span class="c1">#这里是注释</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 包的加载</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span> 
@@ -849,34 +845,17 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 某个关键词的帮助</span>
 </span></span><span class="line"><span class="cl"><span class="nf">help.search</span><span class="p">(</span><span class="s">&#34;library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 某个packages的帮助</span>
-</span></span><span class="line"><span class="cl"><span class="nf">help</span><span class="p">(</span><span class="n">packages</span> <span class="o">=</span> <span class="s">&#34;ggplot2&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span><span class="line"><span class="cl"><span class="nf">help</span><span class="p">(</span><span class="n">packages</span> <span class="o">=</span> <span class="s">&#34;ggplot2&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<blockquote>
 <p>由于包与包之前可能存在同样的函数名，在调用两个包产生冲突时，后面的包的同名函数将覆盖前一个包</p>
 </blockquote>
 <h4 id="设置工作目录">设置工作目录</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 查看当前目录</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 查看当前目录</span>
 </span></span><span class="line"><span class="cl"><span class="nf">getwd</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 设置工作目录,注意使用的是斜杠</span>
 </span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;F:/桌面&#34;</span><span class="p">)</span>
@@ -891,10 +870,8 @@
 </span></span><span class="line"><span class="cl"><span class="nf">load</span><span class="p">(</span><span class="nf">file.choose</span><span class="p">()</span> <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 记载某个包的数据集</span>
-</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="载入数据">载入数据</h4>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">()</span></span></span></code></pre></div></div>
+<h4 id="载入数据">载入数据</h4>
 <p>Stata 一个页面只能加载一个数据库，但是 R 语言可以加载多个。</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130739387.webp" title="环境部分可以手动载入" data-thumbnail="/img/R语言基础.zh-cn-20240523130739387.webp" data-sub-html="<h2> </h2><p>环境部分可以手动载入</p>">
@@ -907,21 +884,16 @@
             alt="/img/R语言基础.zh-cn-20240523130739387.webp" />
     </a><figcaption class="image-caption">环境部分可以手动载入</figcaption>
     </figure></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 展示当前环境栏中的所有数据对象，以数据库名称为单位</span>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 展示当前环境栏中的所有数据对象，以数据库名称为单位</span>
 </span></span><span class="line"><span class="cl"><span class="nf">ls</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 移除某个对象</span>
-</span></span><span class="line"><span class="cl"><span class="nf">rm</span><span class="p">(</span><span class="n">list</span> <span class="o">=</span> <span class="nf">ls</span><span class="p">())</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="语法知识">语法知识</h2>
+</span></span><span class="line"><span class="cl"><span class="nf">rm</span><span class="p">(</span><span class="n">list</span> <span class="o">=</span> <span class="nf">ls</span><span class="p">())</span></span></span></code></pre></div></div>
+<h2 id="语法知识">语法知识</h2>
 <h3 id="数据类型">数据类型</h3>
 <table>
 <thead>
@@ -969,22 +941,12 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 判断数据类型</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 判断数据类型</span>
 </span></span><span class="line"><span class="cl"><span class="nf">is.numeric</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">is.character</span><span class="p">(</span><span class="s">&#39;123&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">is.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
@@ -994,56 +956,16 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 转换数据类型</span>
 </span></span><span class="line"><span class="cl"><span class="nf">as.numeric</span><span class="p">(</span><span class="s">&#39;123&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">as.character</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">as.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="数据结构">数据结构</h3>
+</span></span><span class="line"><span class="cl"><span class="nf">as.logical</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span></span></span></code></pre></div></div>
+<h3 id="数据结构">数据结构</h3>
 <h4 id="赋值与向量">赋值与向量</h4>
 <p>常规介绍顺序：赋值、索引、切片</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 赋值赋值</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 赋值赋值</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 对象名 &lt;- 对象值</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 快捷键 alt -</span>
 </span></span><span class="line"><span class="cl">
@@ -1081,57 +1003,15 @@
 </span></span><span class="line"><span class="cl"><span class="kc">letters</span> <span class="c1">#小写字母</span>
 </span></span><span class="line"><span class="cl"><span class="kc">LETTERS</span> <span class="c1">#大写字母</span>
 </span></span><span class="line"><span class="cl"><span class="n">month.abb</span> <span class="c1">#月份缩写 &#34;Jan&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">month.name</span> <span class="c1">#月份全写 &#34;January&#34; </span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="矩阵">矩阵</h4>
+</span></span><span class="line"><span class="cl"><span class="n">month.name</span> <span class="c1">#月份全写 &#34;January&#34; </span></span></span></code></pre></div></div>
+<h4 id="矩阵">矩阵</h4>
 <p>矩阵相关就是向量命令的叠加</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 矩阵</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 矩阵</span>
 </span></span><span class="line"><span class="cl"><span class="n">m1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="c1"># 两行</span>
@@ -1171,41 +1051,15 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 转化成向量</span>
 </span></span><span class="line"><span class="cl"><span class="nf">as.vector</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>  <span class="c1">#按列顺序抽取控制</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#array</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="列表">列表</h4>
+</span></span><span class="line"><span class="cl"><span class="c1">#array</span></span></span></code></pre></div></div>
+<h4 id="列表">列表</h4>
 <p>不同于向量和矩阵，列表可以是不同数据类型和结构的组合</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
 </span></span><span class="line"><span class="cl"><span class="n">m1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 
@@ -1229,50 +1083,15 @@
 </span></span><span class="line"><span class="cl"><span class="n">l1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 释放列表</span>
-</span></span><span class="line"><span class="cl"><span class="nf">unlist</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="c1"># 把列表降维成向量，索引生成为第几个列表第几个值</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="数据框">数据框</h4>
+</span></span><span class="line"><span class="cl"><span class="nf">unlist</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="c1"># 把列表降维成向量，索引生成为第几个列表第几个值</span></span></span></code></pre></div></div>
+<h4 id="数据框">数据框</h4>
 <p>特殊的列表，也就是我们常常处理的面板数据、时间序列，使用 Data frame 构建。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 数据框生成</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 数据框生成</span>
 </span></span><span class="line"><span class="cl"><span class="n">df1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="n">C1</span> <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="n">C2</span> <span class="o">=</span> <span class="kc">letters</span><span class="n">[2</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
@@ -1305,39 +1124,15 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 生成网格搜索的数据框</span>
 </span></span><span class="line"><span class="cl"><span class="nf">expand.grid</span><span class="p">(</span><span class="n">mtry</span> <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			  <span class="n">ntree</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">500</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="基本运算和函数">基本运算和函数</h3>
+</span></span><span class="line"><span class="cl">			  <span class="n">ntree</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">500</span><span class="p">))</span></span></span></code></pre></div></div>
+<h3 id="基本运算和函数">基本运算和函数</h3>
 <h4 id="基本运算">基本运算</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="m">1+2</span> <span class="c1">#加法</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="m">1+2</span> <span class="c1">#加法</span>
 </span></span><span class="line"><span class="cl"><span class="m">3-2</span> <span class="c1">#减法</span>
 </span></span><span class="line"><span class="cl"><span class="m">3</span><span class="o">*</span><span class="m">4</span> <span class="c1">#乘法</span>
 </span></span><span class="line"><span class="cl"><span class="m">8</span><span class="o">/</span><span class="m">5</span> <span class="c1">#除法</span>
@@ -1359,48 +1154,14 @@
 </span></span><span class="line"><span class="cl"><span class="m">2</span> <span class="o">%in%</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span> <span class="c1">#是否包含于</span>
 </span></span><span class="line"><span class="cl"><span class="o">&amp;</span> 	<span class="c1">#与</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span> 	<span class="c1">#或</span>
-</span></span><span class="line"><span class="cl"><span class="o">!</span>	<span class="c1">#非</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="向量函数运算">向量函数运算</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">21</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">!</span>	<span class="c1">#非</span></span></span></code></pre></div></div>
+<h4 id="向量函数运算">向量函数运算</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">21</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">max</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>				<span class="c1">#最大值</span>
 </span></span><span class="line"><span class="cl"><span class="nf">cummax</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>			<span class="c1">#对应长度范围内的最大值，返回值也是向量</span>
 </span></span><span class="line"><span class="cl"><span class="nf">min</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
@@ -1432,52 +1193,15 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 差集</span>
 </span></span><span class="line"><span class="cl"><span class="nf">setdiff</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 并集,只保留元素的位置值，有重复也保留一个</span>
-</span></span><span class="line"><span class="cl"><span class="nf">union</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="数据框和矩阵运算">数据框和矩阵运算</h4>
+</span></span><span class="line"><span class="cl"><span class="nf">union</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)</span></span></span></code></pre></div></div>
+<h4 id="数据框和矩阵运算">数据框和矩阵运算</h4>
 <h5 id="数据框-1">数据框</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">dfs</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">dfs</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="n">b</span> <span class="o">=</span> <span class="m">3</span><span class="o">:</span><span class="m">7</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="n">d</span> <span class="o">=</span> <span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
@@ -1512,33 +1236,14 @@
 </span></span><span class="line"><span class="cl"><span class="nf">summary</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>		<span class="c1">#最小值和最大值</span>
 </span></span><span class="line"><span class="cl"><span class="nf">View</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>			<span class="c1">#展示数据框</span>
 </span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#展示前两行(n=2)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">tail</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#展示末尾两行(n=2)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="矩阵-1">矩阵</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="nf">tail</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#展示末尾两行(n=2)</span></span></span></code></pre></div></div>
+<h5 id="矩阵-1">矩阵</h5>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">	<span class="n">ncol</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="n">byrow</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
@@ -1555,31 +1260,14 @@
 </span></span><span class="line"><span class="cl"><span class="nf">det</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>			<span class="c1">#行列式</span>
 </span></span><span class="line"><span class="cl"><span class="n">m3</span> <span class="o">%*%</span> <span class="n">m4</span>		<span class="c1">#矩阵乘法</span>
 </span></span><span class="line"><span class="cl"><span class="nf">solve</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>		<span class="c1">#m3 %*% x =E ，求出x</span>
-</span></span><span class="line"><span class="cl"><span class="nf">solve</span><span class="p">(</span><span class="n">m3</span><span class="p">,</span><span class="n">m4</span><span class="p">)</span>	<span class="c1">#m3 %*% x =m4 ，求出x</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="字符函数">字符函数</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 连接字符</span>
+</span></span><span class="line"><span class="cl"><span class="nf">solve</span><span class="p">(</span><span class="n">m3</span><span class="p">,</span><span class="n">m4</span><span class="p">)</span>	<span class="c1">#m3 %*% x =m4 ，求出x</span></span></span></code></pre></div></div>
+<h4 id="字符函数">字符函数</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># 连接字符</span>
 </span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;+&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">8</span><span class="n">]</span><span class="p">,</span><span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;~&#34;</span><span class="p">)</span>
@@ -1594,32 +1282,14 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 含有某个字符的元素的索引</span>
 </span></span><span class="line"><span class="cl"><span class="nf">grep</span><span class="p">(</span><span class="s">&#34;JU&#34;</span><span class="p">,</span><span class="n">month.name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 替换字符</span>
-</span></span><span class="line"><span class="cl"><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;e&#34;</span><span class="p">,</span><span class="s">&#34;000&#34;</span><span class="p">,</span><span class="n">month.name</span><span class="p">)</span>	<span class="c1">#将month.name含有e的地方替换成000</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="分布函数">分布函数</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">set.seed</span><span class="p">(</span><span class="m">24</span><span class="p">)</span> 					<span class="c1">#随机种子</span>
+</span></span><span class="line"><span class="cl"><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;e&#34;</span><span class="p">,</span><span class="s">&#34;000&#34;</span><span class="p">,</span><span class="n">month.name</span><span class="p">)</span>	<span class="c1">#将month.name含有e的地方替换成000</span></span></span></code></pre></div></div>
+<h4 id="分布函数">分布函数</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">set.seed</span><span class="p">(</span><span class="m">24</span><span class="p">)</span> 					<span class="c1">#随机种子</span>
 </span></span><span class="line"><span class="cl"><span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>		<span class="c1">#从1和2中进行12次有放回（T）的抽样。stata安慰剂检验随机抽样大家应该见过</span>
 </span></span><span class="line"><span class="cl"><span class="nf">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> 	<span class="c1">#r随机数+分布（norm）</span>
 </span></span><span class="line"><span class="cl"><span class="nf">pnorm</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>		<span class="c1">#p累计概率</span>
@@ -1635,10 +1305,8 @@
 </span></span><span class="line"><span class="cl"><span class="nf">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 从-5到7间取1000个数，1000个数服从均值为1，标准差为2的正态分布</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 增加值为0的横线和值为1的竖线</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl"><span class="c1"># 增加值为0的横线和值为1的竖线</span></span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130808012.webp" title="对应的分布函数图" data-thumbnail="/img/R语言基础.zh-cn-20240523130808012.webp" data-sub-html="<h2> </h2><p>对应的分布函数图</p>">
         <img
             class="lazyload center-image"
@@ -1652,52 +1320,12 @@
 <h3 id="基本语法">基本语法</h3>
 <h4 id="循环">循环</h4>
 <p>stata 简化为了 <code>local</code>、<code>global</code> 结合 <code>foreach</code> 进行变量循环，缺点是不便于行间的加减。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># for循环</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="c1"># for循环</span>
 </span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">x</span> <span class="kr">in</span> <span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="n">y</span><span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1737,32 +1365,15 @@
 </span></span><span class="line"><span class="cl">    <span class="c1"># 计算每行的总和并打印</span>
 </span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="m">3</span><span class="p">){</span><span class="kr">break</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">df[i</span><span class="p">,</span> <span class="n">]</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="条件">条件</h4>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span></span></span></code></pre></div></div>
+<h4 id="条件">条件</h4>
 <p>If else 老生常谈了，这里不再过多举例</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">7</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">7</span>
 </span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="m">6</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;a &gt; 6&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
@@ -1777,10 +1388,8 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">print</span><span class="p">(</span><span class="s">&#34;奇数&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">ifelse</span><span class="p">(</span><span class="m">55</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span><span class="m">0</span><span class="p">,</span><span class="s">&#34;偶数&#34;</span> <span class="s">&#34;奇数&#34;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="函数构建">函数构建</h4>
+</span></span><span class="line"><span class="cl"><span class="nf">ifelse</span><span class="p">(</span><span class="m">55</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span><span class="m">0</span><span class="p">,</span><span class="s">&#34;偶数&#34;</span> <span class="s">&#34;奇数&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<h4 id="函数构建">函数构建</h4>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/R%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80.zh-cn-20240523130826725.webp" title="定义函数后，变量栏也会有展示" data-thumbnail="/img/R语言基础.zh-cn-20240523130826725.webp" data-sub-html="<h2> </h2><p>定义函数后，变量栏也会有展示</p>">
         <img
@@ -1792,30 +1401,12 @@
             alt="/img/R语言基础.zh-cn-20240523130826725.webp" />
     </a><figcaption class="image-caption">定义函数后，变量栏也会有展示</figcaption>
     </figure></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">名称<span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>参数<span class="p">){</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">名称<span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>参数<span class="p">){</span>
 </span></span><span class="line"><span class="cl">	具体操作
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 定义函数：阶乘</span>
@@ -1833,10 +1424,8 @@
 </span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="nf">f2</span><span class="p">(</span><span class="m">2333</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">f2</span><span class="p">(</span><span class="m">2333</span><span class="p">,</span><span class="m">6666</span><span class="p">)</span> <span class="c1">#此时覆盖默认值aug2=4</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="数据整理">数据整理</h2>
+</span></span><span class="line"><span class="cl"><span class="nf">f2</span><span class="p">(</span><span class="m">2333</span><span class="p">,</span><span class="m">6666</span><span class="p">)</span> <span class="c1">#此时覆盖默认值aug2=4</span></span></span></code></pre></div></div>
+<h2 id="数据整理">数据整理</h2>
 <p>tidyverse 包的官网：<a href="https://www.tidyverse.org/" target="_blank" rel="noopener noreffer ">https://www.tidyverse.org/</a></p>
 <p>测试数据集可以在这里下载：<a href="https://moxingjiqi.shinyapps.io/dataset/" target="_blank" rel="noopener noreffer ">https://moxingjiqi.shinyapps.io/dataset/</a></p>
 <p>tidyverse 包的 <code>haven</code> 支持读取 spss、stata、SAS</p>
@@ -1895,60 +1484,12 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-R">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># CSV数据导入</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#自定义数据列表</span>
 </span></span><span class="line"><span class="cl"><span class="n">d.small</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;John, 33, 95
@@ -1996,10 +1537,8 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 将所有数据合并到一个数据框中</span>
 </span></span><span class="line"><span class="cl"><span class="n">combined_data</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看合并后的数据</span>
-</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">combined_data</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="footnotes" role="doc-endnotes">
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">combined_data</span><span class="p">)</span></span></span></code></pre></div></div>
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1">
@@ -2018,26 +1557,27 @@
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2024-04-20</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/r1/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-hashtags="R"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-hashtag="R"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-image="/img/R语言基础.zh-cn-20240523130853495.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-hashtags="R"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-hashtag="R"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-image="/img/R语言基础.zh-cn-20240523130853495.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/r1/" data-title="R 语言基础 1：界面介绍与语法结构" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fr1%2f&amp;text=R%20%e8%af%ad%e8%a8%80%e5%9f%ba%e7%a1%80%201%ef%bc%9a%e7%95%8c%e9%9d%a2%e4%bb%8b%e7%bb%8d%e4%b8%8e%e8%af%ad%e6%b3%95%e7%bb%93%e6%9e%84" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/r/">R</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/r/">R</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/yxk2/" class="prev" rel="prev" title="转载：杨小凯《我的一生》"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>转载：杨小凯《我的一生》</a>
-            <a href="/zh-cn/posts/r2/" class="next" rel="next" title="R 语言笔记 2 : 数据清洗、绘图与计量">R 语言笔记 2 : 数据清洗、绘图与计量<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/yxk2/" class="prev" rel="prev" title="转载：杨小凯《我的一生》"><i class="fas fa-angle-left" aria-hidden="true"></i>转载：杨小凯《我的一生》</a>
+            <a href="/zh-cn/posts/r2/" class="next" rel="next" title="R 语言笔记 2 : 数据清洗、绘图与计量">R 语言笔记 2 : 数据清洗、绘图与计量<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -2406,7 +1946,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -2458,12 +1998,24 @@
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>

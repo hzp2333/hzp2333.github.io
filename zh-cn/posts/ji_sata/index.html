@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="计量数据的分组与测度（STATA 版）"/>
 <meta name="twitter:description" content="计量经济学学习笔记，理解因果关系，区别混合、固定、随机效应和 stata 操作。也记录下个人对机制检验的理解，这涉及交互项的相关探讨"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" /><link rel="prev" href="https://blog.huaxiangshan.com/zh-cn/posts/zyw/" /><link rel="next" href="https://blog.huaxiangshan.com/zh-cn/posts/zoterorss/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,16 +28,27 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10303 ,
+        },"genre": "posts","keywords": "因果效应, Stata","wordcount":  10236 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "滑翔闪"
+                "name": "xxxx"
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
         <div id="mask"></div><div class="wrapper">
 
@@ -247,7 +259,7 @@ loadMathJax();
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计量数据的分组与测度（STATA 版）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件工具</a>&nbsp;<a href="/zh-cn/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>经济学习</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10303 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10236 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;
     
 
@@ -318,22 +330,12 @@ loadMathJax();
 <h3 id="辛普森悖论">辛普森悖论</h3>
 <p>假设我们想要研究“咖啡消费与收入”的关系。有这样一组数据，4 位男性和 4 位女性，以及他们的收入和咖啡消费情况。</p>
 <p>Stata 数据生成如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
 </span></span><span class="line"><span class="cl"><span class="k">input</span> str6 gender income coffee
 </span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">8</span> <span class="m">1</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">9</span> <span class="m">2</span>
@@ -343,10 +345,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">2</span> <span class="m">7</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">3</span> <span class="m">8</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">4</span> <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="k">end</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后我们可以画出散点图进行<strong>三次不同样本数的拟合</strong>，分别是整体一次，男性一次，女性一次：</p>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div></div>
+<p>然后我们可以画出散点图进行<strong>三次不同样本数的拟合</strong>，分别是整体一次，男性一次，女性一次：</p>
 <p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp" title="用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" data-sub-html="<h2> </h2><p>用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：</p>">
         <img
@@ -359,20 +359,12 @@ loadMathJax();
     </a><figcaption class="image-caption">用这个风格画stata基本能做到和R语言效果类似——绘图代码放在下面：</figcaption>
     </figure></p>
 <p>用这个风格画 stata 基本能做到和 R 语言效果类似——绘图代码放在下面：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //绘画风格命令
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //绘画风格命令
 </span></span><span class="line"><span class="cl">*介绍详见：https://www<span class="m">.</span>lianxh<span class="m">.</span>cn/news/e76a8a7e3c6c4<span class="m">.</span>html
 </span></span><span class="line"><span class="cl">  <span class="k">set</span> scheme gg_w3d
 </span></span><span class="line"><span class="cl">  
@@ -380,10 +372,8 @@ loadMathJax();
 </span></span><span class="line"><span class="cl">		legend(<span class="k">order</span>(<span class="m">1</span> <span class="s">&#34;男性&#34;</span> <span class="m">2</span> <span class="s">&#34;女性&#34;</span> <span class="m">3</span> <span class="s">&#34;男性拟合&#34;</span>  <span class="m">4</span> <span class="s">&#34;女性拟合&#34;</span>  <span class="m">5</span> <span class="s">&#34;整体拟合&#34;</span> )) ///
 </span></span><span class="line"><span class="cl">		xtitle(<span class="s">&#34;income&#34;</span>) ytitle(<span class="s">&#34;coffee&#34;</span>) ///
 </span></span><span class="line"><span class="cl">		<span class="k">title</span>(stata style：gg_w3d) ///
-</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果我们不管三七二十一，直接对总体数据进行回归拟合，我们会得出来 <strong>收入越多，咖啡消费越低</strong> 的结论，但如果我们分别对男性和女性进行回归拟合，得到的结论却完全相反——“<strong>收入越多，咖啡消费越多</strong>”。显然，后者更贴合现实情况。</p>
+</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)</span></span></code></pre></div></div>
+<p>如果我们不管三七二十一，直接对总体数据进行回归拟合，我们会得出来 <strong>收入越多，咖啡消费越低</strong> 的结论，但如果我们分别对男性和女性进行回归拟合，得到的结论却完全相反——“<strong>收入越多，咖啡消费越多</strong>”。显然，后者更贴合现实情况。</p>
 <p>这就是 $\boxed{辛普森悖论}$：局部的相关性和整体的相关性可能呈现截然不同的结果。</p>
 <p>辛普森悖论在生活中比比皆是，例如各个年龄段的人服用药物后的疗效测量、各个学院录取学生是否有性别歧视、警察执法是否有种族歧视&hellip;&hellip;</p>
 <ul>
@@ -420,15 +410,13 @@ $$
 \end{cases}\newline
 $$</p>
 <p>对于数据面板，我们首先要明确哪个维度对应了时间、哪个维度对应了空间/对象。其实就是一个分组的过程，你可以从行业的角度分组，也可以每个人单独编号 id 分组。用 stata 的语言来说，就是：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="三残差经济数学统计含义">三、残差经济、数学、统计含义</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-ada">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span></span></span></code></pre></div></div>
+<h2 id="三残差经济数学统计含义">三、残差经济、数学、统计含义</h2>
 <p>普通的回归方程<strong>OLS</strong>是：
 $$
 Y=\alpha X +u
@@ -529,7 +517,7 @@ $$
 <p>平均值取同一个变量，不同年份的数值的平均: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$</p>
 <p><div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>补充<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>补充<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">面板数据的方差分析。当我们设定好了 <code>xtset id year</code> 后，<code>id</code> 可能是空间编号、也可能是行业编号、也可能是个体编号，我们就有了 n 个小组，每个组内部有有方差，就是组内方差；每组之间也有方差，就是组间方差。进行方差分析有助以确认我们研究的分组是否合适。<br>
@@ -589,24 +577,12 @@ $$
 <p>通过 FWL 可以证明一阶差分估计和虚拟变量的估计是相等的。</p>
 </blockquote>
 <p>如果想自己尝试，可以使用 stata 自带数据测试<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear                            
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear                            
 </span></span><span class="line"><span class="cl">sysuse auto  
 </span></span><span class="line"><span class="cl">*stata自带测试数据
 </span></span><span class="line"><span class="cl">reg mpg <span class="k">foreign</span> weight
@@ -618,10 +594,8 @@ $$
 </span></span><span class="line"><span class="cl">reg weight <span class="k">foreign</span>
 </span></span><span class="line"><span class="cl">predict weightResidF, residual
 </span></span><span class="line"><span class="cl">reg mpgResidF weightResidF
-</span></span><span class="line"><span class="cl">*会发现回归系数和reg mpg <span class="k">foreign</span> weight的对应weight系数相同
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>时间固定效应：</strong></p>
+</span></span><span class="line"><span class="cl">*会发现回归系数和reg mpg <span class="k">foreign</span> weight的对应weight系数相同</span></span></code></pre></div></div>
+<p><strong>时间固定效应：</strong></p>
 <p>时间固定效应是基于个体固定效应进行添加，添加了后称为“双固定效应”。基于<strong>LSDV 法</strong>添加 t-1 个虚拟变量。</p>
 <blockquote>
 <p>个体固定效应不随时间改变，所以可以通过一阶离差、组内估计相减去除，但时间效应很难采用相同的做法，因为个体与个体分组、排序都不明确。只能采用<strong>LSDV 法</strong>添加 t-1 个虚拟变量。</p>
@@ -665,88 +639,57 @@ $$
 <p>第二个问题是回答个体效应的自相关。</p>
 <h2 id="四常用-stata-操作">四、常用 stata 操作</h2>
 <h3 id="1reg-命令经典回归">1、reg 命令：经典回归</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*混合OLS
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*混合OLS
 </span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> ,robust
 </span></span><span class="line"><span class="cl">*固定效应：使用虚拟变量最小二乘回归法（LSDV）
 </span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> i<span class="m">.</span>id //单向固定，方法为LSDV
-</span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> i<span class="m">.</span>year i<span class="m">.</span>id //双向固定，方法为LSDV
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2areg-命令优化后的-reg-命令">2、areg 命令：优化后的 reg 命令</h3>
+</span></span><span class="line"><span class="cl">reg Y <span class="k">X</span> i<span class="m">.</span>year i<span class="m">.</span>id //双向固定，方法为LSDV</span></span></code></pre></div></div>
+<h3 id="2areg-命令优化后的-reg-命令">2、areg 命令：优化后的 reg 命令</h3>
 <p>和 reg 的估计完全一样。由于使用 LSDV 法会产生大量虚拟变量，展示结果的表格往往会很长，areg 会用 absorb 进行固定效应，但是通过 absorb（）命令吸收不进行展现。但缺点是 absorb（）中只能放一个。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">areg Y <span class="k">X</span> i<span class="m">.</span>year, absorb(id) //双固定 ，方法为LSDV
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3xtreg-命令针对面板数据">3、xtreg 命令：针对面板数据</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">xtset id year //设定个体分组和时间变量
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">areg Y <span class="k">X</span> i<span class="m">.</span>year, absorb(id) //双固定 ，方法为LSDV</span></span></code></pre></div></div>
+<h3 id="3xtreg-命令针对面板数据">3、xtreg 命令：针对面板数据</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">xtset id year //设定个体分组和时间变量
 </span></span><span class="line"><span class="cl">*固定效应
 </span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> ,fe //单向固定，采用的方式是“组内估计”
 </span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> i<span class="m">.</span>year ，fe //双向固定,“组内估计”的个体固定效应和LSDV的时间固定效应
 </span></span><span class="line"><span class="cl">sdds
 </span></span><span class="line"><span class="cl">*随机效应
-</span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> ,re //GLS,广义最小二乘估计
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4reghdfe-命令多维固定">4、reghdfe 命令：多维固定</h3>
+</span></span><span class="line"><span class="cl">xtreg Y <span class="k">X</span> ,re //GLS,广义最小二乘估计</span></span></code></pre></div></div>
+<h3 id="4reghdfe-命令多维固定">4、reghdfe 命令：多维固定</h3>
 <p>可以进行两个以上的固定效应控制。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*双向固定
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*双向固定
 </span></span><span class="line"><span class="cl">reghdfe Y <span class="k">X</span>, absorb(id year) //既然它的命令id和year能等效处理，那么我猜测估计方法依然是LSDV
 </span></span><span class="line"><span class="cl">*混合OLS
 </span></span><span class="line"><span class="cl">reghdfe Y <span class="k">X</span>, noabsorb 
 </span></span><span class="line"><span class="cl">*交互变量的固定
-</span></span><span class="line"><span class="cl">reghdfe Y , absorb(year#prov) //year和prov效应的交互影响，也允许定类变量和连续性变量进行交互
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="5stata-代码验证">5、stata 代码验证</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*使用stata自带的xtpcse命令专用例子数据
+</span></span><span class="line"><span class="cl">reghdfe Y , absorb(year#prov) //year和prov效应的交互影响，也允许定类变量和连续性变量进行交互</span></span></code></pre></div></div>
+<h3 id="5stata-代码验证">5、stata 代码验证</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*使用stata自带的xtpcse命令专用例子数据
 </span></span><span class="line"><span class="cl">webuse grunfeld,clear
 </span></span><span class="line"><span class="cl">*如果没有网络导入，可能是网络问题，需要挂梯子
 </span></span><span class="line"><span class="cl">*数据库站：*https://www<span class="m">.</span>stata-press<span class="m">.</span>com/data/r10/xt<span class="m">.</span>html
@@ -754,10 +697,8 @@ $$
 </span></span><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company
 </span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe
 </span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)
-</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>代码块分别使用了四种命令进行固定效应，<strong>固定个体效应，不固定时间效应</strong>，结果如下图，可以发现他们的<strong>系数估计是完全相同的</strong>。</p>
+</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)</span></span></code></pre></div></div>
+<p>代码块分别使用了四种命令进行固定效应，<strong>固定个体效应，不固定时间效应</strong>，结果如下图，可以发现他们的<strong>系数估计是完全相同的</strong>。</p>
 <blockquote>
 <p><strong>为何截距部分，也就是常数项不同</strong>——并未在任何实操书中找到解答。个人认为<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>是因为各个命令计算残差方式不同影响的。</p>
 <p>（1）混合 OLS 是计算一个回归方程与所有的点的残差。</p>
@@ -778,23 +719,17 @@ $$
     </a><figcaption class="image-caption">回归表</figcaption>
     </figure></p>
 <p>顺便一提，当我们把代码换成如下的代码，情况也会发生改变：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-SAS">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
 </span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe r 
 </span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)  vce(cluster company)
 </span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company) 
-</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>
+</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust</span></span></code></pre></div></div>
+<p>
 <figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp" title="回归表" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" data-sub-html="<h2> </h2><p>回归表</p>">
         <img
             class="lazyload center-image"
@@ -889,7 +824,7 @@ Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u
 $$
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>交互项和分组回归的作用区别？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>交互项和分组回归的作用区别？<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>一般来说，交互项强调调节效应、分组回归强调异质性，江艇（2022）认为二者是一个东西。不过，两者确实还是存在一些差别：</p>
@@ -906,7 +841,7 @@ $$
     </div></p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>什么样的项目适合作为交互<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>什么样的项目适合作为交互<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>从数学意义来考虑，加法管截距，乘法管斜率。</p>
@@ -928,7 +863,7 @@ $$
     </div>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>我们能删除低次变量吗？<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>我们能删除低次变量吗？<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">也就是下面两个估计式子选哪个？我们可以在取了交互项 $XD$ 后去掉低次项 $X$、$D$ 吗？
@@ -942,7 +877,7 @@ $$
 <p>以上参考来自<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>交互项最多能几个相乘?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>交互项最多能几个相乘?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">一般不超过三个。原因是三个以内更符合直觉性的对照试验，三个以上后作者难以解释对照实验结论。</div>
@@ -1007,26 +942,27 @@ $$
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2023-12-26</span>
+            </div><div id="page-views" class="post-info-mod">
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/zh-cn/posts/ji_sata/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-hashtags="因果效应,Stata"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-hashtag="因果效应"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-hashtags="因果效应,Stata"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-hashtag="因果效应"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/" data-title="计量数据的分组与测度（STATA 版）" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fji_sata%2f&amp;text=%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%20%e7%89%88%ef%bc%89" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
+        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/%E5%9B%A0%E6%9E%9C%E6%95%88%E5%BA%94/">因果效应</a>,&nbsp;<a href="/zh-cn/tags/stata/">Stata</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/zyw/" class="prev" rel="prev" title="动机论：二次元的真物与伪物"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>动机论：二次元的真物与伪物</a>
-            <a href="/zh-cn/posts/zoterorss/" class="next" rel="next" title="Zotero：RSS 聚合订阅">Zotero：RSS 聚合订阅<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/zh-cn/posts/zyw/" class="prev" rel="prev" title="动机论：二次元的真物与伪物"><i class="fas fa-angle-left" aria-hidden="true"></i>动机论：二次元的真物与伪物</a>
+            <a href="/zh-cn/posts/zoterorss/" class="next" rel="next" title="Zotero：RSS 聚合订阅">Zotero：RSS 聚合订阅<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -1395,7 +1331,7 @@ $$
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，349918 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 102 篇文章，344508 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -1447,12 +1383,24 @@ $$
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'G-CYZVM6VVZ8', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"zh-CN","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"滑翔闪'S BLOG","id-2":"滑翔闪'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script><script>
+            var doNotTrack = false;
+            if ( false ) {
+                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+                var doNotTrack = (dnt == "1" || dnt == "yes");
+            }
+            if (!doNotTrack) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CYZVM6VVZ8');
+            }
+        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
 </html>
