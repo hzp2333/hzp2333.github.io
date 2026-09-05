@@ -75,7 +75,7 @@ $header-title-font-height: 2rem;
 
 ### 中文字体 api
 
-中文字体 api 也可考虑[字图网](https://chinese-font.netlify.app/cdn/)。
+中文字体 api 也可考虑[字图网](https://chinese-font.netlify.app/cdn/)。（目前已经停止运行）
 
 国内开源字体比较火的是[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)。
 ### 本站所用字体
@@ -93,7 +93,6 @@ $header-title-font-height: 2rem;
 
 @import url('https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css');
 
-@import url('https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/京華老宋体v2_002/result.css');
 
 
 
@@ -102,7 +101,7 @@ $header-title-font-family: Ma Shan Zheng, Madimi One;
 $header-title-font-size: 35px;
 $header-title-font-height: 2rem;
 
-$global-font-family: KingHwa_OldSong , Noto Serif SC , Merriweather;
+$global-font-family:  Noto Serif SC , Merriweather;
 $global-font-size: 18px;
 $global-font-height: 4rem;
 
