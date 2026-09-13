@@ -94,9 +94,11 @@
       script.src = 'https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js';
       document.head.appendChild(script);
     };
-    window.addEventListener('load', function () {
-      window.setTimeout(load, 4000);
-    }, { once: true });
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', load, { once: true });
+    } else {
+      load();
+    }
   })();
 </script>
 
