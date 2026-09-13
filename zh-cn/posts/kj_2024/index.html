@@ -361,6 +361,11 @@
   const APLAYER_CSS = 'aplayer@1.10.1/dist/APlayer.min.css';
   const APLAYER_JS = 'aplayer@1.10.1/dist/APlayer.min.js';
   const METING_JS = 'meting@2.0.1/dist/Meting.min.js';
+  const LOCAL_RESOURCES = {
+    css: '\/lib\/aplayer\/APlayer.min.css',
+    aplayer: '\/lib\/aplayer\/APlayer.min.js',
+    meting: '\/lib\/meting\/Meting.min.js'
+  };
 
   
   function safeHasMusicPlayers() {
@@ -374,7 +379,8 @@
 
   function safeResourcesLoaded() {
     try {
-      return typeof window.APlayer !== 'undefined' && typeof window.Meting !== 'undefined';
+      return typeof window.APlayer !== 'undefined'
+        && !!(window.customElements && window.customElements.get('meting-js'));
     } catch (e) {
       console.warn('[Music Player] Error checking resources:', e);
       return false;
@@ -457,26 +463,22 @@
     console.log('[Music Player] Loading dependencies with fallback support...');
 
     
-    const primaryCDN = CDN_SOURCES[0];
-
-    return loadResource(primaryCDN + APLAYER_CSS, 'css', 1)
+    return loadResource(LOCAL_RESOURCES.css, 'css', 0)
       .then(() => {
-        console.log('[Music Player] APlayer CSS loaded');
-        return loadResource(primaryCDN + APLAYER_JS, 'js', 1);
+        return loadResource(LOCAL_RESOURCES.aplayer, 'js', 0);
       })
       .then(() => {
-        console.log('[Music Player] APlayer JS loaded');
-        return loadResource(primaryCDN + METING_JS, 'js', 1);
+        return loadResource(LOCAL_RESOURCES.meting, 'js', 0);
       })
       .then(() => {
-        console.log('[Music Player] All dependencies loaded successfully');
+        console.log('[Music Player] Local dependencies loaded successfully');
         return true;
       })
       .catch(async (err) => {
-        console.error('[Music Player] Primary CDN failed, trying alternative CDNs:', err);
+        console.warn('[Music Player] Local resources failed, trying CDN fallbacks:', err);
 
         
-        for (let i = 1; i < CDN_SOURCES.length; i++) {
+        for (let i = 0; i < CDN_SOURCES.length; i++) {
           try {
             const cdn = CDN_SOURCES[i];
             console.log(`[Music Player] Trying CDN: ${cdn}`);
@@ -506,46 +508,11 @@
         return false;
       }
 
-      console.log('[Music Player] Initializing meting-js players...');
-      let successCount = 0;
-      let errorCount = 0;
-
-      const players = document.querySelectorAll('meting-js');
-
-      players.forEach(el => {
-        try {
-          if (el.hasAttribute('data-initialized')) {
-            console.log('[Music Player] Player already initialized, skipping');
-            return;
-          }
-
-          
-          if (typeof window.Meting !== 'function') {
-            throw new Error('Meting constructor not available');
-          }
-
-          new window.Meting(el);
-          el.setAttribute('data-initialized', 'true');
-          successCount++;
-          console.log('[Music Player] Successfully initialized meting-js element');
-        } catch (err) {
-          errorCount++;
-          console.error('[Music Player] Error initializing meting-js element:', err);
-        }
-      });
-
-      console.log(`[Music Player] Initialization complete: ${successCount} successful, ${errorCount} failed`);
-
       
-      if (successCount === 0 && players.length > 0) {
-        console.log('[Music Player] No players initialized, scheduling retry...');
-        setTimeout(() => {
-          console.log('[Music Player] Retrying initialization...');
-          initializePlayers();
-        }, 1000);
-      }
-
-      return successCount > 0;
+      
+      const players = document.querySelectorAll('meting-js');
+      console.log(`[Music Player] MetingJS is ready; ${players.length} player(s) will initialize automatically`);
+      return players.length > 0;
     } catch (error) {
       console.error('[Music Player] Fatal error during initialization:', error);
       return false;
@@ -673,6 +640,10 @@
   console.log('[Music Player] Initialization system ready');
 })();
 </script>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-line">
@@ -706,7 +677,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348623 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，348652 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
@@ -752,8 +723,6 @@
     </script>
 </body>
 </html>
-
-
 </div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">

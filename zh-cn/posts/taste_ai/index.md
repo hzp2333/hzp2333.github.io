@@ -164,8 +164,7 @@ AI 带来的变化，也许是：
 - [数学品味可以量化吗？](https://zhuanlan.zhihu.com/p/2034764658003943982)
 - [如果论文的主要读者不再是人](https://zhuanlan.zhihu.com/p/2040070769791787736)
 - [科学进步只能靠“熬走”老一代？《Science》研究揭开学术界残酷真相](https://mp.weixin.qq.com/s/06jBFVLBsxNIPXGZbfNkBg)
-
-
+- [从同行评审到团队构建：14篇科学学论文揭示科学不平等的起源](https://mp.weixin.qq.com/s/38kByFRW9xdzrmO5bCFBYg)
 
 
 
