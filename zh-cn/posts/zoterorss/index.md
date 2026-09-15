@@ -274,6 +274,8 @@ https://terrytao.wordpress.com/feed/
 https://gregmankiw.blogspot.com/feeds/posts/default
 ```
 
+经济学可视化小故事；
+
 [James D. Hamilton](http://econweb.ucsd.edu/~jhamilto) 与 [Menzie Chinn](http://www.ssc.wisc.edu/~mchinn/) 教授建立的网站，使用有趣的可视化数据讲经济学故事：
 
 ```
