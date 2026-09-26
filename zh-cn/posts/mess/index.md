@@ -33,7 +33,7 @@
 
 
 > 在漫长的经济增长史中，似乎只发生了一件事——工业革命。
-> ——格里高利·克拉格（[Gregory Clark](https://en.wikipedia.org/wiki/Gregory_Clark_ "economist")）
+> ——格里高利·克拉格([Gregory Clark](https://en.wikipedia.org/wiki/Gregory_Clark_ "economist"))
 
 ![如图](/img/课堂展示.zh-cn-20250325170839797.webp)
 
@@ -95,7 +95,7 @@
 
 ![如图](/img/课堂展示.zh-cn-20250325172317267.webp)
 
-人们更偏好效用品，生育率暂时偏离（减少侧），提升社会福利。
+人们更偏好效用品，生育率暂时偏离(减少侧)，提升社会福利。
 
 {{< admonition type=note  title="个人感想" open=false >}}
 
@@ -112,10 +112,10 @@
 
 - 效用品和生存品部门进步率。
 - 偏好结构。
-- 人均消费（人口平衡线）
+- 人均消费(人口平衡线)
 
 
-## 模型代数证明（简单情况）
+## 模型代数证明(简单情况)
 
 
 $$
@@ -129,13 +129,13 @@ $$
 \end{cases}
 $$
 
-### 假设 1：$\gamma_A=\gamma_B\equiv\gamma<1$（如果放松）
+### 假设 1：$\gamma_A=\gamma_B\equiv\gamma<1$(如果放松)
 
 {{< admonition type=note  title="假设意义" open=false >}}
 
 小于 1 是为了边际递减。
 
-相等是人口萎缩对两个部门产生的冲击是相同（要素贡献率）。
+相等是人口萎缩对两个部门产生的冲击是相同(要素贡献率)。
 
 {{< /admonition >}}
 
@@ -188,12 +188,14 @@ $$
 $$ 人均水平再除以 H,
 
 $$
-\begin{cases}x=A（1-\beta）\left（\frac{H}{L}\right）^{\gamma-1}\\\\y=B\beta\left（\frac{H}{L}\right）^{\gamma-1}&\end{cases}
+\begin{aligned}
+x&=A(1-\beta)\left(\frac{H}{L}\right)^{\gamma-1} \\\\ y&=B\beta\left(\frac{H}{L}\right)^{\gamma-1}
+\end{aligned}
 $$
 产品决策后，代入效用 $U=x^{1-\beta}y^{\beta}$，
 
 $$
-\begin{aligned}\mathrm{U}&=A\left（\frac{H}{L}\right）^{\gamma-1}\left（\frac{B}{A}\right）^\beta（1-\beta）^{1-\beta}\beta^\beta\\\\&=x\left（\frac{B}{A}\right）^\beta\left（\frac{\beta}{1-\beta}\right）^\beta\end{aligned}
+\begin{aligned}\mathrm{U}&=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^\beta(1-\beta)^{1-\beta}\beta^\beta\\\\&=x\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta\end{aligned}
 $$
 
 {{< admonition type=question  title="为什么提取x" open=false >}}
@@ -213,10 +215,10 @@ $\bar{x}$ 是使人口保持不变的平均生存品消费水平。
 均衡效用的表示：
 
 $$
-U^E=\bar{x}\left（\frac{B}{A}\right）^\beta\left（\frac{\beta}{1-\beta}\right）^\beta
+U^E=\bar{x}\left(\frac{B}{A}\right)^\beta\left(\frac{\beta}{1-\beta}\right)^\beta
 $$
 
-均衡人均效用随着产出结构效用品化程度（$\frac{B}{A}$ ）、对效用品的相对偏好（ $\beta$）和维持人口平衡所需的人均生存品消费（$\bar{x}$ ）的增长而增长。
+均衡人均效用随着产出结构效用品化程度($\frac{B}{A}$ )、对效用品的相对偏好( $\beta$)和维持人口平衡所需的人均生存品消费($\bar{x}$ )的增长而增长。
 
 尚未证明的图示情况：
 
@@ -237,7 +239,7 @@ $$
 土地资源简化为 1，得到 $x=A(1-\beta)^{\gamma}H^{\gamma-1}$，代入 $g_H$:
 
 $$
-g_H=\delta\left[\ln A+\gamma\ln（1-\beta）+（\gamma-1）\ln H-\ln x\right]
+g_H=\delta\left[\ln A+\gamma\ln(1-\beta)+(\gamma-1)\ln H-\ln x\right]
 $$
 
 使用 M 指代 $\ln A+\gamma\ln(1-\beta)$，简化为：
@@ -247,12 +249,12 @@ $$g_H=\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]$$
 对 M 进行微分，
 
 $$
-\mathrm{d}M=g_A+（\gamma-1）g_H=g_A+（\gamma-1）\delta\left[M+\gamma\ln（1-\beta）-\ln x\right]
+\mathrm{d}M=g_A+(\gamma-1)g_H=g_A+(\gamma-1)\delta\left[M+\gamma\ln(1-\beta)-\ln x\right]
 $$
 稳态时，$dM=0$, 代入求解，
 
 $$
-M^*=\frac{g_A}{（1-\gamma）\delta}-\gamma\ln（1-\beta）+\ln\bar{x}
+M^*=\frac{g_A}{(1-\gamma)\delta}-\gamma\ln(1-\beta)+\ln\bar{x}
 $$
 
 而此时又有：$\mathrm{d}M=g_A+(\gamma-1)g_H=0$
@@ -261,26 +263,26 @@ $$
 
 ### 定理三：人均效用增长率和两个部门的增长率
 
-研究人均效用增长率（也可以看作人均收入），和两个部门增长的关系。
+研究人均效用增长率(也可以看作人均收入)，和两个部门增长的关系。
 
 > 宏观的平衡增长路径，相图分析就是这种。
 
-在偏离稳态的地方（$\bar{x} \neq x$）,
+在偏离稳态的地方($\bar{x} \neq x$),
 
 效用为:
 
 $$
-U=A\left（\frac{H}{L}\right）^{\gamma-1}\left（\frac{B}{A}\right）^{\beta}（1-\beta）^{1-\beta}\beta^{\beta}
+U=A\left(\frac{H}{L}\right)^{\gamma-1}\left(\frac{B}{A}\right)^{\beta}(1-\beta)^{1-\beta}\beta^{\beta}
 $$
 
 {{< admonition type=note  title="取对数，求导就可转化为增长率。" open=false >}}
 
-对于要素 X ，宏观要素 X 随事件变化（X(t)）。
+对于要素 X ，宏观要素 X 随事件变化(X(t))。
 
 对 ln (X) 的 t 求导。
 
 $$
-\begin{aligned}&\frac{d\ln X（t）}{dt}=\frac{d\ln X（t）}{dX（t）}\frac{dX（t）}{dt}\\\\&=\frac{\frac{dX（t）}{X（t）}}{dt}=\frac{\dot{X}（t）}{X（t）}=g（\text{增长速率}）\end{aligned}
+\begin{aligned}&\frac{d\ln X(t)}{dt}=\frac{d\ln X(t)}{dX(t)}\frac{dX(t)}{dt}\\\\&=\frac{\frac{dX(t)}{X(t)}}{dt}=\frac{\dot{X}(t)}{X(t)}=g(\text{增长速率})\end{aligned}
 $$
 
 {{< /admonition >}}
@@ -290,16 +292,16 @@ $$
 $$g_U=\beta\left(g_B-g_A\right)+g_A-(1-\gamma)g_H$$
 后面即为引理部分，已经证明了趋于 0。
 
-于是得到了人均福利（收入）与生存品和效用品的关系。
+于是得到了人均福利(收入)与生存品和效用品的关系。
 
 $$
-g_U=\beta\left（g_B-g_A\right）
+g_U=\beta\left(g_B-g_A\right)
 $$
 按照这个结论，人均收入长期停滞的原因应该只有一个，
 
 效用品的增长速度总是无法高于生存品的增长速度。
 
-更复杂的情况会引入人口迁移与贸易（通过设定人口迁移率来满足人口平衡线）、技术竞争（需要一些随机过程的数学），直觉上通过多层次博弈(《三体：黑暗森林》)理解即可，这里不再展开具体的数理模型。
+更复杂的情况会引入人口迁移与贸易(通过设定人口迁移率来满足人口平衡线)、技术竞争(需要一些随机过程的数学)，直觉上通过多层次博弈(《三体：黑暗森林》)理解即可，这里不再展开具体的数理模型。
 
 **后半部分简单解读**参见：
 
