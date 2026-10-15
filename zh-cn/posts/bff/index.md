@@ -161,7 +161,7 @@ $$
 $$
 \int\frac{cdy}{\sqrt{y^2-c^2}}=c\ln\biggl(\frac{y+\sqrt{y^2-c^2}}c\biggr)+c_1=\int dt=t+c_2
 $$
-整理下上面式子的形式，并把$ c_1 、c_2 $两个任意常数整合为$ k $，即可得到通解
+整理下上面式子的形式，并把 $c_1$ 、$c_2$ 两个任意常数整合为 $k$ ，即可得到通解
 $$
 y^{*}\left(t\right)=\frac{c}{2}\left[e^{\left(t+k\right)/c}+e^{-\left(t+k\right)/c}\right]
 $$
