@@ -78,3 +78,9 @@ Recently, while browsing the library, seeing the densely packed borrowing record
 
 [^1]: Thanks to my high school history teacher for the gift.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fs/  
+

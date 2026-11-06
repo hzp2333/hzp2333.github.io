@@ -78,3 +78,9 @@ This survey was conducted at the village level, which made the social interactio
 [^4]: Actually, the first thing I thought of was the opening of Teletubbies🤪.
 [^5]: They are all true feelings. For example, I have no contact with society in school and I want to ask you for your experience. Although we have read some books, we have no life experience. It's amazing that your memory, body, and spirit are so good at your age. Do your children read to you? What a scholarly family!
 [^6]: The owner of the B&B is very kind. We were picked up and dropped off for free, and the food was so plentiful and delicious that we couldn’t finish it.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/mycc/  
+

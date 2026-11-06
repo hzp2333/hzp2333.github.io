@@ -106,3 +106,9 @@ That is survival philosophy. Some things have already been proven impossible, an
 
 [^3]: Honestly, online marketing is terrifying. *See You Tomorrow* has already been quietly forgotten in the corner and somehow rehabilitated.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/kj_2024/  
+

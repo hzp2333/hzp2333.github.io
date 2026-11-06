@@ -260,3 +260,9 @@ Finally, as a committed existentialist, Huaxiangshan has this to say:
 [^12]: I do not mean academic exchange alone. Heart-to-heart conversations with close friends are also good medicine for mental health.
 [^13]: Faking a paper like this is usually expensive.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fs3/  
+

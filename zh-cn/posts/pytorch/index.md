@@ -60,3 +60,9 @@ CUDA 官网下载后进行第一次下载地址选择。
 
 - [OSError: [WinError 126] The specified module could not be found]（ https://github.com/pytorch/pytorch/issues/131662 ）
 - [LeNet 学习笔记](https://blog.bdim.moe/zh/posts/2024-7-13/)
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/pytorch/  
+

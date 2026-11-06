@@ -70,3 +70,9 @@
 ![铁道遗迹](/img/华为.zh-cn-20240523102412792.webp)
 
 ![公园尽头的火车模型](/img/华为.zh-cn-20240523102350804.webp)
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/hw/  
+

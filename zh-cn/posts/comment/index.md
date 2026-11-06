@@ -96,3 +96,9 @@
 ## 注意版本控制
 
 严格按照以上方法，使用的 loveit 主题，却没有出现评论区。可能是版本不对。[Loveit](https://github.com/dillonzq/LoveIt) 页面，直接通过 code 下载解压。Release 部分的 latest 代码其实是落后几个版本的代码！不支持 giscus。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/comment/  
+

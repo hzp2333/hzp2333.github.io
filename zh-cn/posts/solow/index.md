@@ -452,3 +452,9 @@ axis([1 130 1 1.6])
 [^1]: 博客标签已经有 stata、python、R 了，这里添加一个 matlab。
 [^2]: solow 模型假设储蓄外生，且是单部门模型，这些成为后来模型的优化点。
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/solow/  
+

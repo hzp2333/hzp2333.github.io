@@ -298,3 +298,9 @@ npx skills add https://github.com/vercel-labs/skills --skill find-skills
 [^6]: token 烧的也快，我一个下午就烧完了送的第一个资源包。
 [^7]: 甚至可以考虑让 codex 具有 mcp claude code 的能力联合拷打代码。 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/stata_auto/  
+

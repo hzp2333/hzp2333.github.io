@@ -120,3 +120,9 @@
 那是一个少年奔跑的背影，在失去中探索，最终成为一个出色的大人吧。
 
 请一直奔跑吧，沿着企鹅公路，直到世界尽头！
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/penguin/  
+

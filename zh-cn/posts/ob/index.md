@@ -1,7 +1,6 @@
 # Obsidian 管理文献阅读和博客文档
 
 
-
 最近开始接触 Obsidian，在此记录使用流程。
 
 个人主要用 ob 编写管理博客文档和文献阅读笔记。
@@ -9,7 +8,6 @@
 ## Obsidian 和插件使用
 
 - 论坛： [https://forum-zh.obsidian.md/](https://forum-zh.obsidian.md/)
-
 - 推荐教程：[obsidian新手不完全指南](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/obsidian%E6%96%B0%E6%89%8B%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97+by+windily)
 
 Obsidian 代表<font color="#ff0000">双链</font>笔记理念——**让笔记文件能相互联系，进而构建知识网络**。对我而言，使用 obsidian 的唯一理由是它的无数神级插件，让笔记编写和整理成为一种享受！
@@ -29,14 +27,13 @@ Obsidian 代表<font color="#ff0000">双链</font>笔记理念——**让笔记�
 
 富人分屏（副屏），穷人分屏（复屏）😤
 
->Obsidian 文件设置：
+> Obsidian 文件设置：
 >
->替换仓库中 `.obsidian` 文件即可。
+> 替换仓库中 `.obsidian` 文件即可。
 >
->可在 github 仓库下载[我的`.obsidian`配置](https://github.com/hzp2333/hzp2333.github.io/blob/master/.obsidian)
+> 可在 github 仓库下载[我的`.obsidian`配置](https://github.com/hzp2333/hzp2333.github.io/blob/master/.obsidian)
 >
->下载后注意把其中 `themes.zip ` 解压一下。
-
+> 下载后注意把其中 `themes.zip ` 解压一下。
 
 每一个仓库设置是独立的！也就是说每个仓库可以设置完全不同的主题风格和插件！这一点很棒，比如编写博客文档和编写笔记文档的功能诉求是存在矛盾的，仓库的独立设置显得非常必要👍。
 
@@ -49,6 +46,7 @@ Obsidian 代表<font color="#ff0000">双链</font>笔记理念——**让笔记�
 - **文档属性**：在空白第一行连续输入三次短横线 `---` 即可添加文档属性。非空白第一行时 `---` 作用是添加**分界线**。
 - **标签添加**： `#标签1`、 `#标签2`
 - **链接**：
+
 ```obsidian
 链接到某一篇笔记：[[文件名]]
 链接到某一篇笔记中的某个标题：[[ # ]]
@@ -57,6 +55,7 @@ Obsidian 代表<font color="#ff0000">双链</font>笔记理念——**让笔记�
 链接到外部文件如印象笔记：[关键词]（链接）
 图片添加：![[]] 或者![图片标题](图片引用路径)
 ```
+
 ## 插件使用
 
 替换 `.obsidian` 文件后打开仓库，点击信任对方并关闭安全模式。
@@ -141,6 +140,7 @@ gryphe/mythomist-7b:free
 ```
 
 点击左侧竖条中的 copilot chat，右侧就会增加一个 ai 聊天框。而且自带读取笔记功能。
+
 ### 其他插件
 
 Better word count 插件：更好地统计中文字数（obsidian 右下角有字数统计）。
@@ -171,6 +171,7 @@ Obsdidian 的缺点之一就是麻烦且不稳定的多端互通（有钱上官�
 - [remotely插件搭配腾讯云cos教程 by 八宝周](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/remotely%E6%8F%92%E4%BB%B6%E6%90%AD%E9%85%8D%E8%85%BE%E8%AE%AF%E4%BA%91cos%E6%95%99%E7%A8%8B+by+%E5%85%AB%E5%AE%9D%E5%91%A8)：腾讯云，S3
 - [Obsidian通过Remotely save插件实现坚果云同步 by BCS](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E9%80%9A%E8%BF%87Remotely+save%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%9D%9A%E6%9E%9C%E4%BA%91%E5%90%8C%E6%AD%A5+by+BCS)：坚果云，webdav
 - [Obsidian使用Remotely Save 和阿里云 OSS 实现多平台同步 by zm](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E4%BD%BF%E7%94%A8Remotely+Save+%E5%92%8C%E9%98%BF%E9%87%8C%E4%BA%91+OSS+%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5+by+zm)：阿里云oss，S3
+
 ### PC和安卓同步 
 
 Win和安卓可以考虑 [Syncthing（同步软件）](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Syncthing%EF%BC%88%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6%EF%BC%89)或者类似的[微力同步](https://publish.obsidian.md/chinesehelp/03+%E6%95%99%E7%A8%8B/%E5%BE%AE%E5%8A%9B%E5%90%8C%E6%AD%A5)。可见[使用腾讯云搭建Syncthing来同步obsidian by 软通达](https://publish.obsidian.md/chinesehelp/03+%E6%95%99%E7%A8%8B/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E6%90%AD%E5%BB%BASyncthing%E6%9D%A5%E5%90%8C%E6%AD%A5obsidian+by+%E8%BD%AF%E9%80%9A%E8%BE%BE)。
@@ -185,6 +186,7 @@ Win和安卓可以考虑 [Syncthing（同步软件）](https://publish.obsidian.
 
 1. 不要两台机同时开着ob和同步软件，这样会导致保存出错。
 2. 注意分辨同步盘和储存盘（网盘）的区别。
+
 ## Hugo 与 obsidian
 
 推荐参考：
@@ -200,6 +202,7 @@ Win和安卓可以考虑 [Syncthing（同步软件）](https://publish.obsidian.
 值得一提的还有 mermaid 插件。Loveit 主题的 hugo 博客支持流程图渲染，有些流程图的细节命令我记不住可以使用这个插件辅助。
 
 我目前还是本地图片引用（就是喜欢本地管理😀），
+
 - **imge converter** 能自动压缩、重命名并转化图片格式；
 - **clear unsed images** 插件能帮助清理未被引用的本地图片。
 
@@ -217,7 +220,6 @@ Win和安卓可以考虑 [Syncthing（同步软件）](https://publish.obsidian.
 
 ![青柠学术的插件对接。想要图片丝滑无缝传递，无论如何都得搭建图床](/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp)
 
-
 到 2024 年，zotero 分为了 zotero6 和 zotero7 版本，且 zotero 插件 mdnote 的作者明确表态不会完善插件适配 zotero7。所以可选的方案更少了。
 
 个人目前也在用的其他免费方案是—— zotero 的 better note 插件加 obsidian 的 zotero integration 插件方案。
@@ -233,3 +235,10 @@ Win和安卓可以考虑 [Syncthing（同步软件）](https://publish.obsidian.
 不过 obsidian 被吐槽的点是——插件太多，功能太花哨，上手门槛也比较高，于是显得主次不分。不过到目前为止，我尚未用 obsidian 建立知识图谱，光是使用他来编辑文档就已经很舒服了。
 
 除此之外，obsidian 的初衷是构建知识体系。对于他人的使用分享，我受到启发的并不是他们的笔记美观程度，而是他们如何让利用 obsidian 贯彻自己的资料整理理念🦾。利用插件建立周期笔记轮替复习；建立关键词分块不断扩展；利用 obsidiana 联动工具完善自己的工作流程；笔记分块逻辑与设计结合......
+
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/ob/  
+

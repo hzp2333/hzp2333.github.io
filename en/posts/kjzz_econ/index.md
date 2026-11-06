@@ -162,3 +162,9 @@ So even with frictionless population mobility, the resulting urban pattern may s
 
 [^7]: Toda, A. A. (2017). "Zipf's Law: A Microfoundation." Available at SSRN 2808237.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/kjzz_econ/  
+

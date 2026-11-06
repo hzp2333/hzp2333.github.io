@@ -23,3 +23,9 @@ This is also why Wang Xiaobo opposed certain attempts to over-glorify "Sinology,
 
 I used to wonder why the phrase "because the mountain is there" is quoted so often. Now I understand: it captures a simple truth. The pursuit of answers does not always need a reason beyond itself. That is also what I hear in Wang Xiaobo. One day I will be gone, he says in effect, but as long as there are still people walking this road in search of truth, that alone is enough to make me happy.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/wxb/  
+

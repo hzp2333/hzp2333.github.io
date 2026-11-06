@@ -135,3 +135,9 @@ Well, let me say this: all those theories about Buddhist will, Yuan Hong, Guanyi
 **Unity of knowledge and action, unbound by Buddhism, unbound by Taoism, transcending the three realms, existing beyond the five elements.**
 
 —Only such a will is worthy of the Great Sage and the journey to the West.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/wk/  
+

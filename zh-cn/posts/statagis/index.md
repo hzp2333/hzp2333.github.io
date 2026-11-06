@@ -1,35 +1,25 @@
 # Stata 绘制 Gis 着色图
 
 
-
-
-
 今天这里记录的是用 Stata 画 Gis 着色图的过程。
 
 本文列举所有数据可在[仓库](https://github.com/hzp2333/STATAGIS)下载。
 
-## 获取地图文件 
+## 获取地图文件
 
 `ESRI Shapefile` 文件是由[美国环境系统研究所](https://www.esri.com/en-us/home)开发的空间地理数据。里面同时储存空间位置和特征数据。其基本文件主要为：
 
 - **主文件 （. Shp）：** 存储几何要素的的空间信息，也就是 XY 坐标。Gis 图片的地图轮廓信息就是这个文件储存的。
-
 - **表文件 （. Dbf）：** 存储地理数据的属性信息的 dBase 表。
-
 - **索引文件 （. Shx）：** 存储有关 .shp 存储的索引信息。它记录了在 .shp 中，空间数据是如何存储的，XY 坐标的输入点在哪里，有多少 XY 坐标对等信息。
 
 这里介绍写我找到的一些数据源：
 
 - [大饼的博客](http://gaohr.win/site/blogs/2017/2017-04-18-GIS-basic-data-of-China.html)
-
 - [全国地理信息资源目录服务系统](https://www.webmap.cn/main.do?method=index)
-
 - [GADM data](https://gadm.org/data.html)：国际地图很全。
-
 - [github随手找到的中国地图数据](https://github.com/GaryBikini/ChinaAdminDivisonSHP)
-
 - [Rstata资料](https://github.com/Wsf921109/stata-prov-map?tab=readme-ov-file)：中国地图省级分区。国内买课世界一流，个人觉得 stata 专题做得最好的是“连享会“和”Rstata“。即便我是坚定的~~白嫖~~开源主义，也经常看他们的科普文章学习 stata。此处是有好心人上传了 Rstata 相关的数据库。
-
 - [中科院地资所](https://www.resdc.cn/Default.aspx)：或许是国内的半官方？
 
   ![中科院地资所](/img/Stata绘制Gis着色图.zh-cn-20240523132141972.webp)
@@ -40,9 +30,9 @@
 
 下载好后进入[转化器](https://mapshaper.org/)转化。点击 `Select`，上传 `.json` 文件，然后点击 `export` 导出转化后的文件。
 
->似乎是因为数据编码或者加密，有时候转阿里云地图化的文件无法被 stata 读取。
+> 似乎是因为数据编码或者加密，有时候转阿里云地图化的文件无法被 stata 读取。
 >
->此时使用 `spshape2dta` 转化
+> 此时使用 `spshape2dta` 转化
 
 ## StataGis 初步操作
 
@@ -132,39 +122,27 @@ grmap digitization_level using 市_shp.dta  , ///
 以下参数解释由 GPT 3.5 给出，个人进行简单补充。
 
 - `grmap type`：指定图形类型为地图。
-
 - `using chinaprov40_coord.dta`：指定地图数据文件，包含省级行政区划的坐标信息。
-
 - `id(ID)`：指定地图数据中的唯一标识符变量。通过标识对应地图坐标和标签和数据。
-
 - `osize(vvthin ...)` 和 `ocolor(white ...)`：设置地图边界线的粗细和颜色。
-
 - `vvthin` 是 Stata 中一种预定义的线条样式，它表示非常细的线条。在绘制地图时，可以使用不同的线条粗细来区分不同的地理要素或边界。
 
   > 从细到粗排列为：vvthin、vthin、thin、medium、thick、vthick、vvthick。
-
+  >
 - `clmethod(custom)` 和 `clbreaks(0 1 2 3 4 5)`：自定义分类方法和分类间隔。这里对应的是省级分类，直辖市，省，特别行政区...
-
 - `fcolor(...)`：指定不同分类的填充颜色。
 
   > 例子中采用的是三元色定义表示，可以用 PPT 的颜色自定义查看颜色标识。
+  >
 
   ![三元色定义](/img/Stata绘制Gis着色图.zh-cn-20240523132227149.webp)
-
 - `leg(...)`：设置图例的顺序和标签。
-
 - `graphr(margin(medium))`：设置图形的边距。
-
 - `line(data(chinaprov40_line_coord.dta) by(group) ...)`：绘制地图边界线，指定边界线数据文件和颜色等属性。这里用的是九段线文件。
-
 - `polygon(data(polygon) fcolor(black) ...)`：绘制地图多边形，指定填充颜色和线条粗细等属性。这里是图例和指南针。
-
 - `label(data(chinaprov40_label) ...)`：标注地图上的标签，指定标签数据文件和标签文本等属性。`label(ename)` 是英文，`label(cnname)` 是中文。
-
 - `ti("一级标题: 2019 年中国省级行政区划")`：设置主标题。
-
 - `subti("二级标题")`：设置副标题。
-
 - `caption("使用 Stata 绘制中国省级地图", size(*0.8))`：设置图形的说明。
 
 ## 处理流程图
@@ -172,19 +150,18 @@ grmap digitization_level using 市_shp.dta  , ///
 > 地图线条数据（非必要）：例如山川、河流、山脉、九段线、秦岭淮河、胡焕庸线的线条。
 
 {{< mermaid >}}
-graph TD; 
-0(获取地图文件)==>1(地图主文件.Shp); 
+graph TD;
+0(获取地图文件)==>1(地图主文件.Shp);
 0(获取地图文件)==>11(线条主文件.Shp);
-0(获取地图文件)==>3(表文件.dbf); 
+0(获取地图文件)==>3(表文件.dbf);
 1(地图主文件.Shp)==转译==>2(地图轮廓数据);
 11(线条主文件.Shp)==转译==>9(地图线条数据);
-3(表文件.dbf)==转译==>4(标签文件); 
-5(数据分析文件)==>6(匹配文件); 
-4(标签数据)==>6(匹配文件); 6(匹配文件)==id标识==>7(画图); 
-2(地图轮廓数据)==id标识==>7(画图); 
+3(表文件.dbf)==转译==>4(标签文件);
+5(数据分析文件)==>6(匹配文件);
+4(标签数据)==>6(匹配文件); 6(匹配文件)==id标识==>7(画图);
+2(地图轮廓数据)==id标识==>7(画图);
 9(地图线条数据)==id标识==>7(画图)
-{{< /mermaid >}} 
-
+{{< /mermaid >}}
 
 看起来很复杂？这里给出简单的步骤概括：
 
@@ -285,6 +262,7 @@ gr export pic2.png, replace width(1200)
 ```
 
 ![使用 Stata 绘制 2019 年中国省级行政区划](/img/Stata绘制Gis着色图.zh-cn-20240523132257418.webp)
+
 ### 其他例子
 
 ```sql
@@ -658,7 +636,6 @@ geoplot (area regions fortell, label("@lb-@ub (N=@n)")) (line regions)
     , legend compass sbar(length(300) units(km))
 ```
 
-
 ![气泡图](/img/Stata绘制Gis着色图.zh-cn-20240523132340342.webp)
 
 1. `(area regions)`：绘制地图区域，表示地理区域的边界或范围。
@@ -685,7 +662,8 @@ geoplot (area regions)                                           ///
 - `(pie regions relig1 relig2 relig3 if id==1, lab(, reverse))`：在特定区域绘制饼图，但只对 `id==1` 的区域进行绘制。饼图中包含 `relig1`、`relig2` 和 `relig3` 变量的数据，标签反向显示。
 - `, legend(pos(se) rowgap(1))`：设置图例位置为东南方向，行间距为 `1`。
 - `zoom(4/5: 6 90 210)`：设置地图的放大比例为 `4/5`，并指定地图显示的范围。
-![局部放大和饼图](/img/Stata绘制Gis着色图.zh-cn-20240523132359071.webp)
+  ![局部放大和饼图](/img/Stata绘制Gis着色图.zh-cn-20240523132359071.webp)
+
 ## 地图使用规范
 
 [自然资源部关于印发《公开地图内容表示规范》的通知](https://www.gov.cn/gongbao/content/2023/content_5752310.htm)
@@ -708,4 +686,10 @@ geoplot (area regions)                                           ///
 > 官方是不提供 shap 文件的，只提供 eps 和 jpg 文件。
 >
 > 市面上流行的 shap 官方文件都是个人制作，需要仔细辨别。
+
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/statagis/  
 

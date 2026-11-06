@@ -89,3 +89,9 @@ Despite the controversies inherent in such cases, the process of debate and lega
     
 [^6]: Each individual has a reference point when making judgments.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/sfjs-en/  
+

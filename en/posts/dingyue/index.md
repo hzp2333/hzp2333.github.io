@@ -69,3 +69,9 @@ The usage method is to download from the bottom browser."
 
 Each plugin in the software corresponds to scraping resources from a website.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/dingyue/  
+

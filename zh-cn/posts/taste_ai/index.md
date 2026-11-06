@@ -1,7 +1,7 @@
 # 哥白尼时刻与学术品味
 
 
-{{< music url="/music/Travelers_encore.mp3" name="Travelers_encore" artist="星际拓荒" cover="/images/星际拓荒.webp" >}} 
+{{< music url="/music/Travelers_encore.mp3" name="Travelers_encore" artist="星际拓荒" cover="/images/星际拓荒.webp" >}}
 
 当我们讨论 AI 能干什么时，我们其实在重新讨论：**人在研究中的独特性究竟在哪里**。
 
@@ -74,7 +74,6 @@
 
 “品味”在这里的含义更像是胜利者的一种发言而已，但这并不代表胜利者自己就能完全解释自己胜利的原因。
 
-
 ## 正确与错误
 
 陶哲轩有一段话非常精彩：
@@ -99,18 +98,17 @@
 这段话点出了微观层面的另一个事实：**科学不只是发现过程，也是组织过程** 。
 
 一个经典问题是：
+
 - [杨振宁谈数学本质究竟是发现还是创造](https://www.bilibili.com/video/BV1Cy4y1M7hj/?spm_id_from=333.337.search-card.all.click&vd_source=0e137afa81fa006aaa9f39b597699a06)。
 - [如何判断一部作品是否「原创」？（选答：如何看待「没有真正的原创，一切都是混搭」的观点？）？](https://www.zhihu.com/question/401277188)
 
 数据不会自动说服人。一个理论即便在某种意义上更接近真理，也仍然需要被解释、被传播、被学习、被纳入课程、被写进论文、被投入新的研究资源。即便在实证经济学中，p 值也只是诸多必要条件中的一个检验参数[^3]；我们真正需要说服别人的，是这些必要条件的组合为什么足够可信。参见《[经济学的修辞](https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/)》和《[实证经济学：符合直觉≠显而易见](https://blog.huaxiangshan.com/zh-cn/posts/fs2/)》。
-
 
 例如，我们围绕同一个选题——长期使用 ai 容易导致人的脑力（或者技能、注意力之类的）退化。我们可以同时在统计学、经济学、生命科学、医学找到主题一样的话题。但是方法不同、叙事角度不同。甚至同样的话题，有些人就能包装为顶刊，有些人却只能发水区，其中的差异远比所谓品味的该研究什么更大。
 
 科研品味在宏观上也存在一种矛盾。我们从小接受的科普精神是，**任何微不足道的现象背后存在着深刻的奥秘**。而品味一词容易被异化为——单纯把某某方向的研究看作无聊对象的倾向。
 
 ![宏观经济的微观基础？](/img/科研品味与ai.zh-cn-1775300898050.webp)
-
 
 微观层面的“品味”带着明显的共同体色彩。它不仅是个人判断，也是一种学科内部的俱乐部文化：什么问题值得做，什么证据算关键，什么表达算严肃，什么假设被认为“自然”，这些都不是纯粹个人决定的。
 
@@ -159,16 +157,22 @@ AI 带来的变化，也许是：
 ## 其他推荐的阅读材料
 
 - [在 AI 时代教计量经济学](https://mp.weixin.qq.com/s/XvOtDKTJTsb9uUHyM6vdMw)
-- [Some Thoughts on AI and Research](https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf)
+- [Some Thoughts on AI and Research](<https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_1.pdf>)
 - [The Consequences of Abundant Intelligence](https://www.citriniresearch.com/p/2028gic)
 - [数学品味可以量化吗？](https://zhuanlan.zhihu.com/p/2034764658003943982)
 - [如果论文的主要读者不再是人](https://zhuanlan.zhihu.com/p/2040070769791787736)
 - [科学进步只能靠“熬走”老一代？《Science》研究揭开学术界残酷真相](https://mp.weixin.qq.com/s/06jBFVLBsxNIPXGZbfNkBg)
 - [从同行评审到团队构建：14篇科学学论文揭示科学不平等的起源](https://mp.weixin.qq.com/s/38kByFRW9xdzrmO5bCFBYg)
 
-
-
 [^3]: 一个有趣的哲学实验是：统计证据能否直接充当法律证据？数学模型与概率模型的证明方式究竟有什么不同？
+    
 [^4]: 凯恩斯：长期来看，我们都会死
+    
 [^5]: 至少个人感觉，在评估任何问题该不该研究上，需要有敬畏之心
+
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/taste_ai/  
 

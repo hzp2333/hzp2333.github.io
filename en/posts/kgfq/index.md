@@ -370,3 +370,9 @@ Divided into two parts: necessary operations for obtaining scores and non-essent
 - Stata's pca command automatically standardizes data, so no additional preprocessing is needed.
 - Negative indicators in the analysis data need to be transformed into positive indicators: $\small 1-x_{negative\ indicator}, \small \frac{1}{x_{negative\ indicator}}......$
 - The principal component method provides principal components $PC_k$, meaning n indicators are decomposed into k principal components,
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/kgfq/  
+

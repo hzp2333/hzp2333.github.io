@@ -201,3 +201,9 @@ These lemmas are based on envelope analysis in mathematical economics. The dual 
 [^2]: The lecture notes are famous, but I haven't finished reading them yet.
 
 [^3]: Incidentally, for such constrained problems, cost minimization is equivalent to profit maximization, and the problems can be transformed into each other.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E7%BD%97%E4%BC%8A%E9%9C%8D%E5%A4%AA%E6%9E%97%E8%B0%A2%E6%B3%BC%E5%BE%B7/  
+

@@ -148,3 +148,9 @@ The most concentrated complaints about title evaluation on Ask Sichuan Governmen
 
 [^10]: In rural areas there are still many schools that integrate primary and junior secondary education.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/zcpx/  
+

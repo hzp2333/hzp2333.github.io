@@ -51,3 +51,9 @@ I believe that aesthetic appreciation in art is also a process of interaction be
 
 The main benefit an artist or authority brings is simply that their status allows us to have the patience to think about and try to understand their actions. Therefore, when facing artists, we choose to think rather than blindly follow them.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/art/  
+

@@ -1,8 +1,6 @@
 # 聚合订阅：影视、漫画、文献、音乐自由
 
 
-
-
 各主流期刊必有网站，世界上也有许多隐秘的漫画、动漫、影视剧资源网站，唯一的问题就是网站之间资源不同且较为隐蔽。那么，有没有可能搞一个网站再聚合所有我们想要的网站呢？这就是聚合订阅！很多大佬开发了工具使得我们能通过一个软件直接抓取这些网站，实现资源的一键订阅和使用。
 
 资源网站只解决燃眉之急，如果支持喜爱某个作品还请支持正版。
@@ -83,7 +81,7 @@ Tachiyomi 的好处是可以对接正版软件。例如我付费购买过《一�
 
 能通过插件聚合 Bilibili（提取视频声音）、网易云、QQ、咕咪、酷狗。
 
->终于能集中整理 B 站很多鬼畜视频或者原创 MV 的声音了
+> 终于能集中整理 B 站很多鬼畜视频或者原创 MV 的声音了
 
 - [GITHUB 项目地址](https://github.com/maotoumao/MusicFree)
 - [官网](https://musicfree.catcat.work/)
@@ -99,6 +97,7 @@ https://musicfreepluginshub.2020818.xyz/plugins.json
 ```
 
 国际用户：
+
 ```
 https://musicfreepluginshub.pages.dev/plugins.json
 ```
@@ -108,3 +107,10 @@ https://musicfreepluginshub.pages.dev/plugins.json
 最后推荐一个开源的截图软件。能截图后置顶，便于工作。
 
 [SETUNA2](https://github.com/tylearymf/SETUNA2)
+
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/dingyue/  
+

@@ -498,3 +498,9 @@ loadingplot, factors(4) yline(0) xline(0) //荷载图
 [^2]: Shannon, C. E. （2001）. A mathematical theory of communication. ACM SIGMOBILE mobile computing and communications review, 5 （1）, 3-55.
 [^3]:https://en.wikipedia.org/wiki/Entropy\_(information\_theory)
 [^4]: [https://mp.weixin.qq.com/s/H-wFZOxWPUdwJBkpASu8bw](https://mp.weixin.qq.com/s/H-wFZOxWPUdwJBkpASu8bw)
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/kgfq/  
+

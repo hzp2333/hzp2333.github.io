@@ -73,3 +73,9 @@
 [^2]: 景区们门打开是因为山上的工作人员下来修山路。
 [^3]: 吃起来和山楂没啥差别的样子
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/rose/  
+

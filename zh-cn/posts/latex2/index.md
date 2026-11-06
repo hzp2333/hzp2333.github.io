@@ -166,3 +166,9 @@ Tikzedit 就像一个即时编译的 tex，页面也和 tex 完全一致
 
 ```
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/latex2/  
+

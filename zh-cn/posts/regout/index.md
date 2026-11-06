@@ -260,3 +260,9 @@ shellout animals.svg
 [^2]: 相关系数似乎只有 logout 能做到输出
 [^3]: 之前的所有命令在加载中文变量名称时都会出现乱码
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/regout/  
+

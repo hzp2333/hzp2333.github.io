@@ -453,3 +453,9 @@ _*Basic Econometrics*_ (Gujarati)
 
 
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/ji_sata/  
+

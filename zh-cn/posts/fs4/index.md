@@ -84,3 +84,9 @@
 [^3]: 就我个人的看法而言，偶然性中总是存在一些必然性——总有人会中彩票，只是那个人不一定是你罢了。
 [^4]: 人，千万别过度为难自己
 [^5]: 所谓的前瞻的道德观
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/fs4/  
+

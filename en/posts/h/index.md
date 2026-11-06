@@ -38,3 +38,9 @@ The clash of reality with primal social beliefs creates contradictions, unraveli
 >
 
 In this extended process, why did Ma Zhe collapse? If a person refuses to acknowledge the disorder and chaos of suffering, then any small chaos in life will become a fuse that ignites his world - even though we all know it's not his fault, but deeper still, the suffering of life often has no source of retaliation or accountability. We cannot hold life and suffering accountable when there is no object, so resentment can only stop with someone who stubbornly believes in rationality. The river is the link of fate, and the heavy rain is the curtain of the stage, so we made mistakes by the river, which is the arrogance of thinking that we can understand fate - **we selfishly refuse to believe in a life that can drive people insane**.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/h/  
+

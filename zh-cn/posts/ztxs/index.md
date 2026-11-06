@@ -97,3 +97,9 @@
 [^3]: 怀恋高中看《风声》的时光。
 [^4]: 冷知识：“神探狄仁杰”原著作者为荷兰人[高罗佩](https://en.wikipedia.org/wiki/Robert_van_Gulik)
 [^5]: 个人找到的这句话的源为一篇[知乎文章](https://zhuanlan.zhihu.com/p/284278220)，但不能确认到底是否为源头。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/ztxs/  
+

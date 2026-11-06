@@ -138,3 +138,9 @@ While we're here, I also recommend Liu Qian's interview with Luo Yonghao: [【Fu
 [^3]: This technique also shows up in Liu Qian's magic lessons. It is crucial to make the audience believe a miracle happened while overlooking the ordinary little details.
 [^5]: In the first two performances, Liu Qian actually does touch the cards; they use gimmicked cards.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/bgls/  
+

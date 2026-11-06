@@ -174,3 +174,9 @@
 **发扬存在主义，人类中心主义思想！**
 
 **付出真心，求得所偿，又有何妨？**
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/zyw/  
+

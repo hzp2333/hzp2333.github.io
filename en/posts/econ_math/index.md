@@ -122,3 +122,9 @@ The successful mathematics in economics is actually an abstraction of the essenc
 [^6]: His more famous story is the U.S. military survivor bias, which was also a multiple-choice question in the 2017 college entrance exam.
 [^7]: Phillips curve, the trade-off between inflation and unemployment.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/econ_math/  
+

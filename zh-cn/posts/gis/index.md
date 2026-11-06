@@ -176,3 +176,9 @@ Tif 属于栅格数据，插入-迭代器-栅格
 - 数据文件命名不结构化，例如一会儿同时出现了 `1990pop.tif` 和 `pop1998.tif`
 - Result 文件夹和 tif 文件夹最好保持在同一层次的目录里。
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/gis/  
+

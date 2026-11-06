@@ -312,3 +312,9 @@ if __name__ == '__main__':
 
 更多讨论详见：[原神概率论](https://zhuanlan.zhihu.com/p/648950822?)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/genshin/  
+

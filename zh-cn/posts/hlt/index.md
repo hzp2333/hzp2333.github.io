@@ -280,3 +280,9 @@ $$
 [^12]: Fang H, Qiu X. “Golden Ages”: A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 （4）: 665-706.
 [^13]: 下载后解压后缀名换成 zip 就行，是 statado 文件和相关论文的 pdf
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/hlt/  
+

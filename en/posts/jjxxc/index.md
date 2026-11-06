@@ -167,3 +167,9 @@ But rhetoric stands on the opposite side of modernism, and it unquestionably off
 [^4]: This view is a little too freewheeling for my taste.
 [^5]: Coase was trained in law
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/jjxxc/  
+

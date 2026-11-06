@@ -170,3 +170,9 @@ TexStudio supports inline preview. `Alt+P` to start, but it may conflict with ot
 - [Advanced features](https://texstudio-org.github.io/advanced.html#personal-macros)
 - [TexStudio Macro Script Writing-2022-4-24 16:48:09](https://www.bilibili.com/video/BV1uA4y1X7Ji/?spm_id_from=333.1391.0.0&vd_source=0e137afa81fa006aaa9f39b597699a06)
 - [Installing Language Tool in TexStudio](https://tex.stackexchange.com/questions/155148/installing-language-tool-in-texstudio)
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/texstudio/  
+

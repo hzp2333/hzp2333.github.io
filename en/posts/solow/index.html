@@ -1,0 +1,655 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>Solow Model MATLAB Simulation Code - 滑翔闪'S BLOG</title><meta name=author content="滑翔闪"><meta name=description content="MATLAB simulation code for the Solow model, covering convergence and shock dynamics"><meta name=robots content="index, follow, max-image-preview:large"><meta name=keywords content='MATLAB,Economic Growth'><meta itemprop=name content="Solow Model MATLAB Simulation Code"><meta itemprop=description content="MATLAB simulation code for the Solow model, covering convergence and shock dynamics"><meta itemprop=datePublished content="2025-03-02T23:02:19+08:00"><meta itemprop=dateModified content="2025-03-02T23:02:19+08:00"><meta itemprop=wordCount content="3160"><meta itemprop=keywords content="MATLAB,Economic Growth"><meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/solow/"><meta property="og:site_name" content="滑翔闪'S BLOG"><meta property="og:title" content="Solow Model MATLAB Simulation Code"><meta property="og:description" content="MATLAB simulation code for the Solow model, covering convergence and shock dynamics"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-03-02T23:02:19+08:00"><meta property="article:modified_time" content="2025-03-02T23:02:19+08:00"><meta property="article:tag" content="MATLAB"><meta property="article:tag" content="Economic Growth"><meta name=twitter:card content="summary"><meta name=twitter:title content="Solow Model MATLAB Simulation Code"><meta name=twitter:description content="MATLAB simulation code for the Solow model, covering convergence and shock dynamics"><meta name=twitter:creator content="@ygVNLSZ1omFBCeB"><meta name=application-name content="滑翔闪'S BLOG"><meta name=apple-mobile-web-app-title content="滑翔闪'S BLOG"><meta name=theme-color data-light=#f6f8fa data-dark=#151b23 content="#f6f8fa"><meta name=msapplication-TileColor content="#2d89ef"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#FF7359><link rel=canonical type=text/html href=https://blog.huaxiangshan.com/en/posts/solow/ title="Solow Model MATLAB Simulation Code - 滑翔闪'S BLOG"><link rel=prev type=text/html href=https://blog.huaxiangshan.com/en/posts/ztxs/ title="The modernity of detective fiction"><link rel=next type=text/html href=https://blog.huaxiangshan.com/en/posts/zcpg/ title="Distortion or Surprise: Making Policy Evaluation Interesting"><link rel=alternate type=text/markdown href=https://blog.huaxiangshan.com/en/posts/solow/index.md><link rel=stylesheet href=/css/unocss.min.css><link rel=stylesheet href=/css/main.min.css><link rel=stylesheet href=/css/pages/posts.min.css><link rel=stylesheet href=/css/custom.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><link rel=preload href=/js/main.min.js as=script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Solow Model MATLAB Simulation Code","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.huaxiangshan.com\/en\/posts\/solow\/"},"genre":"posts","keywords":"MATLAB, Economic Growth","wordcount":3160,"url":"https:\/\/blog.huaxiangshan.com\/en\/posts\/solow\/","datePublished":"2025-03-02T23:02:19+08:00","dateModified":"2025-03-02T23:02:19+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"滑翔闪"},"description":""}</script><script src=/js/head.min.js></script></head><body data-instant-intensity=viewport data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=32 width=32><span class=typeit data-group=header-desktop><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><nav class=nav-main aria-label="Main menu"><ul class=menu><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies has-children"><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a><button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-desktop-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-desktop-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li></ul></nav><nav class=nav-system aria-label="Site controls"><ul class=menu><li class="menu-item delimiter"></li><li class="menu-item search"><button type=button class="search-trigger desktop" aria-label=Search title=Search>
+<i class="fa-solid fa-search" aria-hidden=true></i>
+Search
+<kbd></kbd></button></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch-item"><button type=button class=theme-switch aria-label="Switch Theme" title="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button></li><li class="menu-item language-switch"><button type=button data-submenu-toggle aria-label="Select Language" title="Select Language" aria-expanded=false aria-controls=fi-submenu-language-desktop><i class="fa-solid fa-language" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-language-desktop><li class=menu-item><a href=/zh-cn/posts/solow/ class=menu-link title=简体中文>简体中文</a></li><li class=menu-item><span class=text-secondary title=English>English</span></li></ul></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=26 width=26><span class=typeit data-group=header-mobile><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><button type=button class="search-trigger mobile" aria-label=Search><i class="fa-solid fa-search" aria-hidden=true></i></button><button type=button class=theme-switch aria-label="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button>
+<button type=button class=menu-toggle id=menu-toggle-mobile aria-controls=menu-mobile aria-expanded=false aria-labelledby=menu-mobile>
+<span></span><span></span><span></span></button></div><nav><ul class=menu id=menu-mobile><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies"><span class=nested-item><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a>
+<button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-mobile-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></button></span><ul class=sub-menu id=fi-submenu-mobile-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li><li class="menu-item menu-system"><span class="menu-system-item language-switch"><button type=button aria-label="Select Language" title="Select Language">English<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button>
+<select id=language-select class=language-select onchange="location=this.value"><option value=/zh-cn/posts/solow/>简体中文</option><option value=/en/posts/solow/ selected disabled>English</option></select></span></li></ul></nav></div></header><main class=fi-container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=Collections></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Solow Model MATLAB Simulation Code</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/hzp2333/hzp2333.github.io title=Author target=_blank rel="author external nofollow noopener noreferrer" class=author><img class=avatar src=/images/avatar.png alt=滑翔闪 height=16 width=16>&nbsp;滑翔闪</a></span><span class=post-included-in>&nbsp;included in <a href=/en/categories/software-tools/ class=post-category title="Category - Software Tools"><i class="fa-regular fa-folder" aria-hidden=true></i> Software Tools</a>&ensp;<a href=/en/categories/economic-studies/ class=post-category title="Category - Economic Studies"><i class="fa-regular fa-folder" aria-hidden=true></i> Economic Studies</a></span></div><div class=post-meta-line><span title="published on 2025-03-02 23:02:19"><i class="fa-solid fa-calendar-days me-1" aria-hidden=true></i><time datetime=2025-03-02>2025-03-02</time></span>&nbsp;<span title="3160 words"><i class="fa-solid fa-pencil me-1" aria-hidden=true></i>About 3200 words</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden=true></i>7 minutes</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title="Solow Model MATLAB Simulation Code"><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;views
+</span>&nbsp;</div></div><div class=featured-image><img loading=eager src=/img/solow.zh-cn-20250302234858768.webp sizes="(max-width: 679.9px) 100vw, (max-width: 959.9px) 80vw, (max-width: 1439.9px) 56vw, 800px" alt=/img/solow.zh-cn-20250302234858768.webp></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static></div></div><template data-toc><nav id=TableOfContents><ol><li><a href=#the-idea-of-the-solow-model>The Idea of the Solow Model</a></li><li><a href=#matlab-convergence-plot>MATLAB Convergence Plot</a></li><li><a href=#matlab-phase-diagram-different-initial-capital>MATLAB Phase Diagram: Different Initial Capital</a></li><li><a href=#matlab-shock-plot-different-saving-rates>MATLAB Shock Plot: Different Saving Rates</a></li></ol></nav></template><div class=content id=content><blockquote><p>&ldquo;Once you start thinking about (how the economy grows), you can&rsquo;t think about anything else.&rdquo;</p><p>— Robert E. Lucas</p></blockquote><h2 class=heading-element id=the-idea-of-the-solow-model><span>The Idea of the Solow Model</span>
+<a href=#the-idea-of-the-solow-model class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>Robert Merton Solow, the 1987 Nobel laureate in economics, passed away on December 21, 2023, at the age of 99. This blog post was written in his memory<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><p><figure><a class=lightgallery target=_blank href=/img/solow.zh-cn-20250309205914362.webp title="Source: Wikipedia" data-thumbnail=/img/solow.zh-cn-20250309205914362.webp data-sub-html="<h2>Source: Wikipedia</h2>"><img loading=lazy src=/img/solow.zh-cn-20250309205914362.webp alt="Source: Wikipedia"></a><figcaption class=image-caption>Source: Wikipedia</figcaption></figure></p><p>Although the Solow model&rsquo;s assumptions are fairly strict<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and it has since given way to later models, he pioneered the neoclassical analytical paradigm of &ldquo;economic growth&rdquo;, and the &ldquo;<strong>total factor productivity</strong>&rdquo; (the Solow residual) that his conclusions produced has become one of the most important evaluation indicators of a contemporary economy.</p><p>Its conceptual framework is:</p><ol><li>Decompose the contribution to economic growth (output) into several basic factors: labor, capital, technological progress, population growth&mldr;</li><li>The process of economic growth is the process of factor changes; we can try to characterize the dynamic process of factor growth.</li><li>There is convergence in the dynamic changes of factors; the time-path of a factor moving from non-convergence to convergence is a balanced growth path of an economy.</li></ol>$$\dot{k}=f(k)$$<p>Take the formula above, for example; simply put, it characterizes the relationship between the per-capita capital <strong>growth rate</strong> ($\dot{k}$) and the <strong>per-capita</strong> capital <strong>stock</strong> (${k}$).</p><p><strong>Convergence</strong> means that after per-capita capital grows to a certain level, the growth rate becomes hard to increase further and instead approaches 0. In the formula, this is: $△k=0=\dot{k}=f(k)$.</p><blockquote><p>Like the Malthusian population trap: when per-capita income rises, people get richer and are more likely to have children; the population grows, and per-capita income falls. When per-capita income falls, people get poorer and have fewer children; the population shrinks, and per-capita income rises again. This back-and-forth — the process that makes per-capita income <strong>tend toward stability</strong> — is the process in which per-capita income and its growth rate restrain each other.</p><p>The Solow model does further decomposition on top of this.</p><ul><li>A lower starting point means progress may be faster; a higher starting point means progress may be slower.</li><li>What the Solow model tries to explain is the phenomenon that &ldquo;low-income countries develop faster than high-income countries in the early stage&rdquo;. For example, after World War II, postwar Asian countries entered a golden age of development. After the war people preferred saving, which also inspired Solow to assume an exogenous saving rate.</li><li>The convergence property of the Solow model later inspired scholars to discuss whether the economic levels of high-income and developing countries would converge. See another blog post, <em><a href=https://blog.huaxiangshan.com/zh-cn/posts/shounian/>Convergence: From the &ldquo;Limit of a Formula&rdquo; to the &ldquo;Limit of Growth&rdquo;</a></em>.</li></ul></blockquote><p>Here I mainly introduce the MATLAB plotting code, so I won&rsquo;t go into the mathematical proof.
+For a more detailed explanation of the Solow model, see:</p><ul><li><a href=https://blog.econfinny.com/2024/11/17/solow-model/ target=_blank rel="external nofollow noopener noreferrer">Solow Model<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li><li><a href=https://mp.weixin.qq.com/s/fhhiaZrmlYW70oibSTagWA target=_blank rel="external nofollow noopener noreferrer">Intermediate Macroeconomics | Lecture 3: The Solow Growth Model<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li><li><a href=https://zhuanlan.zhihu.com/p/613416303 target=_blank rel="external nofollow noopener noreferrer">Advanced Macroeconomics Notes (Romer Edition)<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li></ul><div class="details admonition note"><div class="details-summary admonition-title"><i class="icon fa-solid fa-pencil" aria-hidden=true></i>Speedrun for Test-Takers<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>The two core steady states of the Solow model:</p><p>Solving for the steady state:</p>$$
+\dot{k}=sf(k)-(n+\delta)k=0
+$$<p>Solving for the golden rule:</p>$$
+f^{\prime}(k_{\mathrm{gold}})=n+\delta
+$$</div></div></div><h2 class=heading-element id=matlab-convergence-plot><span>MATLAB Convergence Plot</span>
+<a href=#matlab-convergence-plot class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p><figure><a class=lightgallery target=_blank href=/img/solow.zh-cn-20250302213518789.webp title="As shown, an economy’s per-capita capital k converges to the intersection point in the figure|585" data-thumbnail=/img/solow.zh-cn-20250302213518789.webp data-sub-html="<h2>As shown, an economy&rsquo;s per-capita capital k converges to the intersection point in the figure|585</h2>"><img loading=lazy src=/img/solow.zh-cn-20250302213518789.webp alt="As shown, an economy’s per-capita capital k converges to the intersection point in the figure|585"></a><figcaption class=image-caption>As shown, an economy&rsquo;s per-capita capital k converges to the intersection point in the figure|585</figcaption></figure></p><p>The plotting code is divided into four parts:</p><ol><li>Set parameters: initial per-capita capital, depreciation rate, saving rate, technological progress rate, total factor productivity growth rate, population growth rate, number of periods, and capital input elasticity.</li></ol><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=n>t</span><span class=p>=</span><span class=mi>100</span><span class=p>;</span> <span class=c>% number of periods</span>
+</span></span><span class=line><span class=cl><span class=n>kmax</span><span class=p>=</span><span class=mi>200</span><span class=p>;</span> <span class=c>% maximum capital per worker</span>
+</span></span><span class=line><span class=cl><span class=n>alpha</span><span class=p>=</span><span class=mf>0.3</span><span class=p>;</span> <span class=c>% elasticity of output with respect to capital input</span>
+</span></span><span class=line><span class=cl><span class=n>s</span><span class=p>=</span><span class=mf>0.5</span><span class=p>;</span> <span class=c>% marginal propensity to save</span>
+</span></span><span class=line><span class=cl><span class=n>n</span><span class=p>=</span><span class=mf>0.02</span><span class=p>;</span> <span class=c>% population growth rate</span>
+</span></span><span class=line><span class=cl><span class=n>d</span><span class=p>=</span><span class=mf>0.01</span><span class=p>;</span> <span class=c>% capital depreciation rate</span>
+</span></span><span class=line><span class=cl><span class=n>A0</span><span class=p>=</span><span class=mi>2</span><span class=p>;</span> <span class=c>% total factor productivity</span>
+</span></span><span class=line><span class=cl><span class=n>K</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>kmax</span><span class=p>;</span> <span class=c>% capital level per worker (horizontal axis)</span></span></span></code></pre></td></tr></table></div></div></div><div class="details admonition note"><div class="details-summary admonition-title"><i class="icon fa-solid fa-pencil" aria-hidden=true></i>Parameter Controversies<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>Very often, the most controversial part of a macro model is the parameters. Improvements in mathematical models, empirical evidence from micro data, statistical methods, and our understanding of the roles of factors all affect the range of parameter values.</div></div></div><ol start=2><li>Set the functions:
+$$f(k)=Ak^\alpha$$
+$$\dot{k_t}=sf(k_t)-(n+g+d)k_t$$</li></ol><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=k>for</span> <span class=n>k1</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>kmax</span> <span class=c>% loop along the horizontal axis to compute the function values</span>
+</span></span><span class=line><span class=cl><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=</span><span class=n>A0</span><span class=o>*</span><span class=p>(</span><span class=n>k1</span>^<span class=n>alpha</span><span class=p>);</span> <span class=c>% total production function</span>
+</span></span><span class=line><span class=cl><span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=</span><span class=n>s</span><span class=o>*</span><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>);</span> <span class=c>% actual investment</span>
+</span></span><span class=line><span class=cl><span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k1</span><span class=p>;</span> <span class=c>% required investment</span>
+</span></span><span class=line><span class=cl><span class=k>end</span></span></span></code></pre></td></tr></table></div></div></div><ol start=3><li>Convergence condition:
+naturally, this is $\dot{k_t}=sf(k_t)-(n+g+d)k_t=0$. So the logic of the code below is to compare <code>sy(k1,1)</code> and <code>nd(k1,1)</code>. When they are not equal, it increases or decreases per-capita capital $k$ based on the greater-than or less-than sign.</li></ol><div class="details admonition bug"><div class="details-summary admonition-title"><i class="icon fa-solid fa-bug" aria-hidden=true></i>The discrete case with population growth and technological progress<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>Here we set the capital motion equation to $\dot{k_t}=sf(k_t)-(n+g+d)k_t$, and based on its sign we set k to increase or decrease by one.</p><p>Actually, when considering the discrete case, the most precise expression is:</p>$$\dot{k_t}=\frac{sf(k_t)-dk_t}{1+g+n}$$<p>that is:</p>$${k_{t+1}}=\frac{sf(k_t)+(1-d)k_t}{1+n+g}$$<p>The equilibrium condition means ${k_{t+1}}={k_{t}}$; substituting and simplifying, only at equilibrium convergence can it be simplified to $0=\dot{k_t}=sf(k_t)-(n+g+d)k_t$. But out of equilibrium ($\dot{k_t} \neq 0$), writing the motion equation as $\dot{k_t}=sf(k_t)-(n+g+d)k_t$ is not rigorous.</p></div></div></div><div class="details admonition note"><div class="details-summary admonition-title"><i class="icon fa-solid fa-pencil" aria-hidden=true></i>Macro: Python or MATLAB?<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>For economics, both R and MATLAB are close to being defeated by Python. The remaining advantage of R is that statisticians at top journals will prioritize developing R packages.</p><p>Like Stata, MATLAB still holds the mainstream for now because most papers distribute code as <code>.m</code> and <code>.do</code> files. As models get more complex, Python has a bigger advantage in <strong>optimizing code</strong> and <strong>tuning algorithms</strong> for computation. I have seen quite a few new researchers doing macro models online starting to switch from MATLAB to Python to optimize their computation.</p></div></div></div><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=k>if</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=o>&gt;</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=c>% decide based on the differential equation&#39;s result</span>
+</span></span><span class=line><span class=cl><span class=n>k1</span><span class=p>=</span><span class=n>k1</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>elseif</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=o>&lt;</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>k1</span><span class=p>=</span><span class=n>k1</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>end</span></span></span></code></pre></td></tr></table></div></div></div><ol start=4><li>Plotting code</li></ol><p>For example:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=n>scatter</span><span class=p>(</span><span class=n>K</span><span class=p>,</span><span class=n>y</span><span class=p>,</span> <span class=s>&#39;.&#39;</span><span class=p>);</span> <span class=c>%plot per-capita capital (horizontal axis) and function values</span></span></span></code></pre></td></tr></table></div></div></div><p>The complete code is as follows:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=3 style=--fi-max-shown-lines:20;--fi-line-digit:3;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=c>%% solow neoclassical growth model</span>
+</span></span><span class=line><span class=cl><span class=c>% a MATLAB dynamic simulation</span>
+</span></span><span class=line><span class=cl><span class=c>%% convergence simulation</span>
+</span></span><span class=line><span class=cl><span class=c>%% original code: https://github.com/DiegoCiccia/SolowGrowthModel/blob/main/solow.m</span>
+</span></span><span class=line><span class=cl><span class=c>% uncomment the commented parts below to compare the convergence of two economies starting from two different initial positions.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%%————————————parameter settings——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>t</span><span class=p>=</span><span class=mi>100</span><span class=p>;</span> <span class=c>% number of periods</span>
+</span></span><span class=line><span class=cl><span class=n>kmax</span><span class=p>=</span><span class=mi>200</span><span class=p>;</span> <span class=c>% maximum capital per worker</span>
+</span></span><span class=line><span class=cl><span class=n>alpha</span><span class=p>=</span><span class=mf>0.3</span><span class=p>;</span> <span class=c>% elasticity of output with respect to capital input</span>
+</span></span><span class=line><span class=cl><span class=n>s</span><span class=p>=</span><span class=mf>0.5</span><span class=p>;</span> <span class=c>% marginal propensity to save</span>
+</span></span><span class=line><span class=cl><span class=n>n</span><span class=p>=</span><span class=mf>0.02</span><span class=p>;</span> <span class=c>% population growth rate</span>
+</span></span><span class=line><span class=cl><span class=n>d</span><span class=p>=</span><span class=mf>0.01</span><span class=p>;</span> <span class=c>% capital depreciation rate</span>
+</span></span><span class=line><span class=cl><span class=n>A0</span><span class=p>=</span><span class=mi>2</span><span class=p>;</span> <span class=c>% total factor productivity</span>
+</span></span><span class=line><span class=cl><span class=n>K</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>kmax</span><span class=p>;</span> <span class=c>% capital level per worker (horizontal axis)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span><span class=p>=</span><span class=nb>zeros</span><span class=p>(</span><span class=nb>length</span><span class=p>(</span><span class=n>K</span><span class=p>),</span><span class=mi>1</span><span class=p>);</span> <span class=c>% output array</span>
+</span></span><span class=line><span class=cl><span class=n>sy</span><span class=p>=</span><span class=nb>zeros</span><span class=p>(</span><span class=nb>length</span><span class=p>(</span><span class=n>K</span><span class=p>),</span><span class=mi>1</span><span class=p>);</span> <span class=c>% actual investment array</span>
+</span></span><span class=line><span class=cl><span class=n>nd</span><span class=p>=</span><span class=nb>zeros</span><span class=p>(</span><span class=nb>length</span><span class=p>(</span><span class=n>K</span><span class=p>),</span><span class=mi>1</span><span class=p>);</span> <span class=c>% required investment array</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%%————————————formula definition——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>k1</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>kmax</span>
+</span></span><span class=line><span class=cl>	<span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=</span><span class=n>A0</span><span class=o>*</span><span class=p>(</span><span class=n>k1</span>^<span class=n>alpha</span><span class=p>);</span> <span class=c>% total production function</span>
+</span></span><span class=line><span class=cl>	<span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=</span><span class=n>s</span><span class=o>*</span><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>);</span> <span class=c>% actual investment</span>
+</span></span><span class=line><span class=cl>	<span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)=(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k1</span><span class=p>;</span> <span class=c>% required investment</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%%————————————plotting——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>scatter</span><span class=p>(</span><span class=n>K</span><span class=p>,</span><span class=n>y</span><span class=p>,</span> <span class=s>&#39;.&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>text</span><span class=p>(</span><span class=n>max</span><span class=p>(</span><span class=n>K</span><span class=p>)</span><span class=o>-</span><span class=mi>20</span><span class=p>,</span> <span class=n>max</span><span class=p>(</span><span class=n>y</span><span class=p>)</span><span class=o>-</span><span class=mf>0.5</span><span class=p>,</span> <span class=s>&#39;f(k)&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>title</span><span class=p>(</span><span class=s>&#39;solow 新古典增长模型&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;k&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>ylabel</span><span class=p>(</span><span class=s>&#39;y&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>hold</span> <span class=n>on</span>
+</span></span><span class=line><span class=cl><span class=n>grid</span> <span class=n>on</span>
+</span></span><span class=line><span class=cl><span class=n>scatter</span><span class=p>(</span><span class=n>K</span><span class=p>,</span><span class=n>sy</span><span class=p>,</span><span class=s>&#39;.&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>text</span><span class=p>(</span><span class=n>max</span><span class=p>(</span><span class=n>K</span><span class=p>)</span><span class=o>-</span><span class=mi>20</span><span class=p>,</span> <span class=n>sy</span><span class=p>(</span><span class=n>kmax</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span><span class=o>+</span><span class=mf>0.2</span><span class=p>,</span> <span class=s>&#39;sf(k)&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>scatter</span><span class=p>(</span><span class=n>K</span><span class=p>,</span><span class=n>nd</span><span class=p>,</span><span class=s>&#39;.&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>text</span><span class=p>(</span><span class=n>max</span><span class=p>(</span><span class=n>K</span><span class=p>)</span><span class=o>-</span><span class=mi>20</span><span class=p>,</span> <span class=n>nd</span><span class=p>(</span><span class=n>kmax</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span><span class=o>+</span><span class=mf>0.2</span><span class=p>,</span> <span class=s>&#39;(n + d)k&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>k1</span><span class=p>=</span><span class=mi>50</span><span class=p>;</span> <span class=c>% initial capital (first economy)</span>
+</span></span><span class=line><span class=cl><span class=c>% k2=200; % initial capital (second economy)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nb>i</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>t</span>
+</span></span><span class=line><span class=cl><span class=n>u</span><span class=p>=</span><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=n>k1</span><span class=p>],[</span><span class=mi>0</span><span class=p>,</span><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>);</span> <span class=c>% draw the vertical line for the current capital</span>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>l</span><span class=p>=</span><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>);</span> <span class=c>% draw the horizontal line for the current output</span>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>m</span><span class=p>=</span><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>);</span> <span class=c>% draw the horizontal line for actual investment</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>n</span><span class=p>=</span><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>);</span> <span class=c>% draw the horizontal line for required investment</span>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>delete</span><span class=p>(</span><span class=n>u</span><span class=p>);</span> <span class=c>% delete the vertical line</span>
+</span></span><span class=line><span class=cl><span class=n>delete</span><span class=p>(</span><span class=n>l</span><span class=p>);</span> <span class=c>% delete the horizontal line</span>
+</span></span><span class=line><span class=cl><span class=n>delete</span><span class=p>(</span><span class=n>m</span><span class=p>);</span> <span class=c>% delete the actual-investment horizontal line</span>
+</span></span><span class=line><span class=cl><span class=n>delete</span><span class=p>(</span><span class=n>n</span><span class=p>);</span> <span class=c>% delete the required-investment horizontal line</span>
+</span></span><span class=line><span class=cl><span class=n>o</span><span class=p>=</span><span class=n>text</span><span class=p>(</span><span class=n>mean</span><span class=p>(</span><span class=n>K</span><span class=p>),</span><span class=n>mean</span><span class=p>(</span><span class=n>y</span><span class=p>),[</span><span class=s>&#39;t = &#39;</span><span class=p>,</span> <span class=n>num2str</span><span class=p>(</span><span class=nb>i</span><span class=p>)]);</span> <span class=c>% display the current period</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>delete</span><span class=p>(</span><span class=n>o</span><span class=p>);</span> <span class=c>% delete the displayed period text</span>
+</span></span><span class=line><span class=cl><span class=c>% u=plot([k2,k2],[0,y(k2,1)], &#39;b--&#39;); % draw the second economy&#39;s current capital vertical line</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% l=plot([k2,0],[y(k2,1), y(k2,1)], &#39;b--&#39;); % draw the horizontal line for the second economy&#39;s current output</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% m=plot([k2,0],[sy(k2,1), sy(k2,1)], &#39;b--&#39;); % draw the horizontal line for the second economy&#39;s actual investment</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% n=plot([k2,0],[nd(k2,1), nd(k2,1)], &#39;b--&#39;); % draw the horizontal line for the second economy&#39;s required investment</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% delete(u); % delete the vertical line</span>
+</span></span><span class=line><span class=cl><span class=c>% delete(l); % delete the horizontal line</span>
+</span></span><span class=line><span class=cl><span class=c>% delete(m); % delete the actual-investment horizontal line</span>
+</span></span><span class=line><span class=cl><span class=c>% delete(n); % delete the required-investment horizontal line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=o>&gt;</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=c>% decide based on the differential equation&#39;s result</span>
+</span></span><span class=line><span class=cl>	<span class=n>k1</span><span class=p>=</span><span class=n>k1</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>elseif</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=o>&lt;</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=n>k1</span><span class=p>=</span><span class=n>k1</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% if sy(k2,1) &gt; nd(k2,1) % decide for the second economy based on the differential equation&#39;s result</span>
+</span></span><span class=line><span class=cl><span class=c>% k2=k2+1;</span>
+</span></span><span class=line><span class=cl><span class=c>% elseif sy(k2,1) &lt; nd(k2,1)</span>
+</span></span><span class=line><span class=cl><span class=c>% k2=k2-1;</span>
+</span></span><span class=line><span class=cl><span class=c>% end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nb>i</span><span class=o>==</span><span class=n>t</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=n>k1</span><span class=p>],[</span><span class=mi>0</span><span class=p>,</span> <span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>)</span> <span class=c>% last draw of the first economy&#39;s capital vertical line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>y</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>)</span> <span class=c>% last draw of the first economy&#39;s output horizontal line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>sy</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>)</span> <span class=c>% last draw of the first economy&#39;s actual-investment horizontal line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>([</span><span class=n>k1</span><span class=p>,</span><span class=mi>0</span><span class=p>],[</span><span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>nd</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span><span class=mi>1</span><span class=p>)],</span> <span class=s>&#39;k--&#39;</span><span class=p>)</span> <span class=c>% last draw of the first economy&#39;s required-investment horizontal line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% plot([k2,k2],[0, y(k2,1)], &#39;b--&#39;) % last draw of the second economy&#39;s capital vertical line</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% plot([k2,0],[y(k2,1), y(k2,1)], &#39;b--&#39;) % last draw of the second economy&#39;s output horizontal line</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% plot([k2,0],[sy(k2,1), sy(k2,1)], &#39;b--&#39;) % last draw of the second economy&#39;s actual-investment horizontal line</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl><span class=c>% plot([k2,0],[nd(k2,1), nd(k2,1)], &#39;b--&#39;) % last draw of the second economy&#39;s required-investment horizontal line</span>
+</span></span><span class=line><span class=cl><span class=c>% drawnow</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>text</span><span class=p>(</span><span class=n>mean</span><span class=p>(</span><span class=n>K</span><span class=p>),</span><span class=n>mean</span><span class=p>(</span><span class=n>y</span><span class=p>),[</span><span class=s>&#39;t = &#39;</span><span class=p>,</span> <span class=n>num2str</span><span class=p>(</span><span class=n>t</span><span class=p>)])</span> <span class=c>% display the final period</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><h2 class=heading-element id=matlab-phase-diagram-different-initial-capital><span>MATLAB Phase Diagram: Different Initial Capital</span>
+<a href=#matlab-phase-diagram-different-initial-capital class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>Compare two economies with all other parameters identical, differing only in <strong>initial per-capita capital</strong> $k_1$ (and thus in convergence direction).</p><p>Under the given parameters, the Solow model&rsquo;s per-capita capital converges to a level of 149.8. So if a country&rsquo;s initial per-capita capital is above this value, it will fall; if below, it will rise.</p><p><figure><a class=lightgallery target=_blank href=/img/solow.zh-cn-20250303112806996.webp title="As shown" data-thumbnail=/img/solow.zh-cn-20250303112806996.webp data-sub-html="<h2>As shown</h2>"><img loading=lazy src=/img/solow.zh-cn-20250303112806996.webp alt="As shown"></a><figcaption class=image-caption>As shown</figcaption></figure></p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=3 style=--fi-max-shown-lines:20;--fi-line-digit:3;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=c>%% Solow neoclassical growth model example</span>
+</span></span><span class=line><span class=cl><span class=c>% 1. capital convergence curves for two initial values</span>
+</span></span><span class=line><span class=cl><span class=c>% 2. phase diagram: the relationship between \dot{k} and k (with arrows marking direction)</span>
+</span></span><span class=line><span class=cl><span class=c>% here I reuse the parameters set in the previous section&#39;s code</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>clear</span><span class=p>;</span> <span class=n>clc</span><span class=p>;</span> <span class=n>close</span> <span class=n>all</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%% =============== parameter settings ===============</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>t</span> <span class=p>=</span> <span class=mi>400</span><span class=p>;</span> <span class=c>% total number of simulation periods</span>
+</span></span><span class=line><span class=cl><span class=n>alpha</span> <span class=p>=</span> <span class=mf>0.3</span><span class=p>;</span> <span class=c>% elasticity of output with respect to capital</span>
+</span></span><span class=line><span class=cl><span class=n>s</span> <span class=p>=</span> <span class=mf>0.5</span><span class=p>;</span> <span class=c>% saving rate</span>
+</span></span><span class=line><span class=cl><span class=n>n</span> <span class=p>=</span> <span class=mf>0.02</span><span class=p>;</span> <span class=c>% population growth rate</span>
+</span></span><span class=line><span class=cl><span class=n>d</span> <span class=p>=</span> <span class=mf>0.01</span><span class=p>;</span> <span class=c>% depreciation rate</span>
+</span></span><span class=line><span class=cl><span class=n>A0</span> <span class=p>=</span> <span class=mi>2</span><span class=p>;</span> <span class=c>% total factor productivity</span>
+</span></span><span class=line><span class=cl><span class=n>kmax</span> <span class=p>=</span> <span class=mi>250</span><span class=p>;</span> <span class=c>% capital display range (dynamically adjusted based on simulation results)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%% =============== convergence simulation with different initial values ===============</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>k1_init</span> <span class=p>=</span> <span class=mi>100</span><span class=p>;</span> <span class=c>% economy 1 initial capital</span>
+</span></span><span class=line><span class=cl><span class=n>k2_init</span> <span class=p>=</span> <span class=mi>200</span><span class=p>;</span> <span class=c>% economy 2 initial capital</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% preallocation</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>k1</span> <span class=p>=</span> <span class=nb>zeros</span><span class=p>(</span><span class=n>t</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>k2</span> <span class=p>=</span> <span class=nb>zeros</span><span class=p>(</span><span class=n>t</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>k1</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span> <span class=p>=</span> <span class=n>k1_init</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>k2</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span> <span class=p>=</span> <span class=n>k2_init</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% iteratively update the capital level</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nb>i</span> <span class=p>=</span> <span class=mi>1</span><span class=p>:</span><span class=n>t</span>
+</span></span><span class=line><span class=cl>	<span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=p>=</span> <span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=p>)</span> <span class=o>+</span> <span class=n>s</span><span class=o>*</span><span class=n>A0</span><span class=o>*</span><span class=p>(</span><span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=p>)</span>^<span class=n>alpha</span><span class=p>)</span> <span class=o>-</span> <span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=p>=</span> <span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=p>)</span> <span class=o>+</span> <span class=n>s</span><span class=o>*</span><span class=n>A0</span><span class=o>*</span><span class=p>(</span><span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=p>)</span>^<span class=n>alpha</span><span class=p>)</span> <span class=o>-</span> <span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% dynamically adjust the display range</span>
+</span></span><span class=line><span class=cl><span class=n>kmax</span> <span class=p>=</span> <span class=n>max</span><span class=p>([</span><span class=n>k1</span><span class=p>;</span> <span class=n>k2</span><span class=p>])</span> <span class=o>*</span> <span class=mf>1.1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%% =============== 1) draw the convergence plot ===============</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>figure</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=mi>0</span><span class=p>:</span><span class=n>t</span><span class=p>,</span> <span class=n>k1</span><span class=p>,</span> <span class=s>&#39;r-&#39;</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span> <span class=n>hold</span> <span class=n>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=mi>0</span><span class=p>:</span><span class=n>t</span><span class=p>,</span> <span class=n>k2</span><span class=p>,</span> <span class=s>&#39;b-&#39;</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;时间&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>ylabel</span><span class=p>(</span><span class=s>&#39;人均资本 k&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>title</span><span class=p>(</span><span class=s>&#39;资本收敛过程&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>14</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>legend</span><span class=p>(</span><span class=n>sprintf</span><span class=p>(</span><span class=s>&#39;初始k=%.0f&#39;</span><span class=p>,</span> <span class=n>k1_init</span><span class=p>),</span> <span class=n>sprintf</span><span class=p>(</span><span class=s>&#39;初始k=%.0f&#39;</span><span class=p>,</span> <span class=n>k2_init</span><span class=p>),</span> <span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=s>&#39;Location&#39;</span><span class=p>,</span><span class=s>&#39;best&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>grid</span> <span class=n>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>set</span><span class=p>(</span><span class=n>gca</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%% =============== 2) draw the phase diagram ( \dot{k} vs k ) ===============</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% prepare the phase-diagram data</span>
+</span></span><span class=line><span class=cl><span class=n>k_cont</span> <span class=p>=</span> <span class=nb>linspace</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>kmax</span><span class=p>);</span> <span class=c>% continuous capital values</span>
+</span></span><span class=line><span class=cl><span class=n>f_k</span> <span class=p>=</span> <span class=n>A0</span> <span class=o>*</span> <span class=n>k_cont</span><span class=o>.^</span><span class=n>alpha</span><span class=p>;</span> <span class=c>% production function</span>
+</span></span><span class=line><span class=cl><span class=n>sy</span> <span class=p>=</span> <span class=n>s</span> <span class=o>*</span> <span class=n>f_k</span><span class=p>;</span> <span class=c>% actual investment</span>
+</span></span><span class=line><span class=cl><span class=n>nd</span> <span class=p>=</span> <span class=p>(</span><span class=n>n</span> <span class=o>+</span> <span class=n>d</span><span class=p>)</span> <span class=o>*</span> <span class=n>k_cont</span><span class=p>;</span> <span class=c>% required investment</span>
+</span></span><span class=line><span class=cl><span class=n>dotk</span> <span class=p>=</span> <span class=n>sy</span> <span class=o>-</span> <span class=n>nd</span><span class=p>;</span> <span class=c>% capital change rate</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% compute the trajectory data</span>
+</span></span><span class=line><span class=cl><span class=n>dotk1</span> <span class=p>=</span> <span class=n>s</span><span class=o>*</span><span class=n>A0</span><span class=o>*</span><span class=n>k1</span><span class=o>.^</span><span class=n>alpha</span> <span class=o>-</span> <span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>dotk2</span> <span class=p>=</span> <span class=n>s</span><span class=o>*</span><span class=n>A0</span><span class=o>*</span><span class=n>k2</span><span class=o>.^</span><span class=n>alpha</span> <span class=o>-</span> <span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>)</span><span class=o>*</span><span class=n>k2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% compute the steady-state value</span>
+</span></span><span class=line><span class=cl><span class=n>k_star</span> <span class=p>=</span> <span class=p>(</span><span class=n>s</span><span class=o>*</span><span class=n>A0</span><span class=o>/</span><span class=p>(</span><span class=n>n</span><span class=o>+</span><span class=n>d</span><span class=p>))</span>^<span class=p>(</span><span class=mi>1</span><span class=o>/</span><span class=p>(</span><span class=mi>1</span><span class=o>-</span><span class=n>alpha</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=n>figure</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 1) draw the main phase-diagram curve</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>k_cont</span><span class=p>,</span> <span class=n>dotk</span><span class=p>,</span> <span class=s>&#39;k-&#39;</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span> <span class=n>hold</span> <span class=n>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 2) draw the steady-state line</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>([</span><span class=mi>0</span> <span class=n>kmax</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span> <span class=mi>0</span><span class=p>],</span> <span class=s>&#39;k--&#39;</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 3) draw the steady-state marker</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>k_star</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=s>&#39;mo&#39;</span><span class=p>,</span> <span class=s>&#39;MarkerSize&#39;</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=s>&#39;MarkerFaceColor&#39;</span><span class=p>,</span> <span class=s>&#39;m&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 4) draw the trajectory points</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>k1</span><span class=p>,</span> <span class=n>dotk1</span><span class=p>,</span> <span class=s>&#39;r.-&#39;</span><span class=p>,</span> <span class=s>&#39;MarkerSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>k2</span><span class=p>,</span> <span class=n>dotk2</span><span class=p>,</span> <span class=s>&#39;b.-&#39;</span><span class=p>,</span> <span class=s>&#39;MarkerSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 5) add the trajectory arrows</span>
+</span></span><span class=line><span class=cl><span class=n>arrow_step</span> <span class=p>=</span> <span class=mi>20</span><span class=p>;</span> <span class=c>% arrow interval step</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% economy 1 arrows</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nb>i</span> <span class=p>=</span> <span class=mi>1</span><span class=p>:</span><span class=n>arrow_step</span><span class=p>:</span><span class=nb>length</span><span class=p>(</span><span class=n>k1</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>	<span class=n>quiver</span><span class=p>(</span><span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span> <span class=n>dotk1</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span><span class=c>...</span>
+</span></span><span class=line><span class=cl>	<span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=o>-</span><span class=n>k1</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span> <span class=n>dotk1</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=o>-</span><span class=n>dotk1</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span><span class=c>...</span>
+</span></span><span class=line><span class=cl>	<span class=mi>0</span><span class=p>,</span> <span class=s>&#39;Color&#39;</span><span class=p>,</span> <span class=s>&#39;r&#39;</span><span class=p>,</span> <span class=s>&#39;MaxHeadSize&#39;</span><span class=p>,</span> <span class=mf>1.5</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% economy 2 arrows</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nb>i</span> <span class=p>=</span> <span class=mi>1</span><span class=p>:</span><span class=n>arrow_step</span><span class=p>:</span><span class=nb>length</span><span class=p>(</span><span class=n>k2</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>	<span class=n>quiver</span><span class=p>(</span><span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span> <span class=n>dotk2</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span><span class=c>...</span>
+</span></span><span class=line><span class=cl>	<span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=o>-</span><span class=n>k2</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span> <span class=n>dotk2</span><span class=p>(</span><span class=nb>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=o>-</span><span class=n>dotk2</span><span class=p>(</span><span class=nb>i</span><span class=p>),</span><span class=c>...</span>
+</span></span><span class=line><span class=cl>	<span class=mi>0</span><span class=p>,</span> <span class=s>&#39;Color&#39;</span><span class=p>,</span> <span class=s>&#39;b&#39;</span><span class=p>,</span> <span class=s>&#39;MaxHeadSize&#39;</span><span class=p>,</span> <span class=mf>1.5</span><span class=p>,</span> <span class=s>&#39;LineWidth&#39;</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>% 6) graph annotations</span>
+</span></span><span class=line><span class=cl><span class=n>title</span><span class=p>(</span><span class=s>&#39;相图: 资本动态变化&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>14</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;人均资本 k&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>ylabel</span><span class=p>(</span><span class=s>&#39;资本变化率 $\dot{k}$&#39;</span><span class=p>,</span> <span class=s>&#39;Interpreter&#39;</span><span class=p>,</span> <span class=s>&#39;latex&#39;</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>12</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>legend</span><span class=p>(</span><span class=s>&#39;$\dot{k} = s f(k) - (n + \delta)k$&#39;</span><span class=p>,</span><span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=s>&#39;稳态线 ($\dot{k}=0$)&#39;</span><span class=p>,</span><span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=n>sprintf</span><span class=p>(</span><span class=s>&#39;稳态 k* = %.1f&#39;</span><span class=p>,</span> <span class=n>k_star</span><span class=p>),</span><span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=s>&#39;经济体1：k初始值100&#39;</span><span class=p>,</span><span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=s>&#39;经济体2：k初始值200&#39;</span><span class=p>,</span><span class=c>...</span>
+</span></span><span class=line><span class=cl><span class=s>&#39;Location&#39;</span><span class=p>,</span><span class=s>&#39;best&#39;</span><span class=p>,</span> <span class=s>&#39;Interpreter&#39;</span><span class=p>,</span> <span class=s>&#39;latex&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>grid</span> <span class=n>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>set</span><span class=p>(</span><span class=n>gca</span><span class=p>,</span> <span class=s>&#39;FontSize&#39;</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>xlim</span><span class=p>([</span><span class=mi>0</span> <span class=n>kmax</span><span class=p>])</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><h2 class=heading-element id=matlab-shock-plot-different-saving-rates><span>MATLAB Shock Plot: Different Saving Rates</span>
+<a href=#matlab-shock-plot-different-saving-rates class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>The core figure of modern macro DSGE models is one that shows how factors change after being hit by a shock.</p><p>The Solow model assumes the saving rate is exogenous. The code below assumes an initial saving rate of 0.4; with an initial per-capita capital of 6, the saving rate is later adjusted to 0.5.</p><p>What it finally computes is per-capita capital, per-capita output, the per-capita output growth rate (take logs of output then first-difference: $\log y_t-\log y_{t-1}\approx\frac{y_t-y_{t-1}}{y_{t-1}}$), and per-capita consumption.</p><p><figure><a class=lightgallery target=_blank href=/img/solow.zh-cn-20250302234730892.webp title="The saving rate is adjusted at period 10" data-thumbnail=/img/solow.zh-cn-20250302234730892.webp data-sub-html="<h2>The saving rate is adjusted at period 10</h2>"><img loading=lazy src=/img/solow.zh-cn-20250302234730892.webp alt="The saving rate is adjusted at period 10"></a><figcaption class=image-caption>The saving rate is adjusted at period 10</figcaption></figure></p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-matlab"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-matlab data-lang=matlab><span class=line><span class=cl><span class=n>clear</span> <span class=n>all</span>
+</span></span><span class=line><span class=cl><span class=n>clc</span>
+</span></span><span class=line><span class=cl><span class=c>%%————————————parameter settings——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>alpha</span><span class=p>=</span><span class=mf>0.5</span><span class=p>;</span> <span class=c>% elasticity of output with respect to capital</span>
+</span></span><span class=line><span class=cl><span class=n>delta</span><span class=p>=</span><span class=mf>0.1</span><span class=p>;</span> <span class=c>% depreciation rate</span>
+</span></span><span class=line><span class=cl><span class=n>g</span><span class=p>=</span><span class=mf>0.05</span><span class=p>;</span> <span class=c>% technological progress rate</span>
+</span></span><span class=line><span class=cl><span class=n>n</span><span class=p>=</span><span class=mf>0.02</span><span class=p>;</span> <span class=c>% population growth rate</span>
+</span></span><span class=line><span class=cl><span class=n>s</span><span class=p>=</span><span class=mf>0.5</span><span class=p>;</span> <span class=c>% saving rate (exogenous)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>k_ss</span><span class=p>=(</span><span class=n>s</span><span class=o>/</span><span class=p>(</span><span class=n>delta</span><span class=o>+</span><span class=n>g</span><span class=o>+</span><span class=n>n</span><span class=p>))</span>^<span class=p>(</span><span class=mi>1</span><span class=o>/</span><span class=p>(</span><span class=mi>1</span><span class=o>-</span><span class=n>alpha</span><span class=p>));</span> <span class=c>% solve for the steady state</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>T</span><span class=p>=</span><span class=mi>1000</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>kt</span><span class=p>(</span><span class=mi>1</span><span class=p>)=</span><span class=mi>6</span><span class=p>;</span> <span class=c>% initial value of per-capita capital k</span>
+</span></span><span class=line><span class=cl><span class=n>yt</span><span class=p>(</span><span class=mi>1</span><span class=p>)=</span><span class=n>kt</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>^<span class=n>alpha</span><span class=p>;</span> <span class=c>% initial value of per-capita output y</span>
+</span></span><span class=line><span class=cl><span class=n>ct</span><span class=p>(</span><span class=mi>1</span><span class=p>)=(</span><span class=mi>1</span><span class=o>-</span><span class=mf>0.4</span><span class=p>)</span><span class=o>*</span><span class=n>yt</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span> <span class=c>% initial consumption c; the Solow model assumes exogenous saving, and here the initial saving rate is 0.4</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%%————————————function settings——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nb>j</span> <span class=p>=</span> <span class=mi>2</span><span class=p>:</span><span class=n>T</span>
+</span></span><span class=line><span class=cl><span class=n>kt</span><span class=p>(</span><span class=nb>j</span><span class=p>)</span> <span class=p>=</span> <span class=p>(</span><span class=n>s</span> <span class=o>*</span> <span class=n>kt</span><span class=p>(</span><span class=nb>j</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>^<span class=n>alpha</span> <span class=o>+</span> <span class=p>(</span><span class=mi>1</span> <span class=o>-</span> <span class=n>delta</span><span class=p>)</span> <span class=o>*</span> <span class=n>kt</span><span class=p>(</span><span class=nb>j</span><span class=o>-</span><span class=mi>1</span><span class=p>))</span> <span class=o>/</span> <span class=p>(</span><span class=mi>1</span> <span class=o>+</span> <span class=n>g</span> <span class=o>+</span> <span class=n>n</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>yt</span><span class=p>(</span><span class=nb>j</span><span class=p>)=</span><span class=n>kt</span><span class=p>(</span><span class=nb>j</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>^<span class=n>alpha</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>ct</span><span class=p>(</span><span class=nb>j</span><span class=p>)=(</span><span class=mi>1</span><span class=o>-</span><span class=n>s</span><span class=p>)</span><span class=o>*</span><span class=n>yt</span><span class=p>(</span><span class=nb>j</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>%%————————————plotting——————————————%%</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>tt</span><span class=p>=</span><span class=mi>120</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>t</span><span class=p>=</span><span class=mi>1</span><span class=p>:</span><span class=n>tt</span><span class=o>+</span><span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>subplot</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span> <span class=c>% divide into four rows and one column, plot in the first row</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,[</span><span class=n>kt</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>10</span><span class=p>)</span> <span class=n>kt</span><span class=p>(</span><span class=mi>1</span><span class=p>:</span><span class=n>tt</span><span class=p>)],</span><span class=s>&#39;-&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c>% kt(1)*ones(1,10) artificially fills the first 10 points with the initial data</span>
+</span></span><span class=line><span class=cl><span class=n>hold</span> <span class=n>on</span> <span class=c>% keep the current figure and continue plotting</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,</span><span class=n>k_ss</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=n>tt</span><span class=o>+</span><span class=mi>10</span><span class=p>),</span><span class=s>&#39;--&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>grid</span> <span class=n>on</span> <span class=c>% turn on the grid</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;k_{t}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>axis</span><span class=p>([</span><span class=mi>1</span> <span class=mi>130</span> <span class=mi>5</span> <span class=mi>9</span><span class=p>])</span> <span class=c>% the minimum and maximum ranges of the x and y axes, respectively</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>subplot</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,[</span><span class=n>yt</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>10</span><span class=p>)</span> <span class=n>yt</span><span class=p>(</span><span class=mi>1</span><span class=p>:</span><span class=n>tt</span><span class=p>)],</span><span class=s>&#39;-&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>hold</span> <span class=n>on</span> <span class=p>;</span> <span class=n>grid</span> <span class=n>on</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,</span><span class=n>k_ss</span>^<span class=n>alpha</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=n>tt</span><span class=o>+</span><span class=mi>10</span><span class=p>),</span><span class=s>&#39;--&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;y_{t}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>axis</span><span class=p>([</span><span class=mi>1</span> <span class=mi>130</span> <span class=mi>2</span> <span class=mi>3</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>subplot</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>gy</span><span class=p>=</span><span class=n>diff</span><span class=p>(</span><span class=nb>log</span><span class=p>(</span><span class=n>yt</span><span class=p>(</span><span class=mi>1</span><span class=p>:</span><span class=n>tt</span><span class=o>+</span><span class=mi>1</span><span class=p>)));</span> <span class=c>% take the log and then first-difference</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,[</span><span class=nb>zeros</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>10</span><span class=p>)</span> <span class=n>gy</span><span class=p>],</span><span class=s>&#39;-&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>hold</span> <span class=n>on</span> <span class=p>;</span> <span class=n>grid</span> <span class=n>on</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,</span><span class=nb>zeros</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=n>tt</span><span class=o>+</span><span class=mi>10</span><span class=p>),</span><span class=s>&#39;--&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;gy_{t}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>axis</span><span class=p>([</span><span class=mi>1</span> <span class=mi>130</span> <span class=o>-</span><span class=mf>0.01</span> <span class=mf>0.025</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>subplot</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,[</span><span class=n>ct</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>10</span><span class=p>)</span> <span class=n>ct</span><span class=p>(</span><span class=mi>1</span><span class=p>:</span><span class=n>tt</span><span class=p>)],</span><span class=s>&#39;-&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>hold</span> <span class=n>on</span> <span class=p>;</span> <span class=n>grid</span> <span class=n>on</span>
+</span></span><span class=line><span class=cl><span class=n>plot</span><span class=p>(</span><span class=n>t</span><span class=p>,(</span><span class=mi>1</span><span class=o>-</span><span class=n>s</span><span class=p>)</span><span class=o>*</span><span class=n>k_ss</span>^<span class=n>alpha</span><span class=o>*</span><span class=nb>ones</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=n>tt</span><span class=o>+</span><span class=mi>10</span><span class=p>),</span><span class=s>&#39;--&#39;</span><span class=p>,</span><span class=s>&#39;LineWidth&#39;</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>xlabel</span><span class=p>(</span><span class=s>&#39;c_{t}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>axis</span><span class=p>([</span><span class=mi>1</span> <span class=mi>130</span> <span class=mi>1</span> <span class=mf>1.6</span><span class=p>])</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>The blog tags already have Stata, Python, and R; here I&rsquo;m adding MATLAB.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>The Solow model assumes exogenous saving and is a single-sector model; these became points for later models to improve on.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="Updated on 2025-03-02 23:02:19">Updated on 2025-03-02&nbsp;</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/en/posts/solow/index.md title="Read Markdown" class=link-to-markdown>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on X" data-sharer=twitter data-url=https://blog.huaxiangshan.com/en/posts/solow/ data-title="Solow Model MATLAB Simulation Code" data-via=ygVNLSZ1omFBCeB data-hashtags="MATLAB,Economic Growth"><i class="fa-brands fa-x-twitter" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.huaxiangshan.com/en/posts/solow/ data-hashtag=MATLAB><i class="fa-brands fa-facebook-square" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://blog.huaxiangshan.com/en/posts/solow/ data-title="Solow Model MATLAB Simulation Code"><i class="fa-brands fa-hacker-news" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.huaxiangshan.com/en/posts/solow/ data-title="Solow Model MATLAB Simulation Code"><svg class="icon" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+<a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.huaxiangshan.com/en/posts/solow/ data-title="Solow Model MATLAB Simulation Code" data-image=/img/solow.zh-cn-20250302234858768.webp><i class="fa-brands fa-weibo" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags me-1" aria-hidden=true></i><a href=/en/tags/matlab/ class=post-tag title="Tags - MATLAB">MATLAB</a><a href=/en/tags/economic-growth/ class=post-tag title="Tags - Economic Growth">Economic Growth</a></section><section class=post-actions><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>
+<span class=separator aria-hidden=true></span>
+<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/posts/ztxs/ class=post-nav-item rel=prev title="The modernity of detective fiction"><i class="fa-solid fa-angle-left" aria-hidden=true></i>The modernity of detective fiction</a><a href=/en/posts/zcpg/ class=post-nav-item rel=next title="Distortion or Surprise: Making Policy Evaluation Interesting">Distortion or Surprise: Making Policy Evaluation Interesting<i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></div></article><aside class="toc animate__animated animate__fadeIn animate__faster" id=toc-auto aria-label=Contents><h2 class=toc-title><span>Contents<i class="toc-icon fa-solid fa-angle-down ms-1" aria-hidden=true></i></span>
+<button type=button class=toc-print-btn onclick=event.stopPropagation(),window.print() aria-label=Print><i class="fa-solid fa-print" aria-hidden=true></i></button></h2><div class=toc-content id=toc-content-auto></div></aside></main><div id=comments><div id=giscus class=comment><script src=https://giscus.app/client.js data-repo=hzp2333/Giscus data-repo-id=R_kgDOLbBjxA data-category=Announcements data-category-id=DIC_kwDOLbBjxM4Cdr0n data-mapping=pathname data-strict=0 data-theme=preferred_color_scheme data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-lang=en data-loading=lazy crossorigin=anonymous async defer></script></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://giscus.app/ rel="external nofollow noopener noreferrer">giscus</a>.</noscript></div><footer class=footer><div class=footer-container><div class=migration-footer><div class=migration-footer-links><a href=https://travel.moe/go.html title="异次元之旅 - 跃迁" target=_blank rel="noopener noreferrer"><img src=/images/badges/travel-moe.png width=24 height=24 alt=异次元之旅>异次元之旅</a>
+<a href=https://www.travellings.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/travellings.gif height=20 alt=开往-友链接力 title=开往-友链接力></a>
+<a href=https://www.foreverblog.cn/ target=_blank rel="noopener noreferrer"><img src=/images/badges/foreverblog.png height=20 alt="Forever Blog"></a>
+<a href=https://www.foreverblog.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/wormhole.gif height=20 alt=虫洞-跃迁-十年之约 title=虫洞-跃迁-十年之约></a></div><div class=migration-wordcount>104 posts · 231110 words</div><div class=migration-visitors><span id=busuanzi_container_site_uv>Visitors <span id=busuanzi_value_site_uv>—</span></span>
+<span id=busuanzi_container_site_pv>· Views <span id=busuanzi_value_site_pv>—</span></span></div></div><div class=footer-bottom><div class=footer-legal><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright" aria-hidden=true></i>
+<span itemprop=copyrightYear>2024 - 2026</span><span class=author itemprop=copyrightHolder>
+<a href=https://github.com/hzp2333/hzp2333.github.io target=_blank rel="external nofollow noopener noreferrer">滑翔闪</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class="footer-line beian"><span class="icp footer-divider"><a href="https://icp.gov.moe/?keyword=20244204" target=_blank rel="noopener noreferrer">萌ICP备20244204号</a></span></div></div><div class=footer-tech><div class=footer-meta><div class="footer-line statistics"><span class=site-time title='Website running ...'><i class="fa-solid fa-heartbeat animate-icon" aria-hidden=true></i><span class="ms-1 hidden">Running for</span><span class="run-times tabular-nums lining-nums ms-1">Website running ...</span></span></div><div class="footer-line visitor"><span id=busuanzi_container_site_uv title='Total visitors'><i class="fa-regular fa-user me-1" aria-hidden=true></i><span id=busuanzi_value_site_uv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span><span id=busuanzi_container_site_pv class=footer-divider title='Total visits'><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_site_pv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span></div></div><div class="footer-line powered">Powered by <a href="https://github.com/gohugoio/hugo?v=0.169.0" target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.169.0">Hugo</a> & <a href="https://github.com/hugo-fixit/FixIt?v=v1.0.0-rc" target=_blank rel=external title="FixIt v1.0.0-rc">FixIt</a></div></div></div></div></footer></div><div class=widgets><div id=mask></div><dialog id=nav-dialog aria-labelledby=nav-dialog-title closedby=any><button type=button class=nav-close-btn aria-label="Close Navigation"><i class="fa-solid fa-xmark fa-lg" aria-hidden=true></i></button><div class=toc><h2 class=toc-title id=nav-dialog-title>Navigation</h2><div class=toc-content id=toc-content-drawer></div></div></dialog><dialog id=search-dialog class=search-dialog aria-label=Search closedby=any><div class=search-modal><div class=search-modal-header><span class=search-delimiter></span>
+<button type=button class=search-close-btn aria-label="Close Search Dialog"><i class="fa-solid fa-xmark" aria-hidden=true></i></button></div><div class=search-source-footer><div class=search-shortcuts><span class=search-shortcut><kbd><i class=lucide-arrow-up aria-hidden=true></i></kbd>
+<kbd><i class=lucide-arrow-down aria-hidden=true></i></kbd>
+Navigate
+</span><span class=search-shortcut><kbd><i class=lucide-corner-down-left aria-hidden=true></i></kbd>
+Select
+</span><span class=search-shortcut><kbd>ESC</kbd>
+Close</span></div><span class=search-engine>Search by <a href=https://fusejs.io/ target=_blank rel="external nofollow noopener noreferrer">Fuse.js</a></span></div></div></dialog><div class=reading-progress-bar style=inset-inline-start:0;top:0></div><div class=fixed-buttons><button type=button class="fixed-button back-to-top animate__faster hidden" aria-label="Back to Top"><i class="fa-solid fa-arrow-up" aria-hidden=true></i><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="50"/><circle class="progress" cx="50" cy="50" r="50"/></svg></button><button type=button id=nav-drawer-button class="fixed-button nav-drawer-button hidden" aria-label=Navigation aria-controls=nav-dialog aria-expanded=false><i class="fa-solid fa-bars" aria-hidden=true></i></button><button type=button class="fixed-button view-comments hidden" aria-label="View Comments"><i class="fa-solid fa-comment" aria-hidden=true></i></button></div><noscript><div class="noscript-warning bg-danger text-white text-base font-bold fixed text-center inset-x-0 bottom-0 w-full z-fixed">This website works best with JavaScript enabled.</div></noscript></div><script src=/lib/canvas-nest/canvas-nest.js color=0,0,0 count=150 zindex=-1 opacity=0.5></script><script>(function(){if(window.matchMedia("(max-width: 960px)").matches)return;var t,e=document.createElement("div");e.id="sakana-widget-container",e.setAttribute("aria-hidden","true"),e.innerHTML='<div id="sakana-widget"></div>',document.body.appendChild(e),t=document.createElement("script"),t.src="/lib/sakana-widget/sakana.min.js",t.onload=function(){window.sakanaWidget=new SakanaWidget({size:300,autoFit:!0,character:"chisato",controls:!0,rod:!0,draggable:!0,stroke:{color:"#b4b4b4",width:10},threshold:.1,rotate:0,title:!1}).mount("#sakana-widget")},document.head.appendChild(t)})()</script><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><link rel=stylesheet href=/lib/pace/themes/blue/pace-theme-minimal.css><script src=/js/lib/giscus.min.js defer></script><script src=/lib/autocomplete-js/index.production.js defer></script><script src=/js/lib/fuse.min.js defer></script><script src=/lib/lightgallery/lightgallery.min.js defer></script><script src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js defer></script><script src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js defer></script><script src=/js/lib/lightgallery.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/typeit/index.umd.js defer></script><script src=/js/lib/typeit.min.js defer></script><script src=/js/lib/mathjax.min.js defer></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script src=/js/lib/cookieconsent.min.js defer></script><script src=/lib/cell-tooltip/cell-tooltip.umd.js defer></script><script src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async defer></script><script src=/lib/pace/pace.min.js async defer></script><script src=/en/js/config/deb6c8ab305b7048492a6b78ccfbac19.min.js defer></script><script src=/js/lib/file-tree.min.js defer></script><script src=/js/main.min.js defer></script><script src=/js/custom.min.js defer></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CYZVM6VVZ8",{anonymize_ip:!0})</script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body></html>

@@ -94,3 +94,9 @@ Start `hugo serve -e production` to render and start the production environment,
 ## Pay Attention to Version Control
 
 Follow the above method strictly. Using the LoveIt theme, but the comment section did not appear. It might be due to version mismatch. [LoveIt](https://github.com/dillonzq/LoveIt) page, directly download and unzip via code. The latest release code is actually several versions behind! It does not support giscus.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/comment/  
+

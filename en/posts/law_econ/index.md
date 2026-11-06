@@ -163,3 +163,9 @@ The paper is impressively careful in its identification strategy. Its tests of n
 
 Statistical evidence from economics can never substitute for legal evidence, but the habits of thought developed in economics can make the presentation of legal evidence more persuasive. That is why the Manne program chose a dialogue between law and economics rather than some other interdisciplinary pairing. As [Deirdre N. McCloskey](https://www.deirdremccloskey.com/) argues in *[The Rhetoric of Economics](https://blog.huaxiangshan.com/zh-cn/posts/jjxxc/)*, economics may ultimately be a discipline that teaches people how to persuade. And that framework of persuasion may be the most precious legacy economics leaves behind, as well as the quiet contribution embedded in so many papers.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/law_econ/  
+

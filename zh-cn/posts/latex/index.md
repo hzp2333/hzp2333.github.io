@@ -600,3 +600,9 @@ textwidth是文本区域宽度
 最后来点 LaTeX 笑话：
 
 有什么只有 Word 能做，LaTeX 做不到呢？那就是在图片背后写大段文字水字数！（笑~）
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/latex/  
+

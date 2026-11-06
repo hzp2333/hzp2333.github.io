@@ -147,3 +147,9 @@ $$
 [^5]: Chyn E, Frandsen B, Leslie E C. Examiner and Judge Designs in Economics: A Practitioner's Guide[R]. National Bureau of Economic Research, 2024.
 [^6]: 目前较为成熟的检验场景是司法数据，但其他场景的范式依旧没有定论。
 [^7]: 其实这些方面更相关的是不确定性理论。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/judge_iv/  
+

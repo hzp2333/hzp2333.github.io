@@ -19,3 +19,9 @@
 ![河西走廊](/img/河西走廊.zh-cn-20240523114609912.webp)
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/hexi/  
+

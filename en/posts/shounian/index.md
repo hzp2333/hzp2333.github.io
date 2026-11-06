@@ -447,3 +447,9 @@ China's current empirical results basically satisfy $\sigma$ convergence[^15] an
 
 [^17]: Tang Xuebing, Chen Xiushan. Convergence of economic growth in China's eight major regions and its influencing factors analysis[J]. Journal of Renmin University of China, 2007 (01): 106-113.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/shounian/  
+

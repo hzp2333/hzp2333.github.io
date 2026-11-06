@@ -403,3 +403,9 @@
 
 讲到这里就差不多该结束了，让我们的经济学研究走向现实，让我们将实证研究进行到底。
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/xz/  
+

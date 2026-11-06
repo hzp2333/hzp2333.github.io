@@ -30,3 +30,9 @@ The reason was a conflict in Windows environment variables: my user variable pat
 ![Solution: unify user variables and system variables, or delete Java path](/img/anaconda.zh-cn-20240802115752502.webp)
 
 Solution: unify user variables and system variables, or delete the Java path. Personally, it was because an **invalid path blocked the way**. I deleted the incorrect Java path: `%Java_Home%\bin;%Java_Home%\jre\bin`. After that, I checked that the Java environment was not affected, and the Anaconda environment was restored.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/anaconda/  
+

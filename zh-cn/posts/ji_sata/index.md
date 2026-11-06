@@ -579,3 +579,9 @@ _《计量经济学基础》_（古扎拉蒂）
 
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/ji_sata/  
+

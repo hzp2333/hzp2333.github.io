@@ -247,3 +247,9 @@ Transfer payment data indicates that the gap in transfer payments began to widen
 
 [^9]: Gottlieb, J., Grossman, G., Larreguy, H., Marx, B., 2019. A signaling theory of distributive policy choice: evidence from Senegal. J. Polit. 81 (2), 631–647
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/rsc_econ/  
+

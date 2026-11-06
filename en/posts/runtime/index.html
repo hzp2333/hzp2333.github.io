@@ -1,0 +1,960 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>Hugo Customization 2 - 滑翔闪'S BLOG</title><meta name=author content="滑翔闪"><meta name=description content="Adding a total word count and site runtime to the blog footer, with automatic Chinese-English switching."><meta name=robots content="index, follow, max-image-preview:large"><meta name=keywords content='Hugo'><meta itemprop=name content="Hugo Customization 2"><meta itemprop=description content="Adding a total word count and site runtime to the blog footer, with automatic Chinese-English switching."><meta itemprop=datePublished content="2024-08-10T15:45:18+08:00"><meta itemprop=dateModified content="2024-08-10T15:45:18+08:00"><meta itemprop=wordCount content="3730"><meta itemprop=keywords content="Hugo"><meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/runtime/"><meta property="og:site_name" content="滑翔闪'S BLOG"><meta property="og:title" content="Hugo Customization 2"><meta property="og:description" content="Adding a total word count and site runtime to the blog footer, with automatic Chinese-English switching."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-08-10T15:45:18+08:00"><meta property="article:modified_time" content="2024-08-10T15:45:18+08:00"><meta property="article:tag" content="Hugo"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hugo Customization 2"><meta name=twitter:description content="Adding a total word count and site runtime to the blog footer, with automatic Chinese-English switching."><meta name=twitter:creator content="@ygVNLSZ1omFBCeB"><meta name=application-name content="滑翔闪'S BLOG"><meta name=apple-mobile-web-app-title content="滑翔闪'S BLOG"><meta name=theme-color data-light=#f6f8fa data-dark=#151b23 content="#f6f8fa"><meta name=msapplication-TileColor content="#2d89ef"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#FF7359><link rel=canonical type=text/html href=https://blog.huaxiangshan.com/en/posts/runtime/ title="Hugo Customization 2 - 滑翔闪'S BLOG"><link rel=prev type=text/html href=https://blog.huaxiangshan.com/en/posts/pytorch2/ title="Uninstalling and Installing Anaconda"><link rel=next type=text/html href=https://blog.huaxiangshan.com/en/posts/fs2/ title="Empirical economics: intuitive does not mean obvious"><link rel=alternate type=text/markdown href=https://blog.huaxiangshan.com/en/posts/runtime/index.md><link rel=stylesheet href=/css/unocss.min.css><link rel=stylesheet href=/css/main.min.css><link rel=stylesheet href=/css/pages/posts.min.css><link rel=stylesheet href=/css/custom.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><link rel=preload href=/js/main.min.js as=script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo Customization 2","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.huaxiangshan.com\/en\/posts\/runtime\/"},"genre":"posts","keywords":"Hugo","wordcount":3730,"url":"https:\/\/blog.huaxiangshan.com\/en\/posts\/runtime\/","datePublished":"2024-08-10T15:45:18+08:00","dateModified":"2024-08-10T15:45:18+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"滑翔闪"},"description":""}</script><script src=/js/head.min.js></script></head><body data-instant-intensity=viewport data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=32 width=32><span class=typeit data-group=header-desktop><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><nav class=nav-main aria-label="Main menu"><ul class=menu><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies has-children"><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a><button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-desktop-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-desktop-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li></ul></nav><nav class=nav-system aria-label="Site controls"><ul class=menu><li class="menu-item delimiter"></li><li class="menu-item search"><button type=button class="search-trigger desktop" aria-label=Search title=Search>
+<i class="fa-solid fa-search" aria-hidden=true></i>
+Search
+<kbd></kbd></button></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch-item"><button type=button class=theme-switch aria-label="Switch Theme" title="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button></li><li class="menu-item language-switch"><button type=button data-submenu-toggle aria-label="Select Language" title="Select Language" aria-expanded=false aria-controls=fi-submenu-language-desktop><i class="fa-solid fa-language" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-language-desktop><li class=menu-item><a href=/zh-cn/posts/runtime/ class=menu-link title=简体中文>简体中文</a></li><li class=menu-item><span class=text-secondary title=English>English</span></li></ul></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=26 width=26><span class=typeit data-group=header-mobile><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><button type=button class="search-trigger mobile" aria-label=Search><i class="fa-solid fa-search" aria-hidden=true></i></button><button type=button class=theme-switch aria-label="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button>
+<button type=button class=menu-toggle id=menu-toggle-mobile aria-controls=menu-mobile aria-expanded=false aria-labelledby=menu-mobile>
+<span></span><span></span><span></span></button></div><nav><ul class=menu id=menu-mobile><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies"><span class=nested-item><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a>
+<button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-mobile-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></button></span><ul class=sub-menu id=fi-submenu-mobile-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li><li class="menu-item menu-system"><span class="menu-system-item language-switch"><button type=button aria-label="Select Language" title="Select Language">English<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button>
+<select id=language-select class=language-select onchange="location=this.value"><option value=/zh-cn/posts/runtime/>简体中文</option><option value=/en/posts/runtime/ selected disabled>English</option></select></span></li></ul></nav></div></header><main class=fi-container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=Collections><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group" aria-hidden=true></i>
+<span class=collection-name title=Collections>Hugo Customization</span>
+<span class=collection-count>4</span>
+<button type=button class=collection-sort-toggle title="Toggle sort order" aria-label="Toggle sort order"><i class="fa-solid fa-arrow-up-short-wide" aria-hidden=true></i></button><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><a href=/en/posts/comment/ title="Setting Up Giscus Comment Section with Hugo">Setting Up Giscus Comment Section with Hugo</a></li><li class=collection-item><a href=/en/posts/font/ title="The Custom Font in Hugo">The Custom Font in Hugo</a></li><li class=collection-item><a href=/en/posts/toc/ title="Table of Contents Navigation Fails on the Chinese Blog">Table of Contents Navigation Fails on the Chinese Blog</a></li><li class=collection-item><span class=active title="Hugo Customization 2">Hugo Customization 2</span></li></ul><div class=collection-nav-simple><a href=/en/posts/toc/ class=collection-nav-item rel=prev title="Table of Contents Navigation Fails on the Chinese Blog"><i class="fa-solid fa-angle-left" aria-hidden=true></i></a><span class=text-secondary>4/4</span><i class="fa-solid fa-angle-right collection-nav-item text-secondary" aria-hidden=true></i></div></nav></div></div></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Hugo Customization 2</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/hzp2333/hzp2333.github.io title=Author target=_blank rel="author external nofollow noopener noreferrer" class=author><img class=avatar src=/images/avatar.png alt=滑翔闪 height=16 width=16>&nbsp;滑翔闪</a></span><span class=post-included-in>&nbsp;included in <a href=/en/categories/hugo-customization/ class=post-category title="Category - Hugo Customization"><i class="fa-regular fa-folder" aria-hidden=true></i> Hugo Customization</a> and <a href=/en/collections/hugo-customization/ class=post-collection title="Collection - Hugo Customization"><i class="fa-solid fa-layer-group" aria-hidden=true></i> Hugo Customization</a></span></div><div class=post-meta-line><span title="published on 2024-08-10 15:45:18"><i class="fa-solid fa-calendar-days me-1" aria-hidden=true></i><time datetime=2024-08-10>2024-08-10</time></span>&nbsp;<span title="3730 words"><i class="fa-solid fa-pencil me-1" aria-hidden=true></i>About 3800 words</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden=true></i>8 minutes</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title="Hugo Customization 2"><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;views
+</span>&nbsp;</div></div><div class=featured-image><img loading=eager src=/img/Hugo中英文建站.zh-cn-20240810172249058.webp sizes="(max-width: 679.9px) 100vw, (max-width: 959.9px) 80vw, (max-width: 1439.9px) 56vw, 800px" alt=/img/Hugo中英文建站.zh-cn-20240810172249058.webp></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static></div></div><template data-toc><nav id=TableOfContents><ol><li><a href=#custom-fonts>Custom fonts</a></li><li><a href=#site-runtime-with-multilingual-support>Site runtime with multilingual support</a><ol><li><a href=#total-word-count>Total word count</a><ol><li><a href=#adding-a-total-blog-word-count>Adding a total blog word count</a></li><li><a href=#a-bug>A bug</a></li></ol></li><li><a href=#site-runtime>Site runtime</a><ol><li><a href=#adding-a-custom-customjs>Adding a custom <code>custom.js</code></a></li><li><a href=#modifying-i18n>Modifying <code>i18n</code></a></li></ol></li></ol></li><li><a href=#background>Background</a><ol><li><a href=#blog-background>Blog background</a></li><li><a href=#notes>Notes</a></li></ol></li><li><a href=#mascot>Mascot</a></li><li><a href=#heading-styles>Heading styles</a><ol><li><a href=#what-i-changed>What I changed</a></li><li><a href=#how-to-change>How to change</a></li></ol></li><li><a href=#rendering-math-formulas-in-the-blog>Rendering math formulas in the blog</a></li><li><a href=#references>References</a></li></ol></nav></template><div class=content id=content><h2 class=heading-element id=custom-fonts><span>Custom fonts</span>
+<a href=#custom-fonts class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>See <a href=https://blog.huaxiangshan.com/zh-cn/posts/font/>Hugo Custom Fonts</a></p><h2 class=heading-element id=site-runtime-with-multilingual-support><span>Site runtime with multilingual support</span>
+<a href=#site-runtime-with-multilingual-support class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>Add the <strong>site runtime</strong> and <strong>total blog word count</strong> to the footer, with automatic <strong>multilingual</strong> switching:</p><p>The effect looks like this:</p><p><figure><a class=lightgallery target=_blank href=/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20240810161839711.webp title="Chinese and English comparison" data-thumbnail=/img/Hugo中英文建站.zh-cn-20240810161839711.webp data-sub-html="<h2>Chinese and English comparison</h2>"><img loading=lazy src=/img/Hugo中英文建站.zh-cn-20240810161839711.webp alt="Chinese and English comparison"></a><figcaption class=image-caption>Chinese and English comparison</figcaption></figure></p><p>A typical multilingual Hugo blog has an <code>i18n</code> file, whose purpose is to read the page language parameter and then replace the corresponding text.</p><h3 class=heading-element id=total-word-count><span>Total word count</span>
+<a href=#total-word-count class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h4 class=heading-element id=adding-a-total-blog-word-count><span>Adding a total blog word count</span>
+<a href=#adding-a-total-blog-word-count class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>Find <code>&lt;your blog folder>\layouts\partials\footer.html</code>,</p><p>and add the following code inside it:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-HTML data-lang=HTML><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{{ $articleCount := len .Site.RegularPages }}
+</span></span><span class=line><span class=cl>{{ $totalWordCount := 0 }}
+</span></span><span class=line><span class=cl>{{ range .Site.Pages }}
+</span></span><span class=line><span class=cl>{{ $totalWordCount = add $totalWordCount .WordCount }}
+</span></span><span class=line><span class=cl>{{ end }}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{{ i18n &#34;articleCount&#34; (dict &#34;Count&#34; $articleCount) }}，{{ i18n &#34;totalWordCount&#34; (dict &#34;WordCount&#34; $totalWordCount) }}。</span></span></code></pre></td></tr></table></div></div></div><p>Then find <code>&lt;your blog folder>\i18n</code></p><p>and add the following in <code>zh-CN.toml</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-HTML data-lang=HTML><span class=line><span class=cl># === footer/wordcount ===
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[articleCount]
+</span></span><span class=line><span class=cl>other = &#34;发布了 {{ .Count }} 篇文章&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[totalWordCount]
+</span></span><span class=line><span class=cl>other = &#34;共 {{ .WordCount }} 字&#34;</span></span></code></pre></td></tr></table></div></div></div><p>and add the following in <code>en.toml</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-HTML data-lang=HTML><span class=line><span class=cl># === footer/wordcount ===
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[articleCount]
+</span></span><span class=line><span class=cl>other = &#34;published {{ .Count }} posts&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[totalWordCount]
+</span></span><span class=line><span class=cl>other = &#34;total {{ .WordCount }} words&#34;</span></span></code></pre></td></tr></table></div></div></div><blockquote><p>Multilingual switching is clearly a one-to-one character match.</p><p>So in the <code>i18n</code> file, each [call name] can only have one <code>other=</code>, and [call names] must not be duplicated, so that characters can be switched one-to-one automatically.</p></blockquote><h4 class=heading-element id=a-bug><span>A bug</span>
+<a href=#a-bug class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>If, like me, you added a music player to every blog post page via aplayer, you&rsquo;ll hit a bug.</p><meting-js url=/music/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.flac name="Mitsuha's Theme" artist="Your Name" cover=/images/%E4%B8%89%E8%91%89%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg theme=#448aff></meting-js><p>Hugo&rsquo;s built-in word count conflicts with aplayer. A pure-music player will disappear, while a player with lyrics might stick around. The reason is unknown. When rendering locally, updating the blog content and triggering a refresh makes the music player reappear, but after uploading to GitHub for rendering it doesn&rsquo;t work.</p><div class="details admonition bug"><div class="details-summary admonition-title"><i class="icon fa-solid fa-bug" aria-hidden=true></i>Updated February 21, 2026<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>Recently I used Claude Code with the DeepSeek v3.2 model to test this bug.</p><p>I found the music plugin&rsquo;s failure is roughly due to this:</p><p>The LoveIt theme uses Hugo&rsquo;s Scratch system as a &ldquo;feature flag&rdquo; mechanism:</p><ul><li>The <code>music</code> shortcode sets this when it executes: <code>{{- .Page.Scratch.SetInMap "this" "music" true -}}</code></li><li><code>assets.html</code> checks: <code>{{- if (.Scratch.Get "this").music -}}</code> to load the music assets.</li></ul><p><code>wordcount.html</code> introduces a <strong>change</strong>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-go"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=p>{{</span><span class=o>-</span><span class=w> </span><span class=err>$</span><span class=nx>posts</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>where</span><span class=w> </span><span class=p>.</span><span class=nx>Site</span><span class=p>.</span><span class=nx>RegularPages</span><span class=w> </span><span class=s>&#34;Type&#34;</span><span class=w> </span><span class=s>&#34;posts&#34;</span><span class=w> </span><span class=o>-</span><span class=p>}}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>{{</span><span class=o>-</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=err>$</span><span class=nx>posts</span><span class=w> </span><span class=o>-</span><span class=p>}}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=p>{{</span><span class=o>-</span><span class=w> </span><span class=err>$</span><span class=nx>totalWords</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>add</span><span class=w> </span><span class=err>$</span><span class=nx>totalWords</span><span class=w> </span><span class=p>.</span><span class=nx>WordCount</span><span class=w> </span><span class=o>-</span><span class=p>}}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=p>{{</span><span class=o>-</span><span class=w> </span><span class=err>$</span><span class=nx>totalPosts</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>add</span><span class=w> </span><span class=err>$</span><span class=nx>totalPosts</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=o>-</span><span class=p>}}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>{{</span><span class=o>-</span><span class=w> </span><span class=nx>end</span><span class=w> </span><span class=o>-</span><span class=p>}}</span></span></span></code></pre></td></tr></table></div></div></div><p>When Hugo executes <code>.Site.RegularPages</code>:</p><p>To get the WordCount, Hugo needs to compute each post&rsquo;s content, which resets the page&rsquo;s Scratch state. In the process, the Scratch state that was maintained within a single rendering pass gets disturbed.</p><p>My personal observation is that whether a comment plugin is installed also affects this bug, seemingly for the same reason — the Scratch state value appears to be cleared.</p><p>In the comment section, <code>layouts/partials/comment.html</code> has code like this:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{- dict &#34;comment&#34; $commentConfig | dict &#34;config&#34; | merge (.Scratch.Get &#34;this&#34;) | .Scratch.Set &#34;this&#34; -}}</span></span></code></pre></td></tr></table></div></div></div><p>Local rendering can reload the <code>this</code> map in scratch by updating the site, but after uploading to GitHub it tends to get mapped to empty.</p><p>The modified flow:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-txt"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>Previous flow: music shortcode → Scratch set → theme conditional check → load assets
+</span></span><span class=line><span class=cl>Modified flow: directly detect the DOM → dynamically load assets → self-initialize</span></span></code></pre></td></tr></table></div></div></div></div></div></div><p>Looking back, this bug is quite similar to the one in <a href=https://blog.huaxiangshan.com/zh-cn/posts/toc/>Chinese blog TOC navigation failure</a>.</p><h3 class=heading-element id=site-runtime><span>Site runtime</span>
+<a href=#site-runtime class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h4 class=heading-element id=adding-a-custom-customjs><span>Adding a custom <code>custom.js</code></span>
+<a href=#adding-a-custom-customjs class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>Create a custom JavaScript file <code>\static\js\custom.js</code> in the site root directory.</p><p>Write the following code into it:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-js"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=cm>/* Site runtime */</span>
+</span></span><span class=line><span class=cl><span class=c1>// Get the current language setting
+</span></span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>getCurrentLanguage</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// Assume you have a global variable or method to get the current language
+</span></span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>document</span><span class=p>.</span><span class=nx>documentElement</span><span class=p>.</span><span class=nx>lang</span> <span class=o>||</span> <span class=s1>&#39;zh&#39;</span><span class=p>;</span> <span class=c1>// Defaults to Chinese
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Update the site runtime
+</span></span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>runtime</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>window</span><span class=p>.</span><span class=nx>setTimeout</span><span class=p>(</span><span class=nx>runtime</span><span class=p>,</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>startTime</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Date</span><span class=p>(</span><span class=s1>&#39;02/18/2024 15:00:00&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>//Write your own site launch time here
+</span></span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>endTime</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Date</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>usedTime</span> <span class=o>=</span> <span class=nx>endTime</span> <span class=o>-</span> <span class=nx>startTime</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>days</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>usedTime</span> <span class=o>/</span> <span class=p>(</span><span class=mi>24</span> <span class=o>*</span> <span class=mi>3600</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>leavel</span> <span class=o>=</span> <span class=nx>usedTime</span> <span class=o>%</span> <span class=p>(</span><span class=mi>24</span> <span class=o>*</span> <span class=mi>3600</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>hours</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>leavel</span> <span class=o>/</span> <span class=p>(</span><span class=mi>3600</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>leavel2</span> <span class=o>=</span> <span class=nx>leavel</span> <span class=o>%</span> <span class=p>(</span><span class=mi>3600</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>minutes</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>leavel2</span> <span class=o>/</span> <span class=p>(</span><span class=mi>60</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>leavel3</span> <span class=o>=</span> <span class=nx>leavel2</span> <span class=o>%</span> <span class=p>(</span><span class=mi>60</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>seconds</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>leavel3</span> <span class=o>/</span> <span class=p>(</span><span class=mi>1000</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// Select the corresponding text based on the language setting
+</span></span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>language</span> <span class=o>=</span> <span class=nx>getCurrentLanguage</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>runtimeText</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>language</span> <span class=o>===</span> <span class=s1>&#39;zh&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>runtimeText</span> <span class=o>=</span> <span class=s1>&#39;本站已运行&lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>days</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>days</span> <span class=o>+</span> <span class=s1>&#39; 天 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>hours</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>hours</span> <span class=o>+</span> <span class=s1>&#39; 时 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>minutes</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>minutes</span> <span class=o>+</span> <span class=s1>&#39; 分 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>seconds</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>seconds</span> <span class=o>+</span> <span class=s1>&#39; 秒 &#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>language</span> <span class=o>===</span> <span class=s1>&#39;en&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>runtimeText</span> <span class=o>=</span> <span class=s1>&#39;Running for &lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>days</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>days</span> <span class=o>+</span> <span class=s1>&#39; d &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>hours</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>hours</span> <span class=o>+</span> <span class=s1>&#39; h &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>minutes</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>minutes</span> <span class=o>+</span> <span class=s1>&#39; m &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>seconds</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>seconds</span> <span class=o>+</span> <span class=s1>&#39; s &#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// Default text (you can choose another language or keep Chinese/English)
+</span></span></span><span class=line><span class=cl>        <span class=nx>runtimeText</span> <span class=o>=</span> <span class=s1>&#39;本站已运行&lt;i class=&#34;far fa-clock fa-fw&#34;&gt;&lt;/i&gt; &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>days</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>days</span> <span class=o>+</span> <span class=s1>&#39; 天 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>hours</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>hours</span> <span class=o>+</span> <span class=s1>&#39; 时 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>minutes</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>minutes</span> <span class=o>+</span> <span class=s1>&#39; 分 &#39;</span>
+</span></span><span class=line><span class=cl>            <span class=o>+</span> <span class=p>((</span><span class=nx>seconds</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>)</span> <span class=o>?</span> <span class=s1>&#39;0&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=o>+</span> <span class=nx>seconds</span> <span class=o>+</span> <span class=s1>&#39; 秒 &#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// Update the content on the page
+</span></span></span><span class=line><span class=cl>    <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;run-time&#39;</span><span class=p>).</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>runtimeText</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>runtime</span><span class=p>();</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><p>Those who are interested can also check out this site&rsquo;s complete <a href=https://github.com/hzp2333/hzp2333.github.io/blob/master/js/custom.js target=_blank rel="external nofollow noopener noreferrer">custom.js<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a>.</p><p>Find <code>&lt;your blog folder>\layouts\partials\assets.html</code>, and add the following code on the line above the <code>{{- partial "plugin/analytics.html" . -}}</code> at the very end:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{{- /* custom js file */ -}}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/custom.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span></span></span></code></pre></td></tr></table></div></div></div><p>This way the blog can call the custom js file. Other js files can be written here too.</p><h4 class=heading-element id=modifying-i18n><span>Modifying <code>i18n</code></span>
+<a href=#modifying-i18n class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>Find <code>&lt;your blog folder>\i18n</code></p><p>Add the following in <code>zh-CN.toml</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-HTML data-lang=HTML><span class=line><span class=cl>[runtime]
+</span></span><span class=line><span class=cl>other = &#34;本站已运行{{ .Days }}天 {{ .Hours }}小时 {{ .Minutes }}分钟 {{ .Seconds }}秒&#34;</span></span></code></pre></td></tr></table></div></div></div><p>Add the following in <code>en.toml</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-HTML data-lang=HTML><span class=line><span class=cl>[runtime]
+</span></span><span class=line><span class=cl>other = &#34;The site has been running for {{ .Days }} days {{ .Hours }} hours {{ .Minutes }} minutes {{ .Seconds }} seconds&#34;</span></span></code></pre></td></tr></table></div></div></div><h2 class=heading-element id=background><span>Background</span>
+<a href=#background class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=blog-background><span>Blog background</span>
+<a href=#blog-background class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>We can set the blog background by directly adding a js file in <code>footer.html</code>.</p><p>This post uses the honeycomb striped network. There are other js options too, like grid, sphere, wave, ribbon&mldr;</p><p>For a reference, see: <a href=https://herenpeng.github.io/2023/03/14/javascript/%E6%8E%A8%E8%8D%90%E5%87%A0%E7%A7%8D%E7%AE%80%E6%B4%81%E7%BE%8E%E8%A7%82%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF%E6%95%88%E6%9E%9C/ target=_blank rel="external nofollow noopener noreferrer">Some recommended clean and pretty blog background effects<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-js"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Ribbon</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;ribbon&#34;</span> <span class=nx>size</span><span class=o>=</span><span class=s2>&#34;150&#34;</span> <span class=nx>alpha</span><span class=o>=</span><span class=s1>&#39;0.9&#39;</span> <span class=nx>zIndex</span><span class=o>=</span><span class=s2>&#34;-2&#34;</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Wave</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/three-waves.min.js&#34;</span> <span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Honeycomb</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Random</span> <span class=nx>dots</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_lines.min.js&#34;</span> <span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>Light</span> <span class=nx>sphere</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js&#34;</span><span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_sphere.min.js&#34;</span> <span class=o>&gt;&lt;</span><span class=err>/script&gt;</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><h3 class=heading-element id=notes><span>Notes</span>
+<a href=#notes class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Introducing a js background needs to limit its scope.</p><p>For example, if you introduce it in the footer without defining a scope, the footer links will be covered and become unclickable.</p><p><figure><a class=lightgallery target=_blank href=/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-20250223143815226.webp title="As shown" data-thumbnail=/img/Hugo中英文建站.zh-cn-20250223143815226.webp data-sub-html="<h2>As shown</h2>"><img loading=lazy src=/img/Hugo中英文建站.zh-cn-20250223143815226.webp alt="As shown"></a><figcaption class=image-caption>As shown</figcaption></figure></p><p>It&rsquo;s best to define an environment block at the start of the footer for layering:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-js"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>&lt;!--</span> <span class=nx>Footer</span> <span class=o>--&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>footer</span> <span class=kr>class</span><span class=o>=</span><span class=s2>&#34;footer&#34;</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>div</span> <span class=kr>class</span><span class=o>=</span><span class=s2>&#34;footer-container&#34;</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=o>&lt;</span><span class=nx>div</span> <span class=kr>class</span><span class=o>=</span><span class=s2>&#34;footer-line&#34;</span><span class=o>&gt;</span></span></span></code></pre></td></tr></table></div></div></div><p>Finally, set the introduced js to the <strong>bottom layer</strong>: <code>data-zIndex="-1"</code></p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-js"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>    <span class=c>&lt;!--</span> <span class=nx>Include</span> <span class=nx>canvas</span><span class=o>-</span><span class=nx>nest</span><span class=p>.</span><span class=nx>min</span><span class=p>.</span><span class=nx>js</span> <span class=o>--&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=nx>script</span> <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=nx>data</span><span class=o>-</span><span class=nx>color</span><span class=o>=</span><span class=s2>&#34;0,0,0&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=nx>data</span><span class=o>-</span><span class=nx>count</span><span class=o>=</span><span class=s2>&#34;150&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=nx>data</span><span class=o>-</span><span class=nx>zIndex</span><span class=o>=</span><span class=s2>&#34;-1&#34;</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/body&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/html&gt;</span></span></span></code></pre></td></tr></table></div></div></div><h2 class=heading-element id=mascot><span>Mascot</span>
+<a href=#mascot class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>I added it in <code>header.html</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=cp>&lt;!DOCTYPE html&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;zh&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;viewport&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;width=device-width, initial-scale=1.0&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Sakana widget integration<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* Fix the Sakana widget to the bottom-left of the page */</span>
+</span></span><span class=line><span class=cl>    <span class=p>#</span><span class=nn>sakana-widget-container</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>position</span><span class=p>:</span> <span class=kc>fixed</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>bottom</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>left</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>width</span><span class=p>:</span> <span class=mi>268</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>height</span><span class=p>:</span> <span class=mi>268</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>#</span><span class=nn>sakana-widget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;sakana-widget-container&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;sakana-widget&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>initSakanaWidget</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>new</span> <span class=nx>SakanaWidget</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>        <span class=nx>size</span><span class=o>:</span> <span class=mi>300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>autoFit</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>character</span><span class=o>:</span> <span class=s1>&#39;chisato&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>controls</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>rod</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>draggable</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>stroke</span><span class=o>:</span> <span class=p>{</span> <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;#b4b4b4&#39;</span><span class=p>,</span> <span class=nx>width</span><span class=o>:</span> <span class=mi>10</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=nx>threshold</span><span class=o>:</span> <span class=mf>0.1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>rotate</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>title</span><span class=o>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>      <span class=p>}).</span><span class=nx>mount</span><span class=p>(</span><span class=s1>&#39;#sakana-widget&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// Detect the screen width on init
+</span></span></span><span class=line><span class=cl>      <span class=nx>checkScreenWidth</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>      <span class=nb>window</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;resize&#39;</span><span class=p>,</span> <span class=nx>checkScreenWidth</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>checkScreenWidth</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kd>var</span> <span class=nx>screenWidth</span> <span class=o>=</span> <span class=nb>window</span><span class=p>.</span><span class=nx>innerWidth</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=kd>var</span> <span class=nx>container</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;sakana-widget-container&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>screenWidth</span> <span class=o>&lt;=</span> <span class=mi>960</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>container</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;none&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>container</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>display</span> <span class=o>=</span> <span class=s1>&#39;block&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c>&lt;!-- Only initialize after the library finishes loading --&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>script</span> 
+</span></span><span class=line><span class=cl>    <span class=na>async</span>
+</span></span><span class=line><span class=cl>    <span class=na>onload</span><span class=o>=</span><span class=s>&#34;initSakanaWidget()&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><h2 class=heading-element id=heading-styles><span>Heading styles</span>
+<a href=#heading-styles class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=what-i-changed><span>What I changed</span>
+<a href=#what-i-changed class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>The heading styles I changed:</p><ul><li><strong>H2 to H6 headings</strong>:<ul><li>Font size shrinks step by step from 30.</li><li>Added interactivity — hover to enlarge.</li><li>Keeps each heading on its own line.</li></ul></li><li><strong>H2</strong>: shadow effect, gradient blue box + surrounded by <code>#</code>, centered</li><li><strong>H3 to H6</strong>:<ul><li>The lower the level, the more vertical lines. For example, the H4 heading (<code>#### h4</code>) in the image has two vertical lines on the left, while H3 has only one.</li><li>Headings are wrapped in a transparent box with a shadow effect.</li><li>Compatible with day/night mode switching.</li></ul></li><li><strong>H4 to H6</strong>: added an equilateral triangle as decoration.</li></ul><p>The effect looks like this:</p><p><figure><a class=lightgallery target=_blank href=/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759029479630.webp title=Result data-thumbnail=/img/Hugo中英文建站.zh-cn-1759029479630.webp data-sub-html="<h2>Result</h2>"><img loading=lazy src=/img/Hugo中英文建站.zh-cn-1759029479630.webp alt=Result></a><figcaption class=image-caption>Result</figcaption></figure></p><h3 class=heading-element id=how-to-change><span>How to change</span>
+<a href=#how-to-change class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>In <code>&lt;your blog>\assets\css\_custom.scss</code>, add the following:</p><blockquote><p>If you previously customized heading styles, remember to delete them.</p></blockquote><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-js"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=3 style=--fi-max-shown-lines:20;--fi-line-digit:3;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=cm>/* Headings **************************/</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* ====================================================================== */</span>
+</span></span><span class=line><span class=cl><span class=cm>/* H2 heading: centered + gradient + left/right # decoration */</span>
+</span></span><span class=line><span class=cl><span class=cm>/* ====================================================================== */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>relative</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>display</span><span class=o>:</span> <span class=nx>block</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Make sure the heading is a block-level element occupying its own line */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>width</span><span class=o>:</span> <span class=nx>max</span><span class=o>-</span><span class=nx>content</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Let width adapt to content so margin: auto can center it */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>margin</span><span class=o>:</span> <span class=mf>2.5</span><span class=nx>rem</span> <span class=nx>auto</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Center the block-level element */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>weight</span><span class=o>:</span> <span class=nx>bold</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>30</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>line</span><span class=o>-</span><span class=nx>height</span><span class=o>:</span> <span class=mf>1.4</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=nx>fff</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>linear</span><span class=o>-</span><span class=nx>gradient</span><span class=p>(</span><span class=mi>90</span><span class=nx>deg</span><span class=p>,</span> <span class=err>#</span><span class=mi>4</span><span class=nx>a90e2</span><span class=p>,</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>8</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>padding</span><span class=o>:</span> <span class=mi>10</span><span class=nx>px</span> <span class=mi>24</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>text</span><span class=o>-</span><span class=nx>align</span><span class=o>:</span> <span class=nx>center</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/* --- Enhanced Shadow --- */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>4</span><span class=nx>px</span> <span class=mi>12</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.15</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transition</span><span class=o>:</span> <span class=nx>all</span> <span class=mf>0.3</span><span class=nx>s</span> <span class=nx>ease</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Keep transition for smooth hover */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* --- H2 Interactive Hover Effect --- */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>8</span><span class=nx>px</span> <span class=mi>20</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.25</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Deeper shadow on hover */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>scale</span><span class=p>(</span><span class=mf>1.02</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Keep only the enlargement effect */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cursor</span><span class=o>:</span> <span class=nx>pointer</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H2 Dark Mode Shadow */</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>5</span><span class=nx>px</span> <span class=mi>15</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H2 Dark Mode Hover */</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>8</span><span class=nx>px</span> <span class=mi>25</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.6</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Hide the theme&#39;s auto-generated anchor */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span> <span class=p>.</span><span class=nx>headerlink</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span> <span class=nx>a</span><span class=p>.</span><span class=nx>headerlink</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>display</span><span class=o>:</span> <span class=nx>none</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H2 left/right # decoration */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;#&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=o>-</span><span class=mi>32</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>50</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateY</span><span class=p>(</span><span class=o>-</span><span class=mi>50</span><span class=o>%</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>4</span><span class=nx>a90e2</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>weight</span><span class=o>:</span> <span class=nx>bold</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mf>1.4</span><span class=nx>rem</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h2</span><span class=o>::</span><span class=nx>after</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;#&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>right</span><span class=o>:</span> <span class=o>-</span><span class=mi>32</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>50</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateY</span><span class=p>(</span><span class=o>-</span><span class=mi>50</span><span class=o>%</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>weight</span><span class=o>:</span> <span class=nx>bold</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mf>1.4</span><span class=nx>rem</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* ====================================================================== */</span>
+</span></span><span class=line><span class=cl><span class=cm>/* H3-H6: left-aligned + multiple vertical lines for levels + light background + shadow + triangle symbol */</span>
+</span></span><span class=line><span class=cl><span class=cm>/* ====================================================================== */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Hide built-in anchor */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span> <span class=nx>a</span><span class=p>.</span><span class=nx>headerlink</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span> <span class=nx>a</span><span class=p>.</span><span class=nx>headerlink</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span> <span class=nx>a</span><span class=p>.</span><span class=nx>headerlink</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span> <span class=nx>a</span><span class=p>.</span><span class=nx>headerlink</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>display</span><span class=o>:</span> <span class=nx>none</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Common base styles */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>relative</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>display</span><span class=o>:</span> <span class=nx>block</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>margin</span><span class=o>:</span> <span class=mi>20</span><span class=nx>px</span> <span class=mi>0</span> <span class=mi>12</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>line</span><span class=o>-</span><span class=nx>height</span><span class=o>:</span> <span class=mf>1.5</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>weight</span><span class=o>:</span> <span class=nx>bold</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>6</span><span class=nx>px</span> <span class=mi>6</span><span class=nx>px</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/* --- Transparent background for light mode --- */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>74</span><span class=p>,</span> <span class=mi>144</span><span class=p>,</span> <span class=mi>226</span><span class=p>,</span> <span class=mf>0.05</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/* --- Enhanced shadow for light mode --- */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>2</span><span class=nx>px</span> <span class=mi>5</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.08</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transition</span><span class=o>:</span> <span class=nx>all</span> <span class=mf>0.3</span><span class=nx>s</span> <span class=nx>ease</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Keep transition for smooth hover */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* --- H3-H5 Interactive Hover Effect --- */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span><span class=o>:</span><span class=nx>hover</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=o>:</span><span class=nx>hover</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateX</span><span class=p>(</span><span class=mi>4</span><span class=nx>px</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Move slightly to the right */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>74</span><span class=p>,</span> <span class=mi>144</span><span class=p>,</span> <span class=mi>226</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Increase opacity */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>4</span><span class=nx>px</span> <span class=mi>10</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.12</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Slightly stronger shadow */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cursor</span><span class=o>:</span> <span class=nx>pointer</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Dark Mode General Styles */</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/* --- Lighter, transparent background for dark mode --- */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mf>0.08</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/* --- Stronger, darker shadow for dark mode --- */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>2</span><span class=nx>px</span> <span class=mi>8</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=nx>E5E7EB</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Ensures text is light */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* Dark Mode H3-H5 Hover */</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span><span class=o>:</span><span class=nx>hover</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=o>:</span><span class=nx>hover</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateX</span><span class=p>(</span><span class=mi>4</span><span class=nx>px</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mf>0.15</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Increase opacity */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>0</span> <span class=mi>4</span><span class=nx>px</span> <span class=mi>10</span><span class=nx>px</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Stronger shadow */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H3: 1 vertical line */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>22</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>padding</span><span class=o>:</span> <span class=mi>10</span><span class=nx>px</span> <span class=mi>18</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h3</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bottom</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>width</span><span class=o>:</span> <span class=mi>5</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>-</span><span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>4</span><span class=nx>a90e2</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>3</span><span class=nx>px</span> <span class=mi>0</span> <span class=mi>0</span> <span class=mi>3</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H4: ▶ + 2 vertical lines */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>18</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>padding</span><span class=o>:</span> <span class=mi>8</span><span class=nx>px</span> <span class=mi>14</span><span class=nx>px</span> <span class=mi>8</span><span class=nx>px</span> <span class=mi>38</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Increased left padding for symbol */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cm>/* Triangle Symbol */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;▶&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>18</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>50</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateY</span><span class=p>(</span><span class=o>-</span><span class=mi>50</span><span class=o>%</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>12</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cm>/* Two Vertical Lines (efficiently using box-shadow) */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h4</span><span class=o>::</span><span class=nx>after</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>15</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Make lines shorter than heading height */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bottom</span><span class=o>:</span> <span class=mi>15</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>width</span><span class=o>:</span> <span class=mi>3</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>-</span><span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>2</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>6</span><span class=nx>px</span> <span class=mi>0</span> <span class=mi>0</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Creates the second line */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* H5: ▶ + 3 vertical lines */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>16</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>padding</span><span class=o>:</span> <span class=mi>6</span><span class=nx>px</span> <span class=mi>14</span><span class=nx>px</span> <span class=mi>6</span><span class=nx>px</span> <span class=mi>42</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Increased left padding */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cm>/* Triangle Symbol */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;▶&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>22</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>50</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateY</span><span class=p>(</span><span class=o>-</span><span class=mi>50</span><span class=o>%</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>10</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>34495</span><span class=nx>e</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cm>/* Three Vertical Lines (using box-shadow) */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h5</span><span class=o>::</span><span class=nx>after</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>15</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bottom</span><span class=o>:</span> <span class=mi>15</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>width</span><span class=o>:</span> <span class=mi>2</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>-</span><span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>34495</span><span class=nx>e</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>2</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=mi>5</span><span class=nx>px</span> <span class=mi>0</span> <span class=mi>0</span> <span class=err>#</span><span class=mi>34495</span><span class=nx>e</span><span class=p>,</span> <span class=mi>10</span><span class=nx>px</span> <span class=mi>0</span> <span class=mi>0</span> <span class=err>#</span><span class=mi>34495</span><span class=nx>e</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Creates 2nd and 3rd lines */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* NEW H6: ▶ + 1 dashed line */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>15</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>padding</span><span class=o>:</span> <span class=mi>5</span><span class=nx>px</span> <span class=mi>12</span><span class=nx>px</span> <span class=mi>5</span><span class=nx>px</span> <span class=mi>30</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>background</span><span class=o>:</span> <span class=nx>none</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Simpler style for H6 */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>box</span><span class=o>-</span><span class=nx>shadow</span><span class=o>:</span> <span class=nx>none</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>radius</span><span class=o>:</span> <span class=mi>0</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>bottom</span><span class=o>:</span> <span class=mi>1</span><span class=nx>px</span> <span class=nx>solid</span> <span class=err>#</span><span class=nx>eee</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>border</span><span class=o>-</span><span class=nx>bottom</span><span class=o>:</span> <span class=mi>1</span><span class=nx>px</span> <span class=nx>solid</span> <span class=err>#</span><span class=mi>444</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cm>/* Triangle Symbol */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>content</span><span class=o>:</span> <span class=s2>&#34;▶&#34;</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>position</span><span class=o>:</span> <span class=nx>absolute</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>left</span><span class=o>:</span> <span class=mi>8</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>top</span><span class=o>:</span> <span class=mi>50</span><span class=o>%</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateY</span><span class=p>(</span><span class=o>-</span><span class=mi>50</span><span class=o>%</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>10</span><span class=nx>px</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>777</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span><span class=o>::</span><span class=nx>before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>888</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* --- H6 Interactive Hover Effect --- */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>transform</span><span class=o>:</span> <span class=nx>translateX</span><span class=p>(</span><span class=mi>2</span><span class=nx>px</span><span class=p>)</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Smallest shift */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>4</span><span class=nx>a90e2</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span> <span class=cm>/* Highlight text color */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cursor</span><span class=o>:</span> <span class=nx>pointer</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>data</span><span class=o>-</span><span class=nx>theme</span><span class=o>=</span><span class=s2>&#34;dark&#34;</span><span class=p>]</span> <span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>single</span> <span class=nx>h6</span><span class=o>:</span><span class=nx>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>color</span><span class=o>:</span> <span class=err>#</span><span class=mi>50</span><span class=nx>c9c3</span> <span class=o>!</span><span class=nx>important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><h2 class=heading-element id=rendering-math-formulas-in-the-blog><span>Rendering math formulas in the blog</span>
+<a href=#rendering-math-formulas-in-the-blog class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>Although the <strong><a href=https://hugoloveit.com/zh-cn/theme-documentation-content/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F target=_blank rel="external nofollow noopener noreferrer">LoveIt<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></strong> theme provides math formula support via <a href=https://katex.org/ target=_blank rel="external nofollow noopener noreferrer">KaTeX<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a>, I personally think the experience is not as good as <a href=https://www.mathjax.org/ target=_blank rel="external nofollow noopener noreferrer">MathJax<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a>.</p><p>To use <code>MathJax</code>, first create <code>mathjax.html</code> in <code>&lt;your blog>\layouts\partials</code>.</p><p><code>mathjax.html</code>: right-click on the site&rsquo;s formulas to support copying the formula code.</p><p><figure><a class=lightgallery target=_blank href=/img/Hugo%e4%b8%ad%e8%8b%b1%e6%96%87%e5%bb%ba%e7%ab%99.zh-cn-1759032235608.webp title="As shown" data-thumbnail=/img/Hugo中英文建站.zh-cn-1759032235608.webp data-sub-html="<h2>As shown</h2>"><img loading=lazy src=/img/Hugo中英文建站.zh-cn-1759032235608.webp alt="As shown"></a><figcaption class=image-caption>As shown</figcaption></figure></p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{ if .Params.math }}
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>MathJax</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>tex</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>inlineMath</span><span class=o>:</span> <span class=p>[[</span><span class=s2>&#34;$&#34;</span><span class=p>,</span> <span class=s2>&#34;$&#34;</span><span class=p>]],</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>displayMath</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>[</span><span class=s2>&#34;$$&#34;</span><span class=p>,</span> <span class=s2>&#34;$$&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=p>[</span><span class=s2>&#34;\[\[&#34;</span><span class=p>,</span> <span class=s2>&#34;\]\]&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nx>svg</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fontCache</span><span class=o>:</span> <span class=s2>&#34;global&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span>
+</span></span><span class=line><span class=cl>  <span class=na>id</span><span class=o>=</span><span class=s>&#34;MathJax-script&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>async</span>
+</span></span><span class=line><span class=cl>  <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>{{ end }}</span></span></code></pre></td></tr></table></div><button type=button class=code-expand-btn aria-label="Expand or collapse code block"><i class="fa-solid fa-angles-down" aria-hidden=true></i></button></div></div><p>Then add the call in <code>&lt;your blog>\layouts\partials\header.html</code>:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-html"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{ partial &#34;mathjax.html&#34; . }}</span></span></code></pre></td></tr></table></div></div></div><p>In each post, to enable math formula rendering, put this at the top:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-fallback"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Math = true</span></span></code></pre></td></tr></table></div></div></div><p>Since Hugo, when rendering Markdown documents, generates HTML based on syntax like <code>_</code>/<code>*</code>/<code>>></code>, and some escaped-character text (like <code>\(</code>/<code>\)</code>/<code>\[</code>/<code>\]</code>/<code>\\</code>) gets escaped automatically, you need extra escape-character expressions in these places to enable automatic rendering:</p><ul><li><code>_</code> -> <code>\_</code></li><li><code>*</code> -> <code>\*</code></li><li><code>>></code> -> <code>\>></code></li><li><code>\(</code> -> <code>\\(</code></li><li><code>\)</code> -> <code>\\)</code></li><li><code>\[</code> -> <code>\\[</code></li><li><code>\]</code> -> <code>\\]</code></li><li><code>\\</code> -> <code>\\\\</code></li></ul><p>For example, if I render the following formula:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-fallback"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl>\<span class=p>[</span>
+</span></span><span class=line><span class=cl><span class=n>V</span><span class=p>(</span>\<span class=n>varepsilon</span><span class=p>)</span><span class=o>=</span>\<span class=n>int_</span><span class=p>{</span><span class=mi>0</span><span class=p>}</span><span class=o>^</span><span class=p>{</span><span class=n>T</span><span class=p>}</span><span class=n>F</span><span class=p>[</span><span class=n>t</span><span class=p>,</span>\<span class=n>underbrace</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span><span class=o>*</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)</span><span class=o>+</span>\<span class=n>varepsilon</span> <span class=n>p</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)}</span><span class=n>_</span><span class=p>{</span><span class=n>y</span><span class=p>(</span><span class=n>t</span><span class=p>)},</span>\<span class=n>underbrace</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span><span class=o>*</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)</span><span class=o>+</span>\<span class=n>varepsilon</span> <span class=n>p</span><span class=o>^</span><span class=p>{</span>\<span class=n>prime</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)}</span><span class=n>_</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span><span class=err>’</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)}]</span><span class=n>dt</span>
+</span></span><span class=line><span class=cl>\<span class=p>]</span></span></span></code></pre></td></tr></table></div></div></div><p>It will actually become:</p>$$
+V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{’}\left （t\right）}]dt
+$$<p>Only by converting to <code>\_</code> <code>^\*</code> <code>\\[ \\]</code> is it correct:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-fallback"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl>\\<span class=p>[</span>
+</span></span><span class=line><span class=cl><span class=n>V</span><span class=p>(</span>\<span class=n>varepsilon</span><span class=p>)</span><span class=o>=</span>\<span class=ne>int</span>\<span class=n>_</span><span class=p>{</span><span class=mi>0</span><span class=p>}</span><span class=o>^</span><span class=p>{</span><span class=n>T</span><span class=p>}</span><span class=n>F</span><span class=p>[</span><span class=n>t</span><span class=p>,</span>\<span class=n>underbrace</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span>\<span class=o>*</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)</span><span class=o>+</span>\<span class=n>varepsilon</span> <span class=n>p</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)}</span>\<span class=n>_</span><span class=p>{</span><span class=n>y</span><span class=p>(</span><span class=n>t</span><span class=p>)},</span>\<span class=n>underbrace</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span>\<span class=o>*</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)</span><span class=o>+</span>\<span class=n>varepsilon</span> <span class=n>p</span><span class=o>^</span><span class=p>{</span>\<span class=n>prime</span><span class=p>}</span>\<span class=n>left</span><span class=p>(</span><span class=n>t</span>\<span class=n>right</span><span class=p>)}</span>\<span class=n>_</span><span class=p>{</span><span class=n>y</span><span class=o>^</span><span class=p>{</span><span class=s1>&#39;}\left(t</span><span class=se>\r</span><span class=s1>ight)}]dt</span>
+</span></span><span class=line><span class=cl>\\<span class=p>]</span></span></span></code></pre></td></tr></table></div></div></div><p>\[
+V （\varepsilon）=\int_{0}^{T}F[t,\underbrace{y^{*}\left （t\right）+\varepsilon p\left （t\right）}_{y （t）},\underbrace{y^{*}\left （t\right）+\varepsilon p^{\prime}\left （t\right）}_{y^{&rsquo;}\left （t\right）}]dt
+\]</p><p>But in my own experience, sometimes converting only half the commands in a formula is enough for it to render — how many commands to convert seems related to rendering complexity.</p><p>For example, I render <code>$2\_i^\*-2_j^*$</code> — $2_i^\*-2_j^*$, and since the formula is simple, it renders the same whether or not I convert the commands.</p><h2 class=heading-element id=references><span>References</span>
+<a href=#references class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><ul><li><a href=https://thirdshire.com/hugo-stack-renovation/#%E6%80%BB%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%91%E8%A1%A8%E4%BA%86x%E7%AF%87%E6%96%87%E7%AB%A0%E5%85%B1%E8%AE%A1x%E5%AD%97 target=_blank rel="external nofollow noopener noreferrer">Total word count<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li><li><a href=https://lewky.cn/posts/hugo-3.2.html/#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4 target=_blank rel="external nofollow noopener noreferrer">Adding site runtime<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li><li><a href=https://zishu.me/blog/213.html/ target=_blank rel="external nofollow noopener noreferrer">Some Hugo template syntax<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li><li><a href=https://flynx.dev/post/hugo-total-count/ target=_blank rel="external nofollow noopener noreferrer">Hugo total post count and total word count<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></li></ul></div><div class=collection-card><div class="collection-title text-secondary">Included in <a href=/en/collections/hugo-customization/><i class="fa-solid fa-layer-group" aria-hidden=true></i> <span>Collection・Hugo Customization</span></span></a> 4</div><div class=collection-nav><a href=/en/posts/toc/ class=collection-nav-item rel=prev title="Table of Contents Navigation Fails on the Chinese Blog"><i class="fa-solid fa-angle-left" aria-hidden=true></i><span>Table of Contents Navigation Fails on the Chinese Blog</span></a></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="Updated on 2024-08-10 15:45:18">Updated on 2024-08-10&nbsp;</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/en/posts/runtime/index.md title="Read Markdown" class=link-to-markdown>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on X" data-sharer=twitter data-url=https://blog.huaxiangshan.com/en/posts/runtime/ data-title="Hugo Customization 2" data-via=ygVNLSZ1omFBCeB data-hashtags=Hugo><i class="fa-brands fa-x-twitter" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.huaxiangshan.com/en/posts/runtime/ data-hashtag=Hugo><i class="fa-brands fa-facebook-square" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://blog.huaxiangshan.com/en/posts/runtime/ data-title="Hugo Customization 2"><i class="fa-brands fa-hacker-news" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.huaxiangshan.com/en/posts/runtime/ data-title="Hugo Customization 2"><svg class="icon" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+<a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.huaxiangshan.com/en/posts/runtime/ data-title="Hugo Customization 2" data-image=/img/Hugo中英文建站.zh-cn-20240810172249058.webp><i class="fa-brands fa-weibo" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags me-1" aria-hidden=true></i><a href=/en/tags/hugo/ class=post-tag title="Tags - Hugo">Hugo</a></section><section class=post-actions><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>
+<span class=separator aria-hidden=true></span>
+<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/posts/pytorch2/ class=post-nav-item rel=prev title="Uninstalling and Installing Anaconda"><i class="fa-solid fa-angle-left" aria-hidden=true></i>Uninstalling and Installing Anaconda</a><a href=/en/posts/fs2/ class=post-nav-item rel=next title="Empirical economics: intuitive does not mean obvious">Empirical economics: intuitive does not mean obvious<i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></div></article><aside class="toc animate__animated animate__fadeIn animate__faster" id=toc-auto aria-label=Contents><h2 class=toc-title><span>Contents<i class="toc-icon fa-solid fa-angle-down ms-1" aria-hidden=true></i></span>
+<button type=button class=toc-print-btn onclick=event.stopPropagation(),window.print() aria-label=Print><i class="fa-solid fa-print" aria-hidden=true></i></button></h2><div class=toc-content id=toc-content-auto></div></aside></main><div id=comments><div id=giscus class=comment><script src=https://giscus.app/client.js data-repo=hzp2333/Giscus data-repo-id=R_kgDOLbBjxA data-category=Announcements data-category-id=DIC_kwDOLbBjxM4Cdr0n data-mapping=pathname data-strict=0 data-theme=preferred_color_scheme data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-lang=en data-loading=lazy crossorigin=anonymous async defer></script></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://giscus.app/ rel="external nofollow noopener noreferrer">giscus</a>.</noscript></div><footer class=footer><div class=footer-container><div class=migration-footer><div class=migration-footer-links><a href=https://travel.moe/go.html title="异次元之旅 - 跃迁" target=_blank rel="noopener noreferrer"><img src=/images/badges/travel-moe.png width=24 height=24 alt=异次元之旅>异次元之旅</a>
+<a href=https://www.travellings.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/travellings.gif height=20 alt=开往-友链接力 title=开往-友链接力></a>
+<a href=https://www.foreverblog.cn/ target=_blank rel="noopener noreferrer"><img src=/images/badges/foreverblog.png height=20 alt="Forever Blog"></a>
+<a href=https://www.foreverblog.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/wormhole.gif height=20 alt=虫洞-跃迁-十年之约 title=虫洞-跃迁-十年之约></a></div><div class=migration-wordcount>104 posts · 231110 words</div><div class=migration-visitors><span id=busuanzi_container_site_uv>Visitors <span id=busuanzi_value_site_uv>—</span></span>
+<span id=busuanzi_container_site_pv>· Views <span id=busuanzi_value_site_pv>—</span></span></div></div><div class=footer-bottom><div class=footer-legal><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright" aria-hidden=true></i>
+<span itemprop=copyrightYear>2024 - 2026</span><span class=author itemprop=copyrightHolder>
+<a href=https://github.com/hzp2333/hzp2333.github.io target=_blank rel="external nofollow noopener noreferrer">滑翔闪</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class="footer-line beian"><span class="icp footer-divider"><a href="https://icp.gov.moe/?keyword=20244204" target=_blank rel="noopener noreferrer">萌ICP备20244204号</a></span></div></div><div class=footer-tech><div class=footer-meta><div class="footer-line statistics"><span class=site-time title='Website running ...'><i class="fa-solid fa-heartbeat animate-icon" aria-hidden=true></i><span class="ms-1 hidden">Running for</span><span class="run-times tabular-nums lining-nums ms-1">Website running ...</span></span></div><div class="footer-line visitor"><span id=busuanzi_container_site_uv title='Total visitors'><i class="fa-regular fa-user me-1" aria-hidden=true></i><span id=busuanzi_value_site_uv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span><span id=busuanzi_container_site_pv class=footer-divider title='Total visits'><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_site_pv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span></div></div><div class="footer-line powered">Powered by <a href="https://github.com/gohugoio/hugo?v=0.169.0" target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.169.0">Hugo</a> & <a href="https://github.com/hugo-fixit/FixIt?v=v1.0.0-rc" target=_blank rel=external title="FixIt v1.0.0-rc">FixIt</a></div></div></div></div></footer></div><div class=widgets><div id=mask></div><dialog id=nav-dialog aria-labelledby=nav-dialog-title closedby=any><button type=button class=nav-close-btn aria-label="Close Navigation"><i class="fa-solid fa-xmark fa-lg" aria-hidden=true></i></button><div class=toc><h2 class=toc-title id=nav-dialog-title>Navigation</h2><tab-container type=segment><button class=tab-button type=button role=tab aria-selected=true>Contents</button>
+<button class=tab-button type=button role=tab aria-selected=false>Collections</button><div role=tabpanel class=tab-panel><div class=toc-content id=toc-content-drawer></div></div><div role=tabpanel class=tab-panel hidden><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group" aria-hidden=true></i>
+<span class=collection-name title=Collections>Hugo Customization</span>
+<span class=collection-count>4</span>
+<button type=button class=collection-sort-toggle title="Toggle sort order" aria-label="Toggle sort order"><i class="fa-solid fa-arrow-up-short-wide" aria-hidden=true></i></button><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><a href=/en/posts/comment/ title="Setting Up Giscus Comment Section with Hugo">Setting Up Giscus Comment Section with Hugo</a></li><li class=collection-item><a href=/en/posts/font/ title="The Custom Font in Hugo">The Custom Font in Hugo</a></li><li class=collection-item><a href=/en/posts/toc/ title="Table of Contents Navigation Fails on the Chinese Blog">Table of Contents Navigation Fails on the Chinese Blog</a></li><li class=collection-item><span class=active title="Hugo Customization 2">Hugo Customization 2</span></li></ul><div class=collection-nav-simple><a href=/en/posts/toc/ class=collection-nav-item rel=prev title="Table of Contents Navigation Fails on the Chinese Blog"><i class="fa-solid fa-angle-left" aria-hidden=true></i></a><span class=text-secondary>4/4</span><i class="fa-solid fa-angle-right collection-nav-item text-secondary" aria-hidden=true></i></div></nav></div></div></div></tab-container></div></dialog><dialog id=search-dialog class=search-dialog aria-label=Search closedby=any><div class=search-modal><div class=search-modal-header><span class=search-delimiter></span>
+<button type=button class=search-close-btn aria-label="Close Search Dialog"><i class="fa-solid fa-xmark" aria-hidden=true></i></button></div><div class=search-source-footer><div class=search-shortcuts><span class=search-shortcut><kbd><i class=lucide-arrow-up aria-hidden=true></i></kbd>
+<kbd><i class=lucide-arrow-down aria-hidden=true></i></kbd>
+Navigate
+</span><span class=search-shortcut><kbd><i class=lucide-corner-down-left aria-hidden=true></i></kbd>
+Select
+</span><span class=search-shortcut><kbd>ESC</kbd>
+Close</span></div><span class=search-engine>Search by <a href=https://fusejs.io/ target=_blank rel="external nofollow noopener noreferrer">Fuse.js</a></span></div></div></dialog><div class=reading-progress-bar style=inset-inline-start:0;top:0></div><div class=fixed-buttons><button type=button class="fixed-button back-to-top animate__faster hidden" aria-label="Back to Top"><i class="fa-solid fa-arrow-up" aria-hidden=true></i><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="50"/><circle class="progress" cx="50" cy="50" r="50"/></svg></button><button type=button id=nav-drawer-button class="fixed-button nav-drawer-button hidden" aria-label=Navigation aria-controls=nav-dialog aria-expanded=false><i class="fa-solid fa-bars" aria-hidden=true></i></button><button type=button class="fixed-button view-comments hidden" aria-label="View Comments"><i class="fa-solid fa-comment" aria-hidden=true></i></button></div><noscript><div class="noscript-warning bg-danger text-white text-base font-bold fixed text-center inset-x-0 bottom-0 w-full z-fixed">This website works best with JavaScript enabled.</div></noscript></div><script src=/lib/canvas-nest/canvas-nest.js color=0,0,0 count=150 zindex=-1 opacity=0.5></script><script>(function(){if(window.matchMedia("(max-width: 960px)").matches)return;var t,e=document.createElement("div");e.id="sakana-widget-container",e.setAttribute("aria-hidden","true"),e.innerHTML='<div id="sakana-widget"></div>',document.body.appendChild(e),t=document.createElement("script"),t.src="/lib/sakana-widget/sakana.min.js",t.onload=function(){window.sakanaWidget=new SakanaWidget({size:300,autoFit:!0,character:"chisato",controls:!0,rod:!0,draggable:!0,stroke:{color:"#b4b4b4",width:10},threshold:.1,rotate:0,title:!1}).mount("#sakana-widget")},document.head.appendChild(t)})()</script><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/aplayer/APlayer.min.css><link rel=stylesheet href=/lib/aplayer/dark.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><link rel=stylesheet href=/lib/pace/themes/blue/pace-theme-minimal.css><script src=/js/lib/giscus.min.js defer></script><script src=/lib/autocomplete-js/index.production.js defer></script><script src=/js/lib/fuse.min.js defer></script><script src=/lib/lightgallery/lightgallery.min.js defer></script><script src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js defer></script><script src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js defer></script><script src=/js/lib/lightgallery.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/typeit/index.umd.js defer></script><script src=/js/lib/typeit.min.js defer></script><script src=/js/lib/mathjax.min.js defer></script><script src=/lib/aplayer/APlayer.min.js defer></script><script src=/lib/meting/Meting.min.js defer></script><script src=/lib/tab-container-element/bundle.js defer type=module></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script src=/js/lib/cookieconsent.min.js defer></script><script src=/lib/cell-tooltip/cell-tooltip.umd.js defer></script><script src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async defer></script><script src=/lib/pace/pace.min.js async defer></script><script src=/en/js/config/f65322c87d0526be7c971885f4fd2084.min.js defer></script><script src=/js/lib/file-tree.min.js defer></script><script src=/js/main.min.js defer></script><script src=/js/custom.min.js defer></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CYZVM6VVZ8",{anonymize_ip:!0})</script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body></html>

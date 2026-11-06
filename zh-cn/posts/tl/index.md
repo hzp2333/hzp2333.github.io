@@ -38,3 +38,9 @@
 
 ![如何屠龙](/img/奇葩而通俗的中世纪指南《如何屠龙》.zh-cn-20240523110331597.webp)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/tl/  
+

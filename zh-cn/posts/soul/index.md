@@ -109,3 +109,9 @@
 
 ![以色列对约旦河西岸的致命袭击仍在继续](/img/叫魂.zh-cn-20240917093020556.webp)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/soul/  
+

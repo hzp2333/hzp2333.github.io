@@ -192,3 +192,9 @@ Economics today has moved toward complexity economics. Complexity economists emp
 [^6]: Actually, elasticity can also be seen as dimensionless rate of change.
 [^7]: *The General Theory of Employment, Interest and Money* (1936)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/gzhs/  
+

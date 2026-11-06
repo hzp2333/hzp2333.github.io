@@ -71,3 +71,9 @@ Second, cooperative innovation implicitly assumes that as long as the division o
 
 Third, putting the two together, a real leap may need two conditions. One, a strong government able to adjust the division of labor and promote cooperation. Two, and at the same time, enough incentive for the innovating actors to genuinely invest in innovation, whether through heavy government subsidies or a large enough market incentive (including market profits and the property-rights system).
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/innovation/  
+

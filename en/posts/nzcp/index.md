@@ -83,3 +83,9 @@ It can all begin with a single line—
 - [Ace Attorney Simulator](https://objection.lol/maker)
 - [Ace Attorney assets](http://www.court-records.net/sprites1.htm)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/nzcp/  
+

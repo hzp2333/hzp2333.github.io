@@ -140,3 +140,9 @@ Gis 有矢量、栅格、图像数据。实际上遥感图像也是栅格数据�
 
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/gis_econ/  
+

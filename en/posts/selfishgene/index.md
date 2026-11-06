@@ -374,3 +374,9 @@ Insect reproduction cycle diagram essentially as follows; red represents genetic
 [^11]: Marx's famous derivation: average profit rate formation. This derivation shows proletariat must first liberate everyone before liberating themselves.
 [^12]: Cheung S N S. The fable of the bees: An economic investigation[J]. The Journal of Law and Economics, 1973, 16(1): 11-33.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/selfishgene/  
+

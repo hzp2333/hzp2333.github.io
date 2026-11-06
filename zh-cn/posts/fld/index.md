@@ -230,3 +230,9 @@
 因此，需要从传统的实体市场进一步分析数字市场，平台经济。传统的垄断关注的是平台间势力（a 公司和 b 公司），进一步需要探讨的是平台内势力（平台与用户）。
 
 平台、经营者、用户、消费者之间的势力问题。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/fld/  
+

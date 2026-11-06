@@ -17,3 +17,9 @@ The distant sands carry no echoes, but who traversed the Hexi Corridor?
 
 ![The Hexi Corridor](/img/河西走廊.zh-cn-20240523114609912.webp)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/hexi/  
+

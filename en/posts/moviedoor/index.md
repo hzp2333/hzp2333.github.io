@@ -30,3 +30,9 @@ By the way: They say this AI is the next industrial revolution. Although I use G
 
 Also, everything about AI is currently in the experimental stage, like Go. AI has not brought much displacement; the industries it has spawned are mostly tools. Recently, the most popular thing is that a simple bug can defeat KATAgo by exploiting a small weakness, showing that once a bug in AI is found, it can paralyze everything. Therefore, AI can only be a tool. For example, no matter how much autonomous vehicle technology develops, as long as the road shape remains unchanged, it will never pass review. Language models are only a part of intelligence, and it is hard to say directly that they can surpass humans.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/moviedoor/  
+

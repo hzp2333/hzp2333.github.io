@@ -98,3 +98,9 @@ By the same logic, we can also ask: where does China's appetite for science fict
 [^4]: A fun fact: the original author behind *Judge Dee* was the Dutch writer [Robert van Gulik](https://en.wikipedia.org/wiki/Robert_van_Gulik)
 [^5]: I found this line in a [Zhihu post](https://zhuanlan.zhihu.com/p/284278220), but I can't confirm whether that is the original source.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/ztxs/  
+

@@ -330,3 +330,9 @@ A professor of advanced probability theory once commented—he felt sorry that T
 [^8]: The proposer of social choice theory, Nobel laureate Buchanan, admired Yang Xiaokai, which is why Yang Xiaokai is considered the Chinese economist closest to the Nobel Prize in Economics.
 [^9]: Assuming ties and cycles are excluded, naturally no matter how you divide, one side's collective preference will determine the social preference.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/shxz/  
+

@@ -54,4 +54,10 @@
 
 **选择 [HUGO](https://gohugo.io/) 的原因**：本来首选的是 hexo, 但经过学长劝导后选择了 hugo，即时预览，渲染快捷。目前使用 obsidian 编写管理博客文档，托管在 GitHub。
 
-**选择 [LoveIt](https://hugoloveit.com/zh-cn/) 主题的原因**：支持丰富（最全的 shortcode、暗黑模式、多语言支持、搜索、评论支持......），风格简洁，作者帮助文档非常详细。不极简也不花哨，但各个年龄段的品味能够兼容！ LoveIt 主题作者已经放弃更新，同类主题可参见 [DoIt](https://hugodoit.pages.dev/zh-cn/) 和 [FixIt](https://fixit.lruihao.cn/)。
+**选择 [FixIt](https://fixit.lruihao.cn/) 主题的原因**：曾经选择的是 [LoveIt](https://hugoloveit.com/zh-cn/) 主题。支持丰富（最全的 shortcode、暗黑模式、多语言支持、搜索、评论支持......），风格简洁，作者帮助文档非常详细。不极简也不花哨，但各个年龄段的品味能够兼容！ LoveIt 主题作者已经放弃更新，因此在2026年11月转向了 [DoIt](https://hugodoit.pages.dev/zh-cn/) 和 [FixIt](https://fixit.lruihao.cn/)。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/about/  
+

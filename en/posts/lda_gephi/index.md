@@ -645,3 +645,9 @@ I believe AI will enhance positive feedback in code-based learning, but simultan
 [^6]: Descriptive statistics alone can be sufficiently eye-catching.
 [^7]: In recent years, the exploration of heterogeneous agents has become increasingly important
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/lda_gephi/  
+

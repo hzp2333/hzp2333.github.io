@@ -1,1228 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>Grouping and Measurement of Econometric Data (STATA Version) - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Grouping and Measurement of Econometric Data (STATA Version)" />
-<meta property="og:description" content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/ji_sata/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-12-26T13:35:20+08:00" />
-<meta property="article:modified_time" content="2023-12-26T13:35:20+08:00" /><meta property="og:site_name" content="My cool site" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Grouping and Measurement of Econometric Data (STATA Version)"/>
-<meta name="twitter:description" content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."/>
-<meta name="twitter:site" content="@ygVNLSZ1omFBCeB"/>
-<meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site">
-<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.huaxiangshan.com/en/posts/ji_sata/"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Ma&#43;Shan&#43;Zheng&amp;family=Madimi&#43;One&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;family=Noto&#43;Serif&#43;SC&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://fonts.googleapis.com/css?family=Fira&#43;Mono:400,700&amp;display=swap&amp;subset=latin-ext" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Madimi+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Serif+SC&display=swap">
-</noscript><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Grouping and Measurement of Econometric Data (STATA Version)",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/"
-        },"genre": "posts","keywords": "Causal Effects, Stata","wordcount":  4384 ,
-        "url": "https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/","datePublished": "2023-12-26T13:35:20+08:00","dateModified": "2023-12-26T13:35:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "xxxx"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
-          const query = window.matchMedia('(prefers-color-scheme: dark)');
-          function applyTheme() {
-            let theme = window.localStorage?.getItem('theme') || 'auto';
-            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
-            document.body.setAttribute('theme', isDark? 'dark' : 'light');
-            document.body.setAttribute('cfg-theme', theme);
-          }
-
-          applyTheme();
-          query.addEventListener('change', applyTheme);
-        </script>
-
-        <div id="mask"></div><div class="wrapper">
-
-
-
-
-
-
-<style>
-  #sakana-widget-container {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    width: 268px;
-    height: 268px;
-  }
-
-  #sakana-widget {
-    width: 100%;
-    height: 100%;
-  }
-
-   
-  @media screen and (max-width: 960px) {
-    #sakana-widget-container {
-      display: none !important;
-    }
-  }
-</style>
-
-<script>
-  (function () {
-    
-    var load = function () {
-      if (window.matchMedia('(max-width: 960px)').matches) return;
-
-      var container = document.createElement('div');
-      container.id = 'sakana-widget-container';
-      container.setAttribute('aria-hidden', 'true');
-      container.innerHTML = '<div id="sakana-widget"></div>';
-      document.body.appendChild(container);
-
-      window.initSakanaWidget = function () {
-        var target = document.getElementById('sakana-widget');
-        if (!target || typeof SakanaWidget === 'undefined') return;
-        new SakanaWidget({
-          size: 300, autoFit: true, character: 'chisato', controls: true,
-          rod: true, draggable: true, stroke: { color: '#b4b4b4', width: 10 },
-          threshold: 0.1, rotate: 0, title: false
-        }).mount('#sakana-widget');
-      };
-
-      var script = document.createElement('script');
-      script.async = true;
-      script.onload = window.initSakanaWidget;
-      script.src = 'https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js';
-      document.head.appendChild(script);
-    };
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', load, { once: true });
-    } else {
-      load();
-    }
-  })();
-</script>
-
-
-
-<header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/en/" title="滑翔闪&#39;S BLOG"><img
-        class="lazyload logo"
-        src="/svg/loading.min.svg"
-        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
-        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
-        data-sizes="auto"
-        alt="/images/%E7%9F%9B%E7%9B%BE.png"
-        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-1" class="typeit"></span></a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i> Posts </a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i> Tags </a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i> Categories </a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i> Friends </a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i> About </a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i> Analysis </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
-                    <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/ji_sata/">简体中文</option><option value="/en/posts/ji_sata/" selected>English</option></select>
-                </a></div>
-        </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/en/" title="滑翔闪&#39;S BLOG"><img
-        class="lazyload logo"
-        src="/svg/loading.min.svg"
-        data-src="/images/%E7%9F%9B%E7%9B%BE.png"
-        data-srcset="/images/%E7%9F%9B%E7%9B%BE.png, /images/%E7%9F%9B%E7%9B%BE.png 1.5x, /images/%E7%9F%9B%E7%9B%BE.png 2x"
-        data-sizes="auto"
-        alt="/images/%E7%9F%9B%E7%9B%BE.png"
-        title="/images/%E7%9F%9B%E7%9B%BE.png" /><span id="id-2" class="typeit"></span></a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="I&#39;ll search with will" id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/en/posts/" title="The book has its own golden house"><i class='fa fa-solid fa-book'></i>Posts</a><a class="menu-item" href="/en/tags/" title="Tag the article, don’t tag the world"><i class='fa fa-tag'></i>Tags</a><a class="menu-item" href="/en/categories/" title="Classification is a virtue"><i class='fa fa-archive'></i>Categories</a><a class="menu-item" href="/en/friends/" title=" It is always a pleasure to greet a friend from afar "><i class='fa fa-user-group'></i>Friends</a><a class="menu-item" href="/en/about/" title="People spend their whole life searching for themselves"> <i class='fa fa-address-card'></i>About</a><a class="menu-item" href="/en/analysis/" title="Blog analysis report"><i class='fa fa-chart-line'></i>Analysis</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/ji_sata/">简体中文</option><option value="/en/posts/ji_sata/" selected>English</option></select>
-                </a></div>
-    </div>
-</header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Grouping and Measurement of Econometric Data (STATA Version)</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/software-tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Software Tools</a>&nbsp;<a href="/en/categories/economic-studies/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Economic Studies</a></span></div>
-
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-26">2023-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4384 words
-                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;
-    
-
-    
-        
-
-        
-        
-            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
-                
-                <span id="busuanzi_value_page_pv"></span>&nbsp;views</span>
-        
-    
-
-
-</div>
-
-        </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp"
-        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 1.5x, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 2x"
-        data-sizes="auto"
-        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"
-        title="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp" /></div><div class="details toc" id="toc-static"  data-kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-paradoxes-in-statistics">1. Paradoxes in Statistics</a>
-      <ul>
-        <li><a href="#simpsons-paradox">Simpson&rsquo;s Paradox</a></li>
-      </ul>
-    </li>
-    <li><a href="#2-panel-data">2. Panel Data</a></li>
-    <li><a href="#3-residuals-economic-mathematical-and-statistical-meanings">3. Residuals: Economic, Mathematical, and Statistical Meanings</a>
-      <ul>
-        <li><a href="#1-pooled-ols">1. Pooled OLS</a></li>
-        <li><a href="#2-fixed-effects">2. Fixed Effects</a></li>
-        <li><a href="#supplement-frisch-waugh-lovell-theorem">*Supplement: Frisch-Waugh-Lovell Theorem</a></li>
-      </ul>
-    </li>
-    <li><a href="#4-mechanism-testing">4. Mechanism Testing</a>
-      <ul>
-        <li><a href="#1-the-gray-area-of-mechanism-testing-in-empirical-studies">1. The Gray Area of Mechanism Testing in Empirical Studies</a></li>
-        <li><a href="#2-mediation-effects-differences-from-psychological-statistics">2. Mediation Effects: Differences from Psychological Statistics</a></li>
-        <li><a href="#3-moderating-effects-grouped-regression-or-interaction-terms">3. Moderating Effects: Grouped Regression or Interaction Terms</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><p>Often, we <strong>emphasize the large volume of data, believing that more data means better representation, while neglecting the analysis of data structure, leading to incorrect estimates</strong>. Inappropriate estimation methods can result in conclusions that are completely opposite to reality. To better understand data structure, economics has developed fixed effects, moderating effects, heterogeneity analysis, and robustness analysis. These may seem like distinct parts of empirical paradigms, but personally, I believe they all aim to classify data structures to ensure our conclusions are truly valid. Therefore, <strong>this article seeks to reorganize the operational significance of empirical papers from the perspective of data structure and variable classification, and to distinguish between different regression commands in STATA.</strong></p>
-<p>Below, we introduce an example from Chapter 17, &ldquo;Measurement,&rdquo; in Varian&rsquo;s <em>Microeconomic Analysis</em>.</p>
-<h2 id="1-paradoxes-in-statistics">1. Paradoxes in Statistics</h2>
-<h3 id="simpsons-paradox">Simpson&rsquo;s Paradox</h3>
-<p>Suppose we want to study the relationship between &ldquo;coffee consumption and income.&rdquo; We have data on 4 men and 4 women, along with their income and coffee consumption.</p>
-<p>STATA data generation is as follows:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-SAS">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">clear
-</span></span><span class="line"><span class="cl"><span class="k">input</span> str6 gender income coffee
-</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">8</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">9</span> <span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">10</span> <span class="m">3</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;woman&#34;</span> <span class="m">11</span> <span class="m">4</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">1</span> <span class="m">6</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">2</span> <span class="m">7</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">3</span> <span class="m">8</span>
-</span></span><span class="line"><span class="cl"><span class="s">&#34;man&#34;</span> <span class="m">4</span> <span class="m">9</span>
-</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div></div>
-<p>We can then plot a scatter plot and perform <strong>three different sample fits</strong>: one for the overall data, one for men, and one for women.</p>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp" title="Using this style, STATA can achieve similar effects to R—plotting code is provided below:" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" data-sub-html="<h2> </h2><p>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp" />
-    </a><figcaption class="image-caption">Using this style, STATA can achieve similar effects to R—plotting code is provided below:</figcaption>
-    </figure></p>
-<p>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-SAS">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">*ssc install schemepack, <span class="k">replace</span>  //Painting style command
-</span></span><span class="line"><span class="cl">*For more details, see: https://www<span class="m">.</span>lianxh<span class="m">.</span>cn/news/e76a8a7e3c6c4<span class="m">.</span>html
-</span></span><span class="line"><span class="cl">  <span class="k">set</span> scheme gg_w3d
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">twoway scatter coffee income <span class="k">if</span> gender == <span class="s">&#34;man&#34;</span>,color(blue) msize(<span class="m">3</span>) || scatter coffee income <span class="k">if</span> gender == <span class="s">&#34;woman&#34;</span>,color(green) msize(<span class="m">3</span>) msymbol(triangle) || lfit coffee income <span class="k">if</span> gender == <span class="s">&#34;man&#34;</span>,color(red) || lfit coffee income <span class="k">if</span> gender == <span class="s">&#34;woman&#34;</span> ,color(black) || lfit coffee income ,color(red)  lpattern(dash) ///
-</span></span><span class="line"><span class="cl">		legend(<span class="k">order</span>(<span class="m">1</span> <span class="s">&#34;Men&#34;</span> <span class="m">2</span> <span class="s">&#34;Women&#34;</span> <span class="m">3</span> <span class="s">&#34;Men Fit&#34;</span>  <span class="m">4</span> <span class="s">&#34;Women Fit&#34;</span>  <span class="m">5</span> <span class="s">&#34;Overall Fit&#34;</span> )) ///
-</span></span><span class="line"><span class="cl">		xtitle(<span class="s">&#34;income&#34;</span>) ytitle(<span class="s">&#34;coffee&#34;</span>) ///
-</span></span><span class="line"><span class="cl">		<span class="k">title</span>(stata style：gg_w3d) ///
-</span></span><span class="line"><span class="cl">		<span class="nb">note(</span><span class="s">&#34;By 滑翔闪&#34;</span>)</span></span></code></pre></div></div>
-<p>If we ignore the details and directly perform regression on the overall data, we might conclude that <strong>higher income leads to lower coffee consumption</strong>. However, if we perform separate regressions for men and women, the conclusion is the opposite—<strong>higher income leads to higher coffee consumption</strong>. Clearly, the latter aligns more with reality.</p>
-<p>This is $\boxed{Simpson&rsquo;s Paradox}$: local correlations and overall correlations can present completely different results.</p>
-<p>Simpson&rsquo;s Paradox is ubiquitous in life, such as measuring the efficacy of drugs across different age groups, gender discrimination in college admissions, or racial bias in police enforcement.</p>
-<ul>
-<li>We should not only care about absolute values, such as the gender ratio of a certain outcome;</li>
-<li>But also observe relative values, such as whether police focus more on people of color because they have higher crime rates;</li>
-</ul>
-<blockquote>
-<p><strong><em>《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》</em></strong>(2006)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> is based on &ldquo;crime rates by race and police enforcement focus&rdquo; to study racial bias in police enforcement in Florida. Since Floyd&rsquo;s &ldquo;I can&rsquo;t breathe&rdquo; went viral, many books have used this event to introduce counterfactual inference<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> (e.g., <em>Mostly Harmless Econometrics</em> by <strong><em>Joshua D. Angrist</em></strong>).</p>
-</blockquote>
-<ul>
-<li>We should also pay attention to internal stratification, such as by race, region, gender&hellip; as in the coffee consumption example above.</li>
-</ul>
-<p>One reason for Simpson&rsquo;s Paradox is <strong>omitted variables and confounders</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>—in the case of coffee consumption and income, gender is an important factor we omitted, but by grouping and fitting, we controlled for it.</p>
-<blockquote>
-<p>Other similar paradoxes include survivorship bias and Berkson&rsquo;s Paradox&hellip; both involve unintentional sample selection that affects analysis results.</p>
-</blockquote>
-<h2 id="2-panel-data">2. Panel Data</h2>
-<blockquote>
-<p>Cross-sectional data: same time/object, different space; time series: same space/object, different time; panel data: different time, different space/object.<br>
-Panel data naturally includes <strong>two variables worth discussing—space/object and time</strong>.</p>
-</blockquote>
-<p>Economics often uses panel data to analyze reality.</p>
-<p>$$
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>Grouping and Measurement of Econometric Data (STATA Version) - 滑翔闪'S BLOG</title><meta name=author content="滑翔闪"><meta name=description content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."><meta name=robots content="index, follow, max-image-preview:large"><meta name=keywords content='Stata'><meta itemprop=name content="Grouping and Measurement of Econometric Data (STATA Version)"><meta itemprop=description content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."><meta itemprop=datePublished content="2023-12-26T13:35:20+08:00"><meta itemprop=dateModified content="2023-12-26T13:35:20+08:00"><meta itemprop=wordCount content="4438"><meta itemprop=keywords content="Stata"><meta property="og:url" content="https://blog.huaxiangshan.com/en/posts/ji_sata/"><meta property="og:site_name" content="滑翔闪'S BLOG"><meta property="og:title" content="Grouping and Measurement of Econometric Data (STATA Version)"><meta property="og:description" content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-12-26T13:35:20+08:00"><meta property="article:modified_time" content="2023-12-26T13:35:20+08:00"><meta property="article:tag" content="Stata"><meta name=twitter:card content="summary"><meta name=twitter:title content="Grouping and Measurement of Econometric Data (STATA Version)"><meta name=twitter:description content="Notes on econometrics, understanding causality, distinguishing between pooled, fixed, and random effects, and STATA operations. Also, personal understanding of mechanism testing, involving discussions on interaction terms."><meta name=twitter:creator content="@ygVNLSZ1omFBCeB"><meta name=application-name content="滑翔闪'S BLOG"><meta name=apple-mobile-web-app-title content="滑翔闪'S BLOG"><meta name=theme-color data-light=#f6f8fa data-dark=#151b23 content="#f6f8fa"><meta name=msapplication-TileColor content="#2d89ef"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#FF7359><link rel=canonical type=text/html href=https://blog.huaxiangshan.com/en/posts/ji_sata/ title="Grouping and Measurement of Econometric Data (STATA Version) - 滑翔闪'S BLOG"><link rel=prev type=text/html href=https://blog.huaxiangshan.com/en/posts/zyw/ title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><link rel=next type=text/html href=https://blog.huaxiangshan.com/en/posts/zoterorss/ title="Zotero: RSS Feed Aggregation Subscription"><link rel=alternate type=text/markdown href=https://blog.huaxiangshan.com/en/posts/ji_sata/index.md><link rel=stylesheet href=/css/unocss.min.css><link rel=stylesheet href=/css/main.min.css><link rel=stylesheet href=/css/pages/posts.min.css><link rel=stylesheet href=/css/custom.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><link rel=preload href=/js/main.min.js as=script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Grouping and Measurement of Econometric Data (STATA Version)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/"},"genre":"posts","keywords":"Stata","wordcount":4438,"url":"https:\/\/blog.huaxiangshan.com\/en\/posts\/ji_sata\/","datePublished":"2023-12-26T13:35:20+08:00","dateModified":"2023-12-26T13:35:20+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"滑翔闪"},"description":""}</script><script src=/js/head.min.js></script></head><body data-instant-intensity=viewport data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=32 width=32><span class=typeit data-group=header-desktop><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><nav class=nav-main aria-label="Main menu"><ul class=menu><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies has-children"><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a><button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-desktop-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-desktop-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li></ul></nav><nav class=nav-system aria-label="Site controls"><ul class=menu><li class="menu-item delimiter"></li><li class="menu-item search"><button type=button class="search-trigger desktop" aria-label=Search title=Search>
+<i class="fa-solid fa-search" aria-hidden=true></i>
+Search
+<kbd></kbd></button></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch-item"><button type=button class=theme-switch aria-label="Switch Theme" title="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button></li><li class="menu-item language-switch"><button type=button data-submenu-toggle aria-label="Select Language" title="Select Language" aria-expanded=false aria-controls=fi-submenu-language-desktop><i class="fa-solid fa-language" aria-hidden=true></i></button><ul class=sub-menu id=fi-submenu-language-desktop><li class=menu-item><a href=/zh-cn/posts/ji_sata/ class=menu-link title=简体中文>简体中文</a></li><li class=menu-item><span class=text-secondary title=English>English</span></li></ul></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="滑翔闪'S BLOG" class=header-title-link><img class=logo src=/images/%E7%9F%9B%E7%9B%BE.png alt="滑翔闪'S BLOG" height=26 width=26><span class=typeit data-group=header-mobile><template>HXS'S BLOG</template></span></a><span class=header-subtitle></span></div><button type=button class="search-trigger mobile" aria-label=Search><i class="fa-solid fa-search" aria-hidden=true></i></button><button type=button class=theme-switch aria-label="Switch Theme"><i class="fa-solid fa-adjust" aria-hidden=true></i></button>
+<button type=button class=menu-toggle id=menu-toggle-mobile aria-controls=menu-mobile aria-expanded=false aria-labelledby=menu-mobile>
+<span></span><span></span><span></span></button></div><nav><ul class=menu id=menu-mobile><li class=menu-item><a class=menu-link href=/en/posts/ title="Books hold treasures of their own"><i class='fa fa-solid fa-book'></i> Posts</a></li><li class=menu-item><a class=menu-link href=/en/about/ title="A lifetime spent in search of oneself"><i class='fa fa-address-card'></i> About</a></li><li class="menu-item nav-taxonomies"><span class=nested-item><a class=menu-link href=javascript:void(0); title="Explore the blog by topic"><i class='fa-solid fa-box-archive'></i> Browse</a>
+<button type=button class=submenu-toggle data-submenu-toggle aria-expanded=false aria-controls=fi-submenu-mobile-2 aria-label="Toggle submenu for Browse"><i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></button></span><ul class=sub-menu id=fi-submenu-mobile-2><li class=menu-item><a class=menu-link href=/en/tags/ title="Define articles, not the world"><i class='fa fa-tag'></i> Tags</a></li><li class=menu-item><a class=menu-link href=/en/categories/ title="Classification is a perspective"><i class='fa fa-archive'></i> Categories</a></li><li class=menu-item><a class=menu-link href=/en/collections/ title="Gather articles into a series"><i class='fa-solid fa-layer-group'></i> Collections</a></li></ul></li><li class=menu-item><a class=menu-link href=/en/analysis/ title="Knowing oneself is a virtue"><i class='fa fa-chart-line'></i> Analysis</a></li><li class=menu-item><a class=menu-link href=https://www.travellings.cn/go.html title="A long train journey into the future" rel="noopener noreferrer" target=_blank><i class='fa fa-train-subway'></i> Travelling</a></li><li class=menu-item><a class=menu-link href=/en/friends/ title="A bosom friend afar brings a distant land near"><i class='fa-solid fa-link'></i> Friends</a></li><li class="menu-item menu-system"><span class="menu-system-item language-switch"><button type=button aria-label="Select Language" title="Select Language">English<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></button>
+<select id=language-select class=language-select onchange="location=this.value"><option value=/zh-cn/posts/ji_sata/>简体中文</option><option value=/en/posts/ji_sata/ selected disabled>English</option></select></span></li></ul></nav></div></header><main class=fi-container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=Collections><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group" aria-hidden=true></i>
+<span class=collection-name title=Collections>Stata Empirical Tools</span>
+<span class=collection-count>9</span>
+<button type=button class=collection-sort-toggle title="Toggle sort order" aria-label="Toggle sort order"><i class="fa-solid fa-arrow-up-short-wide" aria-hidden=true></i></button><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><a href=/en/posts/data/ title="A Quick Guide to Cleaning Economic Microdata">A Quick Guide to Cleaning Economic Microdata</a></li><li class=collection-item><a href=/en/posts/kgfq/ title="Economic weighting and scoring methods: PCA, CRITIC, EWM">Economic weighting and scoring methods: PCA, CRITIC, EWM</a></li><li class=collection-item><span class=active title="Grouping and Measurement of Econometric Data (STATA Version)">Grouping and Measurement of Econometric Data (STATA Version)</span></li><li class=collection-item><a href=/en/posts/pachong/ title="Stata: Learning Web Scraping">Stata: Learning Web Scraping</a></li><li class=collection-item><a href=/en/posts/regout/ title="Stata Export Word Tables">Stata Export Word Tables</a></li><li class=collection-item><a href=/en/posts/statagis/ title="Drawing GIS Choropleth Maps with Stata">Drawing GIS Choropleth Maps with Stata</a></li><li class=collection-item><a href=/en/posts/cpws_stata/ title="Court Judgment Data Cleaning Guide">Court Judgment Data Cleaning Guide</a></li><li class=collection-item><a href=/en/posts/stata_font/ title="Setting Chinese and English Fonts in Stata Figures">Setting Chinese and English Fonts in Stata Figures</a></li><li class=collection-item><a href=/en/posts/stata_auto/ title="Stata and AI Agents: A Powerful Pair for Empirical Work">Stata and AI Agents: A Powerful Pair for Empirical Work</a></li></ul><div class=collection-nav-simple><a href=/en/posts/kgfq/ class=collection-nav-item rel=prev title="Economic weighting and scoring methods: PCA, CRITIC, EWM"><i class="fa-solid fa-angle-left" aria-hidden=true></i></a><span class=text-secondary>3/9</span><a href=/en/posts/pachong/ class=collection-nav-item rel=next title="Stata: Learning Web Scraping"><i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></nav></div></div></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Grouping and Measurement of Econometric Data (STATA Version)</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/hzp2333/hzp2333.github.io title=Author target=_blank rel="author external nofollow noopener noreferrer" class=author><img class=avatar src=/images/avatar.png alt=滑翔闪 height=16 width=16>&nbsp;滑翔闪</a></span><span class=post-included-in>&nbsp;included in <a href=/en/categories/software-tools/ class=post-category title="Category - Software Tools"><i class="fa-regular fa-folder" aria-hidden=true></i> Software Tools</a>&ensp;<a href=/en/categories/economic-studies/ class=post-category title="Category - Economic Studies"><i class="fa-regular fa-folder" aria-hidden=true></i> Economic Studies</a> and <a href=/en/collections/stata-empirical-tools/ class=post-collection title="Collection - Stata Empirical Tools"><i class="fa-solid fa-layer-group" aria-hidden=true></i> Stata Empirical Tools</a></span></div><div class=post-meta-line><span title="published on 2023-12-26 13:35:20"><i class="fa-solid fa-calendar-days me-1" aria-hidden=true></i><time datetime=2023-12-26>2023-12-26</time></span>&nbsp;<span title="4438 words"><i class="fa-solid fa-pencil me-1" aria-hidden=true></i>About 4500 words</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden=true></i>9 minutes</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;views
+</span>&nbsp;</div></div><div class=featured-image><img loading=eager src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp sizes="(max-width: 679.9px) 100vw, (max-width: 959.9px) 80vw, (max-width: 1439.9px) 56vw, 800px" alt=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static></div></div><template data-toc><nav id=TableOfContents><ol><li><a href=#1-paradoxes-in-statistics>1. Paradoxes in Statistics</a><ol><li><a href=#simpsons-paradox>Simpson&rsquo;s Paradox</a></li></ol></li><li><a href=#2-panel-data>2. Panel Data</a></li><li><a href=#3-residuals-economic-mathematical-and-statistical-meanings>3. Residuals: Economic, Mathematical, and Statistical Meanings</a><ol><li><a href=#1-pooled-ols>1. Pooled OLS</a></li><li><a href=#2-fixed-effects>2. Fixed Effects</a></li><li><a href=#supplement-frisch-waugh-lovell-theorem>*Supplement: Frisch-Waugh-Lovell Theorem</a></li></ol></li><li><a href=#4-mechanism-testing>4. Mechanism Testing</a><ol><li><a href=#1-the-gray-area-of-mechanism-testing-in-empirical-studies>1. The Gray Area of Mechanism Testing in Empirical Studies</a></li><li><a href=#2-mediation-effects-differences-from-psychological-statistics>2. Mediation Effects: Differences from Psychological Statistics</a></li><li><a href=#3-moderating-effects-grouped-regression-or-interaction-terms>3. Moderating Effects: Grouped Regression or Interaction Terms</a></li></ol></li></ol></nav></template><div class=content id=content><p>Often, we <strong>emphasize the large volume of data, believing that more data means better representation, while neglecting the analysis of data structure, leading to incorrect estimates</strong>. Inappropriate estimation methods can result in conclusions that are completely opposite to reality. To better understand data structure, economics has developed fixed effects, moderating effects, heterogeneity analysis, and robustness analysis. These may seem like distinct parts of empirical paradigms, but personally, I believe they all aim to classify data structures to ensure our conclusions are truly valid. Therefore, <strong>this article seeks to reorganize the operational significance of empirical papers from the perspective of data structure and variable classification, and to distinguish between different regression commands in STATA.</strong></p><p>Below, we introduce an example from Chapter 17, &ldquo;Measurement,&rdquo; in Varian&rsquo;s <em>Microeconomic Analysis</em>.</p><h2 class=heading-element id=1-paradoxes-in-statistics><span>1. Paradoxes in Statistics</span>
+<a href=#1-paradoxes-in-statistics class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=simpsons-paradox><span>Simpson&rsquo;s Paradox</span>
+<a href=#simpsons-paradox class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Suppose we want to study the relationship between &ldquo;coffee consumption and income.&rdquo; We have data on 4 men and 4 women, along with their income and coffee consumption.</p><p>STATA data generation is as follows:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-sas"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=2 style=--fi-max-shown-lines:20;--fi-line-digit:2;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-SAS data-lang=SAS><span class=line><span class=cl>clear
+</span></span><span class=line><span class=cl><span class=k>input</span> str6 gender income coffee
+</span></span><span class=line><span class=cl><span class=s>&#34;woman&#34;</span> <span class=m>8</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;woman&#34;</span> <span class=m>9</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;woman&#34;</span> <span class=m>10</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;woman&#34;</span> <span class=m>11</span> <span class=m>4</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;man&#34;</span> <span class=m>1</span> <span class=m>6</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;man&#34;</span> <span class=m>2</span> <span class=m>7</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;man&#34;</span> <span class=m>3</span> <span class=m>8</span>
+</span></span><span class=line><span class=cl><span class=s>&#34;man&#34;</span> <span class=m>4</span> <span class=m>9</span>
+</span></span><span class=line><span class=cl><span class=k>end</span></span></span></code></pre></td></tr></table></div></div></div><p>We can then plot a scatter plot and perform <strong>three different sample fits</strong>: one for the overall data, one for men, and one for women.</p><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103053504.webp title="Using this style, STATA can achieve similar effects to R—plotting code is provided below:" data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp data-sub-html="<h2>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103053504.webp alt="Using this style, STATA can achieve similar effects to R—plotting code is provided below:"></a><figcaption class=image-caption>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</figcaption></figure></p><p>Using this style, STATA can achieve similar effects to R—plotting code is provided below:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-sas"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-SAS data-lang=SAS><span class=line><span class=cl>*ssc install schemepack, <span class=k>replace</span>  //Painting style command
+</span></span><span class=line><span class=cl>*For more details, see: https://www<span class=m>.</span>lianxh<span class=m>.</span>cn/news/e76a8a7e3c6c4<span class=m>.</span>html
+</span></span><span class=line><span class=cl>  <span class=k>set</span> scheme gg_w3d
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>twoway scatter coffee income <span class=k>if</span> gender == <span class=s>&#34;man&#34;</span>,color(blue) msize(<span class=m>3</span>) || scatter coffee income <span class=k>if</span> gender == <span class=s>&#34;woman&#34;</span>,color(green) msize(<span class=m>3</span>) msymbol(triangle) || lfit coffee income <span class=k>if</span> gender == <span class=s>&#34;man&#34;</span>,color(red) || lfit coffee income <span class=k>if</span> gender == <span class=s>&#34;woman&#34;</span> ,color(black) || lfit coffee income ,color(red)  lpattern(dash) ///
+</span></span><span class=line><span class=cl>		legend(<span class=k>order</span>(<span class=m>1</span> <span class=s>&#34;Men&#34;</span> <span class=m>2</span> <span class=s>&#34;Women&#34;</span> <span class=m>3</span> <span class=s>&#34;Men Fit&#34;</span>  <span class=m>4</span> <span class=s>&#34;Women Fit&#34;</span>  <span class=m>5</span> <span class=s>&#34;Overall Fit&#34;</span> )) ///
+</span></span><span class=line><span class=cl>		xtitle(<span class=s>&#34;income&#34;</span>) ytitle(<span class=s>&#34;coffee&#34;</span>) ///
+</span></span><span class=line><span class=cl>		<span class=k>title</span>(stata style：gg_w3d) ///
+</span></span><span class=line><span class=cl>		<span class=nb>note(</span><span class=s>&#34;By 滑翔闪&#34;</span>)</span></span></code></pre></td></tr></table></div></div></div><p>If we ignore the details and directly perform regression on the overall data, we might conclude that <strong>higher income leads to lower coffee consumption</strong>. However, if we perform separate regressions for men and women, the conclusion is the opposite—<strong>higher income leads to higher coffee consumption</strong>. Clearly, the latter aligns more with reality.</p><p>This is $\boxed{Simpson's Paradox}$: local correlations and overall correlations can present completely different results.</p><p>Simpson&rsquo;s Paradox is ubiquitous in life, such as measuring the efficacy of drugs across different age groups, gender discrimination in college admissions, or racial bias in police enforcement.</p><ul><li>We should not only care about absolute values, such as the gender ratio of a certain outcome;</li><li>But also observe relative values, such as whether police focus more on people of color because they have higher crime rates;</li></ul><blockquote><p><strong><em>《An alternative test of racial prejudice in motor vehicle searches: Theory and evidence》</em></strong>(2006)<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> is based on &ldquo;crime rates by race and police enforcement focus&rdquo; to study racial bias in police enforcement in Florida. Since Floyd&rsquo;s &ldquo;I can&rsquo;t breathe&rdquo; went viral, many books have used this event to introduce counterfactual inference<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> (e.g., <em>Mostly Harmless Econometrics</em> by <strong><em>Joshua D. Angrist</em></strong>).</p></blockquote><ul><li>We should also pay attention to internal stratification, such as by race, region, gender&mldr; as in the coffee consumption example above.</li></ul><p>One reason for Simpson&rsquo;s Paradox is <strong>omitted variables and confounders</strong><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>—in the case of coffee consumption and income, gender is an important factor we omitted, but by grouping and fitting, we controlled for it.</p><blockquote><p>Other similar paradoxes include survivorship bias and Berkson&rsquo;s Paradox&mldr; both involve unintentional sample selection that affects analysis results.</p></blockquote><h2 class=heading-element id=2-panel-data><span>2. Panel Data</span>
+<a href=#2-panel-data class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><blockquote><p>Cross-sectional data: same time/object, different space; time series: same space/object, different time; panel data: different time, different space/object.<br>Panel data naturally includes <strong>two variables worth discussing—space/object and time</strong>.</p></blockquote><p>Economics often uses panel data to analyze reality.</p>$$
 Data\begin{cases}
 One-dimensional\begin{cases}Time series: time\newline
 Cross-sectional data: space \end{cases}\newline
 Two-dimensional (panel data): time + space\newline
 High-dimensional: more dimensions
 \end{cases}\newline
-$$
-$$
+$$<p></p>$$
 Panel data\begin{cases} Balanced/unbalanced (whether the ratio of time to space is consistent)\newline
 Long/short (whether the number of spaces is less than the number of times)
 \end{cases}\newline
-$$</p>
-<p>For panel data, we first need to clarify which dimension corresponds to time and which corresponds to space/object. It&rsquo;s essentially a grouping process—you can group by industry or assign each individual a unique ID. In STATA terms, this is:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-ada">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ada" data-lang="ada"><span class="line"><span class="cl"><span class="n">xtset</span> <span class="n">id</span> <span class="n">year</span></span></span></code></pre></div></div>
-<h2 id="3-residuals-economic-mathematical-and-statistical-meanings">3. Residuals: Economic, Mathematical, and Statistical Meanings</h2>
-<p>The ordinary regression equation <strong>OLS</strong> is:
-$$
+$$<p>For panel data, we first need to clarify which dimension corresponds to time and which corresponds to space/object. It&rsquo;s essentially a grouping process—you can group by industry or assign each individual a unique ID. In STATA terms, this is:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-ada"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ada data-lang=ada><span class=line><span class=cl><span class=n>xtset</span> <span class=n>id</span> <span class=n>year</span></span></span></code></pre></td></tr></table></div></div></div><h2 class=heading-element id=3-residuals-economic-mathematical-and-statistical-meanings><span>3. Residuals: Economic, Mathematical, and Statistical Meanings</span>
+<a href=#3-residuals-economic-mathematical-and-statistical-meanings class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>The ordinary regression equation <strong>OLS</strong> is:</p>$$
 Y=\alpha X +u
-$$
-This directly fits the <strong>overall data</strong>. Knowing Simpson&rsquo;s Paradox, we understand that such regression is an overall fit and may yield completely different results from local fits. The residual $ \color{red}{u} $ omits too much information we haven&rsquo;t considered, such as gender classification. Therefore, we need to group the data and decompose the gender variable M from the residual $\color{red}{u}$.</p>
-<p>$$
+$$<p>This directly fits the <strong>overall data</strong>. Knowing Simpson&rsquo;s Paradox, we understand that such regression is an overall fit and may yield completely different results from local fits. The residual $ \color{red}{u} $ omits too much information we haven&rsquo;t considered, such as gender classification. Therefore, we need to group the data and decompose the gender variable M from the residual $\color{red}{u}$.</p>$$
 Y=\alpha X +\beta M+u
-$$
-Here, we introduce $\boxed{control variables}$. Note! This is my personal perspective on control variables from a grouping viewpoint, emphasizing their role in <strong>selection bias</strong>. This grouping requires careful consideration of the <strong>practical economic significance</strong> of control variables in our study. For example, numerous studies show that coffee consumption habits indeed differ by gender. The selection of control variables also serves to reduce confounding factors; additionally, we must consider optimal fitting, unbiased estimation, and other <strong>statistical mathematical meanings</strong>.</p>
-<p>With <strong>panel data</strong>, our equation becomes <strong>two-dimensional</strong>, with object/space coding i and time coding t. The ordinary regression equation OLS becomes:
-$$
-Y_{\color{red}{it}}=\alpha X_{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u_{_{\color{red}{it}}}
-$$
-To further <strong>decompose the economic interpretation of residuals across time and space/object dimensions</strong>, we continue to decompose:
-$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime }
-$$
-Thus, the equation becomes:</p>
-<p>$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime }
-$$
-First, let&rsquo;s analyze their <strong>economic meaning—variables</strong>:</p>
-<p>$\boxed{\gamma_{\color{red}{t}}}:$ This part of the residual is the decomposition of the time dimension, indicating that this variation is only related to time, representing <strong>time effects</strong>. For example, seasonal vegetable yields are clearly related to seasons, and technology naturally progresses steadily over the long term. These effects are shared by all individuals, meaning all samples change synchronously over time.</p>
-<p>$\boxed{\lambda_{\color{red}{i}}}:$ This part of the residual is the decomposition of the space/object dimension, indicating that this variation is only related to the individual, representing <strong>individual effects</strong>. For example, Apple took a long time to adopt USB-C, which is part of their corporate culture. Only Apple had this idea, and for a long time, they were the only company in their industry to insist on this.</p>
-<p>$\boxed{u_{\color{red}{it}}^{\prime }}:$ The deviation between the actual value and the estimated value, outside our model&rsquo;s explanation, is the <strong>residual</strong>. Causes include measurement errors, omitted variables, and models not aligning with reality&hellip;</p>
-<p>Next, let&rsquo;s analyze their <strong>mathematical meaning—intercepts</strong>:</p>
-<p>$$
-Y_{\color{red}{it}}=\alpha X_{_{\color{red}{it}}}+\beta D_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
-$$
-Clearly, $(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })$ as a constant is the <strong>intercept</strong> in the linear equation structure!</p>
-<p>Finally, let&rsquo;s analyze their <strong>statistical meaning—residuals</strong>:</p>
-<p>Whether there are different intercepts is closely related to the distribution of residuals, heteroscedasticity, and correlation. Fixed effects, random effects, and pooled regressions differ in how they decompose residuals, determining whether our model can explain individual and time effects.</p>
-<p>$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
+$$<p>Here, we introduce $\boxed{control variables}$. Note! This is my personal perspective on control variables from a grouping viewpoint, emphasizing their role in <strong>selection bias</strong>. This grouping requires careful consideration of the <strong>practical economic significance</strong> of control variables in our study. For example, numerous studies show that coffee consumption habits indeed differ by gender. The selection of control variables also serves to reduce confounding factors; additionally, we must consider optimal fitting, unbiased estimation, and other <strong>statistical mathematical meanings</strong>.</p><p>With <strong>panel data</strong>, our equation becomes <strong>two-dimensional</strong>, with object/space coding i and time coding t. The ordinary regression equation OLS becomes:</p>$$
+Y\_{\color{red}{it}}=\alpha X\_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u\_{\_{\color{red}{it}}}
+$$<p>To further <strong>decompose the economic interpretation of residuals across time and space/object dimensions</strong>, we continue to decompose:</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime }
+$$<p>Thus, the equation becomes:</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime }
+$$<p>First, let&rsquo;s analyze their <strong>economic meaning—variables</strong>:</p><p>$\boxed{\gamma_{\color{red}{t}}}:$ This part of the residual is the decomposition of the time dimension, indicating that this variation is only related to time, representing <strong>time effects</strong>. For example, seasonal vegetable yields are clearly related to seasons, and technology naturally progresses steadily over the long term. These effects are shared by all individuals, meaning all samples change synchronously over time.</p><p>$\boxed{\lambda_{\color{red}{i}}}:$ This part of the residual is the decomposition of the space/object dimension, indicating that this variation is only related to the individual, representing <strong>individual effects</strong>. For example, Apple took a long time to adopt USB-C, which is part of their corporate culture. Only Apple had this idea, and for a long time, they were the only company in their industry to insist on this.</p><p>$\boxed{u_{\color{red}{it}}^{\prime }}:$ The deviation between the actual value and the estimated value, outside our model&rsquo;s explanation, is the <strong>residual</strong>. Causes include measurement errors, omitted variables, and models not aligning with reality&mldr;</p><p>Next, let&rsquo;s analyze their <strong>mathematical meaning—intercepts</strong>:</p>$$
+Y\_{\color{red}{it}}=\alpha X\_{\_{\color{red}{it}}}+\beta D\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })
+$$<p>Clearly, $(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })$ as a constant is the <strong>intercept</strong> in the linear equation structure!</p><p>Finally, let&rsquo;s analyze their <strong>statistical meaning—residuals</strong>:</p><p>Whether there are different intercepts is closely related to the distribution of residuals, heteroscedasticity, and correlation. Fixed effects, random effects, and pooled regressions differ in how they decompose residuals, determining whether our model can explain individual and time effects.</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })
 \newline
 \xrightarrow{Decomposition} Explainable part + \color{blue}{Unexplainable part} (error)
-$$
-First, here&rsquo;s a summary chart, followed by an explanation.</p>
-<p>Random effects have stricter assumptions, meaning higher data requirements, which is why people tend to use fixed effects (allowing for endogeneity in individual effects).</p>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp" title="First, here&amp;rsquo;s a summary chart, followed by an explanation." data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp" data-sub-html="<h2> </h2><p>First, here&amp;rsquo;s a summary chart, followed by an explanation.</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp" />
-    </a><figcaption class="image-caption">First, here&rsquo;s a summary chart, followed by an explanation.</figcaption>
-    </figure></p>
-<p>Through a brief introduction to economic, mathematical, and statistical meanings, we have different decomposition methods for panel data:</p>
-<p>$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })
-$$</p>
-<h3 id="1-pooled-ols">1. Pooled OLS</h3>
-<p>$\boxed{Pooled OLS}$: When $Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+(\lambda_{\color{red}{i}}+\gamma_{\color{red}{t}}+u^{\prime })=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u$, even though we have many methods, such as grouping by year or by individual, we still treat each as a unique data point and pool them together for regression. This can be seen as all data points sharing a single intercept.</p>
-<p>Here, we <strong>assume</strong> no individual effects: $\lambda_{\color{red}{i}}=0$.</p>
-<p>We also <strong>assume</strong> that the remaining residuals are uncorrelated with explanatory and control variables: $Cov（u|M_{_{\color{red}{it}}}, X_{_{\color{red}{it}}}） =0$, and the residuals follow a normal distribution.</p>
-<p>$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+u
-$$
-Pooled OLS uses the least squares method to perform an overall regression on all points, with all data points sharing a single intercept u<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Therefore, pooled OLS is also called &ldquo;longitudinal cross-sectional regression&rdquo; or &ldquo;pooled cross-sectional regression.&rdquo;</p>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp" title="The first column groups by year, with each time section&amp;rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&amp;rsquo;s data points sharing an intercept; the third column&amp;rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane." data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp" data-sub-html="<h2> </h2><p>The first column groups by year, with each time section&amp;rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&amp;rsquo;s data points sharing an intercept; the third column&amp;rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp" />
-    </a><figcaption class="image-caption">The first column groups by year, with each time section&rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&rsquo;s data points sharing an intercept; the third column&rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</figcaption>
-    </figure></p>
-<p>The first column groups by year, with each time section&rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&rsquo;s data points sharing an intercept; the third column&rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</p>
-<h3 id="2-fixed-effects">2. Fixed Effects</h3>
-<p>Divided into individual fixed effects and time fixed effects (double fixed).</p>
-<p><strong>Individual Fixed Effects:</strong></p>
-<p>$\boxed{LSDV}:$ Pooled OLS treats all $\lambda_{it}$ equally. Imagine observing the same person multiple times—pooled OLS treats each repeated observation as equally valuable. Fixed effects disagree, believing that individuals have certain traits, and repeated observations provide limited value. Therefore, we need to <strong>generate dummy individual variables (n-1) to identify each individual and estimate each individual&rsquo;s effect separately</strong>, known as the &ldquo;Least Square Dummy Variable Model&rdquo; (<strong>LSDV</strong>).</p>
-<blockquote>
-<p>This generates many control variables, so $R^2$ is high.</p>
-</blockquote>
-<p>$$
+$$<p>First, here&rsquo;s a summary chart, followed by an explanation.</p><p>Random effects have stricter assumptions, meaning higher data requirements, which is why people tend to use fixed effects (allowing for endogeneity in individual effects).</p><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103132982.webp title="First, here’s a summary chart, followed by an explanation." data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp data-sub-html="<h2>First, here&rsquo;s a summary chart, followed by an explanation.</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103132982.webp alt="First, here’s a summary chart, followed by an explanation."></a><figcaption class=image-caption>First, here&rsquo;s a summary chart, followed by an explanation.</figcaption></figure></p><p>Through a brief introduction to economic, mathematical, and statistical meanings, we have different decomposition methods for panel data:</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })
+$$<h3 class=heading-element id=1-pooled-ols><span>1. Pooled OLS</span>
+<a href=#1-pooled-ols class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>$\boxed{Pooled OLS}$: When $Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+(\lambda\_{\color{red}{i}}+\gamma\_{\color{red}{t}}+u^{\prime })=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u$, even though we have many methods, such as grouping by year or by individual, we still treat each as a unique data point and pool them together for regression. This can be seen as all data points sharing a single intercept.</p><p>Here, we <strong>assume</strong> no individual effects: $\lambda_{\color{red}{i}}=0$.</p><p>We also <strong>assume</strong> that the remaining residuals are uncorrelated with explanatory and control variables: $Cov（u|M\_{\_{\color{red}{it}}}, X\_{\_{\color{red}{it}}}） =0$, and the residuals follow a normal distribution.</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+u
+$$<p>Pooled OLS uses the least squares method to perform an overall regression on all points, with all data points sharing a single intercept u<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>. Therefore, pooled OLS is also called &ldquo;longitudinal cross-sectional regression&rdquo; or &ldquo;pooled cross-sectional regression.&rdquo;</p><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103205584.webp title="The first column groups by year, with each time section’s data points sharing an intercept; the second column groups by individual, with each individual section’s data points sharing an intercept; the third column’s chart is pooled OLS, where all data points are directly fitted on a single plane." data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp data-sub-html="<h2>The first column groups by year, with each time section&rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&rsquo;s data points sharing an intercept; the third column&rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103205584.webp alt="The first column groups by year, with each time section’s data points sharing an intercept; the second column groups by individual, with each individual section’s data points sharing an intercept; the third column’s chart is pooled OLS, where all data points are directly fitted on a single plane."></a><figcaption class=image-caption>The first column groups by year, with each time section&rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&rsquo;s data points sharing an intercept; the third column&rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</figcaption></figure></p><p>The first column groups by year, with each time section&rsquo;s data points sharing an intercept; the second column groups by individual, with each individual section&rsquo;s data points sharing an intercept; the third column&rsquo;s chart is pooled OLS, where all data points are directly fitted on a single plane.</p><h3 class=heading-element id=2-fixed-effects><span>2. Fixed Effects</span>
+<a href=#2-fixed-effects class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Divided into individual fixed effects and time fixed effects (double fixed).</p><p><strong>Individual Fixed Effects:</strong></p><p>$\boxed{LSDV}:$ Pooled OLS treats all $\lambda\_{it}$ equally. Imagine observing the same person multiple times—pooled OLS treats each repeated observation as equally valuable. Fixed effects disagree, believing that individuals have certain traits, and repeated observations provide limited value. Therefore, we need to <strong>generate dummy individual variables (n-1) to identify each individual and estimate each individual&rsquo;s effect separately</strong>, known as the &ldquo;Least Square Dummy Variable Model&rdquo; (<strong>LSDV</strong>).</p><blockquote><p>This generates many control variables, so $R^2$ is high.</p></blockquote>$$
 \begin{align}
-Y_{\color{red}{it}}&amp;=\alpha    X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\alpha_{1}D_{1}+\alpha_{2}D_{2}+\cdots+\alpha_{N}D_{N}+u_{\color{red}{it}}\newline
+Y\_{\color{red}{it}}&=\alpha X\_{\color{red}{it}}+\beta M\_{\_{\color{red}{it}}}+\alpha_{1}D_{1}+\alpha\_{2}D\_{2}+\cdots+\alpha\_{N}D\_{N}+u\_{\color{red}{it}}\newline
 \end{align}
-$$
-
-<img
-        class="lazyload center-image"
-        src="/svg/loading.min.svg"
-        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp"
-        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp 1.5x"
-        data-sizes="auto"
-        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp"
-        title="计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp" /></p>
-<p>Individual effects—causal relationship diagram. Treating individual effects as confounders, we control for them to truncate.</p>
-<p>$\boxed{Within-group estimation}$, fixed effects assume that individual effects are correlated with explanatory variables, so we use within-group deviation to eliminate this correlation, similar to de-meaning—subtracting the within-group mean<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>.</p>
-<p>The average is taken for the same variable, averaging values across different years: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$</p>
-<p><div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>Supplement<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Variance analysis of panel data. After setting <code>xtset id year</code>, <code>id</code> could be a spatial, industry, or individual identifier, giving us n groups. Each group has internal variance, which is within-group variance; there is also variance between groups, which is between-group variance. Variance analysis helps confirm whether our grouping is appropriate.
-Here, within-group estimation is used, which is more effective than between-group estimation. The argument is from Wooldridge&rsquo;s econometrics textbook exercises and won&rsquo;t be expanded here.</div>
-        </div>
-    </div>
-$$
-Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=\alpha (X _{_{\color{red}{it}}}-\bar X _{\color{red}{i}})+\beta (M_{_{\color{red}{it}}}-\bar M _{\color{red}{i}})+(u_{_{\color{red}{it}}}-\bar u _{\color{red}{i}})
-$$
-This equation can also be understood as the lagged $\boxed{first-difference method}$.
-$$
-Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=Y_{\color{red}{i,t}}-Y_{\color{red}{i,t-1}} =\alpha (X _{_{\color{red}{it}}}-X _{\color{red}{i,t-1}})+\beta (M_{_{\color{red}{it}}}- M _{\color{red}{i,t-1}})+(u_{_{\color{red}{it}}}- u _{\color{red}{i,t-1}})
-$$
-In summary, there are currently <strong>three estimation equations for individual fixed effects</strong>: <strong>dummy variable least squares, within-group estimation, and first-difference</strong>. Their estimates are largely consistent, with differences mainly in data assumptions. First-difference eliminates individual effects, so it cannot estimate effects that do not change over time. Dummy least squares (LSDV) requires that the constructed dummy variables be strictly exogenous, and too many dummy variables may exceed STATA&rsquo;s operational limits.
-$$
-\begin{cases} Y_{\color{red}{it}}=\alpha   X_{\color{red}{it}}+\beta M_{_{\color{red}{it}}}+\sum_{1}^{N}{\alpha_{j}D_{j}}+u_{\color{red}{it}}\newline
-Y_{\color{red}{it}}-\bar Y_{\color{red}{i}}=\alpha (X _{_{\color{red}{it}}}-\bar X _{\color{red}{i}})+\beta (M_{_{\color{red}{it}}}-\bar M _{\color{red}{i}})+(u_{_{\color{red}{it}}}-\bar u _{\color{red}{i}})\newline
-Y_{\color{red}{i,t}}-Y_{\color{red}{i,t-1}}  =\alpha (X _{_{\color{red}{it}}}-X _{\color{red}{i,t-1}})+\beta (M_{_{\color{red}{it}}}- M _{\color{red}{i,t-1}})+(u_{_{\color{red}{it}}}- u _{\color{red}{i,t-1}})<br>
+$$<p><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103234293.webp title=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp data-sub-html="<h2>/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp alt=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103234293.webp></a></p><p>Individual effects—causal relationship diagram. Treating individual effects as confounders, we control for them to truncate.</p><p>$\boxed{Within-group estimation}$, fixed effects assume that individual effects are correlated with explanatory variables, so we use within-group deviation to eliminate this correlation, similar to de-meaning—subtracting the within-group mean<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>.</p><p>The average is taken for the same variable, averaging values across different years: $\bar X_i = \frac{\sum_{t=n}^{t=1}{X_{it}}}{t}$</p><p><div class="details admonition tip"><div class="details-summary admonition-title"><i class="icon fa-regular fa-lightbulb" aria-hidden=true></i>Supplement<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>Variance analysis of panel data. After setting <code>xtset id year</code>, <code>id</code> could be a spatial, industry, or individual identifier, giving us n groups. Each group has internal variance, which is within-group variance; there is also variance between groups, which is between-group variance. Variance analysis helps confirm whether our grouping is appropriate.
+Here, within-group estimation is used, which is more effective than between-group estimation. The argument is from Wooldridge&rsquo;s econometrics textbook exercises and won&rsquo;t be expanded here.</div></div></div></p>$$
+Y\_{\color{red}{it}}-\bar Y\_{\color{red}{i}}=\alpha (X \_{\_{\color{red}{it}}}-\bar X \_{\color{red}{i}})+\beta (M\_{\_{\color{red}{it}}}-\bar M \_{\color{red}{i}})+(u\_{\_{\color{red}{it}}}-\bar u \_{\color{red}{i}})
+$$<p>This equation can also be understood as the lagged $\boxed{first-difference method}$.</p>$$
+Y\_{\color{red}{it}}-\bar Y\_{\color{red}{i}}=Y_{\color{red}{i,t}}-Y\_{\color{red}{i,t-1}} \=\alpha (X \_{\_{\color{red}{it}}}-X \_{\color{red}{i,t-1}})+\beta (M\_{\_{\color{red}{it}}}- M \_{\color{red}{i,t-1}})+(u\_{\_{\color{red}{it}}}- u \_{\color{red}{i,t-1}})
+$$<p>In summary, there are currently <strong>three estimation equations for individual fixed effects</strong>: <strong>dummy variable least squares, within-group estimation, and first-difference</strong>. Their estimates are largely consistent, with differences mainly in data assumptions. First-difference eliminates individual effects, so it cannot estimate effects that do not change over time. Dummy least squares (LSDV) requires that the constructed dummy variables be strictly exogenous, and too many dummy variables may exceed STATA&rsquo;s operational limits.</p>$$
+\begin{cases} Y\_{\color{red}{it}}=\alpha X\_{\color{red}{it}}+\beta M\_{\_{\color{red}{it}}}+\sum\_{1}^{N}{\alpha\_{j}D\_{j}}+u\_{\color{red}{it}}\newline
+Y\_{\color{red}{it}}-\bar Y\_{\color{red}{i}}=\alpha (X \_{\_{\color{red}{it}}}-\bar X \_{\color{red}{i}})+\beta (M\_{\_{\color{red}{it}}}-\bar M \_{\color{red}{i}})+(u\_{\_{\color{red}{it}}}-\bar u \_{\color{red}{i}})\newline
+Y\_{\color{red}{i,t}}-Y\_{\color{red}{i,t-1}} =\alpha (X \_{\_{\color{red}{it}}}-X \_{\color{red}{i,t-1}})+\beta (M\_{\_{\color{red}{it}}}- M \_{\color{red}{i,t-1}})+(u\_{\_{\color{red}{it}}}- u \_{\color{red}{i,t-1}})
 \end{cases}
-$$
-The goal is to correctly estimate the coefficient $\alpha$ of the explained variable when individual effects are correlated with control variables, and the parameters $ \alpha $ in the above four estimation equations are the same:
-$$
-Y_{\color{red}{it}}=\alpha X _{_{\color{red}{it}}}+\beta M_{_{\color{red}{it}}}+\lambda_{\color{red}{i}}+\color{blue}{(\gamma_{\color{red}{t}}+u^{\prime })}\
-$$</p>
-<h3 id="supplement-frisch-waugh-lovell-theorem">*Supplement: Frisch-Waugh-Lovell Theorem</h3>
-<blockquote>
-<p>The lemma proving that dummy variable least squares and within-group estimation have the same coefficient $\alpha$ is the &ldquo;<strong>Frisch-Waugh-Lovell Theorem</strong>.&rdquo;<br>
-Here&rsquo;s a minimal example:<br>
-The real equation is:
-$$
-Y=\beta_1 X_1+ \beta_2 X_2 +u_1
-$$
-We want to estimate $\beta_1$, but we omitted variable $X_1$ and only regressed $X_2$, resulting in:
-$$
-Y=\alpha X_2+u_2
-$$
-Now, we regress $X_2$ and $X_1$ to get:
-$$
-X_1=\gamma X_2+u_3
-$$
-Finally, we regress the residuals:
-$$
-u_2=\dot \beta u_3+u
-$$
-Based on the residuals from the two regressions, we get:
-$$
-\begin{cases}
-u_2=Y-\alpha X_2\newline
-u_3 = X_1 - \gamma X_2
-\end{cases}
-$$
-Expanding and transforming, we directly obtain:
-$$
-Y=\dot \beta X_1 + (\alpha-\gamma)X_2+u
-$$
-We find that $\dot \beta=\beta_1$, and through this indirect estimation, we estimate the desired coefficient $\beta_1$. Dummy regression first regresses $Y$ with dummy variables $D$, then regresses $X_1$ with $D$, and finally uses residuals for estimation, so the coefficients are consistent with within-group estimation.</p>
-<p>FWL proves that first-difference estimation and dummy variable estimation are equal.</p>
-</blockquote>
-<p>If you want to try it yourself, you can use STATA&rsquo;s built-in data for testing[^6]:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-SAS">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl"><span class="cm">*Use STATA&#39;s built-in xtpcse command example data
-</span></span></span><span class="line"><span class="cl"><span class="cm">webuse grunfeld,clear
-</span></span></span><span class="line"><span class="cl"><span class="cm">*If there&#39;s no network import, it might be a network issue;</span> you need a VPN.
-</span></span><span class="line"><span class="cl">*Database site: *https://www<span class="m">.</span>stata-press<span class="m">.</span>com/data/r10/xt<span class="m">.</span>html
-</span></span><span class="line"><span class="cl">*You can also download it directly.
-</span></span><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company
-</span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe
-</span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)
-</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company)</span></span></code></pre></div></div>
-<p>The code blocks use four commands to perform fixed effects, <strong>fixing individual effects but not time effects</strong>. The results are shown below, and you can see that their <strong>coefficient estimates are identical</strong>.</p>
-<blockquote>
-<p><strong>Why are the intercepts (constant terms) different?</strong>—No explanation was found in any practical books. Personally, I believe[^7] it&rsquo;s due to different residual calculation methods across commands.</p>
-<p>(1) Pooled OLS calculates residuals for one regression equation and all points.</p>
-<p>(2) (3) (4) Cluster many regression equations with the same coefficients but different intercepts, and each point calculates variance with its corresponding regression equation, then sums them up.<br>
-Why are $R^2$ different:</p>
-<p>(1) (3) (4) All use LSDV, so many dummy variables are generated.</p>
-<p>(2) Uses between-group estimation, so no dummy variables are generated.</p>
-</blockquote>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp" title="Regression Table" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp" data-sub-html="<h2> </h2><p>Regression Table</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp" />
-    </a><figcaption class="image-caption">Regression Table</figcaption>
-    </figure></p>
-<p>By the way, when we change the code to the following, the situation also changes:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-SAS">
-        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">reg mvalue invest kstock  i<span class="m">.</span>company 
-</span></span><span class="line"><span class="cl">xtreg mvalue invest kstock ,fe r 
-</span></span><span class="line"><span class="cl">areg mvalue invest kstock , absorb(company)  vce(cluster company)
-</span></span><span class="line"><span class="cl">reghdfe   mvalue invest kstock  , absorb(company) 
-</span></span><span class="line"><span class="cl">xtreg laborinput did i<span class="m">.</span>year, fe robust</span></span></code></pre></div></div>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp" title="Regression Table" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" data-sub-html="<h2> </h2><p>Regression Table</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp" />
-    </a><figcaption class="image-caption">Regression Table</figcaption>
-    </figure></p>
-<p>From the image, we can see that the coefficient estimates are the same, but the standard deviations are different.</p>
-<blockquote>
-<p>Default regression uses ordinary standard deviation, requiring data to satisfy <strong>homoscedasticity</strong>;</p>
-<p>Adding r, i.e., robust, uses robust standard deviation to address <strong>heteroscedasticity</strong>;</p>
-<p>Adding vce (cluster company) uses clustered robust standard deviation to address <strong>heteroscedasticity + internal autocorrelation</strong>.</p>
-</blockquote>
-<h2 id="4-mechanism-testing">4. Mechanism Testing</h2>
-<h3 id="1-the-gray-area-of-mechanism-testing-in-empirical-studies">1. The Gray Area of Mechanism Testing in Empirical Studies</h3>
-<p>Simpson&rsquo;s Paradox teaches us that grouped regression and overall regression can yield completely different results, partly due to omitted variables. Therefore, we need to add control variables. When using &ldquo;panel data,&rdquo; the data includes &ldquo;time&rdquo; and &ldquo;space&rdquo; dimensions, which can still affect our research. Thus, we need to separate &ldquo;individual effects&rdquo; and &ldquo;time effects.&rdquo; <strong>Answering Simpson&rsquo;s Paradox—here, we address causality, requiring avoidance of endogeneity.</strong> In mechanism testing, some use grouped regression or interaction terms to <strong>extend conclusions, assuming—the new variable in mechanism testing is not an omitted control variable.</strong></p>
-<p>There&rsquo;s a big problem here—<strong>how do you ensure there&rsquo;s no endogeneity in mechanism testing?</strong> For example, in the figure below, the leftmost path is a collision path in causality, while the right side shows moderating and mediating effects in mechanism testing. Clearly, <strong>collision effects with confounders can still satisfy moderating and mediating effects.</strong> This introduces a new endogeneity issue!!!! Therefore, Zhu Jiaxiang and Zhang Wenrui (2021)[^8] state that <strong>moderating effects do not satisfy statistical causality testing.</strong> On this basis, Jiang Ting (2022)[^9] even calls for abandoning the three-step mediation method, as it&rsquo;s meaningless—it neither proves nor disproves endogeneity.</p>
-<p>
-<img
-        class="lazyload center-image"
-        src="/svg/loading.min.svg"
-        data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp"
-        data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp 1.5x"
-        data-sizes="auto"
-        alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"
-        title="计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp" /></p>
-<p>Thus, our mechanism testing is left with only two options:</p>
-<blockquote>
-<p><strong>1. Further prove no endogeneity.</strong> This requires another controlled experiment (feels like another mini economic empirical comparison); or discuss the correlation between residuals and the explained variable after grouped regression. Use correlation + theoretical explanation to approach causality.</p>
-</blockquote>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp" title="《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp" data-sub-html="<h2> </h2><p>《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp" />
-    </a><figcaption class="image-caption">《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)</figcaption>
-    </figure></p>
-<blockquote>
-<p><strong>2. No need to prove, my variable is naturally exogenous.</strong> The variable has no endogeneity in practical terms, meaning more theoretical and economic explanations are needed. The most common &ldquo;filler&rdquo; in domestic research is the four major regions and the Hu Line, as these classifications are naturally exogenous variables in practical terms.</p>
-</blockquote>
-<p>It seems that mechanism testing is essentially an incomplete mini-empirical study, extending conclusions through incomplete empirical steps. Personally, I feel that no econometrics textbook emphasizes so-called &ldquo;mechanism analysis,&rdquo; but it has become a specific requirement domestically. It seems that quantitative economics ultimately relies on a mix of practical theory and quantitative analysis.</p>
-<h3 id="2-mediation-effects-differences-from-psychological-statistics">2. Mediation Effects: Differences from Psychological Statistics</h3>
-<blockquote>
-<p>The views on mediation effects mainly reference <em>The Book of Why</em> by Judea Pearl.</p>
-</blockquote>
-<p>When we ask why, there are two types of logical chains: one is principle, and the other is process.</p>
-<p>$$
+$$<p>The goal is to correctly estimate the coefficient $\alpha$ of the explained variable when individual effects are correlated with control variables, and the parameters $ \alpha $ in the above four estimation equations are the same:</p>$$
+Y\_{\color{red}{it}}=\alpha X \_{\_{\color{red}{it}}}+\beta M\_{\_{\color{red}{it}}}+\lambda\_{\color{red}{i}}+\color{blue}{(\gamma\_{\color{red}{t}}+u^{\prime })}\\
+$$<h3 class=heading-element id=supplement-frisch-waugh-lovell-theorem><span>*Supplement: Frisch-Waugh-Lovell Theorem</span>
+<a href=#supplement-frisch-waugh-lovell-theorem class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><blockquote><p>The lemma proving that dummy variable least squares and within-group estimation have the same coefficient $\alpha$ is the &ldquo;<strong>Frisch-Waugh-Lovell Theorem</strong>.&rdquo;<br>Here&rsquo;s a minimal example:<br>The real equation is:</p>$$
+> Y=\beta_1 X_1+ \beta_2 X_2 +u_1
+> $$<p>We want to estimate $\beta_1$, but we omitted variable $X_1$ and only regressed $X_2$, resulting in:</p>$$
+> Y=\alpha X_2+u_2
+> $$<p>Now, we regress $X_2$ and $X_1$ to get:</p>$$
+> X_1=\gamma X_2+u_3
+> $$<p>Finally, we regress the residuals:</p>$$
+> u_2=\dot \beta u_3+u
+> $$<p>Based on the residuals from the two regressions, we get:</p>$$
+> \begin{cases}
+> u_2=Y-\alpha X_2\newline
+> u_3 = X_1 - \gamma X_2
+> \end{cases}
+> $$<p>Expanding and transforming, we directly obtain:</p>$$
+> Y=\dot \beta X_1 + (\alpha-\gamma)X_2+u
+> $$<p>We find that $\dot \beta=\beta_1$, and through this indirect estimation, we estimate the desired coefficient $\beta_1$. Dummy regression first regresses $Y$ with dummy variables $D$, then regresses $X_1$ with $D$, and finally uses residuals for estimation, so the coefficients are consistent with within-group estimation.</p><p>FWL proves that first-difference estimation and dummy variable estimation are equal.</p></blockquote><p>If you want to try it yourself, you can use STATA&rsquo;s built-in data for testing[^6]:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-sas"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-SAS data-lang=SAS><span class=line><span class=cl><span class=cm>*Use STATA&#39;s built-in xtpcse command example data
+</span></span></span><span class=line><span class=cl><span class=cm>webuse grunfeld,clear
+</span></span></span><span class=line><span class=cl><span class=cm>*If there&#39;s no network import, it might be a network issue;</span> you need a VPN.
+</span></span><span class=line><span class=cl>*Database site: *https://www<span class=m>.</span>stata-press<span class=m>.</span>com/data/r10/xt<span class=m>.</span>html
+</span></span><span class=line><span class=cl>*You can also download it directly.
+</span></span><span class=line><span class=cl>reg mvalue invest kstock  i<span class=m>.</span>company
+</span></span><span class=line><span class=cl>xtreg mvalue invest kstock ,fe
+</span></span><span class=line><span class=cl>areg mvalue invest kstock , absorb(company)
+</span></span><span class=line><span class=cl>reghdfe   mvalue invest kstock  , absorb(company)</span></span></code></pre></td></tr></table></div></div></div><p>The code blocks use four commands to perform fixed effects, <strong>fixing individual effects but not time effects</strong>. The results are shown below, and you can see that their <strong>coefficient estimates are identical</strong>.</p><blockquote><p><strong>Why are the intercepts (constant terms) different?</strong>—No explanation was found in any practical books. Personally, I believe[^7] it&rsquo;s due to different residual calculation methods across commands.</p><p>(1) Pooled OLS calculates residuals for one regression equation and all points.</p><p>(2) (3) (4) Cluster many regression equations with the same coefficients but different intercepts, and each point calculates variance with its corresponding regression equation, then sums them up.<br>Why are $R^2$ different:</p><p>(1) (3) (4) All use LSDV, so many dummy variables are generated.</p><p>(2) Uses between-group estimation, so no dummy variables are generated.</p></blockquote><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103353234.webp title="Regression Table" data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp data-sub-html="<h2>Regression Table</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103353234.webp alt="Regression Table"></a><figcaption class=image-caption>Regression Table</figcaption></figure></p><p>By the way, when we change the code to the following, the situation also changes:</p><div class="code-block highlight" data-mode=classic data-copyable=true><div class=chroma><div class="code-header language-sas"><span class=code-title><i class="arrow fa-solid fa-chevron-down" aria-hidden=true></i></span><button type=button class=ellipses-btn aria-label="Show more options"><i class="fa-solid fa-ellipsis-h" aria-hidden=true></i></button><button type=button class="action-btn line-nos-btn" aria-label="Toggle line numbers" title="Toggle line numbers"><i class="fa-solid fa-list-ol" aria-hidden=true></i></button><button type=button class="action-btn line-wrap-btn" aria-label="Toggle code wrap" title="Toggle code wrap"><i class="fa-solid fa-right-left" aria-hidden=true></i></button><button type=button class="action-btn copy-btn" aria-label="Copy to clipboard" title="Copy to clipboard" data-copied-text=Copied><i class="fa-regular fa-clone" aria-hidden=true></i></button></div><div class=code-wrapper data-max=20 data-line-digit=1 style=--fi-max-shown-lines:20;--fi-line-digit:1;--fi-line-start:1><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-SAS data-lang=SAS><span class=line><span class=cl>reg mvalue invest kstock  i<span class=m>.</span>company 
+</span></span><span class=line><span class=cl>xtreg mvalue invest kstock ,fe r 
+</span></span><span class=line><span class=cl>areg mvalue invest kstock , absorb(company)  vce(cluster company)
+</span></span><span class=line><span class=cl>reghdfe   mvalue invest kstock  , absorb(company) 
+</span></span><span class=line><span class=cl>xtreg laborinput did i<span class=m>.</span>year, fe robust</span></span></code></pre></td></tr></table></div></div></div><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103416018.webp title="Regression Table" data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp data-sub-html="<h2>Regression Table</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103416018.webp alt="Regression Table"></a><figcaption class=image-caption>Regression Table</figcaption></figure></p><p>From the image, we can see that the coefficient estimates are the same, but the standard deviations are different.</p><blockquote><p>Default regression uses ordinary standard deviation, requiring data to satisfy <strong>homoscedasticity</strong>;</p><p>Adding r, i.e., robust, uses robust standard deviation to address <strong>heteroscedasticity</strong>;</p><p>Adding vce (cluster company) uses clustered robust standard deviation to address <strong>heteroscedasticity + internal autocorrelation</strong>.</p></blockquote><h2 class=heading-element id=4-mechanism-testing><span>4. Mechanism Testing</span>
+<a href=#4-mechanism-testing class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=1-the-gray-area-of-mechanism-testing-in-empirical-studies><span>1. The Gray Area of Mechanism Testing in Empirical Studies</span>
+<a href=#1-the-gray-area-of-mechanism-testing-in-empirical-studies class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Simpson&rsquo;s Paradox teaches us that grouped regression and overall regression can yield completely different results, partly due to omitted variables. Therefore, we need to add control variables. When using &ldquo;panel data,&rdquo; the data includes &ldquo;time&rdquo; and &ldquo;space&rdquo; dimensions, which can still affect our research. Thus, we need to separate &ldquo;individual effects&rdquo; and &ldquo;time effects.&rdquo; <strong>Answering Simpson&rsquo;s Paradox—here, we address causality, requiring avoidance of endogeneity.</strong> In mechanism testing, some use grouped regression or interaction terms to <strong>extend conclusions, assuming—the new variable in mechanism testing is not an omitted control variable.</strong></p><p>There&rsquo;s a big problem here—<strong>how do you ensure there&rsquo;s no endogeneity in mechanism testing?</strong> For example, in the figure below, the leftmost path is a collision path in causality, while the right side shows moderating and mediating effects in mechanism testing. Clearly, <strong>collision effects with confounders can still satisfy moderating and mediating effects.</strong> This introduces a new endogeneity issue!!!! Therefore, Zhu Jiaxiang and Zhang Wenrui (2021)[^8] state that <strong>moderating effects do not satisfy statistical causality testing.</strong> On this basis, Jiang Ting (2022)[^9] even calls for abandoning the three-step mediation method, as it&rsquo;s meaningless—it neither proves nor disproves endogeneity.</p><p><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103442281.webp title=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp data-sub-html="<h2>/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp alt=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp></a></p><p>Thus, our mechanism testing is left with only two options:</p><blockquote><p><strong>1. Further prove no endogeneity.</strong> This requires another controlled experiment (feels like another mini economic empirical comparison); or discuss the correlation between residuals and the explained variable after grouped regression. Use correlation + theoretical explanation to approach causality.</p></blockquote><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103507212.webp title="《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)" data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp data-sub-html="<h2>《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103507212.webp alt="《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)"></a><figcaption class=image-caption>《Causal Inference in Empirical Research: Mediation and Moderation Effects》Jiang Ting (2022)</figcaption></figure></p><blockquote><p><strong>2. No need to prove, my variable is naturally exogenous.</strong> The variable has no endogeneity in practical terms, meaning more theoretical and economic explanations are needed. The most common &ldquo;filler&rdquo; in domestic research is the four major regions and the Hu Line, as these classifications are naturally exogenous variables in practical terms.</p></blockquote><p>It seems that mechanism testing is essentially an incomplete mini-empirical study, extending conclusions through incomplete empirical steps. Personally, I feel that no econometrics textbook emphasizes so-called &ldquo;mechanism analysis,&rdquo; but it has become a specific requirement domestically. It seems that quantitative economics ultimately relies on a mix of practical theory and quantitative analysis.</p><h3 class=heading-element id=2-mediation-effects-differences-from-psychological-statistics><span>2. Mediation Effects: Differences from Psychological Statistics</span>
+<a href=#2-mediation-effects-differences-from-psychological-statistics class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><blockquote><p>The views on mediation effects mainly reference <em>The Book of Why</em> by Judea Pearl.</p></blockquote><p>When we ask why, there are two types of logical chains: one is principle, and the other is process.</p>$$
 Eating oranges\rightarrow Vitamin C\rightarrow Resisting scurvy\newline
-Elderly\rightarrow Falling\rightarrow Hospitalization\
-$$
-Taking the above two path diagrams as examples, the first one—eating vitamin C to resist scurvy—sounds more like a principle-based answer, while the elderly falling seems more like a process. I&rsquo;ve seen many forums and social science自媒体 videos claiming that &ldquo;economics stole mediation effects from psychology&rdquo;—this is not the case.</p>
-<p>Psychology can widely apply mediation effects because its path diagrams are: $external stimuli\rightarrow human reactions, hormonal changes\rightarrow behavioral changes$, which align more with principles. Economics, on the other hand, answers with $variable1\rightarrow variable2\rightarrow variable3$, which is more like a process description, broader, and less aligned with principles, hence the skepticism. Psychology restricts mediation variables to human performance, while economics has no such strict restrictions, making spurious correlations highly likely. For example, in the case of vitamin C and scurvy, people long believed it was &ldquo;fruit—oranges&rdquo; that mattered. The Kost Arctic expedition thought the key was fresh fruit, so they prepared no fruit but only fresh meat, and everyone ended up with scurvy.</p>
-<p>To address &ldquo;Simpson&rsquo;s Paradox,&rdquo; we still need mediation effects because of the $\boxed{mediation fallacy}$.</p>
-<p>Take the <em>Science</em> paper <em>Sex Bias in Graduate Admissions: Data from Berkeley</em>[^10] as an example. We get the following causal path diagram.</p>
-<p>Gender affects admission rates through two paths.
-
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp" title="《Sex Bias in Graduate Admissions: Data from Berkeley》" data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp" data-sub-html="<h2> </h2><p>《Sex Bias in Graduate Admissions: Data from Berkeley》</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp" />
-    </a><figcaption class="image-caption">《Sex Bias in Graduate Admissions: Data from Berkeley》</figcaption>
-    </figure></p>
-<p>Direct effect: $gender\rightarrow admission rate$</p>
-<p>Indirect effect: $gender\rightarrow department\rightarrow admission rate$, where &ldquo;department&rdquo; is the mediating variable.</p>
-<p>If we directly control for &ldquo;department,&rdquo; we show the direct effect of gender on admission rates, and the regression will indicate discrimination against women.</p>
-<p>If we only control for &ldquo;state of residence,&rdquo; we show the direct effect of gender on admission rates and the indirect effect of gender-department-admission rates, indicating no discrimination against women. The completely different results are precisely <strong>Simpson&rsquo;s Paradox</strong>. In the coffee example, we made a mistake by <strong>omitting a variable</strong>; here, the mistake is <strong>controlling for a &ldquo;mediating variable&rdquo;</strong>. The final conclusion is that because women are more likely to apply to the most competitive departments, their admission rates appear lower, so department is an important mediating variable and should not be casually controlled.</p>
-<p>Thus, mediating variables should not be used as control variables, and if we want to distinguish between direct and mediating effects, further differentiation is needed.</p>
-<h3 id="3-moderating-effects-grouped-regression-or-interaction-terms">3. Moderating Effects: Grouped Regression or Interaction Terms</h3>
-<p>Found a comprehensive <a href="https://zhuanlan.zhihu.com/p/120310111" target="_blank" rel="noopener noreffer ">summary</a></p>
-<blockquote>
-<p>This section mainly references <em>Regression Analysis</em> by Xie Yu.</p>
-</blockquote>
-<p>For variables $Y$, $X_1$, $X_2$, and $D$, we have different estimation strategies.</p>
-<p>Grouped regression: $Y=\beta_1 X_1+\beta_2 X_2+u$, then group by D.</p>
-<p>Introduce interaction terms, with two estimation methods:</p>
-<p>$$
+Elderly\rightarrow Falling\rightarrow Hospitalization\\
+$$<p>Taking the above two path diagrams as examples, the first one—eating vitamin C to resist scurvy—sounds more like a principle-based answer, while the elderly falling seems more like a process. I&rsquo;ve seen many forums and social science自媒体 videos claiming that &ldquo;economics stole mediation effects from psychology&rdquo;—this is not the case.</p><p>Psychology can widely apply mediation effects because its path diagrams are: $external stimuli\rightarrow human reactions, hormonal changes\rightarrow behavioral changes$, which align more with principles. Economics, on the other hand, answers with $variable1\rightarrow variable2\rightarrow variable3$, which is more like a process description, broader, and less aligned with principles, hence the skepticism. Psychology restricts mediation variables to human performance, while economics has no such strict restrictions, making spurious correlations highly likely. For example, in the case of vitamin C and scurvy, people long believed it was &ldquo;fruit—oranges&rdquo; that mattered. The Kost Arctic expedition thought the key was fresh fruit, so they prepared no fruit but only fresh meat, and everyone ended up with scurvy.</p><p>To address &ldquo;Simpson&rsquo;s Paradox,&rdquo; we still need mediation effects because of the $\boxed{mediation fallacy}$.</p><p>Take the <em>Science</em> paper <em>Sex Bias in Graduate Admissions: Data from Berkeley</em>[^10] as an example. We get the following causal path diagram.</p><p>Gender affects admission rates through two paths.<figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103531814.webp title="《Sex Bias in Graduate Admissions: Data from Berkeley》" data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp data-sub-html="<h2>《Sex Bias in Graduate Admissions: Data from Berkeley》</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103531814.webp alt="《Sex Bias in Graduate Admissions: Data from Berkeley》"></a><figcaption class=image-caption>《Sex Bias in Graduate Admissions: Data from Berkeley》</figcaption></figure></p><p>Direct effect: $gender\rightarrow admission rate$</p><p>Indirect effect: $gender\rightarrow department\rightarrow admission rate$, where &ldquo;department&rdquo; is the mediating variable.</p><p>If we directly control for &ldquo;department,&rdquo; we show the direct effect of gender on admission rates, and the regression will indicate discrimination against women.</p><p>If we only control for &ldquo;state of residence,&rdquo; we show the direct effect of gender on admission rates and the indirect effect of gender-department-admission rates, indicating no discrimination against women. The completely different results are precisely <strong>Simpson&rsquo;s Paradox</strong>. In the coffee example, we made a mistake by <strong>omitting a variable</strong>; here, the mistake is <strong>controlling for a &ldquo;mediating variable&rdquo;</strong>. The final conclusion is that because women are more likely to apply to the most competitive departments, their admission rates appear lower, so department is an important mediating variable and should not be casually controlled.</p><p>Thus, mediating variables should not be used as control variables, and if we want to distinguish between direct and mediating effects, further differentiation is needed.</p><h3 class=heading-element id=3-moderating-effects-grouped-regression-or-interaction-terms><span>3. Moderating Effects: Grouped Regression or Interaction Terms</span>
+<a href=#3-moderating-effects-grouped-regression-or-interaction-terms class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>Found a comprehensive <a href=https://zhuanlan.zhihu.com/p/120310111 target=_blank rel="external nofollow noopener noreferrer">summary<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><blockquote><p>This section mainly references <em>Regression Analysis</em> by Xie Yu.</p></blockquote><p>For variables $Y$, $X_1$, $X_2$, and $D$, we have different estimation strategies.</p><p>Grouped regression: $Y=\beta_1 X_1+\beta_2 X_2+u$, then group by D.</p><p>Introduce interaction terms, with two estimation methods:</p>$$
 \begin{cases}
-Y=\beta_1 X_1+\beta_2 X_2+\beta_3D+\beta_4 DX_1+u \newline
-Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u
+Y=\beta\_1 X\_1+\beta\_2 X\_2+\beta\_3D+\beta\_4 DX\_1+u \newline
+Y=\beta\_1 X\_1+\beta\_2 X\_2+\beta\_3DX +u
 \end{cases}
-$$
-<div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>What&#39;s the difference between interaction terms and grouped regression?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content"><p>Generally, interaction terms emphasize moderating effects, while grouped regression emphasizes heterogeneity. Jiang Ting (2022) believes they are the same. However, there are still some differences:</p>
-<p>First, there are cases <strong>where grouped regression is necessary</strong>, such as when discussing regional heterogeneity across east, west, north, south, and central regions. We cannot quantify their roles in interaction terms with 1-4, and repeatedly using 0-1 coding doesn&rsquo;t align with control logic, so grouped regression is needed. Second, there are cases <strong>where we need to study interaction terms</strong>, i.e., substitution and complementary effects. When the equation becomes $Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u$, studying marginal effects, each other&rsquo;s marginal effects are influenced by the other. Finally, when group coefficients are similar, grouped regression can also serve as a <strong>robustness test</strong>.</p>
-<p>Here are some common conclusions (though I feel these conclusions lack authoritative paper support):</p>
-<ul>
-<li>Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also <a href="https://zhuanlan.zhihu.com/p/629123531" target="_blank" rel="noopener noreffer ">test coefficient differences for significance</a>), are more sensitive, and use the entire sample, while grouped regression reduces sample size;</li>
-<li>Data assumptions differ, <strong>interaction terms assume only interaction-related groups have between-group differences</strong>, requiring stricter assumptions. <strong>Interaction terms require control variable coefficients to be consistent across groups</strong>, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent.</li>
-<li>Different variables require different discussions; interaction terms can be divided into dummy-dummy interactions (<a href="https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG" target="_blank" rel="noopener noreffer ">recommended reference</a>), dummy-continuous interactions, and continuous-continuous interactions, requiring specific analysis. (<em>Basic Econometrics</em> by Gujarati supports dummy-dummy interactions—no controversy given the prevalence of difference-in-differences.)</li>
-</ul>
-<p>Interaction term assumptions remain a gray area in mechanism testing. As long as your variable logic makes sense, use whichever is significant—grouped or interaction—or better yet, use both.</p>
-</div>
-        </div>
-    </div></p>
-<div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>What kind of variables are suitable for interactions?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content"><p>From a mathematical perspective, addition affects intercepts, while multiplication affects slopes.</p>
-<p>
-<figure class="center-figure"><a class="lightgallery" href="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp" title="From the figure, moderating effects emphasize interactions because they affect slopes along with X." data-thumbnail="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp" data-sub-html="<h2> </h2><p>From the figure, moderating effects emphasize interactions because they affect slopes along with X.</p>">
-        <img
-            class="lazyload center-image"
-            src="/svg/loading.min.svg"
-            data-src="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp"
-            data-srcset="/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp, /img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp 1.5x"
-            data-sizes="auto"
-            alt="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp" />
-    </a><figcaption class="image-caption">From the figure, moderating effects emphasize interactions because they affect slopes along with X.</figcaption>
-    </figure></p>
-<p>From the figure, moderating effects emphasize interactions because they affect slopes along with X.</p>
-<p>Grouped regression emphasizes that X&rsquo;s slope is the same, only intercepts differ, with no moderating effects, making it more suitable as a control variable.</p>
-</div>
-        </div>
-    </div>
-<div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>Can we delete lower-order terms?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Which of the following two estimation equations should we choose? Can we remove the lower-order terms $X$ and $D$ after including the interaction term $XD$?
-$$
+$$<p><div class="details admonition tip"><div class="details-summary admonition-title"><i class="icon fa-regular fa-lightbulb" aria-hidden=true></i>What&rsquo;s the difference between interaction terms and grouped regression?<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>Generally, interaction terms emphasize moderating effects, while grouped regression emphasizes heterogeneity. Jiang Ting (2022) believes they are the same. However, there are still some differences:</p><p>First, there are cases <strong>where grouped regression is necessary</strong>, such as when discussing regional heterogeneity across east, west, north, south, and central regions. We cannot quantify their roles in interaction terms with 1-4, and repeatedly using 0-1 coding doesn&rsquo;t align with control logic, so grouped regression is needed. Second, there are cases <strong>where we need to study interaction terms</strong>, i.e., substitution and complementary effects. When the equation becomes $Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX +u$, studying marginal effects, each other&rsquo;s marginal effects are influenced by the other. Finally, when group coefficients are similar, grouped regression can also serve as a <strong>robustness test</strong>.</p><p>Here are some common conclusions (though I feel these conclusions lack authoritative paper support):</p><ul><li>Statistical testing favors interaction terms because they have significance tests (though now grouped regression can also <a href=https://zhuanlan.zhihu.com/p/629123531 target=_blank rel="external nofollow noopener noreferrer">test coefficient differences for significance<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a>), are more sensitive, and use the entire sample, while grouped regression reduces sample size;</li><li>Data assumptions differ, <strong>interaction terms assume only interaction-related groups have between-group differences</strong>, requiring stricter assumptions. <strong>Interaction terms require control variable coefficients to be consistent across groups</strong>, while grouped regression does not. An extended conclusion—when a variable interacts with all control variables, interaction term estimation and grouped regression are completely consistent.</li><li>Different variables require different discussions; interaction terms can be divided into dummy-dummy interactions (<a href=https://www.163.com/opencourse/detail/video-WHINCLQNO-SHIP1G9QG target=_blank rel="external nofollow noopener noreferrer">recommended reference<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a>), dummy-continuous interactions, and continuous-continuous interactions, requiring specific analysis. (<em>Basic Econometrics</em> by Gujarati supports dummy-dummy interactions—no controversy given the prevalence of difference-in-differences.)</li></ul><p>Interaction term assumptions remain a gray area in mechanism testing. As long as your variable logic makes sense, use whichever is significant—grouped or interaction—or better yet, use both.</p></div></div></div></p><div class="details admonition tip"><div class="details-summary admonition-title"><i class="icon fa-regular fa-lightbulb" aria-hidden=true></i>What kind of variables are suitable for interactions?<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>From a mathematical perspective, addition affects intercepts, while multiplication affects slopes.</p><p><figure><a class=lightgallery target=_blank href=/img/%e8%ae%a1%e9%87%8f%e6%95%b0%e6%8d%ae%e7%9a%84%e5%88%86%e7%bb%84%e4%b8%8e%e6%b5%8b%e5%ba%a6%ef%bc%88STATA%e7%89%88%ef%bc%89.zh-cn-20240523103738664.webp title="From the figure, moderating effects emphasize interactions because they affect slopes along with X." data-thumbnail=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp data-sub-html="<h2>From the figure, moderating effects emphasize interactions because they affect slopes along with X.</h2>"><img loading=lazy src=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103738664.webp alt="From the figure, moderating effects emphasize interactions because they affect slopes along with X."></a><figcaption class=image-caption>From the figure, moderating effects emphasize interactions because they affect slopes along with X.</figcaption></figure></p><p>From the figure, moderating effects emphasize interactions because they affect slopes along with X.</p><p>Grouped regression emphasizes that X&rsquo;s slope is the same, only intercepts differ, with no moderating effects, making it more suitable as a control variable.</p></div></div></div><div class="details admonition tip"><div class="details-summary admonition-title"><i class="icon fa-regular fa-lightbulb" aria-hidden=true></i>Can we delete lower-order terms?<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content><p>Which of the following two estimation equations should we choose? Can we remove the lower-order terms $X$ and $D$ after including the interaction term $XD$?</p>$$
 \begin{cases} Y=\beta_1 X_1+\beta_2 X_2+\beta_3 D+\beta_4 DX_1+u\newline
 Y=\beta_1 X_1+\beta_2 X_2+\beta_3DX_2 +u\end{cases}
-$$
-The answer is that $\beta_3 D$ should be included. In the first equation, $\beta_4$ is indeed the net effect after controlling for $X_1$ and $D$. This can lead to &ldquo;multicollinearity,&rdquo; which can be addressed by de-meaning (subtracting the mean). Therefore, in difference-in-differences, if did aligns with the predefined time and space settings, it becomes a requirement for two-way fixed effects.</div>
-        </div>
-    </div>
-<p>The above references are from[^2 d]</p>
-<div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb" aria-hidden="true"></i>How many terms can be multiplied in an interaction?<i class="details-icon fas fa-angle-right" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Generally, no more than three. The reason is that three or fewer terms align more with intuitive controlled experiments, and beyond three, authors struggle to explain the experimental conclusions.</div>
-        </div>
-    </div>
-<p><strong>References:</strong></p>
-<p><em>Introductory Econometrics</em> (Wooldridge)</p>
-<p><em><em>Basic Econometrics</em></em> (Gujarati)</p>
-<p><em>Mostly Harmless Econometrics</em> (Angrist / Pischke)</p>
-<p><em>Practical Econometric Methods for Causal Inference</em> (Qiu Jiaping)</p>
-<p><em>Advanced Econometrics and STATA Applications</em> (Chen Qiang)</p>
-<p><em>Regression Analysis</em> (Xie Yu)</p>
-<p><em>The Book of Why</em> (Judea Pearl)</p>
-<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448056220&amp;idx=1&amp;sn=b079a3454204a013fd441b874186f91d&amp;chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">What on Earth Are Interaction Terms in Econometric Regression? Here&rsquo;s a Book for You</a></p>
-<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&amp;mid=2448057995&amp;idx=1&amp;sn=43011772c6adf79ad636463014d98423&amp;chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer ">5 Questions and Responses on &ldquo;Interaction Terms&rdquo; in Econometrics</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36" target="_blank" rel="noopener noreffer ">STATA: How to Analyze Interaction Terms!</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89" target="_blank" rel="noopener noreffer ">STATA: How to Use Interaction Terms?</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf" target="_blank" rel="noopener noreffer ">STATA: Marginal Effect Analysis</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24" target="_blank" rel="noopener noreffer ">STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354" target="_blank" rel="noopener noreffer ">STATA: Visualizing Interaction/Moderation Effects</a></p>
-<p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195" target="_blank" rel="noopener noreffer ">After Adding Interaction Terms, the Sign Changed!?</a></p>
-<div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1">
-<p>Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2">
-<p>Every time I see books using this example to introduce causality, I feel time flies.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3">
-<p>Judea Pearl supports this in his book <em>The Book of Why</em>. Chapter 6 introduces Simpson&rsquo;s Paradox from average proportions.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:4">
-<p>Chen Qiang&rsquo;s advanced econometrics textbook says it can also be understood as &ldquo;individual effects being averaged out.&rdquo;&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:5">
-<p>The following equation&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 2023-12-26</span>
-            </div><div id="page-views" class="post-info-mod">
-            </div></div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/en/posts/ji_sata/index.md" target="_blank">Read Markdown</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-via="ygVNLSZ1omFBCeB" data-hashtags="Causal Effects,Stata"><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-hashtag="Causal Effects"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-image="/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp"><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/en/posts/ji_sata/" data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-description=""><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fen%2fposts%2fji_sata%2f&amp;text=Grouping%20and%20Measurement%20of%20Econometric%20Data%20%28STATA%20Version%29" target="_blank" title="Share on Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags" aria-hidden="true"></i>&nbsp;<a href="/en/tags/causal-effects/">Causal Effects</a>,&nbsp;<a href="/en/tags/stata/">Stata</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/en/posts/zyw/" class="prev" rel="prev" title="On Motivation: The Genuine and Counterfeit in Anime and Manga"><i class="fas fa-angle-left" aria-hidden="true"></i>On Motivation: The Genuine and Counterfeit in Anime and Manga</a>
-            <a href="/en/posts/zoterorss/" class="next" rel="next" title="Zotero: RSS Feed Aggregation Subscription">Zotero: RSS Feed Aggregation Subscription<i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
-</div>
-<div id="comments"><div id="giscus" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
-            </noscript></div></article></div>
-            </main><script>
-
-(function() {
-  console.log('[Music Player] Enhanced initialization script loaded');
-
-  
-  const CDN_SOURCES = [
-    'https://cdn.jsdelivr.net/npm/',
-    'https://unpkg.com/',
-    'https://cdnjs.cloudflare.com/ajax/libs/'
-  ];
-
-  const APLAYER_CSS = 'aplayer@1.10.1/dist/APlayer.min.css';
-  const APLAYER_JS = 'aplayer@1.10.1/dist/APlayer.min.js';
-  const METING_JS = 'meting@2.0.1/dist/Meting.min.js';
-  const LOCAL_RESOURCES = {
-    css: '\/lib\/aplayer\/APlayer.min.css',
-    aplayer: '\/lib\/aplayer\/APlayer.min.js',
-    meting: '\/lib\/meting\/Meting.min.js'
-  };
-
-  
-  function safeHasMusicPlayers() {
-    try {
-      return document.querySelectorAll('meting-js').length > 0;
-    } catch (e) {
-      console.warn('[Music Player] Error checking for music players:', e);
-      return false;
-    }
-  }
-
-  function safeResourcesLoaded() {
-    try {
-      return typeof window.APlayer !== 'undefined'
-        && !!(window.customElements && window.customElements.get('meting-js'));
-    } catch (e) {
-      console.warn('[Music Player] Error checking resources:', e);
-      return false;
-    }
-  }
-
-  
-  function loadResource(url, resourceType, retries = 2) {
-    return new Promise((resolve, reject) => {
-      const isCSS = resourceType === 'css';
-      const isJS = resourceType === 'js';
-
-      
-      const existing = isCSS
-        ? document.querySelector(`link[href*="${url.split('/').pop()}"]`)
-        : document.querySelector(`script[src*="${url.split('/').pop()}"]`);
-
-      if (existing) {
-        console.log(`[Music Player] Resource already loaded: ${url}`);
-        resolve();
-        return;
-      }
-
-      const element = isCSS ? document.createElement('link') : document.createElement('script');
-
-      if (isCSS) {
-        element.rel = 'stylesheet';
-        element.href = url;
-      } else {
-        element.src = url;
-      }
-
-      let attempts = 0;
-
-      const attemptLoad = () => {
-        attempts++;
-
-        element.onload = () => {
-          console.log(`[Music Player] Successfully loaded: ${url}`);
-          resolve();
-        };
-
-        element.onerror = (err) => {
-          console.warn(`[Music Player] Failed to load ${url} (attempt ${attempts}/${retries + 1})`);
-
-          if (attempts <= retries) {
-            
-            const nextCDN = CDN_SOURCES.find(cdn => url.startsWith(cdn));
-            if (nextCDN) {
-              const nextUrl = url.replace(nextCDN, CDN_SOURCES[(CDN_SOURCES.indexOf(nextCDN) + 1) % CDN_SOURCES.length]);
-              console.log(`[Music Player] Retrying with alternative CDN: ${nextUrl}`);
-              if (isCSS) {
-                element.href = nextUrl;
-              } else {
-                element.src = nextUrl;
-              }
-              setTimeout(attemptLoad, 500);
-            } else {
-              reject(err);
-            }
-          } else {
-            reject(err);
-          }
-        };
-
-        
-        if (isCSS) {
-          document.head.appendChild(element);
-        } else {
-          document.body.appendChild(element);
-        }
-      };
-
-      attemptLoad();
-    });
-  }
-
-  
-  function loadDependencies() {
-    console.log('[Music Player] Loading dependencies with fallback support...');
-
-    
-    return loadResource(LOCAL_RESOURCES.css, 'css', 0)
-      .then(() => {
-        return loadResource(LOCAL_RESOURCES.aplayer, 'js', 0);
-      })
-      .then(() => {
-        return loadResource(LOCAL_RESOURCES.meting, 'js', 0);
-      })
-      .then(() => {
-        console.log('[Music Player] Local dependencies loaded successfully');
-        return true;
-      })
-      .catch(async (err) => {
-        console.warn('[Music Player] Local resources failed, trying CDN fallbacks:', err);
-
-        
-        for (let i = 0; i < CDN_SOURCES.length; i++) {
-          try {
-            const cdn = CDN_SOURCES[i];
-            console.log(`[Music Player] Trying CDN: ${cdn}`);
-
-            await loadResource(cdn + APLAYER_CSS, 'css', 0);
-            await loadResource(cdn + APLAYER_JS, 'js', 0);
-            await loadResource(cdn + METING_JS, 'js', 0);
-
-            console.log('[Music Player] Successfully loaded from alternative CDN');
-            return true;
-          } catch (altErr) {
-            console.warn(`[Music Player] CDN ${CDN_SOURCES[i]} failed:`, altErr);
-            continue;
-          }
-        }
-
-        console.error('[Music Player] All CDN attempts failed');
-        return false;
-      });
-  }
-
-  
-  function initializePlayers() {
-    try {
-      if (!safeResourcesLoaded()) {
-        console.error('[Music Player] Cannot initialize: dependencies not loaded');
-        return false;
-      }
-
-      
-      
-      const players = document.querySelectorAll('meting-js');
-      console.log(`[Music Player] MetingJS is ready; ${players.length} player(s) will initialize automatically`);
-      return players.length > 0;
-    } catch (error) {
-      console.error('[Music Player] Fatal error during initialization:', error);
-      return false;
-    }
-  }
-
-  
-  function initMusicPlayers() {
-    console.log('[Music Player] Initialization triggered');
-
-    try {
-      if (!safeHasMusicPlayers()) {
-        console.log('[Music Player] No meting-js elements found');
-        return;
-      }
-
-      const playerCount = document.querySelectorAll('meting-js').length;
-      console.log(`[Music Player] Found ${playerCount} meting-js element(s)`);
-
-      
-      if (safeResourcesLoaded()) {
-        console.log('[Music Player] Resources already loaded, initializing...');
-        setTimeout(() => initializePlayers(), 50);
-        return;
-      }
-
-      
-      const scripts = Array.from(document.querySelectorAll('script[src]'));
-      const hasAPlayerScript = scripts.some(s => s.src.includes('APlayer.min.js'));
-      const hasMetingScript = scripts.some(s => s.src.includes('Meting.min.js'));
-
-      if (hasAPlayerScript || hasMetingScript) {
-        console.log('[Music Player] Resources detected in DOM, waiting for load...');
-        waitForResources();
-        return;
-      }
-
-      
-      console.log('[Music Player] Loading dependencies dynamically...');
-      loadDependencies().then(success => {
-        if (success) {
-          console.log('[Music Player] Dependencies loaded, initializing players...');
-          setTimeout(() => initializePlayers(), 100);
-        } else {
-          console.error('[Music Player] Failed to load dependencies, will retry in 2s');
-          setTimeout(initMusicPlayers, 2000);
-        }
-      });
-    } catch (error) {
-      console.error('[Music Player] Error in initialization flow:', error);
-    }
-  }
-
-  
-  function waitForResources() {
-    const maxWaitTime = 10000; 
-    const checkInterval = 250;
-    let elapsed = 0;
-    let timeoutId = null;
-
-    const check = () => {
-      elapsed += checkInterval;
-
-      if (safeResourcesLoaded()) {
-        console.log(`[Music Player] Resources loaded after ${elapsed}ms`);
-        setTimeout(() => initializePlayers(), 50);
-        return;
-      }
-
-      if (elapsed >= maxWaitTime) {
-        console.warn('[Music Player] Timeout waiting for resources, loading dynamically...');
-        loadDependencies().then(success => {
-          if (success) {
-            setTimeout(() => initializePlayers(), 100);
-          }
-        });
-        return;
-      }
-
-      timeoutId = setTimeout(check, checkInterval);
-    };
-
-    check();
-  }
-
-  
-  function startInitialization() {
-    
-    setTimeout(initMusicPlayers, 100);
-  }
-
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('[Music Player] DOMContentLoaded event fired');
-      startInitialization();
-    });
-  } else {
-    console.log('[Music Player] DOM already loaded');
-    startInitialization();
-  }
-
-  
-  if (typeof document.addEventListener === 'function') {
-    document.addEventListener('pjax:end', function() {
-      console.log('[Music Player] PJAX navigation detected');
-      setTimeout(initMusicPlayers, 100);
-    });
-  }
-
-  
-  document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) {
-      setTimeout(() => {
-        if (document.querySelectorAll('meting-js').length > 0 && !safeResourcesLoaded()) {
-          console.log('[Music Player] Page visible again, checking music players...');
-          initMusicPlayers();
-        }
-      }, 500);
-    }
-  });
-
-  
-  window.initMusicPlayers = initMusicPlayers;
-  console.log('[Music Player] Initialization system ready');
-})();
-</script>
-
-
-
-    
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-line">
-                <span id="run-time" data-i18n="runtime"></span>
-            </div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.122.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div>
-
-            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/hzp2333/hzp2333.github.io" target="_blank">滑翔闪</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
-            </div>
-
-            <style>
-                .footerImg {
-                    height: 20px;
-                }
-            </style>
-            <div class="footer-line custom">
-                <a href="https://icp.gov.moe/?keyword=20244204" target="_blank">萌ICP备20244204号</a>
-                <a style="text-decoration:none;color:#55bb8a;" href="https://travel.moe/go.html" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
-                    <img src="https://travel.moe/images/icon/icon64green.png" style="width:24px;height:24px" alt="异次元之旅">异次元之旅
-                </a>
-            </div>
-
-            <div class="footer-line custom">
-                <a href="https://www.travellings.cn/go.html" target="_blank">
-                    <img src="https://www.travellings.cn/assets/logo.gif" class="footerImg" alt="开往-友链接力 v1.5" title="开往-友链接力 v1.5">
-                </a>
-                <a href="https://www.foreverblog.cn/" target="_blank">
-                    <img src="https://foreverblog.cn/assets/logo/logo_en_default.png" class="footerImg" alt="Forever Blog">
-                </a>
-                <a href="https://www.foreverblog.cn/go.html" target="_blank">
-                    <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
-                </a>
-            </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;70 posts, 118846 words total</div>
-    
-        
-        <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
-    
-
-    
-        
-            <section>
-                
-                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
-                        
-                        <span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-
-                
-                    &nbsp;|&nbsp;              
-                
-
-                
-                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
-                        
-                        <span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-            </section>
-        
-
-        
-        
-    
-
-
-</div>
-    </footer>
- 
-
-    
-    <script defer src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js" 
-        data-color="0,0,0" 
-        data-count="150" 
-        data-zIndex="-1">
-    </script>
-</body>
-</html>
-</div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up" aria-hidden="true"></i>
-            </a>
-        </div>
-
-        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment" aria-hidden="true"></i>
-            </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"giscus":{"category":"Announcements","categoryId":"DIC_kwDOLbBjxM4Cdr0n","darkTheme":"dark_dimmed","emitMetadata":"0","inputPosition":"bottom","lang":"en","lazyLoading":false,"lightTheme":"light","mapping":"pathname","reactionsEnabled":"1","repo":"hzp2333/Giscus","repoId":"R_kgDOLbBjxA"}},"data":{"id-1":"HXS'S BLOG","id-2":"HXS'S BLOG"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/en/index.json","lunrLanguageCode":"en","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script src="/js/theme.min.js"></script><script defer type="text/javascript" src="/js/custom.js"></script>
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [["$", "$"], ["\\(", "\\)"]],
-    displayMath: [["$$","$$"], ["[[", "]]"]]
-  },
-  svg: { fontCache: "global" }
-};
-
-const mathjaxCDNs = [
-  "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js",
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"
-];
-
-function loadMathJax(index=0){
-  if(index >= mathjaxCDNs.length){
-    console.error("所有 MathJax CDN 加载失败");
-    return;
-  }
-  const script = document.createElement("script");
-  script.src = mathjaxCDNs[index];
-  script.async = true;
-  script.onload = () => console.log("MathJax 加载成功:", mathjaxCDNs[index]);
-  script.onerror = () => {
-    console.warn("MathJax CDN 加载失败，尝试下一个:", mathjaxCDNs[index]);
-    loadMathJax(index+1);
-  };
-  document.head.appendChild(script);
-}
-
-
-const polyfillCDNs = [
-  "https://cdn.bootcdn.net/ajax/libs/polyfill/3.110.0/polyfill.min.js",
-  "https://polyfill.io/v3/polyfill.min.js?features=es6"
-];
-const polyfillScript = document.createElement("script");
-polyfillScript.src = polyfillCDNs[0]; 
-document.head.appendChild(polyfillScript);
-
-
-loadMathJax();
-</script>
-
-
-
-<script>
-            var doNotTrack = false;
-            if ( false ) {
-                var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-                var doNotTrack = (dnt == "1" || dnt == "yes");
-            }
-            if (!doNotTrack) {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-CYZVM6VVZ8');
-            }
-        </script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body>
-</html>
+$$<p>The answer is that $\beta_3 D$ should be included. In the first equation, $\beta_4$ is indeed the net effect after controlling for $X_1$ and $D$. This can lead to &ldquo;multicollinearity,&rdquo; which can be addressed by de-meaning (subtracting the mean). Therefore, in difference-in-differences, if did aligns with the predefined time and space settings, it becomes a requirement for two-way fixed effects.</p></div></div></div><p>The above references are from[^2 d]</p><div class="details admonition tip"><div class="details-summary admonition-title"><i class="icon fa-regular fa-lightbulb" aria-hidden=true></i>How many terms can be multiplied in an interaction?<i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>Generally, no more than three. The reason is that three or fewer terms align more with intuitive controlled experiments, and beyond three, authors struggle to explain the experimental conclusions.</div></div></div><p><strong>References:</strong></p><p><em>Introductory Econometrics</em> (Wooldridge)</p><p><em><em>Basic Econometrics</em></em> (Gujarati)</p><p><em>Mostly Harmless Econometrics</em> (Angrist / Pischke)</p><p><em>Practical Econometric Methods for Causal Inference</em> (Qiu Jiaping)</p><p><em>Advanced Econometrics and STATA Applications</em> (Chen Qiang)</p><p><em>Regression Analysis</em> (Xie Yu)</p><p><em>The Book of Why</em> (Judea Pearl)</p><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448056220&idx=1&sn=b079a3454204a013fd441b874186f91d&chksm=b32382b284540ba4798ef46e8742097af698fbbb883bef845b3663d076b26178c747d76d0e2d&scene=21#wechat_redirect" target=_blank rel="external nofollow noopener noreferrer">What on Earth Are Interaction Terms in Econometric Regression? Here&rsquo;s a Book for You<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MjM5OTMwODM1Mw==&mid=2448057995&idx=1&sn=43011772c6adf79ad636463014d98423&chksm=b323bba5845432b3179336c4f7ac1af480c889dc0e4b9be495eca7080b7ac42b72afb46282a5&scene=21#wechat_redirect" target=_blank rel="external nofollow noopener noreferrer">5 Questions and Responses on &ldquo;Interaction Terms&rdquo; in Econometrics<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb5ea12da7f36" target=_blank rel="external nofollow noopener noreferrer">STATA: How to Analyze Interaction Terms!<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ff7222672fe89" target=_blank rel="external nofollow noopener noreferrer">STATA: How to Use Interaction Terms?<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F012d8a6159cf" target=_blank rel="external nofollow noopener noreferrer">STATA: Marginal Effect Analysis<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F7af58033dc24" target=_blank rel="external nofollow noopener noreferrer">STATA: Visualizing Marginal Effects of Continuous Variables (Interaction Terms)<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Ffa6778828354" target=_blank rel="external nofollow noopener noreferrer">STATA: Visualizing Interaction/Moderation Effects<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><p><a href="https://bbs.pinggu.org/linkto.php?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2F953f30f39195" target=_blank rel="external nofollow noopener noreferrer">After Adding Interaction Terms, the Sign Changed!?<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Anwar S, Fang H. An alternative test of racial prejudice in motor vehicle searches: Theory and evidence[J]. American Economic Review, 2006, 96 (1): 127-151.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>Every time I see books using this example to introduce causality, I feel time flies.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>Judea Pearl supports this in his book <em>The Book of Why</em>. Chapter 6 introduces Simpson&rsquo;s Paradox from average proportions.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>Chen Qiang&rsquo;s advanced econometrics textbook says it can also be understood as &ldquo;individual effects being averaged out.&rdquo;&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5><p>The following equation&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=collection-card><div class="collection-title text-secondary">Included in <a href=/en/collections/stata-empirical-tools/><i class="fa-solid fa-layer-group" aria-hidden=true></i> <span>Collection・Stata Empirical Tools</span></span></a> 9</div><div class=collection-nav><a href=/en/posts/kgfq/ class=collection-nav-item rel=prev title="Economic weighting and scoring methods: PCA, CRITIC, EWM"><i class="fa-solid fa-angle-left" aria-hidden=true></i><span>Economic weighting and scoring methods: PCA, CRITIC, EWM</span>
+</a><a href=/en/posts/pachong/ class=collection-nav-item rel=next title="Stata: Learning Web Scraping"><span>Stata: Learning Web Scraping</span><i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="Updated on 2023-12-26 13:35:20">Updated on 2023-12-26&nbsp;</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/en/posts/ji_sata/index.md title="Read Markdown" class=link-to-markdown>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on X" data-sharer=twitter data-url=https://blog.huaxiangshan.com/en/posts/ji_sata/ data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-via=ygVNLSZ1omFBCeB data-hashtags=Stata><i class="fa-brands fa-x-twitter" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://blog.huaxiangshan.com/en/posts/ji_sata/ data-hashtag=Stata><i class="fa-brands fa-facebook-square" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://blog.huaxiangshan.com/en/posts/ji_sata/ data-title="Grouping and Measurement of Econometric Data (STATA Version)"><i class="fa-brands fa-hacker-news" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://blog.huaxiangshan.com/en/posts/ji_sata/ data-title="Grouping and Measurement of Econometric Data (STATA Version)"><svg class="icon" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+<a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://blog.huaxiangshan.com/en/posts/ji_sata/ data-title="Grouping and Measurement of Econometric Data (STATA Version)" data-image=/img/计量数据的分组与测度（STATA版）.zh-cn-20240523103442281.webp><i class="fa-brands fa-weibo" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags me-1" aria-hidden=true></i><a href=/en/tags/stata/ class=post-tag title="Tags - Stata">Stata</a></section><section class=post-actions><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>
+<span class=separator aria-hidden=true></span>
+<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/posts/wxb/ class=post-nav-item rel=prev title="Pursuing Scholarship: Beyond 'Serving the World' and 'Because the Mountain Is There'"><i class="fa-solid fa-angle-left" aria-hidden=true></i>Pursuing Scholarship: Beyond 'Serving the World' and 'Because the Mountain Is There'</a><a href=/en/posts/zoterorss/ class=post-nav-item rel=next title="Zotero: RSS Feed Aggregation Subscription">Zotero: RSS Feed Aggregation Subscription<i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></div></article><aside class="toc animate__animated animate__fadeIn animate__faster" id=toc-auto aria-label=Contents><h2 class=toc-title><span>Contents<i class="toc-icon fa-solid fa-angle-down ms-1" aria-hidden=true></i></span>
+<button type=button class=toc-print-btn onclick=event.stopPropagation(),window.print() aria-label=Print><i class="fa-solid fa-print" aria-hidden=true></i></button></h2><div class=toc-content id=toc-content-auto></div></aside></main><div id=comments><div id=giscus class=comment><script src=https://giscus.app/client.js data-repo=hzp2333/Giscus data-repo-id=R_kgDOLbBjxA data-category=Announcements data-category-id=DIC_kwDOLbBjxM4Cdr0n data-mapping=pathname data-strict=0 data-theme=preferred_color_scheme data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-lang=en data-loading=lazy crossorigin=anonymous async defer></script></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://giscus.app/ rel="external nofollow noopener noreferrer">giscus</a>.</noscript></div><footer class=footer><div class=footer-container><div class=migration-footer><div class=migration-footer-links><a href=https://travel.moe/go.html title="异次元之旅 - 跃迁" target=_blank rel="noopener noreferrer"><img src=/images/badges/travel-moe.png width=24 height=24 alt=异次元之旅>异次元之旅</a>
+<a href=https://www.travellings.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/travellings.gif height=20 alt=开往-友链接力 title=开往-友链接力></a>
+<a href=https://www.foreverblog.cn/ target=_blank rel="noopener noreferrer"><img src=/images/badges/foreverblog.png height=20 alt="Forever Blog"></a>
+<a href=https://www.foreverblog.cn/go.html target=_blank rel="noopener noreferrer"><img src=/images/badges/wormhole.gif height=20 alt=虫洞-跃迁-十年之约 title=虫洞-跃迁-十年之约></a></div><div class=migration-wordcount>104 posts · 231110 words</div><div class=migration-visitors><span id=busuanzi_container_site_uv>Visitors <span id=busuanzi_value_site_uv>—</span></span>
+<span id=busuanzi_container_site_pv>· Views <span id=busuanzi_value_site_pv>—</span></span></div></div><div class=footer-bottom><div class=footer-legal><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright" aria-hidden=true></i>
+<span itemprop=copyrightYear>2024 - 2026</span><span class=author itemprop=copyrightHolder>
+<a href=https://github.com/hzp2333/hzp2333.github.io target=_blank rel="external nofollow noopener noreferrer">滑翔闪</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class="footer-line beian"><span class="icp footer-divider"><a href="https://icp.gov.moe/?keyword=20244204" target=_blank rel="noopener noreferrer">萌ICP备20244204号</a></span></div></div><div class=footer-tech><div class=footer-meta><div class="footer-line statistics"><span class=site-time title='Website running ...'><i class="fa-solid fa-heartbeat animate-icon" aria-hidden=true></i><span class="ms-1 hidden">Running for</span><span class="run-times tabular-nums lining-nums ms-1">Website running ...</span></span></div><div class="footer-line visitor"><span id=busuanzi_container_site_uv title='Total visitors'><i class="fa-regular fa-user me-1" aria-hidden=true></i><span id=busuanzi_value_site_uv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span><span id=busuanzi_container_site_pv class=footer-divider title='Total visits'><i class="fa-regular fa-eye me-1" aria-hidden=true></i><span id=busuanzi_value_site_pv><i class="fa-solid fa-spinner fa-spin" aria-hidden=true></i></span></span></div></div><div class="footer-line powered">Powered by <a href="https://github.com/gohugoio/hugo?v=0.169.0" target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.169.0">Hugo</a> & <a href="https://github.com/hugo-fixit/FixIt?v=v1.0.0-rc" target=_blank rel=external title="FixIt v1.0.0-rc">FixIt</a></div></div></div></div></footer></div><div class=widgets><div id=mask></div><dialog id=nav-dialog aria-labelledby=nav-dialog-title closedby=any><button type=button class=nav-close-btn aria-label="Close Navigation"><i class="fa-solid fa-xmark fa-lg" aria-hidden=true></i></button><div class=toc><h2 class=toc-title id=nav-dialog-title>Navigation</h2><tab-container type=segment><button class=tab-button type=button role=tab aria-selected=true>Contents</button>
+<button class=tab-button type=button role=tab aria-selected=false>Collections</button><div role=tabpanel class=tab-panel><div class=toc-content id=toc-content-drawer></div></div><div role=tabpanel class=tab-panel hidden><div class="details collection-details open"><div class="details-summary collection-summary"><i class="fa-solid fa-layer-group" aria-hidden=true></i>
+<span class=collection-name title=Collections>Stata Empirical Tools</span>
+<span class=collection-count>9</span>
+<button type=button class=collection-sort-toggle title="Toggle sort order" aria-label="Toggle sort order"><i class="fa-solid fa-arrow-up-short-wide" aria-hidden=true></i></button><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></div><div class="details-content collection-content"><nav><ul class=collection-list><li class=collection-item><a href=/en/posts/data/ title="A Quick Guide to Cleaning Economic Microdata">A Quick Guide to Cleaning Economic Microdata</a></li><li class=collection-item><a href=/en/posts/kgfq/ title="Economic weighting and scoring methods: PCA, CRITIC, EWM">Economic weighting and scoring methods: PCA, CRITIC, EWM</a></li><li class=collection-item><span class=active title="Grouping and Measurement of Econometric Data (STATA Version)">Grouping and Measurement of Econometric Data (STATA Version)</span></li><li class=collection-item><a href=/en/posts/pachong/ title="Stata: Learning Web Scraping">Stata: Learning Web Scraping</a></li><li class=collection-item><a href=/en/posts/regout/ title="Stata Export Word Tables">Stata Export Word Tables</a></li><li class=collection-item><a href=/en/posts/statagis/ title="Drawing GIS Choropleth Maps with Stata">Drawing GIS Choropleth Maps with Stata</a></li><li class=collection-item><a href=/en/posts/cpws_stata/ title="Court Judgment Data Cleaning Guide">Court Judgment Data Cleaning Guide</a></li><li class=collection-item><a href=/en/posts/stata_font/ title="Setting Chinese and English Fonts in Stata Figures">Setting Chinese and English Fonts in Stata Figures</a></li><li class=collection-item><a href=/en/posts/stata_auto/ title="Stata and AI Agents: A Powerful Pair for Empirical Work">Stata and AI Agents: A Powerful Pair for Empirical Work</a></li></ul><div class=collection-nav-simple><a href=/en/posts/kgfq/ class=collection-nav-item rel=prev title="Economic weighting and scoring methods: PCA, CRITIC, EWM"><i class="fa-solid fa-angle-left" aria-hidden=true></i></a><span class=text-secondary>3/9</span><a href=/en/posts/pachong/ class=collection-nav-item rel=next title="Stata: Learning Web Scraping"><i class="fa-solid fa-angle-right" aria-hidden=true></i></a></div></nav></div></div></div></tab-container></div></dialog><dialog id=search-dialog class=search-dialog aria-label=Search closedby=any><div class=search-modal><div class=search-modal-header><span class=search-delimiter></span>
+<button type=button class=search-close-btn aria-label="Close Search Dialog"><i class="fa-solid fa-xmark" aria-hidden=true></i></button></div><div class=search-source-footer><div class=search-shortcuts><span class=search-shortcut><kbd><i class=lucide-arrow-up aria-hidden=true></i></kbd>
+<kbd><i class=lucide-arrow-down aria-hidden=true></i></kbd>
+Navigate
+</span><span class=search-shortcut><kbd><i class=lucide-corner-down-left aria-hidden=true></i></kbd>
+Select
+</span><span class=search-shortcut><kbd>ESC</kbd>
+Close</span></div><span class=search-engine>Search by <a href=https://fusejs.io/ target=_blank rel="external nofollow noopener noreferrer">Fuse.js</a></span></div></div></dialog><div class=reading-progress-bar style=inset-inline-start:0;top:0></div><div class=fixed-buttons><button type=button class="fixed-button back-to-top animate__faster hidden" aria-label="Back to Top"><i class="fa-solid fa-arrow-up" aria-hidden=true></i><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="50"/><circle class="progress" cx="50" cy="50" r="50"/></svg></button><button type=button id=nav-drawer-button class="fixed-button nav-drawer-button hidden" aria-label=Navigation aria-controls=nav-dialog aria-expanded=false><i class="fa-solid fa-bars" aria-hidden=true></i></button><button type=button class="fixed-button view-comments hidden" aria-label="View Comments"><i class="fa-solid fa-comment" aria-hidden=true></i></button></div><noscript><div class="noscript-warning bg-danger text-white text-base font-bold fixed text-center inset-x-0 bottom-0 w-full z-fixed">This website works best with JavaScript enabled.</div></noscript></div><script src=/lib/canvas-nest/canvas-nest.js color=0,0,0 count=150 zindex=-1 opacity=0.5></script><script>(function(){if(window.matchMedia("(max-width: 960px)").matches)return;var t,e=document.createElement("div");e.id="sakana-widget-container",e.setAttribute("aria-hidden","true"),e.innerHTML='<div id="sakana-widget"></div>',document.body.appendChild(e),t=document.createElement("script"),t.src="/lib/sakana-widget/sakana.min.js",t.onload=function(){window.sakanaWidget=new SakanaWidget({size:300,autoFit:!0,character:"chisato",controls:!0,rod:!0,draggable:!0,stroke:{color:"#b4b4b4",width:10},threshold:.1,rotate:0,title:!1}).mount("#sakana-widget")},document.head.appendChild(t)})()</script><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><link rel=stylesheet href=/lib/pace/themes/blue/pace-theme-minimal.css><script src=/js/lib/giscus.min.js defer></script><script src=/lib/autocomplete-js/index.production.js defer></script><script src=/js/lib/fuse.min.js defer></script><script src=/lib/lightgallery/lightgallery.min.js defer></script><script src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js defer></script><script src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js defer></script><script src=/js/lib/lightgallery.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/typeit/index.umd.js defer></script><script src=/js/lib/typeit.min.js defer></script><script src=/js/lib/mathjax.min.js defer></script><script src=/lib/tab-container-element/bundle.js defer type=module></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script src=/js/lib/cookieconsent.min.js defer></script><script src=/lib/cell-tooltip/cell-tooltip.umd.js defer></script><script src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async defer></script><script src=/lib/pace/pace.min.js async defer></script><script src=/en/js/config/4cbff263919d7b0dc85fe19fdfcb1118.min.js defer></script><script src=/js/lib/file-tree.min.js defer></script><script src=/js/main.min.js defer></script><script src=/js/custom.min.js defer></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CYZVM6VVZ8",{anonymize_ip:!0})</script><script src="https://www.googletagmanager.com/gtag/js?id=G-CYZVM6VVZ8" async></script></body></html>

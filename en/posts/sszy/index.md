@@ -24,3 +24,9 @@ The balance between illusion and reality is delicate, like the elusive harmony o
 Material dictates consciousness—a truth that resonates deeply within me.
 
 ![img](/img/神实主义.zh-cn-20250118235132424.webp)
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/sszy/  
+

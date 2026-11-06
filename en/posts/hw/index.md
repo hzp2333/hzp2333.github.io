@@ -69,3 +69,9 @@ The security guards are very friendly and willing to explain the park layout to 
 ![Railway Relics](/img/华为.zh-cn-20240523102412792.webp)
 
 ![Train Model at the End of the Park](/img/华为.zh-cn-20240523102350804.webp)
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/hw/  
+

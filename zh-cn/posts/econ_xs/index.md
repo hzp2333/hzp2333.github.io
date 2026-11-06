@@ -54,3 +54,9 @@
 
 [^2]: 刘娜,李静,张川川.被时间束缚的消费:工作时长对居民消费的影响[J].数量经济技术经济研究, 2025(9).
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/econ_xs/  
+

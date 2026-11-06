@@ -20,3 +20,9 @@ Gold outshines the stars, black oil surpasses sweet springs. Two grown men build
 Only those willing to descend from their towers can truly reclaim themselves, returning to the soil from which they arose.
 
 Some may question my seeming indolence. To them, I ask only that they peer deep into Walden’s crystalline depths. A simple life soothes the weary soul; indeed, simplicity is the sole truth of existence.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/wedh/  
+

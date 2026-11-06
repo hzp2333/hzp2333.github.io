@@ -83,3 +83,9 @@ Constructing forward-thinking moral frameworks is difficult. Is there truly rati
 7. I now understand why many recommend Hayek’s works, as his emphasis on spontaneous order and knowledge systems provides profound insights.
     
 8. However, Beijing’s Zhejiang Village has been dismantled by strong administrative measures, which long-term impacts might undermine the credibility of individual social networks.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/sqzl/  
+

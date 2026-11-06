@@ -98,3 +98,9 @@
 - 改革的内卷的竞争税收体系
 - 完善社会保障，托底体系。政府职责转变为主要提供医疗，教育等公共品。
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/involution_econ/  
+

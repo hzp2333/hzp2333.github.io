@@ -21,3 +21,9 @@
 人们会好奇我如此的不思进取，我只求他们多看看深深的瓦尔登湖底。质朴的生活总能舒缓人的无限疲倦，要知道，质朴的生活才是真实的唯一。
 
 [^1]: 我乱编的模仿的高级词汇
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/wedh/  
+

@@ -234,3 +234,9 @@ In the end, **the highest emotional intelligence is often sincerity**.
 I believe this represents the outdated ideas (notions) of the Clan of Parting will disappear. They have truly experienced the parting of the mortal world, understood the pain, and also felt happiness.
 {{< /admonition >}}
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/ydzh/  
+

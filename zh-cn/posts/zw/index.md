@@ -37,3 +37,9 @@
 习三功, 品三德: 静如水, 苦中悟静; 对仗功, 见贤思齐; 长征过, 丈量自我。
 
 噫! 我得军训之微趣, 盖此三者也!
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/zw/  
+

@@ -648,3 +648,9 @@ https://www.zhihu.com/question/329908379/answer/1943305925965374152 ），我已
 [^6]: 光是描述性统计就已经足够赚人眼球。
 [^7]: 近年异质性主体的挖掘越来越重要
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/lda_gephi/  
+

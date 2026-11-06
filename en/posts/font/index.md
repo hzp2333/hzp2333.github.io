@@ -105,3 +105,9 @@ Local preview worked fine, but after I deployed to GitHub Pages the about page r
 
 [LoveIt主题美化与博客功能增强](https://lewky233.top/posts/hugo-3.html/)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/font/  
+

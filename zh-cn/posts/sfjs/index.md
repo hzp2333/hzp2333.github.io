@@ -89,3 +89,9 @@
 [^4]: 事前的信息不对称是逆向选择，也就是劣币驱逐良币
 [^5]: 但是对于死刑、堕胎的合法性，这些依旧处于讨论之中
 [^6]: 每个人在思考时有一个参考点。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/sfjs/  
+

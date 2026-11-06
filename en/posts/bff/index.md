@@ -295,3 +295,9 @@ $$
 $$
 In other words, in dynamic monopoly, firms should continuously adjust their profit functions based on this relationship.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/bff/  
+

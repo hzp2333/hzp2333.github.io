@@ -225,3 +225,9 @@ $$
 [^4]: Miller D L. An introductory guide to event study models[J]. Journal of Economic Perspectives, 2023, 37（2）: 203-230.
 [^5]: Qiu H, Hong J, Wang X, et al. Home sweet home: Impacts of living conditions on worker migration with evidence from randomized resettlement in China[J]. Journal of Economic Behavior & Organization, 2024, 220: 558-583.
 [^6]: Braghieri L, Levy R, Makarin A. Social media and mental health[J]. American Economic Review, 2022, 112（11）: 3660-3693.
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/event1/  
+

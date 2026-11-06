@@ -151,3 +151,9 @@
 ![现在，你能理解吗？一个人愿意活在世上，是因为他建立起了一种心态。所谓奇幻和电影只是其中一种外显。希望你能认识这种奇幻，不是塑造他人，而是认识你自己。](/img/再见绘梨.zh-cn-20240523115526326.webp)
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/zjhl/  
+

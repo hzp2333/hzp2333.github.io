@@ -162,3 +162,9 @@ Yang Xiaokai extended the consumer-producer trade model based on Ricardo's trade
 
 **[High Macro Notes](https://zhuanlan.zhihu.com/p/613416303) has just updated the Romer model.**
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/yxk1/  
+

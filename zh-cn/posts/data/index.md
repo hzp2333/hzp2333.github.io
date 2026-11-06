@@ -738,3 +738,9 @@ foreach i in $xlist {
 [^6]: chip\cfps 网站经常崩掉，这点非常难受
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/data/  
+

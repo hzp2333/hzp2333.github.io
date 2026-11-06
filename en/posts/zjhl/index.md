@@ -138,3 +138,9 @@ Thus—Yuta sees himself as:
 
 ![Now, do you understand? To live in this world, one creates a mindset. Fantasy and films are just manifestations. Recognize this fantasy—not to shape others, but to know yourself.](/img/再见绘梨.zh-cn-20240523115526326.webp)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/zjhl/  
+

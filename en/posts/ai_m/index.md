@@ -116,3 +116,9 @@ The most amazing part of this nested dream is that the development of the dream 
 
 **Desire**: In this dream, I could clearly sense that the snake's gender was female. Could it really be a reflection of desire? But I know that such an image is an ideal embodiment, just like the me on the blog is only a partial me. Anyone in reality is diverse and complete. To comprehend the abstract and sacred aspects of human nature, but in the pursuit, one must embrace the whole and concrete person.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/ai_m/  
+

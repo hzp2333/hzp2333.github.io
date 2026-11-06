@@ -330,3 +330,9 @@ I would sum up this view of history in three sentences:
 [^17]: This line is from *The Three-Body Problem* (*The Dark Forest*). In the novel, it is described as coming from Blaise Pascal. But after looking through online discussions, I think Pascal only wrote passages or long sentences with a roughly similar meaning. Most people seem to agree that Liu Cixin partly invented this line.
 [^18]: The methodological paradigm of *The Origin of Rich Species* feels closer to the statistical paradigms used in biology, public health, and computational social science: simulation-based modeling.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fzqy/  
+

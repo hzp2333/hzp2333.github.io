@@ -225,3 +225,9 @@ This is why digital markets and platform economies require analysis beyond the f
 
 The power dynamics among platforms, operators, users, and consumers.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fld/  
+

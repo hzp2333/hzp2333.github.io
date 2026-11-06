@@ -125,3 +125,9 @@ $toc-content-font-size: 20px ;
 
 [LoveIt主题美化与博客功能增强](https://lewky233.top/posts/hugo-3.html/)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/font/  
+

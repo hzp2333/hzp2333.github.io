@@ -162,3 +162,9 @@ Rational expectations are one major reason economics struggles with prediction. 
 [^4]: I often wonder when China will encounter its own version of "Ricardian equivalence." If the policy stance is tax cuts plus debt expansion, when will those two sides finally balance?
 [^5]: From *The Origin of Wealth*.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/zcpg/  
+

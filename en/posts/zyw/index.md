@@ -175,3 +175,9 @@ Although I have summarized numerous standards from anime and manga works, realit
 
 **Offer a sincere heart, obtain what one desires—what harm is there?**
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/zyw/  
+

@@ -24,3 +24,9 @@
 
 ![飞天壁画](/img/莫高窟不愿只是旅游景点.zh-cn-20240523110151672.webp)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/mgk/  
+

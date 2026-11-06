@@ -96,3 +96,9 @@ China's main tax revenue is the value-added tax (VAT), which is levied on the pl
 - Reform of the involutionary competitive tax system.
 - Improving social security and the safety-net system. The government's role shifts toward primarily providing public goods such as health care and education.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/involution_econ/  
+

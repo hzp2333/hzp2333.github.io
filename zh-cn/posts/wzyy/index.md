@@ -68,3 +68,9 @@
 
 ![书写自己的故事](/img/文字游戏.zh-cn-20240810205406717.webp)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/wzyy/  
+

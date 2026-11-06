@@ -35,3 +35,9 @@ The gold that was cast away is difficult to reclaim, but the existence of the si
 
 ![Flying Apsaras](/img/莫高窟不愿只是旅游景点.zh-cn-20240523110151672.webp)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/mgk/  
+

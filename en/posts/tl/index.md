@@ -44,3 +44,9 @@ However, rather than focusing solely on understanding medieval history, I apprec
 
 Even in a medieval era devoid of dragons and swords and sorcery, one can still employ a framework of imagination to construct a historical perspective—from passion to creativity, and ultimately to history itself. In a medieval world without dragons, the stories brought back by triumphant warriors are rich with intriguing historical anecdotes.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/tl/  
+

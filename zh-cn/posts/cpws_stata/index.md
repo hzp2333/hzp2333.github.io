@@ -31,7 +31,6 @@ Ai 时代，比起代码的运行效率，我们更需要强化**代码的审查
 
 我个人更偏好使用 `local` 实现代码功能，因此我往往会限制 ai 使用 `glocal` 和 `program`。
 
-
 ### 人的主观能动性
 
 AI 虽然掌握了很多函数，但它不知道怎么组合。谋篇布局的算法理解才是我们的最大优势。提问时要替 AI 理顺代码的算法。
@@ -49,7 +48,7 @@ AI 虽然掌握了很多函数，但它不知道怎么组合。谋篇布局的�
 推荐[北大法宝](https://home.pkulaw.com/)和[威科先行](威科先行)（自带可视化和便捷查询）
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
-&#x1F4AC
+💬
     <b> 备注：裁判文书的清洗需要交替处理中文和数字。本文档会多提一些 python 和 stata 的常用正则表达式。
 </b></div>
 
@@ -66,11 +65,10 @@ AI 虽然掌握了很多函数，但它不知道怎么组合。
 **原始文本数据**：一堆 txt 文件。每一行是一条裁判文书信息，Txt 文件以 “万”作为文件名，因此下面使用整数部分的数字代表每个 txt 文件。
 
 配套的文档是压缩包、文书字典、变量含义表格。
-​
+
 ![例子](/img/裁判文书清洗指南.zh-cn-20250113205914854.webp)
 
 **提示**😍：每个 txt 文件都很大，一般软件打不开。个人推荐使用 [EmEditor](https://www.emeditor.com/) 软件查看。积极使用 [EmEditor](https://www.emeditor.com/) 软件查看例子，能让我们更好地了解乱码情况和裁判文书的书写规则，以便改进我们的文本处理代码。
-
 
 - **Dta 数据**：前辈们清洗好的 stata 文件。拆分为了 ans 1—ans 83。格式刷 stata 的 `.dta`格式
 
@@ -93,20 +91,14 @@ Txt 的裁判文书大部分已经处理为了 json格式，python 读取其实�
 但跑通了一到三份 txt 文件不等于能跑通所有。
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-&#x26D4<b> Txt 的裁判文书还存在一些其他格式：
-
-- 有些 txt 文件格式为 DocInfoVo 开头的。
-- 有些 txt 文件格式为 title 开头的。
-- 有些 txt 文件格式夹杂着 HTML 语言。
-- 有些 txt 文件格式是纯粹的乱码。
-- 有些格式中 s 系列和 DocInfoVo 格式混在一起，导致循环代码被打断。
-</b></div>
+⛔<b> Txt 的裁判文书还存在一些其他格式：
 
 因此处理时得考虑**代码的兼容性和全面性**，分开写处理代码，然后对这种 txt 文件处理两次。
 
 ![例子](/img/裁判文书清洗指南.zh-cn-20250113210203690.webp)
 
 ![例子](/img/裁判文书清洗指南.zh-cn-20250113210207504.webp)
+
 ### 一些建议
 
 由于循环容易被打断，用 txt 进行处理处理时，建议参考如下逻辑：
@@ -126,6 +118,7 @@ Txt 的裁判文书大部分已经处理为了 json格式，python 读取其实�
 不只是 s 系列格式的 txt 文件有：
 
 ![例子](/img/裁判文书清洗指南.zh-cn-20250113210248250.webp)
+
 ## Python 例子 ：提取案件号序列
 
 ### 思路
@@ -149,9 +142,9 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
 提取后去除重、排除包含“`['X', 'x', 'Ｘ', '执', '不动产', '-', '第']`”的案件号。
 
 > 如果继续使用这种方法提取，排除时最好加入 **辖**。
-> 
+>
 > 这种案号也有辖初、辖再、辖终，但只表示法院在管理权上的划分。
-> 
+>
 > （或许以后还有人能想到用这个特征做研究？👍）
 
 ```python
@@ -167,21 +160,21 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
 可以直接从初审跳到终审，终审后还有最后一次再审机会，再审结束后一般就不会更改了。
 
 > 个人的排序逻辑：（此处最大的漏洞是我想不到怎么完美识别“再”案号的位置）
-> 
+>
 > 生成 m 1——m 4 四个变量 带有初的案号归类到 m 1，带有终的案号归类到 m 3。
-> 
+>
 > 带有再的情况：
-> 
+>
 > 如果只有初和再，再归类到 m 2
-> 
+>
 > 如果只再，我默认放在 m 4
-> 
+>
 > 如果同时有终、再，根据相对位置判断再是 m 2 还是 m 4。
-> 
+>
 > 后面发现：【辖终】会干扰顺序，所以先将包含辖的案号清除，然后和被其挤到 m 4 的【终】案号交换顺序。
-> 
+>
 > 这就是大数据最麻烦的点：
-> 
+>
 > **如果前面工作没有完美做好，后面返工成本会越来越高。 最糟糕的是——大数据总是很难穷尽所有乱码可能。**
 
 ### 单个 txt 的处理
@@ -194,61 +187,61 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
  import json  
  import re  
  import os  
- ​  
+   
  # 读取数据  
  data = pd.read_csv("F:/桌面/裁判文书数据库/test/test.txt", delimiter='\t')  
- ​  
+   
  # 查看前几行数据  
  print(data.head(3))  
- ​  
+   
  # 假设 CourtInfo 列中包含 JSON 字符串  
  json_data = data['CourtInfo']  
- ​  
+   
  # 解析 JSON 数据  
  def parse_json(json_str):  
      try:  
          return json.loads(json_str)  
      except json.JSONDecodeError:  
          return None  
- ​  
+   
  # 应用解析函数  
  parsed_prac_c = json_data.apply(parse_json)  
- ​  
- ​  
- ​  
+   
+   
+   
  # 将 JSON 字典转换为 DataFrame，并处理缺失值  
  json_df = pd.json_normalize(parsed_prac_c.dropna(how='all'))  
- ​  
+   
  # 查看转换后的 DataFrame  
  print(json_df.head(20))  
- ​  
+   
  # 正则表达式模式  
  pattern = r"[（(]\d{4}[）)]\s*.*?号"  
- ​  
+   
  # 使用findall提取所有匹配项  
  matches = json_df['s23'].apply(lambda x: re.findall(pattern, x) if isinstance(x, str) else [])  
- ​  
+   
  # 查看转换后的 DataFrame  
  print(matches.head(3))  
  print(matches)  
- ​  
- ​  
+   
+   
  # 创建新的 DataFrame，将更新后的 's23' 列保存  
  matches_df = pd.DataFrame({  
      's23': matches  
  })  
- ​  
+   
  # 查看转换后的 DataFrame  
  print(matches_df.head(10))  
  # print(matches_df)  
- ​  
+   
  # 选择要合并的列  
  selected_data_columns = []   
  selected_json_df_columns = []  
- ​  
+   
  # 合并选择的列  
  combined_df = pd.concat([data[selected_data_columns], json_df[selected_json_df_columns],matches_df], axis=1)  
- ​  
+   
  def clean_text(text):  
      if isinstance(text, list):  
          text = ', '.join(text)  # 将列表转换为字符串，元素之间用逗号和空格分隔  
@@ -258,25 +251,25 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
          cleaned_text = text.replace('[', '').replace(']', '').strip()  
          return cleaned_text  
      return ''  
- ​  
+   
  # 切割并生成列名  
  def split_and_rename(content):  
      content = clean_text(content)  
      split_content = content.split(', ')  
      result = {f'm{i+1}': split_content[i].strip() for i in range(len(split_content)) if split_content[i].strip()}  
      return result  
- ​  
+   
  # 应用函数  
  expanded_df = combined_df['s23'].apply(split_and_rename).apply(pd.Series)  
- ​  
+   
  # 查看结果  
  # print("Expanded DataFrame:")  
- ​  
+   
  # 提取年份的函数  
  def extract_year(text):  
      match = re.search(r'[（(](\d{4})[）)]', text)  
      return int(match.group(1)) if match else float('inf')  
- ​  
+   
  # 清洗和排序函数  
  def clean_and_sort(row):  
      # 过滤掉非字符串类型的值  
@@ -286,13 +279,13 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
      # 按年份排序  
      sorted_items = sorted(unique_items, key=lambda x: extract_year(x))  
      return sorted_items  
- ​  
+   
  # 需要排除的关键字列表  
  exclusions = ['X', 'x', 'Ｘ', '执', '不动产', '-', '第']  
- ​  
+   
  # 筛选所有 m* 列  
  m_columns = [col for col in expanded_df.columns if col.startswith('m')]  
- ​  
+   
  # 对每一行应用清洗和排序函数  
  def process_row(row):  
      # 获取 m* 列的内容  
@@ -302,20 +295,20 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
      # 处理并排序  
      sorted_items = clean_and_sort(flattened)  
      return sorted_items  
- ​  
+   
  # 应用到数据框的每一行  
  sorted_results = expanded_df.apply(process_row, axis=1)  
- ​  
+   
  # 创建新的数据框  
  max_length = max(sorted_results.apply(len))  
  sorted_df = pd.DataFrame(sorted_results.tolist(), columns=[f'm_sorted_{i+1}' for i in range(max_length)])  
- ​  
+   
  # 打印结果  
  print(sorted_df.head(10))  
- ​  
+   
  # 合并到原数据  
  combined_df2 = pd.concat([combined_df, sorted_df], axis=1)  
- ​  
+   
  # 查看结果  
  print(combined_df.head(10))  
  # 检查 'm_sorted_5' 列是否存在，并删除非空行  
@@ -324,22 +317,22 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
  else:  
      # 如果列不存在，则保留原数据框  
      combined_df2_cleaned = combined_df2.copy()  
- ​  
+   
  # 打印结果  
  print(combined_df2_cleaned.head(10))  
- ​  
+   
  # 获取所有 m_sorted_* 列的名称  
  m_sorted_columns = [col for col in combined_df2_cleaned.columns if col.startswith('m_sorted_')]  
- ​  
+   
  # 过滤出索引大于等于 5 的列  
  columns_to_drop = [col for col in m_sorted_columns if int(col.split('_')[2]) >= 5]  
- ​  
+   
  # 删除指定的列  
  combined_df2_cleaned = combined_df2_cleaned.drop(columns=columns_to_drop, errors='ignore')  
- ​  
+   
  # 打印结果以检查清理后的数据框  
  print(combined_df2_cleaned.head())  
- ​  
+   
  combined_df2.to_csv('F:/桌面/combined_df.txt', sep='\t', index=False, quoting=1, quotechar='"')
 ```
 
@@ -355,69 +348,69 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
  import json  
  import re  
  import os  
- ​  
+   
  # 定义输入和输出文件夹路径  
  # 定义输入和输出文件夹路径  
  input_folder_path = "C:/Users/PC/Desktop/hzp_project/二审和一审/数据/"  
  output_folder_path = "C:/Users/PC/Desktop/hzp_project/二审和一审/清洗结果/"  
- ​  
+   
  # 如果输出文件夹不存在，则创建它  
  if not os.path.exists(output_folder_path):  
      os.makedirs(output_folder_path)  
- ​  
+   
  # 遍历输入文件夹中的所有 .txt 文件  
  for filename in os.listdir(input_folder_path):  
      if filename.endswith('.txt'):  
          input_file_path = os.path.join(input_folder_path, filename)  
          output_file_path = os.path.join(output_folder_path, filename)  
- ​  
+   
          # 读取数据  
          data = pd.read_csv(input_file_path, delimiter='\t')  
- ​  
+   
          # 打印前3行数据以检查  
          print(f"Processing file: {filename}")  
          print(data.head(3))  
- ​  
+   
          # 解析JSON字段  
          json_data = data['CourtInfo']  
- ​  
+   
          def parse_json(json_str):  
              try:  
                  return json.loads(json_str)  
              except json.JSONDecodeError:  
                  return None  
- ​  
+   
          parsed_prac_c = json_data.apply(parse_json)  
- ​  
+   
          # 将解析后的JSON转换为DataFrame  
          json_df = pd.json_normalize(parsed_prac_c.dropna(how='all'))  
- ​  
+   
          # 打印前20行以检查  
          print(json_df.head(20))  
- ​  
+   
          # 定义匹配模式  
          pattern = r"[（(]\d{4}[）)]\s*.*?号"  
- ​  
+   
          # 查找匹配项  
          matches = json_df['s23'].apply(lambda x: re.findall(pattern, x) if isinstance(x, str) else [])  
- ​  
+   
          # 打印前3行匹配结果以检查  
          print(matches.head(3))  
          print(matches)  
- ​  
+   
          # 将匹配结果转换为DataFrame  
          matches_df = pd.DataFrame({'s23': matches})  
- ​  
+   
          # 打印前10行匹配结果DataFrame以检查  
          print(matches_df.head(10))  
- ​  
+   
          # 选择要保留的数据列  
          selected_data_columns = []   
          selected_json_df_columns = []  
- ​  
+   
          # 合并原始数据、解析后的JSON数据以及匹配结果  
          combined_df = pd.concat([data[selected_data_columns], json_df[selected_json_df_columns], matches_df], axis=1)  
- ​  
+   
          # 清洗文本函数  
          def clean_text(text):  
              if isinstance(text, list):  
@@ -428,75 +421,75 @@ s 23 变量所有案件号，以此追踪**一审二审再审终审**。
                  cleaned_text = text.replace('[', '').replace(']', '').strip()  
                  return cleaned_text  
              return ''  
- ​  
+   
          # 分割并重命名函数  
          def split_and_rename(content):  
              content = clean_text(content)  
              split_content = content.split(', ')  
              result = {f'm{i+1}': split_content[i].strip() for i in range(len(split_content)) if split_content[i].strip()}  
              return result  
- ​  
+   
          # 展开匹配结果  
          expanded_df = combined_df['s23'].apply(split_and_rename).apply(pd.Series)  
- ​  
+   
          # 提取年份函数  
          def extract_year(text):  
              match = re.search(r'[（(](\d{4})[）)]', text)  
              return int(match.group(1)) if match else float('inf')  
- ​  
+   
          # 清洗并排序函数  
          def clean_and_sort(row):  
              filtered = [item for item in row if isinstance(item, str) and not any(keyword in item for keyword in exclusions)]  
              unique_items = list(OrderedDict.fromkeys(filtered))  
              sorted_items = sorted(unique_items, key=lambda x: extract_year(x))  
              return sorted_items  
- ​  
+   
          # 排除关键词列表  
          exclusions = ['X', 'x', 'Ｘ', '执', '不动产', '-', '第']  
- ​  
+   
          # 获取所有m开头的列名  
          m_columns = [col for col in expanded_df.columns if col.startswith('m')]  
- ​  
+   
          # 处理每一行  
          def process_row(row):  
              row_values = [row[col] for col in m_columns]  
              flattened = [item for sublist in row_values for item in (sublist if isinstance(sublist, list) else [sublist])]  
              sorted_items = clean_and_sort(flattened)  
              return sorted_items  
- ​  
+   
          sorted_results = expanded_df.apply(process_row, axis=1)  
- ​  
+   
          # 计算最大长度，并创建新的排序后的DataFrame  
          max_length = max(sorted_results.apply(len))  
          sorted_df = pd.DataFrame(sorted_results.tolist(), columns=[f'm_sorted_{i+1}' for i in range(max_length)])  
- ​  
+   
          # 再次合并数据  
          combined_df2 = pd.concat([combined_df, sorted_df], axis=1)  
- ​  
+   
          # 过滤条件  
          if 'm_sorted_5' in combined_df2.columns:  
              combined_df2_cleaned = combined_df2[combined_df2['m_sorted_5'].isna() | (combined_df2['m_sorted_5'] == '')]  
          else:  
              combined_df2_cleaned = combined_df2.copy()  
- ​  
+   
          # 打印清理后的前10行数据以检查  
          print(combined_df2_cleaned.head(10))  
- ​  
+   
          # 获取所有m_sorted开头的列名  
          m_sorted_columns = [col for col in combined_df2_cleaned.columns if col.startswith('m_sorted_')]  
- ​  
+   
          # 要删除的列名  
          columns_to_drop = [col for col in m_sorted_columns if int(col.split('_')[2]) >= 5]  
- ​  
+   
          # 删除不需要的列  
          combined_df2_cleaned = combined_df2_cleaned.drop(columns=columns_to_drop, errors='ignore')  
- ​  
+   
          # 打印最终前几行数据以检查  
          print(combined_df2_cleaned.head())  
- ​  
+   
          # 保存到文件  
          combined_df2_cleaned.to_csv(output_file_path, sep='\t', index=False, quoting=1, quotechar='"')  
- ​  
+   
  print("Processing complete.")
 ```
 
@@ -526,19 +519,19 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
  import os  
  import glob  
  import logging  
- ​  
+   
  # 配置日志记录  
  logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')  
- ​  
+   
  # 明确指定输入文件夹和输出文件夹的路径  
  input_folder_path = "C:/Users/PC/Desktop/hzp_project/二审和一审/数据/"  
  output_folder_path = "C:/Users/PC/Desktop/hzp_project/二审和一审/清洗结果/"  
  log_folder_path = "C:/Users/PC/Desktop/hzp_project/二审和一审/日志/"  
- ​  
+   
  # 确保输出文件夹和日志文件夹存在  
  os.makedirs(output_folder_path, exist_ok=True)  
  os.makedirs(log_folder_path, exist_ok=True)  
- ​  
+   
  # 解析 JSON 数据  
  def parse_json(json_str):  
      try:  
@@ -552,13 +545,13 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
      except json.JSONDecodeError:  
          logging.warning(f"JSON 解析失败: {json_str}")  
          return None  
- ​  
+   
  # 计算中文字符数  
  def count_chinese_chars(text):  
      if pd.isnull(text):  
          return 0  
      return len(re.findall(r'[\u4e00-\u9fff\u0030-\u0039\u3000-\u303f\uff00-\uffef]', str(text)))  
- ​  
+   
  # 提取和格式化条款  
  def extract_clauses(s47_data):  
      formatted_clauses = []  
@@ -576,7 +569,7 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
          else:  
              formatted_clauses.append([])  # 如果解析失败，则添加空列表  
      return formatted_clauses  
- ​  
+   
  # 处理单个文件  
  def process_file(input_file, output_folder, log_folder, total_rows):  
      # 初始化一个空的列表来存储错误信息  
@@ -597,7 +590,7 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
      # 过滤掉 CourtInfo 列以 "DocInfoVo" 开头或无法解析为 JSON 的行  
      data = data[data['CourtInfo'].apply(lambda x: x.startswith('{"s1":') if pd.notnull(x) else False)]  
      data = data[data['CourtInfo'].apply(lambda x: isinstance(parse_json(x), dict))]  
- ​  
+   
      logging.info(f"Filtered out invalid rows from file: {input_file}")  
        
      # 提取 JSON 数据  
@@ -641,7 +634,7 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
      # 汇报进度  
      processed_rows = len(data)  
      logging.info(f"已完成处理文件: {base_name}, 条目数: {processed_rows}/{total_rows}")  
- ​  
+   
      # 保存错误日志  
      if error_logs:  
          log_file = os.path.join(log_folder, f"error_log_{base_name}.txt")  
@@ -649,12 +642,12 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
              for log in error_logs:  
                  f.write(f"File: {log[0]}, Line: {log[1]}, Content: {log[2]}\n")  
          logging.info(f"Error logs saved to: {log_file}")  
- ​  
+   
  # 遍历输入文件夹中的所有文件  
  all_files = glob.glob(os.path.join(input_folder_path, "*.txt"))  
  total_files = len(all_files)  
  processed_files = 0  
- ​  
+   
  if not all_files:  
      logging.warning("No files found in the input folder.")  
  else:  
@@ -664,7 +657,9 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
          logging.info(f"正在处理文件: {input_file} ({processed_files}/{total_files})")  
          process_file(input_file, output_folder_path, log_folder_path, total_files)  
 ```
- ​
+
+ 
+
 ### 移动 txt
 
 因为代码循环非常容易被打断，我建议设置**三个文件夹**：
@@ -680,27 +675,27 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
 ```python
  import os  
  import shutil  
- ​  
+   
  # 定义文件夹路径  
  source_folder = r'F:/桌面/测试/清洗结果'  
  data_folder = r'F:/桌面/测试/数据'  
  cleaned_folder = r'F:/桌面/测试/完成提取'  
- ​  
+   
  # 获取源文件夹中的所有.txt文件名（不含路径），并去除前缀 "cleaned_"，同时去除所有多余空格并转换为小写  
  def standardize_filename(filename):  
      return ''.join(filename.split()).lower()  
- ​  
+   
  # 获取源文件夹中的文件名  
  source_files = [f for f in os.listdir(source_folder) if f.startswith('cleaned_') and f.endswith('.txt')]  
  standardized_source_files = {standardize_filename(f[8:]): f for f in source_files}  
- ​  
+   
  # 获取数据文件夹中的文件名  
  data_files = [f for f in os.listdir(data_folder) if f.endswith('.txt')]  
  standardized_data_files = set(standardize_filename(f) for f in data_files)  
- ​  
+   
  # 找出数据文件夹中与源文件夹中相同的文件  
  common_files = standardized_source_files.keys() & standardized_data_files  
- ​  
+   
  # 移动相同的文件到清洗完成文件夹  
  for filename in common_files:  
      original_filename = standardized_source_files[filename]  
@@ -712,13 +707,11 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
        
      shutil.move(source_path, destination_path)  
      print(f"Moved: {source_path} -> {destination_path}")  
- ​  
+   
  print("Process completed.")
 ```
 
-
 ## 例子 ： 裁判文书索引重新排序
-
 
 **初审案号最早的排在前（m_sorted_1）**
 
@@ -727,8 +720,6 @@ Txt 文档的 s 47 系列对应着文书的法条，里面是第二层 json 格�
 **再审案件按照“终审前最早、终审后最晚”安排（m_sorted_2, m_sorted_4）**
 
 **其余案号按时间顺序补充空位（m_sorted_5）**
-
-
 
 ```python
 import pandas as pd  
@@ -874,7 +865,6 @@ for new_group in range(1, 6):
 df.to_csv(r"C:\Users\PC\Desktop\结果_案号排序.txt", index=False)
 ```
 
-
 ## dta 数据的匹配
 
 ### 关于案号
@@ -928,6 +918,7 @@ drop if  case_length > 66
 
 drop case_length
 ```
+
 ### 标识的去重
 
 Txt 提取完成后，就是转化为 `.dta` 匹配到 `ans*.dta` 中。
@@ -981,17 +972,17 @@ replace m_sorted_5 = "" if  m_sorted_5 == m_sorted_4 | m_sorted_5 == m_sorted_3 
 `ans*.dta` 系列的文本格式都是 `strL`，含义为长字符串。Stata 的字符串匹配只能选择有具体长度的字符串格式，我们可以通过字符截取来改变变量格式。
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
-&#x1F50A<b> 重要：注意，英文字符的占位符和中文字符的占位符是不同的。</b>
+🔊<b> 重要：注意，英文字符的占位符和中文字符的占位符是不同的。</b>
 </div>
 
 > 例如“民初 730 号”，虽然只是六个字符，但可能实际上占了 15 个位置。
-> 
+>
 > 如果我们只截取 6 个长度，变量就会变成乱码。
-> 
+>
 > 个人观察到的案号占位符最长大概是 39 个位置，个人为了稳健直接选择的截取 88 个字符符号。
-> 
+>
 > 这也意味着： 我们需要在清理掉文本中的奇怪符号以后再转化。
-> 
+>
 > 例如有些法院名字是“`广西壮族自治区柳州市鱼峰区人民法院`”
 
 ```stata
@@ -1006,7 +997,7 @@ replace m_sorted_5 = "" if  m_sorted_5 == m_sorted_4 | m_sorted_5 == m_sorted_3 
  # 大于特定字符数量，例如66，的案号清洗为空值
 
 foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
-	
+
 	gen case_length = strlen(`var')
 
 	summarize case_length
@@ -1014,7 +1005,7 @@ foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
 	replace `var' =  "" if  case_length > 66
 
 	drop case_length		 
-		
+	
 		}
 ```
 
@@ -1052,10 +1043,10 @@ foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
 ```stata
  * 定义排除列表  
  global exclude_list 22 50 54 58  105  
- ​  
+   
  * 初始化 valid_files 变量  
  global valid_files  
- ​  
+   
  * 循环遍历文件编号范围，并检查是否在排除列表中  
  forvalues i = 1/119 {  
      local is_excluded 0  
@@ -1069,11 +1060,11 @@ foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
          global valid_files $valid_files `i'  
      }  
  }  
- ​  
+   
  * 显示有效的文件编号  
  display "Valid file numbers: $valid_files"  
- ​  
- ​  
+   
+   
  * 循环处理有效的文件编号  
  foreach i of global valid_files {  
      *写入自己的循环匹配代码  
@@ -1085,6 +1076,7 @@ foreach var of varlist s7 m_sorted_1 m_sorted_2 m_sorted_3 m_sorted_4 {
 例如以下乱码：
 
 ![如图](/img/裁判文书清洗指南.zh-cn-1769873803723.webp)
+
 - 我们可以利用 stata 的 fs 包读取所有名字
 - 然后使用 local 直接储存名字进行循环
 - 循环过程中可以嵌套一层循环，使得新文件按照顺序命名
@@ -1127,7 +1119,6 @@ foreach f of local files {
 }
 ```
 
-
 ### 匹配速度的优化
 
 正常匹配，应该是将 119 个 txt 转化的 dta 匹配，嵌套循环匹配到 ans 1-ans 83 上去。
@@ -1137,9 +1128,9 @@ foreach f of local files {
 匹配耗时过长的原因在于每一次嵌套循环的文件读取时间太长了，而且不同文件之间有重复值。
 
 建议先将 119 个 dta 文件使用 `append` 命令纵向匹配到一起，然后循环匹配到 ans 1 到 ans 83 上去，这样最多只需要 2 天即可完成全部匹配。
-​
+
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
-&#x1F4AC<b> 备注：办公室电脑是 stata MP 版本，这个版本的特性是“计算速度根据电脑的核来分配资源”。目前 cpu 有足足 16 核，个人处理过的最大量峰值是 60 g。基本没有问题，只需要耐心等待处理过程中的卡顿。</b>
+💬<b> 备注：办公室电脑是 stata MP 版本，这个版本的特性是“计算速度根据电脑的核来分配资源”。目前 cpu 有足足 16 核，个人处理过的最大量峰值是 60 g。基本没有问题，只需要耐心等待处理过程中的卡顿。</b>
 </div>
 ## dta 数据的清洗
 
@@ -1151,7 +1142,8 @@ foreach f of local files {
 
 不同网站的空格符号并不相同，建议使用以下函数：
 
- * 移除所有特殊字符，包括不可见字符、空白和标点符号  
+ * 移除所有特殊字符，包括不可见字符、空白和标点符号
+
 ```stata
  replace judge_fin = ustrregexra(法官名字变量, "[^\p{L}\p{N}]+", "")
 ```
@@ -1169,6 +1161,7 @@ foreach f of local files {
 ```
 gen localed = strpos(a, b) > 0
 ```
+
 #### 去除特殊字符
 
 Ans 1 到 ans 83 的文本变量夹杂着各种非中文符号，可以使用以下函数去除：
@@ -1176,13 +1169,13 @@ Ans 1 到 ans 83 的文本变量夹杂着各种非中文符号，可以使用以
 以下是个人筛选出的乱码符号。
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
-&#x1F4AC<b> 备注：为什么要坚持排除法，而不选择只保留中文字符？ 因为个人尝试时，发现部分中文变量会因此变成乱码。</b>
+💬<b> 备注：为什么要坚持排除法，而不选择只保留中文字符？ 因为个人尝试时，发现部分中文变量会因此变成乱码。</b>
 </div>
 
 ```stata
 # 定义需要移除的符号列表（包括空格）  
 local symbols "ⅩⅩⅩ Ｘ ? ; ；， 《 》 ． ＋ （ ） ( ) & # 1 2 3 4 5 6 7 8 9 0 & A-Z a-z ；？ ＊ ︰ ++  .   XX XXX   ______   ` - +  BRR H imestimes jzwjzwnjzwnjzwjzwnjzwnjzwnjzwjzwjzwjzwnjzwnjzwnjzwjzwnjzwnj jzwnjzwjzwjzwnjzwnjzwnjzwnjzwnjzwjzwjzwjzwnjzwjzwnjzwjzwj spemsp sp emsp ；； *  XX XXX Ｘ ＸＸＸ"  
-​  
+  
 * 遍历符号列表并移除每个符号及空格  
 foreach s of local symbols {  
     replace judge_fin = subinstr(judge_fin, "`s'", "", .)  
@@ -1212,6 +1205,7 @@ outsheet cmd using "变量标签命令.txt", noquote replace
 这样就会生成一个文件，储存所有 stata 对应的标签化命令。
 
 > 一切代码在自动化和透明度都有个取舍，个人比较偏好这种有中间产物的流程，便于检查和修正。
+
 ### 正则表达式提取
 
 #### 字符筛选
@@ -1235,17 +1229,17 @@ outsheet cmd using "变量标签命令.txt", noquote replace
 然后根据情况**只保留特定字符**。
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-&#x26D4<b> 警告：注意顺序！</b>
+⛔<b> 警告：注意顺序！</b>
 </div>
 
 > 例如有以下组合
-> 
+>
 > 张三**于** 2014 年进行庭审
-> 
+>
 > 张三**代理**审判长**于** 2014 年进行庭审
-> 
+>
 > 在该变量包含“庭审”两个字时，我们应该先都保留“于”以前的字符，再保留“代理”以前的字符。
-> 
+>
 > 条件筛选最好找两个字的特征词，这样叫“于庭审”的法官名字几乎不可能出现。
 
 个人使用的顺序，仅供参考：
@@ -1288,8 +1282,6 @@ outsheet cmd using "变量标签命令.txt", noquote replace
  replace num_var =  regexm(str_var, "([0-9]+\.[0-9]+|[0-9]+)")
 ```
 
-
-
 ## dta 时间修正
 
 在师门的招投标中，很多时间格式是混乱的。
@@ -1298,7 +1290,7 @@ outsheet cmd using "变量标签命令.txt", noquote replace
 `2019-12-31 09:00:00`、
 ` 2019/12/30 09:30`
 
-但是也会出现 ` 20220516 09:30:00 `、` 2022051609:30:00 `、` 2022051609:30 `
+但是也会出现 `20220516 09:30:00`、`2022051609:30:00`、`2022051609:30`
 
 例如缺少秒、月份位置写成 4 而不是 04。
 
@@ -1466,12 +1458,11 @@ duplicates report  court_name jud_year
 
 最大的问题是**乱码**。
 
-
 ![如图](/img/裁判文书清洗指南.zh-cn-20250113211041112.webp)
 csv 乱码了。因为提取的 txt 不是 utf 8 格式。
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
-&#x1F628<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
+😨<b> 注意：一定要保证CSV 文件默认格式刷 UTF-8 ，然后进行处理。</b>
 </div>
 
 ## Python 例子 ： 提取上诉法官过去和现在的特征均值
@@ -1843,8 +1834,6 @@ if __name__ == "__main__":
 
 ## Stata 例子 ：法院-年份案件公开率
 
-
-
 ```sql
 **********思路*************
 /*
@@ -1896,7 +1885,6 @@ duplicates drop court_name jud_year, force
 
 duplicates report  court_name jud_year
 ```
-
 
 裁判文书的法院名称也千奇百怪，例如有些裁判文书法院写为黑龙江人 xx 区人民法院，有些则不加省份，直接些 xx 区人民法院。此时最好最方便的处理方式是我们直接用一个完整的法院名录进行模糊匹配。
 
@@ -2021,7 +2009,7 @@ NUM_PASSES = 10
 # -------------------------------
 input_path = r"/root/案件类型.csv"
 output_path = r"/root/案件类型_{}类别结果.csv".format(NUM_TOPICS) 
-topic_words_path = r"/root/主题{}词汇.csv".format(NUM_TOPICS)       
+topic_words_path = r"/root/主题{}词汇.csv".format(NUM_TOPICS)     
 doc_topic_words_path = r"/root/文档主题词_{}主题.csv".format(NUM_TOPICS) 
 
 # 定义常用且低区分度的停用词
@@ -2179,7 +2167,7 @@ print(f"文档主题词已输出到：{doc_topic_words_path}")
 
 这个包也存在缺陷，使用的是贝叶斯估计训练的参数，因此假设名字字符是独立的。例如王胜男，每个字单独看起来偏男性，但是个典型女性名字，但是基于贝叶斯估计，这个包会将其识别为男性。
 
-如果想要进一步做严谨，个人推荐了解一个 github 仓库[预测中文姓名的性别](https://github.com/jaaack-wang/gender-predictor) 
+如果想要进一步做严谨，个人推荐了解一个 github 仓库[预测中文姓名的性别](https://github.com/jaaack-wang/gender-predictor)
 
 ```python
 import pandas as pd
@@ -3035,7 +3023,6 @@ if __name__ == "__main__":
 
 ```
 
-
 ## 描述统计
 
 ### 环状图
@@ -3100,8 +3087,8 @@ plt.axis('equal')
 plt.show()
 ```
 
-
 ![如图](/img/裁判文书清洗指南.zh-cn-20250329235548472.webp)
+
 ### 条状图
 
 优化了数字排列方式不重叠
@@ -3219,7 +3206,7 @@ def add_statistics(ax, data):
     """在给定的轴上添加平均数和中位数的标注"""
     mean_val = data.mean()
     median_val = data.median()
-    
+  
     ax.axvline(mean_val, color='red', linestyle='--')
     ax.axvline(median_val, color='blue', linestyle='--')
     # 添加图例于右下角
@@ -3251,12 +3238,12 @@ for idx, var in enumerate(variables):
         data_to_plot = trim_data(df[var])
     else:
         data_to_plot = df[var]
-    
+  
     # 原始数据分布
     sns.histplot(data_to_plot, kde=True, color="skyblue", edgecolor="black", ax=axes[idx])
     axes[idx].set_title(f'{var_zh} 分布图', fontsize=14)
     add_statistics(axes[idx], data_to_plot)  # 添加平均数和中位数的标注
-    
+  
     # 添加累计百分比轴
     add_percentage_axis(axes[idx], data_to_plot)
 
@@ -3264,6 +3251,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-
-
 ![如图](/img/裁判文书清洗指南.zh-cn-20250329235518600.webp)
+
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/cpws_stata/  
+

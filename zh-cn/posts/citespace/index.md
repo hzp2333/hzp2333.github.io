@@ -281,3 +281,9 @@ $标签 \Rightarrow \text{overlay Labels: Show/Hide}$
 [^2]: 所以尽力选择这里好点出来的文件夹位置，不然老是这样后面懒得点下去
 [^3]: 不过我个人没试过
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/citespace/  
+

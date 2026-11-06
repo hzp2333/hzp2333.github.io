@@ -781,3 +781,9 @@ constraint define 9 D_m6 = D_m5 ;
 - 事件研究法中，事前趋势标准化一般会比较准确。
 - 只有一个个体、不同时间冲击的数据集，得谨慎添加约束，可能得出相反的结果。
 - 多个个体的数据，无论是 time-based 还是 did，都应该加上组类别控制。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/event2/  
+

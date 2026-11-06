@@ -269,3 +269,9 @@ http://www.crei.cn/tudi/lawbr.aspx?p=1&a=1&jyzt=&crfs=&tdlx=&rq1=&rq2=&rq3=&rq4=
 [^3]: 张军, 闫雪凌, 余沭乐等. 工业机器人应用与劳动关系：基于司法诉讼的实证研究[J]. 管理世界,2023,39 （12）: 90-112. DOI: 10.19744/j.cnki. 11-1235/f.2023.0146.
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/pachong/  
+

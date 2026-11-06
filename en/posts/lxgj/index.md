@@ -96,3 +96,9 @@ I involuntarily recalled what the gentleman said in "Reflections":
 
 ![如图](/img/鲁迅故居.zh-cn-20250119001005056.webp)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/lxgj/  
+

@@ -182,3 +182,9 @@
 [^13]: 整体都缺，因此本质上卡的就是轮岗选拔这一关。
 [^14]: 如果有教师数据，这可能是个很好的外生冲击
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/zcpx/  
+

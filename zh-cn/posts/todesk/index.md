@@ -85,3 +85,9 @@ pause
 
 [^1]: 4060 配置，基本锁定暗影精灵 9，联想 y 7000，天选 3 中选一个。
 [^2]: 例如原神、星穹铁道这类隐藏鼠标的游戏，启用这个功能玩游戏时将失去鼠标转向功能。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/todesk/  
+

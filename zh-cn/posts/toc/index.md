@@ -57,3 +57,9 @@ smoothScroll 默认设置是英文参数，当引入 APIayer 播放音乐后，�
 
 ![看来最后还是出现在调用问题上](/img/中文博客目录跳转失败.zh-cn-20240717214838677.webp)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/toc/  
+

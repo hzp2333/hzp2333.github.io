@@ -110,3 +110,9 @@ So, what lies at the end of the Penguin Highway?
 It is the silhouette of a boy running, exploring amidst loss, and ultimately growing into an exceptional adult.
 
 Keep running, along the Penguin Highway, until you reach the world’s end!
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/penguin/  
+

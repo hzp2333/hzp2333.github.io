@@ -132,3 +132,9 @@ github 项目地址：[https://github.com/windingwind/zotero-better-notes](https
 [^3]: 101 计划其实没有执行的土壤吧
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/zoteronote/  
+

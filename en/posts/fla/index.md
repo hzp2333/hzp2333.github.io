@@ -83,3 +83,9 @@ $$
 $$
 ![Diagram](/img/范里安《微观经济学》退税案例解析.zh-cn-20240523101844324.webp)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fla/  
+

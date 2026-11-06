@@ -280,3 +280,9 @@ I suspect that now, in almost every econometrics class - maybe even every econom
 [^5]: OpenAI's counterpart is [Codex](https://openai.com/zh-Hans-CN/codex/).
 [^6]: It burns tokens fast too. I used up the first free resource pack in a single afternoon.
 [^7]: You could even consider giving Codex access to Claude Code through MCP and letting the two of them gang up on your code.
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/stata_auto/  
+

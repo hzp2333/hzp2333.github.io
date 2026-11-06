@@ -343,3 +343,9 @@ graphregion(color(white)) bgcolor(white) ylabel(,angle(horizontal)));
 计量就像这图一样，看起来复杂，但核心思想总是一句话就能说清。
 
 就操作上的理解来看——**事件研究法只是系数可视化罢了**，但组合起来可以形象地展示更多东西——异质性、结构比较、平行趋势、组间差异、长期效应...... 其实更重要的还是分组回归的设计思想与经济意义的考察分析。
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/event3/  
+

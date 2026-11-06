@@ -252,3 +252,9 @@ shellout animals.svg
 1. Correlation coefficients seem to be outputtable only by logout.
 2. All previous commands result in garbled text when loading Chinese variable names.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/regout/  
+

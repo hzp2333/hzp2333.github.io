@@ -368,3 +368,9 @@ $P$ 为有孩子后的基因遗传利益，$C$ 为自己付出的成本。
 [^10]: 到一定年龄就无法生育
 [^11]: 马克思的著名推导：平均利润率的形成。这歌推导说明了无产阶级是先要解放所有人然后才能解放自己。
 [^12]: Cheung S N S. The fable of the bees: An economic investigation\[J\]. The Journal of Law and Economics, 1973, 16 （1）: 11-33.
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/selfishgene/  
+

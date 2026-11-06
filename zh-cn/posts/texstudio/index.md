@@ -171,3 +171,9 @@ Texstudio 支持行内预览。`alt+p` 启动，但是可能和其他模板渲�
 - [Advanced features](https://texstudio-org.github.io/advanced.html#personal-macros)
 - [Texstudio宏脚本编写-2022-4-24 16:48:09](https://www.bilibili.com/video/BV1uA4y1X7Ji/?spm_id_from=333.1391.0.0&vd_source=0e137afa81fa006aaa9f39b597699a06)
 - [Installing Language Tool in TexStudio](https://tex.stackexchange.com/questions/155148/installing-language-tool-in-texstudio)
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/texstudio/  
+

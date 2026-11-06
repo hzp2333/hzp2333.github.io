@@ -149,3 +149,9 @@ Maybe that, more than anything, is the Copernican moment we are actually living 
 [^4]: Keynes: in the long run, we are all dead.
 [^5]: At the very least, my own feeling is that evaluating whether a question is worth studying requires a certain humility — a posture of restraint.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/taste_ai/  
+

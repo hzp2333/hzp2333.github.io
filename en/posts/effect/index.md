@@ -155,3 +155,9 @@ Seen in this light, doesn't it embody the magic of "creating something out of no
 [^6]: Angrist J D, Chen S H, Song J. Long-term consequences of Vietnam-era conscription: New estimates using social security data[J]. American Economic Review, 2011, 101 (3): 334-338.
 
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/effect/  
+

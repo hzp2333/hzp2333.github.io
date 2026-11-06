@@ -90,3 +90,9 @@ A lot of people like to use the term "research taste." Some even start mixing Ch
 
 Every study moves forward by standing on the shoulders of earlier work. Just because each small innovation fits intuition does not mean it contributes nothing. What matters is summarizing what earlier work has taught us and refining a genuinely fresh perspective.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fs2/  
+

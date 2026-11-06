@@ -84,3 +84,9 @@
 - [逆转裁判模拟器](https://objection.lol/maker)
 - [逆转裁判素材](http://www.court-records.net/sprites1.htm)
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/nzcp/  
+

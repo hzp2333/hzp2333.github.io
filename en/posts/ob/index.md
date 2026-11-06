@@ -1,7 +1,6 @@
 # Using Obsidian for Literature Reading and Blog Writing
 
 
-
 I only started using Obsidian recently, so this post is a quick record of my workflow.
 
 I mainly use Obsidian to write and manage blog posts and literature-reading notes.
@@ -9,7 +8,6 @@ I mainly use Obsidian to write and manage blog posts and literature-reading note
 ## Obsidian and plugin usage
 
 - Forum: [https://forum-zh.obsidian.md/](https://forum-zh.obsidian.md/)
-
 - Recommended tutorial: [An Incomplete Beginner Guide to Obsidian](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/obsidian%E6%96%B0%E6%89%8B%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97+by+windily)
 
 Obsidian represents the idea of <font color="#ff0000">bidirectional linking</font>: **notes can connect to each other and gradually form a network of knowledge**. For me, the real reason to use Obsidian is its absurdly good plugin ecosystem. It makes writing and organizing notes genuinely enjoyable.
@@ -29,14 +27,13 @@ My own layout looks like this:
 
 The rich have a second monitor. The rest of us make do with split view 😤
 
->Obsidian settings:
+> Obsidian settings:
 >
->Just replace the `.obsidian` folder in the vault.
+> Just replace the `.obsidian` folder in the vault.
 >
->You can download [my `.obsidian` config](https://github.com/hzp2333/hzp2333.github.io/blob/master/.obsidian) from my GitHub repository.
+> You can download [my `.obsidian` config](https://github.com/hzp2333/hzp2333.github.io/blob/master/.obsidian) from my GitHub repository.
 >
->After downloading it, remember to unzip `themes.zip`.
-
+> After downloading it, remember to unzip `themes.zip`.
 
 Each vault has its own settings. That means every vault can use a completely different theme and plugin setup. I really like this, because writing blog posts and managing notes often call for different tools, so independent vault settings feel necessary.
 
@@ -49,6 +46,7 @@ You can change the interface font in Settings -> Appearance -> Font.
 - **Document properties**: if the first line is blank, type `---` three times to add document properties. If the first line is not blank, `---` creates a **horizontal rule** instead.
 - **Adding tags**: `#tag1`, `#tag2`
 - **Links**:
+
 ```obsidian
 Link to a note: [[文件名]]
 Link to a heading in a note: [[ # ]]
@@ -57,6 +55,7 @@ Create an alias for a link (keyword): [[ | 关键词]]
 Link to an external file such as Evernote: [关键词](链接)
 Add an image: ![[]] or ![图片标题](图片引用路径)
 ```
+
 ## Plugin usage
 
 After replacing the `.obsidian` folder, open the vault, click Trust author, and turn off safe mode.
@@ -141,6 +140,7 @@ gryphe/mythomist-7b:free
 ```
 
 Click Copilot chat in the left sidebar, and an AI chat panel will appear on the right. It can read your notes too.
+
 ### Other plugins
 
 Better word count: counts Chinese characters more accurately (Obsidian already has a word count in the bottom-right corner).
@@ -157,7 +157,7 @@ One of Obsidian's weak spots is cross-device syncing: it can be fiddly and unrel
 
 Short version:
 
-### Cross-platform sync: Remotely save 
+### Cross-platform sync: Remotely save
 
 [Remotely save (sync plugin)](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Remotely+save%EF%BC%88%E5%90%8C%E6%AD%A5%E6%8F%92%E4%BB%B6%EF%BC%89) has been one of the most discussed plugins lately, and the tutorial page already collects a lot of material:
 
@@ -171,7 +171,8 @@ Short version:
 - [Tutorial on pairing the Remotely plugin with Tencent Cloud COS by 八宝周](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/remotely%E6%8F%92%E4%BB%B6%E6%90%AD%E9%85%8D%E8%85%BE%E8%AE%AF%E4%BA%91cos%E6%95%99%E7%A8%8B+by+%E5%85%AB%E5%AE%9D%E5%91%A8)：Tencent Cloud, S3
 - [Using the Remotely save plugin with Obsidian to sync via Nutstore by BCS](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E9%80%9A%E8%BF%87Remotely+save%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%9D%9A%E6%9E%9C%E4%BA%91%E5%90%8C%E6%AD%A5+by+BCS)：Nutstore, WebDAV
 - [Using Remotely Save with Alibaba Cloud OSS for multi-platform sync by zm](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Obsidian%E4%BD%BF%E7%94%A8Remotely+Save+%E5%92%8C%E9%98%BF%E9%87%8C%E4%BA%91+OSS+%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5+by+zm)：Alibaba Cloud OSS, S3
-### PC and Android sync 
+
+### PC and Android sync
 
 On Windows and Android, you can consider [Syncthing (sync software)](https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/Syncthing%EF%BC%88%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6%EF%BC%89) or a similar option such as [微力同步](https://publish.obsidian.md/chinesehelp/03+%E6%95%99%E7%A8%8B/%E5%BE%AE%E5%8A%9B%E5%90%8C%E6%AD%A5). See also [Using Tencent Cloud to build Syncthing for syncing Obsidian by 软通达](https://publish.obsidian.md/chinesehelp/03+%E6%95%99%E7%A8%8B/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E6%90%AD%E5%BB%BASyncthing%E6%9D%A5%E5%90%8C%E6%AD%A5obsidian+by+%E8%BD%AF%E9%80%9A%E8%BE%BE).
 
@@ -185,6 +186,7 @@ I recommend sync tools such as [Nutstore](https://publish.obsidian.md/chinesehel
 
 1. Do not keep Obsidian and the sync software open on both machines at the same time, or saving errors may occur.
 2. Make sure you understand the difference between a sync disk and a storage disk (cloud drive).
+
 ## Hugo and Obsidian
 
 Recommended reading:
@@ -200,6 +202,7 @@ I would also recommend the hugo preview plugin. It basically loads an online blo
 Another plugin worth mentioning is mermaid. The LoveIt Hugo theme supports flowchart rendering, and I can never remember every last detail of the syntax, so this plugin helps a lot.
 
 I still use local image references for now (I just like managing files locally 😀),
+
 - **imge converter** can automatically compress, rename, and convert image formats;
 - the **clear unsed images** plugin can help clean up local images that are no longer referenced.
 
@@ -217,7 +220,6 @@ When Zotero 7 had just been updated, I paid for a plugin from Qingning Academic.
 
 ![Qingning Academic plugin integration. If you want image transfer to feel truly seamless, you pretty much need to set up image hosting no matter what](/img/Obsidian配合文献阅读和博客.zh-cn-20240525000044724.webp)
 
-
 By 2024, Zotero had split into Zotero 6 and Zotero 7, and the author of the mdnote plugin had explicitly said they would not keep improving compatibility for Zotero 7. That left even fewer options.
 
 Another free setup I am currently using is Zotero's Better Note plugin together with Obsidian's Zotero Integration plugin.
@@ -233,4 +235,10 @@ A lot of people online compare Notion, Obsidian, and other note-taking apps. I p
 That said, the usual complaint about Obsidian is easy enough to understand: there are too many plugins, the features can get flashy, and the learning curve is not exactly low, so the priorities sometimes feel blurred. Even so, I still have not used Obsidian to build a proper knowledge graph. Just using it as a writing tool already feels great.
 
 Beyond that, Obsidian was originally meant to help people build a knowledge system. What inspires me in other people's setups is not how pretty their notes look, but how they use Obsidian to carry out their own way of organizing information🦾. Using plugins to rotate periodic notes for review; building keyword-based note blocks and expanding them over time; connecting Obsidian with other tools to refine a workflow; combining note structure with design...
+
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/ob/  
 

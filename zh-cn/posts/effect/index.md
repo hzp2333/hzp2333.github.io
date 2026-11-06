@@ -220,3 +220,9 @@ ATE 和 LATE 是我们所求的，是我们渴望平行世界那样完善的对�
 [^6]: Angrist J D, Chen S H, Song J. Long-term consequences of Vietnam-era conscription: New estimates using social security data[J]. American Economic Review, 2011, 101 （3）: 334-338.
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/effect/  
+

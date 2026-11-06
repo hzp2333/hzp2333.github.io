@@ -254,3 +254,9 @@ At this time, the depreciation rate $\delta$ can be used for sensitivity testing
 [^11]: Fang H, Qiu X. "Golden Ages": A Tale of the Labor Markets in China and the United States[J]. Journal of Political Economy Macroeconomics, 2023, 1 (4): 665-706
 [^10]: Personally, I feel that the lack of detailed discussion of educational age is the weakness of this method, especially in today's battle between work and postgraduate entrance examinations. However, under the linear assumption, the education variable will also be eliminated due to differences.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/hlt/  
+

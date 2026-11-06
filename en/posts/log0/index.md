@@ -209,3 +209,9 @@ C------A
 - [How to deal with non-positive values](https://mp.weixin.qq.com/s/U9qwveJaFtk33CYvY1yYSQ)
 - [Code for the "logs with zeros" paper](https://github.com/jiafengkevinchen/logs-public)
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/log0/  
+

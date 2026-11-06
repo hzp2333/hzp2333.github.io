@@ -84,3 +84,9 @@ For those who insist on knocking at the truth of life, for those who acknowledge
 [^4]: A person should never be too cruel to oneself.
 [^5]: What I mean here is a forward-looking moral vision.
 
+
+---
+
+> Author: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/en/posts/fs4/  
+

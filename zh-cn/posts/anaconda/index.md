@@ -32,3 +32,9 @@ conda update --all
 解决方法：统一用户变量和系统变量、或者删除 java 路径。这里个人是因为**无效的 path 路径挡路了**。个人删除了 Java 的错误路径：`%Java\_Home%\bin;%Java\_Home%\jre\bin`。之后检验 Java 环境没受到影响，anaconda 环境也恢复了。
 
 
+
+---
+
+> 作者: [滑翔闪](https://github.com/hzp2333/hzp2333.github.io)  
+> URL: https://blog.huaxiangshan.com/zh-cn/posts/anaconda/  
+
