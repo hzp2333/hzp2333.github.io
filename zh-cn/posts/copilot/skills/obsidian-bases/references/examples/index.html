@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title> - 滑翔闪&#39;S BLOG</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="" />
-<meta property="og:description" content="Bases examples Task tracker filters: and: - file.hasTag(&#34;task&#34;) - &#39;file.ext == &#34;md&#34;&#39; formulas: days_until_due: &#39;if(due, (date(due) - today()).days, &#34;&#34;)&#39; is_overdue: &#39;if(due, date(due) &lt; today() &amp;&amp; status != &#34;done&#34;, false)&#39; properties: formula.days_until_due: displayName: &#34;Days Until Due&#34; views: - type: table name: Active filters: and: - &#39;status != &#34;done&#34;&#39; order: - file.name - status - due - formula.days_until_due groupBy: property: status direction: ASC Daily notes index filters: and: - file.inFolder(&#34;Daily Notes&#34;) - &#39;/^\d{4}-\d{2}-\d{2}$/." />
+<meta property="og:description" content="Bases examples Task tracker filters: and: - file.hasTag(&#34;task&#34;) - &#39;file.ext == &#34;md&#34;&#39; formulas: days_until_due: &#39;if(due, (date(due) - today()).days.round(), &#34;&#34;)&#39; is_overdue: &#39;if(due, date(due) &lt; today() &amp;&amp; status != &#34;done&#34;, false)&#39; properties: formula.days_until_due: displayName: &#34;Days Until Due&#34; views: - type: table name: Active filters: and: - &#39;status != &#34;done&#34;&#39; order: - file.name - status - due - formula.days_until_due groupBy: property: status direction: ASC Daily notes index filters: and: - file.inFolder(&#34;Daily Notes&#34;) - &#39;/^\d{4}-\d{2}-\d{2}$/." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/references/examples/" /><meta property="article:section" content="posts" />
 
 <meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Bases examples Task tracker filters: and: - file.hasTag(&#34;task&#34;) - &#39;file.ext == &#34;md&#34;&#39; formulas: days_until_due: &#39;if(due, (date(due) - today()).days, &#34;&#34;)&#39; is_overdue: &#39;if(due, date(due) &lt; today() &amp;&amp; status != &#34;done&#34;, false)&#39; properties: formula.days_until_due: displayName: &#34;Days Until Due&#34; views: - type: table name: Active filters: and: - &#39;status != &#34;done&#34;&#39; order: - file.name - status - due - formula.days_until_due groupBy: property: status direction: ASC Daily notes index filters: and: - file.inFolder(&#34;Daily Notes&#34;) - &#39;/^\d{4}-\d{2}-\d{2}$/."/>
+<meta name="twitter:description" content="Bases examples Task tracker filters: and: - file.hasTag(&#34;task&#34;) - &#39;file.ext == &#34;md&#34;&#39; formulas: days_until_due: &#39;if(due, (date(due) - today()).days.round(), &#34;&#34;)&#39; is_overdue: &#39;if(due, date(due) &lt; today() &amp;&amp; status != &#34;done&#34;, false)&#39; properties: formula.days_until_due: displayName: &#34;Days Until Due&#34; views: - type: table name: Active filters: and: - &#39;status != &#34;done&#34;&#39; order: - file.name - status - due - formula.days_until_due groupBy: property: status direction: ASC Daily notes index filters: and: - file.inFolder(&#34;Daily Notes&#34;) - &#39;/^\d{4}-\d{2}-\d{2}$/."/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -247,7 +247,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;file.ext == &#34;md&#34;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">formulas</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">days_until_due</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;if(due, (date(due) - today()).days, &#34;&#34;)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">days_until_due</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;if(due, (date(due) - today()).days.round(), &#34;&#34;)&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">is_overdue</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;if(due, date(due) &lt; today() &amp;&amp; status != &#34;done&#34;, false)&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">properties</span><span class="p">:</span><span class="w">
@@ -653,7 +653,7 @@
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 119 篇文章，372641 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，374235 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

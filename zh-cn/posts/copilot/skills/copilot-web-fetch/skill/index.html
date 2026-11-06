@@ -32,7 +32,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/copilot-web-fetch\/skill\/"
-        },"genre": "posts","wordcount":  184 ,
+        },"genre": "posts","wordcount":  274 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/copilot-web-fetch\/skill\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -205,8 +205,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"></h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 184 字
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 274 字
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;
     
 
     
@@ -232,14 +232,19 @@
   <ul>
     <li><a href="#how-to-run">How to run</a></li>
     <li><a href="#if-copilot-plus-is-not-active">If Copilot Plus is not active</a></li>
+    <li><a href="#self-host-mode">Self-Host mode</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="copilot-web-fetch">Copilot web fetch</h1>
 <p>Fetch a web page&rsquo;s contents as Markdown through Copilot Plus.</p>
 <h2 id="how-to-run">How to run</h2>
 <p>Find the absolute path to this SKILL.md file on disk, then run the script next
-to it that matches the operating system. No extra runtime is needed — <code>sh</code>
-(macOS/Linux) and <code>cmd</code>/PowerShell (Windows) are always present.</p>
+to it that matches the operating system. Run it as a shell command with your shell command tool (for example
+<code>Bash</code> in Claude Code, <code>shell</code> in OpenCode, <code>exec_command</code> in Codex). The command
+is shell syntax, not JavaScript or TypeScript: never pass it as the code of a
+code-execution tool.
+No extra runtime is needed — <code>sh</code> (macOS/Linux) and <code>cmd</code>/PowerShell (Windows)
+are always present.</p>
 <p>On macOS or Linux:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
@@ -264,6 +269,11 @@ the request when you have one (otherwise tell the user it&rsquo;s unavailable) �
 refuse or block the user. Only mention upgrading or renewing Copilot Plus when
 the script&rsquo;s message explicitly invites it, and keep any such note short and
 friendly.</p>
+<h2 id="self-host-mode">Self-Host mode</h2>
+<p>Self-Host search providers do not provide a common full-page fetch contract. If
+the script reports that Self-Host mode is active, never use an agent-native web
+fetch tool. Use <code>copilot-web-search</code> when search results can answer the request;
+otherwise tell the user that fetching the page is unavailable.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -291,7 +301,7 @@ friendly.</p>
     </div>
 
     <div class="post-nav"><a href="/zh-cn/posts/copilot/skills/copilot-web-search/skill/" class="prev" rel="prev" title=""><i class="fas fa-angle-left" aria-hidden="true"></i></a>
-            <a href="/zh-cn/posts/copilot/skills/copilot-read-pdf/skill/" class="next" rel="next" title=""><i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
+            <a href="/zh-cn/posts/copilot/skills/copilot-fetch-x/skill/" class="next" rel="next" title=""><i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
@@ -627,7 +637,7 @@ friendly.</p>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 119 篇文章，372641 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，374235 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>

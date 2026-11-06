@@ -3,13 +3,17 @@
 
 # Copilot web search
 
-Search the web through Copilot Plus and return results for the user's query.
+Search the web through Copilot and return results for the user's query.
 
 ## How to run
 
 Find the absolute path to this SKILL.md file on disk, then run the script next
-to it that matches the operating system. No extra runtime is needed — `sh`
-(macOS/Linux) and `cmd`/PowerShell (Windows) are always present.
+to it that matches the operating system. Run it as a shell command with your shell command tool (for example
+`Bash` in Claude Code, `shell` in OpenCode, `exec_command` in Codex). The command
+is shell syntax, not JavaScript or TypeScript: never pass it as the code of a
+code-execution tool.
+No extra runtime is needed — `sh` (macOS/Linux) and `cmd`/PowerShell (Windows)
+are always present.
 
 On macOS or Linux:
 
@@ -35,4 +39,5 @@ the request when you have one (otherwise tell the user it's unavailable) — nev
 refuse or block the user. Only mention upgrading or renewing Copilot Plus when
 the script's message explicitly invites it, and keep any such note short and
 friendly.
+
 

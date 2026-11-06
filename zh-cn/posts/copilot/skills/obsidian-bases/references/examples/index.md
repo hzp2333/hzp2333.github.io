@@ -11,7 +11,7 @@ filters:
     - 'file.ext == "md"'
 
 formulas:
-  days_until_due: 'if(due, (date(due) - today()).days, "")'
+  days_until_due: 'if(due, (date(due) - today()).days.round(), "")'
   is_overdue: 'if(due, date(due) < today() && status != "done", false)'
 
 properties:

@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title> - 滑翔闪&#39;S BLOG</title><meta name="Description" content="Create and edit Obsidian Bases (.base files) with valid YAML schemas, filters, formulas, properties, summaries, and views. Use for database-like Obsidian views or when the user mentions Bases, .base files, table/card/list views, filters, formulas, or summaries."><meta property="og:title" content="" />
-<meta property="og:description" content="Create and edit Obsidian Bases (.base files) with valid YAML schemas, filters, formulas, properties, summaries, and views. Use for database-like Obsidian views or when the user mentions Bases, .base files, table/card/list views, filters, formulas, or summaries." />
+        <title> - 滑翔闪&#39;S BLOG</title><meta name="Description" content="Create and edit Obsidian Bases (.base files) with valid YAML filters, formulas, properties, summaries, and table/cards/list views, including the columns a view shows (order) and its row sorting (sort). Load before writing or changing any .base file or embedding a base view, or when the user mentions Bases, database-like views, filters, formulas, sorting, grouping, or summaries."><meta property="og:title" content="" />
+<meta property="og:description" content="Create and edit Obsidian Bases (.base files) with valid YAML filters, formulas, properties, summaries, and table/cards/list views, including the columns a view shows (order) and its row sorting (sort). Load before writing or changing any .base file or embedding a base view, or when the user mentions Bases, database-like views, filters, formulas, sorting, grouping, or summaries." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" /><meta property="article:section" content="posts" />
 
 <meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Create and edit Obsidian Bases (.base files) with valid YAML schemas, filters, formulas, properties, summaries, and views. Use for database-like Obsidian views or when the user mentions Bases, .base files, table/card/list views, filters, formulas, or summaries."/>
+<meta name="twitter:description" content="Create and edit Obsidian Bases (.base files) with valid YAML filters, formulas, properties, summaries, and table/cards/list views, including the columns a view shows (order) and its row sorting (sort). Load before writing or changing any .base file or embedding a base view, or when the user mentions Bases, database-like views, filters, formulas, sorting, grouping, or summaries."/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -32,13 +32,13 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/obsidian-bases\/skill\/"
-        },"genre": "posts","wordcount":  331 ,
+        },"genre": "posts","wordcount":  399 ,
         "url": "https:\/\/blog.huaxiangshan.com\/zh-cn\/posts\/copilot\/skills\/obsidian-bases\/skill\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "xxxx"
-            },"description": "Create and edit Obsidian Bases (.base files) with valid YAML schemas, filters, formulas, properties, summaries, and views. Use for database-like Obsidian views or when the user mentions Bases, .base files, table/card/list views, filters, formulas, or summaries."
+            },"description": "Create and edit Obsidian Bases (.base files) with valid YAML filters, formulas, properties, summaries, and table/cards/list views, including the columns a view shows (order) and its row sorting (sort). Load before writing or changing any .base file or embedding a base view, or when the user mentions Bases, database-like views, filters, formulas, sorting, grouping, or summaries."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script>
@@ -205,7 +205,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"></h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hzp2333/hzp2333.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>滑翔闪</a></span></div>
 
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 331 字
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 399 字
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;
     
 
@@ -260,7 +260,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;status != &#34;archived&#34;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">formulas</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">days_until_due</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;if(due, (date(due) - today()).days, &#34;&#34;)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">days_until_due</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;if(due, (date(due) - today()).days.round(), &#34;&#34;)&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">properties</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w">
@@ -281,7 +281,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">order</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">file.name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">status</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">due</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">formula.days_until_due</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sort</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l">due</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l">ASC</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">groupBy</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l">status</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l">ASC</span><span class="w">
@@ -289,6 +293,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">formula.days_until_due</span><span class="p">:</span><span class="w"> </span><span class="l">Average</span></span></span></code></pre></div></div>
 <p>Views may be <code>table</code>, <code>cards</code>, or <code>list</code>.
 A <code>map</code> view depends on compatible map support.</p>
+<p><code>order</code> sets which properties a view shows; <code>sort</code> sets
+row order, one <code>property</code>/<code>direction</code> entry per key,
+applied in turn. Obsidian sorts only by properties that are also listed in
+<code>order</code>, so include every sort property there.</p>
 <h2 id="filters-and-properties">Filters and properties</h2>
 <p>Filters may be a single expression or recursively nested <code>and</code>,
 <code>or</code>, and <code>not</code> objects. Property namespaces are:</p>
@@ -309,7 +317,8 @@ embedding note, or the active file depending on where the Base is rendered.</p>
 <li>Guard optional properties with <code>if()</code>.</li>
 <li>Date subtraction returns a Duration, not a number. Access
 <code>.days</code>, <code>.hours</code>, or another numeric field before
-calling number methods such as <code>.round()</code>.</li>
+calling number methods such as <code>.round()</code>. Round day counts:
+across a daylight-saving change <code>.days</code> can be fractional.</li>
 <li>Every <code>formula.X</code> used by a view or property configuration must
 have a matching <code>X</code> entry under <code>formulas</code>.</li>
 <li>Wrap formulas containing double quotes in YAML single quotes.</li>
@@ -325,8 +334,15 @@ task-tracker and daily-notes Bases.</p>
 <li>View <code>order</code>, <code>groupBy</code>, and summaries reference defined
 note, file, or formula properties.</li>
 <li>Formula quoting is balanced and duration math accesses a numeric field.</li>
-<li>Embedded view names match exactly: <code>![[My Base.base#View Name]]</code>.</li>
+<li>Every <code>sort</code> property also appears in that view&rsquo;s <code>order</code>.</li>
+<li>An embed names the view exactly as its <code>name</code>:</li>
 </ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-markdown">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="复制到剪贴板"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">![[My Base.base#View Name]]</span></span></code></pre></div></div>
 <h2 id="attribution">Attribution</h2>
 <p>Adapted from <code>kepano/obsidian-skills</code> at revision
 <code>a1dc48e68138490d522c04cbf5822214c6eb1202</code>. See <code>LICENSE</code>.</p>
@@ -344,7 +360,7 @@ note, file, or formula properties.</li>
                             <a class="link-to-markdown" href="/zh-cn/posts/copilot/skills/obsidian-bases/skill/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title="" data-description="Create and edit Obsidian Bases (.base files) with valid YAML schemas, filters, formulas, properties, summaries, and views. Use for database-like Obsidian views or when the user mentions Bases, .base files, table/card/list views, filters, formulas, or summaries."><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fcopilot%2fskills%2fobsidian-bases%2fskill%2f&amp;text=" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 X" data-sharer="x" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-x-twitter" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Threads" data-sharer="threads" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-threads" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/"><i class="fab fa-facebook-square" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-hacker-news" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title=""><i class="fab fa-weibo" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Diaspora" data-sharer="diaspora" data-url="https://blog.huaxiangshan.com/zh-cn/posts/copilot/skills/obsidian-bases/skill/" data-title="" data-description="Create and edit Obsidian Bases (.base files) with valid YAML filters, formulas, properties, summaries, and table/cards/list views, including the columns a view shows (order) and its row sorting (sort). Load before writing or changing any .base file or embedding a base view, or when the user mentions Bases, database-like views, filters, formulas, sorting, grouping, or summaries."><i class="fab fa-diaspora" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fblog.huaxiangshan.com%2fzh-cn%2fposts%2fcopilot%2fskills%2fobsidian-bases%2fskill%2f&amp;text=" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -356,7 +372,7 @@ note, file, or formula properties.</li>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zh-cn/posts/copilot/skills/obsidian-cli/skill/" class="prev" rel="prev" title=""><i class="fas fa-angle-left" aria-hidden="true"></i></a>
+    <div class="post-nav"><a href="/zh-cn/posts/copilot/skills/obsidian-markdown/references/callouts/" class="prev" rel="prev" title=""><i class="fas fa-angle-left" aria-hidden="true"></i></a>
             <a href="/zh-cn/posts/copilot/skills/obsidian-bases/references/functions_reference/" class="next" rel="next" title=""><i class="fas fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
@@ -693,7 +709,7 @@ note, file, or formula properties.</li>
                     <img src="https://foreverblog.cn/assets/logo/wormhole_2.gif" class="footerImg" alt="穿梭虫洞-随机访问十年之约友链博客" title="穿梭虫洞-随机访问十年之约友链博客">
                 </a>
             </div><div class="footer-line">
-  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 119 篇文章，372641 字</div>
+  <i class="fas fa-book fa-fw" aria-hidden="true"></i>&nbsp;共 118 篇文章，374235 字</div>
     
         
         <script async src=" //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js "></script>
