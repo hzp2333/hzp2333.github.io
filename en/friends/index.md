@@ -45,7 +45,6 @@
   avatar: https://blog.huaxiangshan.com/images/avatar.png
   url: https://blog.huaxiangshan.com/
   description: An unaffiliated wanderer, basically a solo trainee
-  weight: 100
 ```
 
 

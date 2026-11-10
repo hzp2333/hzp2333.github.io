@@ -50,7 +50,6 @@
   avatar: https://blog.huaxiangshan.com/images/avatar.png
   url: https://blog.huaxiangshan.com/
   description: 无门无派，是个散修，俗称个人练习生
-  weight: 100
 ```
 
 
