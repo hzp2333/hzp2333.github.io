@@ -90,8 +90,7 @@ Txt 的裁判文书大部分已经处理为了 json格式，python 读取其实�
 
 但跑通了一到三份 txt 文件不等于能跑通所有。
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-⛔<b> Txt 的裁判文书还存在一些其他格式：
+Txt 的裁判文书还存在一些其他格式：
 
 因此处理时得考虑**代码的兼容性和全面性**，分开写处理代码，然后对这种 txt 文件处理两次。
 
